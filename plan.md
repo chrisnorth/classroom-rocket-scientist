@@ -35,7 +35,7 @@
 		* KS2+: None
 		* KS3: Add batteries (mass and cost) - takes up an instrument slot
 4. Choose Your Instruments
-	Each one has mass and cost, power requirement and takes up an instrument slot
+	* Each one has mass and cost, power requirement and takes up an instrument slot
 		* Camera: (optical)  
 		* Camera: (IR; vegetation)
 		* Camera: (FIR; atmosphere) - needs more power/money
