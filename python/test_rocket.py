@@ -1,5 +1,8 @@
 from astropy.table import Table,Column
-from numpy import log,sum,zeros,sqrt
+from numpy import log,sum,zeros,sqrt,nan
+from scipy import where
+from matplotlib import pyplot as plot
+
 
 #read in rocket stage data
 rocketdata={'1':Table.read('../data/stage1.csv',format='ascii.csv'),\
@@ -17,12 +20,21 @@ orbitdata.add_column(Column(sqrt(G*Mearth/(orbitalt + Rearth)),\
                             name='Orbital Speed (m/s)'))
 
 #selected stages and orbit
-sizes={'1':'Medium',\
-        '2':'Medium',\
-        '3':'Medium',\
-        'P':'Large'}
+stage1='Space plane'
+stage2='Extra-small'
+stage3='None'
+payload='Extra-small'
+sizes={'1':stage1,\
+        '2':stage2,\
+        '3':stage3,\
+        'P':payload}
 
-orbit={'Final':{'Name':'LEO'}}
+if sizes['1']=='Space plane':
+    sizes['1b']='Space plane (rocket)'
+
+print sizes
+
+orbit={'Final':{'Name':'GEO'}}
 
 if orbit['Final']['Name']!='LEO':
     orbit['Initial']={'Name':'LEO'}
@@ -66,14 +78,24 @@ for r in range(len(rocketdata['1'])):
         stage1Found=True
 assert stage1Found,'No first stage found'
 
+if sizes.has_key('1b'):
+    for r in range(len(rocketdata['1'])):
+        if rocketdata['1'][r]['Size']==sizes['1b']:
+            rocket.add_row(rocketdata['1'][r])
+
 #add second stage
 for r in range(len(rocketdata['2'])):
     if rocketdata['2'][r]['Size']==sizes['2']:
         rocket.add_row(rocketdata['2'][r])
-#add third stage
-for r in range(len(rocketdata['3'])):
-    if rocketdata['3'][r]['Size']==sizes['3']:
-        rocket.add_row(rocketdata['3'][r])
+#add third stage (if applicable)
+if sizes.has_key('3'):
+    for r in range(len(rocketdata['3'])):
+        if rocketdata['3'][r]['Size']==sizes['3']:
+            rocket.add_row(rocketdata['3'][r])
+if sizes.has_key('4'):
+    for r in range(len(rocketdata['4'])):
+        if rocketdata['4'][r]['Size']==sizes['4']:
+            rocket.add_row(rocketdata['4'][r])
 #add payload
 for r in range(len(rocketdata['P'])):
     if rocketdata['P'][r]['Size']==sizes['P']:
@@ -88,6 +110,15 @@ drymass=rocket['Dry Mass (kg)']
 fuelmass=rocket['Fuel Mass (kg)']
 specim=rocket['Specific Impulse (s)']
 thrust=rocket['Thrust (kN)'] * 1e3 #convert from kN to N
+
+specim[where(specim==0)]=-1
+
+#fuel mass flow (thrust specific impulse)
+rocket.add_column(Column(thrust/specim,name='Mass Flow (kg/s)'))
+massflow=rocket['Mass Flow (kg/s)']
+#fuel burn time (thrust specific impulse)
+rocket.add_column(Column(fuelmass/massflow,name='Burn Time (s)'))
+burntime=rocket['Burn Time (s)']
 
 #fuel effective velocity (g * specific impulse)
 rocket.add_column(Column(9.81*specim,name='V_eff (m/s)'))
@@ -123,8 +154,10 @@ else:
     achievedorbit=False
 
 print 'Rocket:'
-for s in range(nstage):
-    print '%s (%s): %.2f km/s)'%(rocket['Stage Name'][s],rocket['Size'][s],rocket['Final V (m/s)'][s]/1.e3)
+for s in range(nstage-1):
+    if rocket['Stage Name'][s]=='None':
+        continue
+    print '%s (%s): %.2f km/s (%.2f s)'%(rocket['Stage Name'][s],rocket['Size'][s],rocket['Final V (m/s)'][s]/1.e3,rocket['Burn Time (s)'][s])
 print '---'
 print 'Orbit delta-V:'
 for orb in orbitnames:
@@ -135,3 +168,5 @@ if achievedorbit:
     print 'Orbit Achieved'
 else:
     print 'WARNING: Orbit NOT Achieved'
+
+

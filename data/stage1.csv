@@ -1,8 +1,8 @@
 Stage Name,Size,Type,Fuselage Diameter/width (m),Height/length (m),Dry Mass (kg),Thrust (kN),Fuel Mass (kg),Specific Impulse (s),Notes
-1st Stage,None,None,0,0,0,0,0,0,No stage
 1st Stage,Small,Solid-fuel rocket,3,12,10500,2200,88000,280,Based on Vega 1st stage (https://en.wikipedia.org/wiki/Vega_(rocket))
 1st Stage,Medium,Liquid-fuel rocket,3,30,9000,1500,120000,300,Based on Soyuz 1st stage (http://www.spaceflight101.com/soyuz-2-1v.html)
 1st Stage,Large,Liquid-fuel rocket,3.5,40,24000,6000,400000,280,Based on Falcon 9 first stage (http://www.spaceflight101.com/falcon-9-v11.html)
 1st Stage,Extra-large,Liquid-fuel rocket,8,50,85000,7400,900000,360,Based on SLS (https://en.wikipedia.org/wiki/Space_Launch_System)
 1st Stage,XXL,Liquid-fuel rocket,10,42,130000,34000,2000000,263,Based on Saturn V 1st stage (https://en.wikipedia.org/wiki/Saturn_V)
 1st Stage,Space plane,Air-breathing rocket,6,82,310000,2000,15000,3600,Based on SABRE (https://en.wikipedia.org/wiki/SABRE_(rocket_engine))
+1st Stage,Space plane (rocket),Liquid-fuel rocket,6,82,53000,3000,260000,460,Based on SABRE (https://en.wikipedia.org/wiki/SABRE_(rocket_engine))

@@ -81,3 +81,15 @@
 * http://exploration.grc.nasa.gov/education/rocket/rktwtp.html
 * [Document source](https://docs.google.com/document/d/1KMonWavBMR8Y60x_3d2V89WUDXDj9-SpAoQLopCCzwM/edit)
 * [Spreadsheet](https://docs.google.com/spreadsheets/d/1kg0A0AkWSoY3SamFWFQeHIjYOla1-1JH3dDfP1nw22k/edit#gid=0)
+
+## Rocket calculations
+* Read in data from /data/stage1.csv etc. for appropriate stages
+  * Space Plane is split into two (adds "Stage 1b")
+* Calculate fuel effective velocity: V_eff=g*SpecificImpulse (g=9.81)
+* Calulate mass flow rate: MassFlow = Thrust/SpecificImpulse
+* delta-V (per stage) = V_eff * ln(Mass_init/Mass_final) [remembering to include the masses of all the stages and fuel above]
+* Calculate orbital speed for LEO
+* For higher orbits, assume a Hohmann Transfer orbit (see https://en.wikipedia.org/wiki/Hohmann_transfer_orbit) - two burns required between orbit radii r1 & r2
+  * Delta-V 1 = sqrt(G*M_earth/r1) * ( sqrt(2*r2/(r1+r2)) - 1 )
+  * Delta-V 2 = sqrt(G*M_earth/r2) * ( 1 - sqrt(2*r1/(r1+r2)) )
+* If total delta-V from stages >= total delta-V required, orbit can be achieved
