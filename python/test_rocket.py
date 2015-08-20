@@ -3,39 +3,50 @@ from numpy import log,sum,zeros,sqrt,nan
 from scipy import where
 from matplotlib import pyplot as plot
 
+###########################
+## Select rocket stages and orbit
+###########################
+stage1='Large'
+stage2='Large'
+stage3='None'
+payload='Large'
 
-#read in rocket stage data
+n_boosters=2
+
+orbit_name = 'GEO'
+
+###########################
+## Read in rocket data
+###########################
 rocketdata={'1':Table.read('../data/stage1.csv',format='ascii.csv'),\
-      '2':Table.read('../data/stage2.csv',format='ascii.csv'),\
-      '3':Table.read('../data/stage3.csv',format='ascii.csv'),\
-      'P':Table.read('../data/payload.csv',format='ascii.csv')}
+            '2':Table.read('../data/stage2.csv',format='ascii.csv'),\
+            '3':Table.read('../data/stage3.csv',format='ascii.csv'),\
+            'P':Table.read('../data/payload.csv',format='ascii.csv'),\
+            'B':Table.read('../data/boosters.csv',format='ascii.csv')}
 
-#read in orbit data
+sizes={'1':stage1,\
+        '2':stage2,\
+        '3':stage3,\
+        'P':payload}
+#add stage if using space plane
+if sizes['1']=='Space plane':
+    sizes['1b']='Space plane (rocket)'
+
+###########################
+## Read in orbit data
+###########################
 orbitdata=Table.read('../data/orbits.csv',format='ascii.csv')
 G=6.67e-11 #Gravitational constant
 Mearth=6.e24 #Earth mass (kg)
 Rearth=6371.e3 #Earth radius (m)
 orbitalt=orbitdata['Altitude (km)']*1e3 #now in in m
+#calculate orbital speed
 orbitdata.add_column(Column(sqrt(G*Mearth/(orbitalt + Rearth)),\
                             name='Orbital Speed (m/s)'))
 
-#selected stages and orbit
-stage1='Space plane'
-stage2='Extra-small'
-stage3='None'
-payload='Extra-small'
-sizes={'1':stage1,\
-        '2':stage2,\
-        '3':stage3,\
-        'P':payload}
+orbit={'Final':{'Name':orbit_name}}
 
-if sizes['1']=='Space plane':
-    sizes['1b']='Space plane (rocket)'
-
-print sizes
-
-orbit={'Final':{'Name':'GEO'}}
-
+#calculate whether Hohmann transfer required
 if orbit['Final']['Name']!='LEO':
     orbit['Initial']={'Name':'LEO'}
     dotransfer=True
@@ -50,7 +61,7 @@ for orb in orbit:
             orbit[orb]['Orbital Speed (m/s)']=orbitdata['Orbital Speed (m/s)'][row]
 
 if dotransfer:
-    #define Hohmann tranfer orbit
+    #define Hohmann tranfer orbit (from https://en.wikipedia.org/wiki/Hohmann_transfer_orbit)
     orbit['Transfer']={'Name':'%s-%s Transfer'%(orbit['Initial']['Name'],orbit['Final']['Name'])}
     orbit['Initial']['Delta V (m/s)']=orbit['Initial']['Orbital Speed (m/s)']
     GM = G*Mearth
@@ -92,17 +103,19 @@ if sizes.has_key('3'):
     for r in range(len(rocketdata['3'])):
         if rocketdata['3'][r]['Size']==sizes['3']:
             rocket.add_row(rocketdata['3'][r])
-if sizes.has_key('4'):
-    for r in range(len(rocketdata['4'])):
-        if rocketdata['4'][r]['Size']==sizes['4']:
-            rocket.add_row(rocketdata['4'][r])
 #add payload
 for r in range(len(rocketdata['P'])):
     if rocketdata['P'][r]['Size']==sizes['P']:
         rocket.add_row(rocketdata['P'][r])
 
-##add air resistance to 
-#rocket[0]['Specific Impulse (s)'] *= 0.75
+#add boosters
+if n_boosters >0:
+    rocket[0]['Size']='%s (+ %d boosters)'%(rocket[0]['Size'],n_boosters)
+    rocket[0]['Dry Mass (kg)'] += rocketdata['B']['Dry Mass (kg)']*n_boosters
+    rocket[0]['Fuel Mass (kg)'] += rocketdata['B']['Fuel Mass (kg)']*n_boosters
+    rocket[0]['Specific Impulse (s)'] += rocketdata['B']['Specific Impulse (s)']*n_boosters
+    rocket[0]['Thrust (kN)'] += rocketdata['B']['Fuel Mass (kg)']*n_boosters
+
 nstage=len(rocket)
 
 #extract columns
@@ -114,8 +127,9 @@ thrust=rocket['Thrust (kN)'] * 1e3 #convert from kN to N
 specim[where(specim==0)]=-1
 
 #fuel mass flow (thrust specific impulse)
-rocket.add_column(Column(thrust/specim,name='Mass Flow (kg/s)'))
+rocket.add_column(Column(thrust/(9.81*specim),name='Mass Flow (kg/s)'))
 massflow=rocket['Mass Flow (kg/s)']
+massflow[where(massflow==0)]=-1
 #fuel burn time (thrust specific impulse)
 rocket.add_column(Column(fuelmass/massflow,name='Burn Time (s)'))
 burntime=rocket['Burn Time (s)']

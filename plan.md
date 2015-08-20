@@ -85,9 +85,10 @@
 ## Rocket calculations
 * Read in data from /data/stage1.csv etc. for appropriate stages
   * Space Plane is split into two (adds "Stage 1b")
-* Calculate fuel effective velocity: V_eff=g*SpecificImpulse (g=9.81)
-* Calulate mass flow rate: MassFlow = Thrust/SpecificImpulse
-* delta-V (per stage) = V_eff * ln(Mass_init/Mass_final) [remembering to include the masses of all the stages and fuel above]
+* Calculate fuel effective velocity: V_eff [m/s] = g [m/s^2] * SpecificImpulse [s]
+* Calulate mass flow rate: MassFlowRate [kg/s] = Thrust [N] /(g [m/s^2] * SpecificImpulse [s])
+  * Burn time [s] = Fuel Mass [kg] / MassFlowRate [kg/s]
+* delta-V (per stage) [m/s] = V_eff [m/s] * ln(Mass_init/Mass_final) [remembering to include the masses of all the stages and fuel above]
 * Calculate orbital speed for LEO
 * For higher orbits, assume a Hohmann Transfer orbit (see https://en.wikipedia.org/wiki/Hohmann_transfer_orbit) - two burns required between orbit radii r1 & r2
   * Delta-V 1 = sqrt(G*M_earth/r1) * ( sqrt(2*r2/(r1+r2)) - 1 )
