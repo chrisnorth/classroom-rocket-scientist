@@ -183,6 +183,13 @@
 		margin: auto;
 		float: left;
 	}
+	.satellite {
+		-webkit-transition: transform 0.3s ease;
+		-moz-transition: transform 0.3s ease;
+		-ms-transition: transform 0.3s ease;
+		-o-transition: transform 0.3s ease;
+		transition: transform 0.3s ease;
+	}
 	.satellite-l { width: 4em; }
 	.satellite-m { width: 2em; }
 	.satellite-s { width: 2em; }
@@ -191,11 +198,6 @@
 		display: block;
 		position: relative;
 		height: 1em;
-		-webkit-transition: transform 0.3s ease;
-		-moz-transition: transform 0.3s ease;
-		-ms-transition: transform 0.3s ease;
-		-o-transition: transform 0.3s ease;
-		transition: transform 0.3s ease;
 	}
 	.rowsmall { height: 0.5em; }
 	.row:nth-child(1){ z-index: 60; }
@@ -409,7 +411,38 @@
 	.solar-panels:nth-child(2) ul { padding-left: 1em; float: left; }
 	.solar-panels:nth-child(1) ul li { float:left; }
 	.solar-panels:nth-child(2) ul li { float:right; }
-	/*"><ul><li>Panel</li></ul></div>*/
+	
+	.radio .face.right, .radio .face.left { display: none; }
+	.dish {
+		border-top-left-radius: 100%;
+		border-top-right-radius: 100%;
+		border-bottom-left-radius: 100%;
+		border-bottom-right-radius: 100%;
+		height: 2.5em;
+		width: 4em;
+		overflow: hidden;
+		border-bottom: 1px solid #999999;
+	}
+	.dish_inner, .dish_inner {
+		display: block;
+		width: 100%;
+		height: 160%;
+		background-color: #dfdfdf;
+		border-radius: 50%;
+		box-shadow: inset -0.8em -0.8em 0.6em rgba(0,0,0,0.5);
+		background-image: -webkit-linear-gradient(-45deg, rgba(255,255,220,0.2) 0%, transparent 100%);
+		background-image: -moz-linear-gradient(-45deg, rgba(255,255,220,0.2) 0%, transparent 100%);  
+		background-image: -o-linear-gradient(-45deg, rgba(255,255,220,0.2) 0%, transparent 100%);
+		background-image: -ms-linear-gradient(-45deg, rgba(255,255,220,0.2) 0%, transparent 100%);
+	}
+	.threeD .dish {
+		transform-style: preserve-3d;
+		-webkit-transform: translateZ(-2em) rotateY(-45deg) rotateX(35.264deg);
+		-moz-transform: translateZ(-2em) rotateY(-45deg) rotateX(35.264deg);
+		-ms-transform: translateZ(-2em) rotateY(-45deg) rotateX(35.264deg);
+		-o-transform: translateZ(-2em) rotateY(-45deg) rotateX(35.264deg);
+		transform: translateZ(-2em) rotateY(-45deg) rotateX(35.264deg);
+	}
 	
 	p { 
 		text-align:center;
@@ -450,6 +483,62 @@
 			el.className = cls;
 		}
 	}
+	function setSolar(n){
+		var ids = ['sat-l','sat-m'];
+		var ul = '<ul>'
+		for(var i = 0; i < n; i++) ul += '<li class="solar-panel"><\/li>';
+		ul += '<\/ul>';
+		for(var j = 0; j < ids.length; j++){
+			el = document.getElementById(ids[j]);
+			panels = el.getElementsByClassName('solar-panels');
+			for(var i = 0; i < panels.length; i++){
+				panels[i].innerHTML = ul;
+			}
+		}
+	}
+	function addSolar(){
+		var ids = ['sat-l','sat-m'];
+		for(var j = 0; j < ids.length; j++){
+			el = document.getElementById(ids[j]);
+			panels = el.getElementsByClassName('solar-panels');
+			for(var i = 0; i < panels.length; i++){
+				ps = panels[i].getElementsByTagName('li');
+				if(ps.length < 4) panels[i].getElementsByTagName('ul')[0].innerHTML += '<li class="solar-panel"><\/li>';
+			}
+		}
+	}
+	function removeSolar(){
+		var ids = ['sat-l','sat-m'];
+		for(var j = 0; j < ids.length; j++){
+			el = document.getElementById(ids[j]);
+			panels = el.getElementsByClassName('solar-panels');
+			for(var i = 0; i < panels.length; i++){
+				ps = panels[i].getElementsByTagName('li');
+				if(ps.length > 0) ps[ps.length-1].remove();
+			}
+		}
+	}
+	
+	function toggleDish(){
+		el = document.getElementById('sat-l')
+		radio = el.getElementsByClassName('slot2x8')[0];
+		console.log(radio)
+		cls = radio.className;
+		i = cls.indexOf('radio');
+		i2 = i+11;
+		if(i2 >= cls.length) i2 = cls.length;
+		if(i >= 0){
+			// Remove class
+			cls = cls.substr(0,i)+cls.substr(i2);
+			el.getElementsByClassName('dish')[0].remove();
+		}else{
+			// Add class
+			cls = cls+' radio';
+			radio.innerHTML = '<div class="dish"><div class="dish_inner"><\/div><\/div>'+radio.innerHTML;
+		}
+		radio.className = cls;
+	}
+	
 
 	</script>
 </head>
@@ -696,14 +785,14 @@
 	<div id="content" class="threeD">
 		<div class="holder">
 			<div class="satellite satellite-l" id="sat-l">
-				<div class="solar-panels"><ul><li class="solar-panel"></li><li class="solar-panel"></li><li class="solar-panel"></li><li class="solar-panel"></li></ul></div>
-				<div class="solar-panels"><ul><li class="solar-panel"></li><li class="solar-panel"></li><li class="solar-panel"></li><li class="solar-panel"></li></ul></div>
+				<div class="solar-panels"><ul><li class="solar-panel"></li><li class="solar-panel"></li><li class="solar-panel"></li></ul></div>
+				<div class="solar-panels"><ul><li class="solar-panel"></li><li class="solar-panel"></li><li class="solar-panel"></li></ul></div>
 				<div class="row"><div class="slot slot2x2 slot-empty"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x4 solar-left solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
 				<div class="row"><div class="slot slot2x2 slot-empty"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2 solar-left"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2 solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
 				<div class="row"><div class="slot slot2x2 slot-empty"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2 solar-left"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2 solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
 				<div class="row"><div class="slot slot2x4 solar-top down"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
 				<div class="row"><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x4 up solar-top"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
-				<div class="row"><div class="slot slot2x8 solar-top radio"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x8 solar-top"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
 			</div>
 			<p>Large satellite</p>
 		</div>
@@ -739,8 +828,14 @@
 	</div>
 	<div style="text-align: center;">
 		<button onClick="toggle()">Toggle CSS3 transforms</button>
+		<button onClick="toggleDish()">Toggle dish</button>
 		<button onClick="toggleSolar()">Toggle fixed solar panels</button>
+		<button onClick="setSolar(1)">1 solar panel</button>
+		<button onClick="addSolar()">add solar panel</button>
+		<button onClick="removeSolar()">remove solar panel</button>
 	</div>
+	
+	
 
 </body>
 </html>
