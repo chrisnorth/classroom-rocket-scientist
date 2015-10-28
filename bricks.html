@@ -193,6 +193,7 @@
 		height: 1em;
 		-webkit-transition: transform 0.3s ease;
 		-moz-transition: transform 0.3s ease;
+		-ms-transition: transform 0.3s ease;
 		-o-transition: transform 0.3s ease;
 		transition: transform 0.3s ease;
 	}
@@ -312,42 +313,85 @@
 		background-repeat: none;
 	}
 	
-	.test .satellite { transform: translateX(0.75em); }
-	.test .satellite.satellite-c { transform: translateX(0.5em); }
-	.test .row {
-		transform-style: preserve-3d;
-		transform: scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+	.threeD .satellite {
+		-webkit-transform: translateX(0.75em);
+		-moz-transform: translateX(0.75em);
+		-ms-transform: translateX(0.75em);
+		-o-transform: translateX(0.75em);
+		transform: translateX(0.75em);
 	}
-	.test .slot,.test .slot .faces {
+	.threeD .satellite.satellite-c {
+		-webkit-transform: translateX(0.5em);
+		-moz-transform: translateX(0.5em);
+		-ms-transform: translateX(0.5em);
+		-o-transform: translateX(0.5em);
+		transform: translateX(0.5em);
+	}
+	.threeD .row {
 		transform-style: preserve-3d;
+		-webkit-transform: scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		-moz-transform: scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		-ms-transform: scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		-o-transform: scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		transform: scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		-webkit-animation-duration:10s; -moz-animation-duration:10s; animation-duration: 10s;
+		animation-iteration-count:infinite; -webkit-animation-iteration-count:infinite; -moz-animation-iteration-count:infinite;
+		animation-timing-function: ease-out; -moz-animation-timing-function: ease-out; -webkit-animation-timing-function: ease-out;
+		/*animation-name: oscillate; -moz-animation-name: oscillate; -webkit-animation-name: oscillate;*/
+	}
+	@-webkit-keyframes oscillate { 50% { -webkit-transform: scale(1.24) rotateX(-35.264deg) rotateY(60deg); } }
+	@-moz-keyframes oscillate { 50% { -moz-transform: scale(1.24) rotateX(-35.264deg) rotateY(60deg); } }
+	@keyframes oscillate { 50% { transform: scale(1.24) rotateX(-35.264deg) rotateY(60deg); } }
+
+
+	.threeD .slot,.threeD .slot .faces {
+		transform-style: preserve-3d;
+		-webkit-transform-origin: 100% 100%;
+		-moz-transform-origin: 100% 100%;
+		-ms-transform-origin: 100% 100%;
+		-o-transform-origin: 100% 100%;
 		transform-origin: 100% 100%;
 	}
-	.test .slot2x2 .face.left,.test .slot1x1 .face.left  { width: 200%; }
-	.test .slot1x2 .face.left,.test .slot2x4 .face.left { width: 100%; }
-	.test .slot2x2 .face.top,.test .slot1x2 .face.top,.test .slot1x1 .face.top,.test .slot2x4 .face.top { height: 200%; }
-	.test .slot2x4.down .face.left,.test .slot2x4.up .face.left  { width: 200%; }
-	.test .slot2x4.down .face.left,.test .slot2x4.up .face.left { height: 100%; }
-	.test .slot2x4.down .face.top { height: 100%; }
 	
-	.test .slot2x8 .face.left { width: 100%; }
-	.test .slot2x8 .face.top { height: 400%; }
-	.test .slot2x8 { transform: translateZ(0.9em); }
+	.threeD .slot2x8 { transform: translateZ(0.9em); }
 
-	.test .face.top {
+	.threeD .face.top {
+		-webkit-transform: rotateX(-90deg);
+		-moz-transform: rotateX(-90deg);
+		-ms-transform: rotateX(-90deg);
+		-o-transform: rotateX(-90deg);
 		transform: rotateX(-90deg);
 	}
-	.test .face.left {
+	.threeD .face.left {
+		-webkit-transform: rotateY(90deg);
+		-moz-transform: rotateY(90deg);
+		-ms-transform: rotateY(90deg);
+		-o-transform: rotateY(90deg);
 		transform: rotateY(90deg);
 	}
 	p { 
 		text-align:center;
 	}
 	</style>
+	<!--[if !IE]> -->
+	<style>
+	.threeD .slot2x2 .face.left,.threeD .slot1x1 .face.left  { width: 200%; }
+	.threeD .slot1x2 .face.left,.threeD .slot2x4 .face.left { width: 100%; }
+	.threeD .slot2x2 .face.top,.threeD .slot1x2 .face.top,.threeD .slot1x1 .face.top,.threeD .slot2x4 .face.top { height: 200%; }
+	.threeD .slot2x4.down .face.left,.threeD .slot2x4.up .face.left  { width: 200%; }
+	.threeD .slot2x4.down .face.left,.threeD .slot2x4.up .face.left { height: 100%; }
+	.threeD .slot2x4.up .face.top { height: 100%; }
+	.threeD .slot2x4.down .face.top { height: 100%; }	
+	.threeD .slot2x8 .face.left { width: 100%; }
+	.threeD .slot2x8 .face.top { height: 400%; }
+	</style>
+	<!-- <![endif]-->
+
 	<script>
 	function toggle(){
 		el = document.getElementById('content')
 		cls = el.className;
-		cls = (cls == "test") ? "" : "test";
+		cls = (cls == "threeD") ? "" : "threeD";
 		el.className = cls;
 	}
 	function toggleSolar(){
@@ -607,7 +651,7 @@
 
 
 
-	<div id="content" class="test">
+	<div id="content" class="threeD">
 		<div class="holder">
 			<div class="satellite satellite-l" id="sat-l">
 				<div class="row"><div class="slot slot2x2 slot-empty"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x4 solar-left solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
