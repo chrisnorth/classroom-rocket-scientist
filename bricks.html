@@ -276,8 +276,10 @@
 		transform-origin: 0 0;
 	}
 	
-	.satellite.solar-fixed .solar-left .face.right { border-left: 4px solid #00a2d3; }
-	.satellite.solar-fixed .solar-top .face.right { border-top: 4px solid #00a2d3; }
+	.satellite.solar-fixed .solar-left .face.right, .satellite.solar-fixed .row:first-child .solar-left .face.top { border-left: 4px solid #00a2d3; }
+	.satellite.solar-fixed .row:first-child .solar-right .face.top { border-right: 4px solid #00a2d3; }
+	.satellite.solar-fixed .solar-top .face.left  { border-top: 4px solid #00a2d3; }
+	.satellite.solar-fixed .solar-top .face.right  { border-top: 4px solid #00a2d3; }
 	.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top {
 		background-color: #00a2d3;
 		background-image: linear-gradient(white 2px, transparent 2px),
