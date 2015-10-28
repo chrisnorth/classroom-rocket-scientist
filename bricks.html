@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <head>
 	<style>
-	div { text-align: center; }
 	.clear { clear: both; }
-	.size { padding: 2em; }
+	.size { padding: 2em; text-align: center; }
 	.satellite table { margin: auto;}
 	.bricks { clear: both; display: block; position: relative; }
 	.satellite table { border-collapse: collapse; }
@@ -169,7 +168,175 @@
 	.brick.purple .brickLeft { background: #7c52a1; }
 	.brick.purple .brickRight, .brick.purple ul.dotsTall li, td.purple { background: #662d8f; }
 
+
+
+
+
+
+	#content { display: table; margin: auto; margin-top: 2em; }
+	.holder { display: table-cell; }
+	.holder .satellite {
+		font-size: 26px; 
+		padding: 2em;
+		position: relative;
+		text-align: left;
+		margin: auto;
+		float: left;
+	}
+	.satellite-l { width: 4em; }
+	.satellite-m { width: 2em; }
+	.satellite-s { width: 2em; }
+	.satellite-c { width: 1em; }
+	.row { 
+		display: block;
+		position: relative;
+		height: 1em;
+		-webkit-transition: transform 0.3s ease;
+		-moz-transition: transform 0.3s ease;
+		-o-transition: transform 0.3s ease;
+		transition: transform 0.3s ease;
+	}
+	.rowsmall { height: 0.5em; }
+	.row:nth-child(1){ z-index: 60; }
+	.row .slot:nth-child(1) { z-index: 59; }
+	.row .slot:nth-child(2) { z-index: 58; }
+	.row .slot:nth-child(3) { z-index: 57; }
+	.row .slot:nth-child(4) { z-index: 56; }
+	.row:nth-child(2){ z-index: 50; }
+	.row:nth-child(3){ z-index: 40; }
+	.row:nth-child(4){ z-index: 30; }
+	.row:nth-child(5){ z-index: 20; }
+	.row:nth-child(6){ z-index: 10; }
+	.slot {
+		position: relative;
+		display: inline-block;
+		width: 1em;
+		height: 1em;
+	}
+	.slot2x4 { width: 2em; }
+	.slot2x4 .face.left { width: 50%; }
+	.slot4x2 { height: 2em; }
+	.slot4x2 .face.top { height: 50%; }
+	.slot2x8 { width: 4em; }
+	.slot2x8 .face.left { width: 25%; }
+	.slot1x1 { width: 0.5em; height: 0.5em; }
+	.slot1x2 { width: 1em; height: 0.5em; }
+	.slot1x2 .face.left { width: 50%; }
+	.slot2x4.down { height: 2em; width: 1em; float: left; }
+	.slot2x4.down .face.left,.slot2x4.up .face.left { width: 100%; }
+	.slot2x4.down .face.top,.slot2x4.up .face.top { height: 50%; }
+	.slot2x4.up { height: 2em; width: 1em; margin-top: -1em; }
+	
+	.slot2x4 .face.top { background: #f68d69; }
+	.slot2x4 .face.left { background: #f05948; }
+	.slot2x4 .face.right { background: #f04031; }
+	
+	.slot2x2 .face.top { background: #67c18d; }
+	.slot2x2 .face.left { background: #0ab26b; }
+	.slot2x2 .face.right { background: #02a24b; }
+
+	.slot2x8 .face.top { background: #7d71b4; }
+	.slot2x8 .face.left { background: #7c52a1; }
+	.slot2x8 .face.right { background: #662d8f; }
+
+	.slot1x1 .face.top { background: #fff200; }
+	.slot1x1 .face.left { background: #ffde00; }
+	.slot1x1 .face.right { background: #ffcb06; }
+
+	.slot1x2 .face.top { background: #fbb675; }
+	.slot1x2 .face.left { background: #f9a04a; }
+	.slot1x2 .face.right { background: #f6881f; }
+	
+	.slot:hover .face.right { background: #222222; }
+	.slot:hover .face.left { background: #444444; }
+	.slot:hover .face.top { background: #666666; }
+
+	.slot .faces {
+		position: absolute;
+		right: 0px;
+		width: 100%;
+		height: 100%;
+		bottom: 0px;
+		text-align: center;
+	}
+	
+	.face {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0px;
+		top: 0px;
+		overflow: hidden;
+		box-sizing: border-box;
+		border: 1px solid rgba(255,255,255,0.3);
+		-webkit-transform-origin: 0 0;
+		-moz-transform-origin: 0 0;
+		-ms-transform-origin: 0 0;
+		-o-transform-origin: 0 0;
+		transform-origin: 0 0;
+	}
+	.slot-empty .face {
+		border: 0px;
+	}
+	.slot-empty .face.top,.slot-empty .face.left,.slot-empty .face.right {
+		background: none!important;
+	}
+	.photo .face.right {
+		background-image: url('photo.png');
+		background-size: 100% 100%;
+		background-repeat: none;
+	}
+	.video .face.right {
+		background-image: url('video.png');
+		background-size: 100% 100%;
+		background-repeat: none;
+	}
+	.radio .face.right {
+		background-image: url('radio.png');
+		background-size: 100% 100%;
+		background-repeat: none;
+	}
+	
+	.test .satellite { transform: translateX(0.75em); }
+	.test .satellite.satellite-c { transform: translateX(0.5em); }
+	.test .row {
+		transform-style: preserve-3d;
+		transform: scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+	}
+	.test .slot,.test .slot .faces {
+		transform-style: preserve-3d;
+		transform-origin: 100% 100%;
+	}
+	.test .slot2x2 .face.left,.test .slot1x1 .face.left  { width: 200%; }
+	.test .slot1x2 .face.left,.test .slot2x4 .face.left { width: 100%; }
+	.test .slot2x2 .face.top,.test .slot1x2 .face.top,.test .slot1x1 .face.top,.test .slot2x4 .face.top { height: 200%; }
+	.test .slot2x4.down .face.left,.test .slot2x4.up .face.left  { width: 200%; }
+	.test .slot2x4.down .face.left,.test .slot2x4.up .face.left { height: 100%; }
+	.test .slot2x4.down .face.top { height: 100%; }
+	
+	.test .slot2x8 .face.left { width: 100%; }
+	.test .slot2x8 .face.top { height: 400%; }
+	.test .slot2x8 { transform: translateZ(0.9em); }
+
+	.test .face.top {
+		transform: rotateX(-90deg);
+	}
+	.test .face.left {
+		transform: rotateY(90deg);
+	}
+	p { 
+		text-align:center;
+	}
 	</style>
+	<script>
+	function toggle(){
+		el = document.getElementById('content')
+		cls = el.className;
+		cls = (cls == "test") ? "" : "test";
+		el.className = cls;
+	}
+
+	</script>
 </head>
 <body>
 	<div class="size">
@@ -316,7 +483,7 @@
 				<li class="bottomRight"></li>
 			</ul>
 		</div>
-		<div>Small</div>
+		<div class="label">Small</div>
 	</div>
 
 	<div class="size">
@@ -382,18 +549,7 @@
 		<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="green"></td><td class="green"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 		<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="purple" colspan="4"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 		</table>
-		<div class="label">Large satellite - option A</div>
-	</div>
-	<div class="satellite size">
-		<table>
-		<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="red" colspan="2"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-		<tr><td class="blue" rowspan="2" colspan="2"></td><td class="blue" rowspan="2" colspan="2"></td><td class="blue" rowspan="2" colspan="2"></td><td class="blue" rowspan="2" colspan="2"></td><td class="bar"></td><td class="green"></td><td class="green"></td><td class="bar"></td><td class="blue" rowspan="2" colspan="2"></td><td class="blue" rowspan="2" colspan="2"></td><td class="blue" rowspan="2" colspan="2"></td><td class="blue" rowspan="2" colspan="2"></td></tr>
-		<tr><td></td><td class="green"></td><td class="green"></td><td></td></tr>
-		<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="red" rowspan="2"></td><td class="green"></td><td class="green"></td><td class="red" rowspan="2"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-		<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="green"></td><td class="green"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-		<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="red" colspan="2"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-		</table>
-		<div class="label">Large satellite - option B</div>
+		<div class="label">Large satellite</div>
 	</div>
 	<div class="satellite size">
 		<table>
@@ -418,5 +574,53 @@
 		</table>
 		<div class="label">Cubesat</div>
 	</div>
+
+
+
+
+	<div id="content" class="test">
+		<div class="holder">
+			<div class="satellite satellite-l">
+				<div class="row"><div class="slot slot2x2 slot-empty"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x4"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x2 slot-empty"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x2 slot-empty"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x4 down"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x4 up"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x8 radio"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+			</div>
+			<p>Large satellite</p>
+		</div>
+	
+		
+		<div class="holder">
+			<div class="satellite satellite-m">
+				<div class="row"><div class="slot slot2x4"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x2 photo"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x4"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+			</div>
+			<p>Medium satellite</p>
+		</div>
+	
+		<div class="holder">
+			<div class="satellite satellite-s">
+				<div class="row"><div class="slot slot2x4"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x2 video"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+			</div>
+			<p>Small satellite</p>
+		</div>
+	
+		<div class="holder">
+			<div class="satellite satellite-c">
+				<div class="row rowsmall"><div class="slot slot1x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row rowsmall"><div class="slot slot1x1"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot1x1"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+			</div>
+			<p>Cubesat</p>
+		</div>
+	</div>
+	<div style="text-align: center;">
+		<button onClick="toggle()">Toggle CSS3 transforms</button>
+	</div>
+
 </body>
 </html>
