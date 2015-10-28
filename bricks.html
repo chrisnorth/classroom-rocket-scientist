@@ -320,34 +320,28 @@
 		background-repeat: none;
 	}
 	
-	.threeD .satellite {
-		-webkit-transform: translateX(0.75em);
-		-moz-transform: translateX(0.75em);
-		-ms-transform: translateX(0.75em);
-		-o-transform: translateX(0.75em);
-		transform: translateX(0.75em);
-	}
-	.threeD .satellite.satellite-c {
-		-webkit-transform: translateX(0.5em);
-		-moz-transform: translateX(0.5em);
-		-ms-transform: translateX(0.5em);
-		-o-transform: translateX(0.5em);
-		transform: translateX(0.5em);
-	}
 	.threeD .row, .threeD .solar-panels {
 		transform-style: preserve-3d;
 	}
 	.threeD .satellite {
 		transform-style: preserve-3d;
-		-webkit-transform: scale(1.24) rotateX(-35.264deg) rotateY(45deg);
-		-moz-transform: scale(1.24) rotateX(-35.264deg) rotateY(45deg);
-		-ms-transform: scale(1.24) rotateX(-35.264deg) rotateY(45deg);
-		-o-transform: scale(1.24) rotateX(-35.264deg) rotateY(45deg);
-		transform: scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		-webkit-transform: translateX(0.75em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		-moz-transform: translateX(0.75em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		-ms-transform: translateX(0.75em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		-o-transform: translateX(0.75em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		transform: translateX(0.75em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
 		/*-webkit-animation-duration:10s; -moz-animation-duration:10s; animation-duration: 10s;
 		animation-iteration-count:infinite; -webkit-animation-iteration-count:infinite; -moz-animation-iteration-count:infinite;
 		animation-timing-function: ease-out; -moz-animation-timing-function: ease-out; -webkit-animation-timing-function: ease-out;
 		animation-name: oscillate; -moz-animation-name: oscillate; -webkit-animation-name: oscillate;*/
+	}
+	.threeD .satellite.satellite-c {
+		transform-style: preserve-3d;
+		-webkit-transform: translateX(0.5em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		-moz-transform: translateX(0.5em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		-ms-transform: translateX(0.5em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		-o-transform: translateX(0.5em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		transform: translateX(0.5em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
 	}
 	.threeD .satellite:hover .row {
 		animation-name: none;
@@ -410,7 +404,7 @@
 		transform: translateZ(-1em);
 	}
 	.solar-panels ul { display: block; margin: 0px; padding: 0px; left: 0px; top: -3em; height: 2em; border-top: 4px solid black; }
-	.solar-panels ul li { display: inline-block; margin: 0px; padding: 0px; margin-top: -1em; width: 2em; height: 2em; }
+	.solar-panels ul li { display: inline-block; margin: 0px; padding: 0px; margin-top: -1.05em; width: 2em; height: 2em; }
 	.solar-panels:nth-child(1) ul { padding-right: 1em; float: right; }
 	.solar-panels:nth-child(2) ul { padding-left: 1em; float: left; }
 	.solar-panels:nth-child(1) ul li { float:left; }
