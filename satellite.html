@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<head>
+	<style>
+	.clear { clear: both; }
+	.size { padding: 2em; text-align: center; }
+	.satellite table { margin: auto;}
+	.satellite table { border-collapse: collapse; }
+	.satellite td { width: 2em; height: 2em; border: 2px solid white; }
+	.satellite table.cube td { width: 1em; height: 1em; }
+	.satellite td.bar { border-bottom-color: black; }
+
+
+	.red { background: #f04031; }
+	.green { background: #02a24b; }
+	.blue { background: #00a2d3; }
+	.yellow { background: #ffcb06; }
+	.orange { background: #f6881f; }
+	.purple { background: #662d8f; }
+
+	#content { display: table; margin: auto; margin-top: 2em; }
+	.holder { display: table-cell; }
+	.holder .satellite {
+		font-size: 26px; 
+		padding: 2em;
+		position: relative;
+		text-align: left;
+		margin: auto;
+		float: left;
+	}
+	.satellite {
+		-webkit-transition: transform 0.3s ease;
+		-moz-transition: transform 0.3s ease;
+		-ms-transition: transform 0.3s ease;
+		-o-transition: transform 0.3s ease;
+		transition: transform 0.3s ease;
+	}
+	.satellite-l { width: 4em; }
+	.satellite-m { width: 2em; }
+	.satellite-s { width: 2em; }
+	.satellite-c { width: 1em; }
+	.row, .solar-panels { 
+		display: block;
+		position: relative;
+		height: 1em;
+	}
+	.rowsmall { height: 0.5em; }
+	.row:nth-child(1){ z-index: 60; }
+	.row .slot:nth-child(1) { z-index: 59; }
+	.row .slot:nth-child(2) { z-index: 58; }
+	.row .slot:nth-child(3) { z-index: 57; }
+	.row .slot:nth-child(4) { z-index: 56; }
+	.row:nth-child(2){ z-index: 50; }
+	.row:nth-child(3){ z-index: 40; }
+	.row:nth-child(4){ z-index: 30; }
+	.row:nth-child(5){ z-index: 20; }
+	.row:nth-child(6){ z-index: 10; }
+	.row:nth-child(7){ z-index: 1; }
+	.slot {
+		position: relative;
+		display: inline-block;
+		width: 1em;
+		height: 1em;
+	}
+	.slot2x4 { width: 2em; }
+	.slot2x4 .face.left { width: 50%; }
+	.slot4x2 { height: 2em; }
+	.slot4x2 .face.top { height: 50%; }
+	.slot2x8 { width: 4em; }
+	.slot2x8 .face.left { width: 25%; }
+	.slot1x1 { width: 0.5em; height: 0.5em; }
+	.slot1x2 { font-size: 0.5em; width: 2em; height: 1em; }
+	.slot1x2 .face.left { width: 50%; }
+	.slot2x4.down { height: 2em; width: 1em; float: left; }
+	.slot2x4.down .face.left,.slot2x4.up .face.left { width: 100%; }
+	.slot2x4.down .face.top,.slot2x4.up .face.top { height: 50%; }
+	.slot2x4.up { height: 2em; width: 1em; margin-top: -1em; }
+	
+	.slot2x4 .face.top { background: #f68d69; }
+	.slot2x4 .face.left { background: #f05948; }
+	.slot2x4 .face.right { background: #f04031; }
+	
+	.slot2x2 .face.top { background: #67c18d; }
+	.slot2x2 .face.left { background: #0ab26b; }
+	.slot2x2 .face.right { background: #02a24b; }
+
+	.slot2x8 .face.top { background: #7d71b4; }
+	.slot2x8 .face.left { background: #7c52a1; }
+	.slot2x8 .face.right { background: #662d8f; }
+
+	.slot1x1 .face.top { background: #fff200; }
+	.slot1x1 .face.left { background: #ffde00; }
+	.slot1x1 .face.right { background: #ffcb06; }
+
+	.slot1x2 .face.top { background: #fbb675; }
+	.slot1x2 .face.left { background: #f9a04a; }
+	.slot1x2 .face.right { background: #f6881f; }
+	
+	.slot:hover .face.right { background: #222222; }
+	.slot:hover .face.left { background: #444444; }
+	.slot:hover .face.top { background: #666666; }
+
+	.slot:hover .face.left,.slot:hover .face.right,.slot:hover .face.top {	}
+
+	.slot .faces {
+		position: absolute;
+		right: 0px;
+		width: 100%;
+		height: 100%;
+		bottom: 0px;
+		text-align: center;
+	}
+	
+	.face {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0px;
+		top: 0px;
+		overflow: hidden;
+		box-sizing: border-box;
+		border: 1px solid rgba(255,255,255,0.3);
+		-webkit-transform-origin: 0 0;
+		-moz-transform-origin: 0 0;
+		-ms-transform-origin: 0 0;
+		-o-transform-origin: 0 0;
+		transform-origin: 0 0;
+	}
+	
+	.satellite.solar-fixed .solar-left .face.right, .satellite.solar-fixed .row:first-child .solar-left .face.top { border-left: 4px solid #00a2d3; }
+	.satellite.solar-fixed .row:first-child .solar-right .face.top { border-right: 4px solid #00a2d3; }
+	.satellite.solar-fixed .solar-top .face.left  { border-top: 4px solid #00a2d3; }
+	.satellite.solar-fixed .solar-top .face.right  { border-top: 4px solid #00a2d3; }
+	.satellite .solar-panel {
+		background-color: #008BB2;
+	}
+	.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top {
+		background-color: #00a2d3;
+	}
+	.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .satellite .solar-panel {
+		background-image: linear-gradient(white 2px, transparent 2px),
+		linear-gradient(90deg, white 2px, transparent 2px),
+		linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+		background-size:1em 1em, 1em 1em, 0.2em 0.2em, 0.2em 0.2em;
+		background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px
+	}
+	.satellite.solar-fixed .solar-right .face.right { border-right: 2px solid #00a2d3; }
+	.slot-empty .face {
+		border: 0px;
+	}
+	.slot-empty .face.top,.slot-empty .face.left,.slot-empty .face.right {
+		background: none!important;
+	}
+	.photo .face.right {
+		background-image: url('photo.png');
+		background-size: 100% 100%;
+		background-repeat: none;
+	}
+	.video .face.right {
+		background-image: url('video.png');
+		background-size: 100% 100%;
+		background-repeat: none;
+	}
+	
+	.threeD .row, .threeD .solar-panels {
+		transform-style: preserve-3d;
+	}
+	.threeD .satellite {
+		transform-style: preserve-3d;
+		-webkit-transform: translateX(0.75em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		-moz-transform: translateX(0.75em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		-ms-transform: translateX(0.75em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		-o-transform: translateX(0.75em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		transform: translateX(0.75em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+	}
+	.threeD .satellite.oscillate {
+		-webkit-animation-duration:10s; -moz-animation-duration:10s; animation-duration: 10s;
+		animation-iteration-count:infinite; -webkit-animation-iteration-count:infinite; -moz-animation-iteration-count:infinite;
+		animation-timing-function: ease-out; -moz-animation-timing-function: ease-out; -webkit-animation-timing-function: ease-out;
+		animation-name: oscillate; -moz-animation-name: oscillate; -webkit-animation-name: oscillate;
+	}
+	.threeD .satellite.satellite-c {
+		transform-style: preserve-3d;
+		-webkit-transform: translateX(0.5em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		-moz-transform: translateX(0.5em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		-ms-transform: translateX(0.5em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		-o-transform: translateX(0.5em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		transform: translateX(0.5em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+	}
+	.threeD .satellite:hover .row {
+		animation-name: none;
+	}
+	@-webkit-keyframes oscillate { 50% { -webkit-transform: translateX(0.75em) scale(1.24) rotateX(-35.264deg) rotateY(60deg); } }
+	@-moz-keyframes oscillate { 50% { -moz-transform: translateX(0.75em) scale(1.24) rotateX(-35.264deg) rotateY(60deg); } }
+	@keyframes oscillate { 50% { transform: translateX(0.75em) scale(1.24) rotateX(-35.264deg) rotateY(60deg); } }
+
+
+	.threeD .slot,.threeD .slot .faces {
+		transform-style: preserve-3d;
+		-webkit-transform-origin: 100% 100%;
+		-moz-transform-origin: 100% 100%;
+		-ms-transform-origin: 100% 100%;
+		-o-transform-origin: 100% 100%;
+		transform-origin: 100% 100%;
+	}
+	
+	.threeD .slot2x8 { transform: translateZ(0.9em); }
+
+	.threeD .face.top {
+		-webkit-transform: rotateX(-90deg);
+		-moz-transform: rotateX(-90deg);
+		-ms-transform: rotateX(-90deg);
+		-o-transform: rotateX(-90deg);
+		transform: rotateX(-90deg);
+	}
+	.threeD .face.left {
+		-webkit-transform: rotateY(90deg);
+		-moz-transform: rotateY(90deg);
+		-ms-transform: rotateY(90deg);
+		-o-transform: rotateY(90deg);
+		transform: rotateY(90deg);
+	}
+
+	.solar-panels {
+		position: absolute;
+		display: block;
+		width: 9em;
+		margin-top: 2em;
+	}
+	.solar-panels:first-child {
+		z-index: 100;
+		padding-right: 1em;
+		right: 50%;
+		-webkit-transform: translateZ(-1em);
+		-moz-transform: translateZ(-1em);
+		-ms-transform: translateZ(-1em);
+		-o-transform: translateZ(-1em);
+		transform: translateZ(-1em);
+	}
+	.solar-panels:nth-child(2) {
+		z-index: 1;
+		padding-left: 1em;
+		left: 50%;
+		-webkit-transform: translateZ(-1em);
+		-moz-transform: translateZ(-1em);
+		-ms-transform: translateZ(-1em);
+		-o-transform: translateZ(-1em);
+		transform: translateZ(-1em);
+	}
+	.solar-panels ul { display: block; margin: 0px; padding: 0px; left: 0px; top: -3em; height: 2em; border-top: 4px solid black; }
+	.solar-panels ul li { display: inline-block; margin: 0px; padding: 0px; margin-top: -1.05em; width: 2em; height: 2em; }
+	.solar-panels:nth-child(1) ul { padding-right: 1em; float: right; }
+	.solar-panels:nth-child(2) ul { padding-left: 1em; float: left; }
+	.solar-panels:nth-child(1) ul li { float:left; }
+	.solar-panels:nth-child(2) ul li { float:right; }
+	
+	.radio .face { display: none; }
+	.threeD .hemisphere {
+		-webkit-transform: translateZ(-0.5em) rotateY(-45deg) rotateX(35.264deg);
+		-moz-transform: translateZ(-0.5em) rotateY(-45deg) rotateX(35.264deg);
+		-ms-transform: translateZ(-0.5em) rotateY(-45deg) rotateX(35.264deg);
+		-o-transform: translateZ(-0.5em) rotateY(-45deg) rotateX(35.264deg);
+		transform: translateZ(-0.5em) rotateY(-45deg) rotateX(35.264deg);
+	}
+
+	.threeD .satellite.oscillate .hemisphere {
+		animation-duration: 10s; -moz-animation-duration:10s; -webkit-animation-duration:10s;
+		animation-iteration-count:infinite; -webkit-animation-iteration-count:infinite; -moz-animation-iteration-count:infinite;
+		animation-timing-function: ease-out; -moz-animation-timing-function: ease-out; -webkit-animation-timing-function: ease-out;
+		animation-name: antioscillate; -moz-animation-name: antioscillate; -webkit-animation-name: antioscillate;
+	}
+	@-webkit-keyframes antioscillate { 50% { -webkit-transform: translateZ(-2em) rotateY(-60deg) rotateX(35.264deg); } }
+	@-moz-keyframes antioscillate { 50% { -moz-transform: translateZ(-2em) rotateY(-60deg) rotateX(35.264deg); } }
+	@keyframes antioscillate { 50% { transform: translateZ(-2em) rotateY(-60deg) rotateX(35.264deg); } }
+
+
+
+	/* Start of hemisphere CSS */
+	.slot2x8 .hemisphere { font-size: 4em; }
+	.slot2x4 .hemisphere { font-size: 2em; }
+	.slot1x2 .hemisphere { font-size: 2em; }
+	.hemisphere {
+		width: 1em;
+		height: 1em;
+		position: absolute;
+		margin: auto;
+		top: 0%;
+		-webkit-transition: transform height 0.3s ease;
+		-moz-transition: transform 0.3s ease;
+		-ms-transition: transform 0.3s ease;
+		-o-transition: transform 0.3s ease;
+		transition: transform 0.3s ease;
+	}
+	.hemisphere.south{
+		top: -100%;
+	}
+	.slot2x8 .hemisphere { top: 0%; }
+	.hemisphere, .dome, .inner { display: inline-block; }
+	.dome, .inner { width: 100%; }
+	.dome, .inner { background-color: #ffffff; }
+	.inner { border: 2px solid white; }
+	.rowsmall .inner { border: 1px solid white; }
+	.north .inner,.west .inner { border-color: #ccc; }
+	
+	.dome { height: 50%; border: 1px solid rgba(0,0,0,0.1); }
+	.east .dome, .west .dome {
+		top: 0%;
+		left: 50%;
+		width: 50%;
+		height: 100%;
+	}
+	
+	.north .dome { box-shadow: inset -0.2em -0em 0.2em -0.05em rgba(0,0,0,0.25); top: 0%; border-radius: 1em 1em 0 0; }
+	.south .dome { box-shadow: inset -0.2em -0.2em 0.2em -0.05em rgba(0,0,0,0.25); border-radius: 0 0 1em 1em; }
+	.east .dome { box-shadow: inset -0.2em -0.2em 0.2em -0.05em rgba(0,0,0,0.25); border-radius: 0 1em 1em 0em; }
+	.west .dome { box-shadow: inset -0.2em -0.2em 0.2em -0.05em rgba(0,0,0,0.25); left: 0%; border-radius: 1em 0em 0em 1em; }
+	
+	.inner, .dome {
+		position: absolute;
+		margin: 0px;
+		top: 50%;
+		left: 0;
+		-webkit-transition: height 0.3s ease, border-radius 0.3s ease;
+		-moz-transition: height 0.3s ease, border-radius 0.3s ease;
+		-ms-transition: height 0.3s ease, border-radius 0.3s ease;
+		-o-transition: height 0.3s ease, border-radius 0.3s ease;
+		transition: height 0.3s ease, border-radius 0.3s ease;
+	}
+	.inner {
+		border-radius: 100%;
+	}
+	.north .inner, .south .inner {
+		height: 0%;
+	}
+	.threeD .north .inner, .threeD .south .inner {
+		-webkit-transform: translateY(-50%);
+		  -ms-transform: translateY(-50%);
+			  transform: translateY(-50%);
+		z-index: 100;
+		height: 50%;
+	}
+	.east .inner, .west .inner {
+		height: 100%;
+		width: 60%;
+		left: 50%;
+		top: 0%;
+		-webkit-transform: translateX(-50%);
+		  -ms-transform: translateX(-50%);
+			  transform: translateX(-50%);
+	}
+	
+	.inner, .dome {
+		box-sizing: border-box;
+	}
+	.no-inside .inner { display: none; }
+	
+	.threeD .north.no-inside .dome {
+		height: 75%;
+		border-radius: 1em 1em 1em 1em / 0.85em 0.85em 0.75em 0.75em;
+	}
+	.threeD .south.no-inside .dome {
+		height: 65%;
+		top: 35%;
+		border-radius: 1em 1em 1em 1em / 0.75em 0.75em 0.85em 0.85em;
+	}
+	.threeD .east.no-inside .dome {
+		width: 85%;
+		left: 15%;
+		border-radius: 0.75em 0.85em 0.85em 0.75em / 1em 1em 1em 1em;
+	}
+	.threeD .west.no-inside .dome {
+		width: 85%;
+		border-radius: 0.85em 0.75em 0.75em 0.85em / 1em 1em 1em 1em;
+	}
+	.south .inner { box-shadow: inset 0.3em -0.1em 0.2em -0.05em rgba(0,0,0,0.2); }
+	.north .inner { box-shadow: inset 0.3em 0.1em 0.2em -0.05em rgba(0,0,0,0.2); }
+	.east .inner { box-shadow: inset 0.15em 0.1em 0.2em -0.1em rgba(0,0,0,0.2); }
+	.west .inner { box-shadow: inset 0.25em 0.2em 0.2em -0.05em rgba(0,0,0,0.2); }
+	/* End of Hemisphere CSS */
+
+	p { 
+		text-align:center;
+	}
+	</style>
+
+	<!--[if !IE]> -->
+	<style>
+		.threeD .slot2x2 .face.left,.threeD .slot1x1 .face.left  { width: 200%; }
+		.threeD .slot1x2 .face.left,.threeD .slot2x4 .face.left { width: 100%; }
+		.threeD .slot2x2 .face.top,.threeD .slot1x2 .face.top,.threeD .slot1x1 .face.top,.threeD .slot2x4 .face.top { height: 200%; }
+		.threeD .slot2x4.down .face.left,.threeD .slot2x4.up .face.left  { width: 200%; }
+		.threeD .slot2x4.down .face.left,.threeD .slot2x4.up .face.left { height: 100%; }
+		.threeD .slot2x4.up .face.top { height: 100%; }
+		.threeD .slot2x4.down .face.top { height: 100%; }	
+		.threeD .slot2x8 .face.left { width: 100%; }
+		.threeD .slot2x8 .face.top { height: 400%; }
+	</style>
+	<!-- <![endif]-->
+
+	<script>
+	function toggle(){
+		el = document.getElementById('content')
+		cls = el.className;
+		cls = (cls == "threeD") ? "" : "threeD";
+		el.className = cls;
+	}
+	function toggleSolar(){
+		var ids = ['sat-l','sat-m','sat-s','sat-c'];
+		for(var j = 0; j < ids.length; j++){
+			el = document.getElementById(ids[j])
+			cls = el.className;
+			i = cls.indexOf('solar-fixed');
+			i2 = i+11;
+			console.log(cls,i,i2)
+			if(i2 >= cls.length) i2 = cls.length;
+			if(i >= 0) cls = cls.substr(0,i)+cls.substr(i2);
+			else cls = cls+' solar-fixed';
+			el.className = cls;
+		}
+	}
+	function setSolar(n){
+		var ids = ['sat-l','sat-m'];
+		var ul = '<ul>'
+		for(var i = 0; i < n; i++) ul += '<li class="solar-panel"><\/li>';
+		ul += '<\/ul>';
+		for(var j = 0; j < ids.length; j++){
+			el = document.getElementById(ids[j]);
+			panels = el.getElementsByClassName('solar-panels');
+			for(var i = 0; i < panels.length; i++){
+				panels[i].innerHTML = ul;
+			}
+		}
+	}
+	function addSolar(){
+		var ids = ['sat-l','sat-m'];
+		for(var j = 0; j < ids.length; j++){
+			el = document.getElementById(ids[j]);
+			panels = el.getElementsByClassName('solar-panels');
+			for(var i = 0; i < panels.length; i++){
+				ps = panels[i].getElementsByTagName('li');
+				if(ps.length < 4) panels[i].getElementsByTagName('ul')[0].innerHTML += '<li class="solar-panel"><\/li>';
+			}
+		}
+	}
+	function removeSolar(){
+		var ids = ['sat-l','sat-m'];
+		for(var j = 0; j < ids.length; j++){
+			el = document.getElementById(ids[j]);
+			panels = el.getElementsByClassName('solar-panels');
+			for(var i = 0; i < panels.length; i++){
+				ps = panels[i].getElementsByTagName('li');
+				if(ps.length > 0) ps[ps.length-1].remove();
+			}
+		}
+	}
+	
+	function toggleDish(){
+		var slots = [{'el':'sat-l','cls':'slot2x8','type':'north no-inside'},{'el':'sat-m','cls':'slot2x4','type':'south'},{'el':'sat-s','cls':'slot2x4','type':'south'},{'el':'sat-c','cls':'slot1x2','type':'south'}];
+		var el,radio,cls,i,i2;
+		for(var s = 0; s < slots.length; s++){
+			el = document.getElementById(slots[s].el)
+			els = el.getElementsByClassName(slots[s].cls);
+			radio = els[0];
+			cls = radio.className;
+			i = cls.indexOf('radio');
+			i2 = i+11;
+			if(i2 >= cls.length) i2 = cls.length;
+			if(i >= 0){
+				// Remove class
+				cls = cls.substr(0,i)+cls.substr(i2);
+				el.getElementsByClassName('hemisphere')[0].remove();
+			}else{
+				// Add class
+				cls = cls+' radio';
+				radio.innerHTML = '<div class="hemisphere '+slots[s].type+'"><div class="inner"><\/div><div class="dome"><\/div><\/div>'+radio.innerHTML;
+			}
+			radio.className = cls;
+		}
+	}
+	
+
+	</script>
+</head>
+<body>
+
+	
+	<div class="satellite size">
+		<table>
+		<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="red" colspan="2"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+		<tr><td class="blue" rowspan="2" colspan="2"></td><td class="blue" rowspan="2" colspan="2"></td><td class="blue" rowspan="2" colspan="2"></td><td class="blue" rowspan="2" colspan="2"></td><td class="bar"></td><td class="green"></td><td class="green"></td><td class="bar"></td><td class="blue" rowspan="2" colspan="2"></td><td class="blue" rowspan="2" colspan="2"></td><td class="blue" rowspan="2" colspan="2"></td><td class="blue" rowspan="2" colspan="2"></td></tr>
+		<tr><td></td><td class="green"></td><td class="green"></td><td></td></tr>
+		<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="red" rowspan="2"></td><td class="green"></td><td class="green"></td><td class="red" rowspan="2"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+		<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="green"></td><td class="green"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+		<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="purple" colspan="4"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+		</table>
+		<div class="label">Large satellite</div>
+	</div>
+	<div class="satellite size">
+		<table>
+		<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="red" colspan="2"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+		<tr><td class="blue" rowspan="2" colspan="2"></td><td class="blue" rowspan="2" colspan="2"></td><td class="blue" rowspan="2" colspan="2"></td><td class="blue" rowspan="2" colspan="2"></td><td class="bar"></td><td class="green"></td><td class="green"></td><td class="bar"></td><td class="blue" rowspan="2" colspan="2"></td><td class="blue" rowspan="2" colspan="2"></td><td class="blue" rowspan="2" colspan="2"></td><td class="blue" rowspan="2" colspan="2"></td></tr>
+		<tr><td></td><td class="green"></td><td class="green"></td><td></td></tr>
+		<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="red" colspan="2"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+		</table>
+		<div class="label">Medium satellite</div>
+	</div>
+	<div class="satellite size">
+		<table>
+		<tr><td class="red" colspan="2"></td></tr>
+		<tr><td class="green"></td><td class="green"></td></tr>
+		</table>
+		<div class="label">Small satellite</div>
+	</div>
+	<div class="satellite size">
+		<table class="cube">
+		<tr><td class="orange" colspan="2"></td></tr>
+		<tr><td class="yellow"></td><td class="yellow"></td></tr>
+		</table>
+		<div class="label">Cubesat</div>
+	</div>
+
+
+
+
+	<div id="content" class="threeD">
+		<div class="holder">
+			<div class="satellite satellite-l" id="sat-l">
+				<div class="solar-panels"><ul><li class="solar-panel"></li><li class="solar-panel"></li><li class="solar-panel"></li></ul></div>
+				<div class="solar-panels"><ul><li class="solar-panel"></li><li class="solar-panel"></li><li class="solar-panel"></li></ul></div>
+				<div class="row"><div class="slot slot2x2 slot-empty"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x4 solar-left solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x2 slot-empty"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2 solar-left"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2 solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x2 slot-empty"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2 solar-left"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2 solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x4 solar-top down"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x4 up solar-top"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x8 solar-top"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+			</div>
+			<p>Large satellite</p>
+		</div>
+	
+		
+		<div class="holder">
+			<div class="satellite satellite-m" id="sat-m">
+				<div class="solar-panels"><ul><li class="solar-panel"></li></ul></div>
+				<div class="solar-panels"><ul><li class="solar-panel"></li></ul></div>
+				<div class="row"><div class="slot slot2x4 solar-left solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x2 solar-left photo"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2 solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x2 solar-left"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2 solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x4 solar-left solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+			</div>
+			<p>Medium satellite</p>
+		</div>
+	
+		<div class="holder">
+			<div class="satellite satellite-s" id="sat-s">
+				<div class="row"><div class="slot slot2x4 solar-left solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x2 solar-left video"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2 solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+			</div>
+			<p>Small satellite</p>
+		</div>
+	
+		<div class="holder">
+			<div class="satellite satellite-c" id="sat-c">
+				<div class="row rowsmall"><div class="slot slot1x2 solar-left solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row rowsmall"><div class="slot slot1x1 solar-left"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot1x1 solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+			</div>
+			<p>Cubesat</p>
+		</div>
+	</div>
+	<div style="text-align: center;">
+		<button onClick="toggle()">Toggle CSS3 transforms</button>
+		<button onClick="toggleDish()">Toggle dishes</button>
+		<button onClick="toggleSolar()">Toggle fixed solar panels</button>
+		<button onClick="setSolar(1)">1 solar panel</button>
+		<button onClick="addSolar()">&plus; solar panel</button>
+		<button onClick="removeSolar()">&minus; solar panel</button>
+	</div>
+	
+	
+
+</body>
+</html>
