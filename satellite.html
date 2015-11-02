@@ -103,9 +103,12 @@
 	.slot1x2 .face.left { background: #f9a04a; }
 	.slot1x2 .face.front { background: #f6881f; }
 	
-	.slot:hover .face.front { background: #222222; }
-	.slot:hover .face.left { background: #444444; }
-	.slot:hover .face.top { background: #666666; }
+	.slot:hover .face.front, .antenna .face.front { background: #222222; }
+	.slot:hover .face.left, .antenna .face.left { background: #444444; }
+	.slot:hover .face.top, .antenna .face.top { background: #666666; }
+	.aerial { width: 5em; height: 0; border: 2px solid #777777; position: absolute; }
+	.aerial1 { border-left: 0px; border-bottom: 0px; right: 0px; top: 0px; }
+	.aerial2 { border-right: 0px; border-top: 0px; left: 0px; bottom: 0px; }
 
 	.slot:hover .face.left,.slot:hover .face.front,.slot:hover .face.top {	}
 
@@ -282,6 +285,22 @@
 		-o-transform: translateZ(-0.5em) rotateY(-45deg) rotateX(35.264deg);
 		transform: translateZ(-0.5em) rotateY(-45deg) rotateX(35.264deg);
 	}
+	.threeD .aerial { height: 5em; }
+	.threeD .aerial1 {
+		-webkit-transform: translateX(-1.5em) translateY(1.5em);
+		-moz-transform: translateX(-1.5em) translateY(1.5em);
+		-ms-transform: translateX(-1.5em) translateY(1.5em);
+		-o-transform: translateX(-1.5em) translateY(1.5em);
+		transform: translateX(-1.5em) translateY(1.5em);
+	}
+	.threeD .aerial2 {
+		-webkit-transform: translateX(1.5em) translateY(-1.5em);
+		-moz-transform: translateX(1.5em) translateY(-1.5em);
+		-ms-transform: translateX(1.5em) translateY(-1.5em);
+		-o-transform: translateX(1.5em) translateY(-1.5em);
+		transform: translateX(1.5em) translateY(-1.5em);
+	}
+
 	.threeD .satellite.spin .hemisphere {
 		animation-name: antispin; -moz-animation-name: antispin; -webkit-animation-name: antispin;
 		transform-style: preserve-3d;
@@ -512,6 +531,33 @@
 		}
 	}
 	
+	function toggleAntenna(){
+		var slots = [{'el':'sat-c','cls':'slot0x2'}];
+		var el,radio,cls,i,i2,ant;
+		for(var s = 0; s < slots.length; s++){
+			el = document.getElementById(slots[s].el)
+			els = el.getElementsByClassName(slots[s].cls);
+			radio = els[0];
+			els = els[0].getElementsByClassName('top');
+			ant = els[0];
+			cls = radio.className;
+			i = cls.indexOf('antenna');
+			i2 = i+11;
+			if(i2 >= cls.length) i2 = cls.length;
+			if(i >= 0){
+				// Remove class
+				cls = cls.substr(0,i)+cls.substr(i2);
+				el.getElementsByClassName('aerial1')[0].remove();
+				el.getElementsByClassName('aerial2')[0].remove();
+			}else{
+				// Add class
+				cls = cls+' antenna';
+				ant.innerHTML = '<div class="aerial1 aerial"><\/div><div class="aerial2 aerial"><\/div>'+ant.innerHTML;
+			}
+			radio.className = cls;
+		}
+	}
+	
 
 	</script>
 </head>
@@ -605,6 +651,7 @@
 	<div style="text-align: center;">
 		<button onClick="toggle()">Toggle CSS3 transforms</button>
 		<button onClick="toggleDish()">Toggle dishes</button>
+		<button onClick="toggleAntenna()">Toggle antenna</button>
 		<button onClick="toggleSolar()">Toggle fixed solar panels</button>
 		<button onClick="setSolar(1)">1 solar panel</button>
 		<button onClick="addSolar()">&plus; solar panel</button>
