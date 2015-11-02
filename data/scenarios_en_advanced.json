@@ -11,25 +11,20 @@
 				},
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
 				"requires": [{
-					"instruments": [{ 
-						"type": "camera",
-						"wavelength": "farir"
-					},{ 
-						"type": "spectrometer",
-						"wavelength": "farir"
-					},{
-						"type": "camera",
-						"wavelength": "submm"
-					},{
-						"type": "spectrometer",
-						"wavelength": "submm"
-					}],
-					"label": "Wavelength coverage from sub-mm to far-IR",
-					"error": "You are not able to observe the required wavelengths"
+					"type": "bus",
+					"oneof": ["small","medium","large"],
+					"label": "A satellite that is small or larger.",
+					"error": "Your satellite must be big enough for your mission."
 				},{
-					"mirror": { "value": 1, "units": "m", "dimension": "length" },
-					"label": "You need a mirror.",
-					"error": "You have not selected a suitable mirror."
+					"type": "instrument",
+					"oneof": ["atomicclock"],
+					"label": "Wavelength coverage from sub-mm to far-IR.",
+					"error": "You are not able to observe the required wavelengths."
+				},{
+					"type": "instrument",
+					"oneof": ["radio_tx"],
+					"label": "A way to send signals.",
+					"error": "You do not have any way to transmit timing signals to people on the ground."
 				}]
 			}
 		],
