@@ -7,6 +7,7 @@
 	.satellite table { border-collapse: collapse; }
 	.satellite td { width: 2em; height: 2em; border: 2px solid white; }
 	.satellite table.cube td { width: 1em; height: 1em; }
+	.satellite table.cube td.rowflat { height: 0.10em; }
 	.satellite td.bar { border-bottom-color: black; }
 
 
@@ -56,6 +57,7 @@
 	.row:nth-child(6){ z-index: 10; }
 	.row:nth-child(7){ z-index: 1; }
 	.satellite-c .row { height: 1em; font-size: 0.5em; }
+	.satellite-c .rowflat { height: 0.10em; }
 	.slot {
 		position: relative;
 		display: inline-block;
@@ -68,6 +70,7 @@
 	.slot4x2 .face.top { height: 50%; }
 	.slot4x8 { width: 4em; height: 2em; }
 	.slot4x8 .face.left { width: 25%; }
+	.slot0x2 { height: 0.10em; width: 100%; position: absolute; }
 	.slot1x1 { width: 1em; height: 1em; }
 	.slot1x2 { width: 2em; height: 1em; }
 	.slot1x2 .face.left { width: 50%; }
@@ -87,6 +90,10 @@
 	.slot4x8 .face.top { background: #7d71b4; }
 	.slot4x8 .face.left { background: #7c52a1; }
 	.slot4x8 .face.front { background: #662d8f; }
+
+	.slot0x2 .face.top { background: #48c7e9; }
+	.slot0x2 .face.left { background: #00b9e4; }
+	.slot0x2 .face.front { background: #00a2d3; }
 
 	.slot1x1 .face.top { background: #fff200; }
 	.slot1x1 .face.left { background: #ffde00; }
@@ -219,6 +226,7 @@
 		transform-origin: 100% 100%;
 	}
 	
+	.threeD .slot0x2 { transform: translateZ(0.5em); }
 	.threeD .slot1x1 { transform: translateZ(0.5em); }
 	.threeD .slot1x2 { transform: translateZ(0.5em); }
 	.threeD .slot2x2 { transform: translateZ(1em); }
@@ -402,11 +410,20 @@
 
 	<!--[if !IE]> -->
 	<style>
-		.threeD .slot2x2 .face.left,.threeD .slot1x1 .face.left  { width: 200%; }
-		.threeD .slot1x2 .face.left,.threeD .slot2x4 .face.left { width: 100%; }
-		.threeD .slot2x2 .face.top,.threeD .slot1x2 .face.top,.threeD .slot1x1 .face.top,.threeD .slot2x4 .face.top { height: 200%; }
-		.threeD .slot2x4.down .face.left,.threeD .slot2x4.up .face.left  { width: 200%; }
-		.threeD .slot2x4.down .face.left,.threeD .slot2x4.up .face.left { height: 100%; }
+		.threeD .slot2x2 .face.left,
+		.threeD .slot1x1 .face.left  { width: 200%; }
+		.threeD .slot0x2 .face.left,
+		.threeD .slot1x2 .face.left,
+		.threeD .slot2x4 .face.left { width: 100%; }
+		.threeD .slot2x2 .face.top,
+		.threeD .slot1x2 .face.top,
+		.threeD .slot1x1 .face.top,
+		.threeD .slot2x4 .face.top { height: 200%; }
+		.threeD .slot0x2 .face.top { height: 2000%; }
+		.threeD .slot2x4.down .face.left,
+		.threeD .slot2x4.up .face.left  { width: 200%; }
+		.threeD .slot2x4.down .face.left,
+		.threeD .slot2x4.up .face.left { height: 100%; }
 		.threeD .slot2x4.up .face.top { height: 100%; }
 		.threeD .slot2x4.down .face.top { height: 100%; }	
 		.threeD .slot4x8 .face.left { width: 100%; }
@@ -472,7 +489,7 @@
 	}
 	
 	function toggleDish(){
-		var slots = [{'el':'sat-l','cls':'slot4x8','type':'north no-inside'},{'el':'sat-m','cls':'slot2x4','type':'south'},{'el':'sat-s','cls':'slot2x4','type':'south'},{'el':'sat-c','cls':'slot1x2','type':'south'}];
+		var slots = [{'el':'sat-l','cls':'slot4x8','type':'north no-inside'},{'el':'sat-m','cls':'slot2x4','type':'south'},{'el':'sat-s','cls':'slot2x4','type':'south'},{'el':'sat-c','cls':'slot1x2','type':'north no-inside'}];
 		var el,radio,cls,i,i2;
 		for(var s = 0; s < slots.length; s++){
 			el = document.getElementById(slots[s].el)
@@ -530,8 +547,9 @@
 	</div>
 	<div class="satellite size">
 		<table class="cube">
-		<tr><td class="orange" colspan="2"></td></tr>
+		<tr><td class="blue rowflat" colspan="2"></td></tr>
 		<tr><td class="yellow"></td><td class="yellow"></td></tr>
+		<tr><td class="orange" colspan="2"></td></tr>
 		</table>
 		<div class="label">Cubesat</div>
 	</div>
@@ -577,8 +595,9 @@
 	
 		<div class="holder">
 			<div class="satellite satellite-c" id="sat-c">
-				<div class="row rowsmall"><div class="slot slot1x2 solar-left solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+				<div class="row rowsmall rowflat"><div class="slot slot0x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 				<div class="row rowsmall"><div class="slot slot1x1 solar-left"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot1x1 solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+				<div class="row rowsmall"><div class="slot slot1x2 solar-left solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 			</div>
 			<p>Cubesat</p>
 		</div>

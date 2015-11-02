@@ -1,0 +1,43 @@
+{
+	"scenarios": {
+		"NAV": [
+			{
+				"name": "Satellite Navigation System",
+				"description": "Tell people their location",
+				"image": {
+					"file": "images/satnav.jpg",
+					"alt": "Sat nav system",
+					"credit": "ESA"
+				},
+				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
+				"requires": [{
+					"instruments": [{ 
+						"type": "camera",
+						"wavelength": "farir"
+					},{ 
+						"type": "spectrometer",
+						"wavelength": "farir"
+					},{
+						"type": "camera",
+						"wavelength": "submm"
+					},{
+						"type": "spectrometer",
+						"wavelength": "submm"
+					}],
+					"label": "Wavelength coverage from sub-mm to far-IR",
+					"error": "You are not able to observe the required wavelengths"
+				},{
+					"mirror": { "value": 1, "units": "m", "dimension": "length" },
+					"label": "You need a mirror.",
+					"error": "You have not selected a suitable mirror."
+				}]
+			}
+		],
+		"COMMS": [
+		
+		],
+		"EO": [
+		
+		]
+	}
+}
