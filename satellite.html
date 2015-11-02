@@ -141,8 +141,9 @@
 		linear-gradient(90deg, white 2px, transparent 2px),
 		linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
 		linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
-		background-size:1em 1em, 1em 1em, 0.2em 0.2em, 0.2em 0.2em;
-		background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px
+		background-size: 1em 1em, 1em 1em, 0.2em 0.2em, 0.2em 0.2em;
+		background-position:-1px -2px, -1px -1px, -1px -1px, -1px -1px;
+		box-sizing: border-box;
 	}
 	.satellite.solar-fixed .solar-right .face.right { border-right: 2px solid #00a2d3; }
 	.slot-empty .face {
@@ -247,7 +248,7 @@
 		-o-transform: translateZ(-1em);
 		transform: translateZ(-1em);
 	}
-	.solar-panels ul { display: block; margin: 0px; padding: 0px; left: 0px; top: -3em; height: 2em; border-top: 4px solid black; }
+	.solar-panels ul { display: block; margin: 0px; margin-top:-2px; padding: 0px; border-top: 4px solid black; }
 	.solar-panels ul li { display: inline-block; margin: 0px; padding: 0px; margin-top: -1.05em; width: 2em; height: 2em; }
 	.solar-panels:nth-child(1) ul { padding-right: 1em; float: right; }
 	.solar-panels:nth-child(2) ul { padding-left: 1em; float: left; }
@@ -329,6 +330,7 @@
 	.inner {
 		border-radius: 100%;
 	}
+	.inner:after { width: 4px; height: 50%; background: #999999; border-top-left-radius: 100%; border-top-right-radius: 100%; position:absolute; content: ""; left: 50%; margin-left: -2px; top:50%; }
 	.north .inner, .south .inner {
 		height: 0%;
 	}
