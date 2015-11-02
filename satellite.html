@@ -43,7 +43,7 @@
 		position: relative;
 		height: 1em;
 	}
-	.rowsmall { height: 0.5em; }
+	.rowbig { height: 2em; }
 	.row:nth-child(1){ z-index: 60; }
 	.row .slot:nth-child(1) { z-index: 59; }
 	.row .slot:nth-child(2) { z-index: 58; }
@@ -55,6 +55,7 @@
 	.row:nth-child(5){ z-index: 20; }
 	.row:nth-child(6){ z-index: 10; }
 	.row:nth-child(7){ z-index: 1; }
+	.satellite-c .row { height: 1em; font-size: 0.5em; }
 	.slot {
 		position: relative;
 		display: inline-block;
@@ -65,10 +66,10 @@
 	.slot2x4 .face.left { width: 50%; }
 	.slot4x2 { height: 2em; }
 	.slot4x2 .face.top { height: 50%; }
-	.slot2x8 { width: 4em; }
-	.slot2x8 .face.left { width: 25%; }
-	.slot1x1 { width: 0.5em; height: 0.5em; }
-	.slot1x2 { font-size: 0.5em; width: 2em; height: 1em; }
+	.slot4x8 { width: 4em; height: 2em; }
+	.slot4x8 .face.left { width: 25%; }
+	.slot1x1 { width: 1em; height: 1em; }
+	.slot1x2 { width: 2em; height: 1em; }
 	.slot1x2 .face.left { width: 50%; }
 	.slot2x4.down { height: 2em; width: 1em; float: left; }
 	.slot2x4.down .face.left,.slot2x4.up .face.left { width: 100%; }
@@ -77,29 +78,29 @@
 	
 	.slot2x4 .face.top { background: #f68d69; }
 	.slot2x4 .face.left { background: #f05948; }
-	.slot2x4 .face.right { background: #f04031; }
+	.slot2x4 .face.front { background: #f04031; }
 	
 	.slot2x2 .face.top { background: #67c18d; }
 	.slot2x2 .face.left { background: #0ab26b; }
-	.slot2x2 .face.right { background: #02a24b; }
+	.slot2x2 .face.front { background: #02a24b; }
 
-	.slot2x8 .face.top { background: #7d71b4; }
-	.slot2x8 .face.left { background: #7c52a1; }
-	.slot2x8 .face.right { background: #662d8f; }
+	.slot4x8 .face.top { background: #7d71b4; }
+	.slot4x8 .face.left { background: #7c52a1; }
+	.slot4x8 .face.front { background: #662d8f; }
 
 	.slot1x1 .face.top { background: #fff200; }
 	.slot1x1 .face.left { background: #ffde00; }
-	.slot1x1 .face.right { background: #ffcb06; }
+	.slot1x1 .face.front { background: #ffcb06; }
 
 	.slot1x2 .face.top { background: #fbb675; }
 	.slot1x2 .face.left { background: #f9a04a; }
-	.slot1x2 .face.right { background: #f6881f; }
+	.slot1x2 .face.front { background: #f6881f; }
 	
-	.slot:hover .face.right { background: #222222; }
+	.slot:hover .face.front { background: #222222; }
 	.slot:hover .face.left { background: #444444; }
 	.slot:hover .face.top { background: #666666; }
 
-	.slot:hover .face.left,.slot:hover .face.right,.slot:hover .face.top {	}
+	.slot:hover .face.left,.slot:hover .face.front,.slot:hover .face.top {	}
 
 	.slot .faces {
 		position: absolute;
@@ -116,7 +117,6 @@
 		height: 100%;
 		left: 0px;
 		top: 0px;
-		overflow: hidden;
 		box-sizing: border-box;
 		border: 1px solid rgba(255,255,255,0.3);
 		-webkit-transform-origin: 0 0;
@@ -126,10 +126,10 @@
 		transform-origin: 0 0;
 	}
 	
-	.satellite.solar-fixed .solar-left .face.right, .satellite.solar-fixed .row:first-child .solar-left .face.top { border-left: 4px solid #00a2d3; }
+	.satellite.solar-fixed .solar-left .face.front, .satellite.solar-fixed .row:first-child .solar-left .face.top { border-left: 4px solid #00a2d3; }
 	.satellite.solar-fixed .row:first-child .solar-right .face.top { border-right: 4px solid #00a2d3; }
 	.satellite.solar-fixed .solar-top .face.left  { border-top: 4px solid #00a2d3; }
-	.satellite.solar-fixed .solar-top .face.right  { border-top: 4px solid #00a2d3; }
+	.satellite.solar-fixed .solar-top .face.front  { border-top: 4px solid #00a2d3; }
 	.satellite .solar-panel {
 		background-color: #008BB2;
 	}
@@ -145,19 +145,19 @@
 		background-position:-1px -2px, -1px -1px, -1px -1px, -1px -1px;
 		box-sizing: border-box;
 	}
-	.satellite.solar-fixed .solar-right .face.right { border-right: 2px solid #00a2d3; }
+	.satellite.solar-fixed .solar-right .face.front { border-right: 2px solid #00a2d3; }
 	.slot-empty .face {
 		border: 0px;
 	}
-	.slot-empty .face.top,.slot-empty .face.left,.slot-empty .face.right {
+	.slot-empty .face.top,.slot-empty .face.left,.slot-empty .face.front {
 		background: none!important;
 	}
-	.photo .face.right {
+	.photo .face.front {
 		background-image: url('photo.png');
 		background-size: 100% 100%;
 		background-repeat: none;
 	}
-	.video .face.right {
+	.video .face.front {
 		background-image: url('video.png');
 		background-size: 100% 100%;
 		background-repeat: none;
@@ -168,17 +168,16 @@
 	}
 	.threeD .satellite {
 		transform-style: preserve-3d;
-		-webkit-transform: translateX(0.75em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
-		-moz-transform: translateX(0.75em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
-		-ms-transform: translateX(0.75em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
-		-o-transform: translateX(0.75em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
-		transform: translateX(0.75em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
-	}
-	.threeD .satellite.oscillate {
-		-webkit-animation-duration:10s; -moz-animation-duration:10s; animation-duration: 10s;
-		animation-iteration-count:infinite; -webkit-animation-iteration-count:infinite; -moz-animation-iteration-count:infinite;
-		animation-timing-function: ease-out; -moz-animation-timing-function: ease-out; -webkit-animation-timing-function: ease-out;
-		animation-name: oscillate; -moz-animation-name: oscillate; -webkit-animation-name: oscillate;
+		-webkit-transform-origin: 50% 0% 0;
+		-moz-transform-origin: 50% 0% 0;
+		-ms-transform-origin: 50% 0% 0;
+		-o-transform-origin: 50% 0% 0;
+		transform-origin: 50% 0% 0;
+		-webkit-transform: translateY(-1em) translateX(-0.25em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		-moz-transform: translateY(-1em) translateX(-0.25em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		-ms-transform: translateY(-1em) translateX(-0.25em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		-o-transform: translateY(-1em) translateX(-0.25em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		transform: translateY(-1em) translateX(-0.25em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
 	}
 	.threeD .satellite.satellite-c {
 		transform-style: preserve-3d;
@@ -186,16 +185,31 @@
 		-moz-transform: translateX(0.5em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
 		-ms-transform: translateX(0.5em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
 		-o-transform: translateX(0.5em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
-		transform: translateX(0.5em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+		transform: translateY(-1em) scale(1.24) rotateX(-35.264deg) rotateY(45deg);
+	}
+	.threeD .satellite.spin, .threeD .satellite.spin .hemisphere, .threeD .satellite.spin .face {
+		-webkit-animation-duration:36s; -moz-animation-duration:36s; animation-duration: 36s;
+		animation-iteration-count:infinite; -webkit-animation-iteration-count:infinite; -moz-animation-iteration-count:infinite;
+		animation-timing-function: linear; -moz-animation-timing-function: linear; -webkit-animation-timing-function: linear;
+	}
+	.threeD .satellite.spin, .threeD .satellite.spin .hemisphere {
+		animation-name: spin; -moz-animation-name: spin; -webkit-animation-name: spin;
+	}
+	.threeD .satellite-c.spin {
+		animation-name: spin-c; -moz-animation-name: spin-c; -webkit-animation-name: spin-c;
 	}
 	.threeD .satellite:hover .row {
 		animation-name: none;
 	}
-	@-webkit-keyframes oscillate { 50% { -webkit-transform: translateX(0.75em) scale(1.24) rotateX(-35.264deg) rotateY(60deg); } }
-	@-moz-keyframes oscillate { 50% { -moz-transform: translateX(0.75em) scale(1.24) rotateX(-35.264deg) rotateY(60deg); } }
-	@keyframes oscillate { 50% { transform: translateX(0.75em) scale(1.24) rotateX(-35.264deg) rotateY(60deg); } }
 
+	@-webkit-keyframes spin { 100% { -webkit-transform: translateY(-1em) translateX(-0.25em) scale(1.24) rotateX(-35.264deg) rotateY(405deg); } }
+	@-moz-keyframes spin { 100% { -moz-transform: translateY(-1em) translateX(-0.25em) scale(1.24) rotateX(-35.264deg) rotateY(405deg); } }
+	@keyframes spin { 100% { transform: translateY(-1em) translateX(-0.25em) scale(1.24) rotateX(-35.264deg) rotateY(405deg); } }
 
+	@-webkit-keyframes spin-c { 100% { -webkit-transform: translateY(-1em) scale(1.24) rotateX(-35.264deg) rotateY(405deg); } }
+	@-moz-keyframes spin-c { 100% { -moz-transform: translateY(-1em) scale(1.24) rotateX(-35.264deg) rotateY(405deg); } }
+	@keyframes spin-c { 100% { transform: translateY(-1em) scale(1.24) rotateX(-35.264deg) rotateY(405deg); } }
+	
 	.threeD .slot,.threeD .slot .faces {
 		transform-style: preserve-3d;
 		-webkit-transform-origin: 100% 100%;
@@ -205,7 +219,11 @@
 		transform-origin: 100% 100%;
 	}
 	
-	.threeD .slot2x8 { transform: translateZ(0.9em); }
+	.threeD .slot1x1 { transform: translateZ(0.5em); }
+	.threeD .slot1x2 { transform: translateZ(0.5em); }
+	.threeD .slot2x2 { transform: translateZ(1em); }
+	.threeD .slot2x4 { transform: translateZ(1em); }
+	.threeD .slot4x8 { transform: translateZ(2em); }
 
 	.threeD .face.top {
 		-webkit-transform: rotateX(-90deg);
@@ -232,21 +250,11 @@
 		z-index: 100;
 		padding-right: 1em;
 		right: 50%;
-		-webkit-transform: translateZ(-1em);
-		-moz-transform: translateZ(-1em);
-		-ms-transform: translateZ(-1em);
-		-o-transform: translateZ(-1em);
-		transform: translateZ(-1em);
 	}
 	.solar-panels:nth-child(2) {
 		z-index: 1;
 		padding-left: 1em;
 		left: 50%;
-		-webkit-transform: translateZ(-1em);
-		-moz-transform: translateZ(-1em);
-		-ms-transform: translateZ(-1em);
-		-o-transform: translateZ(-1em);
-		transform: translateZ(-1em);
 	}
 	.solar-panels ul { display: block; margin: 0px; margin-top:-2px; padding: 0px; border-top: 4px solid black; }
 	.solar-panels ul li { display: inline-block; margin: 0px; padding: 0px; margin-top: -1.05em; width: 2em; height: 2em; }
@@ -256,6 +264,9 @@
 	.solar-panels:nth-child(2) ul li { float:right; }
 	
 	.radio .face { display: none; }
+	.threeD .row .radio {
+		transform-style: preserve-3d;
+	}
 	.threeD .hemisphere {
 		-webkit-transform: translateZ(-0.5em) rotateY(-45deg) rotateX(35.264deg);
 		-moz-transform: translateZ(-0.5em) rotateY(-45deg) rotateX(35.264deg);
@@ -263,21 +274,19 @@
 		-o-transform: translateZ(-0.5em) rotateY(-45deg) rotateX(35.264deg);
 		transform: translateZ(-0.5em) rotateY(-45deg) rotateX(35.264deg);
 	}
-
-	.threeD .satellite.oscillate .hemisphere {
-		animation-duration: 10s; -moz-animation-duration:10s; -webkit-animation-duration:10s;
-		animation-iteration-count:infinite; -webkit-animation-iteration-count:infinite; -moz-animation-iteration-count:infinite;
-		animation-timing-function: ease-out; -moz-animation-timing-function: ease-out; -webkit-animation-timing-function: ease-out;
-		animation-name: antioscillate; -moz-animation-name: antioscillate; -webkit-animation-name: antioscillate;
+	.threeD .satellite.spin .hemisphere {
+		animation-name: antispin; -moz-animation-name: antispin; -webkit-animation-name: antispin;
+		transform-style: preserve-3d;
 	}
-	@-webkit-keyframes antioscillate { 50% { -webkit-transform: translateZ(-2em) rotateY(-60deg) rotateX(35.264deg); } }
-	@-moz-keyframes antioscillate { 50% { -moz-transform: translateZ(-2em) rotateY(-60deg) rotateX(35.264deg); } }
-	@keyframes antioscillate { 50% { transform: translateZ(-2em) rotateY(-60deg) rotateX(35.264deg); } }
+	@-webkit-keyframes antispin { 100% { -webkit-transform: translateZ(-0.5em) rotateY(-405deg) rotateX(35.264deg); } }
+	@-moz-keyframes antispin { 100% { -moz-transform: translateZ(-0.5em) rotateY(-405deg) rotateX(35.264deg); } }
+	@keyframes antispin { 100% { transform: translateZ(-0.5em) rotateY(-405deg) rotateX(35.264deg); } }
+
 
 
 
 	/* Start of hemisphere CSS */
-	.slot2x8 .hemisphere { font-size: 4em; }
+	.slot4x8 .hemisphere { font-size: 4em; }
 	.slot2x4 .hemisphere { font-size: 2em; }
 	.slot1x2 .hemisphere { font-size: 2em; }
 	.hemisphere {
@@ -286,16 +295,16 @@
 		position: absolute;
 		margin: auto;
 		top: 0%;
-		-webkit-transition: transform height 0.3s ease;
-		-moz-transition: transform 0.3s ease;
-		-ms-transition: transform 0.3s ease;
-		-o-transition: transform 0.3s ease;
-		transition: transform 0.3s ease;
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		-ms-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		transition: all 0.3s ease;
 	}
 	.hemisphere.south{
 		top: -100%;
 	}
-	.slot2x8 .hemisphere { top: 0%; }
+	.slot4x8 .hemisphere { top: 0%; }
 	.hemisphere, .dome, .inner { display: inline-block; }
 	.dome, .inner { width: 100%; }
 	.dome, .inner { background-color: #ffffff; }
@@ -321,6 +330,8 @@
 		margin: 0px;
 		top: 50%;
 		left: 0;
+	}
+	.inner, .dome, .inner:after {
 		-webkit-transition: height 0.3s ease, border-radius 0.3s ease;
 		-moz-transition: height 0.3s ease, border-radius 0.3s ease;
 		-ms-transition: height 0.3s ease, border-radius 0.3s ease;
@@ -330,9 +341,12 @@
 	.inner {
 		border-radius: 100%;
 	}
-	.inner:after { width: 4px; height: 50%; background: #999999; border-top-left-radius: 100%; border-top-right-radius: 100%; position:absolute; content: ""; left: 50%; margin-left: -2px; top:50%; }
+	.inner:after { width: 4px; height: 0.2em; background: #999999; border-top-left-radius: 100%; border-top-right-radius: 100%; position:absolute; content: ""; left: 50%; margin-left: -2px; bottom: 0%; }
+	.north .inner:after { border-radius: 0; border-bottom-left-radius: 100%; height: 0.1em; border-bottom-right-radius: 100%; top: 0%; bottom: auto; }
+	.threeD .inner:after { height: 0.3em; }
 	.north .inner, .south .inner {
 		height: 0%;
+		border: 0px;
 	}
 	.threeD .north .inner, .threeD .south .inner {
 		-webkit-transform: translateY(-50%);
@@ -354,7 +368,7 @@
 	.inner, .dome {
 		box-sizing: border-box;
 	}
-	.no-inside .inner { display: none; }
+	.threeD .no-inside .inner { height: 0px; display: none; }
 	
 	.threeD .north.no-inside .dome {
 		height: 75%;
@@ -394,8 +408,8 @@
 		.threeD .slot2x4.down .face.left,.threeD .slot2x4.up .face.left { height: 100%; }
 		.threeD .slot2x4.up .face.top { height: 100%; }
 		.threeD .slot2x4.down .face.top { height: 100%; }	
-		.threeD .slot2x8 .face.left { width: 100%; }
-		.threeD .slot2x8 .face.top { height: 400%; }
+		.threeD .slot4x8 .face.left { width: 100%; }
+		.threeD .slot4x8 .face.top { height: 200%; }
 	</style>
 	<!-- <![endif]-->
 
@@ -457,7 +471,7 @@
 	}
 	
 	function toggleDish(){
-		var slots = [{'el':'sat-l','cls':'slot2x8','type':'north no-inside'},{'el':'sat-m','cls':'slot2x4','type':'south'},{'el':'sat-s','cls':'slot2x4','type':'south'},{'el':'sat-c','cls':'slot1x2','type':'south'}];
+		var slots = [{'el':'sat-l','cls':'slot4x8','type':'north no-inside'},{'el':'sat-m','cls':'slot2x4','type':'south'},{'el':'sat-s','cls':'slot2x4','type':'south'},{'el':'sat-c','cls':'slot1x2','type':'south'}];
 		var el,radio,cls,i,i2;
 		for(var s = 0; s < slots.length; s++){
 			el = document.getElementById(slots[s].el)
@@ -529,12 +543,12 @@
 			<div class="satellite satellite-l" id="sat-l">
 				<div class="solar-panels"><ul><li class="solar-panel"></li><li class="solar-panel"></li><li class="solar-panel"></li></ul></div>
 				<div class="solar-panels"><ul><li class="solar-panel"></li><li class="solar-panel"></li><li class="solar-panel"></li></ul></div>
-				<div class="row"><div class="slot slot2x2 slot-empty"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x4 solar-left solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
-				<div class="row"><div class="slot slot2x2 slot-empty"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2 solar-left"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2 solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
-				<div class="row"><div class="slot slot2x2 slot-empty"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2 solar-left"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2 solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
-				<div class="row"><div class="slot slot2x4 solar-top down"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
-				<div class="row"><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x4 up solar-top"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
-				<div class="row"><div class="slot slot2x8 solar-top"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x2 slot-empty"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot2x4 solar-left solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+				<div class="row"><div class="slot slot2x2 slot-empty"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot2x2 solar-left"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot2x2 solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+				<div class="row"><div class="slot slot2x2 slot-empty"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot2x2 solar-left"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot2x2 solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+				<div class="row"><div class="slot slot2x4 solar-top down"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+				<div class="row"><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot2x2"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot2x4 up solar-top"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+				<div class="row rowbig"><div class="slot slot4x8 solar-top"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 			</div>
 			<p>Large satellite</p>
 		</div>
@@ -544,26 +558,26 @@
 			<div class="satellite satellite-m" id="sat-m">
 				<div class="solar-panels"><ul><li class="solar-panel"></li></ul></div>
 				<div class="solar-panels"><ul><li class="solar-panel"></li></ul></div>
-				<div class="row"><div class="slot slot2x4 solar-left solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
-				<div class="row"><div class="slot slot2x2 solar-left photo"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2 solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
-				<div class="row"><div class="slot slot2x2 solar-left"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2 solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
-				<div class="row"><div class="slot slot2x4 solar-left solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x4 solar-left solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+				<div class="row"><div class="slot slot2x2 solar-left photo"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot2x2 solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+				<div class="row"><div class="slot slot2x2 solar-left"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot2x2 solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+				<div class="row"><div class="slot slot2x4 solar-left solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 			</div>
 			<p>Medium satellite</p>
 		</div>
 	
 		<div class="holder">
 			<div class="satellite satellite-s" id="sat-s">
-				<div class="row"><div class="slot slot2x4 solar-left solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
-				<div class="row"><div class="slot slot2x2 solar-left video"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot2x2 solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row"><div class="slot slot2x4 solar-left solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+				<div class="row"><div class="slot slot2x2 solar-left video"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot2x2 solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 			</div>
 			<p>Small satellite</p>
 		</div>
 	
 		<div class="holder">
 			<div class="satellite satellite-c" id="sat-c">
-				<div class="row rowsmall"><div class="slot slot1x2 solar-left solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
-				<div class="row rowsmall"><div class="slot slot1x1 solar-left"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div><div class="slot slot1x1 solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face right"></div></div></div></div>
+				<div class="row rowsmall"><div class="slot slot1x2 solar-left solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+				<div class="row rowsmall"><div class="slot slot1x1 solar-left"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot1x1 solar-right"><div class="faces"><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 			</div>
 			<p>Cubesat</p>
 		</div>
