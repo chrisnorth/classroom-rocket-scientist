@@ -48,8 +48,8 @@
 			"depth": { "value": 2.5, "units": "m", "dimension": "length" }
 		}
 	},
-	"package": [{
-			"key": "camera_opt",
+	"package": {
+		"camera_opt" : {
 			"slot": "2x2",
 			"title": "Camera (optical)",
 			"description": "Images of ground",
@@ -61,8 +61,8 @@
 				{ "value": 0.5, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": 50, "units": "watts", "dimension": "power" }
-		},{
-			"key": "camera_nir",
+		},
+		"camera_nir": {
 			"slot":	"2x2",
 			"title": "Camera (NIR)",
 			"description": "Images of vegetation",
@@ -74,8 +74,8 @@
 				{ "value": 0.5, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": 50, "units": "watts", "dimension": "power" }
-		},{
-			"key": "camera_fir",
+		},
+		"camera_fir": {
 			"slot":	"2x4",
 			"title": "Camera (FIR)",
 			"description": "Images of clouds",
@@ -87,8 +87,8 @@
 				{ "value": 0.5, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": 300, "units": "watts", "dimension": "power" }
-		},{
-			"key": "spect_opt",
+		},
+		"spect_opt": {
 			"slot":	"2x2",
 			"title": "Spectrometer (optical)",
 			"description": "Properties of ground",
@@ -100,8 +100,8 @@
 				{ "value": 0.5, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": 150, "units": "watts", "dimension": "power" }
-		},{
-			"key": "spect_nir",
+		},
+		"spect_nir": {
 			"slot":	"2x2",
 			"title": "Spectrometer (NIR)",
 			"description": "Properties of vegetation",
@@ -113,8 +113,8 @@
 				{ "value": 0.5, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": 150, "units": "watts", "dimension": "power" }
-		},{
-			"key": "spect_fir",
+		},
+		"spect_fir": {
 			"slot":	"2x4",
 			"title": "Spectrometer (FIR)",
 			"description": "Properties of clouds",
@@ -126,8 +126,8 @@
 				{ "value": 0.5, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": 300, "units": "watts", "dimension": "power" }
-		},{
-			"key": "radar_alt",
+		},
+		"radar_alt": {
 			"slot":	"2x4",
 			"title": "Radar altimeter",
 			"description": "Measuring topography",
@@ -145,8 +145,8 @@
 				"label": "Requires a radar dish",
 				"error": "You need to include a radar dish for the altimeter to work"
 			}
-		},{
-			"key": "radar_dish",
+		},
+		"radar_dish": {
 			"slot":	"4x8",
 			"title": "Radar dish",
 			"description": "Measuring topography",
@@ -158,8 +158,8 @@
 				{ "value": 1.0, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
-		},{
-			"key": "radio_rx",
+		},
+		"radio_rx": {
 			"slot":	"2x2",
 			"title": "Radio receiver",
 			"description": "Communications",
@@ -171,8 +171,8 @@
 				{ "value": 0.5, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": 20, "units": "watts", "dimension": "power" }
-		},{
-			"key": "radio_tx",
+		},
+		"radio_tx": {
 			"slot":	"2x2",
 			"title": "Radio transmitter",
 			"description": "Communications",
@@ -184,8 +184,8 @@
 				{ "value": 0.5, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": 20, "units": "watts", "dimension": "power" }
-		},{
-			"key": "atomic_clock",
+		},
+		"atomic_clock": {
 			"slot":	"2x2",
 			"title": "Atomic clock",
 			"description": "Navigation (GPS timing)",
@@ -197,8 +197,8 @@
 				{ "value": 0.05, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": 10, "units": "watts", "dimension": "power" }
-		},{
-			"key": "atomic_clock_small",
+		},
+		"atomic_clock_small": {
 			"slot":	"1x2",
 			"title": "Atomic clock (compact)",
 			"description": "Navigation (GPS timing)",
@@ -210,8 +210,8 @@
 				{ "value": 0.05, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": 10, "units": "watts", "dimension": "power" }
-		},{
-			"key": "gps_rx",
+		},
+		"gps_rx": {
 			"slot":	"1x1",
 			"title": "GPS receiver",
 			"description": "Positioning",
@@ -223,8 +223,8 @@
 				{ "value": 0.1, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": 5, "units": "watts", "dimension": "power" }
-		},{
-			"key": "camera_mini",
+		},
+		"camera_mini": {
 			"slot":	"1x1",
 			"title": "Camera (miniature)",
 			"description": "Images of ground",
@@ -236,8 +236,8 @@
 				{ "value": 0.1, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": 5, "units": "watts", "dimension": "power" }
-		},{
-			"key": "dish_large",
+		},
+		"dish_large": {
 			"slot":	"4x8",
 			"title": "Radio dish (large)",
 			"description": "For up to 8 instruments",
@@ -249,8 +249,8 @@
 				{ "value": 1.0, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
-		},{
-			"key": "dish_medium",
+		},
+		"dish_medium": {
 			"slot":	"2x4",
 			"title": "Radio dish (medium)",
 			"description": "For up to 4 instruments",
@@ -262,8 +262,8 @@
 				{ "value": 0.5, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
-		},{
-			"key": "dish_small",
+		},
+		"dish_small": {
 			"slot":	"1x2",
 			"title": "Radio antenna (small)",
 			"description": "For up to 2 instruments",
@@ -275,8 +275,8 @@
 				{ "value": 0.05, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
-		},{
-			"key": "antenna_cube",
+		},
+		"antenna_cube": {
 			"slot":	"0x2",
 			"title": "Radio antenna (deployable)",
 			"description": "For up to 2 instruments",
@@ -288,8 +288,8 @@
 				{ "value": 0.07, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
-		},{
-			"key": "battery_large",
+		},
+		"battery_large": {
 			"slot":	"2x2",
 			"title": "Large battery",
 			"description": "Provides power",
@@ -307,8 +307,8 @@
 				"label": "Requires solar panels",
 				"error": "Requires solar panels"
 			}
-		},{
-			"key": "battery_small",
+		},
+		"battery_small": {
 			"slot":	"1x1",
 			"title": "Small battery",
 			"description": "Provides power",
@@ -326,8 +326,8 @@
 				"label": "Requires solar panels",
 				"error": "Requires solar panels"
 			}
-		},{
-			"key": "rtg",
+		},
+		"rtg": {
 			"slot":	"2x4",
 			"title": "RTG",
 			"description": "Provides power",
@@ -345,8 +345,8 @@
 				"label": "Not for low-Earth orbit",
 				"error": "Can't use an RTG in low-Earth orbit"
 			}
-		},{
-			"key": "solar_panel_surface",
+		},
+		"solar_panel_surface": {
 			"slot":	"",
 			"title": "Body-mounted solar panel",
 			"description": "Provides power",
@@ -357,8 +357,8 @@
 				{ "value": 1.0, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": -150, "units": "watts", "dimension": "power" }
-		},{
-			"key": "solar_panel",
+		},
+		"solar_panel": {
 			"slot":	"",
 			"title": "Deployable solar panel",
 			"description": "Provides power",
