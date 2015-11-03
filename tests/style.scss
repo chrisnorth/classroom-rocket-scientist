@@ -33,26 +33,6 @@ body {
 .clear { clear: both; }
 .size { padding: $s * 2; text-align: center; }
 
-/* Change box model for satellite */
-.satellite {
-	@include box-sizing(content-box);
-}
-
-.satellite table { margin: auto;}
-.satellite table { border-collapse: collapse; }
-.satellite td { width: $s * 2; height: $s * 2; border: 2px solid white; }
-.satellite table.cube td { width: $s; height: $s; }
-.satellite table.cube td.rowflat { height: $s * 0.1; }
-.satellite td.bar { border-bottom-color: black; }
-
-/* Define colours */
-.red { background: $red; }
-.green { background: $green; }
-.blue { background: $blue; }
-.yellow { background: $yellow; }
-.orange { background: $orange; }
-.purple { background: $purple; }
-
 #content { display: table; margin: auto; margin-top: $s * 2; }
 .holder { display: table-cell; }
 .holder .satellite {
@@ -61,10 +41,14 @@ body {
 	position: relative;
 	text-align: left;
 	margin: auto;
-	margin-top: $s * 2;
+	margin-top: $s * 4;
 	float: left;
 }
+
+
+/* Change box model for satellite */
 .satellite {
+	@include box-sizing(content-box);
 	@include transition(transform 0.3s ease);
 }
 .satellite-l { width: $s * 4; }
