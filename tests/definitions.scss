@@ -1,0 +1,124 @@
+$red:	#f04031;
+$red_t:	#f68d69;
+$red_l:	#f05948;
+$green:	#02a24b;
+$green_t:	#67c18d;
+$green_l:	#0ab26b;
+$blue:	#00a2d3;
+$blue_t:	#48c7e9;
+$blue_l:	#00b9e4;
+$yellow:	#ffcb06;
+$yellow_t:	#fff200;
+$yellow_l:	#ffde00;
+$orange:	#f6881f;
+$orange_t:	#fbb675;
+$orange_l:	#f9a04a;
+$purple:	#662d8f;
+$purple_t:	#7d71b4;
+$purple_l:	#7c52a1;
+$black_t:	#777777;
+$black_l:	#444444;
+$black:	#000000;
+$s: 1em;
+$step_s: $s * 0.25;
+$step_m: $s * 0.5;
+$step_l: $s;
+$step_b: $s * 2;
+$transform_rot_x_neg_iso: rotateX(-35.264deg);
+$transform_rot_x_pos_iso: rotateX(35.264deg);
+$transform_rot_y_neg_iso: rotateY(-45deg);
+$transform_rot_y_pos_iso: rotateY(45deg);
+$transform_rot_y_neg_iso_big: rotateY(-405deg);
+$transform_rot_y_pos_iso_big: rotateY(405deg);
+$transform_rot_x_neg_90: rotateX(-90deg);
+$transform_rot_x_pos_90: rotateX(90deg);
+$transform_rot_x_neg_45: rotateX(-45deg);
+$transform_rot_x_pos_45: rotateX(45deg);
+$transform_rot_y_neg_90: rotateY(-90deg);
+$transform_rot_y_pos_90: rotateY(90deg);
+$transform_rot_y_neg_45: rotateY(-45deg);
+$transform_rot_y_pos_45: rotateY(45deg);
+$transform_x_neg_s: translateX(-$step_s);
+$transform_x_neg_m: translateX(-$step_m);
+$transform_x_neg_l: translateX(-$step_l);
+$transform_x_pos_s: translateX($step_s);
+$transform_x_pos_m: translateX($step_m);
+$transform_x_pos_l: translateX($step_l);
+$transform_x_pos_b: translateX($step_b);
+$transform_x_pos_b2: translateX($step_b*2);
+$transform_y_neg_s: translateY(-$step_s);
+$transform_y_neg_m: translateY(-$step_m);
+$transform_y_neg_l: translateY(-$step_l);
+$transform_y_pos_s: translateY($step_s);
+$transform_y_pos_m: translateY($step_m);
+$transform_y_pos_l: translateY($step_l);
+$transform_z_pos_s: translateZ($step_s);
+$transform_z_pos_m: translateZ($step_m);
+$transform_z_pos_l: translateZ($step_l);
+$transform_z_pos_b: translateZ($step_b);
+$transform_z_neg_s: translateZ(-$step_s);
+$transform_z_neg_m: translateZ(-$step_m);
+$transform_z_neg_l: translateZ(-$step_l);
+$transform_z_neg_b: translateZ(-$step_b);
+$transform_z_neg_b2: translateZ(-$step_b*2);
+$transform_x_neg_50pc: translateX(-50%);
+$transform_y_neg_50pc: translateY(-50%);
+$scale: scale(1.24);
+$spin: $transform_rot_x_neg_iso $transform_rot_y_pos_iso_big;
+$aspin: $transform_rot_y_neg_iso_big $transform_rot_x_pos_iso;
+$rot: 10s;
+
+
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	   -moz-border-radius: $radius;
+	    -ms-border-radius: $radius;
+	        border-radius: $radius;
+}
+@mixin transition($transition) {
+	-webkit-transition: $transition;
+	   -moz-transition: $transition;
+	    -ms-transition: $transition;
+	     -o-transition: $transition;
+	        transition: $transition;
+}
+@mixin transform($transform) {
+	-webkit-transform: $transform;
+	   -moz-transform: $transform;
+	    -ms-transform: $transform;
+	     -o-transform: $transform;
+	        transform: $transform;
+}
+@mixin transform-origin($origin) {
+	-webkit-transform-origin: $origin;
+	   -moz-transform-origin: $origin;
+	    -ms-transform-origin: $origin;
+	     -o-transform-origin: $origin;
+	        transform-origin: $origin;
+}
+@mixin box-sizing($sizing) {
+	-webkit-box-sizing: $sizing;
+	   -moz-box-sizing: $sizing;
+	        box-sizing: $sizing;
+}
+@mixin animation-duration($d) {
+	-webkit-animation-duration: $d;
+	   -moz-animation-duration: $d;
+	        animation-duration: $d;
+}
+@mixin animation-iteration-count($count) {
+	-webkit-animation-iteration-count: $count;
+	   -moz-animation-iteration-count: $count;
+	        animation-iteration-count: $count;
+}
+@mixin animation-timing-function($fn){
+	-webkit-animation-timing-function: $fn;
+	   -moz-animation-timing-function: $fn; 
+	        animation-timing-function: $fn;
+}
+@mixin animation-name($name){
+	-webkit-animation-name: $name;
+	   -moz-animation-name: $name;
+	        animation-name: $name;
+}

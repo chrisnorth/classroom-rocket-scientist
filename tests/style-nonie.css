@@ -1,0 +1,48 @@
+.threeD .slot0x2 .face.left,
+.threeD .slot0x2 .face.right,
+.threeD .slot1x1 .face.left,
+.threeD .slot1x1 .face.right,
+.threeD .slot1x2 .face.left,
+.threeD .slot1x2 .face.right {
+  width: 1em; }
+
+.threeD .slot0x2 .face.top {
+  height: 1em; }
+
+.threeD .slot2x2 .face.left,
+.threeD .slot2x2 .face.right,
+.threeD .slot2x4 .face.left,
+.threeD .slot2x4 .face.right {
+  width: 2em; }
+
+.threeD .slot1x1 .face.top,
+.threeD .slot1x2 .face.top,
+.threeD .slot2x2 .face.top,
+.threeD .slot2x4 .face.top {
+  height: 200%; }
+
+.threeD .slot2x4.down .face.left,
+.threeD .slot2x4.down .face.right,
+.threeD .slot2x4.up .face.left,
+.threeD .slot2x4.up .face.right {
+  width: 200%; }
+
+.threeD .slot2x4.down .face.left,
+.threeD .slot2x4.down .face.right,
+.threeD .slot2x4.up .face.left,
+.threeD .slot2x4.up .face.right {
+  height: 100%; }
+
+.threeD .slot2x4.up .face.top {
+  height: 100%; }
+
+.threeD .slot2x4.down .face.top {
+  height: 100%; }
+
+.threeD .slot4x8 .face.left, .threeD .slot4x8 .face.right {
+  width: 100%; }
+
+.threeD .slot4x8 .face.top {
+  height: 200%; }
+
+/*# sourceMappingURL=style-nonie.css.map */
