@@ -280,14 +280,15 @@
 			"slot":	"0x2",
 			"title": "Radio antenna (deployable)",
 			"description": "For up to 2 instruments",
-			"mass": { "value": 0.5, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"mass": { "value": 0.1, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 4500, "units": "EUR", "dimension": "currency" },
 			"dimensions": [
-				{ "value": 0.55, "units": "metres", "dimension": "length" },
-				{ "value": 0.55, "units": "metres", "dimension": "length" },
+				{ "value": 0.98, "units": "metres", "dimension": "length" },
+				{ "value": 0.98, "units": "metres", "dimension": "length" },
 				{ "value": 0.07, "units": "metres", "dimension": "length" }
 			],
-			"power": { "value": 0, "units": "watts", "dimension": "power" }
+			"power": { "value": 2, "units": "watts", "dimension": "power" },
+			"ref": "http://cubesatshop.com/index.php?page=shop.product_details&category_id=6&flypage=flypage.tpl&product_id=66&option=com_virtuemart&Itemid=70&vmcchk=1&Itemid=70"
 		},
 		"battery_large": {
 			"slot":	"2x2",
