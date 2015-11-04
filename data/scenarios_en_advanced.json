@@ -16,15 +16,20 @@
 					"label": "A satellite that is small or larger.",
 					"error": "Your satellite must be big enough for your mission."
 				},{
-					"type": "instrument",
+					"type": "package",
 					"oneof": ["atomicclock"],
 					"label": "Wavelength coverage from sub-mm to far-IR.",
 					"error": "You are not able to observe the required wavelengths."
 				},{
-					"type": "instrument",
+					"type": "package",
 					"oneof": ["radio_tx"],
 					"label": "A way to send signals.",
 					"error": "You do not have any way to transmit timing signals to people on the ground."
+				},{
+					"type": "orbit",
+					"oneof": ["MEO","HEO","GEO"],
+					"label": "See the whole planet.",
+					"error": "The orbit you have chosen does not allow you to see the whole planet"
 				}]
 			}
 		],
