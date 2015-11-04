@@ -198,6 +198,7 @@ $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 	@include box-sizing(border-box);
 	border: 1px solid rgba(255,255,255,0.3);
 	@include transform-origin(0 0);
+	z-index: 2;
 }
 
 .satellite.solar-fixed .solar-left .face.front, .satellite.solar-fixed .row:first-child .solar-left .face.top { border-left: 4px solid $blue; }
@@ -235,7 +236,7 @@ $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 .threeD .satellite.satellite-c {
 	@include transform( $transform_y_neg_l $scale $transform_rot_x_neg_iso $transform_rot_y_pos_iso );
 }
-.threeD .satellite.spin, .threeD .satellite.spin .hemisphere, .threeD .satellite.spin .face {
+.threeD .satellite.spin, .threeD .satellite.spin .hemisphere, .threeD .satellite.spin .face, .threeD .satellite.spin .solar-panels {
 	@include animation-duration( $rot );
 	@include animation-iteration-count( infinite );
 	@include animation-timing-function( linear );
@@ -249,14 +250,57 @@ $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 .threeD .satellite:hover .row {
 	animation-name: none;
 }
-
+.threeD .satellite.spin .face.front {
+	@include animation-delay( -$rot*0.375 );
+	@include animation-name( spin-show );
+}
+.threeD .satellite.spin .face.top {
+	z-index:3;
+}
+.threeD .satellite.spin .face.left {
+	@include animation-delay( -$rot*0.125 );
+	@include animation-name( spin-show );
+}
+.threeD .satellite.spin .face.back {
+	@include animation-delay( $rot*0.125 );
+	@include animation-name( spin-show );
+}
+.threeD .satellite.spin .face.right {
+	@include animation-delay( -$rot*0.625 );
+	@include animation-name( spin-show );
+}
+.threeD .satellite.spin .solar-panels:nth-child(1) {
+	@include animation-delay( -$rot*0.125 );
+	@include animation-name( tofront );
+}
+.threeD .satellite.spin .solar-panels:nth-child(2),.threeD .satellite.spin .slot.up .face {
+	@include animation-delay( -$rot*0.125 );
+	@include animation-name( toback );
+}
 @-webkit-keyframes spin { 100% { -webkit-transform: $transform_y_neg_l $transform_x_neg_s $scale $spin; } }
 @-moz-keyframes spin { 100% { -moz-transform: $transform_y_neg_l $transform_x_neg_s $scale $spin;  } }
+@-o-keyframes spin { 100% { -o-transform: $transform_y_neg_l $transform_x_neg_s $scale $spin;  } }
 @keyframes spin { 100% { transform: $transform_y_neg_l $transform_x_neg_s $scale  $spin  } }
 
 @-webkit-keyframes spin-c { 100% { -webkit-transform: $transform_y_neg_l $scale $spin; } }
 @-moz-keyframes spin-c { 100% { -moz-transform: $transform_y_neg_l $scale $spin; } }
+@-o-keyframes spin-c { 100% { -o-transform: $transform_y_neg_l $scale $spin; } }
 @keyframes spin-c { 100% { transform: $transform_y_neg_l $scale $spin; } }
+
+@-webkit-keyframes tofront { 0% { z-index: 300; } 49.8% { z-index: 300; } 50% { z-index: 1; } 99.9% { z-index: 1; } }
+@-moz-keyframes tofront { 0% { z-index: 300; } 49.8% { z-index: 300; } 50% { z-index: 1; } 99.9% { z-index: 1; } }
+@-o-keyframes tofront { 0% { z-index: 300; } 49.8% { z-index: 300; } 50% { z-index: 1; } 99.9% { z-index: 1; } }
+@keyframes tofront { 0% { z-index: 300; } 49.8% { z-index: 300; } 50% { z-index: 1; } 99.9% { z-index: 1; } }
+
+@-webkit-keyframes toback { 0% { z-index: 1; } 49.8% { z-index: 1; } 50% { z-index: 300; } 99.9% { z-index: 300; } }
+@-moz-keyframes toback { 0% { z-index: 1; } 49.8% { z-index: 1; } 50% { z-index: 300; } 99.9% { z-index: 300; } }
+@-o-keyframes toback { 0% { z-index: 1; } 49.8% { z-index: 1; } 50% { z-index: 300; } 99.9% { z-index: 300; } }
+@keyframes toback { 0% { z-index: 1; } 49.8% { z-index: 1; } 50% { z-index: 300; } 99.9% { z-index: 300; } }
+
+@-webkit-keyframes spin-show { 0% { opacity: 1; } 49.9% { opacity: 1; } 50% { opacity: 0; } 99.9% { opacity: 0; } }
+@-moz-keyframes spin-show { 0% { opacity: 1; } 49.9% { opacity: 1; } 50% { opacity: 0; } 99.9% { opacity: 0; } }
+@-o-keyframes spin-show { 0% { opacity: 1; } 49.9% { opacity: 1; } 50% { opacity: 0; } 99.9% { opacity: 0; } }
+@keyframes spin-show { 0% { opacity: 1; } 49.9% { opacity: 1;  } 50% { opacity: 0; } 99.9% { opacity: 0; } }
 
 .threeD .slot,.threeD .slot .faces {
 	@include transform-style( preserve-3d );
@@ -319,7 +363,7 @@ $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 	margin-top: -$s * 1.1;
 	@include triangle-r($s*1,$s*2,$black_l);
 }
-.solar-panels:first-child {
+.solar-panels:nth-child(1) {
 	z-index: 100;
 	padding-right: $s;
 	right: 50%;

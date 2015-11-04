@@ -137,6 +137,12 @@ $trans: 0.3s;
 	   -moz-animation-name: $name;
 	        animation-name: $name;
 }
+@mixin animation-delay($d){
+	-webkit-animation-delay: $d;
+	   -moz-animation-delay: $d;
+	     -o-animation-delay: $d;
+	        animation-delay: $d;
+}
 @mixin triangle-r($w,$h,$c){
 	width: 0;
 	height: 0;

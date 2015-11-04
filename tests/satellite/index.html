@@ -19,6 +19,10 @@
 		var ids = ['sat-l','sat-m','sat-s','sat-c'];
 		for(var j = 0; j < ids.length; j++) toggleClass(document.getElementById(ids[j]),'solar-fixed');
 	}
+	function toggleAnimation(){
+		var ids = ['sat-l','sat-m','sat-s','sat-c'];
+		for(var j = 0; j < ids.length; j++) toggleClass(document.getElementById(ids[j]),'spin');
+	}
 	function setSolar(n){
 		var ids = ['sat-l','sat-m'];
 		var ul = "<ul>";
@@ -109,9 +113,10 @@
 		<button onClick="zoom(1/1.1)">&minus;</button>
 		<button onClick="addSolar()">&plus; solar panel</button>
 		<button onClick="removeSolar()">&minus; solar panel</button>
-		<button onClick="toggle3D()">Toggle 3D!</button>
 		<button onClick="toggleComms()">Toggle communications</button>
 		<button onClick="toggleSolar()">Toggle fixed solar panels</button>
+		<button onClick="toggle3D()">Toggle 3D!</button>
+		<button onClick="toggleAnimation()">Toggle animation!</button>
 		<!--button onClick="setSolar(1)">1 solar panel</button-->
 	</div>
 
