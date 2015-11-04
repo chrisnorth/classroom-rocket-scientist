@@ -94,6 +94,10 @@ $trans: 0.3s;
 	     -o-transform: $transform;
 	        transform: $transform;
 }
+@mixin transform-style($transform) {
+	-webkit-transform-style: $transform;
+	        transform-style: $transform;
+}
 @mixin transform-origin($origin) {
 	-webkit-transform-origin: $origin;
 	   -moz-transform-origin: $origin;

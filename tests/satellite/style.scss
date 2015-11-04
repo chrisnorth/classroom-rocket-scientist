@@ -179,10 +179,7 @@ body {
 	background-color: $blue;
 }
 .satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .satellite .solar-panel {
-	background-image: linear-gradient(white 2px, transparent 2px),
-	linear-gradient(90deg, white 2px, transparent 2px),
-	linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
-	linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+	background-image: -webkit-linear-gradient(white 2px, transparent 2px), -webkit-linear-gradient(0deg, white 2px, transparent 2px), -webkit-linear-gradient(rgba(255, 255, 255, .3) 1px, transparent 1px), -webkit-linear-gradient(0deg, rgba(255, 255, 255, .3) 1px, transparent 1px);
 	background-size: $s $s, $s $s, $s * 0.2 $s * 0.2, $s * 0.2 $s * 0.2;
 	background-position: -1px -2px, -1px -1px, -1px -1px, -1px -1px;
 	box-sizing: border-box;
@@ -192,11 +189,11 @@ body {
 .video .face.front, .video .face.top, .video .face.left, .video .face.right, .video .face.back { background-image: url('video.png'); background-size: 100% 100%; background-repeat: none; }
 
 .threeD .row, .threeD .solar-panels {
-	transform-style: preserve-3d;
+	@include transform-style( preserve-3d );
 }
 
 .threeD .satellite {
-	transform-style: preserve-3d;
+	@include transform-style( preserve-3d );
 	@include transform-origin( 50% 0% 0 );
 	@include transform( $transform_y_neg_l $transform_x_neg_s $scale $transform_rot_x_neg_iso $transform_rot_y_pos_iso );
 }
@@ -228,7 +225,7 @@ body {
 @keyframes spin-c { 100% { transform: $transform_y_neg_l $scale $spin; } }
 
 .threeD .slot,.threeD .slot .faces {
-	transform-style: preserve-3d;
+	@include transform-style( preserve-3d );
 	@include transform-origin( 100% 100% );
 }
 
@@ -295,7 +292,7 @@ body {
 
 .radio .face { display: none; }
 .threeD .row .radio {
-	transform-style: preserve-3d;
+	@include transform-style( preserve-3d );
 }
 
 
@@ -413,11 +410,11 @@ $aerial2: translateX($s * 0.65) translateY(-$s * 0.65);
 }
 .threeD .satellite.spin .slot2x4 .hemisphere {
 	@include animation-name( antispin );
-	transform-style: preserve-3d;
+	@include transform-style( preserve-3d );
 }
 .threeD .satellite.spin .slot4x8 .hemisphere {
 	@include animation-name( antispin_big );
-	transform-style: preserve-3d;
+	@include transform-style( preserve-3d );
 }
 
 @-webkit-keyframes antispin { 100% { -webkit-transform: $transform_z_neg_l $aspin; } }

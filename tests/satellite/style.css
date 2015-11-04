@@ -349,7 +349,7 @@ body {
   background-color: #00a2d3; }
 
 .satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .satellite .solar-panel {
-  background-image: linear-gradient(white 2px, transparent 2px), linear-gradient(90deg, white 2px, transparent 2px), linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+  background-image: -webkit-linear-gradient(white 2px, transparent 2px), -webkit-linear-gradient(0deg, white 2px, transparent 2px), -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px), -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
   background-size: 1.5em 1.5em, 1.5em 1.5em, 0.3em 0.3em, 0.3em 0.3em;
   background-position: -1px -2px, -1px -1px, -1px -1px, -1px -1px;
   box-sizing: border-box; }
@@ -368,9 +368,11 @@ body {
   background-repeat: none; }
 
 .threeD .row, .threeD .solar-panels {
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d; }
 
 .threeD .satellite {
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   -webkit-transform-origin: 50% 0% 0;
   -moz-transform-origin: 50% 0% 0;
@@ -433,6 +435,7 @@ body {
   100% {
     transform: translateY(-1.5em) scale(1.24) rotateX(-35.264deg) rotateY(405deg); } }
 .threeD .slot, .threeD .slot .faces {
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   -webkit-transform-origin: 100% 100%;
   -moz-transform-origin: 100% 100%;
@@ -601,6 +604,7 @@ body {
   display: none; }
 
 .threeD .row .radio {
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d; }
 
 /* Start of hemisphere CSS */
@@ -855,12 +859,14 @@ body {
   -webkit-animation-name: antispin;
   -moz-animation-name: antispin;
   animation-name: antispin;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d; }
 
 .threeD .satellite.spin .slot4x8 .hemisphere {
   -webkit-animation-name: antispin_big;
   -moz-animation-name: antispin_big;
   animation-name: antispin_big;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d; }
 
 @-webkit-keyframes antispin {
