@@ -394,12 +394,14 @@ body {
 .photo .face.front, .photo .face.top, .photo .face.left, .photo .face.right, .photo .face.back {
   background-image: url("foil.jpg");
   background-size: 100% 100%;
-  background-repeat: none; }
+  background-repeat: none;
+  border: 0px; }
 
 .video .face.front, .video .face.top, .video .face.left, .video .face.right, .video .face.back {
   background-image: url("foil.jpg");
   background-size: 100% 100%;
-  background-repeat: none; }
+  background-repeat: none;
+  border: 0px; }
 
 .threeD .row, .threeD .solar-panels {
   -webkit-transform-style: preserve-3d;
