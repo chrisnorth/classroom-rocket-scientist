@@ -19,7 +19,10 @@ $purple_l:	#7c52a1;
 $black_t:	#777777;
 $black_l:	#444444;
 $black:	#000000;
-$s: 1em;
+$grey_t:	#cccccc;
+$grey_l:	#bbbbbb;
+$grey:	#999999;
+$s: 1.5em;
 $step_s: $s * 0.25;
 $step_m: $s * 0.5;
 $step_l: $s;
@@ -66,7 +69,8 @@ $transform_y_neg_50pc: translateY(-50%);
 $scale: scale(1.24);
 $spin: $transform_rot_x_neg_iso $transform_rot_y_pos_iso_big;
 $aspin: $transform_rot_y_neg_iso_big $transform_rot_x_pos_iso;
-$rot: 10s;
+$rot: 36s;
+$trans: 0.3s;
 
 
 
@@ -101,6 +105,11 @@ $rot: 10s;
 	-webkit-box-sizing: $sizing;
 	   -moz-box-sizing: $sizing;
 	        box-sizing: $sizing;
+}
+@mixin box-shadow($shadow){
+	-webkit-box-shadow: $shadow;
+	   -moz-box-shadow: $shadow;
+	        box-shadow: $shadow;
 }
 @mixin animation-duration($d) {
 	-webkit-animation-duration: $d;

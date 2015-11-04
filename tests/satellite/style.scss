@@ -36,12 +36,11 @@ body {
 #content { display: table; margin: auto; margin-top: $s * 2; }
 .holder { display: table-cell; }
 .holder .satellite {
-	font-size: 26px;
+	font-size: 1em;
 	padding: $s * 2;
 	position: relative;
 	text-align: left;
 	margin: auto;
-	margin-top: $s * 4;
 	float: left;
 }
 
@@ -49,7 +48,7 @@ body {
 /* Change box model for satellite */
 .satellite {
 	@include box-sizing(content-box);
-	@include transition(transform 0.3s ease);
+	@include transition(all $trans ease);
 }
 .satellite-l { width: $s * 4; }
 .satellite-m { width: $s * 2; }
@@ -137,9 +136,17 @@ body {
 .slot1x2 .face.front,
 .slot1x2 .face.back { background: $orange; }
 
-.slot:hover .face.front, .slot:hover .face.back, .antenna .face.front { background: $black; }
-.slot:hover .face.left, .slot:hover .face.right, .antenna .face.left { background: $black_l; }
-.slot:hover .face.top, .antenna .face.top { background: $black_t; }
+.slot-empty:hover .face.front, .slot-empty:hover .face.back { background: $black; }
+.slot-empty:hover .face.left, .slot-empty:hover .face.right { background: $black_l; }
+.slot-empty:hover .face.top { background: $black_t; }
+
+.slot-empty .face.front, .slot-empty .face.back { background: $grey; }
+.slot-empty .face.left, .slot-empty .face.right { background: $grey_l; }
+.slot-empty .face.top { background: $grey_t; }
+
+.antenna .face.front { background: $black; }
+.antenna .face.left { background: $black_l; }
+.antenna .face.top { background: $black_t; }
 
 .slot .faces {
 	position: absolute;
@@ -180,17 +187,9 @@ body {
 	background-position: -1px -2px, -1px -1px, -1px -1px, -1px -1px;
 	box-sizing: border-box;
 }
-.satellite.solar-fixed .solar-right .face.front { border-right: 2px solid $blue; }
-.photo .face.front {
-	background-image: url('photo.png');
-	background-size: 100% 100%;
-	background-repeat: none;
-}
-.video .face.front {
-	background-image: url('video.png');
-	background-size: 100% 100%;
-	background-repeat: none;
-}
+.satellite.solar-fixed .solar-right .face.front { border-right: 4px solid $blue; }
+.photo .face.front, .photo .face.top, .photo .face.left, .photo .face.right, .photo .face.back { background-image: url('photo.png'); background-size: 100% 100%; background-repeat: none; }
+.video .face.front, .video .face.top, .video .face.left, .video .face.right, .video .face.back { background-image: url('video.png'); background-size: 100% 100%; background-repeat: none; }
 
 .threeD .row, .threeD .solar-panels {
 	transform-style: preserve-3d;
@@ -274,7 +273,7 @@ body {
 .solar-panels {
 	position: absolute;
 	display: block;
-	width: $s * 10;
+	width: $s * 10.5;
 	margin-top: $s * 2;
 }
 .solar-panels:first-child {
@@ -289,8 +288,8 @@ body {
 }
 .solar-panels ul { display: block; margin: 0px; margin-top:-2px; padding: 0px; border-top: 4px solid black; }
 .solar-panels ul li { display: inline-block; margin: 0px; padding: 0px; margin-top: -$s * 1.05; width: $s * 2; height: $s * 2; }
-.solar-panels:nth-child(1) ul { padding-right: $s; float: right; }
-.solar-panels:nth-child(2) ul { padding-left: $s; float: left; }
+.solar-panels:nth-child(1) ul { padding-right: $s * 1.5; float: right; }
+.solar-panels:nth-child(2) ul { padding-left: $s * 1.5; float: left; }
 .solar-panels:nth-child(1) ul li { float:left; }
 .solar-panels:nth-child(2) ul li { float:right; }
 
@@ -311,7 +310,7 @@ body {
 	position: absolute;
 	margin: auto;
 	top: 0%;
-	@include transition( all 0.3s ease );
+	@include transition( all $trans ease );
 }
 .hemisphere.south{
 	top: -100%;
@@ -331,24 +330,27 @@ body {
 	width: 50%;
 	height: 100%;
 }
-.north .dome { box-shadow: inset -0.2em -0 0.2em -0.05em rgba(0,0,0,0.25); top: 0%; border-radius: 1em 1em 0 0; }
-.south .dome { box-shadow: inset #{-$s * 0.2} #{-$s * 0.2} #{$s * 0.2} #{-$s * 0.05} rgba(0,0,0,0.25); border-radius: 0 0 $s $s; }
-.east .dome { box-shadow: inset #{-$s * 0.2} #{-$s * 0.2} #{$s * 0.2} #{-$s * 0.05} rgba(0,0,0,0.25); border-radius: 0 $s $s 0; }
-.west .dome { box-shadow: inset #{-$s * 0.2} #{-$s * 0.2} #{$s * 0.2} #{-$s * 0.05} rgba(0,0,0,0.25); left: 0%; border-radius: $s 0 0 $s; }
+$inset: inset #{-$s * 0.2} #{-$s * 0.2} #{$s * 0.2} #{-$s * 0.05} rgba(0,0,0,0.25);
+$ss: $s*0.11 $s*0.1 6px -10px rgba(0,0,0,0.3), $inset;
+.north .dome { @include box-shadow( inset -0.2em -0 0.2em -0.05em rgba(0,0,0,0.25) ); top: 0%; border-radius: 1em 1em 0 0; }
+.south .dome { @include box-shadow( $inset ); border-radius: 0 0 $s $s; }
+.threeD .south .dome { @include box-shadow( $ss ); border-radius: 0 0 $s $s; }
+.east .dome { @include box-shadow( inset #{-$s * 0.2} #{-$s * 0.2} #{$s * 0.2} #{-$s * 0.05} rgba(0,0,0,0.25) ); border-radius: 0 $s $s 0; }
+.west .dome { @include box-shadow( inset #{-$s * 0.2} #{-$s * 0.2} #{$s * 0.2} #{-$s * 0.05} rgba(0,0,0,0.25) ); left: 0%; border-radius: $s 0 0 $s; }
 .inner, .dome {
 	position: absolute;
 	margin: 0px;
 	top: 50%;
 	left: 0;
 }
-$dometrans: height 0.3s ease, border-radius 0.3s ease;
+$dometrans: height $trans ease, border-radius $trans ease;
 .inner, .dome, .inner:after {
 	@include transition( $dometrans );
 }
 .inner {
 	border-radius: 100%;
 }
-.inner:after { width: 4px; height: 0.2em; background: #999999; border-top-left-radius: 100%; border-top-right-radius: 100%; position:absolute; content: ""; left: 50%; margin-left: -2px; bottom: 0%; }
+.inner:after { width: $s * 0.04; height: $s * 0.15; background: #999999; border-top-left-radius: 100%; border-top-right-radius: 100%; position:absolute; content: ""; left: 50%; margin-left: -2px; bottom: 0%; }
 .north .inner:after { border-radius: 0; border-bottom-left-radius: 100%; height: 0.1em; border-bottom-right-radius: 100%; top: 0%; bottom: auto; }
 .threeD .inner:after { height: 0.3em; }
 .north .inner, .south .inner {
@@ -386,22 +388,23 @@ $dometrans: height 0.3s ease, border-radius 0.3s ease;
 	width: 85%;
 	border-radius: 0.85em 0.75em 0.75em 0.85em / 1em 1em 1em 1em;
 }
-.south .inner { box-shadow: inset 0.3em -0.1em 0.2em -0.05em rgba(0,0,0,0.2); }
-.north .inner { box-shadow: inset 0.3em 0.1em 0.2em -0.05em rgba(0,0,0,0.2); }
-.east .inner { box-shadow: inset 0.15em 0.1em 0.2em -0.1em rgba(0,0,0,0.2); }
-.west .inner { box-shadow: inset 0.25em 0.2em 0.2em -0.05em rgba(0,0,0,0.2); }
+.south .inner { @include box-shadow( inset 0.3em -0.1em 0.2em -0.05em rgba(0,0,0,0.2) ); }
+.north .inner { @include box-shadow( inset 0.3em 0.1em 0.2em -0.05em rgba(0,0,0,0.2) ); }
+.east .inner { @include box-shadow( inset 0.15em 0.1em 0.2em -0.1em rgba(0,0,0,0.2) ); }
+.west .inner { @include box-shadow( inset 0.25em 0.2em 0.2em -0.05em rgba(0,0,0,0.2) ); }
 .threeD .slot2x4 .hemisphere {
 	@include transform( $transform_z_neg_l $transform_rot_y_neg_45 $transform_rot_x_pos_iso );
 }
 .threeD .slot4x8 .hemisphere {
 	@include transform( $transform_z_neg_b $transform_rot_y_neg_45 $transform_rot_x_pos_iso );
 }
-.aerial { width: $s * 3; height: 0; border: $s * 0.1 solid $black_t; position: absolute; }
+.antenna .face { border: 0px; }
+.aerial { width: $s * 3; height: 0; border: $s * 0.1 solid $black_t; position: absolute; z-index: 100; }
 .aerial1 { border-left: 0px; border-bottom: 0px; right: 0px; bottom: 0px; }
 .aerial2 { border-right: 0px; border-top: 0px; left: 0px; bottom: 0px; }
 .threeD .aerial { height: $s * 3; }
-$aerial1: translateX(-$s * 0.8) translateY($s * 2.8);
-$aerial2: translateX($s * 0.8) translateY(-$s * 0.8);
+$aerial1: translateX(-$s * 0.65) translateY($s * 2.65);
+$aerial2: translateX($s * 0.65) translateY(-$s * 0.65);
 .threeD .aerial1 {
 	@include transform( $aerial1 );
 }

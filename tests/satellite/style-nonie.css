@@ -4,16 +4,16 @@
 .threeD .slot1x1 .face.right,
 .threeD .slot1x2 .face.left,
 .threeD .slot1x2 .face.right {
-  width: 1em; }
+  width: 1.5em; }
 
 .threeD .slot0x2 .face.top {
-  height: 1em; }
+  height: 1.5em; }
 
 .threeD .slot2x2 .face.left,
 .threeD .slot2x2 .face.right,
 .threeD .slot2x4 .face.left,
 .threeD .slot2x4 .face.right {
-  width: 2em; }
+  width: 3em; }
 
 .threeD .slot1x1 .face.top,
 .threeD .slot1x2 .face.top,
