@@ -6,11 +6,10 @@
 	<!--[if !IE]> -->
 	<link href="style-nonie.css" rel="stylesheet" type="text/css" media="screen" />
 	<!-- <![endif]-->
-
-	<script>
+	<script type="text/javascript">
 	var z = 1;
 	function toggle3D(){
-		toggleClass(document.getElementById('content'),'threeD');
+		toggleClass(document.body,'threeD');
 	}
 	function zoom(factor){
 		z *= factor;
@@ -26,8 +25,8 @@
 	}
 	function setSolar(n){
 		var ids = ['sat-l','sat-m'];
-		var ul = '<ul>'
-		for(var i = 0; i < n; i++) ul += '<li class="solar-panel"><\/li>';
+		var ul = "<ul>";
+		for(var i = 0; i < n; i++) ul += "<li class=\"solar-panel\"><\/li>";
 		ul += '<\/ul>';
 		for(var j = 0; j < ids.length; j++){
 			el = document.getElementById(ids[j]);
@@ -86,22 +85,18 @@
 			toggleClass(els[0],'slot-empty');
 		}
 	}
-	/* Unit tests
-	tests = [{className:'test',ok:true},{className:'test another',ok:true},{className:'another test',ok:true},{className:'another test another',ok:true},{className:'another test-another',ok:false},{className:'test-another',ok:false},{className:'another another-test',ok:false},{className:'another -test',ok:false},{className:'anothertest',ok:false}];
-	for(var i = 0;i < tests.length; i++){
-		var found = hasClass(tests[i],'test');
-		console.log((tests[i].ok==found ? "PASSED": "FAILED"),tests[i],hasClass(tests[i],'test'));
-	}*/
+	// Remove a DOM element
 	function removeEl(el){
 		if(typeof el.remove==="function") el.remove(el);
 		else if(typeof el.parentElement.removeChild==="function") el.parentElement.removeChild(el);
 	}
-	
+	// Check if a DOM element has the specified class
 	function hasClass(el,cls){
 		if(!el) return false;
 		if(el.className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) return true;
 		else return false;
 	}
+	// Toggle a class on a DOM element
 	function toggleClass(el,cls){
 		if(!el) return;
 		// Remove/add it
@@ -109,20 +104,7 @@
 		else el.className += ' '+cls;
 		return el;
 	}
-	
-
 	</script>
-	<style>
-	body {
-		display: table;
-		height: 100%;
-		width: 100%;
-		background: #e1f4fe;
-	}
-	.holder {
-		padding-top: 2em;
-	}
-	</style>
 </head>
 <body>
 

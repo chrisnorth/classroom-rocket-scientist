@@ -25,15 +25,38 @@ table { border-collapse: collapse; border-spacing: 0; }
 /* End of reset */
 
 html, head { height: 100%; }
+
 body {
 	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	width: 100%;
+	display: table;
+	height: 100%;
 	width: 100%;
 }
 
 .clear { clear: both; }
 .size { padding: $s * 2; text-align: center; }
 
-#content { display: table; margin: auto; margin-top: $s * 2; }
+$pattern_a: transparent 49%, white 49.4%, white 50.6%, transparent 51%, transparent;
+$pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
+#content {
+	display: table;
+	margin: auto;
+	margin-top: $s;
+	padding: $s * 2 $s * 8;
+	background: #e1f4fe;
+	background-image: -webkit-linear-gradient(0deg, $pattern_b), -webkit-linear-gradient(-90deg, $pattern_b);
+	background-image: linear-gradient(0deg, $pattern_b), linear-gradient(-90deg, $pattern_b);
+	background-size: $s*2 $s*2;
+	background-position: 0 0, 0 0;
+	overflow: hidden;
+}
+.threeD #content {
+	background-image: -webkit-linear-gradient(60deg, $pattern_a), -webkit-linear-gradient(-60deg, $pattern_a);
+	background-image: linear-gradient(30deg, $pattern_a), linear-gradient(-30deg, $pattern_a);
+	background-size: $s*3.5264 $s*3.5264*63/110;
+	background-position: 0 0, 0 0;
+}
 .holder { display: table-cell; }
 .holder .satellite {
 	font-size: 1em;
