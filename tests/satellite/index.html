@@ -60,7 +60,7 @@
 		}
 	}
 	
-	function toggleDish(){
+	function toggleComms(){
 		var slots = [{'el':'sat-l','cls':'slot4x8','type':'north no-inside'},{'el':'sat-l','cls':'slot2x4','type':'south'},{'el':'sat-m','cls':'slot2x4','type':'south'},{'el':'sat-s','cls':'slot2x4','type':'south'}];
 		var el,radio,cls,i,i2;
 		for(var s = 0; s < slots.length; s++){
@@ -71,8 +71,6 @@
 			toggleClass(els[0],'radio');
 			toggleClass(els[0],'slot-empty');
 		}
-	}
-	function toggleAntenna(){
 		var slots = [{'el':'sat-c','cls':'slot0x2'}];
 		var el,aerial,top,cls,i,i2,ant;
 		for(var s = 0; s < slots.length; s++){
@@ -131,8 +129,7 @@
 		<button onClick="addSolar()">&plus; solar panel</button>
 		<button onClick="removeSolar()">&minus; solar panel</button>
 		<button onClick="toggle3D()">Toggle 3D!</button>
-		<button onClick="toggleDish()">Toggle dishes</button>
-		<button onClick="toggleAntenna()">Toggle antenna</button>
+		<button onClick="toggleComms()">Toggle communications</button>
 		<button onClick="toggleSolar()">Toggle fixed solar panels</button>
 		<!--button onClick="setSolar(1)">1 solar panel</button-->
 	</div>
