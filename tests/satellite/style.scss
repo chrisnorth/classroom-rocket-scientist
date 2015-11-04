@@ -180,6 +180,7 @@ body {
 }
 .satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .satellite .solar-panel {
 	background-image: -webkit-linear-gradient(white 2px, transparent 2px), -webkit-linear-gradient(0deg, white 2px, transparent 2px), -webkit-linear-gradient(rgba(255, 255, 255, .3) 1px, transparent 1px), -webkit-linear-gradient(0deg, rgba(255, 255, 255, .3) 1px, transparent 1px);
+	background-image: linear-gradient(white 2px, transparent 2px), linear-gradient(90deg, white 2px, transparent 2px), linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
 	background-size: $s $s, $s $s, $s * 0.2 $s * 0.2, $s * 0.2 $s * 0.2;
 	background-position: -1px -2px, -1px -1px, -1px -1px, -1px -1px;
 	box-sizing: border-box;
