@@ -351,35 +351,37 @@ $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 	width: $s * 10.5;
 	margin-top: $s * 2;
 }
-.solar-panels:nth-child(1) ol:before {
-	float: right;
+.solar-panels:nth-child(1) li:last-child:before {
+	position:absolute;
 	content: "";
-	margin-top: -$s * 1.1;
 	@include triangle-l($s*1,$s*2,$black_l);
+	right: $s*0.5;
 }
-.solar-panels:nth-child(2) ol:before {
-	float: left;
+.solar-panels:nth-child(2) li:last-child:before {
+	position: absolute;
 	content: "";
-	margin-top: -$s * 1.1;
 	@include triangle-r($s*1,$s*2,$black_l);
+	left: $s*0.5;
 }
 .solar-panels:nth-child(1) {
 	z-index: 100;
-	padding-right: $s;
+	margin-right: $s;
 	right: 50%;
 }
 .solar-panels:nth-child(2) {
 	z-index: 1;
-	padding-left: $s;
+	margin-left: $s;
 	left: 50%;
 }
 .solar-panels .label { display: none; }
 .solar-panels ol { display: block; margin: 0px; margin-top:-2px; padding: 0px; border-top: $s * 0.2 solid $black_l; }
 .solar-panels ol li { display: inline-block; margin: 0px; padding: 0px; margin-top: -$s * 1.1; width: $s * 2; height: $s * 2; }
-.solar-panels:nth-child(1) ol { padding-right: $s * 0.5; float: right; }
-.solar-panels:nth-child(2) ol { padding-left: $s * 0.5; float: left; }
+.solar-panels:nth-child(1) ol { float: right; }
+.solar-panels:nth-child(2) ol { float: left; }
 .solar-panels:nth-child(1) ol li { float:left; }
 .solar-panels:nth-child(2) ol li { float:right; }
+.solar-panels:nth-child(1) ol li:last-child { margin-right: $s * 1.5; }
+.solar-panels:nth-child(2) ol li:last-child { margin-left: $s * 1.5; }
 
 .radio .face { display: none; }
 .threeD .row .radio {
@@ -491,8 +493,8 @@ $dometrans: height $trans ease, border-radius $trans ease;
 .aerial1 { border-left: 0px; border-bottom: 0px; right: 0px; bottom: 0px; }
 .aerial2 { border-right: 0px; border-top: 0px; left: 0px; bottom: 0px; }
 .threeD .aerial { height: $s * 3; }
-$aerial1: translateX(-$s * 0.65) translateY($s * 2.65);
-$aerial2: translateX($s * 0.65) translateY(-$s * 0.65);
+$aerial1: translateX(-$s * 0.75) translateY($s * 2.75);
+$aerial2: translateX($s * 0.75) translateY(-$s * 0.75);
 .threeD .aerial1 {
 	@include transform( $aerial1 );
 }

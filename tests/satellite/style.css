@@ -766,10 +766,9 @@ body {
   width: 15.75em;
   margin-top: 3em; }
 
-.solar-panels:nth-child(1) ol:before {
-  float: right;
+.solar-panels:nth-child(1) li:last-child:before {
+  position: absolute;
   content: "";
-  margin-top: -1.65em;
   width: 0;
   height: 0;
   border-style: solid;
@@ -777,12 +776,12 @@ body {
   border-color: transparent transparent transparent #444444;
   line-height: 0px;
   _border-color: #000000 #000000 #000000 #444444;
-  _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000'); }
+  _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+  right: 0.75em; }
 
-.solar-panels:nth-child(2) ol:before {
-  float: left;
+.solar-panels:nth-child(2) li:last-child:before {
+  position: absolute;
   content: "";
-  margin-top: -1.65em;
   width: 0;
   height: 0;
   border-style: solid;
@@ -790,16 +789,17 @@ body {
   border-color: transparent #444444 transparent transparent;
   line-height: 0px;
   _border-color: #000000 #444444 #000000 #000000;
-  _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000'); }
+  _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+  left: 0.75em; }
 
 .solar-panels:nth-child(1) {
   z-index: 100;
-  padding-right: 1.5em;
+  margin-right: 1.5em;
   right: 50%; }
 
 .solar-panels:nth-child(2) {
   z-index: 1;
-  padding-left: 1.5em;
+  margin-left: 1.5em;
   left: 50%; }
 
 .solar-panels .label {
@@ -821,11 +821,9 @@ body {
   height: 3em; }
 
 .solar-panels:nth-child(1) ol {
-  padding-right: 0.75em;
   float: right; }
 
 .solar-panels:nth-child(2) ol {
-  padding-left: 0.75em;
   float: left; }
 
 .solar-panels:nth-child(1) ol li {
@@ -833,6 +831,12 @@ body {
 
 .solar-panels:nth-child(2) ol li {
   float: right; }
+
+.solar-panels:nth-child(1) ol li:last-child {
+  margin-right: 2.25em; }
+
+.solar-panels:nth-child(2) ol li:last-child {
+  margin-left: 2.25em; }
 
 .radio .face {
   display: none; }
@@ -1076,18 +1080,18 @@ body {
   height: 4.5em; }
 
 .threeD .aerial1 {
-  -webkit-transform: translateX(-0.975em) translateY(3.975em);
-  -moz-transform: translateX(-0.975em) translateY(3.975em);
-  -ms-transform: translateX(-0.975em) translateY(3.975em);
-  -o-transform: translateX(-0.975em) translateY(3.975em);
-  transform: translateX(-0.975em) translateY(3.975em); }
+  -webkit-transform: translateX(-1.125em) translateY(4.125em);
+  -moz-transform: translateX(-1.125em) translateY(4.125em);
+  -ms-transform: translateX(-1.125em) translateY(4.125em);
+  -o-transform: translateX(-1.125em) translateY(4.125em);
+  transform: translateX(-1.125em) translateY(4.125em); }
 
 .threeD .aerial2 {
-  -webkit-transform: translateX(0.975em) translateY(-0.975em);
-  -moz-transform: translateX(0.975em) translateY(-0.975em);
-  -ms-transform: translateX(0.975em) translateY(-0.975em);
-  -o-transform: translateX(0.975em) translateY(-0.975em);
-  transform: translateX(0.975em) translateY(-0.975em); }
+  -webkit-transform: translateX(1.125em) translateY(-1.125em);
+  -moz-transform: translateX(1.125em) translateY(-1.125em);
+  -ms-transform: translateX(1.125em) translateY(-1.125em);
+  -o-transform: translateX(1.125em) translateY(-1.125em);
+  transform: translateX(1.125em) translateY(-1.125em); }
 
 .threeD .satellite.spin .slot2x4 .hemisphere {
   -webkit-animation-name: antispin;
