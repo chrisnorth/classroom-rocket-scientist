@@ -137,3 +137,23 @@ $trans: 0.3s;
 	   -moz-animation-name: $name;
 	        animation-name: $name;
 }
+@mixin triangle-r($w,$h,$c){
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: $h*0.5 $w $h*0.5 0;
+	border-color: transparent $c transparent transparent;
+	line-height: 0px;
+	_border-color: #000000 $c #000000 #000000;
+	_filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+}
+@mixin triangle-l($w,$h,$c){
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: $h*0.5 0 $h*0.5 $w;
+	border-color: transparent transparent transparent $c;
+	line-height: 0px;
+	_border-color: #000000 #000000 #000000 $c;
+	_filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+}

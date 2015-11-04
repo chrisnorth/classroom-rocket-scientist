@@ -55,17 +55,28 @@ body {
   padding: 3em;
   text-align: center; }
 
+#main {
+  max-width: 90%;
+  margin: 0 5%;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
 #content {
-  display: table;
+  display: block;
   margin: auto;
   margin-top: 1.5em;
-  padding: 3em 12em;
+  padding: 3em 9em;
   background: #e1f4fe;
   background-image: -webkit-linear-gradient(0deg, transparent 48%, white 49%, white 51%, transparent 52%, transparent), -webkit-linear-gradient(-90deg, transparent 48%, white 49%, white 51%, transparent 52%, transparent);
   background-image: linear-gradient(0deg, transparent 48%, white 49%, white 51%, transparent 52%, transparent), linear-gradient(-90deg, transparent 48%, white 49%, white 51%, transparent 52%, transparent);
   background-size: 3em 3em;
   background-position: 0 0, 0 0;
-  overflow: hidden; }
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%; }
 
 .threeD #content {
   background-image: -webkit-linear-gradient(60deg, transparent 49%, white 49.4%, white 50.6%, transparent 51%, transparent), -webkit-linear-gradient(-60deg, transparent 49%, white 49.4%, white 50.6%, transparent 51%, transparent);
@@ -74,15 +85,16 @@ body {
   background-position: 0 0, 0 0; }
 
 .holder {
-  display: table-cell; }
+  display: inline-block;
+  min-width: 12em;
+  text-align: center; }
 
 .holder .satellite {
   font-size: 1em;
   padding: 3em;
   position: relative;
   text-align: left;
-  margin: auto;
-  float: left; }
+  margin: auto; }
 
 /* Change box model for satellite */
 .satellite {
@@ -374,13 +386,17 @@ body {
 .satellite.solar-fixed .solar-right .face.front {
   border-right: 4px solid #00a2d3; }
 
+.face img {
+  width: 100%;
+  height: 100%; }
+
 .photo .face.front, .photo .face.top, .photo .face.left, .photo .face.right, .photo .face.back {
-  background-image: url("photo.png");
+  background-image: url("foil.jpg");
   background-size: 100% 100%;
   background-repeat: none; }
 
 .video .face.front, .video .face.top, .video .face.left, .video .face.right, .video .face.back {
-  background-image: url("video.png");
+  background-image: url("foil.jpg");
   background-size: 100% 100%;
   background-repeat: none; }
 
@@ -578,6 +594,32 @@ body {
   width: 15.75em;
   margin-top: 3em; }
 
+.solar-panels:nth-child(1) ol:before {
+  float: right;
+  content: "";
+  margin-top: -1.65em;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 1.5em 0 1.5em 1.5em;
+  border-color: transparent transparent transparent #444444;
+  line-height: 0px;
+  _border-color: #000000 #000000 #000000 #444444;
+  _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000'); }
+
+.solar-panels:nth-child(2) ol:before {
+  float: left;
+  content: "";
+  margin-top: -1.65em;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 1.5em 1.5em 1.5em 0;
+  border-color: transparent #444444 transparent transparent;
+  line-height: 0px;
+  _border-color: #000000 #444444 #000000 #000000;
+  _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000'); }
+
 .solar-panels:first-child {
   z-index: 100;
   padding-right: 1.5em;
@@ -588,33 +630,36 @@ body {
   padding-left: 1.5em;
   left: 50%; }
 
-.solar-panels ul {
+.solar-panels .label {
+  display: none; }
+
+.solar-panels ol {
   display: block;
   margin: 0px;
   margin-top: -2px;
   padding: 0px;
-  border-top: 4px solid black; }
+  border-top: 0.3em solid #444444; }
 
-.solar-panels ul li {
+.solar-panels ol li {
   display: inline-block;
   margin: 0px;
   padding: 0px;
-  margin-top: -1.575em;
+  margin-top: -1.65em;
   width: 3em;
   height: 3em; }
 
-.solar-panels:nth-child(1) ul {
-  padding-right: 2.25em;
+.solar-panels:nth-child(1) ol {
+  padding-right: 0.75em;
   float: right; }
 
-.solar-panels:nth-child(2) ul {
-  padding-left: 2.25em;
+.solar-panels:nth-child(2) ol {
+  padding-left: 0.75em;
   float: left; }
 
-.solar-panels:nth-child(1) ul li {
+.solar-panels:nth-child(1) ol li {
   float: left; }
 
-.solar-panels:nth-child(2) ul li {
+.solar-panels:nth-child(2) ol li {
   float: right; }
 
 .radio .face {
