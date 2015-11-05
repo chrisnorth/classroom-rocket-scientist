@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title><!--#lang var="title" -->Classroom Rocket Scientist</title>
+	<link rel="stylesheet" media="all" href="css/fonts.css" type="text/css"/>
+	<link rel="stylesheet" media="all" href="css/style.css"  type="text/css" />
+	<!--[if !IE]> --><link href="tests/satellite/style-nonie.css" rel="stylesheet" type="text/css" media="screen" /><!-- <![endif]-->
+	<script type="text/javascript" src="js/sizzle.min.js"></script>
+	<script type="text/javascript" src="js/rocketscientist.js"></script>
+</head>
+<body>
+	<div id="application" class="advanced">
+		<div class="msg noscriptmsg">Oops! If you're seeing this it looks as though there's a problem which is preventing Classroom Rocket Scientist from working. It requires Javascript to be enabled (but does not require Flash or Java plugins). You can use the <a href="http://www.whatsmybrowser.org/">"What's my browser"</a> website to find out what browser version you're using, and whether Javascript is enabled.</div>
+		<div class="msg scriptonly">Javascript is enabled.<span class="close">&times;</span></div>
+		<div id="bar" class="scriptonly">
+			<div class="barmenu">
+				<div class="baritem left padded">Classroom rocket scientist</div>
+				<div class="baritem">
+					<a href="#menu" class="togglebtn togglemenu" title="Menu"><!--LANGUAGE--><img src="images/cleardot.gif" class="icon menu" alt="" /></a>
+					<div id="menu" class="dropdown">
+						<ul>
+							<li class="baritem" data="restart"><a href="index.html"><img src="images/cleardot.gif" class="icon restart" alt="" /><span>Restart</span></a></li>
+							<li class="baritem" data="difficulty"><a href="#difficulty"><img src="images/cleardot.gif" class="icon difficulty" alt="" /><span>Difficulty</span></a></li>
+							<li class="baritem" data="help"><a href="#guide"><img src="images/cleardot.gif" class="icon help" alt="" /><span>Help</span></a></li>
+							<li class="baritem" data="options"><a href="#options"><img src="images/cleardot.gif" class="icon options" alt="" /><span>Setup</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="baritem">
+					<a href="#language" class="togglebtn togglelang" title="Change Language"><!--LANGUAGE--><img src="images/cleardot.gif" class="icon globe" alt="Language" /></a>
+					<div id="language" class="dropdown"><ul></ul></div>
+				</div>
+				<div class="baritem errors"></div>
+				<div class="baritem not-level-1"><a href="#summary" class="togglecost"><img src="images/cleardot.gif" class="icon cost" /><span class="cost cost_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span></a></div>
+				<div class="baritem not-level-1 not-level-2"><a href="#summaryext_mass" class="togglemass"><img src="images/cleardot.gif" class="icon mass" /><span class="mass mass_total value convertable" data-value="0" data-units="kg" data-dimension="mass">0 kg</span></a></div>
+			</div>
+		</div>
+
+		<div id="page">
+
+			<h1>Classroom Rocket Scientist</h1>
+
+			<section id="intro" class="view">
+				<h2>Introduction</h2>
+			</section>
+
+			<section id="type" class="view">
+				<h2>Select your type of satellite</h2>
+			</section>
+
+			<section id="goal" class="view">
+				<h2>Select the purpose of your satellite</h2>
+			</section>
+
+			<section id="bus" class="view not-level-1">
+				<h2>Choose the size of your satellite</h2>
+				<button onClick="zoom(1.1)">&plus;</button>
+				<button onClick="zoom(1/1.1)">&minus;</button>
+				<button onClick="addSolar()">&plus; solar panel</button>
+				<button onClick="removeSolar()">&minus; solar panel</button>
+				<button onClick="toggleComms()">Toggle communications</button>
+				<button onClick="toggleSolar()">Toggle fixed solar panels</button>
+				<button onClick="toggle3D()">Toggle 3D!</button>
+				<button onClick="toggleAnimation()">Toggle animation!</button>
+
+				<div id="satellite">
+					<div class="holder">
+						<!--#include file="satellites/large.html" -->
+					</div><div class="holder">
+						<!--#include file="satellites/medium.html" -->
+					</div><div class="holder">
+						<!--#include file="satellites/small.html" -->
+					</div><div class="holder">
+						<!--#include file="satellites/cube.html" -->
+					</div>
+				</div>			</section>
+
+			<section id="orbit" class="view not-level-1 not-level-2">
+				<h2>Select the orbit for your satellite</h2>
+			</section>
+
+			<section id="instrument" class="view">
+				<h2>Build your satellite</h2>
+
+			</section>
+
+			<section id="power" class="view">
+				<h2>Add power</h2>
+			
+			</section>
+
+			<section id="rocket" class="view">
+				<h2>Build your rocket</h2>
+
+			</section>
+
+			<section id="launch" class="view">
+				<h2>Launch</h2>
+			</section>
+
+		</div>
+
+		<section id="messages">
+			<h2>Messages</h2>
+			<ul></ul>
+		</section>
+
+		<section id="summary">
+			<h2>Summary</h2>
+		</section>
+
+		<section id="options" class="view">
+			<h2>Options</h2>
+		</section>
+			
+	</div>
+</body>
+</html>

@@ -1,0 +1,449 @@
+.satellite {
+	font-size: 1em;
+	padding: $s * 2;
+	position: relative;
+	text-align: left;
+	margin: auto;
+}
+
+/* Change box model for satellite */
+.satellite {
+	@include box-sizing(content-box);
+	@include transition(all $trans ease);
+}
+.satellite-l { width: $s * 4; }
+.satellite-m { width: $s * 2; }
+.satellite-s { width: $s * 2; }
+.satellite-c { width: $s; }
+.row, .solar-panels { 
+	display: block;
+	position: relative;
+	height: $s;
+}
+.rowbig { height: $s * 2; }
+.row:nth-child(1){ z-index: 60; }
+.row .slot:nth-child(1) { z-index: 59; }
+.row .slot:nth-child(2) { z-index: 58; }
+.row .slot:nth-child(3) { z-index: 57; }
+.row .slot:nth-child(4) { z-index: 56; }
+.row:nth-child(2){ z-index: 50; }
+.row:nth-child(3){ z-index: 40; }
+.row:nth-child(4){ z-index: 30; }
+.row:nth-child(5){ z-index: 20; }
+.row:nth-child(6){ z-index: 10; }
+.row:nth-child(7){ z-index: 1; }
+.satellite-c .row { height: $s * 0.5; }
+.satellite-c .rowflat { height: $s * 0.5* 0.1; }
+.slot {
+	position: relative;
+	display: inline-block;
+	width: $s;
+	height: $s;
+}
+.slot1 { left: 0; position: absolute; }
+.slot2 { left: $s; position: absolute; }
+.slot3 { left: $s*2; position: absolute; }
+.slot4 { left: $s*3; position: absolute; }
+.satellite-c .slot2 { left: $s*0.5; }
+
+.slot2x4 { width: $s * 2; }
+.slot2x4 .face.left, .slot2x4 .face.right { width: 50%; }
+.slot4x2 { height: $s * 2; }
+.slot4x2 .face.top { height: 50%; }
+.slot4x8 { width: $s * 4; height: $s * 2; }
+.slot4x8 .face.left, .slot4x8 .face.right { width: 25%; }
+.slot0x2 { height: $s * 0.1; width: $s; }
+.slot1x1 { width: $s * 0.5; height: $s * 0.5; }
+.slot1x2 { width: $s * 1; height: $s * 0.5; }
+.slot1x2 .face.left, .slot1x2 .face.right { width: 50%; }
+.slot2x4.down { height: $s * 2; width: $s; float: left; }
+.slot2x4.down .face.left,.slot2x4.up .face.left, .slot2x4.down .face.right,.slot2x4.up .face.right { width: 100%; }
+.slot2x4.down .face.top,.slot2x4.up .face.top { height: 50%; }
+.slot2x4.up { height: $s * 2; width: $s; margin-top: -$s; }
+
+.slot2x4 .face.top { background: $red_t; }
+.slot2x4 .face.left,
+.slot2x4 .face.right { background: $red_l; }
+.slot2x4 .face.front,
+.slot2x4 .face.back { background: $red; }
+
+.slot2x2 .face.top { background: $green_t; }
+.slot2x2 .face.left,
+.slot2x2 .face.right { background: $green_l; }
+.slot2x2 .face.front,
+.slot2x2 .face.back { background: $green; }
+
+.slot4x8 .face.top { background: $purple_t; }
+.slot4x8 .face.left,
+.slot4x8 .face.right { background: $purple_l; }
+.slot4x8 .face.front,
+.slot4x8 .face.back { background: $purple; }
+
+.slot0x2 .face.top { background: $blue_t; }
+.slot0x2 .face.left,
+.slot0x2 .face.right { background: $blue_l; }
+.slot0x2 .face.front,
+.slot0x2 .face.back { background: $blue; }
+
+.slot1x1 .face.top { background: $yellow_t; }
+.slot1x1 .face.left,
+.slot1x1 .face.right { background: $yellow_l; }
+.slot1x1 .face.front,
+.slot1x1 .face.back { background: $yellow; }
+
+.slot1x2 .face.top { background: $orange_t; }
+.slot1x2 .face.left,
+.slot1x2 .face.right { background: $orange_l; }
+.slot1x2 .face.front,
+.slot1x2 .face.back { background: $orange; }
+
+.slot-empty:hover .face.front, .slot-empty:hover .face.back { background: $black; }
+.slot-empty:hover .face.left, .slot-empty:hover .face.right { background: $black_l; }
+.slot-empty:hover .face.top { background: $black_t; }
+
+.slot-empty .face.front, .slot-empty .face.back { background: $grey; }
+.slot-empty .face.left, .slot-empty .face.right { background: $grey_l; }
+.slot-empty .face.top { background: $grey_t; }
+
+.antenna .face.front { background: $black; }
+.antenna .face.left { background: $black_l; }
+.antenna .face.top { background: $black_t; }
+
+.slot .faces {
+	position: absolute;
+	right: 0px;
+	width: 100%;
+	height: 100%;
+	bottom: 0px;
+	text-align: center;
+}
+
+.face {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+	@include box-sizing(border-box);
+	border: 1px solid rgba(255,255,255,0.3);
+	@include transform-origin(0 0);
+	z-index: 2;
+}
+
+.satellite.solar-fixed .solar-left .face.front, .satellite.solar-fixed .row:first-child .solar-left .face.top { border-left: 4px solid $blue; }
+.satellite.solar-fixed .row:first-child .solar-right .face.top { border-right: 4px solid $blue; }
+.satellite.solar-fixed .solar-top .face.left  { border-top: 4px solid $blue; }
+.satellite.solar-fixed .solar-top .face.front  { border-top: 4px solid $blue; }
+.satellite .solar-panel {
+	background-color: #008BB2;
+}
+.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top {
+	background-color: $blue;
+}
+.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .satellite .solar-panel {
+	background-image: -webkit-linear-gradient(white 2px, transparent 2px), -webkit-linear-gradient(0deg, white 2px, transparent 2px), -webkit-linear-gradient(rgba(255, 255, 255, .3) 1px, transparent 1px), -webkit-linear-gradient(0deg, rgba(255, 255, 255, .3) 1px, transparent 1px);
+	background-image: linear-gradient(white 2px, transparent 2px), linear-gradient(90deg, white 2px, transparent 2px), linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+	background-size: $s $s, $s $s, $s * 0.2 $s * 0.2, $s * 0.2 $s * 0.2;
+	background-position: -1px -2px, -1px -1px, -1px -1px, -1px -1px;
+	box-sizing: border-box;
+}
+.satellite.solar-fixed .solar-right .face.front { border-right: 4px solid $blue; }
+.face img { width: 100%; height: 100%; }
+.photo .face.front, .photo .face.top, .photo .face.left, .photo .face.right, .photo .face.back { background-image: url('foil.jpg'); background-size: 100% 100%; background-repeat: none; border: 0px; }
+.video .face.front, .video .face.top, .video .face.left, .video .face.right, .video .face.back { background-image: url('foil.jpg'); background-size: 100% 100%; background-repeat: none; border: 0px; }
+
+.threeD .row, .threeD .solar-panels {
+	@include transform-style( preserve-3d );
+}
+
+.threeD .satellite {
+	@include transform-style( preserve-3d );
+	@include transform-origin( 50% 0% 0 );
+	@include transform( $transform_y_neg_l $transform_x_neg_s $scale $transform_rot_x_neg_iso $transform_rot_y_pos_iso );
+}
+
+.threeD .satellite.satellite-c {
+	@include transform( $transform_y_neg_l $scale $transform_rot_x_neg_iso $transform_rot_y_pos_iso );
+}
+.threeD .satellite.spin, .threeD .satellite.spin .hemisphere, .threeD .satellite.spin .face, .threeD .satellite.spin .solar-panels {
+	@include animation-duration( $rot );
+	@include animation-iteration-count( infinite );
+	@include animation-timing-function( linear );
+}
+.threeD .satellite.spin, .threeD .satellite.spin .hemisphere {
+	@include animation-name( spin );
+}
+.threeD .satellite-c.spin {
+	@include animation-name( spin-c );
+}
+.threeD .satellite:hover .row {
+	animation-name: none;
+}
+.threeD .satellite.spin .face.front {
+	@include animation-delay( -$rot*0.375 );
+	@include animation-name( spin-show );
+}
+.threeD .satellite.spin .face.top {
+	z-index:3;
+}
+.threeD .satellite.spin .face.left {
+	@include animation-delay( -$rot*0.125 );
+	@include animation-name( spin-show );
+}
+.threeD .satellite.spin .face.back {
+	@include animation-delay( $rot*0.125 );
+	@include animation-name( spin-show );
+}
+.threeD .satellite.spin .face.right {
+	@include animation-delay( -$rot*0.625 );
+	@include animation-name( spin-show );
+}
+.threeD .satellite.spin .solar-panels:nth-child(1) {
+	@include animation-delay( -$rot*0.125 );
+	@include animation-name( tofront );
+}
+.threeD .satellite.spin .solar-panels:nth-child(2),.threeD .satellite.spin .slot.up .face {
+	@include animation-delay( -$rot*0.125 );
+	@include animation-name( toback );
+}
+@-webkit-keyframes spin { 100% { -webkit-transform: $transform_y_neg_l $transform_x_neg_s $scale $spin; } }
+@-moz-keyframes spin { 100% { -moz-transform: $transform_y_neg_l $transform_x_neg_s $scale $spin;  } }
+@-o-keyframes spin { 100% { -o-transform: $transform_y_neg_l $transform_x_neg_s $scale $spin;  } }
+@keyframes spin { 100% { transform: $transform_y_neg_l $transform_x_neg_s $scale  $spin  } }
+
+@-webkit-keyframes spin-c { 100% { -webkit-transform: $transform_y_neg_l $scale $spin; } }
+@-moz-keyframes spin-c { 100% { -moz-transform: $transform_y_neg_l $scale $spin; } }
+@-o-keyframes spin-c { 100% { -o-transform: $transform_y_neg_l $scale $spin; } }
+@keyframes spin-c { 100% { transform: $transform_y_neg_l $scale $spin; } }
+
+@-webkit-keyframes tofront { 0% { z-index: 300; } 49.8% { z-index: 300; } 50% { z-index: 1; } 99.9% { z-index: 1; } }
+@-moz-keyframes tofront { 0% { z-index: 300; } 49.8% { z-index: 300; } 50% { z-index: 1; } 99.9% { z-index: 1; } }
+@-o-keyframes tofront { 0% { z-index: 300; } 49.8% { z-index: 300; } 50% { z-index: 1; } 99.9% { z-index: 1; } }
+@keyframes tofront { 0% { z-index: 300; } 49.8% { z-index: 300; } 50% { z-index: 1; } 99.9% { z-index: 1; } }
+
+@-webkit-keyframes toback { 0% { z-index: 1; } 49.8% { z-index: 1; } 50% { z-index: 300; } 99.9% { z-index: 300; } }
+@-moz-keyframes toback { 0% { z-index: 1; } 49.8% { z-index: 1; } 50% { z-index: 300; } 99.9% { z-index: 300; } }
+@-o-keyframes toback { 0% { z-index: 1; } 49.8% { z-index: 1; } 50% { z-index: 300; } 99.9% { z-index: 300; } }
+@keyframes toback { 0% { z-index: 1; } 49.8% { z-index: 1; } 50% { z-index: 300; } 99.9% { z-index: 300; } }
+
+@-webkit-keyframes spin-show { 0% { opacity: 1; } 49.9% { opacity: 1; } 50% { opacity: 0; } 99.9% { opacity: 0; } }
+@-moz-keyframes spin-show { 0% { opacity: 1; } 49.9% { opacity: 1; } 50% { opacity: 0; } 99.9% { opacity: 0; } }
+@-o-keyframes spin-show { 0% { opacity: 1; } 49.9% { opacity: 1; } 50% { opacity: 0; } 99.9% { opacity: 0; } }
+@keyframes spin-show { 0% { opacity: 1; } 49.9% { opacity: 1;  } 50% { opacity: 0; } 99.9% { opacity: 0; } }
+
+.threeD .slot,.threeD .slot .faces {
+	@include transform-style( preserve-3d );
+	@include transform-origin( 100% 100% );
+}
+
+.threeD .slot0x2 { @include transform( $transform_z_pos_m ); }
+.threeD .slot1x1 { @include transform( $transform_z_pos_m ); }
+.threeD .slot1x2 { @include transform( $transform_z_pos_m ); }
+.threeD .slot2x2 { @include transform( $transform_z_pos_l ); }
+.threeD .slot2x4 { @include transform( $transform_z_pos_l ); }
+.threeD .slot4x8 { @include transform( $transform_z_pos_b ); }
+
+.threeD .face.top {
+	@include transform( $transform_rot_x_neg_90 );
+}
+.threeD .face.left {
+	@include transform( $transform_rot_y_pos_90 );
+}
+.threeD .face.right, .threeD .slot2x4.down .face.right, .threeD .slot2x4.up .face.right {
+	@include transform( $transform_x_pos_l $transform_rot_y_pos_90 );
+}
+.threeD .slot1x1 .face.right {
+	@include transform( $transform_x_pos_m $transform_rot_y_pos_90 );
+}
+.threeD .slot2x4 .face.right {
+	@include transform( $transform_x_pos_b $transform_rot_y_pos_90 );
+}
+.threeD .slot4x8 .face.right {
+	@include transform( $transform_x_pos_b2 $transform_rot_y_pos_90 );
+}
+.threeD .face.back {
+	@include transform( $transform_z_neg_b );
+}
+.threeD .satellite-c .face.back {
+	@include transform( $transform_z_neg_b );
+}
+.threeD .slot4x8 .face.back {
+	@include transform( $transform_z_neg_b2 );
+}
+.threeD .slot0x2 .face.back,.threeD .slot1x1 .face.back,.threeD .slot1x2 .face.back {
+	@include transform( $transform_z_neg_l );
+}
+
+.solar-panels {
+	position: absolute;
+	display: block;
+	width: $s * 10.5;
+	margin-top: $s * 2;
+}
+.solar-panels:nth-child(1) li:last-child:before {
+	position:absolute;
+	content: "";
+	@include triangle-l($s*1,$s*2,$black_l);
+	right: $s*0.5;
+}
+.solar-panels:nth-child(2) li:last-child:before {
+	position: absolute;
+	content: "";
+	@include triangle-r($s*1,$s*2,$black_l);
+	left: $s*0.5;
+}
+.solar-panels:nth-child(1) {
+	z-index: 100;
+	margin-right: $s;
+	right: 50%;
+}
+.solar-panels:nth-child(2) {
+	z-index: 1;
+	margin-left: $s;
+	left: 50%;
+}
+.solar-panels .label { display: none; }
+.solar-panels ol { display: block; margin: 0px; margin-top:-2px; padding: 0px; border-top: $s * 0.2 solid $black_l; }
+.solar-panels ol li { display: inline-block; margin: 0px; padding: 0px; margin-top: -$s * 1.1; width: $s * 2; height: $s * 2; }
+.solar-panels:nth-child(1) ol { float: right; }
+.solar-panels:nth-child(2) ol { float: left; }
+.solar-panels:nth-child(1) ol li { float:left; }
+.solar-panels:nth-child(2) ol li { float:right; }
+.solar-panels:nth-child(1) ol li:last-child { margin-right: $s * 1.5; }
+.solar-panels:nth-child(2) ol li:last-child { margin-left: $s * 1.5; }
+
+.radio .face { display: none; }
+.threeD .row .radio {
+	@include transform-style( preserve-3d );
+}
+
+
+
+/* Start of hemisphere CSS */
+.slot4x8 .hemisphere .inner,.slot4x8 .hemisphere .dome { font-size: $s * 4; }
+.slot2x4 .hemisphere .inner,.slot2x4 .hemisphere .dome { font-size: $s * 2; }
+.slot1x2 .hemisphere .inner,.slot1x2 .hemisphere .dome { font-size: $s * 2; }
+.hemisphere {
+	width: 100%;
+	height: 200%;
+	position: absolute;
+	margin: auto;
+	top: 0%;
+	@include transition( all $trans ease );
+}
+.hemisphere.south{
+	top: -100%;
+}
+.slot4x8 .hemisphere { top: 0%; }
+.hemisphere, .dome, .inner { display: inline-block; }
+.dome, .inner { width: 100%; }
+.dome, .inner { background-color: #ffffff; }
+.inner { border: 2px solid white; }
+.satellite-c .inner { border: 1px solid white; }
+.north .inner,.west .inner { border-color: #ccc; }
+
+.dome { height: 50%; border: 1px solid rgba(0,0,0,0.1); }
+.east .dome, .west .dome {
+	top: 0%;
+	left: 50%;
+	width: 50%;
+	height: 100%;
+}
+$inset: inset #{-$s * 0.2} #{-$s * 0.2} #{$s * 0.2} #{-$s * 0.05} rgba(0,0,0,0.25);
+$ss: $s*0.11 $s*0.1 6px -10px rgba(0,0,0,0.3), $inset;
+.north .dome { @include box-shadow( inset -0.2em -0 0.2em -0.05em rgba(0,0,0,0.25) ); top: 0%; border-radius: 1em 1em 0 0; }
+.south .dome { @include box-shadow( $inset ); border-radius: 0 0 $s $s; }
+.threeD .south .dome { @include box-shadow( $ss ); border-radius: 0 0 $s $s; }
+.east .dome { @include box-shadow( inset #{-$s * 0.2} #{-$s * 0.2} #{$s * 0.2} #{-$s * 0.05} rgba(0,0,0,0.25) ); border-radius: 0 $s $s 0; }
+.west .dome { @include box-shadow( inset #{-$s * 0.2} #{-$s * 0.2} #{$s * 0.2} #{-$s * 0.05} rgba(0,0,0,0.25) ); left: 0%; border-radius: $s 0 0 $s; }
+.inner, .dome {
+	position: absolute;
+	margin: 0px;
+	top: 50%;
+	left: 0;
+}
+$dometrans: height $trans ease, border-radius $trans ease;
+.inner, .dome, .inner:after {
+	@include transition( $dometrans );
+}
+.inner {
+	border-radius: 100%;
+}
+.inner:after { width: $s * 0.04; height: $s * 0.15; background: #999999; border-top-left-radius: 100%; border-top-right-radius: 100%; position:absolute; content: ""; left: 50%; margin-left: -2px; bottom: 0%; }
+.north .inner:after { border-radius: 0; border-bottom-left-radius: 100%; height: 0.1em; border-bottom-right-radius: 100%; top: 0%; bottom: auto; }
+.threeD .inner:after { height: 0.3em; }
+.north .inner, .south .inner {
+	height: 0%;
+}
+.threeD .north .inner, .threeD .south .inner {
+	@include transform( $transform_y_neg_50pc );
+	z-index: 100;
+	height: 50%;
+}
+.east .inner, .west .inner {
+	height: 100%;
+	width: 60%;
+	left: 50%;
+	top: 0%;
+	@include transform( $transform_x_neg_50pc );
+}
+.threeD .no-inside .inner { height: 0px; display: none; }
+.no-inside .inner { border: 0px; }
+.threeD .north.no-inside .dome {
+	height: 75%;
+	border-radius: 1em 1em 1em 1em / 0.85em 0.85em 0.75em 0.75em;
+}
+.threeD .south.no-inside .dome {
+	height: 65%;
+	top: 35%;
+	border-radius: 1em 1em 1em 1em / 0.75em 0.75em 0.85em 0.85em;
+}
+.threeD .east.no-inside .dome {
+	width: 85%;
+	left: 15%;
+	border-radius: 0.75em 0.85em 0.85em 0.75em / 1em 1em 1em 1em;
+}
+.threeD .west.no-inside .dome {
+	width: 85%;
+	border-radius: 0.85em 0.75em 0.75em 0.85em / 1em 1em 1em 1em;
+}
+.south .inner { @include box-shadow( inset 0.3em -0.1em 0.2em -0.05em rgba(0,0,0,0.2) ); }
+.north .inner { @include box-shadow( inset 0.3em 0.1em 0.2em -0.05em rgba(0,0,0,0.2) ); }
+.east .inner { @include box-shadow( inset 0.15em 0.1em 0.2em -0.1em rgba(0,0,0,0.2) ); }
+.west .inner { @include box-shadow( inset 0.25em 0.2em 0.2em -0.05em rgba(0,0,0,0.2) ); }
+.threeD .slot2x4 .hemisphere {
+	@include transform( $transform_z_neg_l $transform_rot_y_neg_45 $transform_rot_x_pos_iso );
+}
+.threeD .slot4x8 .hemisphere {
+	@include transform( $transform_z_neg_b $transform_rot_y_neg_45 $transform_rot_x_pos_iso );
+}
+.antenna .face { border: 0px; }
+.aerial { width: $s * 3; height: 0; border: $s * 0.1 solid $black_t; position: absolute; z-index: 100; }
+.aerial1 { border-left: 0px; border-bottom: 0px; right: 0px; bottom: 0px; }
+.aerial2 { border-right: 0px; border-top: 0px; left: 0px; bottom: 0px; }
+.threeD .aerial { height: $s * 3; }
+$aerial1: translateX(-$s * 0.75) translateY($s * 2.75);
+$aerial2: translateX($s * 0.75) translateY(-$s * 0.75);
+.threeD .aerial1 {
+	@include transform( $aerial1 );
+}
+.threeD .aerial2 {
+	@include transform( $aerial2 );
+}
+.threeD .satellite.spin .slot2x4 .hemisphere {
+	@include animation-name( antispin );
+	@include transform-style( preserve-3d );
+}
+.threeD .satellite.spin .slot4x8 .hemisphere {
+	@include animation-name( antispin_big );
+	@include transform-style( preserve-3d );
+}
+
+@-webkit-keyframes antispin { 100% { -webkit-transform: $transform_z_neg_l $aspin; } }
+@-moz-keyframes antispin { 100% { -moz-transform: $transform_z_neg_l $aspin; } }
+@keyframes antispin { 100% { transform: $transform_z_neg_l $aspin; } }
+@-webkit-keyframes antispin_big { 100% { -webkit-transform: $transform_z_neg_b $aspin; } }
+@-moz-keyframes antispin_big { 100% { -moz-transform: $transform_z_neg_b $aspin; } }
+@keyframes antispin_big { 100% { transform: $transform_z_neg_b $aspin; } }
+
+/* End of Hemisphere CSS */
