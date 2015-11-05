@@ -29,11 +29,11 @@ function zoom(factor){
 }
 function toggleSolar(){
 	var ids = ['sat-l','sat-m','sat-s','sat-c'];
-	for(var j = 0; j < ids.length; j++) toggleClass(document.getElementById(ids[j]),'solar-fixed');
+	for(var j = 0; j < ids.length; j++) toggleClass(document.getElementById(ids[j]).children[0],'solar-fixed');
 }
 function toggleAnimation(){
 	var ids = ['sat-l','sat-m','sat-s','sat-c'];
-	for(var j = 0; j < ids.length; j++) toggleClass(document.getElementById(ids[j]),'spin');
+	for(var j = 0; j < ids.length; j++) toggleClass(document.getElementById(ids[j]).children[0],'spin');
 }
 function setSolar(n){
 	var ids = ['sat-l','sat-m'];

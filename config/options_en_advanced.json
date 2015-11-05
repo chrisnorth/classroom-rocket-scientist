@@ -496,7 +496,7 @@
 				"requires": [{
 					"type": "bus",
 					"oneof": ["small","medium","large"],
-					"label": "A satellite that is small or larger.",
+					"label": "A satellite that is small, medium or large.",
 					"error": "Your satellite must be big enough for your mission."
 				},{
 					"type": "package",

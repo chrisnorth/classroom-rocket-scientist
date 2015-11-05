@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
-	<title>Classroom Rocket Scientist</title>
+	<title><!--#lang var="title" -->Classroom Rocket Scientist</title>
 	<link rel="stylesheet" media="all" href="css/fonts.css" type="text/css"/>
 	<link rel="stylesheet" media="all" href="css/style.css"  type="text/css" />
 	<!--[if !IE]> --><link href="tests/satellite/style-nonie.css" rel="stylesheet" type="text/css" media="screen" /><!-- <![endif]-->
@@ -56,18 +56,9 @@
 
 			<section id="bus" class="view not-level-1">
 				<h2>Choose the size of your satellite</h2>
-				<button onClick="zoom(1.1)">&plus;</button>
-				<button onClick="zoom(1/1.1)">&minus;</button>
-				<button onClick="addSolar()">&plus; solar panel</button>
-				<button onClick="removeSolar()">&minus; solar panel</button>
-				<button onClick="toggleComms()">Toggle communications</button>
-				<button onClick="toggleSolar()">Toggle fixed solar panels</button>
-				<button onClick="toggle3D()">Toggle 3D!</button>
-				<button onClick="toggleAnimation()">Toggle animation!</button>
-
-				<div id="satellite">
+				<div class="isogrid">
 					<div class="holder">
-						<div class="satellite satellite-l" id="sat-l">
+						<div class="satellite satellite-l">
 							<div class="solar-panels"><span class="label">Solar panels (left):</span><ol></ol></div>
 							<div class="solar-panels"><span class="label">Solar panels (right):</span><ol></ol></div>
 							<div class="row"><div class="slot slot-empty slot2 slot2x4 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
@@ -77,8 +68,9 @@
 							<div class="row"><div class="slot slot-empty slot2 slot2x2"><div class="faces"><div class="face back"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2"><div class="faces"><div class="face back"></div><div class="face front"></div></div></div><div class="slot slot-empty slot4 slot2x4 up solar-top"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
 							<div class="row rowbig"><div class="slot slot-empty slot1 slot4x8 solar-top"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 						</div>
+
 					</div><div class="holder">
-						<div class="satellite satellite-m" id="sat-m">
+						<div class="satellite satellite-m">
 							<div class="solar-panels"><span class="label">Solar panels (left):</span><ol></ol></div>
 							<div class="solar-panels"><span class="label">Solar panels (right):</span><ol></ol></div>
 							<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
@@ -86,19 +78,23 @@
 							<div class="row"><div class="slot slot-empty slot1 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
 							<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 						</div>
+
 					</div><div class="holder">
-						<div class="satellite satellite-s" id="sat-s">
+						<div class="satellite satellite-s">
 							<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 							<div class="row"><div class="slot slot-empty slot1 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 						</div>
+
 					</div><div class="holder">
-						<div class="satellite satellite-c not-level-1 not-level-2" id="sat-c">
+						<div class="satellite satellite-c not-level-1 not-level-2">
 							<div class="row rowflat"><div class="slot slot-empty slot1 slot0x2"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 							<div class="row"><div class="slot slot-empty slot1 slot1x1 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot1x1 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 							<div class="row"><div class="slot slot-empty slot1 slot1x2 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 						</div>
+
 					</div>
-				</div>			</section>
+				</div>
+			</section>
 
 			<section id="orbit" class="view not-level-1 not-level-2">
 				<h2>Select the orbit for your satellite</h2>
@@ -106,12 +102,74 @@
 
 			<section id="instrument" class="view">
 				<h2>Build your satellite</h2>
+				<button onClick="zoom(1.1)">&plus;</button>
+				<button onClick="zoom(1/1.1)">&minus;</button>
+				<button onClick="addSolar()">&plus; solar panel</button>
+				<button onClick="removeSolar()">&minus; solar panel</button>
+				<button onClick="toggleComms()">Toggle communications</button>
+				<button onClick="toggleSolar()">Toggle fixed solar panels</button>
+				<button onClick="toggle3D()">Toggle 3D!</button>
+				<button onClick="toggleAnimation()">Toggle animation!</button>
+
+				<div id="satellite" class="isogrid threeD">
+					<div class="holder" id="sat-l">
+						<div class="satellite satellite-l">
+							<div class="solar-panels"><span class="label">Solar panels (left):</span><ol></ol></div>
+							<div class="solar-panels"><span class="label">Solar panels (right):</span><ol></ol></div>
+							<div class="row"><div class="slot slot-empty slot2 slot2x4 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+							<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+							<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+							<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-top down"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+							<div class="row"><div class="slot slot-empty slot2 slot2x2"><div class="faces"><div class="face back"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2"><div class="faces"><div class="face back"></div><div class="face front"></div></div></div><div class="slot slot-empty slot4 slot2x4 up solar-top"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+							<div class="row rowbig"><div class="slot slot-empty slot1 slot4x8 solar-top"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+						</div>
+
+					</div><div class="holder" id="sat-m">
+						<div class="satellite satellite-m">
+							<div class="solar-panels"><span class="label">Solar panels (left):</span><ol></ol></div>
+							<div class="solar-panels"><span class="label">Solar panels (right):</span><ol></ol></div>
+							<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+							<div class="row"><div class="slot slot-empty slot1 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+							<div class="row"><div class="slot slot-empty slot1 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+							<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+						</div>
+
+					</div><div class="holder" id="sat-s">
+						<div class="satellite satellite-s">
+							<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+							<div class="row"><div class="slot slot-empty slot1 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+						</div>
+
+					</div><div class="holder" id="sat-c">
+						<div class="satellite satellite-c not-level-1 not-level-2">
+							<div class="row rowflat"><div class="slot slot-empty slot1 slot0x2"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+							<div class="row"><div class="slot slot-empty slot1 slot1x1 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot1x1 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+							<div class="row"><div class="slot slot-empty slot1 slot1x2 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+						</div>
+
+					</div>
+				</div>
 
 			</section>
 
 			<section id="power" class="view">
 				<h2>Add power</h2>
 			
+				<div class="isogrid threeD">
+					<div class="holder">
+						<div class="satellite satellite-l">
+							<div class="solar-panels"><span class="label">Solar panels (left):</span><ol></ol></div>
+							<div class="solar-panels"><span class="label">Solar panels (right):</span><ol></ol></div>
+							<div class="row"><div class="slot slot-empty slot2 slot2x4 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+							<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+							<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+							<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-top down"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+							<div class="row"><div class="slot slot-empty slot2 slot2x2"><div class="faces"><div class="face back"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2"><div class="faces"><div class="face back"></div><div class="face front"></div></div></div><div class="slot slot-empty slot4 slot2x4 up solar-top"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+							<div class="row rowbig"><div class="slot slot-empty slot1 slot4x8 solar-top"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+						</div>
+
+					</div>
+				</div>
 			</section>
 
 			<section id="rocket" class="view">

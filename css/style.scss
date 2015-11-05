@@ -264,18 +264,21 @@ $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 	display: block;
 	margin: auto;
 	padding: $s * 2 $s * 5;
-	background: #e1f4fe;
-	background-image: -webkit-linear-gradient(0deg, $pattern_b), -webkit-linear-gradient(-90deg, $pattern_b);
-	background-image: linear-gradient(0deg, $pattern_b), linear-gradient(-90deg, $pattern_b);
-	background-size: $s*2 $s*2;
-	background-position: 0 0, 0 0;
 	position: relative;
 	overflow: hidden;
 	width: 100%;
 	max-width: 100%;
 }
 
-#satellite.threeD {
+.isogrid {
+	text-align: center;
+	background: #e1f4fe;
+	background-image: -webkit-linear-gradient(0deg, $pattern_b), -webkit-linear-gradient(-90deg, $pattern_b);
+	background-image: linear-gradient(0deg, $pattern_b), linear-gradient(-90deg, $pattern_b);
+	background-size: $s*2 $s*2;
+	background-position: 0 0, 0 0;
+}
+.isogrid.threeD {
 	background-image: -webkit-linear-gradient(60deg, $pattern_a), -webkit-linear-gradient(-60deg, $pattern_a);
 	background-image: linear-gradient(30deg, $pattern_a), linear-gradient(-30deg, $pattern_a);
 	background-size: $s*3.5264 $s*3.5264*63/110;
@@ -284,6 +287,7 @@ $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 
 .holder {
 	display: inline-block;
+	margin: auto;
 }
 
 #bus .satellite:hover .face {

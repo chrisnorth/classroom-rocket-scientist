@@ -56,16 +56,7 @@
 
 			<section id="bus" class="view not-level-1">
 				<h2>Choose the size of your satellite</h2>
-				<button onClick="zoom(1.1)">&plus;</button>
-				<button onClick="zoom(1/1.1)">&minus;</button>
-				<button onClick="addSolar()">&plus; solar panel</button>
-				<button onClick="removeSolar()">&minus; solar panel</button>
-				<button onClick="toggleComms()">Toggle communications</button>
-				<button onClick="toggleSolar()">Toggle fixed solar panels</button>
-				<button onClick="toggle3D()">Toggle 3D!</button>
-				<button onClick="toggleAnimation()">Toggle animation!</button>
-
-				<div id="satellite">
+				<div class="isogrid">
 					<div class="holder">
 						<!--#include file="satellites/large.html" -->
 					</div><div class="holder">
@@ -75,7 +66,8 @@
 					</div><div class="holder">
 						<!--#include file="satellites/cube.html" -->
 					</div>
-				</div>			</section>
+				</div>
+			</section>
 
 			<section id="orbit" class="view not-level-1 not-level-2">
 				<h2>Select the orbit for your satellite</h2>
@@ -83,12 +75,37 @@
 
 			<section id="instrument" class="view">
 				<h2>Build your satellite</h2>
+				<button onClick="zoom(1.1)">&plus;</button>
+				<button onClick="zoom(1/1.1)">&minus;</button>
+				<button onClick="addSolar()">&plus; solar panel</button>
+				<button onClick="removeSolar()">&minus; solar panel</button>
+				<button onClick="toggleComms()">Toggle communications</button>
+				<button onClick="toggleSolar()">Toggle fixed solar panels</button>
+				<button onClick="toggle3D()">Toggle 3D!</button>
+				<button onClick="toggleAnimation()">Toggle animation!</button>
+
+				<div id="satellite" class="isogrid threeD">
+					<div class="holder" id="sat-l">
+						<!--#include file="satellites/large.html" -->
+					</div><div class="holder" id="sat-m">
+						<!--#include file="satellites/medium.html" -->
+					</div><div class="holder" id="sat-s">
+						<!--#include file="satellites/small.html" -->
+					</div><div class="holder" id="sat-c">
+						<!--#include file="satellites/cube.html" -->
+					</div>
+				</div>
 
 			</section>
 
 			<section id="power" class="view">
 				<h2>Add power</h2>
 			
+				<div class="isogrid threeD">
+					<div class="holder">
+						<!--#include file="satellites/large.html" -->
+					</div>
+				</div>
 			</section>
 
 			<section id="rocket" class="view">

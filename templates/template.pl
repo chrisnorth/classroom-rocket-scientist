@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-
+# SSI: http://www.w3.org/Jigsaw/Doc/User/SSI.html
 
 
 $basedir = "";
@@ -11,12 +11,14 @@ if($0 =~ /^(.*\/)[^\/]+/){
 #################################
 # Process command line arguments
 #################################
+$overwrite = 0;
 for($i = 0; $i < (@ARGV) ; $i++){
 	if($ARGV[$i] =~ /^\-+(.*)/){
 		$flag = $1;
 		if($flag eq "f" || $flag eq "file"){ $file_i = $ARGV[$i+1]; }
 		if($flag eq "o" || $flag eq "ofile"){ $file_o = $ARGV[$i+1]; }
 		if($flag eq "l" || $flag eq "lang"){ $lang = $ARGV[$i+1]; }
+		if($flag eq "overwrite"){ $overwrite = 1; $i--; }
 		$i++;
 	}else{
 		if(!$file_i){
@@ -72,13 +74,17 @@ $result = parseFile($file_i);
 if($file_o){
 	$save = 0;
 	if(-e $file_o){
-		print "Overwrite $file_o (y/n)? ";
-		$a = <STDIN>;
-		$a =~ s/[\n\r]//g;
-		if($a eq "y" || $a eq "Y"){
+		if($overwrite == 1){
 			$save = 1;
 		}else{
-			$save = 0;
+			print "Overwrite $file_o (y/n)? ";
+			$a = <STDIN>;
+			$a =~ s/[\n\r]//g;
+			if($a eq "y" || $a eq "Y"){
+				$save = 1;
+			}else{
+				$save = 0;
+			}
 		}
 	}else{
 		$save = 1;
