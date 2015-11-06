@@ -12,12 +12,14 @@ if($0 =~ /^(.*\/)[^\/]+/){
 # Process command line arguments
 #################################
 $overwrite = 0;
+$mode = "beginner";
 for($i = 0; $i < (@ARGV) ; $i++){
 	if($ARGV[$i] =~ /^\-+(.*)/){
 		$flag = $1;
 		if($flag eq "f" || $flag eq "file"){ $file_i = $ARGV[$i+1]; }
 		if($flag eq "o" || $flag eq "ofile"){ $file_o = $ARGV[$i+1]; }
 		if($flag eq "l" || $flag eq "lang"){ $lang = $ARGV[$i+1]; }
+		if($flag eq "m" || $flag eq "mode"){ $mode = $ARGV[$i+1]; }
 		if($flag eq "overwrite"){ $overwrite = 1; $i--; }
 		$i++;
 	}else{
@@ -117,18 +119,88 @@ sub parseFile {
 	@lines = <FILE>;
 	close(FILE);
 
+	$str = "";
 	foreach $line (@lines){
-		while($line =~ /^([\t\s]*)\<\!\-\- *\#include *file=\"([^\"]+)\" *\-\-\>/){
-			$ind = $indent.$1;
-			$inc = $2;
+		$str .= $line;
+	}
+	$line = $str;
+
+
+
+
+
+	# Do conditional parts
+	$line = parseConditional($line);
+
+
+#	foreach $line (@lines){
+		while($line =~ /(^|[\n\r])([\t\s]*)\<\!\-\- *\#include *file=\"([^\"]+)\" *\-\-\>/){
+			$ind = $indent.$2;
+			$inc = $3;
+			print "INC=$inc\n";
 			$insert = parseFile($dir.$inc,$ind);
 			#print "$insert\n";
-			$line =~ s/^([\t\s]*)\<\!\-\-\#include file=\"$inc\" \-\-\>/$insert/;
+			$line =~ s/(^|[\n\r])([\t\s]*)\<\!\-\-\#include file=\"$inc\" \-\-\>/$insert/;
 		}
 		# Update any language variables
 		#while(<!--#lang var="title" -->){
 		#}
 		$html .= "$indent$line";
-	}
+#	}
+
+	$html =~ s/%NEWLINE%/\n/g;
+
 	return $html;
+}
+
+
+
+# Parse conditional SSI using ${LEVEL} = /$mode/
+sub parseConditional {
+
+	my($line,$match,$result);
+	$line = $_[0];
+
+	# Temporarily zap newlines
+	$line =~ s/[\n\r]/%NEWLINE%/g;
+
+	while($line =~ /(\<\!\-\-\#if ((?!\<\!--\#endif).)+((?!\<\!--\#endif).)+\<\!\-\-\#endif\-\-\>)/){
+		$match = $1;
+		$result = parseIf($match);
+		$line =~ s/(\<\!\-\-\#if ((?!\<\!--\#endif).)+((?!\<\!--\#endif).)+\<\!\-\-\#endif\-\-\>)/$result/;
+	}
+
+	# Replace newlines
+	$line =~ s/%NEWLINE%/\n/g;
+	
+	return $line;
+}
+
+sub parseIf {
+	my($exp);
+	$exp = $_[0];
+
+	# If none of the if or elif patterns match, we can remove them
+	if($exp !~ /expr=\"\$\{LEVEL\} = \/$mode\/"/){
+		$exp =~ s/\<\!\-\-\#if expr=\"\$\{LEVEL\} = \/((?!(\<\!--\#else|\<\!--\#endif)).)+//g;
+		$exp =~ s/\<\!--\#else\-\-\>//g;
+		$exp =~ s/\<\!--\#endif\-\-\>//g;
+	}
+
+	# We can now delete all other else
+	# Clear away non-matching elif
+	$exp =~ s/\<\!\-\-\#else\-\-\>.*//g;
+	
+	# Check final elif
+	$exp =~ s/.*\<\!\-\-\#elif expr=\"\$\{LEVEL\} = \/$mode\/"\-\-\>(((?!\<\!--\#elif).)+)$/$1/;
+
+	# Check middle elif
+	$exp =~ s/.*\<\!\-\-\#elif expr=\"\$\{LEVEL\} = \/$mode\/"\-\-\>(((?!\<\!--\#elif).)+).*/$1/;
+
+	# Check for matching if
+	$exp =~ s/\<\!\-\-\#if expr=\"\$\{LEVEL\} = \/$mode\/"\-\-\>(((?!\<\!--\#elif).)+).*/$1/g;
+
+	# Clear away rest
+	#$exp =~ s/\<!\-\-([^\>]*)\-\->/$1/g;
+	return $exp;
 }

@@ -15,7 +15,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block; }
 
 body {
-  line-height: 1; }
+  line-height: 1em; }
 
 ol, ul {
   list-style: none; }
@@ -45,7 +45,8 @@ body {
   color: #4D4E53;
   /* To match to RS Summer Exhibition 2013 site */
   font-family: 'Earthbound', "Helvetica Neue", Helvetica, sans-serif;
-  width: 100%; }
+  width: 100%;
+  line-height: 1.5em; }
 
 .scriptonly {
   display: none; }
@@ -65,6 +66,10 @@ a:visited {
 
 em {
   font-style: italic; }
+
+button {
+  font-weight: bold;
+  cursor: pointer; }
 
 ul.files {
   list-style-type: disc;
@@ -150,6 +155,9 @@ strong {
 img.screenshot {
   max-width: 100%; }
 
+menu, #bar {
+  color: #efefef; }
+
 #bar {
   position: fixed;
   z-index: 1000;
@@ -158,7 +166,6 @@ img.screenshot {
   width: 100%;
   right: 0px;
   line-height: 1.5em;
-  color: #efefef;
   padding: 0em;
   border-bottom: 1px solid;
   box-shadow: 0em 0.2em 0.2em rgba(0, 0, 0, 0.2);
@@ -195,16 +202,25 @@ img.screenshot {
 .baritem.padded {
   padding: 0.75em; }
 
-.baritem a img {
+.baritem button {
+  border: 0px;
+  background: transparent;
+  font-size: 1em;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  text-align: left; }
+
+.baritem a img, .baritem button img {
   margin: 0.75em; }
 
-.baritem a {
+.baritem a, .baritem button {
   color: inherit;
   text-decoration: none;
   display: block;
   height: 3em; }
 
-.baritem a:hover, .baritem a:focus {
+.baritem a:hover, .baritem a:focus, .baritem button:hover, .baritem button:focus {
   background-color: #404040;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
@@ -230,11 +246,14 @@ img.icon {
   float: right; }
 
 .dropdown {
-  display: none;
   z-index: 100;
+  /*
+  display: none;
   position: absolute;
   top: 3em;
+  */
   width: auto;
+  line-height: 1.5em;
   right: 0;
   padding: 0;
   box-shadow: 0.1em 0.2em 0.2em rgba(0, 0, 0, 0.3);
@@ -252,13 +271,22 @@ img.icon {
   float: none;
   display: block; }
 
-.dropdown .baritem a {
-  padding: 0.75em 1em; }
-
+/*.dropdown .baritem a { padding: 0.75em 1em; }*/
 .dropdown.fullwidth {
   width: 100%;
   left: 0px;
   border-left: 0px; }
+
+#options li {
+  margin-top: 1em; }
+
+.options li {
+  margin-bottom: 1em; }
+
+li select, li input, li .toggleinput {
+  float: right;
+  font-size: 1em;
+  font-family: Arial, sans-serif; }
 
 /* Sprites */
 img.icon, img.iconbig {

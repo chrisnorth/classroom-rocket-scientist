@@ -17,7 +17,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
-body { line-height: 1; }
+body { line-height: 1em; }
 ol, ul { list-style: none; }
 blockquote, q { quotes: none; }
 blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
@@ -33,6 +33,7 @@ body {
 	color: #4D4E53; /* To match to RS Summer Exhibition 2013 site */
 	font-family: 'Earthbound', "Helvetica Neue", Helvetica, sans-serif;
 	width: 100%;
+	line-height: $lineh;
 }
 .scriptonly { display: none; }
 
@@ -44,6 +45,7 @@ a { text-decoration: none; color: #396bad; color: #1FA5DE; font-weight: bold; }
 a:hover, a:focus { text-decoration: underline; }
 a:visited { color: #2255cc; color: #1FA5DE; }
 em { font-style: italic; }
+button { font-weight: bold; cursor: pointer; }
 
 
 ul.files { list-style-type: disc; margin-bottom: 1em; }
@@ -95,11 +97,14 @@ h1 { font-size: 2em; margin-bottom: 0.5em; }
 h2 { font-size: 1.5em; margin-bottom: 0.5em; }
 h3 { font-size: 1.333em; margin-bottom: 0.5em; }
 h1, h2, h3 { font-weight: bold; }
-p { margin-bottom: 1em; line-height: 1.5em; }
+p { margin-bottom: 1em; line-height: $lineh; }
 strong { font-weight: bold; }
 
 img.screenshot { max-width: 100%; }
 
+menu,#bar { 
+	color: #efefef;
+}
 #bar {
 	position: fixed;
 	z-index: 1000;
@@ -108,7 +113,6 @@ img.screenshot { max-width: 100%; }
 	width: 100%;
 	right: 0px;
 	line-height: $lineh;
-	color: #efefef;
 	padding: 0em;
 	border-bottom: 1px solid;
 	box-shadow: 0em 0.2em 0.2em rgba(0,0,0,0.2);
@@ -142,16 +146,17 @@ img.screenshot { max-width: 100%; }
 .baritem.padded {
 	padding: $barheight*0.5 - $lineh*0.5;
 }
-.baritem a img {
+.baritem button { border: 0px; background: transparent; font-size: 1em; margin: 0px; padding: 0px; width: 100%; text-align: left; }
+.baritem a img, .baritem button img {
 	margin: $barheight*0.5 - $lineh*0.5;
 }
-.baritem a {
+.baritem a, .baritem button {
 	color: inherit;
 	text-decoration: none;
 	display: block;
 	height: $barheight;
 }
-.baritem a:hover, .baritem a:focus {
+.baritem a:hover, .baritem a:focus, .baritem button:hover, .baritem button:focus {
 	background-color: #404040;
 	-moz-transition: all 0.2s ease-in-out;
 	-o-transition: all 0.2s ease-in-out;
@@ -170,11 +175,14 @@ img.icon {
 }
 .rtl img.icon { float: right; }
 .dropdown {
-	display: none;
 	z-index: 100;
+	/*
+	display: none;
 	position: absolute;
 	top: 3em;
+	*/
 	width: auto;
+	line-height: $lineh;
 	right: 0;
 	padding: 0;
 	box-shadow: 0.1em 0.2em 0.2em rgba(0,0,0,0.3);
@@ -184,8 +192,12 @@ img.icon {
 }
 .rtl .dropdown { left: 0; border-right: 1px solid rgba(255,255,255,0.8); border-left: 0px; right: auto; }
 .dropdown .baritem, .rtl .dropdown .baritem { float: none; display: block; }
-.dropdown .baritem a { padding: 0.75em 1em; }
+/*.dropdown .baritem a { padding: 0.75em 1em; }*/
 .dropdown.fullwidth { width: 100%; left: 0px; border-left: 0px; }
+
+#options li { margin-top: 1em; }
+.options li { margin-bottom: 1em; }
+li select, li input, li .toggleinput { float: right; font-size: 1em; font-family: Arial, sans-serif; }
 
 
 
