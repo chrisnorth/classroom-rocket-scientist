@@ -402,6 +402,16 @@ section {
   box-sizing: border-box;
   padding: 1em; }
 
+section.view h2 {
+  text-align: center; }
+
+#type .holder {
+  width: 33%;
+  padding: 1em; }
+
+#type .holder p {
+  text-align: left; }
+
 .not-at-start {
   display: none; }
 

@@ -73,7 +73,7 @@ package.solar-panel-surface.description:    Provides power
 package.solar-panel.title:                  Deployable solar panel
 package.solar-panel.description:            Provides power
 scenario.NAV.title:                         Navigation satellite
-scenario.NAV.description:                   The global positioning system is made up of 24 satellites that orbit at an altitude of 20,000 km above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.
+scenario.NAV.description:                   The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.
 scenario.COMMS.title:                       Communication satellite
 scenario.COMMS.description:                 These are used for television, phone or internet transmissions, for example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.
 scenario.EO.title:                          Earth observation satellite

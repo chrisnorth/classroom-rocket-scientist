@@ -485,7 +485,7 @@
 	"scenarios": {
 		"NAV": {
 			"title": "Navigation satellite",
-			"description": "The global positioning system is made up of 24 satellites that orbit at an altitude of 20,000 km above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.",
+			"description": "The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.",
 			"image": {
 				"file": "images/satnav.jpg",
 				"alt": "Sat nav system",
