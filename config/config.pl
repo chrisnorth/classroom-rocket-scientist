@@ -1,13 +1,17 @@
 #!/usr/bin/perl
 
-@versions = ('options_advanced.json','options_intermediate.json','options_beginner.json');
+# We need to temporarily include the base directory 
+# of this perl script on the include path
+BEGIN{ if($0 =~ /^(.*\/)[^\/]+/){ unshift @INC, $1 } }
 
+# Require the common file
+require('common.pl');
+
+# Update the base directory
 $basedir = "./";
-if($0 =~ /^(.*\/)[^\/]+/){
-	$basedir = $1;
-}
+if($0 =~ /^(.*\/)[^\/]+/){ $basedir = $1; }
 
-%keys;
+@versions = ('options_advanced.json','options_intermediate.json','options_beginner.json');
 
 # Find all the language files
 @langs = ();
@@ -25,24 +29,11 @@ foreach $lang (@langs){
 }
 
 sub processLanguage {
-	my ($lang,$line,@lines,$key,$value);
+	my ($lang,$line,@lines,$key,$value,%keys);
 	$lang = $_[0];
 
-	print "Loading $lang.yaml\n";
-	open(YAML,$basedir.$lang.".yaml");
-	@lines = <YAML>;
-	close(YAML);
-	
-	foreach $line (@lines){
-		$line =~ s/[\n\r]//g;
-		if($line !~ /^\-\-\-/ && $line !~ /^\.\.\./){
-			$line =~ s/[\s\t]+\#[^\#]*$//;
-			($key,$value) = split(/:[\t\s]+/,$line);
-			$keys{$key} = $value;
-			#print "$key = $value\n";
-		}
-	}
-	
+	%keys = loadLanguage($basedir.$lang.".yaml");
+
 	foreach $v (@versions){
 		$json = "";
 		if(-e $basedir.$v){

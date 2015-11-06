@@ -483,8 +483,15 @@
 		}
 	},
 	"scenarios": {
-		"NAV": [
-			{
+		"NAV": {
+			"title": "Navigation satellite",
+			"description": "Help people find their way",
+			"image": {
+				"file": "images/satnav.jpg",
+				"alt": "Sat nav system",
+				"credit": "ESA"
+			},
+			"missions": [{
 				"name": "Satellite Navigation System",
 				"description": "Tell people their location",
 				"image": {
@@ -514,13 +521,27 @@
 					"label": "See the whole planet.",
 					"error": "The orbit you have chosen does not allow you to see the whole planet"
 				}]
-			}
-		],
-		"COMMS": [
-		
-		],
-		"EO": [
-		
-		]
+			}]
+		},
+		"COMMS": {
+			"title": "Communication satellite",
+			"description": "Help people communicate with each other",
+			"image": {
+				"file": "images/satnav.jpg",
+				"alt": "Sat nav system",
+				"credit": "ESA"
+			},
+			"missions": []
+		},
+		"EO": {
+			"title": "Earth observation satellite",
+			"description": "Monitor the Earth",
+			"image": {
+				"file": "images/satnav.jpg",
+				"alt": "Sat nav system",
+				"credit": "ESA"
+			},
+			"missions": []		
+		}
 	}
 }

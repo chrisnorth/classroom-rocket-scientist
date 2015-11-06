@@ -2,6 +2,7 @@
 function r(f){/in/.test(document.readyState)?setTimeout('r('+f+')',9):f()}
 // Remove a DOM element
 function removeEl(el){
+	if(!el) return;
 	if(typeof el.remove==="function") el.remove(el);
 	else if(typeof el.parentElement.removeChild==="function") el.parentElement.removeChild(el);
 }
@@ -109,6 +110,7 @@ function toggleComms(){
 		}
 	}
 }
+
 // On load
 r(function(){
 	// Remove elements that show noscript messages
@@ -118,5 +120,17 @@ r(function(){
 	// Remove classes from script only elements
 	el = document.getElementsByClassName('scriptonly');
 	for(var i = el.length-1; i >= 0;i--) toggleClass(el[i],'scriptonly');
+
+	// We hide elements that shouldn't be visible (but we are leaving visible
+	// in the plain HTML so there is something if Javascript doesn't work.
+	var sections = ['options','messages','summary','type','goal','bus','orbit','instrument','power','rocket','launch'];
+	for(var s = 0; s < sections.length; s++) toggleClass(document.getElementById(sections[s]),'not-at-start');
 	
-})
+
+
+
+	// Remove the overlay we've added inline
+	removeEl(document.getElementById('overlay'));
+
+});
+

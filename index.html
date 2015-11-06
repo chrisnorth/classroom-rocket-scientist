@@ -7,181 +7,48 @@
 	<link rel="stylesheet" media="all" href="css/fonts.css" type="text/css"/>
 	<link rel="stylesheet" media="all" href="css/style.css"  type="text/css" />
 	<!--[if !IE]> --><link href="tests/satellite/style-nonie.css" rel="stylesheet" type="text/css" media="screen" /><!-- <![endif]-->
-	<script type="text/javascript" src="js/sizzle.min.js"></script>
 	<script type="text/javascript" src="js/rocketscientist.js"></script>
 </head>
 <body>
 
-	<div id="application" class="beginner">
+	<div id="application">
 		<div class="msg noscriptmsg">Oops! If you're seeing this it looks as though there's a problem which is preventing Classroom Rocket Scientist from working. It requires Javascript to be enabled (but does not require Flash or Java plugins). You can use the <a href="http://www.whatsmybrowser.org/">"What's my browser"</a> website to find out what browser version you're using, and whether Javascript is enabled.</div>
-		<div class="msg scriptonly">Javascript is enabled.<span class="close">&times;</span></div>
 		<div id="bar" class="scriptonly">
 			<div class="barmenu">
-				<div class="baritem left padded"><!--#lang var="title" -->Classroom rocket scientist</div>
 				<div class="baritem">
 					<a href="#menu" class="togglebtn togglemenu" title="Menu"><!--LANGUAGE--><img src="images/cleardot.gif" class="icon menu" alt="" /></a>
-				</div>
-				<div class="baritem">
-					<a href="#language" class="togglebtn togglelang" title="Change Language"><!--LANGUAGE--><img src="images/cleardot.gif" class="icon globe" alt="Language" /></a>
-					<div id="language" class="dropdown"><ul></ul></div>
-				</div>
-				<div class="baritem not-level-1"><a href="#summary" class="togglecost"><img src="images/cleardot.gif" class="icon cost" /><span class="cost cost_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span></a></div>
-				<div class="baritem not-level-1 not-level-2"><a href="#summaryext_mass" class="togglemass"><img src="images/cleardot.gif" class="icon mass" /><span class="mass mass_total value convertable" data-value="0" data-units="kg" data-dimension="mass">0 kg</span></a></div>
-				<div class="baritem warnings">
-					<a class="togglewarning" title="View warnings" href="#messages"><img class="icon warning" title="Warnings" src="images/cleardot.gif"> <span class="warning value">3</span></a>
 				</div>
 			</div>
 		</div>
 
 		<div id="page">
-
-			<h1>Classroom Rocket Scientist</h1>
-
-			<section id="intro" class="view">
-				<h2>Introduction</h2>
+			<section id="start" class="view">
+				<h1>Classroom rocket scientist</h1>
+				<a href="beginner.html">Beginner</a> / <a href="intermediate.html">Intermediate</a> / <a href="advanced.html">Advanced</a>
 			</section>
-
-			<section id="type" class="view">
-				<h2>Select your type of satellite</h2>
-			</section>
-
-			<section id="goal" class="view">
-				<h2>Select the purpose of your satellite</h2>
-			</section>
-
-			<section id="bus" class="view not-level-1">
-				<h2>Choose the size of your satellite</h2>
-				<div class="satellite-holder isogrid">
-					<div class="holder">						<div class="satellite satellite-l">
-	<div class="solar-panels"><span class="label">Solar panels (left):</span><ol></ol></div>
-	<div class="solar-panels"><span class="label">Solar panels (right):</span><ol></ol></div>
-	<div class="row"><div class="slot slot-empty slot2 slot2x4 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-top down"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot2 slot2x2"><div class="faces"><div class="face back"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2"><div class="faces"><div class="face back"></div><div class="face front"></div></div></div><div class="slot slot-empty slot4 slot2x4 up solar-top"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row rowbig"><div class="slot slot-empty slot1 slot4x8 solar-top"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-</div>
-
-						<p>Large</p>
-					</div><div class="holder">						<div class="satellite satellite-m">
-	<div class="solar-panels"><span class="label">Solar panels (left):</span><ol></ol></div>
-	<div class="solar-panels"><span class="label">Solar panels (right):</span><ol></ol></div>
-	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot1 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot1 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-</div>
-
-						<p>Medium</p>
-					</div><div class="holder">						<div class="satellite satellite-s">
-	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot1 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-</div>
-
-						<p>Small</p>
-					</div><div class="holder not-level-1 not-level-2">						<div class="satellite satellite-c not-level-1 not-level-2">
-	<div class="row rowflat"><div class="slot slot-empty slot1 slot0x2"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot1 slot1x1 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot1x1 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot1 slot1x2 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-</div>
-
-						<p>Cube sat</p>
-					</div>
-				</div>
-			</section>
-
-			<section id="orbit" class="view not-level-1 not-level-2">
-				<h2>Select the orbit for your satellite</h2>
-			</section>
-
-			<section id="instrument" class="view">
-				<h2>Build your satellite</h2>
-				<button onClick="zoom(1.1)">&plus;</button>
-				<button onClick="zoom(1/1.1)">&minus;</button>
-				<button onClick="toggleComms()">Toggle communications</button>
-				<button onClick="toggle3D()">Toggle 3D!</button>
-
-				<div id="satellite" class="satellite-holder isogrid threeD">
-					<div class="holder" id="sat-l">						<div class="satellite satellite-l">
-	<div class="solar-panels"><span class="label">Solar panels (left):</span><ol></ol></div>
-	<div class="solar-panels"><span class="label">Solar panels (right):</span><ol></ol></div>
-	<div class="row"><div class="slot slot-empty slot2 slot2x4 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-top down"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot2 slot2x2"><div class="faces"><div class="face back"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2"><div class="faces"><div class="face back"></div><div class="face front"></div></div></div><div class="slot slot-empty slot4 slot2x4 up solar-top"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row rowbig"><div class="slot slot-empty slot1 slot4x8 solar-top"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-</div>
-
-					</div>
-				</div>
-
-			</section>
-
-			<section id="power" class="view">
-				<h2>Add power</h2>
-			
-				<button onClick="addSolar()">&plus; solar panel</button>
-				<button onClick="removeSolar()">&minus; solar panel</button>
-				<button onClick="toggleSolar()">Toggle fixed solar panels</button>
-				<button onClick="toggleAnimation()">Toggle animation!</button>
-
-				<div id="satellite-power" class="satellite-holder isogrid threeD">
-					<div class="holder" id="sat-power-l">						<div class="satellite satellite-l">
-	<div class="solar-panels"><span class="label">Solar panels (left):</span><ol></ol></div>
-	<div class="solar-panels"><span class="label">Solar panels (right):</span><ol></ol></div>
-	<div class="row"><div class="slot slot-empty slot2 slot2x4 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-top down"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot2 slot2x2"><div class="faces"><div class="face back"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2"><div class="faces"><div class="face back"></div><div class="face front"></div></div></div><div class="slot slot-empty slot4 slot2x4 up solar-top"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row rowbig"><div class="slot slot-empty slot1 slot4x8 solar-top"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-</div>
-
-					</div>
-				</div>
-			</section>
-
-			<section id="rocket" class="view">
-				<h2>Build your rocket</h2>
-
-			</section>
-
-			<section id="launch" class="view">
-				<h2>Launch</h2>
-			</section>
-
 		</div>
-
-		<section id="messages">
-			<h2>Messages</h2>
-			<ul></ul>
-		</section>
-
-		<section id="summary">
-			<h2>Summary</h2>
-		</section>
-
 		<section id="options" class="view">
-			<h2>Options</h2>
-			<form id="optionform">
-				<ul>
-					<li><label for="changecurrency">Currency:</label> <select name="changecurrency" id="changecurrency"><option selected="selected" value="GBP">British Pounds £</option><option value="USD">US Dollars $</option><option value="EUR">Euros €</option><option value="JPY">Japanese Yen ¥</option><option value="CAD">Canadian Dollars C$</option><option value="AUD">Austrialian Dollars $</option><option value="CHF">Swiss Francs Fr.</option><option value="SEK">Swedish Krona kr</option><option value="CNY">Chinese Yuan ¥</option><option value="INR">Indian Rupees ₨</option><option value="RUB">Russian Ruble RUB</option><option value="DBL">Doubloons DBL</option></select></li>
-					<li><label for="changelength">Length units:</label> <select name="changelength" id="changelength"><option selected="selected" value="m">Metres</option><option value="ft">Feet</option><option value="cubit">Cubits</option><option value="bluewhale">Blue Whales</option><option value="yard">Yards</option></select></li>
-					<li><label for="changemass">Mass units:</label> <select name="changemass" id="changemass"><option selected="selected" value="kg">Kilograms</option><option value="lb">Pounds</option><option value="elephant">Elephants</option></select></li>
-				</ul>
-			</form>
+	<h2>Units</h2>
+	<form id="optionform">
+		<ul>
+			<li><label for="changecurrency">Currency:</label> <select name="changecurrency" id="changecurrency"><option selected="selected" value="GBP">British Pounds £</option><option value="USD">US Dollars $</option><option value="EUR">Euros €</option><option value="JPY">Japanese Yen ¥</option><option value="CAD">Canadian Dollars C$</option><option value="AUD">Austrialian Dollars $</option><option value="CHF">Swiss Francs Fr.</option><option value="SEK">Swedish Krona kr</option><option value="CNY">Chinese Yuan ¥</option><option value="INR">Indian Rupees ₨</option><option value="RUB">Russian Ruble RUB</option><option value="DBL">Doubloons DBL</option></select></li>
+			<li><label for="changelength">Length units:</label> <select name="changelength" id="changelength"><option selected="selected" value="m">Metres</option><option value="ft">Feet</option><option value="cubit">Cubits</option><option value="bluewhale">Blue Whales</option><option value="yard">Yards</option></select></li>
+			<li><label for="changemass">Mass units:</label> <select name="changemass" id="changemass"><option selected="selected" value="kg">Kilograms</option><option value="lb">Pounds</option><option value="elephant">Elephants</option></select></li>
+		</ul>
+	</form>
 
-		</section>
-
-		<menu id="menu" class="dropdown">
-			<li class="baritem" data="restart"><button><img src="images/cleardot.gif" class="icon restart" alt="" /><span>Restart</span></button></li>
-			<li class="baritem" data="difficulty"><button><img src="images/cleardot.gif" class="icon difficulty" alt="" /><span>Difficulty</span></button></li>
-			<!--<li class="baritem" data="help"><a href="#guide"><img src="images/cleardot.gif" class="icon help" alt="" /><span>Help</span></a></li>-->
-			<li class="baritem" data="options"><button><img src="images/cleardot.gif" class="icon options" alt="" /><span>Setup</span></button></li>
-			<li class="baritem" data="fullscreen"><button class="fullscreenbtn" title="Switch between viewing fullscreen or in a standard browser window"><img alt="" class="icon fullscreen" src="images/cleardot.gif" /><span>Toggle fullscreen</span></button></li>
-		</menu>
+</section>
+		<menu id="menu" class="dropdown not-at-start">
+	<li class="baritem" data="restart"><button><img src="images/cleardot.gif" class="icon restart" alt="" /><span>Restart</span></button></li>
+	<li class="baritem" data="difficulty"><button><img src="images/cleardot.gif" class="icon difficulty" alt="" /><span>Difficulty</span></button></li>
+	<!--<li class="baritem" data="help"><a href="#guide"><img src="images/cleardot.gif" class="icon help" alt="" /><span>Help</span></a></li>-->
+	<li class="baritem" data="options"><button><img src="images/cleardot.gif" class="icon options" alt="" /><span>Units</span></button></li>
+	<li class="baritem" data="fullscreen"><button class="fullscreenbtn" title="Switch between viewing fullscreen or in a standard browser window"><img alt="" class="icon fullscreen" src="images/cleardot.gif" /><span>Toggle fullscreen</span></button></li>
+	<li class="baritem">
+		<button class="togglebtn togglelang" title="Change Language"><!--LANGUAGE--><img src="images/cleardot.gif" class="icon globe" alt="Language" /><span>Language</span></button>
+		<div id="language" class="dropdown"><ul></ul></div>
+	</li>
+</menu>
 	</div>
 </body>
 </html>

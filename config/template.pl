@@ -1,11 +1,16 @@
 #!/usr/bin/perl
 # SSI: http://www.w3.org/Jigsaw/Doc/User/SSI.html
 
+# We need to temporarily include the base directory 
+# of this perl script on the include path
+BEGIN{ if($0 =~ /^(.*\/)[^\/]+/){ unshift @INC, $1 } }
 
-$basedir = "";
-if($0 =~ /^(.*\/)[^\/]+/){
-	$basedir = $1;
-}
+# Require the common file
+require('common.pl');
+
+
+$basedir = "./";
+if($0 =~ /^(.*\/)[^\/]+/){ $basedir = $1; }
 
 
 #################################
@@ -33,6 +38,7 @@ for($i = 0; $i < (@ARGV) ; $i++){
 	}
 }
 
+%lang = loadLanguage($basedir."en_".$mode.".yaml");
 
 if($ARGV[0] eq "--help" || $ARGV[0] eq "-h" || !-e $file_i || !$file_i || ($file_i eq $file_o)){
 	print <<END
@@ -105,7 +111,7 @@ if($file_o){
 
 
 sub parseFile {
-	my ($file,$line,@lines,$indent,$html,$dir);
+	my ($file,$line,@lines,$indent,$html,$dir,$key);
 	$html = "";
 	$file = $_[0];
 	$indent = ($_[1] ? $_[1] : "");
@@ -133,20 +139,27 @@ sub parseFile {
 	$line = parseConditional($line);
 
 
-#	foreach $line (@lines){
-		while($line =~ /(^|[\n\r])([\t\s]*)\<\!\-\- *\#include *file=\"([^\"]+)\" *\-\-\>/){
-			$ind = $indent.$2;
-			$inc = $3;
-			print "INC=$inc\n";
-			$insert = parseFile($dir.$inc,$ind);
-			#print "$insert\n";
-			$line =~ s/(^|[\n\r])([\t\s]*)\<\!\-\-\#include file=\"$inc\" \-\-\>/$insert/;
+	while($line =~ /(^|[\n\r])([\t\s]*)\<\!\-\- *\#include *file=\"([^\"]+)\" *\-\-\>/){
+		$ind = $indent.$2;
+		$inc = $3;
+		print "INC=$inc\n";
+		$insert = parseFile($dir.$inc,$ind);
+		#print "$insert\n";
+		$line =~ s/(^|[\n\r])([\t\s]*)\<\!\-\-\#include file=\"$inc\" \-\-\>/$insert/;
+	}
+	# Update any language variables
+	#while(){
+	#}<!--#echo var="ui.title" -->
+	while($line =~ /\<\!--\#echo var=\"([^\"]*)" --\>/){
+		$key = $1;
+		if($lang{$key}){
+			$line =~ s/\<\!--\#echo var=\"$key" --\>/$lang{$key}/g;
+		}else{
+			print "ERROR: Can't replace $key\n";
+			$line =~ s/\<\!--\#echo var=\"$key" --\>//g;
 		}
-		# Update any language variables
-		#while(<!--#lang var="title" -->){
-		#}
-		$html .= "$indent$line";
-#	}
+	}
+	$html .= "$indent$line";
 
 	$html =~ s/%NEWLINE%/\n/g;
 
