@@ -1,0 +1,7 @@
+Stage Name,Size,Type,Fuselage Diameter/width (m),Height/length (m),Max payload mass (kg),Dry Mass (kg),Thrust (kN),Fuel Mass (kg),Specific Impulse (s),Notes
+Payload,None,None,0,0,,0,0,0,0,
+Payload,Extra-small,Payload,1,2,500,500,0,0,0,
+Payload,Small,Payload,2,5,1500,1000,0,0,0,
+Payload,Medium,Payload,3,8,3000,5000,0,0,0,
+Payload,Large,Payload,8,10,5000,10000,0,0,0,
+Payload,Extra-large,Payload,10,15,10000,20000,0,0,0,
