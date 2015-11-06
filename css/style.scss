@@ -143,12 +143,9 @@ menu,#bar {
 	margin: $barheight*0.5 - $lineh*0.5;
 	margin-left: 0;
 }
-.baritem.left a:hover {
-	background: transparent;
-}
-.baritem.padded {
-	padding: $barheight*0.5 - $lineh*0.5;
-}
+.baritem.left a { height: auto; }
+.baritem.left a:hover { background: transparent; }
+.baritem.padded { padding: $barheight*0.5 - $lineh*0.5; }
 .baritem button { border: 0px; background: transparent; font-size: 1em; margin: 0px; padding: 0px; width: 100%; text-align: left; }
 .baritem a img, .baritem button img {
 	margin: $barheight*0.5 - $lineh*0.5;

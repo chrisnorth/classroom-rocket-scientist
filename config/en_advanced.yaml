@@ -1,6 +1,8 @@
 ---
+ui.level:                                   (advanced)
 ui.nojs:                                    Oops! If you're seeing this it looks as though there's a problem which is preventing Classroom Rocket Scientist from working. It requires Javascript to be enabled (but does not require Flash or Java plugins). You can use the <a href="http://www.whatsmybrowser.org/">"What's my browser"</a> website to find out what browser version you're using, and whether Javascript is enabled.
 ui.title:                                   Classroom rocket scientist
+ui.introduction:                            This is an intro.
 ui.loading:                                 Loading...
 ui.menu.restart.title:                      Restart
 ui.menu.restart.more:                       Start over
