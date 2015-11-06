@@ -1,0 +1,77 @@
+@import "definitions";
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+/* apply a natural box layout model to all elements */
+*, *:before, *:after { @include box-sizing(border-box); }
+
+/* End of reset */
+
+html, head { height: 100%; }
+
+body {
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	width: 100%;
+	display: table;
+	height: 100%;
+	width: 100%;
+}
+
+.clear { clear: both; }
+.size { padding: $s * 2; text-align: center; }
+
+$pattern_a: transparent 49%, white 49.4%, white 50.6%, transparent 51%, transparent;
+$pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
+#main {
+	max-width: 90%;
+	margin: 0 5%;
+	overflow: hidden;
+	@include box-sizing(border-box);
+}
+#content {
+	display: block;
+	margin: auto;
+	margin-top: $s;
+	padding: $s * 2 $s * 6;
+	background: #e1f4fe;
+	background-image: -webkit-linear-gradient(0deg, $pattern_b), -webkit-linear-gradient(-90deg, $pattern_b);
+	background-image: linear-gradient(0deg, $pattern_b), linear-gradient(-90deg, $pattern_b);
+	background-size: $s*2 $s*2;
+	background-position: 0 0, 0 0;
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	max-width: 100%;
+}
+
+.threeD #content {
+	background-image: -webkit-linear-gradient(60deg, $pattern_a), -webkit-linear-gradient(-60deg, $pattern_a);
+	background-image: linear-gradient(30deg, $pattern_a), linear-gradient(-30deg, $pattern_a);
+	background-size: $s*3.5264 $s*3.5264*63/110;
+	background-position: 0 0, 0 0;
+}
+
+p { 
+	text-align:center;
+}
+
+.holder { display: inline-block; min-width: $s * 8; text-align:center;}
+
+@import "satellite";

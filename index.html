@@ -1,1 +1,54 @@
-IT WOKS!
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Classroom Rocket Scientist</title>
+	<link rel="stylesheet" media="all" href="css/fonts.css" type="text/css"/>
+	<link rel="stylesheet" media="all" href="css/style.css"  type="text/css" />
+	<!--[if !IE]> --><link href="tests/satellite/style-nonie.css" rel="stylesheet" type="text/css" media="screen" /><!-- <![endif]-->
+	<script type="text/javascript" src="js/rocketscientist.js"></script>
+</head>
+<body>
+
+	<div id="application">
+		<div class="msg noscriptmsg">Oops! If you're seeing this it looks as though there's a problem which is preventing Classroom Rocket Scientist from working. It requires Javascript to be enabled (but does not require Flash or Java plugins). You can use the <a href="http://www.whatsmybrowser.org/">"What's my browser"</a> website to find out what browser version you're using, and whether Javascript is enabled.</div>
+		<div id="bar" class="scriptonly">
+			<div class="barmenu">
+				<div class="baritem">
+					<a href="#menu" class="togglebtn togglemenu" title="Menu"><!--LANGUAGE--><img src="images/cleardot.gif" class="icon menu" alt="" /></a>
+				</div>
+			</div>
+		</div>
+
+		<div id="page">
+			<section id="start" class="view">
+				<h1>Classroom rocket scientist</h1>
+				<a href="beginner.html">Beginner</a> / <a href="intermediate.html">Intermediate</a> / <a href="advanced.html">Advanced</a>
+			</section>
+		</div>
+		<section id="options" class="view">
+	<h2>Units</h2>
+	<form id="optionform">
+		<ul>
+			<li><label for="changecurrency">Currency:</label> <select name="changecurrency" id="changecurrency"><option selected="selected" value="GBP">British Pounds £</option><option value="USD">US Dollars $</option><option value="EUR">Euros €</option><option value="JPY">Japanese Yen ¥</option><option value="CAD">Canadian Dollars C$</option><option value="AUD">Austrialian Dollars $</option><option value="CHF">Swiss Francs Fr.</option><option value="SEK">Swedish Krona kr</option><option value="CNY">Chinese Yuan ¥</option><option value="INR">Indian Rupees ₨</option><option value="RUB">Russian Ruble RUB</option><option value="DBL">Doubloons DBL</option></select></li>
+			<li><label for="changelength">Length units:</label> <select name="changelength" id="changelength"><option selected="selected" value="m">Metres</option><option value="ft">Feet</option><option value="cubit">Cubits</option><option value="bluewhale">Blue Whales</option><option value="yard">Yards</option></select></li>
+			<li><label for="changemass">Mass units:</label> <select name="changemass" id="changemass"><option selected="selected" value="kg">Kilograms</option><option value="lb">Pounds</option><option value="elephant">Elephants</option></select></li>
+		</ul>
+	</form>
+
+</section>
+		<menu id="menu" class="dropdown not-at-start">
+	<li class="baritem" data="restart"><button><img src="images/cleardot.gif" class="icon restart" alt="" /><span>Restart</span></button></li>
+	<li class="baritem" data="difficulty"><button><img src="images/cleardot.gif" class="icon difficulty" alt="" /><span>Difficulty</span></button></li>
+	<!--<li class="baritem" data="help"><a href="#guide"><img src="images/cleardot.gif" class="icon help" alt="" /><span>Help</span></a></li>-->
+	<li class="baritem" data="options"><button><img src="images/cleardot.gif" class="icon options" alt="" /><span>Units</span></button></li>
+	<li class="baritem" data="fullscreen"><button class="fullscreenbtn" title="Switch between viewing fullscreen or in a standard browser window"><img alt="" class="icon fullscreen" src="images/cleardot.gif" /><span>Toggle fullscreen</span></button></li>
+	<li class="baritem">
+		<button class="togglebtn togglelang" title="Change Language"><!--LANGUAGE--><img src="images/cleardot.gif" class="icon globe" alt="Language" /><span>Language</span></button>
+		<div id="language" class="dropdown"><ul></ul></div>
+	</li>
+</menu>
+	</div>
+</body>
+</html>

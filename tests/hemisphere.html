@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<head>
+	<style>
+	body, html {
+		font-family: sans-serif;
+	}
+	
+	body {
+		background-color: #e6ebec;
+		text-align: center;
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	.hemispheres {
+		display: table-cell;
+		vertical-align: middle;
+		width: 100vw;
+		height: 100vh;
+		font-size: 100px;
+	}
+	
+	figcaption {
+		position: absolute;
+		bottom: 0%;
+		text-align: center;
+		width: 100%;
+		box-sizing: border-box;
+		font-size: 14px; 
+		background-color: rgba(255,255,255,0.8); 
+		margin-bottom: -2em;
+		padding: 0.25em;
+		display: none;
+	}
+	
+	.hemisphere, .dome, .inner { display: inline-block; }
+	.dome, .inner { width: 100%; }
+	.dome, .inner { background-color: #ffffff; }
+	.inner { border: 4px solid white; }
+	.north .inner,.west .inner { border-color: #ccc; }
+	
+	.red .dome, .red .inner { background: #f05948; }
+	.red .inner { border: 4px solid #f04031; }
+	.red .north .inner,.red .west .inner { border-color: #f05948; }
+	.blue .dome, .blue .inner { background: #00b9e4; }
+	.blue .inner { border: 4px solid #00a2d3; }
+	.blue .north .inner,.blue .west .inner { border-color: #00b9e4; }
+	.green .dome, .green .inner { background: #0ab26b; }
+	.green .inner { border: 4px solid #02a24b; }
+	.green .north .inner,.green .west .inner { border-color: #0ab26b; }
+
+	.dome { height: 50%; }
+	.east .dome, .west .dome {
+		top: 0%;
+		left: 50%;
+		width: 50%;
+		height: 100%;
+	}
+	
+	.north .dome { box-shadow: inset -0.2em -0em 0.2em -0.05em rgba(0,0,0,0.25); top: 0%; border-radius: 1em 1em 0 0; }
+	.south .dome { box-shadow: inset -0.2em -0.2em 0.2em -0.05em rgba(0,0,0,0.25); border-radius: 0 0 1em 1em; }
+	.east .dome { box-shadow: inset -0.2em -0.2em 0.2em -0.05em rgba(0,0,0,0.25); border-radius: 0 1em 1em 0em; }
+	.west .dome { box-shadow: inset -0.2em -0.2em 0.2em -0.05em rgba(0,0,0,0.25); left: 0%; border-radius: 1em 0em 0em 1em; }
+	
+	.inner, .dome {
+		position: absolute;
+		margin: 0px;
+		top: 50%;
+		left: 0;
+	}
+	.inner {
+		border-radius: 100%;
+		z-index: 100;
+	}
+	.north .inner, .south .inner {
+		-webkit-transform: translateY(-50%);
+		  -ms-transform: translateY(-50%);
+			  transform: translateY(-50%);
+		height: 30%;
+	}
+	.east .inner, .west .inner {
+		height: 100%;
+		width: 60%;
+		left: 50%;
+		top: 0%;
+		-webkit-transform: translateX(-50%);
+		  -ms-transform: translateX(-50%);
+			  transform: translateX(-50%);
+	}
+	
+	.hemisphere {
+		width: 1em;
+		height: 1em;
+		position: relative;
+		margin: auto;
+	}
+	
+	.inner, figcaption {
+		box-sizing: border-box;
+	}
+	.no-inside .inner { display: none; }
+	
+	.north.no-inside .dome {
+		height: 65%;
+		border-radius: 1em 1em 1em 1em / 0.85em 0.85em 0.5em 0.5em;
+		border-bottom: 1px solid #999;
+	}
+	.south.no-inside .dome {
+		height: 65%;
+		top: 35%;
+		border-radius: 1em 1em 1em 1em / 0.5em 0.5em 0.85em 0.85em;
+		border-top: 1px solid #ddd;
+	}
+	.east.no-inside .dome {
+		width: 85%;
+		left: 15%;
+		border-radius: 0.75em 0.85em 0.85em 0.75em / 1em 1em 1em 1em;
+		border-left: 1px solid #999;
+	}
+	.west.no-inside .dome {
+		width: 85%;
+		border-radius: 0.85em 0.75em 0.75em 0.85em / 1em 1em 1em 1em;
+		border-right: 1px solid #999;
+	}
+	.south .inner { box-shadow: inset 0.3em -0.1em 0.2em -0.05em rgba(0,0,0,0.2); }
+	.north .inner { box-shadow: inset 0.3em 0.1em 0.2em -0.05em rgba(0,0,0,0.2); }
+	.east .inner { box-shadow: inset 0.15em 0.1em 0.2em -0.1em rgba(0,0,0,0.2); }
+	.west .inner { box-shadow: inset 0.25em 0.2em 0.2em -0.05em rgba(0,0,0,0.2); }
+	</style>
+
+</head>
+<body>
+	<div class="hemispheres">
+		<figure class="hemisphere east no-inside">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>east</figcaption>
+		</figure>
+		<figure class="hemisphere east">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>east inside</figcaption>
+		</figure>
+		<figure class="hemisphere west">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>west inside</figcaption>
+		</figure>
+		<figure class="hemisphere west no-inside">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>west</figcaption>
+		</figure>
+		<figure class="hemisphere south no-inside">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>south</figcaption>
+		</figure>
+		<figure class="hemisphere south">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>south inside</figcaption>
+		</figure>
+		<figure class="hemisphere north">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>north inside</figcaption>
+		</figure>
+		<figure class="hemisphere north no-inside">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>north</figcaption>
+		</figure>
+		<br style="clear: both;" />
+		<figure class="hemisphere east no-inside red">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>east</figcaption>
+		</figure>
+		<figure class="hemisphere east red">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>east inside</figcaption>
+		</figure>
+		<figure class="hemisphere west red">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>west inside</figcaption>
+		</figure>
+		<figure class="hemisphere west no-inside red">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>west</figcaption>
+		</figure>
+		<figure class="hemisphere south no-inside red">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>south</figcaption>
+		</figure>
+		<figure class="hemisphere south red">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>south inside</figcaption>
+		</figure>
+		<figure class="hemisphere north red">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>north inside</figcaption>
+		</figure>
+		<figure class="hemisphere north no-inside red">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>north</figcaption>
+		</figure>
+		<br style="clear: both;" />
+		<figure class="hemisphere east no-inside green">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>east</figcaption>
+		</figure>
+		<figure class="hemisphere east green">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>east inside</figcaption>
+		</figure>
+		<figure class="hemisphere west green">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>west inside</figcaption>
+		</figure>
+		<figure class="hemisphere west no-inside green">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>west</figcaption>
+		</figure>
+		<figure class="hemisphere south no-inside green">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>south</figcaption>
+		</figure>
+		<figure class="hemisphere south green">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>south inside</figcaption>
+		</figure>
+		<figure class="hemisphere north green">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>north inside</figcaption>
+		</figure>
+		<figure class="hemisphere north no-inside green">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>north</figcaption>
+		</figure>
+		<br style="clear: both;" />
+		<figure class="hemisphere east no-inside blue">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>east</figcaption>
+		</figure>
+		<figure class="hemisphere east blue">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>east inside</figcaption>
+		</figure>
+		<figure class="hemisphere west blue">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>west inside</figcaption>
+		</figure>
+		<figure class="hemisphere west no-inside blue">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>west</figcaption>
+		</figure>
+		<figure class="hemisphere south no-inside blue">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>south</figcaption>
+		</figure>
+		<figure class="hemisphere south blue">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>south inside</figcaption>
+		</figure>
+		<figure class="hemisphere north blue">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>north inside</figcaption>
+		</figure>
+		<figure class="hemisphere north no-inside blue">
+			<figure class="dome"></figure>
+			<figure class="inner"></figure>
+			<figcaption>north</figcaption>
+		</figure>
+	</div>
+
+</body>
+</html>
