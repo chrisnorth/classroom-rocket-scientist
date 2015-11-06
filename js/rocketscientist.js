@@ -123,7 +123,7 @@ r(function(){
 
 	// We hide elements that shouldn't be visible (but we are leaving visible
 	// in the plain HTML so there is something if Javascript doesn't work.
-	var sections = ['options','messages','summary','type','goal','bus','orbit','instrument','power','rocket','launch'];
+	var sections = ['options','messages','summary','goal','bus','orbit','instrument','power','rocket','launch'];
 	for(var s = 0; s < sections.length; s++) toggleClass(document.getElementById(sections[s]),'not-at-start');
 	
 

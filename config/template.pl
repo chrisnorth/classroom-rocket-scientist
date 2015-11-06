@@ -131,13 +131,8 @@ sub parseFile {
 	}
 	$line = $str;
 
-
-
-
-
 	# Do conditional parts
 	$line = parseConditional($line);
-
 
 	while($line =~ /(^|[\n\r])([\t\s]*)\<\!\-\- *\#include *file=\"([^\"]+)\" *\-\-\>/){
 		$ind = $indent.$2;
@@ -148,17 +143,16 @@ sub parseFile {
 		$line =~ s/(^|[\n\r])([\t\s]*)\<\!\-\-\#include file=\"$inc\" \-\-\>/$insert/;
 	}
 	# Update any language variables
-	#while(){
-	#}<!--#echo var="ui.title" -->
-	while($line =~ /\<\!--\#echo var=\"([^\"]*)" --\>/){
+	while($line =~ /\<\!--\#echo var=\"([^\"]*)" ?--\>/){
 		$key = $1;
 		if($lang{$key}){
-			$line =~ s/\<\!--\#echo var=\"$key" --\>/$lang{$key}/g;
+			$line =~ s/\<\!--\#echo var=\"$key" ?--\>/$lang{$key}/g;
 		}else{
-			print "ERROR: Can't replace $key\n";
-			$line =~ s/\<\!--\#echo var=\"$key" --\>//g;
+			print "ERROR: Can't replace $key ($mode)\n";
+			$line =~ s/\<\!--\#echo var=\"$key" ?--\>//g;
 		}
 	}
+#	print "\n\nLANG: $lang{'ui.nojs'}\n\n";
 	$html .= "$indent$line";
 
 	$html =~ s/%NEWLINE%/\n/g;

@@ -485,7 +485,7 @@
 	"scenarios": {
 		"NAV": {
 			"title": "Navigation satellite",
-			"description": "Help people find their way",
+			"description": "The global positioning system is made up of 24 satellites that orbit at an altitude of 20,000 km above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.",
 			"image": {
 				"file": "images/satnav.jpg",
 				"alt": "Sat nav system",
@@ -525,7 +525,7 @@
 		},
 		"COMMS": {
 			"title": "Communication satellite",
-			"description": "Help people communicate with each other",
+			"description": "These are used for television, phone or internet transmissions, for example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.",
 			"image": {
 				"file": "images/satnav.jpg",
 				"alt": "Sat nav system",
@@ -535,7 +535,7 @@
 		},
 		"EO": {
 			"title": "Earth observation satellite",
-			"description": "Monitor the Earth",
+			"description": "These are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that a more detailed images can be produced.",
 			"image": {
 				"file": "images/satnav.jpg",
 				"alt": "Sat nav system",

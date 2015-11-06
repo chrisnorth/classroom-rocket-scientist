@@ -143,6 +143,9 @@ menu,#bar {
 	margin: $barheight*0.5 - $lineh*0.5;
 	margin-left: 0;
 }
+.baritem.left a:hover {
+	background: transparent;
+}
 .baritem.padded {
 	padding: $barheight*0.5 - $lineh*0.5;
 }

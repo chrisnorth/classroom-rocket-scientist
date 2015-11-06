@@ -1,5 +1,25 @@
 ---
+ui.nojs:                                    Oops! If you're seeing this it looks as though there's a problem which is preventing Classroom Rocket Scientist from working. It requires Javascript to be enabled (but does not require Flash or Java plugins). You can use the <a href="http://www.whatsmybrowser.org/">"What's my browser"</a> website to find out what browser version you're using, and whether Javascript is enabled.
 ui.title:                                   Classroom rocket scientist
+ui.loading:                                 Loading...
+ui.menu.restart.title:                      Restart
+ui.menu.restart.more:                       Start over
+ui.menu.units.title:                        Units
+ui.menu.units.more:                         Change the units
+ui.menu.level.title:                        Difficulty
+ui.menu.level.more:                         Change the difficulty
+ui.menu.fullscreen.title:                   Toggle fullscreen
+ui.menu.fullscreen.more:                    Switch between viewing fullscreen or in a standard browser window
+ui.menu.language.title:                     Language
+ui.menu.language.more:                      Change language
+ui.sections.type.title:                     Select your type of satellite
+ui.sections.goal.title:                     Select the purpose of your satellite
+ui.sections.bus.title:                      Choose the size of your satellite
+ui.sections.orbit.title:                    Select the orbit for your satellite
+ui.sections.instrument.title:               Select the instruments for your satellite
+ui.sections.power.title:                    Add power
+ui.sections.rocket.title:                   Build your rocket
+ui.sections.launch.title:                   Launch
 package.camera-opt.title:                   Camera (optical)    # The title of the optical camera instrument
 package.camera-opt.description:             Images of ground
 package.camera-nir.title:                   Camera (NIR)
@@ -53,9 +73,9 @@ package.solar-panel-surface.description:    Provides power
 package.solar-panel.title:                  Deployable solar panel
 package.solar-panel.description:            Provides power
 scenario.NAV.title:                         Navigation satellite
-scenario.NAV.description:                   Help people find their way
+scenario.NAV.description:                   The global positioning system is made up of 24 satellites that orbit at an altitude of 20,000 km above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.
 scenario.COMMS.title:                       Communication satellite
-scenario.COMMS.description:                 Help people communicate with each other
+scenario.COMMS.description:                 These are used for television, phone or internet transmissions, for example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.
 scenario.EO.title:                          Earth observation satellite
-scenario.EO.description:                    Monitor the Earth
+scenario.EO.description:                    These are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that a more detailed images can be produced.
 ...

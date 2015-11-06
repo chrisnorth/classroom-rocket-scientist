@@ -11,15 +11,15 @@
 </head>
 <body>
 	<script type="text/javascript">
-		document.body.innerHTML += '<div id="overlay" style="z-index: 2000;width:100%;max-width:100%;width: 100vw;height: 100%;height:100vh;background-color:black;display:table;position:absolute;color:white;"><div style="display:table-cell;vertical-align:middle;text-align:center;">Loading...</div></div>';
+		document.body.innerHTML += '<div id="overlay" style="z-index: 2000;width:100%;max-width:100%;width: 100vw;height: 100%;height:100vh;background-color:black;display:table;position:absolute;color:white;"><div style="display:table-cell;vertical-align:middle;text-align:center;"><!--#echo var="ui.loading" --></div></div>';
 	</script>
 
 	<div id="application" class="<!--#if expr="${LEVEL} = /beginner/"-->beginner<!--#elif expr="${LEVEL} = /intermediate/"-->intermediate<!--#elif expr="${LEVEL} = /advanced/"-->advanced<!--#else--><!--#endif-->">
-		<div class="msg noscriptmsg">Oops! If you're seeing this it looks as though there's a problem which is preventing Classroom Rocket Scientist from working. It requires Javascript to be enabled (but does not require Flash or Java plugins). You can use the <a href="http://www.whatsmybrowser.org/">"What's my browser"</a> website to find out what browser version you're using, and whether Javascript is enabled.</div>
+		<div class="msg noscriptmsg"><!--#echo var="ui.nojs" --></div>
 		<!--<div class="msg scriptonly">Javascript is enabled.<span class="close">&times;</span></div>-->
 		<div id="bar" class="scriptonly">
 			<div class="barmenu">
-				<div class="baritem left padded"><h1><!--#echo var="ui.title" --></h1></div>
+				<div class="baritem left padded"><h1><a href="index.html"><!--#echo var="ui.title" --></a></h1></div>
 				<div class="baritem">
 					<a href="#menu" class="togglebtn togglemenu" title="Menu"><!--LANGUAGE--><img src="images/cleardot.gif" class="icon menu" alt="" /></a>
 				</div>
@@ -40,12 +40,20 @@
 
 		<div id="page">
 
-			<section id="intro" class="view">
-				<h2>Introduction</h2>
-			</section>
-
 			<section id="type" class="view">
-				<h2>Select your type of satellite</h2>
+				<h2><!--#echo var="ui.sections.type.title" --></h2>
+				<div class="holder">
+					<h3><!--#echo var="scenario.NAV.title" --></h3>
+					<p><!--#echo var="scenario.NAV.description" --></p>
+				</div>
+				<div class="holder">
+					<h3><!--#echo var="scenario.COMMS.title" --></h3>
+					<p><!--#echo var="scenario.COMMS.description" --></p>
+				</div>
+				<div class="holder">
+					<h3><!--#echo var="scenario.EO.title" --></h3>
+					<p><!--#echo var="scenario.EO.description" --></p>
+				</div>
 			</section>
 
 			<section id="goal" class="view">
@@ -54,7 +62,7 @@
 
 			<!--#if expr="${LEVEL} = /intermediate/"-->
 			<section id="bus" class="view">
-				<h2>Choose the size of your satellite</h2>
+				<h2><!--#echo var="ui.sections.bus.title" --></h2>
 				<div class="satellite-holder isogrid">
 					<div class="holder">
 						<!--#include file="satellites/large.html" -->
@@ -70,7 +78,7 @@
 			</section>
 			<!--#elif expr="${LEVEL} = /advanced/"-->
 			<section id="bus" class="view">
-				<h2>Choose the size of your satellite</h2>
+				<h2><!--#echo var="ui.sections.bus.title" --></h2>
 				<div class="satellite-holder isogrid">
 					<div class="holder">
 						<!--#include file="satellites/large.html" -->
@@ -91,12 +99,12 @@
 
 			<!--#if expr="${LEVEL} = /advanced/"-->
 			<section id="orbit" class="view">
-				<h2>Select the orbit for your satellite</h2>
+				<h2><!--#echo var="ui.sections.orbit.title" --></h2>
 			</section>
 			<!--#else--><!--#endif-->
 
 			<section id="instrument" class="view">
-				<h2>Build your satellite</h2>
+				<h2><!--#echo var="ui.sections.instrument.title" --></h2>
 				<button onClick="zoom(1.1)">&plus;</button>
 				<button onClick="zoom(1/1.1)">&minus;</button>
 				<button onClick="toggleComms()">Toggle communications</button>
@@ -107,11 +115,10 @@
 						<!--#include file="satellites/large.html" -->
 					</div>
 				</div>
-
 			</section>
 
 			<section id="power" class="view">
-				<h2>Add power</h2>
+				<h2><!--#echo var="ui.sections.power.title" --></h2>
 			
 				<button onClick="addSolar()">&plus; solar panel</button>
 				<button onClick="removeSolar()">&minus; solar panel</button>
@@ -126,12 +133,12 @@
 			</section>
 
 			<section id="rocket" class="view">
-				<h2>Build your rocket</h2>
+				<h2><!--#echo var="ui.sections.rocket.title" --></h2>
 
 			</section>
 
 			<section id="launch" class="view">
-				<h2>Launch</h2>
+				<h2><!--#echo var="ui.sections.launch.title" --></h2>
 			</section>
 
 		</div>

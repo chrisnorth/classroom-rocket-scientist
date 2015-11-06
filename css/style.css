@@ -203,6 +203,9 @@ menu, #bar {
   margin: 0.75em;
   margin-left: 0; }
 
+.baritem.left a:hover {
+  background: transparent; }
+
 .baritem.padded {
   padding: 0.75em; }
 
