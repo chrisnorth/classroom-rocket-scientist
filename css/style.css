@@ -389,17 +389,18 @@ section {
 .msg .close:hover {
   cursor: pointer; }
 
-#satellite {
-  display: block;
+.satellite-holder {
   margin: auto;
-  padding: 3em 7.5em;
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-width: 100%; }
+  max-width: 100%;
+  text-align: center;
+  display: table;
+  height: 25em;
+  max-height: 100vh; }
 
 .isogrid {
-  text-align: center;
   background: #e1f4fe;
   background-image: -webkit-linear-gradient(0deg, transparent 48%, white 49%, white 51%, transparent 52%, transparent), -webkit-linear-gradient(-90deg, transparent 48%, white 49%, white 51%, transparent 52%, transparent);
   background-image: linear-gradient(0deg, transparent 48%, white 49%, white 51%, transparent 52%, transparent), linear-gradient(-90deg, transparent 48%, white 49%, white 51%, transparent 52%, transparent);
@@ -413,11 +414,14 @@ section {
   background-position: 0 0, 0 0; }
 
 .holder {
-  display: inline-block;
-  margin: auto; }
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center; }
+
+#bus .satellite:hover {
+  cursor: pointer; }
 
 #bus .satellite:hover .face {
-  cursor: pointer;
   background-color: #000000; }
 
 #bus .satellite:hover .face.left {
@@ -445,16 +449,20 @@ section {
   transition: all 0.3s ease; }
 
 .satellite-l {
-  width: 6em; }
+  width: 6em;
+  padding: 1.5em; }
 
 .satellite-m {
-  width: 3em; }
+  width: 3em;
+  padding: 2.25em; }
 
 .satellite-s {
-  width: 3em; }
+  width: 3em;
+  padding: 2.25em; }
 
 .satellite-c {
-  width: 1.5em; }
+  width: 1.5em;
+  padding: 3em; }
 
 .row, .solar-panels {
   display: block;

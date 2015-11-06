@@ -49,10 +49,10 @@
 		}
 	},
 	"package": {
-		"camera_opt" : {
+		"camera-opt" : {
 			"slot": "2x2",
-			"title": "Camera (optical)",
-			"description": "Images of ground",
+			"title": "%package.camera-opt.title%",
+			"description": "%package.camera-opt.description%",
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -62,10 +62,10 @@
 			],
 			"power": { "value": 50, "units": "watts", "dimension": "power" }
 		},
-		"camera_nir": {
+		"camera-nir": {
 			"slot":	"2x2",
-			"title": "Camera (NIR)",
-			"description": "Images of vegetation",
+			"title": "%package.camera-nir.title%",
+			"description": "%package.camera-nir.description%",
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -75,10 +75,10 @@
 			],
 			"power": { "value": 50, "units": "watts", "dimension": "power" }
 		},
-		"camera_fir": {
+		"camera-fir": {
 			"slot":	"2x4",
-			"title": "Camera (FIR)",
-			"description": "Images of clouds",
+			"title": "%package.camera-fir.title%",
+			"description": "%package.camera-fir.description%",
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -88,10 +88,10 @@
 			],
 			"power": { "value": 300, "units": "watts", "dimension": "power" }
 		},
-		"spect_opt": {
+		"spect-opt": {
 			"slot":	"2x2",
-			"title": "Spectrometer (optical)",
-			"description": "Properties of ground",
+			"title": "%package.spect-opt.title%",
+			"description": "%package.spect-opt.description%",
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -101,10 +101,10 @@
 			],
 			"power": { "value": 150, "units": "watts", "dimension": "power" }
 		},
-		"spect_nir": {
+		"spect-nir": {
 			"slot":	"2x2",
-			"title": "Spectrometer (NIR)",
-			"description": "Properties of vegetation",
+			"title": "%package.spect-nir.title%",
+			"description": "%package.spect-nir.description%",
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -114,10 +114,10 @@
 			],
 			"power": { "value": 150, "units": "watts", "dimension": "power" }
 		},
-		"spect_fir": {
+		"spect-fir": {
 			"slot":	"2x4",
-			"title": "Spectrometer (FIR)",
-			"description": "Properties of clouds",
+			"title": "%package.spect-fir.title%",
+			"description": "%package.spect-fir.description%",
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -127,10 +127,10 @@
 			],
 			"power": { "value": 300, "units": "watts", "dimension": "power" }
 		},
-		"radar_alt": {
+		"radar-alt": {
 			"slot":	"2x4",
-			"title": "Radar altimeter",
-			"description": "Measuring topography",
+			"title": "%package.radar-alt.title%",
+			"description": "%package.radar-alt.description%",
 			"mass": { "value": 40, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -139,17 +139,17 @@
 				{ "value": 0.5, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": 70, "units": "watts", "dimension": "power" },
-			"requires": {
+			"requires": [{
 				"type": "package",
-				"oneof": ["radar_dish"],
-				"label": "Requires a radar dish",
-				"error": "You need to include a radar dish for the altimeter to work"
-			}
+				"oneof": ["radar-dish"],
+				"label": "%package.radar-alt.requires.dish.label%",
+				"error": "%package.radar-alt.requires.dish.error%"
+			}]
 		},
-		"radar_dish": {
+		"radar-dish": {
 			"slot":	"4x8",
-			"title": "Radar dish",
-			"description": "Measuring topography",
+			"title": "%package.radar-dish.title%",
+			"description": "%package.radar-dish.description%",
 			"mass": { "value": 40, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -159,10 +159,10 @@
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
 		},
-		"radio_rx": {
+		"radio-rx": {
 			"slot":	"2x2",
-			"title": "Radio receiver",
-			"description": "Communications",
+			"title": "%package.radio-rx.title%",
+			"description": "%package.radio-rx.description%",
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -172,10 +172,10 @@
 			],
 			"power": { "value": 20, "units": "watts", "dimension": "power" }
 		},
-		"radio_tx": {
+		"radio-tx": {
 			"slot":	"2x2",
-			"title": "Radio transmitter",
-			"description": "Communications",
+			"title": "%package.radio-tx.title%",
+			"description": "%package.radio-tx.description%",
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -185,10 +185,10 @@
 			],
 			"power": { "value": 20, "units": "watts", "dimension": "power" }
 		},
-		"atomic_clock": {
+		"atomic-clock": {
 			"slot":	"2x2",
-			"title": "Atomic clock",
-			"description": "Navigation (GPS timing)",
+			"title": "%package.atomic-clock.title%",
+			"description": "%package.atomic-clock.description%",
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 50000, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -198,10 +198,10 @@
 			],
 			"power": { "value": 10, "units": "watts", "dimension": "power" }
 		},
-		"atomic_clock_small": {
+		"atomic-clock-small": {
 			"slot":	"1x2",
-			"title": "Atomic clock (compact)",
-			"description": "Navigation (GPS timing)",
+			"title": "%package.atomic-clock-small.title%",
+			"description": "%package.atomic-clock-small.description%",
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 50000, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -211,10 +211,10 @@
 			],
 			"power": { "value": 10, "units": "watts", "dimension": "power" }
 		},
-		"gps_rx": {
+		"gps-rx": {
 			"slot":	"1x1",
-			"title": "GPS receiver",
-			"description": "Positioning",
+			"title": "%package.gps-rx.title%",
+			"description": "%package.gps-rx.description%",
 			"mass": { "value": 0.5, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -224,10 +224,10 @@
 			],
 			"power": { "value": 5, "units": "watts", "dimension": "power" }
 		},
-		"camera_mini": {
+		"camera-mini": {
 			"slot":	"1x1",
-			"title": "Camera (miniature)",
-			"description": "Images of ground",
+			"title": "%package.camera-mini.title%",
+			"description": "%package.camera-mini.description%",
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 50000, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -237,10 +237,10 @@
 			],
 			"power": { "value": 5, "units": "watts", "dimension": "power" }
 		},
-		"dish_large": {
+		"dish-large": {
 			"slot":	"4x8",
-			"title": "Radio dish (large)",
-			"description": "For up to 8 instruments",
+			"title": "%package.dish-large.title%",
+			"description": "%package.dish-large.description%",
 			"mass": { "value": 30, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -250,10 +250,10 @@
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
 		},
-		"dish_medium": {
+		"dish-medium": {
 			"slot":	"2x4",
-			"title": "Radio dish (medium)",
-			"description": "For up to 4 instruments",
+			"title": "%package.dish-medium.title%",
+			"description": "%package.dish-medium.description%",
 			"mass": { "value": 20, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -263,10 +263,10 @@
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
 		},
-		"dish_small": {
+		"dish-small": {
 			"slot":	"1x2",
-			"title": "Radio antenna (small)",
-			"description": "For up to 2 instruments",
+			"title": "%package.dish-small.title%",
+			"description": "%package.dish-small.description%",
 			"mass": { "value": 0.5, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -276,10 +276,10 @@
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
 		},
-		"antenna_cube": {
+		"antenna-cube": {
 			"slot":	"0x2",
-			"title": "Radio antenna (deployable)",
-			"description": "For up to 2 instruments",
+			"title": "%package.antenna-cube.title%",
+			"description": "%package.antenna-cube.description%",
 			"mass": { "value": 0.1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 4500, "units": "EUR", "dimension": "currency" },
 			"dimensions": [
@@ -288,12 +288,12 @@
 				{ "value": 0.07, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": 2, "units": "watts", "dimension": "power" },
-			"ref": "http://cubesatshop.com/index.php?page=shop.product_details&category_id=6&flypage=flypage.tpl&product_id=66&option=com_virtuemart&Itemid=70&vmcchk=1&Itemid=70"
+			"ref": "http://cubesatshop.com/index.php?page=shop.product.details&category.id=6&flypage=flypage.tpl&product.id=66&option=com.virtuemart&Itemid=70&vmcchk=1&Itemid=70"
 		},
-		"battery_large": {
+		"battery-large": {
 			"slot":	"2x2",
-			"title": "Large battery",
-			"description": "Provides power",
+			"title": "%package.battery-large.title%",
+			"description": "%package.battery-large.description%",
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -302,17 +302,17 @@
 				{ "value": 0.5, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": -500, "units": "watts", "dimension": "power" },
-			"requires": {
+			"requires": [{
 				"type": "package",
-				"oneof": ["solar_panel","solar_panel_surface"],
+				"oneof": ["solar.panel","solar.panel.surface"],
 				"label": "Requires solar panels",
 				"error": "Requires solar panels"
-			}
+			}]
 		},
-		"battery_small": {
+		"battery-small": {
 			"slot":	"1x1",
-			"title": "Small battery",
-			"description": "Provides power",
+			"title": "%package.battery-small.title%",
+			"description": "%package.battery-small.description%",
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -321,17 +321,17 @@
 				{ "value": 0.05, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": -30, "units": "watts", "dimension": "power" },
-			"requires": {
+			"requires": [{
 				"type": "package",
-				"oneof": ["solar_panel","solar_panel_surface"],
-				"label": "Requires solar panels",
-				"error": "Requires solar panels"
-			}
+				"oneof": ["solar.panel","solar.panel.surface"],
+				"label": "%package.battery-small.requires.solar.label%",
+				"error": "%package.battery-small.requires.solar.error%"
+			}]
 		},
 		"rtg": {
 			"slot":	"2x4",
-			"title": "RTG",
-			"description": "Provides power",
+			"title": "%package.rtg.title%",
+			"description": "%package.rtg.description%",
 			"mass": { "value": 60, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -340,17 +340,17 @@
 				{ "value": 1.0, "units": "metres", "dimension": "length" }
 			],
 			"power": { "value": -300, "units": "watts", "dimension": "power" },
-			"requires": {
+			"requires": [{
 				"type": "orbit",
 				"oneof": ["MEO","HEO","GEO"],
-				"label": "Not for low-Earth orbit",
-				"error": "Can't use an RTG in low-Earth orbit"
-			}
+				"label": "%package.rtg.requires.orbit.label%",
+				"error": "%package.rtg.requires.orbit.error%"
+			}]
 		},
-		"solar_panel_surface": {
+		"solar-panel-surface": {
 			"slot":	"",
-			"title": "Body-mounted solar panel",
-			"description": "Provides power",
+			"title": "%package.solar-panel-surface.title%",
+			"description": "%package.solar-panel-surface.description%",
 			"mass": { "value": 5, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -359,10 +359,10 @@
 			],
 			"power": { "value": -150, "units": "watts", "dimension": "power" }
 		},
-		"solar_panel": {
+		"solar-panel": {
 			"slot":	"",
-			"title": "Deployable solar panel",
-			"description": "Provides power",
+			"title": "%package.solar-panel.title%",
+			"description": "%package.solar-panel.description%",
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -483,8 +483,15 @@
 		}
 	},
 	"scenarios": {
-		"NAV": [
-			{
+		"NAV": {
+			"title": "%scenario.NAV.title%",
+			"description": "%scenario.NAV.description%",
+			"image": {
+				"file": "images/satnav.jpg",
+				"alt": "Sat nav system",
+				"credit": "ESA"
+			},
+			"missions": [{
 				"name": "Satellite Navigation System",
 				"description": "Tell people their location",
 				"image": {
@@ -514,13 +521,27 @@
 					"label": "See the whole planet.",
 					"error": "The orbit you have chosen does not allow you to see the whole planet"
 				}]
-			}
-		],
-		"COMMS": [
-		
-		],
-		"EO": [
-		
-		]
+			}]
+		},
+		"COMMS": {
+			"title": "%scenario.COMMS.title%",
+			"description": "%scenario.COMMS.description%",
+			"image": {
+				"file": "images/satnav.jpg",
+				"alt": "Sat nav system",
+				"credit": "ESA"
+			},
+			"missions": []
+		},
+		"EO": {
+			"title": "%scenario.EO.title%",
+			"description": "%scenario.EO.description%",
+			"image": {
+				"file": "images/satnav.jpg",
+				"alt": "Sat nav system",
+				"credit": "ESA"
+			},
+			"missions": []		
+		}
 	}
 }

@@ -260,18 +260,18 @@ section {
 $pattern_a: transparent 49%, white 49.4%, white 50.6%, transparent 51%, transparent;
 $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 
-#satellite {
-	display: block;
+.satellite-holder {
 	margin: auto;
-	padding: $s * 2 $s * 5;
 	position: relative;
 	overflow: hidden;
 	width: 100%;
 	max-width: 100%;
-}
-
-.isogrid {
 	text-align: center;
+	display: table;
+	height: 25em;
+	max-height: 100vh;
+}
+.isogrid {
 	background: #e1f4fe;
 	background-image: -webkit-linear-gradient(0deg, $pattern_b), -webkit-linear-gradient(-90deg, $pattern_b);
 	background-image: linear-gradient(0deg, $pattern_b), linear-gradient(-90deg, $pattern_b);
@@ -286,12 +286,14 @@ $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 }
 
 .holder {
-	display: inline-block;
-	margin: auto;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
 }
-
-#bus .satellite:hover .face {
+#bus .satellite:hover {
 	cursor: pointer;
+}
+#bus .satellite:hover .face {
 	background-color: $black;
 }
 #bus .satellite:hover .face.left { background-color: $black_l; }

@@ -11,10 +11,10 @@
 	@include box-sizing(content-box);
 	@include transition(all $trans ease);
 }
-.satellite-l { width: $s * 4; }
-.satellite-m { width: $s * 2; }
-.satellite-s { width: $s * 2; }
-.satellite-c { width: $s; }
+.satellite-l { width: $s * 4; padding: $s * 1; }
+.satellite-m { width: $s * 2; padding: $s * 1.5; }
+.satellite-s { width: $s * 2; padding: $s * 1.5; }
+.satellite-c { width: $s; padding: $s * 2; }
 .row, .solar-panels { 
 	display: block;
 	position: relative;

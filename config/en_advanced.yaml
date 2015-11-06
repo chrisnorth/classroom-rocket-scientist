@@ -1,0 +1,61 @@
+---
+ui.title:                                   Classroom rocket scientist
+package.camera-opt.title:                   Camera (optical)    # The title of the optical camera instrument
+package.camera-opt.description:             Images of ground
+package.camera-nir.title:                   Camera (NIR)
+package.camera-nir.description:             Images of vegetation
+package.camera-fir.title:                   Camera (FIR)
+package.camera-fir.description:             Images of clouds
+package.spect-opt.title:                    Spectrometer (optical)
+package.spect-opt.description:              Properties of ground
+package.spect-nir.title:                    Spectrometer (NIR)
+package.spect-nir.description:              Properties of vegetation
+package.spect-fir.title:                    Spectrometer (FIR)
+package.spect-fir.description:              Properties of clouds
+package.radar-alt.title:                    Radar altimeter
+package.radar-alt.description:              Measuring topography
+package.radar-alt.requires.dish.label:      Requires a radar dish
+package.radar-alt.requires.dish.error:      You need to include a radar dish for the altimeter to work
+package.radar-dish.title:                   Radar dish
+package.radar-dish.description:             Measuring topography
+package.radio-rx.title:                     Radio receiver
+package.radio-rx.description:               Communications
+package.radio-tx.title:                     Radio transmitter
+package.radio-tx.description:               Communications
+package.atomic-clock.title:                 Atomic clock
+package.atomic-clock.description:           Navigation (GPS timing)
+package.atomic-clock-small.title:           Atomic clock (compact)
+package.atomic-clock-small.description:     Navigation (GPS timing)
+package.gps-rx.title:                       GPS receiver
+package.gps-rx.description:                 Positioning
+package.camera-mini.title:                  Camera (miniature)
+package.camera-mini.description:            Images of ground
+package.dish-large.title:                   Radio dish (large)
+package.dish-large.description:             For up to 8 instruments
+package.dish-medium.title:                  Radio dish (medium)
+package.dish-medium.description:            For up to 4 instruments
+package.dish-small.title:                   Radio antenna (small)
+package.dish-small.description:             For up to 2 instruments
+package.antenna-cube.title:                 Radio antenna (deployable)
+package.antenna-cube.description:           For up to 2 instruments
+package.battery-large.title:                Large battery
+package.battery-large.description:          Provides power
+package.battery-small.title:                Small battery
+package.battery-small.description:          Provides power
+package.battery-small.requires.solar.label: Requires solar panels
+package.battery-small.requires.solar.error: Requires solar panels
+package.rtg.title:                          RTG
+package.rtg.description:                    Provides power
+package.rtg.requires.orbit.label:           Not for low-Earth orbit
+package.rtg.requires.orbit.error:           Can't use an RTG in low-Earth orbit
+package.solar-panel-surface.title:          Body-mounted solar panel
+package.solar-panel-surface.description:    Provides power
+package.solar-panel.title:                  Deployable solar panel
+package.solar-panel.description:            Provides power
+scenario.NAV.title:                         Navigation satellite
+scenario.NAV.description:                   Help people find their way
+scenario.COMMS.title:                       Communication satellite
+scenario.COMMS.description:                 Help people communicate with each other
+scenario.EO.title:                          Earth observation satellite
+scenario.EO.description:                    Monitor the Earth
+...

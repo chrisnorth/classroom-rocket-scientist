@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
-	<title><!--#lang var="title" -->Classroom Rocket Scientist</title>
+	<title>Classroom Rocket Scientist</title>
 	<link rel="stylesheet" media="all" href="css/fonts.css" type="text/css"/>
 	<link rel="stylesheet" media="all" href="css/style.css"  type="text/css" />
 	<!--[if !IE]> --><link href="tests/satellite/style-nonie.css" rel="stylesheet" type="text/css" media="screen" /><!-- <![endif]-->
@@ -11,12 +11,12 @@
 	<script type="text/javascript" src="js/rocketscientist.js"></script>
 </head>
 <body>
-	<div id="application" class="advanced">
+	<div id="application" class="intermediate">
 		<div class="msg noscriptmsg">Oops! If you're seeing this it looks as though there's a problem which is preventing Classroom Rocket Scientist from working. It requires Javascript to be enabled (but does not require Flash or Java plugins). You can use the <a href="http://www.whatsmybrowser.org/">"What's my browser"</a> website to find out what browser version you're using, and whether Javascript is enabled.</div>
 		<div class="msg scriptonly">Javascript is enabled.<span class="close">&times;</span></div>
 		<div id="bar" class="scriptonly">
 			<div class="barmenu">
-				<div class="baritem left padded">Classroom rocket scientist</div>
+				<div class="baritem left padded"><!--#lang var="title" -->Classroom rocket scientist</div>
 				<div class="baritem">
 					<a href="#menu" class="togglebtn togglemenu" title="Menu"><!--LANGUAGE--><img src="images/cleardot.gif" class="icon menu" alt="" /></a>
 					<div id="menu" class="dropdown">
@@ -32,9 +32,11 @@
 					<a href="#language" class="togglebtn togglelang" title="Change Language"><!--LANGUAGE--><img src="images/cleardot.gif" class="icon globe" alt="Language" /></a>
 					<div id="language" class="dropdown"><ul></ul></div>
 				</div>
-				<div class="baritem errors"></div>
 				<div class="baritem not-level-1"><a href="#summary" class="togglecost"><img src="images/cleardot.gif" class="icon cost" /><span class="cost cost_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span></a></div>
 				<div class="baritem not-level-1 not-level-2"><a href="#summaryext_mass" class="togglemass"><img src="images/cleardot.gif" class="icon mass" /><span class="mass mass_total value convertable" data-value="0" data-units="kg" data-dimension="mass">0 kg</span></a></div>
+				<div class="baritem warnings">
+					<a class="togglewarning" title="View warnings" href="#messages"><img class="icon warning" title="Warnings" src="images/cleardot.gif"> <span class="warning value">3</span></a>
+				</div>
 			</div>
 		</div>
 
@@ -56,15 +58,19 @@
 
 			<section id="bus" class="view not-level-1">
 				<h2>Choose the size of your satellite</h2>
-				<div class="isogrid">
+				<div class="satellite-holder isogrid">
 					<div class="holder">
 						<!--#include file="satellites/large.html" -->
+						<p>Large</p>
 					</div><div class="holder">
 						<!--#include file="satellites/medium.html" -->
+						<p>Medium</p>
 					</div><div class="holder">
 						<!--#include file="satellites/small.html" -->
-					</div><div class="holder">
+						<p>Small</p>
+					</div><div class="holder not-level-1 not-level-2">
 						<!--#include file="satellites/cube.html" -->
+						<p>Cube sat</p>
 					</div>
 				</div>
 			</section>
@@ -77,22 +83,12 @@
 				<h2>Build your satellite</h2>
 				<button onClick="zoom(1.1)">&plus;</button>
 				<button onClick="zoom(1/1.1)">&minus;</button>
-				<button onClick="addSolar()">&plus; solar panel</button>
-				<button onClick="removeSolar()">&minus; solar panel</button>
 				<button onClick="toggleComms()">Toggle communications</button>
-				<button onClick="toggleSolar()">Toggle fixed solar panels</button>
 				<button onClick="toggle3D()">Toggle 3D!</button>
-				<button onClick="toggleAnimation()">Toggle animation!</button>
 
-				<div id="satellite" class="isogrid threeD">
+				<div id="satellite" class="satellite-holder isogrid threeD">
 					<div class="holder" id="sat-l">
 						<!--#include file="satellites/large.html" -->
-					</div><div class="holder" id="sat-m">
-						<!--#include file="satellites/medium.html" -->
-					</div><div class="holder" id="sat-s">
-						<!--#include file="satellites/small.html" -->
-					</div><div class="holder" id="sat-c">
-						<!--#include file="satellites/cube.html" -->
 					</div>
 				</div>
 
@@ -101,8 +97,13 @@
 			<section id="power" class="view">
 				<h2>Add power</h2>
 			
-				<div class="isogrid threeD">
-					<div class="holder">
+				<button onClick="addSolar()">&plus; solar panel</button>
+				<button onClick="removeSolar()">&minus; solar panel</button>
+				<button onClick="toggleSolar()">Toggle fixed solar panels</button>
+				<button onClick="toggleAnimation()">Toggle animation!</button>
+
+				<div id="satellite-power" class="satellite-holder isogrid threeD">
+					<div class="holder" id="sat-power-l">
 						<!--#include file="satellites/large.html" -->
 					</div>
 				</div>
