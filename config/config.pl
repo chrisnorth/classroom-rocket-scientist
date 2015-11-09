@@ -1,5 +1,11 @@
 #!/usr/bin/perl
 
+#use JSON::PP;
+#$scalar = JSON::PP->new->utf8->decode( $json );
+#foreach $my (keys(%{$scalar->{'package'}})){
+#	print "$my: ".$scalar->{'package'}{$my}{'title'}."\n";
+#}
+			
 # We need to temporarily include the base directory 
 # of this perl script on the include path
 BEGIN{ if($0 =~ /^(.*\/)[^\/]+/){ unshift @INC, $1 } }
@@ -29,7 +35,7 @@ foreach $lang (@langs){
 }
 
 sub processLanguage {
-	my ($lang,$line,@lines,$key,$value,%keys);
+	my ($lang,$line,@lines,$key,$value,%keys,$scalar);
 	$lang = $_[0];
 
 	%keys = loadLanguage($basedir.$lang.".yaml");
@@ -45,6 +51,7 @@ sub processLanguage {
 				while($line =~ /%([^%]+)%/){
 					$key = $1;
 					$replace = ($keys{$key}) ? $keys{$key} : "";
+					$replace =~ s/\"/\\\"/g;
 					if(!$keys{$key}){ print "\nWARNING: Couldn't find text for the key \%$key\$\n"; }
 					$line =~ s/%$key%/$replace/;
 				}
@@ -52,10 +59,11 @@ sub processLanguage {
 			}
 			$new = $lang."_options.json";
 	
-			print " -> $new";
+			print " -> $new\n";
 			open(JSON,">",$basedir.$new);
 			print JSON $json;
 			close(JSON);
+
 		}
 	}
 	print "\n";

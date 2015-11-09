@@ -1,9 +1,10 @@
 ---
 ui.level:                                   (advanced)
-ui.nojs:                                    Oops! If you're seeing this it looks as though there's a problem which is preventing Classroom Rocket Scientist from working. It requires Javascript to be enabled (but does not require Flash or Java plugins). You can use the <a href="http://www.whatsmybrowser.org/">"What's my browser"</a> website to find out what browser version you're using, and whether Javascript is enabled.
+ui.nojs:                                    Oops! Something broke. Classroom Rocket Scientist requires Javascript. You can use the <a href="http://www.whatsmybrowser.org/">"What's my browser"</a> website to find out what browser version you're using and whether Javascript is enabled.
 ui.title:                                   Classroom rocket scientist
 ui.introduction:                            This is an intro.
 ui.loading:                                 Loading...
+ui.menu.title:                              Menu
 ui.menu.restart.title:                      Restart
 ui.menu.restart.more:                       Start over
 ui.menu.units.title:                        Units
@@ -15,13 +16,25 @@ ui.menu.fullscreen.more:                    Switch between viewing fullscreen or
 ui.menu.language.title:                     Language
 ui.menu.language.more:                      Change language
 ui.sections.type.title:                     Select your type of satellite
+ui.sections.type.intro:                     Satellites have different purposes. Which type do you want to build?
 ui.sections.goal.title:                     Select the purpose of your satellite
+ui.sections.goal.intro:                     Select the purpose of your satellite
 ui.sections.bus.title:                      Choose the size of your satellite
+ui.sections.bus.intro:                      The size of your satellite matters. It needs to be big enough to hold all the instruments you need. Be careful though. The bigger your satellite, the more expensive it is.
 ui.sections.orbit.title:                    Select the orbit for your satellite
+ui.sections.orbit.intro:                    There are several different orbits around the Earth that you can choose from. Higher orbits need more powerful rockets to get to them.
 ui.sections.instrument.title:               Select the instruments for your satellite
+ui.sections.instrument.intro:               To complete your mission you will need the correct instruments. You only have a limited number of slots and money so choose wisely.
 ui.sections.power.title:                    Add power
+ui.sections.power.intro:                    Your satellite needs power. There are different ways to do that. You can use solar panels on the sides of the satellite, deployable solar panels, and batteries.
 ui.sections.rocket.title:                   Build your rocket
+ui.sections.rocket.intro:                   Now you have a satellite you need to build a multi-stage rocket. The top of the rocket will hold your satellite so needs to be big enough. The lower stages need to be big enough to support those above.
 ui.sections.launch.title:                   Launch
+ui.sections.launch.intro:                   
+bus.cube.title:                             Cube sat
+bus.small.title:                            Small satellite
+bus.medium.title:                           Medium satellite
+bus.large.title:                            Large satellite
 package.camera-opt.title:                   Camera (optical)    # The title of the optical camera instrument
 package.camera-opt.description:             Images of ground
 package.camera-nir.title:                   Camera (NIR)

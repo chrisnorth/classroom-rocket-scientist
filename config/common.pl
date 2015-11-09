@@ -20,4 +20,29 @@ sub loadLanguage {
 	}
 	return %temp;	
 }
+
+use JSON::PP;
+
+%config;
+
+sub loadConfig {
+	my ($file,$line,@lines,$json,$pp);
+	$file = $_[0];
+	if(!-e $file){
+		print "ERROR: Can't load $file.\n";
+		return;
+	}
+	print "Loading $file\n";
+	open(FILE,$file);
+	@lines = <FILE>;
+	close(FILE);
+	
+	$json = "";
+	foreach $line (@lines){
+		$json .= $line;
+	}
+	$pp = JSON::PP->new;
+	$pp = $pp->canonical([true]);
+	$config = $pp->utf8->decode( $json );
+}
 1;

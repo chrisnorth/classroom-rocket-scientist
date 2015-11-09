@@ -289,7 +289,9 @@
 			],
 			"power": { "value": 2, "units": "watts", "dimension": "power" },
 			"ref": "http://cubesatshop.com/index.php?page=shop.product.details&category.id=6&flypage=flypage.tpl&product.id=66&option=com.virtuemart&Itemid=70&vmcchk=1&Itemid=70"
-		},
+		}
+	},
+	"power": {
 		"battery-large": {
 			"slot":	"2x2",
 			"title": "Large battery",
@@ -371,7 +373,7 @@
 			],
 			"power": { "value": -300, "units": "watts", "dimension": "power" }
 		}
-	],
+	},
 	"rocket": {
 		"main": {
 			"tiny":{
@@ -485,7 +487,7 @@
 	"scenarios": {
 		"NAV": {
 			"title": "Navigation",
-			"description": "The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.",
+			"description": "The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension=\"length\" data-units=\"km\" data-value=\"20000\" class=\"value convertable\">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.",
 			"image": {
 				"file": "images/satnav.jpg",
 				"alt": "Sat nav system",

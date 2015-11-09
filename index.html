@@ -9,26 +9,30 @@
 	<!--[if !IE]> --><link href="tests/satellite/style-nonie.css" rel="stylesheet" type="text/css" media="screen" /><!-- <![endif]-->
 	<script type="text/javascript" src="js/rocketscientist.js"></script>
 </head>
-<body>
+<body class="front">
 
 	<div id="application">
-		<div class="msg noscriptmsg">Oops! If you're seeing this it looks as though there's a problem which is preventing Classroom Rocket Scientist from working. It requires Javascript to be enabled (but does not require Flash or Java plugins). You can use the <a href="http://www.whatsmybrowser.org/">"What's my browser"</a> website to find out what browser version you're using, and whether Javascript is enabled.</div>
-		<div id="bar" class="scriptonly">
-			<div class="barmenu">
-				<div class="baritem">
-					<a href="#menu" class="togglebtn togglemenu" title="Menu"><!--LANGUAGE--><img src="images/cleardot.gif" class="icon menu" alt="" /></a>
+		<header>
+			<div id="bar">
+				<div class="barmenu">
+					<div class="baritem">
+						<button class="togglebtn togglemenu" title="Menu"><img src="images/cleardot.gif" class="icon menu" alt="" /></button></a>
+					</div>
 				</div>
 			</div>
-		</div>
+			<div class="msg noscriptmsg">Oops! If you're seeing this it looks as though there's a problem which is preventing Classroom Rocket Scientist from working. It requires Javascript to be enabled (but does not require Flash or Java plugins). You can use the <a href="http://www.whatsmybrowser.org/">"What's my browser"</a> website to find out what browser version you're using, and whether Javascript is enabled.</div>
+		</header>
 
-		<div id="page">
+		<div id="main">
 			<section id="start" class="view">
-				<h1>Classroom rocket scientist</h1>
-				<p>This is an intro.</p>
-				<a href="beginner.html">Beginner</a> / <a href="intermediate.html">Intermediate</a> / <a href="advanced.html">Advanced</a>
+				<div class="padded">
+					<h1>Classroom rocket scientist</h1>
+					<p>This is an intro.</p>
+					<a href="beginner.html">Beginner</a> / <a href="intermediate.html">Intermediate</a> / <a href="advanced.html">Advanced</a>
+				</div>
 			</section>
 		</div>
-		<section id="options" class="view">
+		<section id="units" class="view not-at-start">
 	<h2>Units</h2>
 	<form id="optionform">
 		<ul>

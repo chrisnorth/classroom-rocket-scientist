@@ -1,6 +1,8 @@
 #!/usr/bin/perl
 # SSI: http://www.w3.org/Jigsaw/Doc/User/SSI.html
 
+use Data::Dumper;
+
 # We need to temporarily include the base directory 
 # of this perl script on the include path
 BEGIN{ if($0 =~ /^(.*\/)[^\/]+/){ unshift @INC, $1 } }
@@ -18,6 +20,7 @@ if($0 =~ /^(.*\/)[^\/]+/){ $basedir = $1; }
 #################################
 $overwrite = 0;
 $mode = "beginner";
+$lang = "en";
 for($i = 0; $i < (@ARGV) ; $i++){
 	if($ARGV[$i] =~ /^\-+(.*)/){
 		$flag = $1;
@@ -37,8 +40,6 @@ for($i = 0; $i < (@ARGV) ; $i++){
 		}
 	}
 }
-
-%lang = loadLanguage($basedir."en_".$mode.".yaml");
 
 if($ARGV[0] eq "--help" || $ARGV[0] eq "-h" || !-e $file_i || !$file_i || ($file_i eq $file_o)){
 	print <<END
@@ -76,6 +77,13 @@ if(!-e $file_i){
 	print "$file_i doesn't exist! Quitting.\n";
 	exit;
 }
+
+
+%lang = loadLanguage($basedir.$lang."_".$mode.".yaml");
+%config = loadConfig($basedir.$lang."_".$mode."_options.json");
+
+
+
 
 $result = parseFile($file_i);
 
@@ -134,6 +142,9 @@ sub parseFile {
 	# Do conditional parts
 	$line = parseConditional($line);
 
+	# Do loops
+	$line = parseLoops($line);
+
 	while($line =~ /(^|[\n\r])([\t\s]*)\<\!\-\- *\#include *file=\"([^\"]+)\" *\-\-\>/){
 		$ind = $indent.$2;
 		$inc = $3;
@@ -152,7 +163,9 @@ sub parseFile {
 			$line =~ s/\<\!--\#echo var=\"$key" ?--\>//g;
 		}
 	}
-#	print "\n\nLANG: $lang{'ui.nojs'}\n\n";
+
+	
+	
 	$html .= "$indent$line";
 
 	$html =~ s/%NEWLINE%/\n/g;
@@ -181,6 +194,86 @@ sub parseConditional {
 	$line =~ s/%NEWLINE%/\n/g;
 	
 	return $line;
+}
+
+sub parseLoops {
+
+	my($line,$match,$result,$name,$each,$var,$loop,$temp);
+	$line = $_[0];
+
+	# Temporarily zap newlines
+	$line =~ s/[\n\r]/%NEWLINE%/g;
+
+	# Process for loops (these aren't genuine SSI but our own made-up format)
+	#	<!--#for each="package" name="iloop" -->
+	#		<li>
+	#			Title: <!--#json name="dimensions.value" -->  
+	#		</li>
+	#	<!--#endfor name="iloop" -->
+	# Loops over each key (i) in "package". The "json name" gives the JS-style 
+	# reference relative to package[i] e.g. package[i].dimensions.value
+
+	%var = ('package'=> { 'b'=> {'title'=>'A title goes here'},'c'=>{'title'=>'Your title text'}} );
+
+	while($line =~ /\<\!\-\-\#for( [^\>]*)name="([^\"]*)"([^\>]*) \-\-\>(.*)\<\!\-\-\#endfor name="\2" \-\-\>/){
+		$match = $1."name=\"$2\"".$3;
+		$loop = $4;
+		$match =~ / name="([^\"]*)"/;
+		$name = $1;
+		$match =~ / each="([^\"]*)"/;
+		$each = $1;
+		$result = "";
+		foreach $e (sort(keys(%{$config->{$each}}))){
+			# Get the hash for this time in the loop
+#			$temp = $config->{$each}{$e};
+			$result .= parseFor($loop, $e, \%{$config->{$each}{$e}});
+		}
+		$line =~ s/\<\!\-\-\#for[^\>]*name="$name"[^\>]* \-\-\>.*\<\!\-\-\#endfor name="$name" \-\-\>/$result/;
+	}
+
+	# Replace newlines
+	$line =~ s/%NEWLINE%/\n/g;
+	
+	return $line;
+}
+
+sub parseFor() {
+	my ($exp,$each,$txt,%input,$json,%var,@bits,$i,$idx,$matchvar);
+	my ($exp, $each, $input) = @_;
+	$txt = $exp;
+	
+	# Replace this
+	$txt =~ s/\<\!\-\-#json name=\"this\" \-\-\>/$e/g;
+
+
+	while($txt =~ /(\<\!\-\-\#json name=")([^\"]*)(" \-\-\>)/){
+
+		# Get the variable name
+		$matchvar = $1.$2.$3;
+		$json = $2;
+
+		# Get a copy of the hash reference
+		$var = $input;
+	
+		# Split the variable by '.'
+		(@bits) = split(/\./,$json);
+		for($i = 0; $i < @bits; $i++){
+			$idx = -1;
+			if($bits[$i] =~ s/\[([0-9]+)\]//){ $idx = $1; }
+			$var = $var->{$bits[$i]};
+			if($idx >= 0){
+				$var = $var->[$idx];
+			}
+		}
+		
+		#print "VAR $matchvar => $var\n";
+		# We need to escape the brackets
+		$matchvar =~ s/([\[\]])/\\$1/g;
+		$txt =~ s/$matchvar/$var/g
+	}
+	
+	#print "$txt\n\n";
+	return $txt;
 }
 
 sub parseIf {
