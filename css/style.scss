@@ -255,9 +255,10 @@ section {
 	cursor: pointer;
 }
 .msg { padding-top: $barheight*2 + 0.75em; }
+body.front .msg { padding-top: $barheight + 0.75em; }
 section:first-child { padding-top: $barheight*2; }
-.msg + section { padding-top: 0; }
 body.front section:first-child { padding-top: $barheight; }
+.msg + section { padding-top: 0; }
 .padded { padding: 2em; }
 section.view h2 { text-align: center; }
 #type .holder { width: 33%; padding: 1em; }

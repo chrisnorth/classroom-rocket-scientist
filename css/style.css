@@ -426,14 +426,17 @@ section {
 .msg {
   padding-top: 6.75em; }
 
+body.front .msg {
+  padding-top: 3.75em; }
+
 section:first-child {
   padding-top: 6em; }
 
-.msg + section {
-  padding-top: 0; }
-
 body.front section:first-child {
   padding-top: 3em; }
+
+.msg + section {
+  padding-top: 0; }
 
 .padded {
   padding: 2em; }
