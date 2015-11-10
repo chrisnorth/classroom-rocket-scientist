@@ -395,7 +395,7 @@ img.close {
 .warning {
   color: #ffee00; }
 
-#main section {
+section {
   background: white;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -403,10 +403,36 @@ img.close {
   padding: 6em 0em 0em 0em;
   min-height: 100vh; }
 
-#main > section:first-child {
+.msg {
+  z-index: 999;
+  line-height: 1.5em;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  background-color: #dfdfdf;
+  text-align: center; }
+
+.msg, .msg .close {
+  padding: 0.75em 0.75em; }
+
+.msg .close {
+  position: absolute;
+  top: 0px;
+  right: 0px; }
+
+.msg .close:hover {
+  cursor: pointer; }
+
+.msg {
+  padding-top: 6.75em; }
+
+section:first-child {
   padding-top: 6em; }
 
-body.front #main section:first-child {
+.msg + section {
+  padding-top: 0; }
+
+body.front section:first-child {
   padding-top: 3em; }
 
 .padded {
@@ -424,26 +450,6 @@ section.view h2 {
 
 .not-at-start {
   display: none; }
-
-.msg {
-  z-index: 999;
-  line-height: 1.5em;
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  background-color: #555555;
-  color: white; }
-
-.msg, .msg .close {
-  padding: 0.75em 0.75em; }
-
-.msg .close {
-  position: absolute;
-  top: 0px;
-  right: 0px; }
-
-.msg .close:hover {
-  cursor: pointer; }
 
 .satellite-holder {
   margin: auto;

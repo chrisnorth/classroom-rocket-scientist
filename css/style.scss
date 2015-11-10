@@ -227,27 +227,21 @@ img.close { background-position: -4.5em -10.5em; }
 .error { color: #ff4a4a; }
 .warning { color: #ffee00; }
 
-#main section {
+section {
 	background: white;
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 	padding: $barheight*2 0em 0em 0em;
 	min-height: 100vh;
 }
-#main > section:first-child { padding-top: $barheight*2; }
-body.front #main section:first-child { padding-top: $barheight; }
-.padded { padding: 2em; }
-section.view h2 { text-align: center; }
-#type .holder { width: 33%; padding: 1em; }
-#type .holder p { text-align: left; }
-.not-at-start { display: none; }
+
 .msg {
 	z-index: 999;
 	line-height: 1.5em;
 	position: relative;
 	width: 100%;
 	max-width: 100%;
-	background-color: #555555;
-	color: white;
+	background-color: #dfdfdf;
+	text-align: center;
 }
 .msg, .msg .close {
 	padding: 0.75em 0.75em;
@@ -260,6 +254,15 @@ section.view h2 { text-align: center; }
 .msg .close:hover {
 	cursor: pointer;
 }
+.msg { padding-top: $barheight*2 + 0.75em; }
+section:first-child { padding-top: $barheight*2; }
+.msg + section { padding-top: 0; }
+body.front section:first-child { padding-top: $barheight; }
+.padded { padding: 2em; }
+section.view h2 { text-align: center; }
+#type .holder { width: 33%; padding: 1em; }
+#type .holder p { text-align: left; }
+.not-at-start { display: none; }
 
 $pattern_a: transparent 49%, white 49.4%, white 50.6%, transparent 51%, transparent;
 $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
