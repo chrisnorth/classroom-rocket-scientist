@@ -17,7 +17,7 @@
 	<div id="application" class="advanced">
 
 		<header>
-			<div class="msg noscriptmsg">Oops! Something broke. Classroom Rocket Scientist requires Javascript. You can use the <a href="http://www.whatsmybrowser.org/">"What's my browser"</a> website to find out what browser version you're using and whether Javascript is enabled.</div>
+			<div class="msg noscriptmsg">Oops! Something broke. You can use the <a href="http://www.whatsmybrowser.org/">"What's my browser"</a> website to find out what browser version you're using and whether Javascript is enabled.</div>
 			<div id="bar" class="scriptonly">
 				<div class="barmenu">
 					<div class="baritem left padded"><h1><a href="index.html">Classroom rocket scientist</a></h1></div>
@@ -38,6 +38,11 @@
 					<li class="padded"><a href="#type" class="togglebtn"><img src="images/cleardot.gif" class="icon type" title="Select your type of satellite" /></a></li>
 					<li class="padded"><a href="#goal" class="togglebtn"><img src="images/cleardot.gif" class="icon goal" title="Select the purpose of your satellite" /></a></li>
 					<li class="padded"><a href="#bus" class="togglebtn"><img src="images/cleardot.gif" class="icon bus" title="Choose the size of your satellite" /></a></li>
+					<li class="padded"><a href="#orbit" class="togglebtn"><img src="images/cleardot.gif" class="icon orbit" title="Select the orbit for your satellite" /></a></li>
+					<li class="padded"><a href="#instrument" class="togglebtn"><img src="images/cleardot.gif" class="icon instrument" title="Select the instruments for your satellite" /></a></li>
+					<li class="padded"><a href="#power" class="togglebtn"><img src="images/cleardot.gif" class="icon power" title="Add power" /></a></li>
+					<li class="padded"><a href="#rocket" class="togglebtn"><img src="images/cleardot.gif" class="icon rocket" title="Build your rocket" /></a></li>
+					<li class="padded"><a href="#launch" class="togglebtn"><img src="images/cleardot.gif" class="icon launch" title="Launch" /></a></li>
 				</ol>
 			</nav>
 		</header>
@@ -46,13 +51,8 @@
 			<section id="type" class="view">
 				<div class="padded">
 					<h2>Select your type of satellite</h2>
-					<p>Satellites have different purposes. Which type do you want to build?<p>
-					<div class="holder">
-						<div class="padded">
-							<h3>Navigation</h3>
-							<p>The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.</p>
-						</div>
-					</div>
+					<p>Satellites have different purposes. Which type do you want to build?</p>
+					
 					<div class="holder">
 						<div class="padded">
 							<h3>Communication</h3>
@@ -65,12 +65,87 @@
 							<p>These are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.</p>
 						</div>
 					</div>
+					<div class="holder">
+						<div class="padded">
+							<h3>Navigation</h3>
+							<p>The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.</p>
+						</div>
+					</div>
 				</div>
 			</section>
 
 			<section id="goal" class="view">
 				<div class="padded">
 					<h2>Select the purpose of your satellite</h2>
+					<div class="COMMS">
+						<div class="holder">
+							<div class="padded">
+								<h3>Satellite telephone system</h3>
+								<p>Let people talk over the phone using satellites</p>
+								<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="100" class="length value convertable">100 credits</span></div>
+							</div>
+						</div>
+						<div class="holder">
+							<div class="padded">
+								<h3>Satellite internet</h3>
+								<p>Connect to the internet using satellites</p>
+								<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="200" class="length value convertable">200 credits</span></div>
+							</div>
+						</div>
+						<div class="holder">
+							<div class="padded">
+								<h3>Satellite TV</h3>
+								<p>Provide satellite TV</p>
+								<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="500" class="length value convertable">500 credits</span></div>
+							</div>
+						</div>
+					</div>
+					<div class="EO">
+						<div class="holder">
+							<div class="padded">
+								<h3>Weather forecasting</h3>
+								<p>Monitor the weather</p>
+								<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="200" class="length value convertable">200 credits</span></div>
+							</div>
+						</div>
+						<div class="holder">
+							<div class="padded">
+								<h3>Vegetation mapping</h3>
+								<p>Map the plants over the surface of the Earth</p>
+								<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="200" class="length value convertable">200 credits</span></div>
+							</div>
+						</div>
+						<div class="holder">
+							<div class="padded">
+								<h3>Natural disaster monitoring</h3>
+								<p>Study areas of natural disasters</p>
+								<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="500" class="length value convertable">500 credits</span></div>
+							</div>
+						</div>
+						<div class="holder">
+							<div class="padded">
+								<h3>Surface mapping</h3>
+								<p>Measure the height of land over the surface</p>
+								<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="500" class="length value convertable">500 credits</span></div>
+							</div>
+						</div>
+					</div>
+					<div class="NAV">
+						<div class="holder">
+							<div class="padded">
+								<h3>Satellite Navigation System</h3>
+								<p>Tell people their location</p>
+								<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="100" class="length value convertable">100 credits</span></div>
+							</div>
+						</div>
+						<div class="holder">
+							<div class="padded">
+								<h3>Map-making</h3>
+								<p>Map the surface of the Earth</p>
+								<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="200" class="length value convertable">200 credits</span></div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 
@@ -163,7 +238,6 @@
 					</div>
 					<div id="instrument_list">
 						<ul>
-						
 							<li>
 								<div class="package_title">Title: Radio antenna (deployable)</div>
 								<div class="package_desc">Description: For up to 2 instruments</div>
@@ -173,7 +247,6 @@
 								<div class="package_mass">Mass: <span data-dimension="mass" data-units="kg" data-value="0.1" class="mass value convertable">0.1 kg</span></div>
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="EUR" data-value="4500" class="cost value convertable">4500 EUR</span></div>
 							</li>
-						
 							<li>
 								<div class="package_title">Title: Atomic clock</div>
 								<div class="package_desc">Description: Navigation (GPS timing)</div>
@@ -183,7 +256,6 @@
 								<div class="package_mass">Mass: <span data-dimension="mass" data-units="kg" data-value="1" class="mass value convertable">1 kg</span></div>
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="50000" class="cost value convertable">50000 GBP</span></div>
 							</li>
-						
 							<li>
 								<div class="package_title">Title: Atomic clock (compact)</div>
 								<div class="package_desc">Description: Navigation (GPS timing)</div>
@@ -193,7 +265,6 @@
 								<div class="package_mass">Mass: <span data-dimension="mass" data-units="kg" data-value="1" class="mass value convertable">1 kg</span></div>
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="50000" class="cost value convertable">50000 GBP</span></div>
 							</li>
-						
 							<li>
 								<div class="package_title">Title: Camera (FIR)</div>
 								<div class="package_desc">Description: Images of clouds</div>
@@ -203,7 +274,6 @@
 								<div class="package_mass">Mass: <span data-dimension="mass" data-units="kg" data-value="100" class="mass value convertable">100 kg</span></div>
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="0" class="cost value convertable">0 GBP</span></div>
 							</li>
-						
 							<li>
 								<div class="package_title">Title: Camera (miniature)</div>
 								<div class="package_desc">Description: Images of ground</div>
@@ -213,7 +283,6 @@
 								<div class="package_mass">Mass: <span data-dimension="mass" data-units="kg" data-value="1" class="mass value convertable">1 kg</span></div>
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="50000" class="cost value convertable">50000 GBP</span></div>
 							</li>
-						
 							<li>
 								<div class="package_title">Title: Camera (NIR)</div>
 								<div class="package_desc">Description: Images of vegetation</div>
@@ -223,7 +292,6 @@
 								<div class="package_mass">Mass: <span data-dimension="mass" data-units="kg" data-value="50" class="mass value convertable">50 kg</span></div>
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="0" class="cost value convertable">0 GBP</span></div>
 							</li>
-						
 							<li>
 								<div class="package_title">Title: Camera (optical)</div>
 								<div class="package_desc">Description: Images of ground</div>
@@ -233,7 +301,6 @@
 								<div class="package_mass">Mass: <span data-dimension="mass" data-units="kg" data-value="50" class="mass value convertable">50 kg</span></div>
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="0" class="cost value convertable">0 GBP</span></div>
 							</li>
-						
 							<li>
 								<div class="package_title">Title: Radio dish (large)</div>
 								<div class="package_desc">Description: For up to 8 instruments</div>
@@ -243,7 +310,6 @@
 								<div class="package_mass">Mass: <span data-dimension="mass" data-units="kg" data-value="30" class="mass value convertable">30 kg</span></div>
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="0" class="cost value convertable">0 GBP</span></div>
 							</li>
-						
 							<li>
 								<div class="package_title">Title: Radio dish (medium)</div>
 								<div class="package_desc">Description: For up to 4 instruments</div>
@@ -253,7 +319,6 @@
 								<div class="package_mass">Mass: <span data-dimension="mass" data-units="kg" data-value="20" class="mass value convertable">20 kg</span></div>
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="0" class="cost value convertable">0 GBP</span></div>
 							</li>
-						
 							<li>
 								<div class="package_title">Title: Radio antenna (small)</div>
 								<div class="package_desc">Description: For up to 2 instruments</div>
@@ -263,7 +328,6 @@
 								<div class="package_mass">Mass: <span data-dimension="mass" data-units="kg" data-value="0.5" class="mass value convertable">0.5 kg</span></div>
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="0" class="cost value convertable">0 GBP</span></div>
 							</li>
-						
 							<li>
 								<div class="package_title">Title: GPS receiver</div>
 								<div class="package_desc">Description: Positioning</div>
@@ -273,7 +337,6 @@
 								<div class="package_mass">Mass: <span data-dimension="mass" data-units="kg" data-value="0.5" class="mass value convertable">0.5 kg</span></div>
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="0" class="cost value convertable">0 GBP</span></div>
 							</li>
-						
 							<li>
 								<div class="package_title">Title: Radar altimeter</div>
 								<div class="package_desc">Description: Measuring topography</div>
@@ -283,7 +346,6 @@
 								<div class="package_mass">Mass: <span data-dimension="mass" data-units="kg" data-value="40" class="mass value convertable">40 kg</span></div>
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="0" class="cost value convertable">0 GBP</span></div>
 							</li>
-						
 							<li>
 								<div class="package_title">Title: Radar dish</div>
 								<div class="package_desc">Description: Measuring topography</div>
@@ -293,7 +355,6 @@
 								<div class="package_mass">Mass: <span data-dimension="mass" data-units="kg" data-value="40" class="mass value convertable">40 kg</span></div>
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="0" class="cost value convertable">0 GBP</span></div>
 							</li>
-						
 							<li>
 								<div class="package_title">Title: Radio receiver</div>
 								<div class="package_desc">Description: Communications</div>
@@ -303,7 +364,6 @@
 								<div class="package_mass">Mass: <span data-dimension="mass" data-units="kg" data-value="10" class="mass value convertable">10 kg</span></div>
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="0" class="cost value convertable">0 GBP</span></div>
 							</li>
-						
 							<li>
 								<div class="package_title">Title: Radio transmitter</div>
 								<div class="package_desc">Description: Communications</div>
@@ -313,7 +373,6 @@
 								<div class="package_mass">Mass: <span data-dimension="mass" data-units="kg" data-value="10" class="mass value convertable">10 kg</span></div>
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="0" class="cost value convertable">0 GBP</span></div>
 							</li>
-						
 							<li>
 								<div class="package_title">Title: Spectrometer (FIR)</div>
 								<div class="package_desc">Description: Properties of clouds</div>
@@ -323,7 +382,6 @@
 								<div class="package_mass">Mass: <span data-dimension="mass" data-units="kg" data-value="100" class="mass value convertable">100 kg</span></div>
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="0" class="cost value convertable">0 GBP</span></div>
 							</li>
-						
 							<li>
 								<div class="package_title">Title: Spectrometer (NIR)</div>
 								<div class="package_desc">Description: Properties of vegetation</div>
@@ -333,7 +391,6 @@
 								<div class="package_mass">Mass: <span data-dimension="mass" data-units="kg" data-value="50" class="mass value convertable">50 kg</span></div>
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="0" class="cost value convertable">0 GBP</span></div>
 							</li>
-						
 							<li>
 								<div class="package_title">Title: Spectrometer (optical)</div>
 								<div class="package_desc">Description: Properties of ground</div>
@@ -343,7 +400,6 @@
 								<div class="package_mass">Mass: <span data-dimension="mass" data-units="kg" data-value="50" class="mass value convertable">50 kg</span></div>
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="0" class="cost value convertable">0 GBP</span></div>
 							</li>
-						
 						</ul>
 					</div>
 				</div>
@@ -375,7 +431,6 @@
 					</div>
 					<div id="power_list">
 						<ul>
-						
 							<li>
 								<div class="package_title">Title: Large battery</div>
 								<div class="package_desc">Slot: Provides power</div>
@@ -386,7 +441,6 @@
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="0" class="cost value convertable">0 GBP</span></div>
 								
 							</li>
-						
 							<li>
 								<div class="package_title">Title: Small battery</div>
 								<div class="package_desc">Slot: Provides power</div>
@@ -397,7 +451,6 @@
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="0" class="cost value convertable">0 GBP</span></div>
 								
 							</li>
-						
 							<li>
 								<div class="package_title">Title: RTG</div>
 								<div class="package_desc">Slot: Provides power</div>
@@ -408,7 +461,6 @@
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="0" class="cost value convertable">0 GBP</span></div>
 								
 							</li>
-						
 							<li>
 								<div class="package_title">Title: Deployable solar panel</div>
 								<div class="package_desc">Slot: Provides power</div>
@@ -419,7 +471,6 @@
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="0" class="cost value convertable">0 GBP</span></div>
 								
 							</li>
-						
 							<li>
 								<div class="package_title">Title: Body-mounted solar panel</div>
 								<div class="package_desc">Slot: Provides power</div>
@@ -430,7 +481,6 @@
 								<div class="package_cost">Cost: <span data-dimension="currency" data-units="GBP" data-value="0" class="cost value convertable">0 GBP</span></div>
 								
 							</li>
-						
 						</ul>
 					</div>
 				</div>

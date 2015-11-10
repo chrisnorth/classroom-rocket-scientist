@@ -14,6 +14,31 @@
 		"DBL": { "conv": 0.07485 },
 		"credits": { "conv": 0.01 }
 	},
+	"sections": [{
+		"id": "type",
+		"title": "Select your type of satellite"
+	},{
+		"id": "goal",
+		"title": "Select the purpose of your satellite"
+	},{
+		"id": "bus",
+		"title": "Choose the size of your satellite"
+	},{
+		"id": "orbit",
+		"title": "Select the orbit for your satellite"
+	},{
+		"id": "instrument",
+		"title": "Select the instruments for your satellite"
+	},{
+		"id": "power",
+		"title": "Add power"
+	},{
+		"id": "rocket",
+		"title": "Build your rocket"
+	},{
+		"id": "launch",
+		"title": "Launch"
+	}],
 	"bus": {
 		"cube": {
 			"slots": { "0x2": 1, "1x1": 2, "1x2": 1 },
@@ -494,12 +519,12 @@
 				"credit": "ESA"
 			},
 			"missions": [{
-				"name": "Satellite Navigation System",
+				"title": "Satellite Navigation System",
 				"description": "Tell people their location",
 				"image": {
 					"file": "images/satnav.jpg",
 					"alt": "Sat nav system",
-					"credit": "ESA"
+					"credit": ""
 				},
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
 				"requires": [{
@@ -523,6 +548,16 @@
 					"label": "See the whole planet.",
 					"error": "The orbit you have chosen does not allow you to see the whole planet"
 				}]
+			},{
+				"title": "Map-making",
+				"description": "Map the surface of the Earth",
+				"image": {
+					"file": "images/mapmaker.jpg",
+					"alt": "Mapping",
+					"credit": ""
+				},
+				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"requires": []
 			}]
 		},
 		"COMMS": {
@@ -533,7 +568,37 @@
 				"alt": "Sat nav system",
 				"credit": "ESA"
 			},
-			"missions": []
+			"missions": [{
+				"title": "Satellite telephone system",
+				"description": "Let people talk over the phone using satellites",
+				"image": {
+					"file": "images/satphone.jpg",
+					"alt": "Phone",
+					"credit": ""
+				},
+				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
+				"requires": []
+			},{
+				"title": "Satellite internet",
+				"description": "Connect to the internet using satellites",
+				"image": {
+					"file": "images/satinternet.jpg",
+					"alt": "Internet",
+					"credit": ""
+				},
+				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"requires": []
+			},{
+				"title": "Satellite TV",
+				"description": "Provide satellite TV",
+				"image": {
+					"file": "images/sattv.jpg",
+					"alt": "TV",
+					"credit": ""
+				},
+				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
+				"requires": []
+			}]
 		},
 		"EO": {
 			"title": "Earth observation",
@@ -543,7 +608,47 @@
 				"alt": "Sat nav system",
 				"credit": "ESA"
 			},
-			"missions": []		
+			"missions": [{
+				"title": "Weather forecasting",
+				"description": "Monitor the weather",
+				"image": {
+					"file": "images/weather.jpg",
+					"alt": "Weather",
+					"credit": ""
+				},
+				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"requires": []
+			},{
+				"title": "Vegetation mapping",
+				"description": "Map the plants over the surface of the Earth",
+				"image": {
+					"file": "images/vegetation.jpg",
+					"alt": "Vegetation",
+					"credit": ""
+				},
+				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"requires": []
+			},{
+				"title": "Natural disaster monitoring",
+				"description": "Study areas of natural disasters",
+				"image": {
+					"file": "images/disaster.jpg",
+					"alt": "Disasters",
+					"credit": ""
+				},
+				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
+				"requires": []
+			},{
+				"title": "Surface mapping",
+				"description": "Measure the height of land over the surface",
+				"image": {
+					"file": "images/surface.jpg",
+					"alt": "Surface",
+					"credit": ""
+				},
+				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
+				"requires": []
+			}]		
 		}
 	}
 }

@@ -14,6 +14,31 @@
 		"DBL": { "conv": 0.07485 },
 		"credits": { "conv": 0.01 }
 	},
+	"sections": [{
+		"id": "type",
+		"title": "%ui.sections.type.title%"
+	},{
+		"id": "goal",
+		"title": "%ui.sections.goal.title%"
+	},{
+		"id": "bus",
+		"title": "%ui.sections.bus.title%"
+	},{
+		"id": "orbit",
+		"title": "%ui.sections.orbit.title%"
+	},{
+		"id": "instrument",
+		"title": "%ui.sections.instrument.title%"
+	},{
+		"id": "power",
+		"title": "%ui.sections.power.title%"
+	},{
+		"id": "rocket",
+		"title": "%ui.sections.rocket.title%"
+	},{
+		"id": "launch",
+		"title": "%ui.sections.launch.title%"
+	}],
 	"bus": {
 		"cube": {
 			"slots": { "0x2": 1, "1x1": 2, "1x2": 1 },
@@ -486,20 +511,20 @@
 	},
 	"scenarios": {
 		"NAV": {
-			"title": "%scenario.NAV.title%",
-			"description": "%scenario.NAV.description%",
+			"title": "%scenarios.NAV.title%",
+			"description": "%scenarios.NAV.description%",
 			"image": {
 				"file": "images/satnav.jpg",
 				"alt": "Sat nav system",
 				"credit": "ESA"
 			},
 			"missions": [{
-				"name": "Satellite Navigation System",
+				"title": "Satellite Navigation System",
 				"description": "Tell people their location",
 				"image": {
 					"file": "images/satnav.jpg",
 					"alt": "Sat nav system",
-					"credit": "ESA"
+					"credit": ""
 				},
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
 				"requires": [{
@@ -523,27 +548,107 @@
 					"label": "See the whole planet.",
 					"error": "The orbit you have chosen does not allow you to see the whole planet"
 				}]
+			},{
+				"title": "Map-making",
+				"description": "Map the surface of the Earth",
+				"image": {
+					"file": "images/mapmaker.jpg",
+					"alt": "Mapping",
+					"credit": ""
+				},
+				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"requires": []
 			}]
 		},
 		"COMMS": {
-			"title": "%scenario.COMMS.title%",
-			"description": "%scenario.COMMS.description%",
+			"title": "%scenarios.COMMS.title%",
+			"description": "%scenarios.COMMS.description%",
 			"image": {
 				"file": "images/satnav.jpg",
 				"alt": "Sat nav system",
 				"credit": "ESA"
 			},
-			"missions": []
+			"missions": [{
+				"title": "Satellite telephone system",
+				"description": "Let people talk over the phone using satellites",
+				"image": {
+					"file": "images/satphone.jpg",
+					"alt": "Phone",
+					"credit": ""
+				},
+				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
+				"requires": []
+			},{
+				"title": "Satellite internet",
+				"description": "Connect to the internet using satellites",
+				"image": {
+					"file": "images/satinternet.jpg",
+					"alt": "Internet",
+					"credit": ""
+				},
+				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"requires": []
+			},{
+				"title": "Satellite TV",
+				"description": "Provide satellite TV",
+				"image": {
+					"file": "images/sattv.jpg",
+					"alt": "TV",
+					"credit": ""
+				},
+				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
+				"requires": []
+			}]
 		},
 		"EO": {
-			"title": "%scenario.EO.title%",
-			"description": "%scenario.EO.description%",
+			"title": "%scenarios.EO.title%",
+			"description": "%scenarios.EO.description%",
 			"image": {
 				"file": "images/satnav.jpg",
 				"alt": "Sat nav system",
 				"credit": "ESA"
 			},
-			"missions": []		
+			"missions": [{
+				"title": "Weather forecasting",
+				"description": "Monitor the weather",
+				"image": {
+					"file": "images/weather.jpg",
+					"alt": "Weather",
+					"credit": ""
+				},
+				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"requires": []
+			},{
+				"title": "Vegetation mapping",
+				"description": "Map the plants over the surface of the Earth",
+				"image": {
+					"file": "images/vegetation.jpg",
+					"alt": "Vegetation",
+					"credit": ""
+				},
+				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"requires": []
+			},{
+				"title": "Natural disaster monitoring",
+				"description": "Study areas of natural disasters",
+				"image": {
+					"file": "images/disaster.jpg",
+					"alt": "Disasters",
+					"credit": ""
+				},
+				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
+				"requires": []
+			},{
+				"title": "Surface mapping",
+				"description": "Measure the height of land over the surface",
+				"image": {
+					"file": "images/surface.jpg",
+					"alt": "Surface",
+					"credit": ""
+				},
+				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
+				"requires": []
+			}]		
 		}
 	}
 }

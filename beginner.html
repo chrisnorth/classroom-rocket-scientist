@@ -32,9 +32,6 @@
 			</div>
 			<nav>
 				<ol>
-					<li class="padded"><a href="#type" class="togglebtn"><img src="images/cleardot.gif" class="icon type" title="" /></a></li>
-					<li class="padded"><a href="#goal" class="togglebtn"><img src="images/cleardot.gif" class="icon goal" title="" /></a></li>
-					<li class="padded"><a href="#bus" class="togglebtn"><img src="images/cleardot.gif" class="icon bus" title="" /></a></li>
 				</ol>
 			</nav>
 		</header>
@@ -43,25 +40,8 @@
 			<section id="type" class="view">
 				<div class="padded">
 					<h2></h2>
-					<p><p>
-					<div class="holder">
-						<div class="padded">
-							<h3></h3>
-							<p></p>
-						</div>
-					</div>
-					<div class="holder">
-						<div class="padded">
-							<h3></h3>
-							<p></p>
-						</div>
-					</div>
-					<div class="holder">
-						<div class="padded">
-							<h3></h3>
-							<p></p>
-						</div>
-					</div>
+					<p></p>
+					
 				</div>
 			</section>
 
@@ -100,7 +80,37 @@
 					</div>
 					<div id="instrument_list">
 						<ul>
-						
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<section id="power" class="view">
+				<div class="padded">
+					<h2></h2>
+					<p></p>
+		
+					<button onClick="addSolar()">&plus; solar panel</button>
+					<button onClick="removeSolar()">&minus; solar panel</button>
+					<button onClick="toggleSolar()">Toggle fixed solar panels</button>
+					<button onClick="toggleAnimation()">Toggle animation!</button>
+
+					<div id="satellite-power" class="satellite-holder isogrid threeD">
+						<div class="holder" id="sat-power-l">							<div class="satellite satellite-l">
+	<div class="solar-panels"><span class="label">Solar panels (left):</span><ol></ol></div>
+	<div class="solar-panels"><span class="label">Solar panels (right):</span><ol></ol></div>
+	<div class="row"><div class="slot slot-empty slot2 slot2x4 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+	<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+	<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-top down"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+	<div class="row"><div class="slot slot-empty slot2 slot2x2"><div class="faces"><div class="face back"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2"><div class="faces"><div class="face back"></div><div class="face front"></div></div></div><div class="slot slot-empty slot4 slot2x4 up solar-top"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+	<div class="row rowbig"><div class="slot slot-empty slot1 slot4x8 solar-top"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+</div>
+
+						</div>
+					</div>
+					<div id="power_list">
+						<ul>
 						</ul>
 					</div>
 				</div>

@@ -37,10 +37,8 @@
 				</div>
 			</div>
 			<nav>
-				<ol>
-					<li class="padded"><a href="#type" class="togglebtn"><img src="images/cleardot.gif" class="icon type" title="<!--#echo var="ui.sections.type.title" -->" /></a></li>
-					<li class="padded"><a href="#goal" class="togglebtn"><img src="images/cleardot.gif" class="icon goal" title="<!--#echo var="ui.sections.goal.title" -->" /></a></li>
-					<li class="padded"><a href="#bus" class="togglebtn"><img src="images/cleardot.gif" class="icon bus" title="<!--#echo var="ui.sections.bus.title" -->" /></a></li>
+				<ol><!--#for each="sections" name="nav" -->
+					<li class="padded"><a href="#<!--#json name="id" -->" class="togglebtn"><img src="images/cleardot.gif" class="icon <!--#json name="id" -->" title="<!--#echo var="ui.sections.<!--#json name="id" -->.title" -->" /></a></li><!--#endfor name="nav" -->
 				</ol>
 			</nav>
 		</header>
@@ -49,31 +47,29 @@
 			<section id="type" class="view">
 				<div class="padded">
 					<h2><!--#echo var="ui.sections.type.title" --></h2>
-					<p><!--#echo var="ui.sections.type.intro" --><p>
+					<p><!--#echo var="ui.sections.type.intro" --></p>
+					<!--#for each="scenarios" name="scenarios" -->
 					<div class="holder">
 						<div class="padded">
-							<h3><!--#echo var="scenario.NAV.title" --></h3>
-							<p><!--#echo var="scenario.NAV.description" --></p>
+							<h3><!--#echo var="scenarios.<!--#json name="this" -->.title" --></h3>
+							<p><!--#echo var="scenarios.<!--#json name="this" -->.description" --></p>
 						</div>
-					</div>
-					<div class="holder">
-						<div class="padded">
-							<h3><!--#echo var="scenario.COMMS.title" --></h3>
-							<p><!--#echo var="scenario.COMMS.description" --></p>
-						</div>
-					</div>
-					<div class="holder">
-						<div class="padded">
-							<h3><!--#echo var="scenario.EO.title" --></h3>
-							<p><!--#echo var="scenario.EO.description" --></p>
-						</div>
-					</div>
+					</div><!--#endfor name="scenarios" -->
 				</div>
 			</section>
 
 			<section id="goal" class="view">
 				<div class="padded">
-					<h2>Select the purpose of your satellite</h2>
+					<h2>Select the purpose of your satellite</h2><!--#for each="scenarios" name="loopouter" -->
+					<div class="<!--#json name="this" -->"><!--#for each="missions" name="loopinner" -->
+						<div class="holder">
+							<div class="padded">
+								<h3><!--#json name="title" --></h3>
+								<p><!--#json name="description" --></p>
+								<div class="budget">Budget: <span data-dimension="<!--#json name="budget.dimension" -->" data-units="<!--#json name="budget.units" -->" data-value="<!--#json name="budget.value" -->" class="length value convertable"><!--#json name="budget.value" --> <!--#json name="budget.units" --></span></div>
+							</div>
+						</div><!--#endfor name="loopinner" -->
+					</div><!--#endfor name="loopouter" -->
 				</div>
 			</section>
 
@@ -83,16 +79,12 @@
 					<h2><!--#echo var="ui.sections.bus.title" --></h2>
 					<p><!--#echo var="ui.sections.bus.intro" --></p>
 					<div class="satellite-holder isogrid">
+						<!--#for each="bus" name="satellites_i" -->
 						<div class="holder">
-							<!--#include file="satellites/large.html" -->
-							<p>Large</p>
-						</div><div class="holder">
-							<!--#include file="satellites/medium.html" -->
-							<p>Medium</p>
-						</div><div class="holder">
-							<!--#include file="satellites/small.html" -->
-							<p>Small</p>
+							<!--#include file="satellites/<!--#json name="this" -->.html" -->
+							<p><!--#echo var="bus.<!--#json name="this" -->.title" --></p>
 						</div>
+						<!--#endfor name="satellites_i" -->
 					</div>
 				</div>
 			</section>
@@ -102,12 +94,12 @@
 					<h2><!--#echo var="ui.sections.bus.title" --></h2>
 					<p><!--#echo var="ui.sections.bus.intro" --></p>
 					<div class="satellite-holder isogrid">
-						<!--#for each="bus" name="satellites" -->
+						<!--#for each="bus" name="satellites_a" -->
 						<div class="holder">
 							<!--#include file="satellites/<!--#json name="this" -->.html" -->
 							<p><!--#echo var="bus.<!--#json name="this" -->.title" --></p>
 						</div>
-						<!--#endfor name="satellites" -->
+						<!--#endfor name="satellites_a" -->
 					</div>
 				</div>
 			</section>
@@ -137,8 +129,7 @@
 						</div>
 					</div>
 					<div id="instrument_list">
-						<ul>
-						<!--#for each="package" name="instrumentloop" -->
+						<ul><!--#for each="package" name="instrumentloop" -->
 							<li>
 								<div class="package_title">Title: <!--#json name="title" --></div>
 								<div class="package_desc">Description: <!--#json name="description" --></div>
@@ -147,8 +138,7 @@
 								<div class="package_power">Power: <span data-dimension="<!--#json name="power.dimension" -->" data-units="<!--#json name="power.units" -->" data-value="<!--#json name="power.value" -->" class="power value convertable"><!--#json name="power.value" --> <!--#json name="power.units" --></span></div>
 								<div class="package_mass">Mass: <span data-dimension="<!--#json name="mass.dimension" -->" data-units="<!--#json name="mass.units" -->" data-value="<!--#json name="mass.value" -->" class="mass value convertable"><!--#json name="mass.value" --> <!--#json name="mass.units" --></span></div>
 								<div class="package_cost">Cost: <span data-dimension="<!--#json name="cost.dimension" -->" data-units="<!--#json name="cost.units" -->" data-value="<!--#json name="cost.value" -->" class="cost value convertable"><!--#json name="cost.value" --> <!--#json name="cost.units" --></span></div>
-							</li>
-						<!--#endfor name="instrumentloop" -->
+							</li><!--#endfor name="instrumentloop" -->
 						</ul>
 					</div>
 				</div>
@@ -170,8 +160,7 @@
 						</div>
 					</div>
 					<div id="power_list">
-						<ul>
-						<!--#for each="power" name="powerloop" -->
+						<ul><!--#for each="power" name="powerloop" -->
 							<li>
 								<div class="package_title">Title: <!--#json name="title" --></div>
 								<div class="package_desc">Slot: <!--#json name="description" --></div>
@@ -185,8 +174,7 @@
 								<div class="package_mass">Mass: <span data-dimension="<!--#json name="mass.dimension" -->" data-units="<!--#json name="mass.units" -->" data-value="<!--#json name="mass.value" -->" class="mass value convertable"><!--#json name="mass.value" --> <!--#json name="mass.units" --></span></div>
 								<div class="package_cost">Cost: <span data-dimension="<!--#json name="cost.dimension" -->" data-units="<!--#json name="cost.units" -->" data-value="<!--#json name="cost.value" -->" class="cost value convertable"><!--#json name="cost.value" --> <!--#json name="cost.units" --></span></div>
 								<!--#else--><!--#endif-->
-							</li>
-						<!--#endfor name="powerloop" -->
+							</li><!--#endfor name="powerloop" -->
 						</ul>
 					</div>
 				</div>

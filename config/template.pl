@@ -82,9 +82,6 @@ if(!-e $file_i){
 %lang = loadLanguage($basedir.$lang."_".$mode.".yaml");
 %config = loadConfig($basedir.$lang."_".$mode."_options.json");
 
-
-
-
 $result = parseFile($file_i);
 
 if($file_o){
@@ -139,11 +136,11 @@ sub parseFile {
 	}
 	$line = $str;
 
+	# Do loops
+	$line = parseLoops($line,$config);
+
 	# Do conditional parts
 	$line = parseConditional($line);
-
-	# Do loops
-	$line = parseLoops($line);
 
 	while($line =~ /(^|[\n\r])([\t\s]*)\<\!\-\- *\#include *file=\"([^\"]+)\" *\-\-\>/){
 		$ind = $indent.$2;
@@ -196,86 +193,6 @@ sub parseConditional {
 	return $line;
 }
 
-sub parseLoops {
-
-	my($line,$match,$result,$name,$each,$var,$loop,$temp);
-	$line = $_[0];
-
-	# Temporarily zap newlines
-	$line =~ s/[\n\r]/%NEWLINE%/g;
-
-	# Process for loops (these aren't genuine SSI but our own made-up format)
-	#	<!--#for each="package" name="iloop" -->
-	#		<li>
-	#			Title: <!--#json name="dimensions.value" -->  
-	#		</li>
-	#	<!--#endfor name="iloop" -->
-	# Loops over each key (i) in "package". The "json name" gives the JS-style 
-	# reference relative to package[i] e.g. package[i].dimensions.value
-
-	%var = ('package'=> { 'b'=> {'title'=>'A title goes here'},'c'=>{'title'=>'Your title text'}} );
-
-	while($line =~ /\<\!\-\-\#for( [^\>]*)name="([^\"]*)"([^\>]*) \-\-\>(.*)\<\!\-\-\#endfor name="\2" \-\-\>/){
-		$match = $1."name=\"$2\"".$3;
-		$loop = $4;
-		$match =~ / name="([^\"]*)"/;
-		$name = $1;
-		$match =~ / each="([^\"]*)"/;
-		$each = $1;
-		$result = "";
-		foreach $e (sort(keys(%{$config->{$each}}))){
-			# Get the hash for this time in the loop
-#			$temp = $config->{$each}{$e};
-			$result .= parseFor($loop, $e, \%{$config->{$each}{$e}});
-		}
-		$line =~ s/\<\!\-\-\#for[^\>]*name="$name"[^\>]* \-\-\>.*\<\!\-\-\#endfor name="$name" \-\-\>/$result/;
-	}
-
-	# Replace newlines
-	$line =~ s/%NEWLINE%/\n/g;
-	
-	return $line;
-}
-
-sub parseFor() {
-	my ($exp,$each,$txt,%input,$json,%var,@bits,$i,$idx,$matchvar);
-	my ($exp, $each, $input) = @_;
-	$txt = $exp;
-	
-	# Replace this
-	$txt =~ s/\<\!\-\-#json name=\"this\" \-\-\>/$e/g;
-
-
-	while($txt =~ /(\<\!\-\-\#json name=")([^\"]*)(" \-\-\>)/){
-
-		# Get the variable name
-		$matchvar = $1.$2.$3;
-		$json = $2;
-
-		# Get a copy of the hash reference
-		$var = $input;
-	
-		# Split the variable by '.'
-		(@bits) = split(/\./,$json);
-		for($i = 0; $i < @bits; $i++){
-			$idx = -1;
-			if($bits[$i] =~ s/\[([0-9]+)\]//){ $idx = $1; }
-			$var = $var->{$bits[$i]};
-			if($idx >= 0){
-				$var = $var->[$idx];
-			}
-		}
-		
-		#print "VAR $matchvar => $var\n";
-		# We need to escape the brackets
-		$matchvar =~ s/([\[\]])/\\$1/g;
-		$txt =~ s/$matchvar/$var/g
-	}
-	
-	#print "$txt\n\n";
-	return $txt;
-}
-
 sub parseIf {
 	my($exp);
 	$exp = $_[0];
@@ -303,4 +220,100 @@ sub parseIf {
 	# Clear away rest
 	#$exp =~ s/\<!\-\-([^\>]*)\-\->/$1/g;
 	return $exp;
+}
+
+sub parseLoops {
+
+	my($line,$match,$result,$name,$each,$var,$e,@k,%h,$loop,$tloop,$temp,%this,%conf);
+	my ($line,$this) = @_;
+
+	# Temporarily zap newlines
+	$line =~ s/[\n\r]/%NEWLINE%/g;
+
+	# Process for loops (these aren't genuine SSI but our own made-up format)
+	#	<!--#for each="package" name="iloop" -->
+	#		<li>
+	#			Title: <!--#json name="dimensions.value" -->  
+	#		</li>
+	#	<!--#endfor name="iloop" -->
+	# Loops over each key (i) in "package". The "json name" gives the JS-style 
+	# reference relative to package[i] e.g. package[i].dimensions.value
+
+	while($line =~ /\<\!\-\-\#for( [^\>]*)name="([^\"]*)"([^\>]*) \-\-\>(.*)\<\!\-\-\#endfor name="\2" \-\-\>/){
+		$match = $1."name=\"$2\"".$3;
+		$loop = $4;
+		$match =~ / name="([^\"]*)"/;
+		$name = $1;
+		$match =~ / each="([^\"]*)"/;
+		$each = $1;
+		$result = "";
+
+		print "Processing loop $name\n";
+
+		$conf = getConfigHash($each,$this);
+
+		if("%{$conf}" =~ /HASH/){
+			$h = $conf;
+			foreach $e (sort(keys(%{$h}))){
+				if($name eq "loopinner"){
+					print "\te = $e\n";
+				}
+				$tloop = parseLoops($loop,$h->{$e});
+				# Get the hash for this time in the loop
+				$result .= parseFor($tloop, $e, $h->{$e});
+			}
+		}elsif("%{$conf}" =~ /ARRAY/){
+			@k = @{$conf};
+			for($e = 0; $e < @k ; $e++){
+				$tloop = $loop;
+				# Get the hash for this time in the loop
+				$result .= parseFor($tloop, $e, $k[$e]);
+			}
+		}
+		$line =~ s/\<\!\-\-\#for[^\>]*name="$name"[^\>]* \-\-\>.*\<\!\-\-\#endfor name="$name" \-\-\>/$result/;
+	}
+
+	# Replace newlines
+	$line =~ s/%NEWLINE%/\n/g;
+	
+	return $line;
+}
+
+sub getConfigHash {
+	my (@bits,$i,$idx,$key,%var);
+	($key, $var) = @_;
+
+	# Split the variable by '.'
+	(@bits) = split(/\./,$key);
+	for($i = 0; $i < @bits; $i++){
+		$idx = -1;
+		if($bits[$i] =~ s/\[([0-9]+)\]//){ $idx = $1; }
+		$var = $var->{$bits[$i]};
+		if($idx >= 0){
+			$var = $var->[$idx];
+		}
+	}
+	return $var;
+}
+sub parseFor {
+	my ($exp,$each,$txt,%input,$json,%var,@bits,$i,$idx,$matchvar);
+	my ($exp, $e, $input) = @_;
+	$txt = $exp;
+	
+	# Replace this
+	$txt =~ s/\<\!\-\-#json name=\"this\" \-\-\>/$e/g;
+
+	while($txt =~ /(\<\!\-\-\#json name=")([^\"]*)(" \-\-\>)/){
+
+		# Get the variable name
+		$matchvar = $1.$2.$3;
+
+		%var = getConfigHash($2,$input);
+			
+		# We need to escape the brackets
+		$matchvar =~ s/([\[\]])/\\$1/g;
+		$txt =~ s/$matchvar/$var/g
+	}
+	
+	return $txt;
 }
