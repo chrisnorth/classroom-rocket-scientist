@@ -166,17 +166,20 @@ header {
   height: 3em;
   overflow: hidden; }
 
-/*
-nav {
-	box-shadow: 0em 0.2em 0.2em rgba(0,0,0,0.2);
-}
-*/
 #bar h1 {
   font-size: 1em;
   margin: auto; }
 
 #bar, .dropdown {
   background-color: rgba(0, 0, 0, 0.85); }
+
+img.icon {
+  width: 1.5em;
+  height: 1.5em;
+  float: left; }
+
+.rtl img.icon {
+  float: right; }
 
 .dropdown {
   box-shadow: 0.1em 0.2em 0.25em rgba(0, 0, 0, 0.3);
@@ -218,10 +221,10 @@ nav li {
   width: 100%;
   text-align: left; }
 
-.baritem a img, .baritem button img {
+.baritem a img, .baritem button img, nav a img {
   margin: 0.75em; }
 
-.baritem a, .baritem button {
+.baritem a, .baritem button, nav a {
   color: inherit;
   text-decoration: none;
   display: block;
@@ -242,15 +245,6 @@ nav li {
 
 .rtl .barmenu .baritem {
   float: left; }
-
-img.icon {
-  width: 1.5em;
-  height: 1.5em;
-  margin: 0;
-  float: left; }
-
-.rtl img.icon {
-  float: right; }
 
 .dropdown {
   z-index: 100;
@@ -377,7 +371,7 @@ img.close {
 .cost {
   color: #76e300; }
 
-.time {
+.power {
   color: #fac900; }
 
 .mass {
@@ -394,6 +388,15 @@ img.close {
 
 .warning {
   color: #ffee00; }
+
+.COMMS {
+  background-color: #fee7dd; }
+
+.EO {
+  background-color: #e4f2e7; }
+
+.NAV {
+  background-color: #e1f4fe; }
 
 section {
   background: white;
@@ -423,12 +426,6 @@ section {
 .msg .close:hover {
   cursor: pointer; }
 
-.msg {
-  padding-top: 6.75em; }
-
-body.front .msg {
-  padding-top: 3.75em; }
-
 section:first-child {
   padding-top: 6em; }
 
@@ -443,6 +440,13 @@ body.front section:first-child {
 
 section.view h2 {
   text-align: center; }
+
+section.view p {
+  text-align: center; }
+
+section#launch {
+  background-color: #000000;
+  color: #efefef; }
 
 #type .holder {
   width: 33%;
@@ -477,6 +481,76 @@ section.view h2 {
   background-image: linear-gradient(30deg, transparent 49%, white 49.4%, white 50.6%, transparent 51%, transparent), linear-gradient(-30deg, transparent 49%, white 49.4%, white 50.6%, transparent 51%, transparent);
   background-size: 5.2896em 3.0295em;
   background-position: 0 0, 0 0; }
+
+.table {
+  display: table;
+  width: 100%;
+  max-width: 100%; }
+
+.table-left, .table-right {
+  display: table-cell;
+  vertical-align: top;
+  position: relative; }
+
+.table-left {
+  width: 60%; }
+
+.table-right {
+  width: 40%; }
+
+.list {
+  height: 100%;
+  overflow-y: scroll;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  margin-left: 1em; }
+
+.list li {
+  padding: 1em;
+  display: table;
+  width: 100%;
+  border-bottom: 1px solid #444444; }
+
+.list li:last-child {
+  border-bottom: 0px; }
+
+.list li:hover {
+  background-color: #efefef; }
+
+.list li .list-left, .list li .list-right {
+  display: table-cell;
+  width: auto;
+  vertical-align: top; }
+
+.list li .list-left {
+  width: 6em;
+  padding-right: 1em; }
+
+.slot0x2 .eg {
+  margin-top: 0.6em; }
+
+.slot1x2 .eg {
+  margin-top: 0.375em; }
+
+.slot1x1 .eg {
+  margin-top: 0.375em; }
+
+.eg {
+  width: 100%;
+  height: 100%; }
+
+.package_slot {
+  text-align: right;
+  width: 6em; }
+
+.package_slot div {
+  float: right; }
+
+.package_power, .package_mass, .package_cost {
+  display: inline-block; }
 
 .holder {
   display: table-cell;
@@ -601,8 +675,13 @@ section.view h2 {
 .satellite-c .slot2 {
   left: 0.75em; }
 
+.slot2x2 {
+  width: 1.5em;
+  height: 1.5em; }
+
 .slot2x4 {
-  width: 3em; }
+  width: 3em;
+  height: 1.5em; }
 
 .slot2x4 .face.left, .slot2x4 .face.right {
   width: 50%; }
@@ -612,6 +691,10 @@ section.view h2 {
 
 .slot4x2 .face.top {
   height: 50%; }
+
+.slot4x4 {
+  height: 3em;
+  width: 3em; }
 
 .slot4x8 {
   width: 6em;
@@ -659,7 +742,7 @@ section.view h2 {
   background: #f05948; }
 
 .slot2x4 .face.front,
-.slot2x4 .face.back {
+.slot2x4 .face.back, .slot2x4 .eg {
   background: #f04031; }
 
 .slot2x2 .face.top {
@@ -670,7 +753,7 @@ section.view h2 {
   background: #0ab26b; }
 
 .slot2x2 .face.front,
-.slot2x2 .face.back {
+.slot2x2 .face.back, .slot2x2 .eg {
   background: #02a24b; }
 
 .slot4x8 .face.top {
@@ -681,7 +764,7 @@ section.view h2 {
   background: #7c52a1; }
 
 .slot4x8 .face.front,
-.slot4x8 .face.back {
+.slot4x8 .face.back, .slot4x8 .eg {
   background: #662d8f; }
 
 .slot0x2 .face.top {
@@ -692,7 +775,7 @@ section.view h2 {
   background: #00b9e4; }
 
 .slot0x2 .face.front,
-.slot0x2 .face.back {
+.slot0x2 .face.back, .slot0x2 .eg {
   background: #00a2d3; }
 
 .slot1x1 .face.top {
@@ -703,7 +786,7 @@ section.view h2 {
   background: #ffde00; }
 
 .slot1x1 .face.front,
-.slot1x1 .face.back {
+.slot1x1 .face.back, .slot1x1 .eg {
   background: #ffcb06; }
 
 .slot1x2 .face.top {
@@ -714,7 +797,7 @@ section.view h2 {
   background: #f9a04a; }
 
 .slot1x2 .face.front,
-.slot1x2 .face.back {
+.slot1x2 .face.back, .slot1x2 .eg {
   background: #f6881f; }
 
 .slot-empty:hover .face.front, .slot-empty:hover .face.back {
@@ -781,13 +864,13 @@ section.view h2 {
 .satellite.solar-fixed .solar-top .face.front {
   border-top: 4px solid #00a2d3; }
 
-.satellite .solar-panel {
+.satellite .solar-panel, .slot4x4 {
   background-color: #008BB2; }
 
-.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top {
+.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .slot4x4 {
   background-color: #00a2d3; }
 
-.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .satellite .solar-panel {
+.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .satellite .solar-panel, .slot4x4 {
   background-image: -webkit-linear-gradient(white 2px, transparent 2px), -webkit-linear-gradient(0deg, white 2px, transparent 2px), -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px), -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
   background-image: linear-gradient(white 2px, transparent 2px), linear-gradient(90deg, white 2px, transparent 2px), linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
   background-size: 1.5em 1.5em, 1.5em 1.5em, 0.3em 0.3em, 0.3em 0.3em;

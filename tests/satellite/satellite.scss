@@ -46,10 +46,12 @@
 .slot4 { left: $s*3; position: absolute; }
 .satellite-c .slot2 { left: $s*0.5; }
 
-.slot2x4 { width: $s * 2; }
+.slot2x2 { width: $s; height: $s; }
+.slot2x4 { width: $s * 2; height: $s; }
 .slot2x4 .face.left, .slot2x4 .face.right { width: 50%; }
 .slot4x2 { height: $s * 2; }
 .slot4x2 .face.top { height: 50%; }
+.slot4x4 { height: $s * 2; width: $s * 2; }
 .slot4x8 { width: $s * 4; height: $s * 2; }
 .slot4x8 .face.left, .slot4x8 .face.right { width: 25%; }
 .slot0x2 { height: $s * 0.1; width: $s; }
@@ -65,37 +67,37 @@
 .slot2x4 .face.left,
 .slot2x4 .face.right { background: $red_l; }
 .slot2x4 .face.front,
-.slot2x4 .face.back { background: $red; }
+.slot2x4 .face.back, .slot2x4 .eg { background: $red; }
 
 .slot2x2 .face.top { background: $green_t; }
 .slot2x2 .face.left,
 .slot2x2 .face.right { background: $green_l; }
 .slot2x2 .face.front,
-.slot2x2 .face.back { background: $green; }
+.slot2x2 .face.back, .slot2x2 .eg { background: $green; }
 
 .slot4x8 .face.top { background: $purple_t; }
 .slot4x8 .face.left,
 .slot4x8 .face.right { background: $purple_l; }
 .slot4x8 .face.front,
-.slot4x8 .face.back { background: $purple; }
+.slot4x8 .face.back, .slot4x8 .eg { background: $purple; }
 
 .slot0x2 .face.top { background: $blue_t; }
 .slot0x2 .face.left,
 .slot0x2 .face.right { background: $blue_l; }
 .slot0x2 .face.front,
-.slot0x2 .face.back { background: $blue; }
+.slot0x2 .face.back, .slot0x2 .eg { background: $blue; }
 
 .slot1x1 .face.top { background: $yellow_t; }
 .slot1x1 .face.left,
 .slot1x1 .face.right { background: $yellow_l; }
 .slot1x1 .face.front,
-.slot1x1 .face.back { background: $yellow; }
+.slot1x1 .face.back, .slot1x1 .eg { background: $yellow; }
 
 .slot1x2 .face.top { background: $orange_t; }
 .slot1x2 .face.left,
 .slot1x2 .face.right { background: $orange_l; }
 .slot1x2 .face.front,
-.slot1x2 .face.back { background: $orange; }
+.slot1x2 .face.back, .slot1x2 .eg { background: $orange; }
 
 .slot-empty:hover .face.front, .slot-empty:hover .face.back { background: $black; }
 .slot-empty:hover .face.left, .slot-empty:hover .face.right { background: $black_l; }
@@ -134,13 +136,13 @@
 .satellite.solar-fixed .row:first-child .solar-right .face.top { border-right: 4px solid $blue; }
 .satellite.solar-fixed .solar-top .face.left  { border-top: 4px solid $blue; }
 .satellite.solar-fixed .solar-top .face.front  { border-top: 4px solid $blue; }
-.satellite .solar-panel {
+.satellite .solar-panel, .slot4x4 {
 	background-color: #008BB2;
 }
-.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top {
+.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .slot4x4 {
 	background-color: $blue;
 }
-.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .satellite .solar-panel {
+.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .satellite .solar-panel, .slot4x4 {
 	background-image: -webkit-linear-gradient(white 2px, transparent 2px), -webkit-linear-gradient(0deg, white 2px, transparent 2px), -webkit-linear-gradient(rgba(255, 255, 255, .3) 1px, transparent 1px), -webkit-linear-gradient(0deg, rgba(255, 255, 255, .3) 1px, transparent 1px);
 	background-image: linear-gradient(white 2px, transparent 2px), linear-gradient(90deg, white 2px, transparent 2px), linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
 	background-size: $s $s, $s $s, $s * 0.2 $s * 0.2, $s * 0.2 $s * 0.2;

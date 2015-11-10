@@ -16,27 +16,37 @@
 	},
 	"sections": [{
 		"id": "type",
+		"short": "%ui.sections.type.short%",
 		"title": "%ui.sections.type.title%"
 	},{
 		"id": "goal",
+		"short": "%ui.sections.goal.short%",
 		"title": "%ui.sections.goal.title%"
 	},{
 		"id": "bus",
+		"short": "%ui.sections.bus.short%",
 		"title": "%ui.sections.bus.title%"
 	},{
 		"id": "orbit",
+		"short": "%ui.sections.orbit.short%",
 		"title": "%ui.sections.orbit.title%"
 	},{
 		"id": "instrument",
-		"title": "%ui.sections.instrument.title%"
+		"short": "%ui.sections.instrument.short%",
+		"title": "%ui.sections.instrument.title%",
+		"list": "%ui.sections.instrument.list%"
 	},{
 		"id": "power",
-		"title": "%ui.sections.power.title%"
+		"short": "%ui.sections.power.short%",
+		"title": "%ui.sections.power.title%",
+		"list": "%ui.sections.power.list%"
 	},{
 		"id": "rocket",
+		"short": "%ui.sections.rocket.short%",
 		"title": "%ui.sections.rocket.title%"
 	},{
 		"id": "launch",
+		"short": "%ui.sections.launch.short%",
 		"title": "%ui.sections.launch.title%"
 	}],
 	"bus": {
@@ -78,6 +88,11 @@
 			"slot": "2x2",
 			"title": "%package.camera-opt.title%",
 			"description": "%package.camera-opt.description%",
+			"image": {
+				"file": "images/package_camera-opt.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -91,6 +106,11 @@
 			"slot":	"2x2",
 			"title": "%package.camera-nir.title%",
 			"description": "%package.camera-nir.description%",
+			"image": {
+				"file": "images/package_camera-nir.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -104,6 +124,11 @@
 			"slot":	"2x4",
 			"title": "%package.camera-fir.title%",
 			"description": "%package.camera-fir.description%",
+			"image": {
+				"file": "images/package_camera-fir.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -117,6 +142,11 @@
 			"slot":	"2x2",
 			"title": "%package.spect-opt.title%",
 			"description": "%package.spect-opt.description%",
+			"image": {
+				"file": "images/package_spect-opt.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -130,6 +160,11 @@
 			"slot":	"2x2",
 			"title": "%package.spect-nir.title%",
 			"description": "%package.spect-nir.description%",
+			"image": {
+				"file": "images/package_spect-nir.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -143,6 +178,11 @@
 			"slot":	"2x4",
 			"title": "%package.spect-fir.title%",
 			"description": "%package.spect-fir.description%",
+			"image": {
+				"file": "images/package_spect-fir.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -156,6 +196,11 @@
 			"slot":	"2x4",
 			"title": "%package.radar-alt.title%",
 			"description": "%package.radar-alt.description%",
+			"image": {
+				"file": "images/package_radar-alt.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 40, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -175,6 +220,11 @@
 			"slot":	"4x8",
 			"title": "%package.radar-dish.title%",
 			"description": "%package.radar-dish.description%",
+			"image": {
+				"file": "images/package_radar-dish.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 40, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -188,6 +238,11 @@
 			"slot":	"2x2",
 			"title": "%package.radio-rx.title%",
 			"description": "%package.radio-rx.description%",
+			"image": {
+				"file": "images/package_radio-rx.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -201,6 +256,11 @@
 			"slot":	"2x2",
 			"title": "%package.radio-tx.title%",
 			"description": "%package.radio-tx.description%",
+			"image": {
+				"file": "images/package_radio-tx.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -214,6 +274,11 @@
 			"slot":	"2x2",
 			"title": "%package.atomic-clock.title%",
 			"description": "%package.atomic-clock.description%",
+			"image": {
+				"file": "images/package_atomic-clock.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 50000, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -227,6 +292,11 @@
 			"slot":	"1x2",
 			"title": "%package.atomic-clock-small.title%",
 			"description": "%package.atomic-clock-small.description%",
+			"image": {
+				"file": "images/package_atomic-clock-small.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 50000, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -240,6 +310,11 @@
 			"slot":	"1x1",
 			"title": "%package.gps-rx.title%",
 			"description": "%package.gps-rx.description%",
+			"image": {
+				"file": "images/package_gps-rx.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 0.5, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -253,6 +328,11 @@
 			"slot":	"1x1",
 			"title": "%package.camera-mini.title%",
 			"description": "%package.camera-mini.description%",
+			"image": {
+				"file": "images/package_camera-mini.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 50000, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -266,6 +346,11 @@
 			"slot":	"4x8",
 			"title": "%package.dish-large.title%",
 			"description": "%package.dish-large.description%",
+			"image": {
+				"file": "images/package_dish-large.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 30, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -279,6 +364,11 @@
 			"slot":	"2x4",
 			"title": "%package.dish-medium.title%",
 			"description": "%package.dish-medium.description%",
+			"image": {
+				"file": "images/package_dish-medium.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 20, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -292,6 +382,11 @@
 			"slot":	"1x2",
 			"title": "%package.dish-small.title%",
 			"description": "%package.dish-small.description%",
+			"image": {
+				"file": "images/package_dish-small.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 0.5, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -301,10 +396,15 @@
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
 		},
-		"antenna-cube": {
+		"radio-antenna-cube": {
 			"slot":	"0x2",
-			"title": "%package.antenna-cube.title%",
-			"description": "%package.antenna-cube.description%",
+			"title": "%package.radio-antenna-cube.title%",
+			"description": "%package.radio-antenna-cube.description%",
+			"image": {
+				"file": "images/package_radio-antenna-cube.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 0.1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 4500, "units": "EUR", "dimension": "currency" },
 			"dimensions": [
@@ -332,8 +432,8 @@
 			"requires": [{
 				"type": "package",
 				"oneof": ["solar.panel","solar.panel.surface"],
-				"label": "Requires solar panels",
-				"error": "Requires solar panels"
+				"label": "%package.battery-large.requires.solar.label%",
+				"error": "%package.battery-large.requires.solar.error%"
 			}]
 		},
 		"battery-small": {
@@ -375,7 +475,7 @@
 			}]
 		},
 		"solar-panel-surface": {
-			"slot":	"",
+			"slot":	"4x4",
 			"title": "%package.solar-panel-surface.title%",
 			"description": "%package.solar-panel-surface.description%",
 			"mass": { "value": 5, "units": "kg", "dimension": "mass" },
@@ -387,7 +487,7 @@
 			"power": { "value": -150, "units": "watts", "dimension": "power" }
 		},
 		"solar-panel": {
-			"slot":	"",
+			"slot":	"4x4",
 			"title": "%package.solar-panel.title%",
 			"description": "%package.solar-panel.description%",
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },

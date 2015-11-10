@@ -16,27 +16,37 @@
 	},
 	"sections": [{
 		"id": "type",
+		"short": "Type",
 		"title": "Select your type of satellite"
 	},{
 		"id": "goal",
+		"short": "Mission",
 		"title": "Select the purpose of your satellite"
 	},{
 		"id": "bus",
+		"short": "Size",
 		"title": "Choose the size of your satellite"
 	},{
 		"id": "orbit",
+		"short": "Orbit",
 		"title": "Select the orbit for your satellite"
 	},{
 		"id": "instrument",
-		"title": "Select the instruments for your satellite"
+		"short": "Instruments",
+		"title": "Select the instruments for your satellite",
+		"list": "Instrument options:"
 	},{
 		"id": "power",
-		"title": "Add power"
+		"short": "Power",
+		"title": "Add power",
+		"list": "Power options:"
 	},{
 		"id": "rocket",
+		"short": "Rocket",
 		"title": "Build your rocket"
 	},{
 		"id": "launch",
+		"short": "Launch",
 		"title": "Launch"
 	}],
 	"bus": {
@@ -78,6 +88,11 @@
 			"slot": "2x2",
 			"title": "Camera (optical)",
 			"description": "Images of ground",
+			"image": {
+				"file": "images/package_camera-opt.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -91,6 +106,11 @@
 			"slot":	"2x2",
 			"title": "Camera (NIR)",
 			"description": "Images of vegetation",
+			"image": {
+				"file": "images/package_camera-nir.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -104,6 +124,11 @@
 			"slot":	"2x4",
 			"title": "Camera (FIR)",
 			"description": "Images of clouds",
+			"image": {
+				"file": "images/package_camera-fir.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -117,6 +142,11 @@
 			"slot":	"2x2",
 			"title": "Spectrometer (optical)",
 			"description": "Properties of ground",
+			"image": {
+				"file": "images/package_spect-opt.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -130,6 +160,11 @@
 			"slot":	"2x2",
 			"title": "Spectrometer (NIR)",
 			"description": "Properties of vegetation",
+			"image": {
+				"file": "images/package_spect-nir.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -143,6 +178,11 @@
 			"slot":	"2x4",
 			"title": "Spectrometer (FIR)",
 			"description": "Properties of clouds",
+			"image": {
+				"file": "images/package_spect-fir.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -156,6 +196,11 @@
 			"slot":	"2x4",
 			"title": "Radar altimeter",
 			"description": "Measuring topography",
+			"image": {
+				"file": "images/package_radar-alt.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 40, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -175,6 +220,11 @@
 			"slot":	"4x8",
 			"title": "Radar dish",
 			"description": "Measuring topography",
+			"image": {
+				"file": "images/package_radar-dish.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 40, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -188,6 +238,11 @@
 			"slot":	"2x2",
 			"title": "Radio receiver",
 			"description": "Communications",
+			"image": {
+				"file": "images/package_radio-rx.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -201,6 +256,11 @@
 			"slot":	"2x2",
 			"title": "Radio transmitter",
 			"description": "Communications",
+			"image": {
+				"file": "images/package_radio-tx.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -214,6 +274,11 @@
 			"slot":	"2x2",
 			"title": "Atomic clock",
 			"description": "Navigation (GPS timing)",
+			"image": {
+				"file": "images/package_atomic-clock.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 50000, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -227,6 +292,11 @@
 			"slot":	"1x2",
 			"title": "Atomic clock (compact)",
 			"description": "Navigation (GPS timing)",
+			"image": {
+				"file": "images/package_atomic-clock-small.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 50000, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -240,6 +310,11 @@
 			"slot":	"1x1",
 			"title": "GPS receiver",
 			"description": "Positioning",
+			"image": {
+				"file": "images/package_gps-rx.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 0.5, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -253,6 +328,11 @@
 			"slot":	"1x1",
 			"title": "Camera (miniature)",
 			"description": "Images of ground",
+			"image": {
+				"file": "images/package_camera-mini.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 50000, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -266,6 +346,11 @@
 			"slot":	"4x8",
 			"title": "Radio dish (large)",
 			"description": "For up to 8 instruments",
+			"image": {
+				"file": "images/package_dish-large.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 30, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -279,6 +364,11 @@
 			"slot":	"2x4",
 			"title": "Radio dish (medium)",
 			"description": "For up to 4 instruments",
+			"image": {
+				"file": "images/package_dish-medium.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 20, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -292,6 +382,11 @@
 			"slot":	"1x2",
 			"title": "Radio antenna (small)",
 			"description": "For up to 2 instruments",
+			"image": {
+				"file": "images/package_dish-small.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 0.5, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -301,10 +396,15 @@
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
 		},
-		"antenna-cube": {
+		"radio-antenna-cube": {
 			"slot":	"0x2",
 			"title": "Radio antenna (deployable)",
 			"description": "For up to 2 instruments",
+			"image": {
+				"file": "images/package_radio-antenna-cube.jpg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 0.1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 4500, "units": "EUR", "dimension": "currency" },
 			"dimensions": [
@@ -375,7 +475,7 @@
 			}]
 		},
 		"solar-panel-surface": {
-			"slot":	"",
+			"slot":	"4x4",
 			"title": "Body-mounted solar panel",
 			"description": "Provides power",
 			"mass": { "value": 5, "units": "kg", "dimension": "mass" },
@@ -387,7 +487,7 @@
 			"power": { "value": -150, "units": "watts", "dimension": "power" }
 		},
 		"solar-panel": {
-			"slot":	"",
+			"slot":	"4x4",
 			"title": "Deployable solar panel",
 			"description": "Provides power",
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },

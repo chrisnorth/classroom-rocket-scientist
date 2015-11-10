@@ -1,6 +1,5 @@
 @import "../tests/satellite/definitions";
-$barheight: 3em;
-$lineh: 1.5em;
+@import "definitions.scss";
 
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -109,13 +108,16 @@ header { position: fixed; z-index: 1000; left: 0px; top: 0px; width: 100%; right
 	height: $barheight;
 	overflow: hidden;
 }
-/*
-nav {
-	box-shadow: 0em 0.2em 0.2em rgba(0,0,0,0.2);
-}
-*/
 #bar h1 { font-size: 1em; margin: auto; }
 #bar, .dropdown { background-color: rgba(0,0,0,0.85); }
+
+img.icon {
+	width:1.5em;
+	height:1.5em;
+	float: left;
+}
+.rtl img.icon { float: right; }
+
 
 .dropdown {
 	box-shadow: 0.1em 0.2em 0.25em rgba(0,0,0,0.3);
@@ -138,10 +140,10 @@ nav li { float: left; }
 .baritem.left a:hover { background: transparent; }
 .baritem.padded, nav li.padded { padding: $barheight*0.5 - $lineh*0.5; }
 .baritem button { border: 0px; background: transparent; font-size: 1em; margin: 0px; padding: 0px; width: 100%; text-align: left; }
-.baritem a img, .baritem button img {
+.baritem a img, .baritem button img, nav a img {
 	margin: $barheight*0.5 - $lineh*0.5;
 }
-.baritem a, .baritem button {
+.baritem a, .baritem button, nav a {
 	color: inherit;
 	text-decoration: none;
 	display: block;
@@ -158,13 +160,6 @@ nav li { float: left; }
 .barmenu .baritem { float: right; }
 .barmenu .baritem.left { float: left; }
 .rtl .barmenu .baritem { float: left; }
-img.icon {
-	width:1.5em;
-	height:1.5em;
-	margin: 0;
-	float: left;
-}
-.rtl img.icon { float: right; }
 .dropdown {
 	z-index: 100;
 	/*
@@ -220,12 +215,16 @@ img.close { background-position: -4.5em -10.5em; }
 .fullscreen img.fullscreen { background-position: -3em -9em; }
 .success { color: #ffffff; }
 .cost { color: #76e300; }
-.time { color: #fac900; }
+.power { color: #fac900; }
 .mass { color: #e0caff; }
 .science { color: #69dfff; }
 .profile { color: #f6dc8c; }
 .error { color: #ff4a4a; }
 .warning { color: #ffee00; }
+.COMMS { background-color: $red-5; }
+.EO { background-color: $green-5; }
+.NAV { background-color: $blue-5; }
+
 
 section {
 	background: white;
@@ -254,13 +253,13 @@ section {
 .msg .close:hover {
 	cursor: pointer;
 }
-.msg { padding-top: $barheight*2 + 0.75em; }
-body.front .msg { padding-top: $barheight + 0.75em; }
 section:first-child { padding-top: $barheight*2; }
 body.front section:first-child { padding-top: $barheight; }
 .msg + section { padding-top: 0; }
 .padded { padding: 2em; }
 section.view h2 { text-align: center; }
+section.view p { text-align: center; }
+section#launch { background-color: #000000; color: #efefef; }
 #type .holder { width: 33%; padding: 1em; }
 #type .holder p { text-align: left; }
 .not-at-start { display: none; }
@@ -292,6 +291,28 @@ $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 	background-size: $s*3.5264 $s*3.5264*63/110;
 	background-position: 0 0, 0 0;
 }
+
+.table { 
+	display: table;
+	width: 100%;
+	max-width: 100%;
+}
+.table-left, .table-right { display: table-cell; vertical-align: top; position: relative; }
+.table-left { width: 60%; }
+.table-right { width: 40%;  }
+.list { height: 100%; overflow-y: scroll; position: absolute; top: 0px; right: 0px; left: 0px; bottom: 0px; margin-left: 1em; }
+.list li { padding: 1em; display: table; width: 100%; border-bottom: 1px solid #444444; }
+.list li:last-child { border-bottom: 0px; }
+.list li:hover { background-color: #efefef; }
+.list li .list-left,.list li .list-right { display: table-cell; width: auto; vertical-align: top; }
+.list li .list-left { width: $s * 4; padding-right: 1em;  }
+.slot0x2 .eg { margin-top: $s * 0.4; }
+.slot1x2 .eg { margin-top: $s * 0.25; }
+.slot1x1 .eg { margin-top: $s * 0.25; }
+.eg { width: 100%; height: 100%; }
+.package_slot { text-align: right; width: $s * 4; }
+.package_slot div { float: right; }
+.package_power, .package_mass, .package_cost { display: inline-block; }
 
 .holder {
 	display: table-cell;

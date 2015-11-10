@@ -1,6 +1,6 @@
 ---
 ui.level:                                   (advanced)
-ui.nojs:                                    Oops! The interactive parts of this page have broken for some reason. You may have disabled Javascript or be using a web-browser that doesn't support it. You can use the <a href="http://www.whatsmybrowser.org/">"What's my browser"</a> website to find out what browser version you're using and whether Javascript is enabled.
+ui.nojs:                                    Oops! The interactive parts of this page need Javascript to be enabled. Sorry about that.
 ui.title:                                   Classroom rocket scientist
 ui.introduction:                            This is an intro.
 ui.loading:                                 Loading...
@@ -15,20 +15,30 @@ ui.menu.fullscreen.title:                   Toggle fullscreen
 ui.menu.fullscreen.more:                    Switch between viewing fullscreen or in a standard browser window
 ui.menu.language.title:                     Language
 ui.menu.language.more:                      Change language
+ui.sections.type.short:                     Type
 ui.sections.type.title:                     Select your type of satellite
 ui.sections.type.intro:                     Satellites have different purposes. Which type do you want to build?
+ui.sections.goal.short:                     Mission
 ui.sections.goal.title:                     Select the purpose of your satellite
 ui.sections.goal.intro:                     Select the purpose of your satellite
+ui.sections.bus.short:                      Size
 ui.sections.bus.title:                      Choose the size of your satellite
 ui.sections.bus.intro:                      The size of your satellite matters. It needs to be big enough to hold all the instruments you need. Be careful though. The bigger your satellite, the more expensive it is.
+ui.sections.orbit.short:                    Orbit
 ui.sections.orbit.title:                    Select the orbit for your satellite
 ui.sections.orbit.intro:                    There are several different orbits around the Earth that you can choose from. Higher orbits need more powerful rockets to get to them.
+ui.sections.instrument.short:               Instruments
 ui.sections.instrument.title:               Select the instruments for your satellite
 ui.sections.instrument.intro:               To complete your mission you will need the correct instruments. You only have a limited number of slots and money so choose wisely.
+ui.sections.instrument.list:                Instrument options:
+ui.sections.power.short:                    Power
 ui.sections.power.title:                    Add power
 ui.sections.power.intro:                    Your satellite needs power. There are different ways to do that. You can use solar panels on the sides of the satellite, deployable solar panels, and batteries.
+ui.sections.power.list:                     Power options:
+ui.sections.rocket.short:                   Rocket
 ui.sections.rocket.title:                   Build your rocket
 ui.sections.rocket.intro:                   Now you have a satellite you need to build a multi-stage rocket. The top of the rocket will hold your satellite so needs to be big enough. The lower stages need to be big enough to support those above.
+ui.sections.launch.short:                   Launch
 ui.sections.launch.title:                   Launch
 ui.sections.launch.intro:                   
 bus.cube.title:                             Cube sat
@@ -71,10 +81,12 @@ package.dish-medium.title:                  Radio dish (medium)
 package.dish-medium.description:            For up to 4 instruments
 package.dish-small.title:                   Radio antenna (small)
 package.dish-small.description:             For up to 2 instruments
-package.antenna-cube.title:                 Radio antenna (deployable)
-package.antenna-cube.description:           For up to 2 instruments
+package.radio-antenna-cube.title:           Radio antenna (deployable)
+package.radio-antenna-cube.description:     For up to 2 instruments
 package.battery-large.title:                Large battery
 package.battery-large.description:          Provides power
+package.battery-large.requires.solar.label: Requires solar panels
+package.battery-large.requires.solar.error: Requires solar panels
 package.battery-small.title:                Small battery
 package.battery-small.description:          Provides power
 package.battery-small.requires.solar.label: Requires solar panels
