@@ -40,7 +40,7 @@ function E(e){
 				}
 			}
 		}
-		this.e = undefined;
+		this.e = [];
 		if(!els) return this;
 		if(typeof els.length!=="number") els = [els];
 		this.e = els;
@@ -154,6 +154,14 @@ function E(e){
 		}
 		return this;
 	}
+	// Toggle a class on a DOM element
+	stuQuery.prototype.addClass = function(cls){
+		// Remove/add it
+		for(var i = 0; i < this.e.length; i++){
+			if(!this.e[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) this.e[i].className = (this.e[i].className+' '+cls).replace(/^ /,'');
+		}
+		return this;
+	}
 	stuQuery.prototype.style = function(css){
 		var style = '';
 		for(key in css){
@@ -169,9 +177,22 @@ function E(e){
 		for(var i = 0; i < this.e.length; i++) this.e[i] = (this.e[i].parentElement);
 		return this;
 	}
-	stuQuery.prototype.children = function(i){
-		this.e = [this.e[i]];
+	stuQuery.prototype.children = function(c){
+		for(var i = 0; i < this.e.length; i++) this.e[i] = (this.e[i].children.length > c ? this.e[i].children[c] : this.e[i]);
 		return this;
+	}
+	stuQuery.prototype.clone = function(){
+		var target = this.e[0];
+		var wrap = document.createElement('div');
+		wrap.appendChild(target.cloneNode(true));
+		return wrap.innerHTML;
+	}
+	stuQuery.prototype.replaceWith = function(html){
+		var myAnchor = this.e[0];
+		var mySpan = document.createElement("span");
+		mySpan.innerHTML = html;
+		this.e[0].parentNode.replaceChild(mySpan, this.e[0]);
+  		return this;
 	}
 	return new stuQuery(e);
 }
@@ -185,7 +206,16 @@ function zoom(element,factor){
 	if(z * factor < 2 && z * factor > 0.5) z *= factor;
 	E(element).parent().parent().parent().style({'font-size':z.toFixed(3)+'em'});
 }
-function chooseBus(element,factor){
+function chooseBus(element){
+	// Reset all to black and white
+	E('#bus .holder').addClass('blackandwhite');
+	// Remove existing selections
+	E('#bus .selected').toggleClass('selected');
+
+	html = E(element).parent().children(0).clone();
+	E('#sat .satellite').replaceWith(html)
+	E('#sat-power .satellite').replaceWith(html)
+
 	E(element).toggleClass("selected").parent().toggleClass("blackandwhite");
 }
 function toggleSolar(){
@@ -221,15 +251,11 @@ function toggleComms(){
 			e.toggleClass('radio').toggleClass('slot-empty');
 		}
 	}
-	var slots = [{'el':'sat-c','cls':'slot0x2'}];
-	var el,aerial,top,cls,i,i2,ant;
-	for(var s = 0; s < slots.length; s++){
-		e = E('#'+slots[s].el+' .'+cls+':eq(0)');
-		if(e.e.length > 0){
-			if(e.hasClass('antenna')) E('#'+slots[s].el+' .aerial').remove();
-			else E('#'+slots[s].el+' .'+cls+':eq(0) .top:eq(0)').html("<div class=\"aerial1 aerial\"><\/div><div class=\"aerial2 aerial\"><\/div>");
-			e.toggleClass('antenna').toggleClass('slot-empty');
-		}
+	e = E('#sat .slot0x2:eq(0)');
+	if(e.e.length > 0){
+		if(e.hasClass('antenna')) E('#sat .aerial').remove();
+		else E('#sat .slot0x2:eq(0) .top:eq(0)').html("<div class=\"aerial1 aerial\"><\/div><div class=\"aerial2 aerial\"><\/div>");
+		e.toggleClass('antenna').toggleClass('slot-empty');
 	}
 }
 
@@ -249,6 +275,13 @@ E(document).ready(function(){
 
 	// Remove the overlay we've added inline
 	E('#overlay').remove();
+	
+	E('#bus .satellite').on('click',function(e){
+		chooseBus(E(e.currentTarget).parent().children(2).e[0]);
+	})
+	E('#bus button').on('click',function(e){
+		chooseBus(e.currentTarget);
+	})
 
 });
 
