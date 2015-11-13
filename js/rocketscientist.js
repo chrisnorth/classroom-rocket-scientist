@@ -179,9 +179,7 @@ function E(e){
 
 var z = 1;
 function toggle3D(element){
-	if(element) element = element.parentElement.parentElement.parentElement;
-	else element = '#satellite';
-	E(element).toggleClass('threeD');
+	E(element ? element.parentElement.parentElement.parentElement : '#satellite').toggleClass('threeD');
 }
 function zoom(element,factor){
 	if(z * factor < 2 && z * factor > 0.5) z *= factor;
@@ -197,32 +195,20 @@ function toggleAnimation(){
 	E('#sat-power .satellite').toggleClass('spin');
 }
 function setSolar(n){
-	var ids = ['sat-power-l','sat-power-m'];
-	var ul = "<ul>";
-	for(var i = 0; i < n; i++) ul += "<li class=\"solar-panel\"><\/li>";
-	ul += '<\/ul>';
-	for(var j = 0; j < ids.length; j++){
-		el = document.getElementById(ids[j]);
-		panels = el.getElementsByClassName('solar-panels');
-		for(var i = 0; i < panels.length; i++) E(panels[i]).html(ul);
-	}
+	var list = "";
+	if(n > 4) n = 4;
+	for(var i = 0; i < n; i++) list += "<li class=\"solar-panel\"><\/li>";
+	E('#sat-power .solar-panels ol').html(list);
 }
 function addSolar(){
-	var ids = ['sat-power-l','sat-power-m'];
-	for(var j = 0; j < ids.length; j++){
-		el = document.getElementById(ids[j]);
-		if(el){
-			panels = el.getElementsByClassName('solar-panels');
-			for(var i = 0; i < panels.length; i++){
-				ps = panels[i].getElementsByTagName('li');
-				if(ps.length < 4) panels[i].getElementsByTagName('ol')[0].innerHTML += '<li class="solar-panel"><\/li>';
-			}
-		}
+	panels = E('#sat-power .solar-panels');
+	for(var i = 0; i < panels.e.length; i++){
+		ps = panels.e[i].getElementsByTagName('li');
+		if(ps.length < 4) panels.e[i].getElementsByTagName('ol')[0].innerHTML += '<li class="solar-panel"><\/li>';
 	}
 }
 function removeSolar(){
-	var ids = ['sat-power-l','sat-power-m'];
-	for(var j = 0; j < ids.length; j++) E('#'+ids[j]+' .solar-panels li').remove();
+	E('#sat-power .solar-panels li:eq(0)').remove();
 }
 function toggleComms(){
 	var slots = [{'el':'sat','cls':'slot4x8','type':'north no-inside'},{'el':'sat','cls':'slot2x4','type':'south'}];
