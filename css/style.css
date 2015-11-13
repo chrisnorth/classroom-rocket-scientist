@@ -135,11 +135,13 @@ ul.files li {
 
 #application {
   background: #000000;
-  background-image: url("../images/bg.jpg");
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% auto;
+  /*
+  	background-image: url('images/cleardot.gif');
+  	background-position: bottom;
+  	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-size: 100% auto;
+  */
   position: absolute;
   width: 100%;
   min-height: 100%; }
