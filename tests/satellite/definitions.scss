@@ -1,27 +1,3 @@
-$red:	#f04031;
-$red_t:	#f68d69;
-$red_l:	#f05948;
-$green:	#02a24b;
-$green_t:	#67c18d;
-$green_l:	#0ab26b;
-$blue:	#00a2d3;
-$blue_t:	#48c7e9;
-$blue_l:	#00b9e4;
-$yellow:	#ffcb06;
-$yellow_t:	#fff200;
-$yellow_l:	#ffde00;
-$orange:	#f6881f;
-$orange_t:	#fbb675;
-$orange_l:	#f9a04a;
-$purple:	#662d8f;
-$purple_t:	#7d71b4;
-$purple_l:	#7c52a1;
-$black_t:	#777777;
-$black_l:	#444444;
-$black:	#000000;
-$grey_t:	#cccccc;
-$grey_l:	#bbbbbb;
-$grey:	#999999;
 $s: 1.5em;
 $step_s: $s * 0.25;
 $step_m: $s * 0.5;
@@ -142,6 +118,21 @@ $trans: 0.3s;
 	   -moz-animation-delay: $d;
 	     -o-animation-delay: $d;
 	        animation-delay: $d;
+}
+@mixin background-gradient($c1,$c2){
+	background: $c1;
+	background-image:-webkit-linear-gradient(top,$c1,$c2);
+	background-image:-moz-linear-gradient(top,$c1,$c2);
+	background-image:-ms-linear-gradient(top,$c1,$c2);
+	background-image:-o-linear-gradient(top,$c1,$c2);
+	background-image:linear-gradient(to bottom,$c1,$c2);
+}
+@mixin flex($d){
+	-webkit-flex: $d;
+	 -webkit-box: $d;
+	    -moz-box: $d;
+	    -ms-flex: $d;
+	        flex: $d;
 }
 @mixin triangle-r($w,$h,$c){
 	width: 0;

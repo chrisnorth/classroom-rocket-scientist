@@ -34,12 +34,12 @@
 		"id": "instrument",
 		"short": "Instruments",
 		"title": "Select the instruments for your satellite",
-		"list": "Instrument options:"
+		"list": "Available instruments:"
 	},{
 		"id": "power",
 		"short": "Power",
 		"title": "Add power",
-		"list": "Power options:"
+		"list": "Available power devices:"
 	},{
 		"id": "rocket",
 		"short": "Rocket",
@@ -221,9 +221,11 @@
 			"title": "Radar dish",
 			"description": "Measuring topography",
 			"image": {
-				"file": "images/package_radar-dish.jpg",
+				"file": "images/cleardot.gif",
 				"alt": "",
-				"credit": ""
+				"credit": "",
+				"class": "-bg radar",
+				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
 			"mass": { "value": 40, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
@@ -308,7 +310,7 @@
 		},
 		"gps-rx": {
 			"slot":	"1x1",
-			"title": "GPS receiver",
+			"title": "GPS receiver (miniature)",
 			"description": "Positioning",
 			"image": {
 				"file": "images/package_gps-rx.jpg",
@@ -347,9 +349,11 @@
 			"title": "Radio dish (large)",
 			"description": "For up to 8 instruments",
 			"image": {
-				"file": "images/package_dish-large.jpg",
+				"file": "images/cleardot.gif",
 				"alt": "",
-				"credit": ""
+				"credit": "",
+				"class": "-bg",
+				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
 			"mass": { "value": 30, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
@@ -362,12 +366,14 @@
 		},
 		"dish-medium": {
 			"slot":	"2x4",
-			"title": "Radio dish (medium)",
+			"title": "Radio dish",
 			"description": "For up to 4 instruments",
 			"image": {
-				"file": "images/package_dish-medium.jpg",
+				"file": "images/cleardot.gif",
 				"alt": "",
-				"credit": ""
+				"credit": "",
+				"class": "-bg",
+				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
 			"mass": { "value": 20, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
@@ -380,12 +386,14 @@
 		},
 		"dish-small": {
 			"slot":	"1x2",
-			"title": "Radio antenna (small)",
+			"title": "Radio antenna (compact)",
 			"description": "For up to 2 instruments",
 			"image": {
-				"file": "images/package_dish-small.jpg",
+				"file": "images/cleardot.gif",
 				"alt": "",
-				"credit": ""
+				"credit": "",
+				"class": "-bg",
+				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
 			"mass": { "value": 0.5, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
@@ -403,7 +411,8 @@
 			"image": {
 				"file": "images/package_radio-antenna-cube.jpg",
 				"alt": "",
-				"credit": ""
+				"credit": "",
+				"html": "<div class=\"aerial1 aerial\"></div>"
 			},
 			"mass": { "value": 0.1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 4500, "units": "EUR", "dimension": "currency" },
@@ -428,7 +437,7 @@
 				{ "value": 0.5, "units": "metres", "dimension": "length" },
 				{ "value": 0.5, "units": "metres", "dimension": "length" }
 			],
-			"power": { "value": -500, "units": "watts", "dimension": "power" },
+			"power": { "value": 500, "units": "watts", "dimension": "power" },
 			"requires": [{
 				"type": "package",
 				"oneof": ["solar.panel","solar.panel.surface"],
@@ -447,7 +456,7 @@
 				{ "value": 0.05, "units": "metres", "dimension": "length" },
 				{ "value": 0.05, "units": "metres", "dimension": "length" }
 			],
-			"power": { "value": -30, "units": "watts", "dimension": "power" },
+			"power": { "value": 30, "units": "watts", "dimension": "power" },
 			"requires": [{
 				"type": "package",
 				"oneof": ["solar.panel","solar.panel.surface"],
@@ -466,7 +475,7 @@
 				{ "value": 0.5, "units": "metres", "dimension": "length" },
 				{ "value": 1.0, "units": "metres", "dimension": "length" }
 			],
-			"power": { "value": -300, "units": "watts", "dimension": "power" },
+			"power": { "value": 300, "units": "watts", "dimension": "power" },
 			"requires": [{
 				"type": "orbit",
 				"oneof": ["MEO","HEO","GEO"],
@@ -484,7 +493,7 @@
 				{ "value": 1.0, "units": "metres", "dimension": "length" },
 				{ "value": 1.0, "units": "metres", "dimension": "length" }
 			],
-			"power": { "value": -150, "units": "watts", "dimension": "power" }
+			"power": { "value": 150, "units": "watts", "dimension": "power" }
 		},
 		"solar-panel": {
 			"slot":	"4x4",
@@ -496,7 +505,7 @@
 				{ "value": 1.0, "units": "metres", "dimension": "length" },
 				{ "value": 1.0, "units": "metres", "dimension": "length" }
 			],
-			"power": { "value": -300, "units": "watts", "dimension": "power" }
+			"power": { "value": 300, "units": "watts", "dimension": "power" }
 		}
 	},
 	"rocket": {

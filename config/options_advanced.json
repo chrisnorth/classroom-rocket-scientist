@@ -221,9 +221,11 @@
 			"title": "%package.radar-dish.title%",
 			"description": "%package.radar-dish.description%",
 			"image": {
-				"file": "images/package_radar-dish.jpg",
+				"file": "images/cleardot.gif",
 				"alt": "",
-				"credit": ""
+				"credit": "",
+				"class": "-bg radar",
+				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
 			"mass": { "value": 40, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
@@ -347,9 +349,11 @@
 			"title": "%package.dish-large.title%",
 			"description": "%package.dish-large.description%",
 			"image": {
-				"file": "images/package_dish-large.jpg",
+				"file": "images/cleardot.gif",
 				"alt": "",
-				"credit": ""
+				"credit": "",
+				"class": "-bg",
+				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
 			"mass": { "value": 30, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
@@ -365,9 +369,11 @@
 			"title": "%package.dish-medium.title%",
 			"description": "%package.dish-medium.description%",
 			"image": {
-				"file": "images/package_dish-medium.jpg",
+				"file": "images/cleardot.gif",
 				"alt": "",
-				"credit": ""
+				"credit": "",
+				"class": "-bg",
+				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
 			"mass": { "value": 20, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
@@ -383,9 +389,11 @@
 			"title": "%package.dish-small.title%",
 			"description": "%package.dish-small.description%",
 			"image": {
-				"file": "images/package_dish-small.jpg",
+				"file": "images/cleardot.gif",
 				"alt": "",
-				"credit": ""
+				"credit": "",
+				"class": "-bg",
+				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
 			"mass": { "value": 0.5, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
@@ -403,7 +411,8 @@
 			"image": {
 				"file": "images/package_radio-antenna-cube.jpg",
 				"alt": "",
-				"credit": ""
+				"credit": "",
+				"html": "<div class=\"aerial1 aerial\"></div>"
 			},
 			"mass": { "value": 0.1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 4500, "units": "EUR", "dimension": "currency" },
@@ -428,7 +437,7 @@
 				{ "value": 0.5, "units": "metres", "dimension": "length" },
 				{ "value": 0.5, "units": "metres", "dimension": "length" }
 			],
-			"power": { "value": -500, "units": "watts", "dimension": "power" },
+			"power": { "value": 500, "units": "watts", "dimension": "power" },
 			"requires": [{
 				"type": "package",
 				"oneof": ["solar.panel","solar.panel.surface"],
@@ -447,7 +456,7 @@
 				{ "value": 0.05, "units": "metres", "dimension": "length" },
 				{ "value": 0.05, "units": "metres", "dimension": "length" }
 			],
-			"power": { "value": -30, "units": "watts", "dimension": "power" },
+			"power": { "value": 30, "units": "watts", "dimension": "power" },
 			"requires": [{
 				"type": "package",
 				"oneof": ["solar.panel","solar.panel.surface"],
@@ -466,7 +475,7 @@
 				{ "value": 0.5, "units": "metres", "dimension": "length" },
 				{ "value": 1.0, "units": "metres", "dimension": "length" }
 			],
-			"power": { "value": -300, "units": "watts", "dimension": "power" },
+			"power": { "value": 300, "units": "watts", "dimension": "power" },
 			"requires": [{
 				"type": "orbit",
 				"oneof": ["MEO","HEO","GEO"],
@@ -484,7 +493,7 @@
 				{ "value": 1.0, "units": "metres", "dimension": "length" },
 				{ "value": 1.0, "units": "metres", "dimension": "length" }
 			],
-			"power": { "value": -150, "units": "watts", "dimension": "power" }
+			"power": { "value": 150, "units": "watts", "dimension": "power" }
 		},
 		"solar-panel": {
 			"slot":	"4x4",
@@ -496,7 +505,7 @@
 				{ "value": 1.0, "units": "metres", "dimension": "length" },
 				{ "value": 1.0, "units": "metres", "dimension": "length" }
 			],
-			"power": { "value": -300, "units": "watts", "dimension": "power" }
+			"power": { "value": 300, "units": "watts", "dimension": "power" }
 		}
 	},
 	"rocket": {

@@ -4,6 +4,10 @@ ui.nojs:                                    Oops! The interactive parts of this 
 ui.title:                                   Classroom rocket scientist
 ui.introduction:                            This is an intro.
 ui.loading:                                 Loading...
+ui.requirements.title:                      Requirements
+ui.button.type:                             Start
+ui.button.goal:                             Start building
+ui.button.bus:                              Select
 ui.menu.title:                              Menu
 ui.menu.restart.title:                      Restart
 ui.menu.restart.more:                       Start over
@@ -30,11 +34,11 @@ ui.sections.orbit.intro:                    There are several different orbits a
 ui.sections.instrument.short:               Instruments
 ui.sections.instrument.title:               Select the instruments for your satellite
 ui.sections.instrument.intro:               To complete your mission you will need the correct instruments. You only have a limited number of slots and money so choose wisely.
-ui.sections.instrument.list:                Instrument options:
+ui.sections.instrument.list:                Available instruments:
 ui.sections.power.short:                    Power
 ui.sections.power.title:                    Add power
 ui.sections.power.intro:                    Your satellite needs power. There are different ways to do that. You can use solar panels on the sides of the satellite, deployable solar panels, and batteries.
-ui.sections.power.list:                     Power options:
+ui.sections.power.list:                     Available power devices:
 ui.sections.rocket.short:                   Rocket
 ui.sections.rocket.title:                   Build your rocket
 ui.sections.rocket.intro:                   Now you have a satellite you need to build a multi-stage rocket. The top of the rocket will hold your satellite so needs to be big enough. The lower stages need to be big enough to support those above.
@@ -71,15 +75,15 @@ package.atomic-clock.title:                 Atomic clock
 package.atomic-clock.description:           Navigation (GPS timing)
 package.atomic-clock-small.title:           Atomic clock (compact)
 package.atomic-clock-small.description:     Navigation (GPS timing)
-package.gps-rx.title:                       GPS receiver
+package.gps-rx.title:                       GPS receiver (miniature)
 package.gps-rx.description:                 Positioning
 package.camera-mini.title:                  Camera (miniature)
 package.camera-mini.description:            Images of ground
 package.dish-large.title:                   Radio dish (large)
 package.dish-large.description:             For up to 8 instruments
-package.dish-medium.title:                  Radio dish (medium)
+package.dish-medium.title:                  Radio dish
 package.dish-medium.description:            For up to 4 instruments
-package.dish-small.title:                   Radio antenna (small)
+package.dish-small.title:                   Radio antenna (compact)
 package.dish-small.description:             For up to 2 instruments
 package.radio-antenna-cube.title:           Radio antenna (deployable)
 package.radio-antenna-cube.description:     For up to 2 instruments

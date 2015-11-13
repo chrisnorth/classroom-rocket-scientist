@@ -1,3 +1,24 @@
+.bg2x2 {
+  background-color: #02a24b; }
+
+.bg2x4 {
+  background-color: #f04031; }
+
+.bg4x4 {
+  background-color: #00a2d3; }
+
+.bg4x8 {
+  background-color: #662d8f; }
+
+.bg0x2 {
+  background-color: #00a2d3; }
+
+.bg1x2 {
+  background-color: #f6881f; }
+
+.bg1x1 {
+  background-color: #ffcb06; }
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -84,12 +105,15 @@ body {
   background-size: 5.2896em 3.0295em;
   background-position: 0 0, 0 0; }
 
+p {
+  text-align: center; }
+
 .holder {
   display: inline-block;
   min-width: 12em;
   text-align: center; }
 
-.holder .satellite {
+.satellite {
   font-size: 1em;
   padding: 3em;
   position: relative;
@@ -108,16 +132,20 @@ body {
   transition: all 0.3s ease; }
 
 .satellite-l {
-  width: 6em; }
+  width: 6em;
+  padding: 1.5em; }
 
 .satellite-m {
-  width: 3em; }
+  width: 3em;
+  padding: 2.25em; }
 
 .satellite-s {
-  width: 3em; }
+  width: 3em;
+  padding: 2.25em; }
 
 .satellite-c {
-  width: 1.5em; }
+  width: 1.5em;
+  padding: 3em; }
 
 .row, .solar-panels {
   display: block;
@@ -191,8 +219,13 @@ body {
 .satellite-c .slot2 {
   left: 0.75em; }
 
+.slot2x2 {
+  width: 1.5em;
+  height: 1.5em; }
+
 .slot2x4 {
-  width: 3em; }
+  width: 3em;
+  height: 1.5em; }
 
 .slot2x4 .face.left, .slot2x4 .face.right {
   width: 50%; }
@@ -202,6 +235,10 @@ body {
 
 .slot4x2 .face.top {
   height: 50%; }
+
+.slot4x4 {
+  height: 3em;
+  width: 3em; }
 
 .slot4x8 {
   width: 6em;
@@ -249,7 +286,7 @@ body {
   background: #f05948; }
 
 .slot2x4 .face.front,
-.slot2x4 .face.back {
+.slot2x4 .face.back, .slot2x4 .eg {
   background: #f04031; }
 
 .slot2x2 .face.top {
@@ -260,7 +297,7 @@ body {
   background: #0ab26b; }
 
 .slot2x2 .face.front,
-.slot2x2 .face.back {
+.slot2x2 .face.back, .slot2x2 .eg {
   background: #02a24b; }
 
 .slot4x8 .face.top {
@@ -271,7 +308,7 @@ body {
   background: #7c52a1; }
 
 .slot4x8 .face.front,
-.slot4x8 .face.back {
+.slot4x8 .face.back, .slot4x8 .eg {
   background: #662d8f; }
 
 .slot0x2 .face.top {
@@ -282,7 +319,7 @@ body {
   background: #00b9e4; }
 
 .slot0x2 .face.front,
-.slot0x2 .face.back {
+.slot0x2 .face.back, .slot0x2 .eg {
   background: #00a2d3; }
 
 .slot1x1 .face.top {
@@ -293,7 +330,7 @@ body {
   background: #ffde00; }
 
 .slot1x1 .face.front,
-.slot1x1 .face.back {
+.slot1x1 .face.back, .slot1x1 .eg {
   background: #ffcb06; }
 
 .slot1x2 .face.top {
@@ -304,35 +341,35 @@ body {
   background: #f9a04a; }
 
 .slot1x2 .face.front,
-.slot1x2 .face.back {
+.slot1x2 .face.back, .slot1x2 .eg {
   background: #f6881f; }
 
 .slot-empty:hover .face.front, .slot-empty:hover .face.back {
   background: #000000; }
 
 .slot-empty:hover .face.left, .slot-empty:hover .face.right {
-  background: #444444; }
+  background: #202020; }
 
 .slot-empty:hover .face.top {
-  background: #777777; }
+  background: #404040; }
 
 .slot-empty .face.front, .slot-empty .face.back {
-  background: #999999; }
+  background: #777777; }
 
 .slot-empty .face.left, .slot-empty .face.right {
-  background: #bbbbbb; }
+  background: #999999; }
 
 .slot-empty .face.top {
-  background: #cccccc; }
+  background: #bbbbbb; }
 
 .antenna .face.front {
   background: #000000; }
 
 .antenna .face.left {
-  background: #444444; }
+  background: #202020; }
 
 .antenna .face.top {
-  background: #777777; }
+  background: #404040; }
 
 .slot .faces {
   position: absolute;
@@ -371,13 +408,10 @@ body {
 .satellite.solar-fixed .solar-top .face.front {
   border-top: 4px solid #00a2d3; }
 
-.satellite .solar-panel {
-  background-color: #008BB2; }
-
-.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top {
+.satellite .solar-panel, .slot4x4, .satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .slot4x4 {
   background-color: #00a2d3; }
 
-.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .satellite .solar-panel {
+.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .satellite .solar-panel, .slot4x4 {
   background-image: -webkit-linear-gradient(white 2px, transparent 2px), -webkit-linear-gradient(0deg, white 2px, transparent 2px), -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px), -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
   background-image: linear-gradient(white 2px, transparent 2px), linear-gradient(90deg, white 2px, transparent 2px), linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
   background-size: 1.5em 1.5em, 1.5em 1.5em, 0.3em 0.3em, 0.3em 0.3em;
@@ -812,7 +846,7 @@ body {
   margin: 0px;
   margin-top: -2px;
   padding: 0px;
-  border-top: 0.3em solid #444444; }
+  border-top: 0.3em solid #202020; }
 
 .solar-panels ol li {
   display: inline-block;
@@ -884,8 +918,11 @@ body {
 .dome, .inner {
   background-color: #ffffff; }
 
-.inner {
+.hemisphere .inner {
   border: 2px solid white; }
+
+.radar .hemisphere .inner {
+  border: 2px solid #777777; }
 
 .satellite-c .inner {
   border: 1px solid white; }
@@ -904,22 +941,25 @@ body {
   height: 100%; }
 
 .north .dome {
-  -webkit-box-shadow: inset -0.2em 0 0.2em -0.05em rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: inset -0.2em 0 0.2em -0.05em rgba(0, 0, 0, 0.25);
-  box-shadow: inset -0.2em 0 0.2em -0.05em rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset -0.3em -0.3em 0.3em -0.075em rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset -0.3em -0.3em 0.3em -0.075em rgba(0, 0, 0, 0.4);
+  box-shadow: inset -0.3em -0.3em 0.3em -0.075em rgba(0, 0, 0, 0.4);
   top: 0%;
   border-radius: 1em 1em 0 0; }
 
 .south .dome {
-  -webkit-box-shadow: inset -0.3em -0.3em 0.3em -0.075em rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: inset -0.3em -0.3em 0.3em -0.075em rgba(0, 0, 0, 0.25);
-  box-shadow: inset -0.3em -0.3em 0.3em -0.075em rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset -0.3em -0.3em 0.3em -0.075em rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset -0.3em -0.3em 0.3em -0.075em rgba(0, 0, 0, 0.4);
+  box-shadow: inset -0.3em -0.3em 0.3em -0.075em rgba(0, 0, 0, 0.4);
   border-radius: 0 0 1.5em 1.5em; }
 
+.radar .hemisphere .dome, .radar .hemisphere .inner {
+  background-color: #777777; }
+
 .threeD .south .dome {
-  -webkit-box-shadow: 0.165em 0.15em 6px -10px rgba(0, 0, 0, 0.3), inset -0.3em -0.3em 0.3em -0.075em rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0.165em 0.15em 6px -10px rgba(0, 0, 0, 0.3), inset -0.3em -0.3em 0.3em -0.075em rgba(0, 0, 0, 0.25);
-  box-shadow: 0.165em 0.15em 6px -10px rgba(0, 0, 0, 0.3), inset -0.3em -0.3em 0.3em -0.075em rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0.165em 0.15em 6px -10px rgba(0, 0, 0, 0.3), inset -0.3em -0.3em 0.3em -0.075em rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0.165em 0.15em 6px -10px rgba(0, 0, 0, 0.3), inset -0.3em -0.3em 0.3em -0.075em rgba(0, 0, 0, 0.4);
+  box-shadow: 0.165em 0.15em 6px -10px rgba(0, 0, 0, 0.3), inset -0.3em -0.3em 0.3em -0.075em rgba(0, 0, 0, 0.4);
   border-radius: 0 0 1.5em 1.5em; }
 
 .east .dome {
@@ -935,26 +975,26 @@ body {
   left: 0%;
   border-radius: 1.5em 0 0 1.5em; }
 
-.inner, .dome {
+.hemisphere .inner, .dome {
   position: absolute;
   margin: 0px;
   top: 50%;
   left: 0; }
 
-.inner, .dome, .inner:after {
+.hemisphere .inner, .dome, .hemisphere .inner:after {
   -webkit-transition: height 0.3s ease, border-radius 0.3s ease;
   -moz-transition: height 0.3s ease, border-radius 0.3s ease;
   -ms-transition: height 0.3s ease, border-radius 0.3s ease;
   -o-transition: height 0.3s ease, border-radius 0.3s ease;
   transition: height 0.3s ease, border-radius 0.3s ease; }
 
-.inner {
+.hemisphere .inner {
   border-radius: 100%; }
 
-.inner:after {
+.hemisphere .inner:after {
   width: 0.06em;
   height: 0.225em;
-  background: #999999;
+  background: #606060;
   border-top-left-radius: 100%;
   border-top-right-radius: 100%;
   position: absolute;
@@ -962,6 +1002,9 @@ body {
   left: 50%;
   margin-left: -2px;
   bottom: 0%; }
+
+.radar .hemisphere .inner:after {
+  background: #202020; }
 
 .north .inner:after {
   border-radius: 0;
@@ -1062,7 +1105,7 @@ body {
 .aerial {
   width: 4.5em;
   height: 0;
-  border: 0.15em solid #777777;
+  border: 0.15em solid #404040;
   position: absolute;
   z-index: 100; }
 
@@ -1128,7 +1171,3 @@ body {
   100% {
     transform: translateZ(-3em) rotateY(-405deg) rotateX(35.264deg); } }
 /* End of Hemisphere CSS */
-p {
-  text-align: center; }
-
-/*# sourceMappingURL=style.css.map */

@@ -1,3 +1,7 @@
+# Create config JSON
+echo "Creating JSON"
+perl config/config.pl
+
 # Create the HTML
 echo "Creating front page HTML"
 perl config/template.pl --overwrite --mode advanced templates/index.html index.html
@@ -10,10 +14,6 @@ perl config/template.pl --overwrite --mode intermediate templates/level.html int
 
 echo "Creating advanced HTML"
 perl config/template.pl --overwrite --mode advanced templates/level.html advanced.html
-
-# Create config JSON
-echo "Creating JSON"
-perl config/config.pl
 
 # Create the CSS
 echo "Creating CSS"

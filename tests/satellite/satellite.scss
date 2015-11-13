@@ -63,53 +63,53 @@
 .slot2x4.down .face.top,.slot2x4.up .face.top { height: 50%; }
 .slot2x4.up { height: $s * 2; width: $s; margin-top: -$s; }
 
-.slot2x4 .face.top { background: $red_t; }
+.slot2x4 .face.top { background: $red-3; }
 .slot2x4 .face.left,
-.slot2x4 .face.right { background: $red_l; }
+.slot2x4 .face.right { background: $red-2; }
 .slot2x4 .face.front,
-.slot2x4 .face.back, .slot2x4 .eg { background: $red; }
+.slot2x4 .face.back, .slot2x4 .eg { background: $red-1; }
 
-.slot2x2 .face.top { background: $green_t; }
+.slot2x2 .face.top { background: $green-3; }
 .slot2x2 .face.left,
-.slot2x2 .face.right { background: $green_l; }
+.slot2x2 .face.right { background: $green-2; }
 .slot2x2 .face.front,
-.slot2x2 .face.back, .slot2x2 .eg { background: $green; }
+.slot2x2 .face.back, .slot2x2 .eg { background: $green-1; }
 
-.slot4x8 .face.top { background: $purple_t; }
+.slot4x8 .face.top { background: $purple-3; }
 .slot4x8 .face.left,
-.slot4x8 .face.right { background: $purple_l; }
+.slot4x8 .face.right { background: $purple-2; }
 .slot4x8 .face.front,
-.slot4x8 .face.back, .slot4x8 .eg { background: $purple; }
+.slot4x8 .face.back, .slot4x8 .eg { background: $purple-1; }
 
-.slot0x2 .face.top { background: $blue_t; }
+.slot0x2 .face.top { background: $turquoise-3; }
 .slot0x2 .face.left,
-.slot0x2 .face.right { background: $blue_l; }
+.slot0x2 .face.right { background: $turquoise-2; }
 .slot0x2 .face.front,
-.slot0x2 .face.back, .slot0x2 .eg { background: $blue; }
+.slot0x2 .face.back, .slot0x2 .eg { background: $turquoise-1; }
 
-.slot1x1 .face.top { background: $yellow_t; }
+.slot1x1 .face.top { background: $yellow-3; }
 .slot1x1 .face.left,
-.slot1x1 .face.right { background: $yellow_l; }
+.slot1x1 .face.right { background: $yellow-2; }
 .slot1x1 .face.front,
-.slot1x1 .face.back, .slot1x1 .eg { background: $yellow; }
+.slot1x1 .face.back, .slot1x1 .eg { background: $yellow-1; }
 
-.slot1x2 .face.top { background: $orange_t; }
+.slot1x2 .face.top { background: $orange-3; }
 .slot1x2 .face.left,
-.slot1x2 .face.right { background: $orange_l; }
+.slot1x2 .face.right { background: $orange-2; }
 .slot1x2 .face.front,
-.slot1x2 .face.back, .slot1x2 .eg { background: $orange; }
+.slot1x2 .face.back, .slot1x2 .eg { background: $orange-1; }
 
-.slot-empty:hover .face.front, .slot-empty:hover .face.back { background: $black; }
-.slot-empty:hover .face.left, .slot-empty:hover .face.right { background: $black_l; }
-.slot-empty:hover .face.top { background: $black_t; }
+.blackandwhite .slot:hover .face.front, .blackandwhite .slot:hover .face.back { background: $black-1; }
+.blackandwhite .slot:hover .face.left, .blackandwhite .slot:hover .face.right { background: $black-2; }
+.blackandwhite .slot:hover .face.top { background: $black-3; }
 
-.slot-empty .face.front, .slot-empty .face.back { background: $grey; }
-.slot-empty .face.left, .slot-empty .face.right { background: $grey_l; }
-.slot-empty .face.top { background: $grey_t; }
+.blackandwhite .slot .face.front, .blackandwhite .slot .face.back { background: $grey-1; }
+.blackandwhite .slot .face.left, .blackandwhite .slot .face.right { background: $grey-2; }
+.blackandwhite .slot .face.top { background: $grey-3; }
 
-.antenna .face.front { background: $black; }
-.antenna .face.left { background: $black_l; }
-.antenna .face.top { background: $black_t; }
+.antenna .face.front { background: $black-1; }
+.antenna .face.left { background: $black-2; }
+.antenna .face.top { background: $black-3; }
 
 .slot .faces {
 	position: absolute;
@@ -132,15 +132,12 @@
 	z-index: 2;
 }
 
-.satellite.solar-fixed .solar-left .face.front, .satellite.solar-fixed .row:first-child .solar-left .face.top { border-left: 4px solid $blue; }
-.satellite.solar-fixed .row:first-child .solar-right .face.top { border-right: 4px solid $blue; }
-.satellite.solar-fixed .solar-top .face.left  { border-top: 4px solid $blue; }
-.satellite.solar-fixed .solar-top .face.front  { border-top: 4px solid $blue; }
-.satellite .solar-panel, .slot4x4 {
-	background-color: #008BB2;
-}
-.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .slot4x4 {
-	background-color: $blue;
+.satellite.solar-fixed .solar-left .face.front, .satellite.solar-fixed .row:first-child .solar-left .face.top { border-left: 4px solid $blue-1; }
+.satellite.solar-fixed .row:first-child .solar-right .face.top { border-right: 4px solid $blue-1; }
+.satellite.solar-fixed .solar-top .face.left  { border-top: 4px solid $blue-1; }
+.satellite.solar-fixed .solar-top .face.front  { border-top: 4px solid $blue-1; }
+.satellite .solar-panel, .slot4x4, .satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .slot4x4 {
+	background-color: $blue-1;
 }
 .satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .satellite .solar-panel, .slot4x4 {
 	background-image: -webkit-linear-gradient(white 2px, transparent 2px), -webkit-linear-gradient(0deg, white 2px, transparent 2px), -webkit-linear-gradient(rgba(255, 255, 255, .3) 1px, transparent 1px), -webkit-linear-gradient(0deg, rgba(255, 255, 255, .3) 1px, transparent 1px);
@@ -149,7 +146,7 @@
 	background-position: -1px -2px, -1px -1px, -1px -1px, -1px -1px;
 	box-sizing: border-box;
 }
-.satellite.solar-fixed .solar-right .face.front { border-right: 4px solid $blue; }
+.satellite.solar-fixed .solar-right .face.front { border-right: 4px solid $blue-1; }
 .face img { width: 100%; height: 100%; }
 .photo .face.front, .photo .face.top, .photo .face.left, .photo .face.right, .photo .face.back { background-image: url('foil.jpg'); background-size: 100% 100%; background-repeat: none; border: 0px; }
 .video .face.front, .video .face.top, .video .face.left, .video .face.right, .video .face.back { background-image: url('foil.jpg'); background-size: 100% 100%; background-repeat: none; border: 0px; }
@@ -285,13 +282,13 @@
 .solar-panels:nth-child(1) li:last-child:before {
 	position:absolute;
 	content: "";
-	@include triangle-l($s*1,$s*2,$black_l);
+	@include triangle-l($s*1,$s*2,$black-2);
 	right: $s*0.5;
 }
 .solar-panels:nth-child(2) li:last-child:before {
 	position: absolute;
 	content: "";
-	@include triangle-r($s*1,$s*2,$black_l);
+	@include triangle-r($s*1,$s*2,$black-2);
 	left: $s*0.5;
 }
 .solar-panels:nth-child(1) {
@@ -305,7 +302,7 @@
 	left: 50%;
 }
 .solar-panels .label { display: none; }
-.solar-panels ol { display: block; margin: 0px; margin-top:-2px; padding: 0px; border-top: $s * 0.2 solid $black_l; }
+.solar-panels ol { display: block; margin: 0px; margin-top:-2px; padding: 0px; border-top: $s * 0.2 solid $black-2; }
 .solar-panels ol li { display: inline-block; margin: 0px; padding: 0px; margin-top: -$s * 1.1; width: $s * 2; height: $s * 2; }
 .solar-panels:nth-child(1) ol { float: right; }
 .solar-panels:nth-child(2) ol { float: left; }
@@ -340,7 +337,8 @@
 .hemisphere, .dome, .inner { display: inline-block; }
 .dome, .inner { width: 100%; }
 .dome, .inner { background-color: #ffffff; }
-.inner { border: 2px solid white; }
+.hemisphere .inner { border: 2px solid white; }
+.radar .hemisphere .inner { border: 2px solid $grey-1; }
 .satellite-c .inner { border: 1px solid white; }
 .north .inner,.west .inner { border-color: #ccc; }
 
@@ -351,27 +349,29 @@
 	width: 50%;
 	height: 100%;
 }
-$inset: inset #{-$s * 0.2} #{-$s * 0.2} #{$s * 0.2} #{-$s * 0.05} rgba(0,0,0,0.25);
+$inset: inset #{-$s * 0.2} #{-$s * 0.2} #{$s * 0.2} #{-$s * 0.05} rgba(0,0,0,0.4);
 $ss: $s*0.11 $s*0.1 6px -10px rgba(0,0,0,0.3), $inset;
-.north .dome { @include box-shadow( inset -0.2em -0 0.2em -0.05em rgba(0,0,0,0.25) ); top: 0%; border-radius: 1em 1em 0 0; }
+.north .dome { @include box-shadow( $inset ); top: 0%; border-radius: 1em 1em 0 0; }
 .south .dome { @include box-shadow( $inset ); border-radius: 0 0 $s $s; }
+.radar .hemisphere .dome, .radar .hemisphere .inner { background-color: $grey-1; }
 .threeD .south .dome { @include box-shadow( $ss ); border-radius: 0 0 $s $s; }
 .east .dome { @include box-shadow( inset #{-$s * 0.2} #{-$s * 0.2} #{$s * 0.2} #{-$s * 0.05} rgba(0,0,0,0.25) ); border-radius: 0 $s $s 0; }
 .west .dome { @include box-shadow( inset #{-$s * 0.2} #{-$s * 0.2} #{$s * 0.2} #{-$s * 0.05} rgba(0,0,0,0.25) ); left: 0%; border-radius: $s 0 0 $s; }
-.inner, .dome {
+.hemisphere .inner, .dome {
 	position: absolute;
 	margin: 0px;
 	top: 50%;
 	left: 0;
 }
 $dometrans: height $trans ease, border-radius $trans ease;
-.inner, .dome, .inner:after {
+.hemisphere .inner, .dome, .hemisphere .inner:after {
 	@include transition( $dometrans );
 }
-.inner {
+.hemisphere .inner {
 	border-radius: 100%;
 }
-.inner:after { width: $s * 0.04; height: $s * 0.15; background: #999999; border-top-left-radius: 100%; border-top-right-radius: 100%; position:absolute; content: ""; left: 50%; margin-left: -2px; bottom: 0%; }
+.hemisphere .inner:after { width: $s * 0.04; height: $s * 0.15; background: $black-4; border-top-left-radius: 100%; border-top-right-radius: 100%; position:absolute; content: ""; left: 50%; margin-left: -2px; bottom: 0%; }
+.radar .hemisphere .inner:after { background: $black-2; }
 .north .inner:after { border-radius: 0; border-bottom-left-radius: 100%; height: 0.1em; border-bottom-right-radius: 100%; top: 0%; bottom: auto; }
 .threeD .inner:after { height: 0.3em; }
 .north .inner, .south .inner {
@@ -420,7 +420,7 @@ $dometrans: height $trans ease, border-radius $trans ease;
 	@include transform( $transform_z_neg_b $transform_rot_y_neg_45 $transform_rot_x_pos_iso );
 }
 .antenna .face { border: 0px; }
-.aerial { width: $s * 3; height: 0; border: $s * 0.1 solid $black_t; position: absolute; z-index: 100; }
+.aerial { width: $s * 3; height: 0; border: $s * 0.1 solid $black-3; position: absolute; z-index: 100; }
 .aerial1 { border-left: 0px; border-bottom: 0px; right: 0px; bottom: 0px; }
 .aerial2 { border-right: 0px; border-top: 0px; left: 0px; bottom: 0px; }
 .threeD .aerial { height: $s * 3; }
