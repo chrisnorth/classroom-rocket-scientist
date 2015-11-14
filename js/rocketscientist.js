@@ -4,6 +4,19 @@ var eventcache = {};
 
 function E(e){
 	
+	function matchSelector(e,selector){
+		var result = false;
+		// Does this one element match the selector
+		if(selector[0] == '.'){
+			selector = selector.substr(1);
+			for(var i = 0; i < e.classList.length; i++) if(e.classList[i] == selector) return true;
+		}else if(selector[0] == '#'){
+			if(e.id == selector.substr(1)) return true;
+		}else{
+			if(e.tagName == selector.substr(1).toUpperCase()) return true;
+		}
+		return false;
+	}
 	function getBy(e,selector){
 		var i = -1;
 		var result = new Array();
@@ -162,7 +175,7 @@ function E(e){
 		}
 		return this;
 	}
-	stuQuery.prototype.style = function(css){
+	stuQuery.prototype.css = function(css){
 		var style = '';
 		for(key in css){
 			if(style) style += ';';
@@ -174,12 +187,36 @@ function E(e){
 		return this;
 	}
 	stuQuery.prototype.parent = function(){
-		for(var i = 0; i < this.e.length; i++) this.e[i] = (this.e[i].parentElement);
-		return this;
+		var tmp = [];
+		for(var i = 0; i < this.e.length; i++) tmp.push(this.e[i].parentElement);
+		return E(tmp);
 	}
+	// Only look one level down
 	stuQuery.prototype.children = function(c){
-		for(var i = 0; i < this.e.length; i++) this.e[i] = (this.e[i].children.length > c ? this.e[i].children[c] : this.e[i]);
-		return this;
+		if(typeof c==="string"){
+			// We are using a selector
+			var result = [];
+			for(var i = 0; i < this.e.length; i++){
+				for(var ch = 0; ch < this.e[i].children.length; ch++){
+					if(matchSelector(this.e[i].children[ch],c)) result.push(this.e[i].children[ch]);
+				}
+			}
+			return E(result);
+		}else{
+			// We are using an index
+			for(var i = 0; i < this.e.length; i++) this.e[i] = (this.e[i].children.length > c ? this.e[i].children[c] : this.e[i]);
+			return E(this.e);
+		}
+	}
+	stuQuery.prototype.find = function(selector){
+		var tmp = [];
+		var result = [];
+		for(var i = 0; i < this.e.length; i++){
+			tmp = getBy(this.e[i],selector);
+			for(k = 0; k < tmp.length; k++){ result.push(tmp[k]); }
+		}
+		// Return a new instance of stuQuery
+		return E(result);
 	}
 	stuQuery.prototype.clone = function(){
 		var target = this.e[0];
@@ -204,7 +241,7 @@ function toggle3D(element){
 }
 function zoom(element,factor){
 	if(z * factor < 2 && z * factor > 0.5) z *= factor;
-	E(element).parent().parent().parent().style({'font-size':z.toFixed(3)+'em'});
+	E(element).parent().parent().parent().css({'font-size':z.toFixed(3)+'em'});
 }
 function chooseBus(element){
 	// Reset all to black and white
@@ -282,6 +319,56 @@ E(document).ready(function(){
 	E('#bus button').on('click',function(e){
 		chooseBus(e.currentTarget);
 	})
+
+	var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+	var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+
+	var has = {};
+	var wrap = E('#progressbar').css({'width':'100vw'});
+	has['vw'] = (wrap.e[0].offsetWidth==w);
+
+/*	function getHeight(el){
+		if('getComputedStyle' in window) return parseInt(window.getComputedStyle(el, null).getPropertyValue('height'));
+		else return parseInt(document.getElementById('example').currentStyle.height);	
+	}*/
+
+	// Kludgy fix for old browsers that don't have vw/vh/flex in CSS
+	if(!has.vw){
+		function resize(){
+			E('section').css({'min-height':h+'px'});
+			// Hard-coded fudge based on padding of 2em (1em=14px)
+			var paddh = h-48;
+			E('section').children('.padded').css({'min-height':paddh+'px'});
+			var table = E('section').children('.padded').children('.table');
+			table.css({'height':paddh+'px'});
+
+			var rows = table.children('.table-row');//E('.table-row');
+			for(var r = 0; r < rows.e.length; r++){
+				// Step up to the table parent
+				var table = E(rows.e[r]).parent();
+				var dh = 0;
+				var fixed = table.children('.table-row-top');
+				// Get all table-row children
+				var rs = table.children('.table-row');
+				dh = Math.floor((table.e[0].offsetHeight - fixed.e[0].offsetHeight)/(rs.e.length));
+				rs.css({'min-height':dh+'px'});
+				rs.children('.table-left').css({'float':'left','min-height':dh+'px'}).children('.table').css({'height':dh+'px'});
+				rs.children('.table-right').css({'float':'right','min-height':dh+'px'});
+				
+				table = rs.children('.table-left').css({'float':'left','min-height':dh+'px'}).children('.table');
+				if(table.e.length > 0){
+					fixed = table.children('.table-row-top');
+					rs = table.children('.table-row');
+					// Hardcoded 1em padding
+					dh = Math.floor((table.e[0].offsetHeight - fixed.e[0].offsetHeight - 14)/(rs.e.length));
+					rs.css({'min-height':dh+'px'}).children('.satellite-holder').css({'height':dh+'px'})
+				}
+			}
+		}
+		// We'll need to change the sizes when the window changes size
+		window.addEventListener('resize', function(event){ resize(); });
+		resize();
+	}
 
 });
 

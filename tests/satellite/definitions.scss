@@ -127,12 +127,21 @@ $trans: 0.3s;
 	background-image:-o-linear-gradient(top,$c1,$c2);
 	background-image:linear-gradient(to bottom,$c1,$c2);
 }
-@mixin flex($d){
-	-webkit-flex: $d;
-	 -webkit-box: $d;
-	    -moz-box: $d;
-	    -ms-flex: $d;
-	        flex: $d;
+@mixin flex($d,$auto){
+ 	 -webkit-flex: $d $auto;
+	  -webkit-box: $d $auto;
+	     -moz-box: $d $auto;
+	     -ms-flex: $d $auto;
+	         flex: $d $auto;
+}
+@mixin display-flex(){
+	display: flex;
+}
+@mixin flex-column() {
+	flex-direction: column;
+}
+@mixin flex-row() {
+	flex-direction: row;
 }
 @mixin triangle-r($w,$h,$c){
 	width: 0;

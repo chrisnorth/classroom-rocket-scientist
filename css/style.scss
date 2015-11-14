@@ -13,6 +13,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
@@ -310,12 +311,12 @@ section .padded { width: 100%; }
 .table { height: 100%; width: 100%; max-width: 100%; display: table; display: flex; flex-direction: column; }
 .table-row-top > .padder { padding-bottom: 0px; }
 .table-row-top.padded { margin-bottom: 0px; }
-.table-row { display: flex; position: relative; @include flex(1 100%); }
+.table-row { display: flex; position: relative; @include flex(1,100%); }
 .table-row > .padder { position: absolute; bottom: 0px; left: 0px; top: 0px; right: 0px; }
 
-.table-left, .table-right { vertical-align: top; position: relative; }
+.table-left, .table-right { vertical-align: top; position: relative; height: 100%; }
 .table-left { width: 60%; }
-.table-right { width: 40%;  }
+.table-right { width: 40%; }
 
 $padding: $s*0.5;
 

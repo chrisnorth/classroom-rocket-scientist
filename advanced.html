@@ -43,34 +43,36 @@
 
 		<div id="main">
 			<section id="type" class="view">
-				<div class="table">
-					<div class="table-row-top">
-						<div class="msg noscriptmsg">Oops! The interactive parts of this page need Javascript to be enabled. Sorry about that.</div>
-					</div>
-					<div class="table-row">
-						<div class="padded">
-							<h2>Select your type of satellite</h2>
-							<p>Satellites have different purposes. Which type do you want to build?</p>
-							
-							<div class="holder">
-								<div class="padded COMMS type">
-									<h3>Communication</h3>
-									<p>These are used for television, phone or internet transmissions, for example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.</p>
-									<button class="fancy">Start</button>
+				<div class="padded">
+					<div class="table">
+						<div class="table-row-top">
+							<div class="msg noscriptmsg">Oops! The interactive parts of this page need Javascript to be enabled. Sorry about that.</div>
+						</div>
+						<div class="table-row">
+							<div class="padded">
+								<h2>Select your type of satellite</h2>
+								<p>Satellites have different purposes. Which type do you want to build?</p>
+								
+								<div class="holder">
+									<div class="padded COMMS type">
+										<h3>Communication</h3>
+										<p>These are used for television, phone or internet transmissions, for example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.</p>
+										<button class="fancy">Start</button>
+									</div>
 								</div>
-							</div>
-							<div class="holder">
-								<div class="padded EO type">
-									<h3>Earth observation</h3>
-									<p>These are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.</p>
-									<button class="fancy">Start</button>
+								<div class="holder">
+									<div class="padded EO type">
+										<h3>Earth observation</h3>
+										<p>These are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.</p>
+										<button class="fancy">Start</button>
+									</div>
 								</div>
-							</div>
-							<div class="holder">
-								<div class="padded NAV type">
-									<h3>Navigation</h3>
-									<p>The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.</p>
-									<button class="fancy">Start</button>
+								<div class="holder">
+									<div class="padded NAV type">
+										<h3>Navigation</h3>
+										<p>The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.</p>
+										<button class="fancy">Start</button>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -242,16 +244,15 @@
 
 			<section id="instrument" class="view">
 				<div class="padded">
-					<div class="table">
+					<div class="table expander-page">
 						<div class="table-row-top">
 							<h2>Select the instruments for your satellite</h2>
 							<p>To complete your mission you will need the correct instruments. You only have a limited number of slots and money so choose wisely.</p>
 							<button class="fancy" onClick="toggleComms()">Toggle communications</button>
 						</div>
 						<div class="table-row">
-
 							<div class="table-left">
-								<div class="table">
+								<div class="table expander-left">
 									<div class="table-row">
 										<div id="satellite" class="satellite-holder isogrid threeD">
 											<div class="holder" id="sat">
@@ -537,7 +538,7 @@
 
 			<section id="power" class="view">
 				<div class="padded">
-					<div class="table">
+					<div class="table expander-page">
 						<div class="table-row-top">
 							<h2>Add power</h2>
 							<p>Your satellite needs power. There are different ways to do that. You can use solar panels on the sides of the satellite, deployable solar panels, and batteries.</p>
@@ -547,8 +548,7 @@
 							<button class="fancy" onClick="toggleSolar()">Toggle fixed solar panels</button>
 						</div>
 						<div class="table-row">
-
-							<div class="table-left">
+							<div class="table-left expander-left">
 								<div class="table">
 									<div class="table-row">
 										<div id="satellite-power" class="satellite-holder isogrid threeD">
