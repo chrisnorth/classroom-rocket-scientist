@@ -6,8 +6,8 @@ ui.introduction:                            This is an intro.
 ui.loading:                                 Loading space programme...
 ui.requirements.title:                      Requirements
 ui.button.type:                             Select this type
-ui.button.goal:                             Start building
-ui.button.bus:                              Select
+ui.button.goal:                             Select this mission
+ui.button.bus:                              Select this size
 ui.button.zoomin:                           &plus;
 ui.button.zoomout:                          &minus;
 ui.button.threeD:                           2D/3D

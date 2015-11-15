@@ -69,7 +69,8 @@ body {
   color: #404040;
   font-family: "Helvetica Neue", 'Earthbound', Helvetica, sans-serif;
   width: 100%;
-  line-height: 1.5em; }
+  line-height: 1.5em;
+  overflow-x: hidden; }
 
 .scriptonly {
   display: none; }
@@ -138,13 +139,6 @@ ul.files li {
 
 #application {
   background: #000000;
-  /*
-  	background-image: url('images/cleardot.gif');
-  	background-position: bottom;
-  	background-repeat: no-repeat;
-  	background-attachment: fixed;
-  	background-size: 100% auto;
-  */
   position: absolute;
   width: 100%;
   min-height: 100%; }
@@ -336,7 +330,8 @@ nav {
 
 nav a {
   height: 2.25em;
-  text-decoration: none; }
+  text-decoration: none;
+  line-height: 1em; }
 
 nav a:hover {
   text-decoration: none; }
@@ -528,7 +523,12 @@ body.front section:first-child {
 
 section.view {
   width: 100%;
-  max-width: 100%; }
+  max-width: 100%;
+  -webkit-transition: left 1s ease;
+  -moz-transition: left 1s ease;
+  -ms-transition: left 1s ease;
+  -o-transition: left 1s ease;
+  transition: left 1s ease; }
 
 section.view h2 {
   text-align: center; }

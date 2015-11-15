@@ -34,6 +34,7 @@ body {
 	font-family: "Helvetica Neue", 'Earthbound', Helvetica, sans-serif;
 	width: 100%;
 	line-height: $lineh;
+	overflow-x: hidden;
 }
 .scriptonly { display: none; }
 
@@ -61,13 +62,6 @@ ul.files li { margin-left: 2em; }
 #modalbg { background-color: rgba(0,0,0,0.7); position: absolute; }
 #application {
 	background: $black-1;
-/*
-	background-image: url('images/cleardot.gif');
-	background-position: bottom;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: 100% auto;
-*/
 	position: absolute;
 	width: 100%;
 	min-height: 100%;
@@ -104,7 +98,7 @@ img.screenshot { max-width: 100%; }
 	left: 0px;
 	top: 0px;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-	@include transition( width 1s ease-in-out );
+	@include transition( width $slide ease-in-out );
 }
 
 
@@ -196,7 +190,7 @@ nav li { float: left; }
 
 /* Navigation menus */
 nav { position: absolute; left: 0px; right: 0px; }
-nav a { height: $s*1.5; text-decoration: none; }
+nav a { height: $s*1.5; text-decoration: none; line-height: 1em; }
 nav a:hover { text-decoration: none; }
 nav a.disabled { color: $grey-3; cursor: default; }
 nav li:first-child { float: left; }
@@ -282,7 +276,7 @@ section:first-child { padding-top: $barheight + 0.2em; }
 body.front section:first-child { padding-top: $barheight; }
 .msg + section { padding-top: 0; }
 .padded { padding: 2em; }
-section.view { width: 100%; max-width: 100%; }
+section.view { width: 100%; max-width: 100%; @include transition( left $slide ease ); }
 section.view h2 { text-align: center; }
 section.view p { text-align: center; }
 body.front section.view p { text-align: left; }

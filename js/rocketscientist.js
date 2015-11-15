@@ -353,7 +353,7 @@ RocketScientist.prototype.init = function(data){
 
 	// We hide elements that shouldn't be visible (but we are leaving visible
 	// in the plain HTML so there is something if Javascript doesn't work.
-	for(var s = 1; s < this.sections.length; s++) E('#'+this.sections[s]).css({'display':'none'});
+	for(var s = 0; s < this.sections.length; s++) E('#'+this.sections[s]).css({'position':'absolute','top':0,'left':(s>0 ? '100%':'0')});
 
 	// Deal with button presses in the type section
 	E('#type button').on('click',{me:this},function(e){ _obj.setType(E(e.currentTarget).attr('data-type')); });
@@ -390,9 +390,11 @@ RocketScientist.prototype.init = function(data){
 	window.addEventListener('resize', function(event){ _obj.resize(); });
 	this.resize();
 
+	// Quickly set and unset the type to reset the vertical scroll
+	this.setType('EO').setType('');
+
 	// Remove the overlay we've added inline
 	E('#overlay').remove();
-
 
 	return this;
 }
@@ -409,6 +411,13 @@ RocketScientist.prototype.allowNavigateBeyond = function(t){
 			this.navigable[this.sections[i+1]] = true;
 		}
 	}
+	if(!t){
+		// If we didn't get provided a section, we reset everything
+		for(var i = 0; i < this.sections.length; i++){
+			this.navigable[this.sections[i]] = (i > 0 ? false : true);
+			E('#'+this.sections[i]+' .next a').addClass('disabled');
+		}
+	}
 	return this;
 }
 RocketScientist.prototype.setType = function(t){
@@ -417,15 +426,23 @@ RocketScientist.prototype.setType = function(t){
 	// Reset any existing selection
 	E('#type button').removeClass('selected');
 
-	// Select this button
-	E('#type .'+t+' button').addClass('selected');
+	if(t){
+		// Select this button
+		E('#type .'+t+' button').addClass('selected');
 
-	// Update what is displayed in the goals section
-	for(s in this.data.scenarios){
-		if(t==s) E('#goal .'+s).css('');
-		else E('#goal .'+s).css({'display':'none'});
+		// Update what is displayed in the goals section
+		for(s in this.data.scenarios){
+			if(t==s) E('#goal .'+s).css('');
+			else E('#goal .'+s).css({'display':'none'});
+		}
+		// Reset any goals
+		this.choices['goal'] = "";
+		E('#goal button').removeClass('selected');
+	
+		this.allowNavigateBeyond('type');
+	}else{
+		this.allowNavigateBeyond('');
 	}
-	this.allowNavigateBeyond('type');
 	return this;
 }
 RocketScientist.prototype.setGoal = function(g){
@@ -437,14 +454,17 @@ RocketScientist.prototype.setGoal = function(g){
 	// Select this button
 	E(E('#goal .'+this.choices.type+' button').e[this.choices.goal]).addClass('selected');
 
+	// If this goal comes with a size, we set that
+	console.log('Would set the size for beginner level')
+
+	this.choices.mission = this.data.scenarios[this.choices.type].missions[this.choices.goal];
+	// Update the budget
+	console.log('Update the displayed budget')
+	E('#bar .togglecost .cost').html(this.choices.mission.budget.value)
+
 	// Update what is displayed in the instrument requirements
-/*
-	for(s in this.data.scenarios){
-		console.log(s);
-		if(t==s) E('#goal .'+s).css('');
-		else E('#goal .'+s).css({'display':'none'});
-	}
-	*/
+	console.log('Update the instrument requirements')
+
 	this.allowNavigateBeyond('goal');
 	return this;
 }
@@ -471,16 +491,17 @@ RocketScientist.prototype.navigate = function(e){
 	e.originalEvent.preventDefault();
 	var href = E(e.currentTarget).attr('href');
 	var section = href.substr(1);
-	var found = false;
 	if(this.navigable[section]){
+		var found = false;
 		var progress = 0;
 		for(var i = 0 ; i < this.sections.length; i++){
 			if(section==this.sections[i]){
 				progress = 100*i/this.sections.length;
 				found = true;
-				E(href).css({'position':'absolute','top':'0'});
+				E(href).css({'position':'absolute','top':'0','left':'0'});
 			}else{
-				E('#'+this.sections[i]).css({'display':'none'});
+				if(!found) E('#'+this.sections[i]).css({'position':'absolute','top':'0','left':'-100%'});
+				else E('#'+this.sections[i]).css({'position':'absolute','top':'0','left':'100%'});
 			}
 		}
 		E('#progressbar .progress-inner').css({'width':progress.toFixed(1)+'%'});
@@ -625,10 +646,10 @@ function toggleComms(){
 	}
 }
 
+var rs;
 // On load
 E(document).ready(function(){
-
-	var rs = new RocketScientist();
+	rs = new RocketScientist();
 });
 
 function test(){
