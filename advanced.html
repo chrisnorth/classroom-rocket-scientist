@@ -11,7 +11,7 @@
 </head>
 <body>
 	<script type="text/javascript">
-		document.body.innerHTML += '<div id="overlay" style="z-index: 2000;width:100%;max-width:100%;width: 100vw;height: 100%;height:100vh;background-color:black;display:table;position:absolute;color:white;"><div style="display:table-cell;vertical-align:middle;text-align:center;">Loading...</div></div>';
+		document.body.innerHTML += '<div id="overlay" style="z-index:10000;width:100%;max-width:100%;width: 100vw;height: 100%;height:100vh;max-height:100%;background-color:black;display:table;position:absolute;color:white;"><div style="display:table-cell;vertical-align:middle;text-align:center;">Loading space programme...</div></div>';
 	</script>
 
 	<div id="application" class="advanced">
@@ -49,7 +49,13 @@
 							<div class="msg noscriptmsg">Oops! The interactive parts of this page need Javascript to be enabled. Sorry about that.</div>
 						</div>
 						<div class="table-row">
-							<div class="padded">
+							<div class="">
+								<nav>
+									<ol>
+										<li class="prev"></li>
+										<li class="next"><a href="#goal">Mission</a></li>
+									</ol>
+								</nav>
 								<h2>Select your type of satellite</h2>
 								<p>Satellites have different purposes. Which type do you want to build?</p>
 								
@@ -57,21 +63,21 @@
 									<div class="padded COMMS type">
 										<h3>Communication</h3>
 										<p>These are used for television, phone or internet transmissions, for example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.</p>
-										<button class="fancy">Start</button>
+										<button class="fancy" data-type="COMMS">Select this type</button>
 									</div>
 								</div>
 								<div class="holder">
 									<div class="padded EO type">
 										<h3>Earth observation</h3>
 										<p>These are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.</p>
-										<button class="fancy">Start</button>
+										<button class="fancy" data-type="EO">Select this type</button>
 									</div>
 								</div>
 								<div class="holder">
 									<div class="padded NAV type">
 										<h3>Navigation</h3>
 										<p>The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.</p>
-										<button class="fancy">Start</button>
+										<button class="fancy" data-type="NAV">Select this type</button>
 									</div>
 								</div>
 							</div>
@@ -84,83 +90,95 @@
 				<div class="padded">
 					<div class="table">
 						<div class="table-row-top">
+							<nav>
+								<ol>
+									<li class="prev"><a href="#type">Type</a></li>
+									<li class="next"><a href="#bus">Size</a></li>
+								</ol>
+							</nav>
 							<h2>Select the purpose of your satellite</h2>
 						</div>
 						<div class="COMMS table-row">
-							<div class="holder">
-								<div class="padded">
-									<h3>Satellite telephone system</h3>
-									<p>Let people talk over the phone using satellites</p>
-									<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="100" class="length value convertable">100 credits</span></div>
-									<button class="fancy">Start building</button>
+							<div class="holder-holder">
+								<div class="holder">
+									<div class="padded">
+										<h3>Satellite telephone system</h3>
+										<p>Let people talk over the phone using satellites</p>
+										<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="100" class="length value convertable">100 credits</span></div>
+										<button class="fancy" data-goal="0">Start building</button>
+									</div>
 								</div>
-							</div>
-							<div class="holder">
-								<div class="padded">
-									<h3>Satellite internet</h3>
-									<p>Connect to the internet using satellites</p>
-									<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="200" class="length value convertable">200 credits</span></div>
-									<button class="fancy">Start building</button>
+								<div class="holder">
+									<div class="padded">
+										<h3>Satellite internet</h3>
+										<p>Connect to the internet using satellites</p>
+										<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="200" class="length value convertable">200 credits</span></div>
+										<button class="fancy" data-goal="1">Start building</button>
+									</div>
 								</div>
-							</div>
-							<div class="holder">
-								<div class="padded">
-									<h3>Satellite TV</h3>
-									<p>Provide satellite TV</p>
-									<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="500" class="length value convertable">500 credits</span></div>
-									<button class="fancy">Start building</button>
+								<div class="holder">
+									<div class="padded">
+										<h3>Satellite TV</h3>
+										<p>Provide satellite TV</p>
+										<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="500" class="length value convertable">500 credits</span></div>
+										<button class="fancy" data-goal="2">Start building</button>
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="EO table-row">
-							<div class="holder">
-								<div class="padded">
-									<h3>Weather forecasting</h3>
-									<p>Monitor the weather</p>
-									<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="200" class="length value convertable">200 credits</span></div>
-									<button class="fancy">Start building</button>
+							<div class="holder-holder">
+								<div class="holder">
+									<div class="padded">
+										<h3>Weather forecasting</h3>
+										<p>Monitor the weather</p>
+										<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="200" class="length value convertable">200 credits</span></div>
+										<button class="fancy" data-goal="0">Start building</button>
+									</div>
 								</div>
-							</div>
-							<div class="holder">
-								<div class="padded">
-									<h3>Vegetation mapping</h3>
-									<p>Map the plants over the surface of the Earth</p>
-									<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="200" class="length value convertable">200 credits</span></div>
-									<button class="fancy">Start building</button>
+								<div class="holder">
+									<div class="padded">
+										<h3>Vegetation mapping</h3>
+										<p>Map the plants over the surface of the Earth</p>
+										<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="200" class="length value convertable">200 credits</span></div>
+										<button class="fancy" data-goal="1">Start building</button>
+									</div>
 								</div>
-							</div>
-							<div class="holder">
-								<div class="padded">
-									<h3>Natural disaster monitoring</h3>
-									<p>Study areas of natural disasters</p>
-									<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="500" class="length value convertable">500 credits</span></div>
-									<button class="fancy">Start building</button>
+								<div class="holder">
+									<div class="padded">
+										<h3>Natural disaster monitoring</h3>
+										<p>Study areas of natural disasters</p>
+										<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="500" class="length value convertable">500 credits</span></div>
+										<button class="fancy" data-goal="2">Start building</button>
+									</div>
 								</div>
-							</div>
-							<div class="holder">
-								<div class="padded">
-									<h3>Surface mapping</h3>
-									<p>Measure the height of land over the surface</p>
-									<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="500" class="length value convertable">500 credits</span></div>
-									<button class="fancy">Start building</button>
+								<div class="holder">
+									<div class="padded">
+										<h3>Surface mapping</h3>
+										<p>Measure the height of land over the surface</p>
+										<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="500" class="length value convertable">500 credits</span></div>
+										<button class="fancy" data-goal="3">Start building</button>
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="NAV table-row">
-							<div class="holder">
-								<div class="padded">
-									<h3>Satellite Navigation System</h3>
-									<p>Tell people their location</p>
-									<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="100" class="length value convertable">100 credits</span></div>
-									<button class="fancy">Start building</button>
+							<div class="holder-holder">
+								<div class="holder">
+									<div class="padded">
+										<h3>Satellite Navigation System</h3>
+										<p>Tell people their location</p>
+										<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="100" class="length value convertable">100 credits</span></div>
+										<button class="fancy" data-goal="0">Start building</button>
+									</div>
 								</div>
-							</div>
-							<div class="holder">
-								<div class="padded">
-									<h3>Map-making</h3>
-									<p>Map the surface of the Earth</p>
-									<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="200" class="length value convertable">200 credits</span></div>
-									<button class="fancy">Start building</button>
+								<div class="holder">
+									<div class="padded">
+										<h3>Map-making</h3>
+										<p>Map the surface of the Earth</p>
+										<div class="budget">Budget: <span data-dimension="currency" data-units="credits" data-value="200" class="length value convertable">200 credits</span></div>
+										<button class="fancy" data-goal="1">Start building</button>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -173,6 +191,12 @@
 				<div class="padded">
 					<div class="table">
 						<div class="table-row-top">
+							<nav>
+								<ol>
+									<li class="prev"><a href="#goal">Mission</a></li>
+									<li class="next"><a href="#orbit">Orbit</a></li>
+								</ol>
+							</nav>
 							<h2>Choose the size of your satellite</h2>
 							<p>The size of your satellite matters. It needs to be big enough to hold all the instruments you need. Be careful though. The bigger your satellite, the more expensive it is.</p>
 						</div>
@@ -186,35 +210,35 @@
 </div>
 
 									<p>Cube sat</p>
-									<button class="fancy">Select</button>
+									<button class="fancy" data-size="cube">Select</button>
 								</div>
 								
 								<div class="holder blackandwhite">									<div class="satellite satellite-l">
 	<div class="solar-panels"><span class="label">Solar panels (left):</span><ol></ol></div>
 	<div class="solar-panels"><span class="label">Solar panels (right):</span><ol></ol></div>
-	<div class="row"><div class="slot slot-empty slot2 slot2x4 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-top down"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot2 slot2x2"><div class="faces"><div class="face back"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2"><div class="faces"><div class="face back"></div><div class="face front"></div></div></div><div class="slot slot-empty slot4 slot2x4 up solar-top"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row rowbig"><div class="slot slot-empty slot1 slot4x8 solar-top"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+	<div class="row"><div class="slot slot-empty slot2 slot2x4 solar-left solar-right normal solar-back"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+	<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-left solar-back battery"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right solar-back battery"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+	<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-left solar-back"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right solar-back"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-top solar-back down"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty solar-back slot2 slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 solar-back slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+	<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-back"><div class="faces"><div class="face back"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 solar-back slot2x2"><div class="faces"><div class="face back"></div><div class="face front"></div></div></div><div class="slot slot-empty slot4 slot2x4 up solar-top solar-back"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+	<div class="row rowbig"><div class="slot slot-empty slot1 slot4x8 solar-top solar-back"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 </div>
 
 									<p>Large satellite</p>
-									<button class="fancy">Select</button>
+									<button class="fancy" data-size="large">Select</button>
 								</div>
 								
 								<div class="holder blackandwhite">									<div class="satellite satellite-m">
 	<div class="solar-panels"><span class="label">Solar panels (left):</span><ol></ol></div>
 	<div class="solar-panels"><span class="label">Solar panels (right):</span><ol></ol></div>
-	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-left solar-right normal"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 	<div class="row"><div class="slot slot-empty slot1 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
 	<div class="row"><div class="slot slot-empty slot1 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-left solar-right normal"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 </div>
 
 									<p>Medium satellite</p>
-									<button class="fancy">Select</button>
+									<button class="fancy" data-size="medium">Select</button>
 								</div>
 								
 								<div class="holder blackandwhite">									<div class="satellite satellite-s">
@@ -223,7 +247,7 @@
 </div>
 
 									<p>Small satellite</p>
-									<button class="fancy">Select</button>
+									<button class="fancy" data-size="small">Select</button>
 								</div>
 								
 							</div>
@@ -236,8 +260,20 @@
 			
 			<section id="orbit" class="view">
 				<div class="padded">
-					<h2>Select the orbit for your satellite</h2>
-					<p>There are several different orbits around the Earth that you can choose from. Higher orbits need more powerful rockets to get to them.</p>
+					<div class="table">
+						<div class="table-row-top">
+							<nav>
+								<ol>
+									<li class="prev"><a href="#bus">Size</a></li>
+									<li class="next"><a href="#instrument">Instruments</a></li>
+								</ol>
+							</nav>
+							<h2>Select the orbit for your satellite</h2>
+							<p>There are several different orbits around the Earth that you can choose from. Higher orbits need more powerful rockets to get to them.</p>
+						</div>
+						<div class="table-row">
+						</div>
+					</div>
 				</div>
 			</section>
 			
@@ -246,9 +282,14 @@
 				<div class="padded">
 					<div class="table">
 						<div class="table-row-top">
+							<nav>
+								<ol>
+									<li class="prev"><a href="#orbit">Orbit</a></li>
+									<li class="next"><a href="#power">Power</a></li>
+								</ol>
+							</nav>
 							<h2>Select the instruments for your satellite</h2>
 							<p>To complete your mission you will need the correct instruments. You only have a limited number of slots and money so choose wisely.</p>
-							<button class="fancy" onClick="toggleComms()">Toggle communications</button>
 						</div>
 						<div class="table-row">
 							<div class="lower">
@@ -258,15 +299,16 @@
 											<div class="requirements">
 												<div class="padder">
 													<h3>Requirements</h3>
+													<button class="fancy" onClick="toggleComms()">Toggle communications</button>
 												</div>
 											</div>
 											<div class="flex-grow">
-												<div id="satellite" class="satellite-holder isogrid threeD">
+												<div id="satellite" class="satellite-holder isogrid">
 													<div class="holder" id="sat">
 														<div class="zoomcontrol">
-															<button class="fancy" onclick="zoom(this,1.1)">&plus;</button>
-															<button class="fancy" onclick="zoom(this,1/1.1)">&minus;</button>
-															<button class="fancy" onclick="toggle3D(this)">3D/2D</button>
+															<button class="fancy zoomin">&plus;</button>
+															<button class="fancy zoomout">&minus;</button>
+															<!--<button class="fancy make3D">2D/3D</button>-->
 														</div>
 														<div class="satellite"></div>
 													</div>
@@ -281,7 +323,7 @@
 												<li data-package="atomic-clock">
 													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot2x2"><div class="eg"><img src="images/package_atomic-clock.jpg" alt="" /></div></div></div>
+														<div class="package_slot texture atomic-clock"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Atomic clock</strong></div>
@@ -295,7 +337,7 @@
 												<li data-package="atomic-clock-small">
 													<div class="list-bar bg1x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot1x2"><div class="eg"><img src="images/package_atomic-clock-small.jpg" alt="" /></div></div></div>
+														<div class="package_slot texture atomic-clock-small"><div class="slot slot1x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Atomic clock (compact)</strong></div>
@@ -309,7 +351,7 @@
 												<li data-package="camera-fir">
 													<div class="list-bar bg2x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot2x4"><div class="eg"><img src="images/package_camera-fir.jpg" alt="" /></div></div></div>
+														<div class="package_slot texture camera-fir"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Camera (FIR)</strong></div>
@@ -323,7 +365,7 @@
 												<li data-package="camera-mini">
 													<div class="list-bar bg1x1"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot1x1"><div class="eg"><img src="images/package_camera-mini.jpg" alt="" /></div></div></div>
+														<div class="package_slot texture camera-mini"><div class="slot slot1x1"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Camera (miniature)</strong></div>
@@ -337,7 +379,7 @@
 												<li data-package="camera-nir">
 													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot2x2"><div class="eg"><img src="images/package_camera-nir.jpg" alt="" /></div></div></div>
+														<div class="package_slot texture camera-nir"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Camera (NIR)</strong></div>
@@ -351,7 +393,7 @@
 												<li data-package="camera-opt">
 													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot2x2"><div class="eg"><img src="images/package_camera-opt.jpg" alt="" /></div></div></div>
+														<div class="package_slot texture camera-opt"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Camera (optical)</strong></div>
@@ -365,7 +407,7 @@
 												<li data-package="dish-large">
 													<div class="list-bar bg4x8"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot4x8"><div class="eg-bg"><img src="images/cleardot.gif" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
+														<div class="package_slot "><div class="slot slot4x8"><div class="eg-bg"><img src="images/cleardot.gif" class="face front" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Radio dish (large)</strong></div>
@@ -379,7 +421,7 @@
 												<li data-package="dish-medium">
 													<div class="list-bar bg2x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot2x4"><div class="eg-bg"><img src="images/cleardot.gif" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
+														<div class="package_slot "><div class="slot slot2x4"><div class="eg-bg"><img src="images/cleardot.gif" class="face front" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Radio dish</strong></div>
@@ -393,7 +435,7 @@
 												<li data-package="dish-small">
 													<div class="list-bar bg1x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot1x2"><div class="eg-bg"><img src="images/cleardot.gif" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
+														<div class="package_slot "><div class="slot slot1x2"><div class="eg-bg"><img src="images/cleardot.gif" class="face front" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Radio antenna (compact)</strong></div>
@@ -407,7 +449,7 @@
 												<li data-package="gps-rx">
 													<div class="list-bar bg1x1"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot1x1"><div class="eg"><img src="images/package_gps-rx.jpg" alt="" /></div></div></div>
+														<div class="package_slot texture gps-rx"><div class="slot slot1x1"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>GPS receiver (miniature)</strong></div>
@@ -421,7 +463,7 @@
 												<li data-package="radar-alt">
 													<div class="list-bar bg2x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot2x4"><div class="eg"><img src="images/package_radar-alt.jpg" alt="" /></div></div></div>
+														<div class="package_slot texture radar-alt"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Radar altimeter</strong></div>
@@ -435,7 +477,7 @@
 												<li data-package="radar-dish">
 													<div class="list-bar bg4x8"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot4x8"><div class="eg-bg radar"><img src="images/cleardot.gif" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
+														<div class="package_slot "><div class="slot slot4x8"><div class="eg-bg radar"><img src="images/cleardot.gif" class="face front" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Radar dish</strong></div>
@@ -449,7 +491,7 @@
 												<li data-package="radio-antenna-cube">
 													<div class="list-bar bg0x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot0x2"><div class="eg"><img src="images/package_radio-antenna-cube.jpg" alt="" /><div class="aerial1 aerial"></div></div></div></div>
+														<div class="package_slot texture radio-antenna-cube"><div class="slot slot0x2"><div class="eg-bg"><img src="images/cleardot.gif" class="face front" alt="" /><div class="aerial1 aerial"></div></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Radio antenna (deployable)</strong></div>
@@ -463,7 +505,7 @@
 												<li data-package="radio-rx">
 													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot2x2"><div class="eg"><img src="images/package_radio-rx.jpg" alt="" /></div></div></div>
+														<div class="package_slot texture radio-rx"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Radio receiver</strong></div>
@@ -477,7 +519,7 @@
 												<li data-package="radio-tx">
 													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot2x2"><div class="eg"><img src="images/package_radio-tx.jpg" alt="" /></div></div></div>
+														<div class="package_slot texture radio-tx"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Radio transmitter</strong></div>
@@ -491,7 +533,7 @@
 												<li data-package="spect-fir">
 													<div class="list-bar bg2x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot2x4"><div class="eg"><img src="images/package_spect-fir.jpg" alt="" /></div></div></div>
+														<div class="package_slot texture spect-fir"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Spectrometer (FIR)</strong></div>
@@ -505,7 +547,7 @@
 												<li data-package="spect-nir">
 													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot2x2"><div class="eg"><img src="images/package_spect-nir.jpg" alt="" /></div></div></div>
+														<div class="package_slot texture spect-nir"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Spectrometer (NIR)</strong></div>
@@ -519,7 +561,7 @@
 												<li data-package="spect-opt">
 													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot2x2"><div class="eg"><img src="images/package_spect-opt.jpg" alt="" /></div></div></div>
+														<div class="package_slot texture spect-opt"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Spectrometer (optical)</strong></div>
@@ -542,14 +584,16 @@
 
 			<section id="power" class="view">
 				<div class="padded">
-					<div class="table expander-page">
+					<div class="table">
 						<div class="table-row-top">
+							<nav>
+								<ol>
+									<li class="prev"><a href="#instrument">Instruments</a></li>
+									<li class="next"><a href="#rocket">Rocket</a></li>
+								</ol>
+							</nav>
 							<h2>Add power</h2>
 							<p>Your satellite needs power. There are different ways to do that. You can use solar panels on the sides of the satellite, deployable solar panels, and batteries.</p>
-		
-							<button class="fancy" onClick="addSolar()">&plus; solar panel</button>
-							<button class="fancy" onClick="removeSolar()">&minus; solar panel</button>
-							<button class="fancy" onClick="toggleSolar()">Toggle fixed solar panels</button>
 						</div>
 						<div class="table-row">
 							<div class="lower">
@@ -565,10 +609,10 @@
 												<div id="satellite-power" class="satellite-holder isogrid threeD">
 													<div class="holder" id="sat-power">
 														<div class="zoomcontrol">
-															<button class="fancy" onclick="zoom(this,1.1)">&plus;</button>
-															<button class="fancy" onclick="zoom(this,1/1.1)">&minus;</button>
-															<button class="fancy" onclick="toggle3D(this)">3D/2D</button>
-															<button class="fancy" onClick="toggleAnimation()">Rotate</button>
+															<button class="fancy zoomin">&plus;</button>
+															<button class="fancy zoomout">&minus;</button>
+															<!--<button class="fancy make3D">2D/3D</button>
+															<button class="fancy animate">Animate</button>-->
 														</div>
 														<div class="satellite"></div>
 													</div>
@@ -581,9 +625,9 @@
 											<h3>Available power devices:</h3>
 											<ul>
 												<li data-package="battery-large">
-													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg2x2"></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot2x2"><div class="eg"></div></div></div>
+														<div class="package_slot texture battery-large"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Large battery</strong></div>
@@ -597,9 +641,9 @@
 													</div>
 												</li>
 												<li data-package="battery-small">
-													<div class="list-bar bg1x1"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg1x1"></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot1x1"><div class="eg"></div></div></div>
+														<div class="package_slot texture battery-small"><div class="slot slot1x1"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Small battery</strong></div>
@@ -613,9 +657,9 @@
 													</div>
 												</li>
 												<li data-package="rtg">
-													<div class="list-bar bg2x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg2x4"></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot2x4"><div class="eg"></div></div></div>
+														<div class="package_slot texture rtg"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>RTG</strong></div>
@@ -629,9 +673,9 @@
 													</div>
 												</li>
 												<li data-package="solar-panel">
-													<div class="list-bar bg4x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg4x4"></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot4x4"><div class="eg"></div></div></div>
+														<div class="package_slot "><div class="slot slot4x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Deployable solar panel</strong></div>
@@ -645,9 +689,9 @@
 													</div>
 												</li>
 												<li data-package="solar-panel-surface">
-													<div class="list-bar bg4x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg4x4"></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot4x4"><div class="eg"></div></div></div>
+														<div class="package_slot "><div class="slot slot4x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Body-mounted solar panel</strong></div>
@@ -672,8 +716,18 @@
 
 			<section id="rocket" class="view">
 				<div class="padded">
-					<h2>Build your rocket</h2>
-					<p>Now you have a satellite you need to build a multi-stage rocket. The top of the rocket will hold your satellite so needs to be big enough. The lower stages need to be big enough to support those above.</p>
+					<div class="table">
+						<div class="table-row-top">
+							<nav>
+								<ol>
+									<li class="prev"><a href="#power">Power</a></li>
+									<li class="next"><a href="#launch">Launch</a></li>
+								</ol>
+							</nav>
+							<h2>Build your rocket</h2>
+							<p>Now you have a satellite you need to build a multi-stage rocket. The top of the rocket will hold your satellite so needs to be big enough. The lower stages need to be big enough to support those above.</p>
+						</div>
+					</div>
 				</div>
 			</section>
 
@@ -695,7 +749,7 @@
 		<section id="summary">
 			<h2>Summary</h2>
 		</section>
-		<section id="units" class="view not-at-start">
+		<section id="units" class="not-at-start">
 	<h2>Units</h2>
 	<form id="optionform">
 		<ul>

@@ -11,7 +11,7 @@
 </head>
 <body>
 	<script type="text/javascript">
-		document.body.innerHTML += '<div id="overlay" style="z-index: 2000;width:100%;max-width:100%;width: 100vw;height: 100%;height:100vh;background-color:black;display:table;position:absolute;color:white;"><div style="display:table-cell;vertical-align:middle;text-align:center;"><!--#echo var="ui.loading" --></div></div>';
+		document.body.innerHTML += '<div id="overlay" style="z-index:10000;width:100%;max-width:100%;width: 100vw;height: 100%;height:100vh;max-height:100%;background-color:black;display:table;position:absolute;color:white;"><div style="display:table-cell;vertical-align:middle;text-align:center;"><!--#echo var="ui.loading" --></div></div>';
 	</script>
 
 	<div id="application" class="<!--#if expr="${LEVEL} = /beginner/"-->beginner<!--#elif expr="${LEVEL} = /intermediate/"-->intermediate<!--#elif expr="${LEVEL} = /advanced/"-->advanced<!--#else--><!--#endif-->">
@@ -52,7 +52,13 @@
 							<div class="msg noscriptmsg"><!--#echo var="ui.nojs" --></div>
 						</div>
 						<div class="table-row">
-							<div class="padded">
+							<div class="">
+								<nav>
+									<ol>
+										<li class="prev"></li>
+										<li class="next"><a href="#goal"><!--#echo var="ui.sections.goal.short" --></a></li>
+									</ol>
+								</nav>
 								<h2><!--#echo var="ui.sections.type.title" --></h2>
 								<p><!--#echo var="ui.sections.type.intro" --></p>
 								<!--#for each="scenarios" name="scenarios" -->
@@ -60,7 +66,7 @@
 									<div class="padded <!--#json name="this" --> type">
 										<h3><!--#echo var="scenarios.<!--#json name="this" -->.title" --></h3>
 										<p><!--#echo var="scenarios.<!--#json name="this" -->.description" --></p>
-										<button class="fancy"><!--#echo var="ui.button.type" --></button>
+										<button class="fancy" data-type="<!--#json name="this" -->"><!--#echo var="ui.button.type" --></button>
 									</div>
 								</div><!--#endfor name="scenarios" -->
 							</div>
@@ -73,17 +79,25 @@
 				<div class="padded">
 					<div class="table">
 						<div class="table-row-top">
-							<h2>Select the purpose of your satellite</h2>
+							<nav>
+								<ol>
+									<li class="prev"><a href="#type"><!--#echo var="ui.sections.type.short" --></a></li>
+									<li class="next"><!--#if expr="${LEVEL} = /beginner/"--><a href="#instrument"><!--#echo var="ui.sections.instrument.short" --></a><!--#elif expr="${LEVEL} = /intermediate/"--><a href="#bus"><!--#echo var="ui.sections.bus.short" --></a><!--#elif expr="${LEVEL} = /advanced/"--><a href="#bus"><!--#echo var="ui.sections.bus.short" --></a><!--#else--><!--#endif--></li>
+								</ol>
+							</nav>
+							<h2><!--#echo var="ui.sections.goal.title" --></h2>
 						</div><!--#for each="scenarios" name="loopouter" -->
-						<div class="<!--#json name="this" --> table-row"><!--#for each="missions" name="loopinner" -->
-							<div class="holder">
-								<div class="padded">
-									<h3><!--#json name="title" --></h3>
-									<p><!--#json name="description" --></p>
-									<div class="budget">Budget: <span data-dimension="<!--#json name="budget.dimension" -->" data-units="<!--#json name="budget.units" -->" data-value="<!--#json name="budget.value" -->" class="length value convertable"><!--#json name="budget.value" --> <!--#json name="budget.units" --></span></div>
-									<button class="fancy"><!--#echo var="ui.button.goal" --></button>
-								</div>
-							</div><!--#endfor name="loopinner" -->
+						<div class="<!--#json name="this" --> table-row">
+							<div class="holder-holder"><!--#for each="missions" name="loopinner" -->
+								<div class="holder">
+									<div class="padded">
+										<h3><!--#json name="title" --></h3>
+										<p><!--#json name="description" --></p>
+										<div class="budget">Budget: <span data-dimension="<!--#json name="budget.dimension" -->" data-units="<!--#json name="budget.units" -->" data-value="<!--#json name="budget.value" -->" class="length value convertable"><!--#json name="budget.value" --> <!--#json name="budget.units" --></span></div>
+										<button class="fancy" data-goal="<!--#json name="this" -->"><!--#echo var="ui.button.goal" --></button>
+									</div>
+								</div><!--#endfor name="loopinner" -->
+							</div>
 						</div><!--#endfor name="loopouter" -->
 					</div>
 				</div>
@@ -94,6 +108,12 @@
 				<div class="padded">
 					<div class="table">
 						<div class="table-row-top">
+							<nav>
+								<ol>
+									<li class="prev"><a href="#goal"><!--#echo var="ui.sections.goal.short" --></a></li>
+									<li class="next"><a href="#instrument"><!--#echo var="ui.sections.instrument.short" --></a></li>
+								</ol>
+							</nav>
 							<h2><!--#echo var="ui.sections.bus.title" --></h2>
 							<p><!--#echo var="ui.sections.bus.intro" --></p>
 						</div>
@@ -103,6 +123,7 @@
 								<div class="holder blackandwhite">
 									<!--#include file="satellites/<!--#json name="this" -->.html" -->
 									<p><!--#echo var="bus.<!--#json name="this" -->.title" --></p>
+									<button class="fancy" data-size="<!--#json name="this" -->"><!--#echo var="ui.button.bus" --></button>
 								</div>
 								<!--#endfor name="satellites_i" -->
 							</div>
@@ -115,6 +136,12 @@
 				<div class="padded">
 					<div class="table">
 						<div class="table-row-top">
+							<nav>
+								<ol>
+									<li class="prev"><a href="#goal"><!--#echo var="ui.sections.goal.short" --></a></li>
+									<li class="next"><a href="#orbit"><!--#echo var="ui.sections.orbit.short" --></a></li>
+								</ol>
+							</nav>
 							<h2><!--#echo var="ui.sections.bus.title" --></h2>
 							<p><!--#echo var="ui.sections.bus.intro" --></p>
 						</div>
@@ -124,7 +151,7 @@
 								<div class="holder blackandwhite">
 									<!--#include file="satellites/<!--#json name="this" -->.html" -->
 									<p><!--#echo var="bus.<!--#json name="this" -->.title" --></p>
-									<button class="fancy"><!--#echo var="ui.button.bus" --></button>
+									<button class="fancy" data-size="<!--#json name="this" -->"><!--#echo var="ui.button.bus" --></button>
 								</div>
 								<!--#endfor name="satellites_a" -->
 							</div>
@@ -137,8 +164,20 @@
 			<!--#if expr="${LEVEL} = /advanced/"-->
 			<section id="orbit" class="view">
 				<div class="padded">
-					<h2><!--#echo var="ui.sections.orbit.title" --></h2>
-					<p><!--#echo var="ui.sections.orbit.intro" --></p>
+					<div class="table">
+						<div class="table-row-top">
+							<nav>
+								<ol>
+									<li class="prev"><a href="#bus"><!--#echo var="ui.sections.bus.short" --></a></li>
+									<li class="next"><a href="#instrument"><!--#echo var="ui.sections.instrument.short" --></a></li>
+								</ol>
+							</nav>
+							<h2><!--#echo var="ui.sections.orbit.title" --></h2>
+							<p><!--#echo var="ui.sections.orbit.intro" --></p>
+						</div>
+						<div class="table-row">
+						</div>
+					</div>
 				</div>
 			</section>
 			<!--#else--><!--#endif-->
@@ -147,9 +186,14 @@
 				<div class="padded">
 					<div class="table">
 						<div class="table-row-top">
+							<nav>
+								<ol>
+									<li class="prev"><!--#if expr="${LEVEL} = /beginner/"--><a href="#goal"><!--#echo var="ui.sections.goal.short" --></a><!--#elif expr="${LEVEL} = /intermediate/"--><a href="#bus"><!--#echo var="ui.sections.bus.short" --></a><!--#elif expr="${LEVEL} = /advanced/"--><a href="#orbit"><!--#echo var="ui.sections.orbit.short" --></a><!--#else--><!--#endif--></li>
+									<li class="next"><a href="#power"><!--#echo var="ui.sections.power.short" --></a></li>
+								</ol>
+							</nav>
 							<h2><!--#echo var="ui.sections.instrument.title" --></h2>
 							<p><!--#echo var="ui.sections.instrument.intro" --></p>
-							<button class="fancy" onClick="toggleComms()">Toggle communications</button>
 						</div>
 						<div class="table-row">
 							<div class="lower">
@@ -159,15 +203,16 @@
 											<div class="requirements">
 												<div class="padder">
 													<h3><!--#echo var="ui.requirements.title" --></h3>
+													<button class="fancy" onClick="toggleComms()">Toggle communications</button>
 												</div>
 											</div>
 											<div class="flex-grow">
-												<div id="satellite" class="satellite-holder isogrid threeD">
+												<div id="satellite" class="satellite-holder isogrid">
 													<div class="holder" id="sat">
 														<div class="zoomcontrol">
-															<button class="fancy" onclick="zoom(this,1.1)">&plus;</button>
-															<button class="fancy" onclick="zoom(this,1/1.1)">&minus;</button>
-															<button class="fancy" onclick="toggle3D(this)">3D/2D</button>
+															<button class="fancy zoomin"><!--#echo var="ui.button.zoomin" --></button>
+															<button class="fancy zoomout"><!--#echo var="ui.button.zoomout" --></button>
+															<!--<button class="fancy make3D"><!--#echo var="ui.button.threeD" --></button>-->
 														</div>
 														<div class="satellite"></div>
 													</div>
@@ -182,7 +227,7 @@
 												<li data-package="<!--#json name="this" -->">
 													<div class="list-bar bg<!--#json name="slot" -->"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot<!--#json name="slot" -->"><div class="eg<!--#json name="image.class" -->"><img src="<!--#json name="image.file" -->" alt="<!--#json name="image.alt" -->" /><!--#json name="image.html" --></div></div></div>
+														<div class="package_slot <!--#json name="image.icon" -->"><div class="slot slot<!--#json name="slot" -->"><div class="eg<!--#json name="image.class" -->"><img src="images/cleardot.gif" class="face front" alt="<!--#json name="image.alt" -->" /><!--#json name="image.html" --></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong><!--#json name="title" --></strong></div>
@@ -205,14 +250,16 @@
 
 			<section id="power" class="view">
 				<div class="padded">
-					<div class="table expander-page">
+					<div class="table">
 						<div class="table-row-top">
+							<nav>
+								<ol>
+									<li class="prev"><a href="#instrument"><!--#echo var="ui.sections.instrument.short" --></a></li>
+									<li class="next"><a href="#rocket"><!--#echo var="ui.sections.rocket.short" --></a></li>
+								</ol>
+							</nav>
 							<h2><!--#echo var="ui.sections.power.title" --></h2>
 							<p><!--#echo var="ui.sections.power.intro" --></p>
-		
-							<button class="fancy" onClick="addSolar()">&plus; solar panel</button>
-							<button class="fancy" onClick="removeSolar()">&minus; solar panel</button>
-							<button class="fancy" onClick="toggleSolar()">Toggle fixed solar panels</button>
 						</div>
 						<div class="table-row">
 							<div class="lower">
@@ -228,10 +275,10 @@
 												<div id="satellite-power" class="satellite-holder isogrid threeD">
 													<div class="holder" id="sat-power">
 														<div class="zoomcontrol">
-															<button class="fancy" onclick="zoom(this,1.1)">&plus;</button>
-															<button class="fancy" onclick="zoom(this,1/1.1)">&minus;</button>
-															<button class="fancy" onclick="toggle3D(this)">3D/2D</button>
-															<button class="fancy" onClick="toggleAnimation()">Rotate</button>
+															<button class="fancy zoomin"><!--#echo var="ui.button.zoomin" --></button>
+															<button class="fancy zoomout"><!--#echo var="ui.button.zoomout" --></button>
+															<!--<button class="fancy make3D"><!--#echo var="ui.button.threeD" --></button>
+															<button class="fancy animate"><!--#echo var="ui.button.spin" --></button>-->
 														</div>
 														<div class="satellite"></div>
 													</div>
@@ -244,9 +291,9 @@
 											<h3><!--#echo var="ui.sections.power.list" --></h3>
 											<ul><!--#for each="power" name="powerloop" -->
 												<li data-package="<!--#json name="this" -->">
-													<div class="list-bar bg<!--#json name="slot" -->"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg<!--#json name="slot" -->"></div>
 													<div class="list-left">
-														<div class="package_slot"><div class="slot slot<!--#json name="slot" -->"><div class="eg<!--#json name="image.class" -->"><!--#json name="image.html" --></div></div></div>
+														<div class="package_slot <!--#json name="image.icon" -->"><div class="slot slot<!--#json name="slot" -->"><div class="eg<!--#json name="image.class" -->"><img src="images/cleardot.gif" class="face front" alt="<!--#json name="image.alt" -->" /><!--#json name="image.html" --></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong><!--#json name="title" --></strong></div>
@@ -275,8 +322,18 @@
 
 			<section id="rocket" class="view">
 				<div class="padded">
-					<h2><!--#echo var="ui.sections.rocket.title" --></h2>
-					<p><!--#echo var="ui.sections.rocket.intro" --></p>
+					<div class="table">
+						<div class="table-row-top">
+							<nav>
+								<ol>
+									<li class="prev"><a href="#power"><!--#echo var="ui.sections.power.short" --></a></li>
+									<li class="next"><a href="#launch"><!--#echo var="ui.sections.launch.short" --></a></li>
+								</ol>
+							</nav>
+							<h2><!--#echo var="ui.sections.rocket.title" --></h2>
+							<p><!--#echo var="ui.sections.rocket.intro" --></p>
+						</div>
+					</div>
 				</div>
 			</section>
 

@@ -120,6 +120,7 @@ function E(e){
 	}
 	// Add events
 	stuQuery.prototype.on = function(event,data,fn){
+		event = event || window.event; // For IE
 		this.cache = [4,5,6];
 		if(typeof data==="function" && !fn){
 			fn = data;
@@ -127,17 +128,39 @@ function E(e){
 		}
 		if(typeof fn !== "function") return this;
 
-		var _obj = this;
-		var a = function(a){
-			var e = getEvent({'currentTarget':this,'type':event,'originalEvent':a});
-			if(typeof e.fn === "function") e.fn.call(_obj,e.data);
-		}
+		if(this.e.length > 0){
+			var _obj = this;
+			var a = function(b){
+				var e = getEvent({'currentTarget':this,'type':event,'data':data,'originalEvent':b});
+				if(typeof e.fn === "function") return e.fn.call(_obj,e.data);
+			}
 		
-		for(var i = 0; i < this.e.length; i++){
-			storeEvents(this.e[i],event,fn,a,data);
-			if(this.e[i].addEventListener) this.e[i].addEventListener(event, a, false); 
-			else if(this.e[i].attachEvent) this.e[i].attachEvent(event, a);
+			for(var i = 0; i < this.e.length; i++){
+				storeEvents(this.e[i],event,fn,a,data);
+				if(this.e[i].addEventListener) this.e[i].addEventListener(event, a, false); 
+				else if(this.e[i].attachEvent) this.e[i].attachEvent(event, a);
+			}
 		}
+		return this;
+	}
+	stuQuery.prototype.trigger = function(e){
+		var event; // The custom event that will be created
+
+		if (document.createEvent) {
+			event = document.createEvent("HTMLEvents");
+			event.initEvent(e, true, true);
+		} else {
+			event = document.createEventObject();
+			event.eventType = e;
+		}
+
+		event.eventName = e;
+
+		for(var i = 0 ;  i < this.e.length ; i++){
+			if (document.createEvent) this.e[i].dispatchEvent(event);
+			else this.e[i].fireEvent("on" + event.eventType, event);
+		}
+
 		return this;
 	}
 	// Remove DOM elements
@@ -172,6 +195,14 @@ function E(e){
 		// Remove/add it
 		for(var i = 0; i < this.e.length; i++){
 			if(!this.e[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) this.e[i].className = (this.e[i].className+' '+cls).replace(/^ /,'');
+		}
+		return this;
+	}
+	// Remove a class on a DOM element
+	stuQuery.prototype.removeClass = function(cls){
+		// Remove/add it
+		for(var i = 0; i < this.e.length; i++){
+			if(this.e[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) this.e[i].className = this.e[i].className.replace(new RegExp("(\\s|^)" + cls + "(\\s|$)", "g")," ").replace(/ $/,'');
 		}
 		return this;
 	}
@@ -218,6 +249,27 @@ function E(e){
 		// Return a new instance of stuQuery
 		return E(result);
 	}
+	stuQuery.prototype.attr = function(attr,val){
+		var tmp = [];
+		for(var i = 0; i < this.e.length; i++){
+			tmp.push(this.e[i].getAttribute(attr));
+			if(typeof val==="string") this.e[i].setAttribute(attr,val)
+		}
+		if(tmp.length==1) tmp = tmp[0];
+		return tmp;
+	}
+	stuQuery.prototype.prop = function(attr,val){
+		var tmp = [];
+		for(var i = 0; i < this.e.length; i++){
+			tmp.push(this.e[i].getAttribute(attr));
+			if(typeof val==="boolean"){
+				if(val) this.e[i].setAttribute(attr,attr);
+				else this.e[i].removeAttribute(attr);
+			}
+		}
+		if(tmp.length==1) tmp = tmp[0];
+		return tmp;
+	}
 	stuQuery.prototype.clone = function(){
 		var target = this.e[0];
 		var wrap = document.createElement('div');
@@ -231,54 +283,331 @@ function E(e){
 		this.e[0].parentNode.replaceChild(mySpan, this.e[0]);
   		return this;
 	}
+	stuQuery.prototype.loadJSON = function(file,fn,attrs){
+
+		if(!attrs) attrs = {};
+		attrs['_file'] = file;
+
+		var httpRequest = new XMLHttpRequest();
+		httpRequest.onreadystatechange = function() {
+			if (httpRequest.readyState === 4) {
+				if (httpRequest.status === 200) {
+					var data = JSON.parse(httpRequest.responseText);
+					if(typeof fn==="function") fn.call((attrs['this'] ? attrs['this'] : this),data,attrs);
+				}else{
+					console.log('error loading '+file)
+					if(typeof attrs.error==="function") attrs.error.call((attrs['this'] ? attrs['this'] : this),httpRequest.responseText,attrs);
+				}
+			}
+		};
+		httpRequest.open('GET', file);
+		httpRequest.send(); 
+		return this;
+	}
 	return new stuQuery(e);
 }
 
 
-var z = 1;
-function toggle3D(element){
-	E(element ? element.parentElement.parentElement.parentElement : '#satellite').toggleClass('threeD');
+
+function RocketScientist(){
+	this.z = {};
+	this.choices = {};
+	this.wide = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+	this.tall = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+	this.getSections();
+	E().loadJSON('config/en_advanced_options.json',this.init,{'this':this});
+
+	return this;
 }
-function zoom(element,factor){
-	if(z * factor < 2 && z * factor > 0.5) z *= factor;
-	E(element).parent().parent().parent().css({'font-size':z.toFixed(3)+'em'});
+RocketScientist.prototype.getSections = function(){
+	var s = E('section');
+	this.sections = [];
+	this.navigable = {};
+	for(var i = 0 ;i < s.e.length; i++){
+		var el = E(s.e[i]);
+		if(el.hasClass('view')){
+			var id = el.attr('id');
+			this.sections.push(id);
+			this.navigable[id] = false;
+		}
+	}
+	// Make first section navigable
+	this.navigable[this.sections[0]] = true;
+	this.has = {};
+	this.has['vw'] = (E('#progressbar').css({'width':'100vw'}).e[0].offsetWidth==this.wide);
+
+	return this;
 }
-function chooseBus(element){
+RocketScientist.prototype.init = function(data){
+
+	this.data = data;
+	var _obj = this;
+
+
+	// Remove elements that show noscript messages
+	E('.noscriptmsg').remove();
+
+	// Remove classes from script only elements
+	E('.scriptonly').toggleClass('scriptonly');
+
+	// We hide elements that shouldn't be visible (but we are leaving visible
+	// in the plain HTML so there is something if Javascript doesn't work.
+	for(var s = 1; s < this.sections.length; s++) E('#'+this.sections[s]).css({'display':'none'});
+
+	// Deal with button presses in the type section
+	E('#type button').on('click',{me:this},function(e){ _obj.setType(E(e.currentTarget).attr('data-type')); });
+	
+	// Deal with button presses in the goal section
+	E('#goal button').on('click',{me:this},function(e){ _obj.setGoal(E(e.currentTarget).attr('data-goal')); });
+	
+	// Add events to size selection buttons
+	E('#bus .satellite').on('click',{me:this},function(e){
+		E(e.currentTarget).parent().find('button').trigger('click');
+	});
+	E('#bus button').on('click',{me:this},function(e){
+		e.data.me.setBus(e.currentTarget,E(e.currentTarget).attr('data-size'));
+	});
+	
+	// Replace the default behaviour of the navigation links
+	E('.prev a').on('click',{me:this},function(e){ e.data.me.navigate(e); });
+	E('.next a').on('click',{me:this},function(e){ e.data.me.navigate(e); }).addClass('disabled');
+
+
+	// Add buttons
+	E('.list-bar').html('<button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button>');
+
+	// Add events to add/remove buttons
+	var _obj;
+	
+	this.makeSatelliteControls('#satellite');
+	this.makeSatelliteControls('#satellite-power');
+
+	// Add buttons for power list
+	var plus = E('#power_list button').on('click',{me:'test'},function(e){ _obj.addPowerPackage.call(_obj,e); });
+
+	// We'll need to change the sizes when the window changes size
+	window.addEventListener('resize', function(event){ _obj.resize(); });
+	this.resize();
+
+	// Remove the overlay we've added inline
+	E('#overlay').remove();
+
+
+	return this;
+}
+RocketScientist.prototype.allowNavigateBeyond = function(t){
+	var found = false;
+	for(var i = 0; i < this.sections.length; i++){
+		if(!found){
+			E('#'+this.sections[i]+' .next a').removeClass('disabled');
+		}else{
+			E('#'+this.sections[i]+' .next a').addClass('disabled');
+		}
+		if(this.sections[i]==t && i < this.sections.length-1){
+			found = true;
+			this.navigable[this.sections[i+1]] = true;
+		}
+	}
+	return this;
+}
+RocketScientist.prototype.setType = function(t){
+	this.choices['type'] = t;
+
+	// Reset any existing selection
+	E('#type button').removeClass('selected');
+
+	// Select this button
+	E('#type .'+t+' button').addClass('selected');
+
+	// Update what is displayed in the goals section
+	for(s in this.data.scenarios){
+		if(t==s) E('#goal .'+s).css('');
+		else E('#goal .'+s).css({'display':'none'});
+	}
+	this.allowNavigateBeyond('type');
+	return this;
+}
+RocketScientist.prototype.setGoal = function(g){
+	this.choices['goal'] = parseInt(g);
+
+	// Reset any existing selection
+	E('#goal button').removeClass('selected');
+
+	// Select this button
+	E(E('#goal .'+this.choices.type+' button').e[this.choices.goal]).addClass('selected');
+
+	// Update what is displayed in the instrument requirements
+/*
+	for(s in this.data.scenarios){
+		console.log(s);
+		if(t==s) E('#goal .'+s).css('');
+		else E('#goal .'+s).css({'display':'none'});
+	}
+	*/
+	this.allowNavigateBeyond('goal');
+	return this;
+}
+// Choose the bus size
+RocketScientist.prototype.setBus = function(btn,element){
+	var sat = E('#bus .satellite-'+element[0]);
+
 	// Reset all to black and white
 	E('#bus .holder').addClass('blackandwhite');
 	// Remove existing selections
-	E('#bus .selected').toggleClass('selected');
+	E('#bus .selected').removeClass('selected');
 
-	html = E(element).parent().children(0).clone();
-	E('#sat .satellite').replaceWith(html)
-	E('#sat-power .satellite').replaceWith(html)
+	// Update satellite section with choice
+	var html = sat.clone();
+	E('#satellite .satellite').replaceWith(html)
+	E('#satellite-power .satellite').replaceWith(html)
 
-	E(element).toggleClass("selected").parent().toggleClass("blackandwhite");
+	sat.addClass("selected").parent().removeClass("blackandwhite");
+	E(btn).addClass('selected');
+	this.allowNavigateBeyond('bus');
+	return this;
 }
-function toggleSolar(){
-	E('#sat-power .satellite').toggleClass('solar-fixed');
-}
-function toggleAnimation(){
-	E('#sat-power .satellite').toggleClass('spin');
-}
-function setSolar(n){
-	var list = "";
-	if(n > 4) n = 4;
-	for(var i = 0; i < n; i++) list += "<li class=\"solar-panel\"><\/li>";
-	E('#sat-power .solar-panels ol').html(list);
-}
-function addSolar(){
-	panels = E('#sat-power .solar-panels');
-	for(var i = 0; i < panels.e.length; i++){
-		ps = panels.e[i].getElementsByTagName('li');
-		if(ps.length < 4) panels.e[i].getElementsByTagName('ol')[0].innerHTML += '<li class="solar-panel"><\/li>';
+RocketScientist.prototype.navigate = function(e){
+	e.originalEvent.preventDefault();
+	var href = E(e.currentTarget).attr('href');
+	var section = href.substr(1);
+	var found = false;
+	if(this.navigable[section]){
+		var progress = 0;
+		for(var i = 0 ; i < this.sections.length; i++){
+			if(section==this.sections[i]){
+				progress = 100*i/this.sections.length;
+				found = true;
+				E(href).css({'position':'absolute','top':'0'});
+			}else{
+				E('#'+this.sections[i]).css({'display':'none'});
+			}
+		}
+		E('#progressbar .progress-inner').css({'width':progress.toFixed(1)+'%'});
 	}
+	
+	return false;
 }
-function removeSolar(){
-	E('#sat-power .solar-panels li:eq(0)').remove();
+RocketScientist.prototype.makeSatelliteControls = function(selector){
+
+	this.z[selector] = {'z':1,'el':E(selector)};
+	
+	// Create controls for satellite power view
+	var zc = this.z[selector].el.find('.zoomcontrol');
+	zc.children('.zoomin').on('click',{me:this,by:1.1,z:selector},function(e){ e.data.me.zoom(e.data.z,e.data.by); });
+	zc.children('.zoomout').on('click',{me:this,by:1/1.1,z:selector},function(e){ e.data.me.zoom(e.data.z,e.data.by); });
+	zc.children('.make3D').on('click',{me:this,by:1/1.1,z:selector},function(e){ e.data.me.toggle3D(e.data.z); });
+	zc.children('.animate').on('click',{me:this,by:1/1.1,z:selector},function(e){ e.data.me.toggleAnimation(e.data.z); });
+
+	return this;
 }
+RocketScientist.prototype.zoom = function(selector,factor){
+	if(this.z[selector].z * factor < 2 && this.z[selector].z * factor > 0.5) this.z[selector].z *= factor;
+	this.z[selector].el.css({'font-size':this.z[selector].z.toFixed(3)+'em'});
+	return this;
+}
+RocketScientist.prototype.toggle3D = function(element){
+	E(element).toggleClass('threeD');
+	return this;
+}
+RocketScientist.prototype.toggleAnimation = function(element){
+	E(element+' .satellite').toggleClass('spin');
+	return this;
+}
+RocketScientist.prototype.addPowerPackage = function(e){
+	var a = E(e.currentTarget);
+	var add = a.hasClass('add') ? true : false;
+	var type = a.parent().parent().attr('data-package');
+	if(type=="solar-panel") this.solarPanel(add,e);
+	else if(type=="solar-panel-surface") this.solarFixed(add,e);
+
+	return this;
+}
+// Add or remove deployable solar panels up to a maximum
+RocketScientist.prototype.solarPanel = function(add,e){
+	var panels,ps;
+	var parent = E(e.currentTarget).parent();
+	var a = parent.children('.add');
+	var m = parent.children('.remove');
+	var max = 8;
+	if(add){
+		panels = E('#sat-power .solar-panels');
+		for(var i = 0; i < panels.e.length; i++){
+			ps = panels.e[i].getElementsByTagName('li');
+			if(ps.length < 4) panels.e[i].getElementsByTagName('ol')[0].innerHTML += '<li class="solar-panel"><\/li>';
+		}
+	}else{
+		E('#sat-power .solar-panels li:eq(0)').remove();
+		if(E('#sat-power .solar-panels li').e.length==0) m.prop('disabled',true);
+	}
+	// Find out how many panels we have
+	ps = E('#sat-power .solar-panels li');
+	if(ps.e.length >= max){
+		// If we've reached the maximum number we hide the add button
+		a.prop('disabled',true);
+		m.prop('disabled',false);
+	}else if(ps.e.length==0){
+		m.prop('disabled',true);
+	}else{
+		a.prop('disabled',false);
+		m.prop('disabled',false);
+	}
+	return this;
+}
+// Toggle the fixed solar panels
+RocketScientist.prototype.solarFixed = function(add,e){
+	var parent = E(e.currentTarget).parent();
+	var p = parent.children('.add');
+	var m = parent.children('.remove');
+	if(add){
+		E('#sat-power .satellite').addClass('solar-fixed');
+		p.prop('disabled',true);
+		m.prop('disabled',false);
+	}else{
+		E('#sat-power .satellite').removeClass('solar-fixed');
+		p.prop('disabled',false);
+		m.prop('disabled',true);
+	}
+	return this;
+}
+// Resize function called when window resizes
+RocketScientist.prototype.resize = function(){
+
+	// Kludgy fix for old browsers that don't have vw/vh/flex in CSS
+	if(!this.has.vw){
+		function height(el){
+			if('getComputedStyle' in window) return parseInt(window.getComputedStyle(el, null).getPropertyValue('height'));
+			else return parseInt(document.getElementById('example').currentStyle.height);	
+		}
+		function resize(){
+			E('section').css({'min-height':this.tall+'px'});
+			var paddh = tall-128;			// Hard-coded fudge based on padding
+			E('section').children('.padded').css({'min-height':paddh+'px'});
+			var table = E('section').children('.padded').children('.table');
+			table.css({'height':paddh+'px'});
+			var rows = table.children('.table-row');
+
+			for(var r = 0; r < rows.e.length; r++){
+				// Step up to the table parent
+				table = E(rows.e[r]).parent();
+				var fixed = table.children('.table-row-top');
+				var rs = table.children('.table-row');
+				var dh = paddh-height(fixed.e[0]);
+				var dr = rs.e.length;
+				if(dr <= 0) dr = 1;
+				E(rows.e[r]).css({'height':(dh/dr)+'px','overflow':'hidden'}).find('.list').css({'height':(dh)+'px'});
+				var req = E(rows.e[r]).find('.requirements');
+				if(req.e.length > 0){
+					E(rows.e[r]).find('.satellite-holder').css({'height':(dh-height(req.e[0]))+'px'});
+				}
+			}
+		}
+	}
+	return this;
+}
+
 function toggleComms(){
-	var slots = [{'el':'sat','cls':'slot4x8','type':'north no-inside'},{'el':'sat','cls':'slot2x4','type':'south'}];
+	var slots = [{'el':'sat','cls':'slot4x8','type':'north no-inside'},{'el':'sat','cls':'normal','type':'south'}];
 	var el,radio,cls,i,i2,e;
 	for(var s = 0; s < slots.length; s++){
 		e = E('#'+slots[s].el+' .'+slots[s].cls+':eq(0)');
@@ -299,67 +628,17 @@ function toggleComms(){
 // On load
 E(document).ready(function(){
 
-	// Remove elements that show noscript messages
-	E('.noscriptmsg').remove();
-
-	// Remove classes from script only elements
-	E('.scriptonly').toggleClass('scriptonly');
-
-	// We hide elements that shouldn't be visible (but we are leaving visible
-	// in the plain HTML so there is something if Javascript doesn't work.
-	var sections = ['goal','bus','orbit','instrument','power','rocket','launch'];
-	//for(var s = 0; s < sections.length; s++) E('#'+sections[s]).toggleClass('not-at-start');
-
-	// Remove the overlay we've added inline
-	E('#overlay').remove();
-	
-	E('#bus .satellite').on('click',function(e){
-		chooseBus(E(e.currentTarget).parent().children(2).e[0]);
-	})
-	E('#bus button').on('click',function(e){
-		chooseBus(e.currentTarget);
-	})
-
-	var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
-	var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
-
-	var has = {};
-	var wrap = E('#progressbar').css({'width':'100vw'});
-	has['vw'] = (wrap.e[0].offsetWidth==w);
-
-/*	function getHeight(el){
-		if('getComputedStyle' in window) return parseInt(window.getComputedStyle(el, null).getPropertyValue('height'));
-		else return parseInt(document.getElementById('example').currentStyle.height);	
-	}*/
-
-	// Kludgy fix for old browsers that don't have vw/vh/flex in CSS
-	if(!has.vw){
-		function resize(){
-			E('section').css({'min-height':h+'px'});
-			// Hard-coded fudge based on padding of 2em (1em=14px)
-			var paddh = h-128;
-			E('section').children('.padded').css({'min-height':paddh+'px'});
-			var table = E('section').children('.padded').children('.table');
-			table.css({'height':paddh+'px'});
-			var rows = table.children('.table-row');
-
-			for(var r = 0; r < rows.e.length; r++){
-				// Step up to the table parent
-				table = E(rows.e[r]).parent();
-				var fixed = table.children('.table-row-top');
-				var rs = table.children('.table-row');
-				var dh = paddh-fixed.e[0].offsetHeight;
-				E(rows.e[r]).css({'height':(dh/rs.e.length)+'px','overflow':'hidden'}).find('.list').css({'height':(dh)+'px'});
-				var req = E(rows.e[r]).find('.requirements');
-				if(req.e.length > 0){
-					E(rows.e[r]).find('.satellite-holder').css({'height':(dh-req.e[0].offsetHeight)+'px'});
-				}
-			}
-		}
-		// We'll need to change the sizes when the window changes size
-		window.addEventListener('resize', function(event){ resize(); });
-		resize();
-	}
-
+	var rs = new RocketScientist();
 });
 
+function test(){
+	// Quick start
+	// Trigger selection
+	E('#type .NAV button').trigger('click');
+	E('#type nav a').trigger('click');
+	E('#goal .NAV button:eq(1)').trigger('click');
+	E('#goal nav a:eq(1)').trigger('click');
+	E('#bus .satellite-l').trigger('click');
+	E('#bus nav a:eq(1)').trigger('click');
+
+}

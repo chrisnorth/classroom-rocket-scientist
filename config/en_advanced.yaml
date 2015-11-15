@@ -3,11 +3,15 @@ ui.level:                                   (advanced)
 ui.nojs:                                    Oops! The interactive parts of this page need Javascript to be enabled. Sorry about that.
 ui.title:                                   Classroom rocket scientist
 ui.introduction:                            This is an intro.
-ui.loading:                                 Loading...
+ui.loading:                                 Loading space programme...
 ui.requirements.title:                      Requirements
-ui.button.type:                             Start
+ui.button.type:                             Select this type
 ui.button.goal:                             Start building
 ui.button.bus:                              Select
+ui.button.zoomin:                           &plus;
+ui.button.zoomout:                          &minus;
+ui.button.threeD:                           2D/3D
+ui.button.spin:                             Animate
 ui.menu.title:                              Menu
 ui.menu.restart.title:                      Restart
 ui.menu.restart.more:                       Start over

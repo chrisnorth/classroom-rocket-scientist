@@ -89,7 +89,7 @@
 			"title": "%package.camera-opt.title%",
 			"description": "%package.camera-opt.description%",
 			"image": {
-				"file": "images/package_camera-opt.jpg",
+				"icon": "texture camera-opt",
 				"alt": "",
 				"credit": ""
 			},
@@ -107,7 +107,7 @@
 			"title": "%package.camera-nir.title%",
 			"description": "%package.camera-nir.description%",
 			"image": {
-				"file": "images/package_camera-nir.jpg",
+				"icon": "texture camera-nir",
 				"alt": "",
 				"credit": ""
 			},
@@ -125,7 +125,7 @@
 			"title": "%package.camera-fir.title%",
 			"description": "%package.camera-fir.description%",
 			"image": {
-				"file": "images/package_camera-fir.jpg",
+				"icon": "texture camera-fir",
 				"alt": "",
 				"credit": ""
 			},
@@ -143,7 +143,7 @@
 			"title": "%package.spect-opt.title%",
 			"description": "%package.spect-opt.description%",
 			"image": {
-				"file": "images/package_spect-opt.jpg",
+				"icon": "texture spect-opt",
 				"alt": "",
 				"credit": ""
 			},
@@ -161,7 +161,7 @@
 			"title": "%package.spect-nir.title%",
 			"description": "%package.spect-nir.description%",
 			"image": {
-				"file": "images/package_spect-nir.jpg",
+				"icon": "texture spect-nir",
 				"alt": "",
 				"credit": ""
 			},
@@ -179,7 +179,7 @@
 			"title": "%package.spect-fir.title%",
 			"description": "%package.spect-fir.description%",
 			"image": {
-				"file": "images/package_spect-fir.jpg",
+				"icon": "texture spect-fir",
 				"alt": "",
 				"credit": ""
 			},
@@ -197,7 +197,7 @@
 			"title": "%package.radar-alt.title%",
 			"description": "%package.radar-alt.description%",
 			"image": {
-				"file": "images/package_radar-alt.jpg",
+				"icon": "texture radar-alt",
 				"alt": "",
 				"credit": ""
 			},
@@ -241,7 +241,7 @@
 			"title": "%package.radio-rx.title%",
 			"description": "%package.radio-rx.description%",
 			"image": {
-				"file": "images/package_radio-rx.jpg",
+				"icon": "texture radio-rx",
 				"alt": "",
 				"credit": ""
 			},
@@ -259,7 +259,7 @@
 			"title": "%package.radio-tx.title%",
 			"description": "%package.radio-tx.description%",
 			"image": {
-				"file": "images/package_radio-tx.jpg",
+				"icon": "texture radio-tx",
 				"alt": "",
 				"credit": ""
 			},
@@ -277,7 +277,7 @@
 			"title": "%package.atomic-clock.title%",
 			"description": "%package.atomic-clock.description%",
 			"image": {
-				"file": "images/package_atomic-clock.jpg",
+				"icon": "texture atomic-clock",
 				"alt": "",
 				"credit": ""
 			},
@@ -295,7 +295,7 @@
 			"title": "%package.atomic-clock-small.title%",
 			"description": "%package.atomic-clock-small.description%",
 			"image": {
-				"file": "images/package_atomic-clock-small.jpg",
+				"icon": "texture atomic-clock-small",
 				"alt": "",
 				"credit": ""
 			},
@@ -313,7 +313,7 @@
 			"title": "%package.gps-rx.title%",
 			"description": "%package.gps-rx.description%",
 			"image": {
-				"file": "images/package_gps-rx.jpg",
+				"icon": "texture gps-rx",
 				"alt": "",
 				"credit": ""
 			},
@@ -331,7 +331,7 @@
 			"title": "%package.camera-mini.title%",
 			"description": "%package.camera-mini.description%",
 			"image": {
-				"file": "images/package_camera-mini.jpg",
+				"icon": "texture camera-mini",
 				"alt": "",
 				"credit": ""
 			},
@@ -409,9 +409,10 @@
 			"title": "%package.radio-antenna-cube.title%",
 			"description": "%package.radio-antenna-cube.description%",
 			"image": {
-				"file": "images/package_radio-antenna-cube.jpg",
+				"icon": "texture radio-antenna-cube",
 				"alt": "",
 				"credit": "",
+				"class": "-bg",
 				"html": "<div class=\"aerial1 aerial\"></div>"
 			},
 			"mass": { "value": 0.1, "units": "kg", "dimension": "mass" },
@@ -430,6 +431,11 @@
 			"slot":	"2x2",
 			"title": "%package.battery-large.title%",
 			"description": "%package.battery-large.description%",
+			"image": {
+				"icon": "texture battery-large",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -449,6 +455,11 @@
 			"slot":	"1x1",
 			"title": "%package.battery-small.title%",
 			"description": "%package.battery-small.description%",
+			"image": {
+				"icon": "texture battery-small",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -468,6 +479,11 @@
 			"slot":	"2x4",
 			"title": "%package.rtg.title%",
 			"description": "%package.rtg.description%",
+			"image": {
+				"icon": "texture rtg",
+				"alt": "",
+				"credit": ""
+			},
 			"mass": { "value": 60, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [

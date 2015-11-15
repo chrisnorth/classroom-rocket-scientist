@@ -1,0 +1,25 @@
+.satellite.solar-fixed .row:first-child .solar-right .face.top { border-right: 4px solid $blue-1; }
+.satellite.solar-fixed .solar-top .face.left  { border-top: 4px solid $blue-1; }
+.satellite.solar-fixed .solar-top .face.front  { border-top: 4px solid $blue-1; }
+.satellite .solar-panel, .slot4x4, .satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-right .face.right, .satellite.solar-fixed .solar-top .face.top, .satellite.solar-fixed .solar-back .face.back, .slot4x4 {
+	background-color: $blue-1;
+}
+.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .satellite.solar-fixed .solar-back .face.back, .satellite.solar-fixed .solar-right .face.right, .satellite .solar-panel, .slot4x4 {
+	background-image: -webkit-linear-gradient($blue-5 1px, transparent 1px), -webkit-linear-gradient(0deg, $blue-5 1px, transparent 1px), -webkit-linear-gradient($blue-3 1px, transparent 1px), -webkit-linear-gradient(0deg, $blue-3 1px, transparent 1px);
+	background-image: linear-gradient($blue-5 1px, transparent 1px), linear-gradient(90deg, $blue-5 1px, transparent 1px), linear-gradient($blue-3 1px, transparent 1px), linear-gradient(90deg, $blue-3 1px, transparent 1px);
+	background-size: $s $s, $s $s, $s * 0.25 $s * 0.25, $s * 0.25 $s * 0.25;
+	background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+	box-sizing: border-box;
+}
+.satellite.solar-fixed .solar-left .face.front, .satellite.solar-fixed .row:first-child .solar-left .face.top { border-left: 4px solid $blue-1; }
+.satellite.solar-fixed .solar-right .face.front { border-right: 4px solid $blue-1; }
+
+.threeD .satellite.solar-fixed .solar-left .face.front,
+.threeD .satellite.solar-fixed .row:first-child .solar-left .face.top,
+.threeD .satellite.solar-fixed .solar-right .face.front,
+.threeD .satellite.solar-fixed .solar-top .face.left,
+.threeD .satellite.solar-fixed .solar-top .face.front { border: 1px solid rgba(255,255,255,0.3); }
+
+.threeD .row, .threeD .solar-panels {
+	@include transform-style( preserve-3d );
+}

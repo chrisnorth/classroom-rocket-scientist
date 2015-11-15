@@ -132,28 +132,10 @@
 	z-index: 2;
 }
 
-.satellite.solar-fixed .solar-left .face.front, .satellite.solar-fixed .row:first-child .solar-left .face.top { border-left: 4px solid $blue-1; }
-.satellite.solar-fixed .row:first-child .solar-right .face.top { border-right: 4px solid $blue-1; }
-.satellite.solar-fixed .solar-top .face.left  { border-top: 4px solid $blue-1; }
-.satellite.solar-fixed .solar-top .face.front  { border-top: 4px solid $blue-1; }
-.satellite .solar-panel, .slot4x4, .satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .slot4x4 {
-	background-color: $blue-1;
-}
-.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .satellite .solar-panel, .slot4x4 {
-	background-image: -webkit-linear-gradient(white 2px, transparent 2px), -webkit-linear-gradient(0deg, white 2px, transparent 2px), -webkit-linear-gradient(rgba(255, 255, 255, .3) 1px, transparent 1px), -webkit-linear-gradient(0deg, rgba(255, 255, 255, .3) 1px, transparent 1px);
-	background-image: linear-gradient(white 2px, transparent 2px), linear-gradient(90deg, white 2px, transparent 2px), linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
-	background-size: $s $s, $s $s, $s * 0.2 $s * 0.2, $s * 0.2 $s * 0.2;
-	background-position: -1px -2px, -1px -1px, -1px -1px, -1px -1px;
-	box-sizing: border-box;
-}
-.satellite.solar-fixed .solar-right .face.front { border-right: 4px solid $blue-1; }
 .face img { width: 100%; height: 100%; }
 .photo .face.front, .photo .face.top, .photo .face.left, .photo .face.right, .photo .face.back { background-image: url('foil.jpg'); background-size: 100% 100%; background-repeat: none; border: 0px; }
 .video .face.front, .video .face.top, .video .face.left, .video .face.right, .video .face.back { background-image: url('foil.jpg'); background-size: 100% 100%; background-repeat: none; border: 0px; }
 
-.threeD .row, .threeD .solar-panels {
-	@include transform-style( preserve-3d );
-}
 
 .threeD .satellite {
 	@include transform-style( preserve-3d );

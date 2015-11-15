@@ -41,7 +41,7 @@ h1 { font-size: 2em; margin-bottom: 0.5em; }
 h2 { font-size: 1.5em; margin-bottom: 0.5em; }
 h3 { font-size: 1.333em; margin-bottom: 0.5em; }
 h1, h2, h3 { font-weight: bold; }
-p { margin-bottom: 1em; line-height: $lineh; }
+p { margin-bottom: $lineh; line-height: $lineh; }
 strong { font-weight: bold; }
 
 
@@ -88,7 +88,6 @@ img.screenshot { max-width: 100%; }
 	height: $barheight*0.1;
 	left:0;
 	width: 100%;
-	z-index:2002;
 	position: absolute;
 	background-color: $black-3;
 }
@@ -114,7 +113,7 @@ menu,#bar {
 	color: $grey-5;
 }
 
-header { position: fixed; z-index: 1000; left: 0px; top: 0px; width: 100%; right: 0px; background-color: $black-1; }
+header { position: fixed; z-index: $topz; left: 0px; top: 0px; width: 100%; right: 0px; background-color: $black-1; }
 
 #bar {
 	display: block;
@@ -175,7 +174,7 @@ nav li { float: left; }
 .barmenu .baritem.left { float: left; }
 .rtl .barmenu .baritem { float: left; }
 .dropdown {
-	z-index: 100;
+	z-index: $topz - 6;
 	/*
 	display: none;
 	position: absolute;
@@ -194,6 +193,17 @@ nav li { float: left; }
 .dropdown .baritem, .rtl .dropdown .baritem { float: none; display: block; }
 /*.dropdown .baritem a { padding: 0.75em 1em; }*/
 .dropdown.fullwidth { width: 100%; left: 0px; border-left: 0px; }
+
+/* Navigation menus */
+nav { position: absolute; left: 0px; right: 0px; }
+nav a { height: $s*1.5; text-decoration: none; }
+nav a:hover { text-decoration: none; }
+nav a.disabled { color: $grey-3; cursor: default; }
+nav li:first-child { float: left; }
+nav li:last-child { float: right; }
+nav li:first-child a:before { content: "❮"; font-size: 2em; padding-right: 0.15em; position: relative; top: 0.1em; }
+nav li:last-child a:after { content: "❯"; font-size: 2em; padding-left: 0.15em; position: relative; top: 0.1em; }
+
 
 #options li { margin-top: 1em; }
 .options li { margin-bottom: 1em; }
@@ -239,6 +249,7 @@ img.close { background-position: -4.5em -10.5em; }
 .EO { background-color: $green-5; }
 .NAV { background-color: $blue-5; }
 
+
 section {
 	background: white;
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
@@ -248,7 +259,7 @@ section {
 }
 
 .msg {
-	z-index: 999;
+	z-index: $topz - 5;
 	line-height: 1.5em;
 	position: relative;
 	width: 100%;
@@ -271,6 +282,7 @@ section:first-child { padding-top: $barheight + 0.2em; }
 body.front section:first-child { padding-top: $barheight; }
 .msg + section { padding-top: 0; }
 .padded { padding: 2em; }
+section.view { width: 100%; max-width: 100%; }
 section.view h2 { text-align: center; }
 section.view p { text-align: center; }
 body.front section.view p { text-align: left; }
@@ -317,15 +329,14 @@ section#launch { background-color: $black-1; color: $grey-5; }
 	-webkit-flex: 2;
 	flex: 2;
 }
-.col-left { width: 55%; }
-.col-right { width: 45%; position: relative; }
+.col-left { width: 50%; }
+.col-right { width: 50%; position: relative; }
 
 
 $pattern_a: transparent 49%, white 49.4%, white 50.6%, transparent 51%, transparent;
 $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 
 .satellite-holder {
-	min-height: 200px;
 	margin: auto;
 	position: relative;
 	overflow: hidden;
@@ -338,6 +349,13 @@ $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 	bottom: 0px;
 }
 
+.holder-holder {
+	display: table;
+	width: 100%;
+	max-width: 100%;
+	height: 100%;
+	max-height: 100vh;
+}
 
 
 
@@ -348,7 +366,7 @@ $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 	background-image: -webkit-linear-gradient(0deg, $pattern_b), -webkit-linear-gradient(-90deg, $pattern_b);
 	background-image: linear-gradient(0deg, $pattern_b), linear-gradient(-90deg, $pattern_b);
 	background-size: $s*2 $s*2;
-	background-position: 0 0, 0 0;
+	background-position: center center;
 }
 .isogrid.threeD {
 	background-image: -webkit-linear-gradient(60deg, $pattern_a), -webkit-linear-gradient(-60deg, $pattern_a);
@@ -359,6 +377,7 @@ $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 section { display: flex; }
 section .padded { width: 100%; }
 .table { height: 100%; width: 100%; max-width: 100%; display: table; display: flex; flex-direction: column; }
+.table-row-top { position: relative; }
 .table-row-top > .padder { padding-bottom: 0px; }
 .table-row-top.padded { margin-bottom: 0px; }
 .table-row { display: flex; position: relative; @include flex(1,100%); }
@@ -371,7 +390,7 @@ section .padded { width: 100%; }
 $padding: $s*0.5;
 
 button.fancy {
-	padding: $s*0.2;
+	padding: $s*0.25;
 	background-color: $grey-5;
 	@include border-radius($s*0.25);
 	@include background-gradient($grey-5,$grey-4);
@@ -391,10 +410,10 @@ button.selected {
 button.selected:hover, button.selected:focus {
 	@include background-gradient($green-1,$green-2);
 }
-.zoomcontrol { position: absolute; padding: $padding; left: 0px; top: 0px; font-size: 16px; }
+.zoomcontrol { position: absolute; padding: $padding; left: 0px; top: 0px; font-size: 16px; z-index: $topz - 1; }
 .zoomcontrol button { line-height: 0.8em; }
 
-.list { position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; overflow-y: auto; margin-left: $padding; }
+.list { position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; overflow-y: auto; margin-left: $s; }
 .list li { display: table; width: 100%; margin-bottom: $padding; }
 .list li:last-child { border-bottom: 0px; margin-bottom: 0; }
 .list li .list-bar, .list li .list-left,.list li .list-right { display: table-cell; width: auto; vertical-align: top; }
@@ -411,14 +430,17 @@ button.selected:hover, button.selected:focus {
 .list li .list-bar button:disabled {
 	display: none;
 }
-.list li .list-bar button.add { margin: $s*0.25 $s*0.25 $s*0.25 $s*0.25; }
-.list li .list-bar button.remove { margin: 0 $s*0.25 0 $s*0.25; }
+.list li .list-bar button { margin: $s*0.25 $s*0.25 0 $s*0.25; }
+.list li .list-bar button:first-child { margin: $s*0.25 $s*0.25 0 $s*0.25; }
 .list li .list-left { width: $s * 4; padding: 1em; padding-right: 0; background-color: $grey-5; }
 .list li .list-right { padding: 1em; background-color: $grey-5; }
-.slot0x2 .eg { margin-top: $s * 0.4; }
-.slot1x2 .eg { margin-top: $s * 0.25; }
-.slot1x1 .eg { margin-top: $s * 0.25; }
+.slot0x2 .eg { margin-top: $s * 0.4; position: relative; }
+.slot1x2 .eg { margin-top: $s * 0.25; position: relative; }
+.slot1x1 .eg { margin-top: $s * 0.25; position: relative; }
 .eg { width: 100%; height: 100%; }
+.eg-bg .face { display: none; }
+.eg-bg .aerial { margin-top: $s*0.5; }
+.eg-bg.threeD .aerial1 { transform: none; margin-top: 0; }
 .package_slot { text-align: right; width: $s * 4; }
 .package_slot .slot4x8 .hemisphere { top: -100%; left: 0px; }
 .package_slot .slot2x4 .hemisphere { top: -100%; left: 0px; }
@@ -438,7 +460,7 @@ button.selected:hover, button.selected:focus {
 .requirements .padder {
 	background-color: $grey-5;
 	padding: $s*0.5;
-	margin-bottom: $s*0.5;
+	margin-bottom: $s;
 }
 
 #bus .satellite:hover {
@@ -451,3 +473,19 @@ button.selected:hover, button.selected:focus {
 #bus .satellite:hover .face.top { background-color: $black-3; }
 
 @import "../tests/satellite/satellite.scss";
+
+.slot2x4.texture.down .face.top,
+.slot2x4.texture.up .face.top,
+.slot2x2.texture .face.top { background: url('../images/foil_4x2.png'); background-size: 100% 100%; }
+
+.slot2x2.texture .face.left,
+.slot2x2.texture .face.right,
+.slot2x2.texture .face.back { background: url('../images/foil_2x2.png'); background-size: 100% 100%; }
+
+.slot2x4.texture.normal .face.left,
+.slot2x4.texture.normal .face.right,
+.slot2x4.texture.down .face.back,
+.slot2x4.texture.up .face.back,
+.slot2x4.texture .face.back { background: url('../images/foil_2x4.png'); background-size: 100% 100%; }
+
+@import "../tests/satellite/solar.scss";

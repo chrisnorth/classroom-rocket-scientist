@@ -11,7 +11,7 @@
 </head>
 <body>
 	<script type="text/javascript">
-		document.body.innerHTML += '<div id="overlay" style="z-index: 2000;width:100%;max-width:100%;width: 100vw;height: 100%;height:100vh;background-color:black;display:table;position:absolute;color:white;"><div style="display:table-cell;vertical-align:middle;text-align:center;"></div></div>';
+		document.body.innerHTML += '<div id="overlay" style="z-index:10000;width:100%;max-width:100%;width: 100vw;height: 100%;height:100vh;max-height:100%;background-color:black;display:table;position:absolute;color:white;"><div style="display:table-cell;vertical-align:middle;text-align:center;"></div></div>';
 	</script>
 
 	<div id="application" class="beginner">
@@ -46,7 +46,13 @@
 							<div class="msg noscriptmsg"></div>
 						</div>
 						<div class="table-row">
-							<div class="padded">
+							<div class="">
+								<nav>
+									<ol>
+										<li class="prev"></li>
+										<li class="next"><a href="#goal"></a></li>
+									</ol>
+								</nav>
 								<h2></h2>
 								<p></p>
 								
@@ -60,7 +66,13 @@
 				<div class="padded">
 					<div class="table">
 						<div class="table-row-top">
-							<h2>Select the purpose of your satellite</h2>
+							<nav>
+								<ol>
+									<li class="prev"><a href="#type"></a></li>
+									<li class="next"><a href="#instrument"></a></li>
+								</ol>
+							</nav>
+							<h2></h2>
 						</div>
 					</div>
 				</div>
@@ -74,9 +86,14 @@
 				<div class="padded">
 					<div class="table">
 						<div class="table-row-top">
+							<nav>
+								<ol>
+									<li class="prev"><a href="#goal"></a></li>
+									<li class="next"><a href="#power"></a></li>
+								</ol>
+							</nav>
 							<h2></h2>
 							<p></p>
-							<button class="fancy" onClick="toggleComms()">Toggle communications</button>
 						</div>
 						<div class="table-row">
 							<div class="lower">
@@ -86,15 +103,16 @@
 											<div class="requirements">
 												<div class="padder">
 													<h3></h3>
+													<button class="fancy" onClick="toggleComms()">Toggle communications</button>
 												</div>
 											</div>
 											<div class="flex-grow">
-												<div id="satellite" class="satellite-holder isogrid threeD">
+												<div id="satellite" class="satellite-holder isogrid">
 													<div class="holder" id="sat">
 														<div class="zoomcontrol">
-															<button class="fancy" onclick="zoom(this,1.1)">&plus;</button>
-															<button class="fancy" onclick="zoom(this,1/1.1)">&minus;</button>
-															<button class="fancy" onclick="toggle3D(this)">3D/2D</button>
+															<button class="fancy zoomin"></button>
+															<button class="fancy zoomout"></button>
+															<!--<button class="fancy make3D"></button>-->
 														</div>
 														<div class="satellite"></div>
 													</div>
@@ -118,14 +136,16 @@
 
 			<section id="power" class="view">
 				<div class="padded">
-					<div class="table expander-page">
+					<div class="table">
 						<div class="table-row-top">
+							<nav>
+								<ol>
+									<li class="prev"><a href="#instrument"></a></li>
+									<li class="next"><a href="#rocket"></a></li>
+								</ol>
+							</nav>
 							<h2></h2>
 							<p></p>
-		
-							<button class="fancy" onClick="addSolar()">&plus; solar panel</button>
-							<button class="fancy" onClick="removeSolar()">&minus; solar panel</button>
-							<button class="fancy" onClick="toggleSolar()">Toggle fixed solar panels</button>
 						</div>
 						<div class="table-row">
 							<div class="lower">
@@ -141,10 +161,10 @@
 												<div id="satellite-power" class="satellite-holder isogrid threeD">
 													<div class="holder" id="sat-power">
 														<div class="zoomcontrol">
-															<button class="fancy" onclick="zoom(this,1.1)">&plus;</button>
-															<button class="fancy" onclick="zoom(this,1/1.1)">&minus;</button>
-															<button class="fancy" onclick="toggle3D(this)">3D/2D</button>
-															<button class="fancy" onClick="toggleAnimation()">Rotate</button>
+															<button class="fancy zoomin"></button>
+															<button class="fancy zoomout"></button>
+															<!--<button class="fancy make3D"></button>
+															<button class="fancy animate"></button>-->
 														</div>
 														<div class="satellite"></div>
 													</div>
@@ -168,8 +188,18 @@
 
 			<section id="rocket" class="view">
 				<div class="padded">
-					<h2></h2>
-					<p></p>
+					<div class="table">
+						<div class="table-row-top">
+							<nav>
+								<ol>
+									<li class="prev"><a href="#power"></a></li>
+									<li class="next"><a href="#launch"></a></li>
+								</ol>
+							</nav>
+							<h2></h2>
+							<p></p>
+						</div>
+					</div>
 				</div>
 			</section>
 
@@ -191,7 +221,7 @@
 		<section id="summary">
 			<h2>Summary</h2>
 		</section>
-		<section id="units" class="view not-at-start">
+		<section id="units" class="not-at-start">
 	<h2>Units</h2>
 	<form id="optionform">
 		<ul>
