@@ -337,31 +337,22 @@ E(document).ready(function(){
 		function resize(){
 			E('section').css({'min-height':h+'px'});
 			// Hard-coded fudge based on padding of 2em (1em=14px)
-			var paddh = h-48;
+			var paddh = h-128;
 			E('section').children('.padded').css({'min-height':paddh+'px'});
 			var table = E('section').children('.padded').children('.table');
 			table.css({'height':paddh+'px'});
+			var rows = table.children('.table-row');
 
-			var rows = table.children('.table-row');//E('.table-row');
 			for(var r = 0; r < rows.e.length; r++){
 				// Step up to the table parent
-				var table = E(rows.e[r]).parent();
-				var dh = 0;
+				table = E(rows.e[r]).parent();
 				var fixed = table.children('.table-row-top');
-				// Get all table-row children
 				var rs = table.children('.table-row');
-				dh = Math.floor((table.e[0].offsetHeight - fixed.e[0].offsetHeight)/(rs.e.length));
-				rs.css({'min-height':dh+'px'});
-				rs.children('.table-left').css({'float':'left','min-height':dh+'px'}).children('.table').css({'height':dh+'px'});
-				rs.children('.table-right').css({'float':'right','min-height':dh+'px'});
-				
-				table = rs.children('.table-left').css({'float':'left','min-height':dh+'px'}).children('.table');
-				if(table.e.length > 0){
-					fixed = table.children('.table-row-top');
-					rs = table.children('.table-row');
-					// Hardcoded 1em padding
-					dh = Math.floor((table.e[0].offsetHeight - fixed.e[0].offsetHeight - 14)/(rs.e.length));
-					rs.css({'min-height':dh+'px'}).children('.satellite-holder').css({'height':dh+'px'})
+				var dh = paddh-fixed.e[0].offsetHeight;
+				E(rows.e[r]).css({'height':(dh/rs.e.length)+'px','overflow':'hidden'}).find('.list').css({'height':(dh)+'px'});
+				var req = E(rows.e[r]).find('.requirements');
+				if(req.e.length > 0){
+					E(rows.e[r]).find('.satellite-holder').css({'height':(dh-req.e[0].offsetHeight)+'px'});
 				}
 			}
 		}

@@ -89,39 +89,43 @@
 
 			<section id="instrument" class="view">
 				<div class="padded">
-					<div class="table expander-page">
+					<div class="table">
 						<div class="table-row-top">
 							<h2></h2>
 							<p></p>
 							<button class="fancy" onClick="toggleComms()">Toggle communications</button>
 						</div>
 						<div class="table-row">
-							<div class="table-left">
-								<div class="table expander-left">
-									<div class="table-row">
-										<div id="satellite" class="satellite-holder isogrid threeD">
-											<div class="holder" id="sat">
-												<div class="zoomcontrol">
-													<button class="fancy" onclick="zoom(this,1.1)">&plus;</button>
-													<button class="fancy" onclick="zoom(this,1/1.1)">&minus;</button>
-													<button class="fancy" onclick="toggle3D(this)">3D/2D</button>
+							<div class="lower">
+								<div class="row-flex row-flex-wrap">
+									<div class="col-left">
+										<div class="flex-col">
+											<div class="requirements">
+												<div class="padder">
+													<h3></h3>
 												</div>
-												<div class="satellite"></div>
+											</div>
+											<div class="flex-grow">
+												<div id="satellite" class="satellite-holder isogrid threeD">
+													<div class="holder" id="sat">
+														<div class="zoomcontrol">
+															<button class="fancy" onclick="zoom(this,1.1)">&plus;</button>
+															<button class="fancy" onclick="zoom(this,1/1.1)">&minus;</button>
+															<button class="fancy" onclick="toggle3D(this)">3D/2D</button>
+														</div>
+														<div class="satellite"></div>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
-									<div class="table-row-top">
-										<div class="requirements">
+									<div class="col-right">
+										<div id="instrument_list" class="list">
 											<h3></h3>
+											<ul>
+											</ul>
 										</div>
-									</div>
-								</div>
-							</div>
-							<div class="table-right">
-								<div id="instrument_list" class="list">
-									<h3></h3>
-									<ul>
-									</ul>
+									</div><!-- end right -->
 								</div>
 							</div>
 						</div>
@@ -141,33 +145,37 @@
 							<button class="fancy" onClick="toggleSolar()">Toggle fixed solar panels</button>
 						</div>
 						<div class="table-row">
-							<div class="table-left expander-left">
-								<div class="table">
-									<div class="table-row">
-										<div id="satellite-power" class="satellite-holder isogrid threeD">
-											<div class="holder" id="sat-power">
-												<div class="zoomcontrol">
-													<button class="fancy" onclick="zoom(this,1.1)">&plus;</button>
-													<button class="fancy" onclick="zoom(this,1/1.1)">&minus;</button>
-													<button class="fancy" onclick="toggle3D(this)">3D/2D</button>
-													<button class="fancy" onClick="toggleAnimation()">Rotate</button>
+							<div class="lower">
+								<div class="row-flex row-flex-wrap">
+									<div class="col-left">
+										<div class="flex-col">
+											<div class="requirements">
+												<div class="padder">
+													<h3></h3>
 												</div>
-												<div class="satellite"></div>
+											</div>
+											<div class="flex-grow">
+												<div id="satellite-power" class="satellite-holder isogrid threeD">
+													<div class="holder" id="sat-power">
+														<div class="zoomcontrol">
+															<button class="fancy" onclick="zoom(this,1.1)">&plus;</button>
+															<button class="fancy" onclick="zoom(this,1/1.1)">&minus;</button>
+															<button class="fancy" onclick="toggle3D(this)">3D/2D</button>
+															<button class="fancy" onClick="toggleAnimation()">Rotate</button>
+														</div>
+														<div class="satellite"></div>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
-									<div class="table-row-top">
-										<div class="requirements">
+									<div class="col-right">
+										<div id="power_list" class="list">
 											<h3></h3>
+											<ul>
+											</ul>
 										</div>
-									</div>
-								</div>
-							</div>
-							<div class="table-right">
-								<div id="power_list" class="list">
-									<h3></h3>
-									<ul>
-									</ul>
+									</div><!-- end right -->
 								</div>
 							</div>
 						</div>

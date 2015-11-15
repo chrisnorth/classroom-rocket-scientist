@@ -279,10 +279,53 @@ section#launch { background-color: $black-1; color: $grey-5; }
 #type .holder p { text-align: left; }
 .not-at-start { display: none; }
 
+
+.lower { width: 100%; }
+.row-flex, .row-flex > div[class*='col-'] {  
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex:1 1 auto;
+	height: 100%;
+}
+
+.row-flex-wrap {
+	width: 100%;
+	-webkit-flex-flow: row wrap;
+	align-content: flex-start;
+	flex:0;
+}
+
+.row-flex > div[class*='col-'] {
+	 /*margin:-.2px;*/ /* hack adjust for wrapping */
+}
+
+.row-flex > div[class*='col-'] .flex {
+	width:100%;
+}
+.flex-col {
+	display: flex;
+	display: -webkit-flex;
+	flex: 1 100%;
+	width: 100%;
+	flex-flow: column nowrap;
+}
+.flex-grow {
+	display: flex;
+	-webkit-flex: 2;
+	flex: 2;
+}
+.col-left { width: 55%; }
+.col-right { width: 45%; position: relative; }
+
+
 $pattern_a: transparent 49%, white 49.4%, white 50.6%, transparent 51%, transparent;
 $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 
 .satellite-holder {
+	min-height: 200px;
 	margin: auto;
 	position: relative;
 	overflow: hidden;
@@ -292,7 +335,14 @@ $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 	display: table;
 	height: 100%;
 	max-height: 100vh;
+	bottom: 0px;
 }
+
+
+
+
+
+
 .isogrid {
 	background: $blue-5;
 	background-image: -webkit-linear-gradient(0deg, $pattern_b), -webkit-linear-gradient(-90deg, $pattern_b);
@@ -344,7 +394,7 @@ button.selected:hover, button.selected:focus {
 .zoomcontrol { position: absolute; padding: $padding; left: 0px; top: 0px; font-size: 16px; }
 .zoomcontrol button { line-height: 0.8em; }
 
-.list { height: 100%; overflow-y: auto; position: absolute; top: 0px; right: 0px; left: 0px; bottom: 0px; margin-left: $padding; }
+.list { position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; overflow-y: auto; margin-left: $padding; }
 .list li { display: table; width: 100%; margin-bottom: $padding; }
 .list li:last-child { border-bottom: 0px; margin-bottom: 0; }
 .list li .list-bar, .list li .list-left,.list li .list-right { display: table-cell; width: auto; vertical-align: top; }
@@ -384,11 +434,13 @@ button.selected:hover, button.selected:focus {
 	text-align: center;
 }
 .requirements {
-	background-color: $grey-5;
-	height: auto;
-	padding: $padding;
-	margin-top: $padding;
 }
+.requirements .padder {
+	background-color: $grey-5;
+	padding: $s*0.5;
+	margin-bottom: $s*0.5;
+}
+
 #bus .satellite:hover {
 	cursor: pointer;
 }

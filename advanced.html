@@ -244,291 +244,295 @@
 
 			<section id="instrument" class="view">
 				<div class="padded">
-					<div class="table expander-page">
+					<div class="table">
 						<div class="table-row-top">
 							<h2>Select the instruments for your satellite</h2>
 							<p>To complete your mission you will need the correct instruments. You only have a limited number of slots and money so choose wisely.</p>
 							<button class="fancy" onClick="toggleComms()">Toggle communications</button>
 						</div>
 						<div class="table-row">
-							<div class="table-left">
-								<div class="table expander-left">
-									<div class="table-row">
-										<div id="satellite" class="satellite-holder isogrid threeD">
-											<div class="holder" id="sat">
-												<div class="zoomcontrol">
-													<button class="fancy" onclick="zoom(this,1.1)">&plus;</button>
-													<button class="fancy" onclick="zoom(this,1/1.1)">&minus;</button>
-													<button class="fancy" onclick="toggle3D(this)">3D/2D</button>
+							<div class="lower">
+								<div class="row-flex row-flex-wrap">
+									<div class="col-left">
+										<div class="flex-col">
+											<div class="requirements">
+												<div class="padder">
+													<h3>Requirements</h3>
 												</div>
-												<div class="satellite"></div>
+											</div>
+											<div class="flex-grow">
+												<div id="satellite" class="satellite-holder isogrid threeD">
+													<div class="holder" id="sat">
+														<div class="zoomcontrol">
+															<button class="fancy" onclick="zoom(this,1.1)">&plus;</button>
+															<button class="fancy" onclick="zoom(this,1/1.1)">&minus;</button>
+															<button class="fancy" onclick="toggle3D(this)">3D/2D</button>
+														</div>
+														<div class="satellite"></div>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
-									<div class="table-row-top">
-										<div class="requirements">
-											<h3>Requirements</h3>
+									<div class="col-right">
+										<div id="instrument_list" class="list">
+											<h3>Available instruments:</h3>
+											<ul>
+												<li data-package="atomic-clock">
+													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot2x2"><div class="eg"><img src="images/package_atomic-clock.jpg" alt="" /></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>Atomic clock</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.1" class="length value convertable">0.1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.1" class="length value convertable">0.1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span></div -->
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="50000" class="value convertable">50000 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="1" class="value convertable">1 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="10" class="value convertable">10 watts</span></div>
+														<div class="package_desc">Navigation (GPS timing)</div>
+													</div>
+												</li>
+												<li data-package="atomic-clock-small">
+													<div class="list-bar bg1x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot1x2"><div class="eg"><img src="images/package_atomic-clock-small.jpg" alt="" /></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>Atomic clock (compact)</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.1" class="length value convertable">0.1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.1" class="length value convertable">0.1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span></div -->
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="50000" class="value convertable">50000 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="1" class="value convertable">1 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="10" class="value convertable">10 watts</span></div>
+														<div class="package_desc">Navigation (GPS timing)</div>
+													</div>
+												</li>
+												<li data-package="camera-fir">
+													<div class="list-bar bg2x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot2x4"><div class="eg"><img src="images/package_camera-fir.jpg" alt="" /></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>Camera (FIR)</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="100" class="value convertable">100 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="300" class="value convertable">300 watts</span></div>
+														<div class="package_desc">Images of clouds</div>
+													</div>
+												</li>
+												<li data-package="camera-mini">
+													<div class="list-bar bg1x1"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot1x1"><div class="eg"><img src="images/package_camera-mini.jpg" alt="" /></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>Camera (miniature)</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.1" class="length value convertable">0.1 metres</span></div -->
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="50000" class="value convertable">50000 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="1" class="value convertable">1 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="5" class="value convertable">5 watts</span></div>
+														<div class="package_desc">Images of ground</div>
+													</div>
+												</li>
+												<li data-package="camera-nir">
+													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot2x2"><div class="eg"><img src="images/package_camera-nir.jpg" alt="" /></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>Camera (NIR)</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="50" class="value convertable">50 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="50" class="value convertable">50 watts</span></div>
+														<div class="package_desc">Images of vegetation</div>
+													</div>
+												</li>
+												<li data-package="camera-opt">
+													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot2x2"><div class="eg"><img src="images/package_camera-opt.jpg" alt="" /></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>Camera (optical)</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="50" class="value convertable">50 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="50" class="value convertable">50 watts</span></div>
+														<div class="package_desc">Images of ground</div>
+													</div>
+												</li>
+												<li data-package="dish-large">
+													<div class="list-bar bg4x8"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot4x8"><div class="eg-bg"><img src="images/cleardot.gif" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>Radio dish (large)</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="2" class="length value convertable">2 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="2" class="length value convertable">2 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span></div -->
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="30" class="value convertable">30 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="0" class="value convertable">0 watts</span></div>
+														<div class="package_desc">For up to 8 instruments</div>
+													</div>
+												</li>
+												<li data-package="dish-medium">
+													<div class="list-bar bg2x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot2x4"><div class="eg-bg"><img src="images/cleardot.gif" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>Radio dish</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="20" class="value convertable">20 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="0" class="value convertable">0 watts</span></div>
+														<div class="package_desc">For up to 4 instruments</div>
+													</div>
+												</li>
+												<li data-package="dish-small">
+													<div class="list-bar bg1x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot1x2"><div class="eg-bg"><img src="images/cleardot.gif" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>Radio antenna (compact)</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.1" class="length value convertable">0.1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span></div -->
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="0.5" class="value convertable">0.5 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="0" class="value convertable">0 watts</span></div>
+														<div class="package_desc">For up to 2 instruments</div>
+													</div>
+												</li>
+												<li data-package="gps-rx">
+													<div class="list-bar bg1x1"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot1x1"><div class="eg"><img src="images/package_gps-rx.jpg" alt="" /></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>GPS receiver (miniature)</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.1" class="length value convertable">0.1 metres</span></div -->
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="0.5" class="value convertable">0.5 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="5" class="value convertable">5 watts</span></div>
+														<div class="package_desc">Positioning</div>
+													</div>
+												</li>
+												<li data-package="radar-alt">
+													<div class="list-bar bg2x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot2x4"><div class="eg"><img src="images/package_radar-alt.jpg" alt="" /></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>Radar altimeter</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="40" class="value convertable">40 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="70" class="value convertable">70 watts</span></div>
+														<div class="package_desc">Measuring topography</div>
+													</div>
+												</li>
+												<li data-package="radar-dish">
+													<div class="list-bar bg4x8"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot4x8"><div class="eg-bg radar"><img src="images/cleardot.gif" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>Radar dish</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="2" class="length value convertable">2 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="2" class="length value convertable">2 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span></div -->
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="40" class="value convertable">40 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="0" class="value convertable">0 watts</span></div>
+														<div class="package_desc">Measuring topography</div>
+													</div>
+												</li>
+												<li data-package="radio-antenna-cube">
+													<div class="list-bar bg0x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot0x2"><div class="eg"><img src="images/package_radio-antenna-cube.jpg" alt="" /><div class="aerial1 aerial"></div></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>Radio antenna (deployable)</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.98" class="length value convertable">0.98 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.98" class="length value convertable">0.98 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.07" class="length value convertable">0.07 metres</span></div -->
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="EUR" data-value="4500" class="value convertable">4500 EUR</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="0.1" class="value convertable">0.1 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="2" class="value convertable">2 watts</span></div>
+														<div class="package_desc">For up to 2 instruments</div>
+													</div>
+												</li>
+												<li data-package="radio-rx">
+													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot2x2"><div class="eg"><img src="images/package_radio-rx.jpg" alt="" /></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>Radio receiver</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="10" class="value convertable">10 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="20" class="value convertable">20 watts</span></div>
+														<div class="package_desc">Communications</div>
+													</div>
+												</li>
+												<li data-package="radio-tx">
+													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot2x2"><div class="eg"><img src="images/package_radio-tx.jpg" alt="" /></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>Radio transmitter</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="10" class="value convertable">10 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="20" class="value convertable">20 watts</span></div>
+														<div class="package_desc">Communications</div>
+													</div>
+												</li>
+												<li data-package="spect-fir">
+													<div class="list-bar bg2x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot2x4"><div class="eg"><img src="images/package_spect-fir.jpg" alt="" /></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>Spectrometer (FIR)</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="100" class="value convertable">100 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="300" class="value convertable">300 watts</span></div>
+														<div class="package_desc">Properties of clouds</div>
+													</div>
+												</li>
+												<li data-package="spect-nir">
+													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot2x2"><div class="eg"><img src="images/package_spect-nir.jpg" alt="" /></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>Spectrometer (NIR)</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="50" class="value convertable">50 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="150" class="value convertable">150 watts</span></div>
+														<div class="package_desc">Properties of vegetation</div>
+													</div>
+												</li>
+												<li data-package="spect-opt">
+													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot2x2"><div class="eg"><img src="images/package_spect-opt.jpg" alt="" /></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>Spectrometer (optical)</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="50" class="value convertable">50 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="150" class="value convertable">150 watts</span></div>
+														<div class="package_desc">Properties of ground</div>
+													</div>
+												</li>
+											</ul>
 										</div>
-									</div>
-								</div>
-							</div>
-							<div class="table-right">
-								<div id="instrument_list" class="list">
-									<h3>Available instruments:</h3>
-									<ul>
-										<li data-package="atomic-clock">
-											<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot2x2"><div class="eg"><img src="images/package_atomic-clock.jpg" alt="" /></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>Atomic clock</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.1" class="length value convertable">0.1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.1" class="length value convertable">0.1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span></div -->
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="50000" class="value convertable">50000 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="1" class="value convertable">1 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="10" class="value convertable">10 watts</span></div>
-												<div class="package_desc">Navigation (GPS timing)</div>
-											</div>
-										</li>
-										<li data-package="atomic-clock-small">
-											<div class="list-bar bg1x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot1x2"><div class="eg"><img src="images/package_atomic-clock-small.jpg" alt="" /></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>Atomic clock (compact)</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.1" class="length value convertable">0.1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.1" class="length value convertable">0.1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span></div -->
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="50000" class="value convertable">50000 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="1" class="value convertable">1 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="10" class="value convertable">10 watts</span></div>
-												<div class="package_desc">Navigation (GPS timing)</div>
-											</div>
-										</li>
-										<li data-package="camera-fir">
-											<div class="list-bar bg2x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot2x4"><div class="eg"><img src="images/package_camera-fir.jpg" alt="" /></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>Camera (FIR)</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="100" class="value convertable">100 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="300" class="value convertable">300 watts</span></div>
-												<div class="package_desc">Images of clouds</div>
-											</div>
-										</li>
-										<li data-package="camera-mini">
-											<div class="list-bar bg1x1"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot1x1"><div class="eg"><img src="images/package_camera-mini.jpg" alt="" /></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>Camera (miniature)</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.1" class="length value convertable">0.1 metres</span></div -->
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="50000" class="value convertable">50000 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="1" class="value convertable">1 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="5" class="value convertable">5 watts</span></div>
-												<div class="package_desc">Images of ground</div>
-											</div>
-										</li>
-										<li data-package="camera-nir">
-											<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot2x2"><div class="eg"><img src="images/package_camera-nir.jpg" alt="" /></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>Camera (NIR)</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="50" class="value convertable">50 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="50" class="value convertable">50 watts</span></div>
-												<div class="package_desc">Images of vegetation</div>
-											</div>
-										</li>
-										<li data-package="camera-opt">
-											<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot2x2"><div class="eg"><img src="images/package_camera-opt.jpg" alt="" /></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>Camera (optical)</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="50" class="value convertable">50 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="50" class="value convertable">50 watts</span></div>
-												<div class="package_desc">Images of ground</div>
-											</div>
-										</li>
-										<li data-package="dish-large">
-											<div class="list-bar bg4x8"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot4x8"><div class="eg-bg"><img src="images/cleardot.gif" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>Radio dish (large)</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="2" class="length value convertable">2 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="2" class="length value convertable">2 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span></div -->
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="30" class="value convertable">30 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="0" class="value convertable">0 watts</span></div>
-												<div class="package_desc">For up to 8 instruments</div>
-											</div>
-										</li>
-										<li data-package="dish-medium">
-											<div class="list-bar bg2x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot2x4"><div class="eg-bg"><img src="images/cleardot.gif" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>Radio dish</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="20" class="value convertable">20 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="0" class="value convertable">0 watts</span></div>
-												<div class="package_desc">For up to 4 instruments</div>
-											</div>
-										</li>
-										<li data-package="dish-small">
-											<div class="list-bar bg1x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot1x2"><div class="eg-bg"><img src="images/cleardot.gif" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>Radio antenna (compact)</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.1" class="length value convertable">0.1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span></div -->
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="0.5" class="value convertable">0.5 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="0" class="value convertable">0 watts</span></div>
-												<div class="package_desc">For up to 2 instruments</div>
-											</div>
-										</li>
-										<li data-package="gps-rx">
-											<div class="list-bar bg1x1"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot1x1"><div class="eg"><img src="images/package_gps-rx.jpg" alt="" /></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>GPS receiver (miniature)</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.1" class="length value convertable">0.1 metres</span></div -->
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="0.5" class="value convertable">0.5 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="5" class="value convertable">5 watts</span></div>
-												<div class="package_desc">Positioning</div>
-											</div>
-										</li>
-										<li data-package="radar-alt">
-											<div class="list-bar bg2x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot2x4"><div class="eg"><img src="images/package_radar-alt.jpg" alt="" /></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>Radar altimeter</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="40" class="value convertable">40 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="70" class="value convertable">70 watts</span></div>
-												<div class="package_desc">Measuring topography</div>
-											</div>
-										</li>
-										<li data-package="radar-dish">
-											<div class="list-bar bg4x8"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot4x8"><div class="eg-bg radar"><img src="images/cleardot.gif" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>Radar dish</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="2" class="length value convertable">2 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="2" class="length value convertable">2 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span></div -->
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="40" class="value convertable">40 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="0" class="value convertable">0 watts</span></div>
-												<div class="package_desc">Measuring topography</div>
-											</div>
-										</li>
-										<li data-package="radio-antenna-cube">
-											<div class="list-bar bg0x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot0x2"><div class="eg"><img src="images/package_radio-antenna-cube.jpg" alt="" /><div class="aerial1 aerial"></div></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>Radio antenna (deployable)</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.98" class="length value convertable">0.98 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.98" class="length value convertable">0.98 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.07" class="length value convertable">0.07 metres</span></div -->
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="EUR" data-value="4500" class="value convertable">4500 EUR</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="0.1" class="value convertable">0.1 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="2" class="value convertable">2 watts</span></div>
-												<div class="package_desc">For up to 2 instruments</div>
-											</div>
-										</li>
-										<li data-package="radio-rx">
-											<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot2x2"><div class="eg"><img src="images/package_radio-rx.jpg" alt="" /></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>Radio receiver</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="10" class="value convertable">10 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="20" class="value convertable">20 watts</span></div>
-												<div class="package_desc">Communications</div>
-											</div>
-										</li>
-										<li data-package="radio-tx">
-											<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot2x2"><div class="eg"><img src="images/package_radio-tx.jpg" alt="" /></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>Radio transmitter</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="10" class="value convertable">10 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="20" class="value convertable">20 watts</span></div>
-												<div class="package_desc">Communications</div>
-											</div>
-										</li>
-										<li data-package="spect-fir">
-											<div class="list-bar bg2x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot2x4"><div class="eg"><img src="images/package_spect-fir.jpg" alt="" /></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>Spectrometer (FIR)</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="100" class="value convertable">100 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="300" class="value convertable">300 watts</span></div>
-												<div class="package_desc">Properties of clouds</div>
-											</div>
-										</li>
-										<li data-package="spect-nir">
-											<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot2x2"><div class="eg"><img src="images/package_spect-nir.jpg" alt="" /></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>Spectrometer (NIR)</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="50" class="value convertable">50 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="150" class="value convertable">150 watts</span></div>
-												<div class="package_desc">Properties of vegetation</div>
-											</div>
-										</li>
-										<li data-package="spect-opt">
-											<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot2x2"><div class="eg"><img src="images/package_spect-opt.jpg" alt="" /></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>Spectrometer (optical)</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="50" class="value convertable">50 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="150" class="value convertable">150 watts</span></div>
-												<div class="package_desc">Properties of ground</div>
-											</div>
-										</li>
-									</ul>
+									</div><!-- end right -->
 								</div>
 							</div>
 						</div>
@@ -548,113 +552,117 @@
 							<button class="fancy" onClick="toggleSolar()">Toggle fixed solar panels</button>
 						</div>
 						<div class="table-row">
-							<div class="table-left expander-left">
-								<div class="table">
-									<div class="table-row">
-										<div id="satellite-power" class="satellite-holder isogrid threeD">
-											<div class="holder" id="sat-power">
-												<div class="zoomcontrol">
-													<button class="fancy" onclick="zoom(this,1.1)">&plus;</button>
-													<button class="fancy" onclick="zoom(this,1/1.1)">&minus;</button>
-													<button class="fancy" onclick="toggle3D(this)">3D/2D</button>
-													<button class="fancy" onClick="toggleAnimation()">Rotate</button>
+							<div class="lower">
+								<div class="row-flex row-flex-wrap">
+									<div class="col-left">
+										<div class="flex-col">
+											<div class="requirements">
+												<div class="padder">
+													<h3>Requirements</h3>
 												</div>
-												<div class="satellite"></div>
+											</div>
+											<div class="flex-grow">
+												<div id="satellite-power" class="satellite-holder isogrid threeD">
+													<div class="holder" id="sat-power">
+														<div class="zoomcontrol">
+															<button class="fancy" onclick="zoom(this,1.1)">&plus;</button>
+															<button class="fancy" onclick="zoom(this,1/1.1)">&minus;</button>
+															<button class="fancy" onclick="toggle3D(this)">3D/2D</button>
+															<button class="fancy" onClick="toggleAnimation()">Rotate</button>
+														</div>
+														<div class="satellite"></div>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
-									<div class="table-row-top">
-										<div class="requirements">
-											<h3>Requirements</h3>
+									<div class="col-right">
+										<div id="power_list" class="list">
+											<h3>Available power devices:</h3>
+											<ul>
+												<li data-package="battery-large">
+													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot2x2"><div class="eg"></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>Large battery</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
+														
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="50" class="value convertable">50 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="500" class="value convertable">500 watts</span></div>
+														
+														<div class="package_desc">Provides power</div>
+													</div>
+												</li>
+												<li data-package="battery-small">
+													<div class="list-bar bg1x1"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot1x1"><div class="eg"></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>Small battery</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span></div -->
+														
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="1" class="value convertable">1 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="30" class="value convertable">30 watts</span></div>
+														
+														<div class="package_desc">Provides power</div>
+													</div>
+												</li>
+												<li data-package="rtg">
+													<div class="list-bar bg2x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot2x4"><div class="eg"></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>RTG</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span></div -->
+														
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="60" class="value convertable">60 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="300" class="value convertable">300 watts</span></div>
+														
+														<div class="package_desc">Provides power</div>
+													</div>
+												</li>
+												<li data-package="solar-panel">
+													<div class="list-bar bg4x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot4x4"><div class="eg"></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>Deployable solar panel</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="" data-units="" data-value="" class="length value convertable"> </span></div -->
+														
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="10" class="value convertable">10 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="300" class="value convertable">300 watts</span></div>
+														
+														<div class="package_desc">Provides power</div>
+													</div>
+												</li>
+												<li data-package="solar-panel-surface">
+													<div class="list-bar bg4x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot4x4"><div class="eg"></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong>Body-mounted solar panel</strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="" data-units="" data-value="" class="length value convertable"> </span></div -->
+														
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="5" class="value convertable">5 kg</span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="150" class="value convertable">150 watts</span></div>
+														
+														<div class="package_desc">Provides power</div>
+													</div>
+												</li>
+											</ul>
 										</div>
-									</div>
-								</div>
-							</div>
-							<div class="table-right">
-								<div id="power_list" class="list">
-									<h3>Available power devices:</h3>
-									<ul>
-										<li data-package="battery-large">
-											<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot2x2"><div class="eg"></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>Large battery</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span></div -->
-												
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="50" class="value convertable">50 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="500" class="value convertable">500 watts</span></div>
-												
-												<div class="package_desc">Provides power</div>
-											</div>
-										</li>
-										<li data-package="battery-small">
-											<div class="list-bar bg1x1"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot1x1"><div class="eg"></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>Small battery</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.05" class="length value convertable">0.05 metres</span></div -->
-												
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="1" class="value convertable">1 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="30" class="value convertable">30 watts</span></div>
-												
-												<div class="package_desc">Provides power</div>
-											</div>
-										</li>
-										<li data-package="rtg">
-											<div class="list-bar bg2x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot2x4"><div class="eg"></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>RTG</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="0.5" class="length value convertable">0.5 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span></div -->
-												
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="60" class="value convertable">60 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="300" class="value convertable">300 watts</span></div>
-												
-												<div class="package_desc">Provides power</div>
-											</div>
-										</li>
-										<li data-package="solar-panel">
-											<div class="list-bar bg4x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot4x4"><div class="eg"></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>Deployable solar panel</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="" data-units="" data-value="" class="length value convertable"> </span></div -->
-												
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="10" class="value convertable">10 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="300" class="value convertable">300 watts</span></div>
-												
-												<div class="package_desc">Provides power</div>
-											</div>
-										</li>
-										<li data-package="solar-panel-surface">
-											<div class="list-bar bg4x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot4x4"><div class="eg"></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong>Body-mounted solar panel</strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="length" data-units="metres" data-value="1" class="length value convertable">1 metres</span> &times; <span data-dimension="" data-units="" data-value="" class="length value convertable"> </span></div -->
-												
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="currency" data-units="GBP" data-value="0" class="value convertable">0 GBP</span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="mass" data-units="kg" data-value="5" class="value convertable">5 kg</span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="power" data-units="watts" data-value="150" class="value convertable">150 watts</span></div>
-												
-												<div class="package_desc">Provides power</div>
-											</div>
-										</li>
-									</ul>
+									</div><!-- end right -->
 								</div>
 							</div>
 						</div>

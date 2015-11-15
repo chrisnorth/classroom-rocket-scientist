@@ -145,53 +145,57 @@
 
 			<section id="instrument" class="view">
 				<div class="padded">
-					<div class="table expander-page">
+					<div class="table">
 						<div class="table-row-top">
 							<h2><!--#echo var="ui.sections.instrument.title" --></h2>
 							<p><!--#echo var="ui.sections.instrument.intro" --></p>
 							<button class="fancy" onClick="toggleComms()">Toggle communications</button>
 						</div>
 						<div class="table-row">
-							<div class="table-left">
-								<div class="table expander-left">
-									<div class="table-row">
-										<div id="satellite" class="satellite-holder isogrid threeD">
-											<div class="holder" id="sat">
-												<div class="zoomcontrol">
-													<button class="fancy" onclick="zoom(this,1.1)">&plus;</button>
-													<button class="fancy" onclick="zoom(this,1/1.1)">&minus;</button>
-													<button class="fancy" onclick="toggle3D(this)">3D/2D</button>
+							<div class="lower">
+								<div class="row-flex row-flex-wrap">
+									<div class="col-left">
+										<div class="flex-col">
+											<div class="requirements">
+												<div class="padder">
+													<h3><!--#echo var="ui.requirements.title" --></h3>
 												</div>
-												<div class="satellite"></div>
+											</div>
+											<div class="flex-grow">
+												<div id="satellite" class="satellite-holder isogrid threeD">
+													<div class="holder" id="sat">
+														<div class="zoomcontrol">
+															<button class="fancy" onclick="zoom(this,1.1)">&plus;</button>
+															<button class="fancy" onclick="zoom(this,1/1.1)">&minus;</button>
+															<button class="fancy" onclick="toggle3D(this)">3D/2D</button>
+														</div>
+														<div class="satellite"></div>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
-									<div class="table-row-top">
-										<div class="requirements">
-											<h3><!--#echo var="ui.requirements.title" --></h3>
+									<div class="col-right">
+										<div id="instrument_list" class="list">
+											<h3><!--#echo var="ui.sections.instrument.list" --></h3>
+											<ul><!--#for each="package" name="instrumentloop" -->
+												<li data-package="<!--#json name="this" -->">
+													<div class="list-bar bg<!--#json name="slot" -->"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot<!--#json name="slot" -->"><div class="eg<!--#json name="image.class" -->"><img src="<!--#json name="image.file" -->" alt="<!--#json name="image.alt" -->" /><!--#json name="image.html" --></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong><!--#json name="title" --></strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="<!--#json name="dimensions[0].dimension" -->" data-units="<!--#json name="dimensions[0].units" -->" data-value="<!--#json name="dimensions[0].value" -->" class="length value convertable"><!--#json name="dimensions[0].value" --> <!--#json name="dimensions[0].units" --></span> &times; <span data-dimension="<!--#json name="dimensions[1].dimension" -->" data-units="<!--#json name="dimensions[1].units" -->" data-value="<!--#json name="dimensions[1].value" -->" class="length value convertable"><!--#json name="dimensions[1].value" --> <!--#json name="dimensions[1].units" --></span> &times; <span data-dimension="<!--#json name="dimensions[2].dimension" -->" data-units="<!--#json name="dimensions[2].units" -->" data-value="<!--#json name="dimensions[2].value" -->" class="length value convertable"><!--#json name="dimensions[2].value" --> <!--#json name="dimensions[2].units" --></span></div -->
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="<!--#json name="cost.dimension" -->" data-units="<!--#json name="cost.units" -->" data-value="<!--#json name="cost.value" -->" class="value convertable"><!--#json name="cost.value" --> <!--#json name="cost.units" --></span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="<!--#json name="mass.dimension" -->" data-units="<!--#json name="mass.units" -->" data-value="<!--#json name="mass.value" -->" class="value convertable"><!--#json name="mass.value" --> <!--#json name="mass.units" --></span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="<!--#json name="power.dimension" -->" data-units="<!--#json name="power.units" -->" data-value="<!--#json name="power.value" -->" class="value convertable"><!--#json name="power.value" --> <!--#json name="power.units" --></span></div>
+														<div class="package_desc"><!--#json name="description" --></div>
+													</div>
+												</li><!--#endfor name="instrumentloop" -->
+											</ul>
 										</div>
-									</div>
-								</div>
-							</div>
-							<div class="table-right">
-								<div id="instrument_list" class="list">
-									<h3><!--#echo var="ui.sections.instrument.list" --></h3>
-									<ul><!--#for each="package" name="instrumentloop" -->
-										<li data-package="<!--#json name="this" -->">
-											<div class="list-bar bg<!--#json name="slot" -->"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot<!--#json name="slot" -->"><div class="eg<!--#json name="image.class" -->"><img src="<!--#json name="image.file" -->" alt="<!--#json name="image.alt" -->" /><!--#json name="image.html" --></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong><!--#json name="title" --></strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="<!--#json name="dimensions[0].dimension" -->" data-units="<!--#json name="dimensions[0].units" -->" data-value="<!--#json name="dimensions[0].value" -->" class="length value convertable"><!--#json name="dimensions[0].value" --> <!--#json name="dimensions[0].units" --></span> &times; <span data-dimension="<!--#json name="dimensions[1].dimension" -->" data-units="<!--#json name="dimensions[1].units" -->" data-value="<!--#json name="dimensions[1].value" -->" class="length value convertable"><!--#json name="dimensions[1].value" --> <!--#json name="dimensions[1].units" --></span> &times; <span data-dimension="<!--#json name="dimensions[2].dimension" -->" data-units="<!--#json name="dimensions[2].units" -->" data-value="<!--#json name="dimensions[2].value" -->" class="length value convertable"><!--#json name="dimensions[2].value" --> <!--#json name="dimensions[2].units" --></span></div -->
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="<!--#json name="cost.dimension" -->" data-units="<!--#json name="cost.units" -->" data-value="<!--#json name="cost.value" -->" class="value convertable"><!--#json name="cost.value" --> <!--#json name="cost.units" --></span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="<!--#json name="mass.dimension" -->" data-units="<!--#json name="mass.units" -->" data-value="<!--#json name="mass.value" -->" class="value convertable"><!--#json name="mass.value" --> <!--#json name="mass.units" --></span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="<!--#json name="power.dimension" -->" data-units="<!--#json name="power.units" -->" data-value="<!--#json name="power.value" -->" class="value convertable"><!--#json name="power.value" --> <!--#json name="power.units" --></span></div>
-												<div class="package_desc"><!--#json name="description" --></div>
-											</div>
-										</li><!--#endfor name="instrumentloop" -->
-									</ul>
+									</div><!-- end right -->
 								</div>
 							</div>
 						</div>
@@ -211,53 +215,57 @@
 							<button class="fancy" onClick="toggleSolar()">Toggle fixed solar panels</button>
 						</div>
 						<div class="table-row">
-							<div class="table-left expander-left">
-								<div class="table">
-									<div class="table-row">
-										<div id="satellite-power" class="satellite-holder isogrid threeD">
-											<div class="holder" id="sat-power">
-												<div class="zoomcontrol">
-													<button class="fancy" onclick="zoom(this,1.1)">&plus;</button>
-													<button class="fancy" onclick="zoom(this,1/1.1)">&minus;</button>
-													<button class="fancy" onclick="toggle3D(this)">3D/2D</button>
-													<button class="fancy" onClick="toggleAnimation()">Rotate</button>
+							<div class="lower">
+								<div class="row-flex row-flex-wrap">
+									<div class="col-left">
+										<div class="flex-col">
+											<div class="requirements">
+												<div class="padder">
+													<h3><!--#echo var="ui.requirements.title" --></h3>
 												</div>
-												<div class="satellite"></div>
+											</div>
+											<div class="flex-grow">
+												<div id="satellite-power" class="satellite-holder isogrid threeD">
+													<div class="holder" id="sat-power">
+														<div class="zoomcontrol">
+															<button class="fancy" onclick="zoom(this,1.1)">&plus;</button>
+															<button class="fancy" onclick="zoom(this,1/1.1)">&minus;</button>
+															<button class="fancy" onclick="toggle3D(this)">3D/2D</button>
+															<button class="fancy" onClick="toggleAnimation()">Rotate</button>
+														</div>
+														<div class="satellite"></div>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
-									<div class="table-row-top">
-										<div class="requirements">
-											<h3><!--#echo var="ui.requirements.title" --></h3>
+									<div class="col-right">
+										<div id="power_list" class="list">
+											<h3><!--#echo var="ui.sections.power.list" --></h3>
+											<ul><!--#for each="power" name="powerloop" -->
+												<li data-package="<!--#json name="this" -->">
+													<div class="list-bar bg<!--#json name="slot" -->"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-left">
+														<div class="package_slot"><div class="slot slot<!--#json name="slot" -->"><div class="eg<!--#json name="image.class" -->"><!--#json name="image.html" --></div></div></div>
+													</div>
+													<div class="list-right">
+														<div class="package_title"><strong><!--#json name="title" --></strong></div>
+														<!-- div class="package_size">Size: <span data-dimension="<!--#json name="dimensions[0].dimension" -->" data-units="<!--#json name="dimensions[0].units" -->" data-value="<!--#json name="dimensions[0].value" -->" class="length value convertable"><!--#json name="dimensions[0].value" --> <!--#json name="dimensions[0].units" --></span> &times; <span data-dimension="<!--#json name="dimensions[1].dimension" -->" data-units="<!--#json name="dimensions[1].units" -->" data-value="<!--#json name="dimensions[1].value" -->" class="length value convertable"><!--#json name="dimensions[1].value" --> <!--#json name="dimensions[1].units" --></span> &times; <span data-dimension="<!--#json name="dimensions[2].dimension" -->" data-units="<!--#json name="dimensions[2].units" -->" data-value="<!--#json name="dimensions[2].value" -->" class="length value convertable"><!--#json name="dimensions[2].value" --> <!--#json name="dimensions[2].units" --></span></div -->
+														<!--#if expr="${LEVEL} = /beginner/"-->
+														<!--#elif expr="${LEVEL} = /intermediate/"-->
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="<!--#json name="mass.dimension" -->" data-units="<!--#json name="mass.units" -->" data-value="<!--#json name="mass.value" -->" class="mass value convertable"><!--#json name="mass.value" --> <!--#json name="mass.units" --></span></div>
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="<!--#json name="cost.dimension" -->" data-units="<!--#json name="cost.units" -->" data-value="<!--#json name="cost.value" -->" class="cost value convertable"><!--#json name="cost.value" --> <!--#json name="cost.units" --></span></div>
+														<!--#elif expr="${LEVEL} = /advanced/"-->
+														<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="<!--#json name="cost.dimension" -->" data-units="<!--#json name="cost.units" -->" data-value="<!--#json name="cost.value" -->" class="value convertable"><!--#json name="cost.value" --> <!--#json name="cost.units" --></span></div>
+														<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="<!--#json name="mass.dimension" -->" data-units="<!--#json name="mass.units" -->" data-value="<!--#json name="mass.value" -->" class="value convertable"><!--#json name="mass.value" --> <!--#json name="mass.units" --></span></div>
+														<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="<!--#json name="power.dimension" -->" data-units="<!--#json name="power.units" -->" data-value="<!--#json name="power.value" -->" class="value convertable"><!--#json name="power.value" --> <!--#json name="power.units" --></span></div>
+														<!--#else--><!--#endif-->
+														<div class="package_desc"><!--#json name="description" --></div>
+													</div>
+												</li><!--#endfor name="powerloop" -->
+											</ul>
 										</div>
-									</div>
-								</div>
-							</div>
-							<div class="table-right">
-								<div id="power_list" class="list">
-									<h3><!--#echo var="ui.sections.power.list" --></h3>
-									<ul><!--#for each="power" name="powerloop" -->
-										<li data-package="<!--#json name="this" -->">
-											<div class="list-bar bg<!--#json name="slot" -->"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
-											<div class="list-left">
-												<div class="package_slot"><div class="slot slot<!--#json name="slot" -->"><div class="eg<!--#json name="image.class" -->"><!--#json name="image.html" --></div></div></div>
-											</div>
-											<div class="list-right">
-												<div class="package_title"><strong><!--#json name="title" --></strong></div>
-												<!-- div class="package_size">Size: <span data-dimension="<!--#json name="dimensions[0].dimension" -->" data-units="<!--#json name="dimensions[0].units" -->" data-value="<!--#json name="dimensions[0].value" -->" class="length value convertable"><!--#json name="dimensions[0].value" --> <!--#json name="dimensions[0].units" --></span> &times; <span data-dimension="<!--#json name="dimensions[1].dimension" -->" data-units="<!--#json name="dimensions[1].units" -->" data-value="<!--#json name="dimensions[1].value" -->" class="length value convertable"><!--#json name="dimensions[1].value" --> <!--#json name="dimensions[1].units" --></span> &times; <span data-dimension="<!--#json name="dimensions[2].dimension" -->" data-units="<!--#json name="dimensions[2].units" -->" data-value="<!--#json name="dimensions[2].value" -->" class="length value convertable"><!--#json name="dimensions[2].value" --> <!--#json name="dimensions[2].units" --></span></div -->
-												<!--#if expr="${LEVEL} = /beginner/"-->
-												<!--#elif expr="${LEVEL} = /intermediate/"-->
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="<!--#json name="mass.dimension" -->" data-units="<!--#json name="mass.units" -->" data-value="<!--#json name="mass.value" -->" class="mass value convertable"><!--#json name="mass.value" --> <!--#json name="mass.units" --></span></div>
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="<!--#json name="cost.dimension" -->" data-units="<!--#json name="cost.units" -->" data-value="<!--#json name="cost.value" -->" class="cost value convertable"><!--#json name="cost.value" --> <!--#json name="cost.units" --></span></div>
-												<!--#elif expr="${LEVEL} = /advanced/"-->
-												<div class="package_cost"><img src="images/cleardot.gif" alt="Cost" class="icon cost" /> <span data-dimension="<!--#json name="cost.dimension" -->" data-units="<!--#json name="cost.units" -->" data-value="<!--#json name="cost.value" -->" class="value convertable"><!--#json name="cost.value" --> <!--#json name="cost.units" --></span></div>
-												<div class="package_mass"><img src="images/cleardot.gif" alt="Mass" class="icon mass" /> <span data-dimension="<!--#json name="mass.dimension" -->" data-units="<!--#json name="mass.units" -->" data-value="<!--#json name="mass.value" -->" class="value convertable"><!--#json name="mass.value" --> <!--#json name="mass.units" --></span></div>
-												<div class="package_power"><img src="images/cleardot.gif" alt="Power" class="icon power" /> <span data-dimension="<!--#json name="power.dimension" -->" data-units="<!--#json name="power.units" -->" data-value="<!--#json name="power.value" -->" class="value convertable"><!--#json name="power.value" --> <!--#json name="power.units" --></span></div>
-												<!--#else--><!--#endif-->
-												<div class="package_desc"><!--#json name="description" --></div>
-											</div>
-										</li><!--#endfor name="powerloop" -->
-									</ul>
+									</div><!-- end right -->
 								</div>
 							</div>
 						</div>

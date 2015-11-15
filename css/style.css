@@ -513,7 +513,52 @@ section#launch {
 .not-at-start {
   display: none; }
 
+.lower {
+  width: 100%; }
+
+.row-flex, .row-flex > div[class*='col-'] {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex: 1 1 auto;
+  height: 100%; }
+
+.row-flex-wrap {
+  width: 100%;
+  -webkit-flex-flow: row wrap;
+  align-content: flex-start;
+  flex: 0; }
+
+.row-flex > div[class*='col-'] {
+  /*margin:-.2px;*/
+  /* hack adjust for wrapping */ }
+
+.row-flex > div[class*='col-'] .flex {
+  width: 100%; }
+
+.flex-col {
+  display: flex;
+  display: -webkit-flex;
+  flex: 1 100%;
+  width: 100%;
+  flex-flow: column nowrap; }
+
+.flex-grow {
+  display: flex;
+  -webkit-flex: 2;
+  flex: 2; }
+
+.col-left {
+  width: 55%; }
+
+.col-right {
+  width: 45%;
+  position: relative; }
+
 .satellite-holder {
+  min-height: 200px;
   margin: auto;
   position: relative;
   overflow: hidden;
@@ -522,7 +567,8 @@ section#launch {
   text-align: center;
   display: table;
   height: 100%;
-  max-height: 100vh; }
+  max-height: 100vh;
+  bottom: 0px; }
 
 .isogrid {
   background: #e1f4fe;
@@ -639,13 +685,12 @@ button.selected:hover, button.selected:focus {
   line-height: 0.8em; }
 
 .list {
-  height: 100%;
-  overflow-y: auto;
   position: absolute;
   top: 0px;
-  right: 0px;
   left: 0px;
+  right: 0px;
   bottom: 0px;
+  overflow-y: auto;
   margin-left: 0.75em; }
 
 .list li {
@@ -740,11 +785,10 @@ button.selected:hover, button.selected:focus {
   vertical-align: middle;
   text-align: center; }
 
-.requirements {
+.requirements .padder {
   background-color: #efefef;
-  height: auto;
   padding: 0.75em;
-  margin-top: 0.75em; }
+  margin-bottom: 0.75em; }
 
 #bus .satellite:hover {
   cursor: pointer; }
