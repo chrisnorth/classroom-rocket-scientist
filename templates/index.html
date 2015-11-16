@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
-	<title>Classroom Rocket Scientist</title>
+	<title><!--#echo var="ui.title" --></title>
 	<link rel="stylesheet" media="all" href="css/fonts.css" type="text/css"/>
 	<link rel="stylesheet" media="all" href="css/style.css"  type="text/css" />
 	<!--[if !IE]> --><link href="tests/satellite/style-nonie.css" rel="stylesheet" type="text/css" media="screen" /><!-- <![endif]-->
@@ -20,15 +20,22 @@
 					</div>
 				</div>
 			</div>
+			<div id="progressbar"><div class="progress-inner"></div></div>
 		</header>
 
 		<div id="main">
 			<section id="start" class="view">
-				<div class="msg noscriptmsg">Oops! If you're seeing this it looks as though there's a problem which is preventing Classroom Rocket Scientist from working. It requires Javascript to be enabled (but does not require Flash or Java plugins). You can use the <a href="http://www.whatsmybrowser.org/">"What's my browser"</a> website to find out what browser version you're using, and whether Javascript is enabled.</div>
-				<div class="padded">
-					<h1><!--#echo var="ui.title" --></h1>
-					<p><!--#echo var="ui.introduction" --></p>
-					<a href="beginner.html">Beginner</a> / <a href="intermediate.html">Intermediate</a> / <a href="advanced.html">Advanced</a>
+				<div class="table">
+					<div class="table-row-top">
+						<div class="msg noscriptmsg"><!--#echo var="ui.nojs" --></div>
+					</div>
+					<div class="table-row">
+						<div class="padded">
+							<h1><!--#echo var="ui.title" --></h1>
+							<p><!--#echo var="ui.introduction" --></p>
+							<a href="beginner.html">Beginner</a> / <a href="intermediate.html">Intermediate</a> / <a href="advanced.html">Advanced</a>
+						</div>
+					</div>
 				</div>
 			</section>
 		</div>

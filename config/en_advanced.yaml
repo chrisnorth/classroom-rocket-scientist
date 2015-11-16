@@ -1,6 +1,6 @@
 ---
 ui.level:                                   (advanced)
-ui.nojs:                                    Oops! The interactive parts of this page need Javascript to be enabled. Sorry about that.
+ui.nojs:                                    Oops! The interactive parts of <em>Classroom rocket scientist</em> need Javascript to be enabled. Sorry about that.
 ui.title:                                   Classroom rocket scientist
 ui.introduction:                            This is an intro.
 ui.loading:                                 Loading space programme...

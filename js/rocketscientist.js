@@ -342,6 +342,9 @@ RocketScientist.prototype.getSections = function(){
 RocketScientist.prototype.init = function(data){
 
 	this.data = data;
+
+	if(E('body').hasClass('front')) return this;
+
 	var _obj = this;
 
 
