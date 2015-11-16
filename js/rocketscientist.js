@@ -342,17 +342,16 @@ RocketScientist.prototype.getSections = function(){
 RocketScientist.prototype.init = function(data){
 
 	this.data = data;
-
-	if(E('body').hasClass('front')) return this;
-
 	var _obj = this;
-
 
 	// Remove elements that show noscript messages
 	E('.noscriptmsg').remove();
 
 	// Remove classes from script only elements
 	E('.scriptonly').toggleClass('scriptonly');
+
+	if(E('body').hasClass('front')) return this;
+
 
 	// We hide elements that shouldn't be visible (but we are leaving visible
 	// in the plain HTML so there is something if Javascript doesn't work.
