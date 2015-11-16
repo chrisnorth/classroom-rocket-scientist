@@ -271,17 +271,16 @@ function E(e){
 		return tmp;
 	}
 	stuQuery.prototype.clone = function(){
-		var target = this.e[0];
-		var wrap = document.createElement('div');
-		wrap.appendChild(target.cloneNode(true));
-		return wrap.innerHTML;
+		var span = document.createElement('div');
+		span.appendChild(this.e[0].cloneNode(true));
+		return span.innerHTML;
 	}
 	stuQuery.prototype.replaceWith = function(html){
-		var myAnchor = this.e[0];
-		var mySpan = document.createElement("span");
-		mySpan.innerHTML = html;
-		this.e[0].parentNode.replaceChild(mySpan, this.e[0]);
-  		return this;
+		var span = document.createElement("span");
+		span.innerHTML = html;
+		var clone = E(this.e);
+		for(var i = 0; i < this.e.length; i++) clone.e[0].parentNode.replaceChild(span, clone.e[0]);
+  		return clone;
 	}
 	stuQuery.prototype.loadJSON = function(file,fn,attrs){
 
@@ -309,16 +308,40 @@ function E(e){
 
 
 
+
 function RocketScientist(){
 	this.z = {};
 	this.choices = {};
 	this.wide = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 	this.tall = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+	this.defaults = {'currency':'credits', 'length':'m', 'mass': 'kg' };
 
 	this.getSections();
+	this.parseQueryString();
 	E().loadJSON('config/en_advanced_options.json',this.init,{'this':this});
 
 	return this;
+}
+RocketScientist.prototype.parseQueryString = function(){
+	var r = {};
+	var q = location.search;
+	if(q && q != '#'){
+		// remove the leading ? and trailing &
+		q = q.replace(/^\?/,'').replace(/\&$/,'');
+		var qs = q.split('&');
+		for(var i = 0; i < qs.length; i++){
+			var key = qs[i].split('=')[0];
+			var val = qs[i].split('=')[1];
+			if(/^[0-9\.]+$/.test(val)) val = parseFloat(val);	// convert floats
+			r[key] = val;
+		}
+	}
+	// Check if the user-supplied units are allowed
+	var c = new Convertable();
+	for(u in this.defaults){
+		if(r[u] && c.hasUnit(r[u])) this.defaults[u] = r[u];
+	}
+	return r;
 }
 RocketScientist.prototype.getSections = function(){
 	var s = E('section');
@@ -342,6 +365,18 @@ RocketScientist.prototype.getSections = function(){
 RocketScientist.prototype.init = function(data){
 
 	this.data = data;
+	function updateConvertables(o){
+		for (i in o){
+			if(typeof(o[i])=="object") {
+				if(o[i].value && o[i].units && o[i].dimension) o[i] = new Convertable(o[i]);
+				else o[i] = updateConvertables(o[i]);
+			}
+		}
+		return o;
+	}  
+	// Loop over the data and update Convertables
+	updateConvertables(data);
+
 	var _obj = this;
 
 	// Remove elements that show noscript messages
@@ -375,7 +410,9 @@ RocketScientist.prototype.init = function(data){
 	E('.prev a').on('click',{me:this},function(e){ e.data.me.navigate(e); });
 	E('.next a').on('click',{me:this},function(e){ e.data.me.navigate(e); }).addClass('disabled');
 
-
+	// Update all the convertable values
+	this.updateConvertables();
+	
 	// Add buttons
 	E('.list-bar').html('<button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button>');
 
@@ -400,6 +437,19 @@ RocketScientist.prototype.init = function(data){
 
 	return this;
 }
+RocketScientist.prototype.updateConvertables = function(){
+	var el = E('.convertable');
+	for(var i = 0; i < el.e.length; i++){
+		var c = new Convertable(el.e[i]);
+		var str = "";
+		if(this.defaults[c.dimension]) str = c.toString({'units':this.defaults[c.dimension]});
+		if(str) el.e[i].innerHTML = str;
+	};
+	return this;
+}
+// Escape HTML characters
+RocketScientist.prototype.htmlDecode = function(input){ var d = document.createElement('div'); d.innerHTML = input; return d.innerHTML; }
+
 RocketScientist.prototype.allowNavigateBeyond = function(t){
 	var found = false;
 	for(var i = 0; i < this.sections.length; i++){
@@ -459,13 +509,12 @@ RocketScientist.prototype.setGoal = function(g){
 	// If this goal comes with a size, we set that
 	console.log('Would set the size for beginner level')
 
-	this.choices.mission = this.data.scenarios[this.choices.type].missions[this.choices.goal];
 	// Update the budget
-	console.log('Update the displayed budget')
-	E('#bar .togglecost .cost').html(this.choices.mission.budget.value)
+	this.choices.mission = this.data.scenarios[this.choices.type].missions[this.choices.goal];
+	E('#bar .togglecost .cost').html(this.choices.mission.budget.toString({'units':this.defaults.currency}))
 
 	// Update what is displayed in the instrument requirements
-	console.log('Update the instrument requirements')
+	console.log('Should update the instrument requirements')
 
 	this.allowNavigateBeyond('goal');
 	return this;
@@ -663,5 +712,4 @@ function test(){
 	E('#goal nav a:eq(1)').trigger('click');
 	E('#bus .satellite-l').trigger('click');
 	E('#bus nav a:eq(1)').trigger('click');
-
 }

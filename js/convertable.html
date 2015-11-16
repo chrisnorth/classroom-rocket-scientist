@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Unit tests of convertable.js</title>
+	<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.20.0.css">
+	<script src="http://code.jquery.com/qunit/qunit-1.20.0.js"></script>
+	<script src="convertable.js"></script>
+	<script>
+	QUnit.test("convertable", function( assert ) {
+		function test(c,v,u,d) {
+			var conv = new Convertable(v,u,d);
+			assert.equal(conv.value, c.value, "Compare value");
+			assert.equal(conv.units, c.units, "Compare value");
+		}
+
+		test({'value':0,'units':'m','dimension':'length'},0,'m','length');
+		test({'value':100,'units':'m','dimension':'length'},100,'m','length');
+		test({'value':100,'units':'m','dimension':'length'},100,'m');
+		test({'value':undefined},100);
+		test({'value':100,'units':'K'},100,'K');
+		test({'value':0,'units':'C'},0,'C');
+		test({'value':'100','units':'K'},100,'K');
+		test({'value':42,'units':'GBP'},42,'GBP');
+		test({'value':42,'units':'%'},42,'%');
+		test({'value':undefined,'units':undefined},2,'people');
+		test({'value':10,'units':'hours'},10,'hours');
+		test({'value':'inf','units':'hours'},'inf','hours');
+
+		function fromHTML(c,el) {
+			var conv = new Convertable(el);
+			assert.equal(conv.value, c.value, "Compare value");
+			assert.equal(conv.units, c.units, "Compare value");
+		}
+
+		var el = document.getElementsByClassName('convertable');
+		fromHTML({'value':500,'units':'credits'},el[0]);
+
+	});
+
+	QUnit.test("convertable.copy()", function( assert ) {
+	
+		var conv = new Convertable(100,'m');
+
+		assert.deepEqual(conv,conv.copy(),"Copy of convertable");		
+
+	});
+	QUnit.test("convertable.convertTo()", function( assert ) {
+	
+		function check(v1,u1,v2,u2){
+			approx({'value':v1,'units':u1},v2,u2,u1,"Convert one direction "+v1);
+			approx({'value':v2,'units':u2},v1,u1,u2,"Convert other direction "+u1);
+		}
+		function approx(c,v,from,to,msg) {
+			var conv = new Convertable(v,from);
+			conv = conv.convertTo(to);
+			var ok = false;
+			// Within 1%
+			if(Math.abs(conv.value) < 0.01 && Math.abs(conv.value-c.value) < 0.01) ok = true;
+			else if(Math.abs(conv.value-c.value)/conv.value < 0.01) ok = true;
+			assert.ok(ok, msg);
+			assert.ok(conv.units==c.units, msg+' units');
+		}
+
+		check(9.14,'m',30,'ft');
+		check(1,'GBP',1.67,'USD');
+		check(1000,'GBP',1,'credits');
+		check(32,'F',0,'C');
+		check(2.2,'lb',1,'kg');
+		check(1,'kg',2.2,'lb');
+		check(1,'hours',60,'minutes');
+		check(1,'days',86400,'seconds');
+		check(365.25,'days',1,'years');
+		check(1,'degrees',60,'arcmin');
+		check(10,'%',10,'%');
+
+	});
+	QUnit.test("convertable.toString()", function( assert ) {
+	
+		function check(str,v,u,p){
+			var conv = new Convertable(v,u);
+			assert.equal(conv.toString(p),str,"Format "+conv.toString()+" as "+str);
+		}
+
+		check('9.1 m',9.14,'m');
+		check('9.1 m',9.14,'m',1);
+		check('9.14 m',9.14,'m',2);
+		check('0.2 m',0.15,'m',1);
+		check('-0.2 m',-0.16,'m',1);
+		check('-0.2 m',-0.23,'m',1);
+		check('2.7 K',2.715,'K',1);
+		check('5&deg;',5,'degrees',1);
+		check('&pound;5.3',5.25,'GBP',1);
+		check('&pound;5 m',5000000,'GBP',1);
+		check('&pound;5 Bn',5000000000,'GBP',1);
+		check('&pound;5.2 Bn',5240000000,'GBP',1);
+		check('&pound;5.24 Bn',5240000000,'GBP',3);
+		check('&infin;','inf','GBP',3);
+	});
+
+	QUnit.test("convertable.getPrecision()", function( assert ) {
+	
+		function prec(p,v,u){
+			var conv = new Convertable(v,u);
+			assert.equal(conv.getPrecision(),p,"Precision of "+conv.value+" should be "+p);
+		}
+
+		prec(1, 91,'m');
+		prec(1, 9.,'m');
+		prec(1, 9.1,'m');
+		prec(1, 9.11,'m');
+	});
+/*
+	QUnit.test("Array.sumValues()", function( assert ) {
+	
+		function sum(arr,v,u,msg){
+			var total = arr.sumValues();
+			if(!msg) msg = "The total is the same";
+			assert.equal(total.value,v,msg);
+		}
+
+		sum([new Convertable(2,'m'),new Convertable(4,'m'),new Convertable(2.1,'m')], 8.1,'m','Sum three values');
+		sum([new Convertable(2,'m'),new Convertable(4,'m'),5], 6,'m',"Sum values ignoring one that isn't the correct format");
+		sum([6,new Convertable(2,'m'),new Convertable(4,'m'),5], 6,'m',"Sum values ignoring any that aren't the correct format");
+		sum([new Convertable(2,'m'),new Convertable(-2,'m')], 0,'m',"Sum positive and negative values");
+	});
+
+	QUnit.test("Array.minValue()", function( assert ) {
+	
+		function min(arr,v,u,msg){
+			var m = arr.minValue();
+			if(!msg) msg = "The smallest value";
+			assert.equal(m.value,v,msg);
+		}
+
+		min([new Convertable(2,'m'),new Convertable(4,'m'),new Convertable(2.1,'m')], 2,'m','Minimum of three values');
+		min([new Convertable(2,'m'),new Convertable(-2,'m')], -2,'m',"Minimum of positive and negative values");
+		min([new Convertable(2,'m'),new Convertable(4,'m'),5], 2,'m',"Minimum of values ignoring one that isn't the correct format");
+		min([6,new Convertable(2,'m'),new Convertable(4,'m'),5], 2,'m',"Minimum of values ignoring any that aren't the correct format");
+		min([6,4,5,3], undefined,undefined,"Minimum of values ignoring any that aren't the correct format");
+	});
+
+	QUnit.test("Array.maxValue()", function( assert ) {
+	
+		function max(arr,v,u,msg){
+			var m = arr.maxValue();
+			if(!msg) msg = "The largest value";
+			assert.equal(m.value,v,msg);
+		}
+
+		max([new Convertable(2,'m'),new Convertable(4,'m'),new Convertable(2.1,'m')], 4,'m','Maximum of three values');
+		max([new Convertable(2,'m'),new Convertable(-2,'m')], 2,'m',"Maximum of positive and negative values");
+		max([new Convertable(2,'m'),new Convertable(4,'m'),5], 4,'m',"Maximum of values ignoring one that isn't the correct format");
+		max([6,new Convertable(2,'m'),new Convertable(4,'m'),5], 4,'m',"Maximum of values ignoring any that aren't the correct format");
+		max([6,4,5,3], undefined,undefined,"Maximum of values ignoring any that aren't the correct format");
+	});
+*/
+	</script>
+</head>
+<body>
+ 
+	<div id="qunit"></div>
+	<div id="qunit-fixture">
+
+	<span class="length value convertable" data-value="500" data-units="credits" data-dimension="currency">500 credits</span>
+ 
+</body>
+</html>
