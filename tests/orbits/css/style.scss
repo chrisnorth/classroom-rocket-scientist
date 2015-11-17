@@ -10,7 +10,7 @@ $leo: 3em;
 $meo: 5em;
 $heo: 9.4em;
 $geo: 24em;
-$speed: 10s;
+$speed: 5s;
 $leo_time: 1.5;
 $meo_time: 2;
 $heo_time: 12;
@@ -130,9 +130,10 @@ ul.orrery li {
 ul.orrery li.LEO { @include animation-duration($leo_time*$speed); @include animation-delay(-0.1s); }
 ul.orrery li.MEO { @include animation-duration($meo_time*$speed); @include animation-delay(-0.1s); }
 ul.orrery li.HEO { @include animation-duration($heo_time*$speed); @include animation-delay(-0.1s); }
-ul.orrery li.GEO { @include animation-duration($geo_time*$speed); @include animation-delay(-0.1s); }
+ul.orrery li.GEO, ul.orrery li.body { @include animation-duration($geo_time*$speed); @include animation-delay(-0.1s); }
+ul.orrery li.GEO { @include animation-delay(-$geo_time*$speed*0.25); }
 
-@-webkit-keyframes orbit { 100% { -webkit-transform: rotate(360deg); } }
-@-moz-keyframes orbit { 100% { -moz-transform: rotate(360deg); } }
-@-o-keyframes orbit { 100% { -o-transform: rotate(360deg); } }
-@keyframes orbit { 100% { transform: rotate(360deg); } }
+@-webkit-keyframes orbit { 100% { -webkit-transform: rotate(-360deg); } }
+@-moz-keyframes orbit { 100% { -moz-transform: rotate(-360deg); } }
+@-o-keyframes orbit { 100% { -o-transform: rotate(-360deg); } }
+@keyframes orbit { 100% { transform: rotate(-360deg); } }

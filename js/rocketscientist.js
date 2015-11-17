@@ -404,7 +404,7 @@ RocketScientist.prototype.init = function(data){
 		E(e.currentTarget).parent().find('button').trigger('click');
 	});
 	E('#bus button').on('click',{me:this},function(e){
-		e.data.me.setBus(e.currentTarget,E(e.currentTarget).attr('data-size'));
+		e.data.me.setBus(E(e.currentTarget).attr('data-size'));
 	});
 	
 	// Replace the default behaviour of the navigation links
@@ -415,9 +415,9 @@ RocketScientist.prototype.init = function(data){
 	this.updateConvertables();
 	
 	// Add buttons
-	var btn = '<button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button>';
-	E('#instrument_list .list-bar').html(btn);
-	E('#power_list .list-bar').html(btn);
+//	var btn = '<button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button>';
+//	E('#instrument_list .list-bar').html(btn);
+//	E('#power_list .list-bar').html(btn);
 
 	// Add events to add/remove buttons
 	var _obj;
@@ -527,9 +527,6 @@ RocketScientist.prototype.setGoal = function(g){
 	// Select this button
 	E(E('#goal .'+this.choices.type+' button').e[this.choices.goal]).addClass('selected');
 
-	// If this goal comes with a size, we set that
-	console.log('Would set the size for beginner level')
-
 	// Update the budget
 	this.updateBudget();
 
@@ -537,12 +534,19 @@ RocketScientist.prototype.setGoal = function(g){
 	console.log('Should update the instrument requirements');
 
 	this.allowNavigateBeyond('goal');
+
+	// If this goal comes with a size, we set that
+	if(this.data.scenarios[this.choices['type']].missions[this.choices['goal']].size) this.setBus(this.data.scenarios[this.choices['type']].missions[this.choices['goal']].size)
+
 	return this;
 }
+
 // Choose the bus size
-RocketScientist.prototype.setBus = function(btn,element){
+RocketScientist.prototype.setBus = function(size){
+	this.choices['bus'] = size;
+
 	// Get the selected satellite
-	var sat = E('#bus .satellite-'+element[0]);
+	var sat = E('#bus .satellite-'+size[0]);
 
 	// Reset all to black and white
 	E('#bus .holder').addClass('blackandwhite');
@@ -554,8 +558,27 @@ RocketScientist.prototype.setBus = function(btn,element){
 	E('#satellite .satellite').replaceWith(html)
 	E('#satellite-power .satellite').replaceWith(html)
 
-	sat.addClass("selected").parent().removeClass("blackandwhite");
-	E(btn).addClass('selected');
+	// Hide list items that aren't selectable
+	var li = E('.list li');
+	var s,el;
+	// Re-enable all list items
+	E('.slot-unavailable').removeClass('slot-unavailable');
+	for(var i = 0; i < li.e.length; i++){
+		el = E(li.e[i]);
+		s = el.attr('data-size');
+		if(s){
+			var available = false;
+			for(var j in this.data.bus[size].slots){
+				if(this.data.bus[size].slots[j] > 0 && j==s) available = true;
+			}
+			// Hide list items that have a specified slot size that doesn't fit
+			if(!available) el.addClass('slot-unavailable');
+		}
+	}
+
+	// Reset the selected DOM elements
+	sat.addClass("selected").parent().removeClass("blackandwhite").find('button').addClass('selected');
+
 	this.allowNavigateBeyond('bus');
 	return this;
 }
@@ -765,4 +788,6 @@ function test(){
 	E('#goal nav a:eq(1)').trigger('click');
 	E('#bus .satellite-l').trigger('click');
 	E('#bus nav a:eq(1)').trigger('click');
+	E('#orbit_list .orbit-GEO button').trigger('click');
+	E('#orbit nav a:eq(1)').trigger('click');
 }

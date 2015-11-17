@@ -446,6 +446,7 @@ button.selected:hover, button.selected:focus {
 .package_slot div { float: right; }
 .package_power, .package_mass, .package_cost { display: inline-block; }
 .bg-orbit { background-color: $grey-2; }
+.slot-unavailable { display: none!important; }
 .orbit-LEO .bg-orbit { background-color: $grey-3; }
 .orbit-MEO .bg-orbit { background-color: $green-3; }
 .orbit-HEO .bg-orbit { background-color: $red-1; }
