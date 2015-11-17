@@ -181,7 +181,7 @@ function E(e){
 			if(typeof this.e[i].remove==="function") this.e[i].remove(this.e[i]);
 			else if(typeof this.e[i].parentElement.removeChild==="function") this.e[i].parentElement.removeChild(this.e[i]);
 		}
-		return this;
+		return E(this.e);
 	}
 	// Check if a DOM element has the specified class
 	stuQuery.prototype.hasClass = function(cls){
@@ -198,7 +198,7 @@ function E(e){
 			if(this.e[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) this.e[i].className = this.e[i].className.replace(new RegExp("(\\s|^)" + cls + "(\\s|$)", "g")," ").replace(/ $/,'');
 			else this.e[i].className = (this.e[i].className+' '+cls).replace(/^ /,'');
 		}
-		return this;
+		return E(this.e);
 	}
 	// Toggle a class on a DOM element
 	stuQuery.prototype.addClass = function(cls){
@@ -206,15 +206,15 @@ function E(e){
 		for(var i = 0; i < this.e.length; i++){
 			if(!this.e[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) this.e[i].className = (this.e[i].className+' '+cls).replace(/^ /,'');
 		}
-		return this;
+		return E(this.e);
 	}
 	// Remove a class on a DOM element
 	stuQuery.prototype.removeClass = function(cls){
 		// Remove/add it
 		for(var i = 0; i < this.e.length; i++){
-			if(this.e[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) this.e[i].className = this.e[i].className.replace(new RegExp("(\\s|^)" + cls + "(\\s|$)", "g")," ").replace(/ $/,'');
+			while(this.e[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) this.e[i].className = this.e[i].className.replace(new RegExp("(\\s|^)" + cls + "(\\s|$)", "g")," ").replace(/ $/,'').replace(/^ /,'');
 		}
-		return this;
+		return E(this.e);
 	}
 	stuQuery.prototype.css = function(css){
 		for(var i = 0; i < this.e.length; i++){
@@ -602,7 +602,6 @@ RocketScientist.prototype.setBus = function(size){
 	for(var i = 0; i < li.e.length; i++){
 		el = E(li.e[i]);
 		s = el.find('.add').attr('data-size');
-		this.log(i,s,size,li.e[i])
 		if(s){
 			var available = false;
 			for(var j in this.data.bus[size].slots){
@@ -711,15 +710,17 @@ RocketScientist.prototype.addPackage = function(e,to){
 	var a = E(e.currentTarget);
 	var type = a.parent().parent().attr('data-package');
 	this.log('addPackage',e,to,type);
-	if(to == "instrument") this.processInstrumentPackage(type,a);
+	if(to == "instrument") this.processPackage(type,a,"instrument");
 	else if(to == "power") this.processPowerPackage(type,a);
 	
 	this.updateButtons();
 }
 // Input is the type of slot e.g. dish-large and the event
-RocketScientist.prototype.processInstrumentPackage = function(type,el){
+RocketScientist.prototype.processPackage = function(type,el,mode){
+
 	var add = el.hasClass('add') ? true : false;
-	var p = this.data.package[type];
+	var p = (mode=="power") ? this.data['power'][type] : this.data.package[type];
+	this.log('processPackage',type,el,mode,p)
 
 	if(add){
 		// Get the slots
@@ -752,7 +753,9 @@ RocketScientist.prototype.processInstrumentPackage = function(type,el){
 					}
 					goodboth.html(html+good.html());
 				}
+				this.log('Removing slot-empty from ',goodboth)
 				goodboth.addClass('texture').addClass(type).removeClass('slot-empty');
+				this.log('Removing slot-empty from ',goodboth.e[1])
 
 				// Add this slot
 				this.choices['slots'][p.slot].push(type);
@@ -788,6 +791,7 @@ RocketScientist.prototype.processInstrumentPackage = function(type,el){
 					}
 					goodboth.html(good.html().replace(html,''));
 				}
+				this.log('Adding slot-empty from ',goodboth)
 				goodboth.removeClass('texture').removeClass(type).addClass('slot-empty');
 
 				var n = this.choices['slots'][p.slot].length;
@@ -801,7 +805,7 @@ RocketScientist.prototype.processInstrumentPackage = function(type,el){
 				}
 			}
 		}
-		this.log('processInstrumentPackage',this.choices['slots'])
+		this.log('processPackage',this.choices['slots'])
 	}
 
 	this.allowNavigateBeyond('instrument');
@@ -848,6 +852,7 @@ RocketScientist.prototype.processPowerPackage = function(type,el){
 	var add = el.hasClass('add') ? true : false;
 	if(type=="solar-panel") this.solarPanel(add,el);
 	else if(type=="solar-panel-surface") this.solarFixed(add,el);
+	else this.processPackage(type,el,"power");
 
 	return this;
 }
