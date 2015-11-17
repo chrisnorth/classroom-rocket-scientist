@@ -66,6 +66,11 @@ function E(e){
 		if(html) for(var i = 0; i < this.e.length; i++) this.e[i].innerHTML = html;
 		return this;
 	}
+	stuQuery.prototype.append = function(html){
+		if(!html && this.e.length == 1) return this.e[0].innerHTML;
+		if(html) for(var i = 0; i < this.e.length; i++) this.e[i].innerHTML += html;
+		return this;	
+	}
 	stuQuery.prototype.setCache = function(a){
 		eventcache = a;
 		return;
@@ -363,6 +368,7 @@ RocketScientist.prototype.parseQueryString = function(){
 	}
 	// Check if the user-supplied units are allowed
 	var c = new Convertable();
+	this.testmode = (r['debug']) ? true : false;
 	for(u in this.defaults){
 		if(r[u] && c.hasUnit(r[u])) this.defaults[u] = r[u];
 	}
@@ -407,6 +413,12 @@ RocketScientist.prototype.init = function(data){
 
 	// Remove elements that show noscript messages
 	E('.noscriptmsg').remove();
+
+	// For testing
+	if(this.testmode){
+		E('#bar .barmenu').append('<div class="baritem"><button id="speedy">automate</button></div>');
+		E('#speedy').on('click',function(e){ test(); E('#speedy').parent().remove(); });
+	}
 
 	// Remove classes from script only elements
 	E('.scriptonly').toggleClass('scriptonly');
@@ -698,6 +710,7 @@ RocketScientist.prototype.toggle3D = function(element){
 	return this;
 }
 RocketScientist.prototype.log = function(){
+	if(!this.testmode) return this;
 	var args = Array.prototype.slice.call(arguments, 0);
 	if(console && typeof console.log==="function") console.log('LOG',args);
 	return this;
@@ -854,6 +867,7 @@ RocketScientist.prototype.processPowerPackage = function(type,el){
 	else if(type=="solar-panel-surface") this.solarFixed(add,el);
 	else this.processPackage(type,el,"power");
 
+	this.allowNavigateBeyond('power');
 	return this;
 }
 // Add or remove deployable solar panels up to a maximum
