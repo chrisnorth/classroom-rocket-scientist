@@ -500,3 +500,15 @@ button.selected:hover, button.selected:focus {
 
 @import "../tests/satellite/solar.scss";
 @import "../tests/orbits/css/style.scss";
+
+@media only screen and (max-width: 800px){
+
+	.table, .table-row, .row-flex-wrap, .row-flex, .row-flex > div[class*="col-"], .flex-col, .flex-grow { display: block; height: auto; flex: 0 0 auto; }
+	.col-60,.col-40,.col-50 { width: 100%; }
+	.list { margin-left: 0; position: relative; margin-top: $s; }
+	nav { position: relative; }
+	ul.orrery { height: 400px; }
+	.holder { display: block; }
+	#type .holder { width: 100%; }
+	.satellite-holder { display: block; height: auto; max-height: auto; }
+}
