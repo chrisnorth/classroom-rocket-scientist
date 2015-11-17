@@ -98,6 +98,12 @@ $trans: 0.3s;
 	   -moz-animation-duration: $d;
 	        animation-duration: $d;
 }
+@mixin animation-fill-mode($mode) {
+	-webkit-animation-fill-mode: $mode;
+	   -moz-animation-fill-mode: $mode;
+	     -o-animation-fill-mode: $mode;
+	        animation-fill-mode: $mode;
+}
 @mixin animation-iteration-count($count) {
 	-webkit-animation-iteration-count: $count;
 	   -moz-animation-iteration-count: $count;

@@ -7,7 +7,6 @@ ui.loading:                                 Loading space programme...
 ui.requirements.title:                      Requirements
 ui.button.type:                             Select this type
 ui.button.goal:                             Select this mission
-ui.button.bus:                              Select this size
 ui.button.zoomin:                           &plus;
 ui.button.zoomout:                          &minus;
 ui.button.threeD:                           2D/3D
@@ -53,9 +52,13 @@ ui.sections.launch.short:                   Launch
 ui.sections.launch.title:                   Launch
 ui.sections.launch.intro:                   
 bus.cube.title:                             Cube sat
+bus.cube.button:                            Select cube sat
 bus.small.title:                            Small satellite
+bus.small.button:                           Select small satellite
 bus.medium.title:                           Medium satellite
+bus.medium.button:                          Select medium satellite
 bus.large.title:                            Large satellite
+bus.large.button:                           Select large satellite
 package.camera-opt.title:                   Camera (optical)    # The title of the optical camera instrument
 package.camera-opt.description:             Images of ground
 package.camera-nir.title:                   Camera (NIR)

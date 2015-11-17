@@ -216,14 +216,31 @@ function E(e){
 		}
 		return this;
 	}
+
 	stuQuery.prototype.css = function(css){
-		var style = '';
-		for(key in css){
-			if(style) style += ';';
-			style += key+':'+css[key];
-		}
 		for(var i = 0; i < this.e.length; i++){
-			this.e[i].setAttribute('style',style);
+			// Read the currently set style
+			var styles = {};
+			var style = this.e[i].getAttribute('style');
+			if(style){
+				var bits = this.e[i].getAttribute('style').split(";");
+				for(var b = 0; b < bits.length; b++){
+					var pairs = bits[b].split(":");
+					if(pairs.length==2) styles[pairs[0]] = pairs[1];
+				}
+			}
+			console.log('existing style for ',this.e[i],styles);
+			// Add the user-provided style to what was there
+			for(key in css) styles[key] = css[key];
+			console.log('new style',styles);
+			// Build the CSS string
+			var newstyle = '';
+			for(key in styles){
+				if(newstyle) newstyle += ';';
+				if(styles[key]) newstyle += key+':'+styles[key];
+			}
+			// Update style
+			this.e[i].setAttribute('style',newstyle);
 		}
 		return this;
 	}
@@ -401,7 +418,7 @@ RocketScientist.prototype.init = function(data){
 
 	// We hide elements that shouldn't be visible (but we are leaving visible
 	// in the plain HTML so there is something if Javascript doesn't work.
-	for(var s = 0; s < this.sections.length; s++) E('#'+this.sections[s]).css({'position':'absolute','top':0,'left':(s>0 ? '100%':'0'),'visibility':(s>0 ? 'hidden':'visible')});
+	for(var s = 0; s < this.sections.length; s++) E('#'+this.sections[s]).addClass('js').addClass('slide').css({'left':(s>0 ? '100%':'0'),'visibility':(s>0 ? 'hidden':'visible')});
 
 	// Deal with button presses in the type section
 	E('#type button').on('click',{me:this},function(e){ _obj.setType(E(e.currentTarget).attr('data-type')); });
@@ -500,7 +517,7 @@ RocketScientist.prototype.setType = function(t){
 
 		// Update what is displayed in the goals section
 		for(s in this.data.scenarios){
-			if(t==s) E('#goal .'+s).css('');
+			if(t==s) E('#goal .'+s).css({'display':''});
 			else E('#goal .'+s).css({'display':'none'});
 		}
 		// Reset any goals
@@ -623,22 +640,23 @@ RocketScientist.prototype.navigate = function(e){
 		}
 		
 		// We know which section we want (found) and we know which we are on (this.currentsection)
+		E('.slide-hide').removeClass('slide-hide');
 		if(found > this.currentsection){
 			// Go right
 			// Hide all the previous sections if they aren't already
-			for(var i = 0; i < this.currentsection;i++) E('#'+this.sections[i]).css({'position':'absolute','top':0,'left':'-100%','visibility':'hidden'});
+			for(var i = 0; i < this.currentsection;i++) E('#'+this.sections[i]).css({'left':'-100%','visibility':'hidden'});
 			// Move the current section off
-			E('#'+this.sections[this.currentsection]).css({'position':'absolute','top':'0','left':'-100%'});
+			E('#'+this.sections[this.currentsection]).addClass('slide-hide').css({'left':'-100%','visibility':''});
 			// Move the new section in
-			E('#'+this.sections[this.currentsection+1]).css({'position':'absolute','top':'0','left':'0%'});
+			E('#'+this.sections[this.currentsection+1]).css({'left':'0%','visibility':'visible','display':''});
 		}else{
 			// Go left
 			// Move the current section off
-			E('#'+this.sections[this.currentsection]).css({'position':'absolute','top':'0','left':'100%'});
+			E('#'+this.sections[this.currentsection]).css({'left':'100%','visibility':''}).addClass('slide-hide');
 			// Bring the new section in
-			E('#'+this.sections[found]).focus().css({'position':'absolute','top':'0','left':'0'});
+			E('#'+this.sections[found]).focus().css({'left':'0','visibility':'visible'});
 			// Hide all the following sections if they aren't already
-			for(var i = found+2; i < this.sections.length; i++) E('#'+this.sections[i]).css({'position':'absolute','top':0,'left':'100%','visibility':'hidden'});
+			for(var i = found+2; i < this.sections.length; i++) E('#'+this.sections[i]).css({'left':'100%','visibility':'hidden'});
 		}
 		// Update the progress bar
 		E('#progressbar .progress-inner').css({'width':progress.toFixed(1)+'%'});

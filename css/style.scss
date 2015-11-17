@@ -72,12 +72,9 @@ ul.files li { margin-left: 2em; }
 	width: 100%;
 	height: 100%;
 	overflow-y: auto;
+	overflow-x: hidden;
 }
 #main {
-	width: 100%;
-	max-width: 100%;
-	height: 100%;
-	overflow-x: hidden;
 }
 #summary, #messages {
 	display: none;
@@ -283,12 +280,29 @@ body.front section:first-child { padding-top: $barheight; }
 .msg + section { padding-top: 0; }
 .padded { padding: 2em; }
 section.view { width: 100%; max-width: 100%; @include transition( left $slide ease ); }
+section.view.js { position: absolute; top: 0px; }
 section.view h2 { text-align: center; }
 section.view p { text-align: center; }
 body.front section.view p { text-align: left; }
+
+/* CSS3 Animations */
+section.view.slide-hide {
+	@include animation-iteration-count(1);
+	@include animation-timing-function(linear);
+	@include animation-duration($slide);
+	@include animation-delay(-0.1s);
+	@include animation-fill-mode(forwards);
+	@include animation-name(slideHide);
+}
+
+@-webkit-keyframes slideHide { 0% { visibility: visible; } 100% { visibility: hidden;  } }
+@-moz-keyframes slideHide { 0% { visibility: visible; } 100% { visibility: hidden;  } }
+@-o-keyframes slideHide { 0% { visibility: visible; } 100% { visibility: hidden;  } }
+@keyframes slideHide { 0% { visibility: visible; } 100% { visibility: hidden; } }
+
 section#launch { background-color: $black-1; color: $grey-5; }
-#type .holder { width: 33%; padding: 1em; }
-#type .holder p { text-align: left; }
+section#type .holder { width: 33%; padding: 1em; }
+section#type .holder p { text-align: left; }
 .not-at-start { display: none; }
 
 
