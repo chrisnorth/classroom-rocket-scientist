@@ -73,6 +73,12 @@ ul.files li { margin-left: 2em; }
 	height: 100%;
 	overflow-y: auto;
 }
+#main {
+	width: 100%;
+	max-width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+}
 #summary, #messages {
 	display: none;
 }

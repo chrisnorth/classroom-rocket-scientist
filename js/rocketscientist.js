@@ -163,6 +163,16 @@ function E(e){
 
 		return this;
 	}
+	// If there is only one element, we trigger the focus event
+	stuQuery.prototype.focus = function(){
+		if(this.e.length == 1) this.e[0].focus();
+		return this;
+	}
+	// If there is only one element, we trigger the blur event
+	stuQuery.prototype.blur = function(){
+		if(this.e.length == 1) this.e[0].blur();
+		return this;
+	}
 	// Remove DOM elements
 	stuQuery.prototype.remove = function(){
 		if(!this.e) return this;
@@ -626,8 +636,8 @@ RocketScientist.prototype.navigate = function(e){
 			// Move the current section off
 			E('#'+this.sections[this.currentsection]).css({'position':'absolute','top':'0','left':'100%'});
 			// Bring the new section in
-			E('#'+this.sections[found]).css({'position':'absolute','top':'0','left':'0'});
-			// Hide all the previous sections if they aren't already
+			E('#'+this.sections[found]).focus().css({'position':'absolute','top':'0','left':'0'});
+			// Hide all the following sections if they aren't already
 			for(var i = found+2; i < this.sections.length; i++) E('#'+this.sections[i]).css({'position':'absolute','top':0,'left':'100%','visibility':'hidden'});
 		}
 		// Update the progress bar
