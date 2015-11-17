@@ -523,6 +523,17 @@ RocketScientist.prototype.allowNavigateBeyond = function(t){
 	}
 	return this;
 }
+RocketScientist.prototype.noNavigateBeyond = function(t){
+	var found = false;
+	for(var i = 0; i < this.sections.length; i++){
+		if(!found) E('#'+this.sections[i]+' .next a').removeClass('disabled');
+		else E('#'+this.sections[i]+' .next a').addClass('disabled');
+		
+		if(found) this.navigable[this.sections[i]] = false;
+		if(this.sections[i]==t && i < this.sections.length-1) found = true;
+	}
+	return this;
+}
 RocketScientist.prototype.setType = function(t){
 	this.choices['type'] = t;
 
@@ -589,6 +600,11 @@ RocketScientist.prototype.setGoal = function(g){
 // Choose the bus size
 RocketScientist.prototype.setBus = function(size){
 	this.choices['bus'] = this.data.bus[size];
+
+	// Reset any previous choices
+	this.setOrbit('');
+	this.choices['solar-panel'] = 0;
+	this.choices['solar-panel-fixed'] = false;
 	// Construct a dictionary for filling slots
 	this.choices['slots'] = {};
 	for(var i in this.choices['bus'].slots) this.choices['slots'][i] = [];
@@ -627,22 +643,26 @@ RocketScientist.prototype.setBus = function(size){
 	// Reset the selected DOM elements
 	sat.addClass("selected").parent().removeClass("blackandwhite").find('button').addClass('selected');
 
+	this.updateButtons();
 	this.allowNavigateBeyond('bus');
 	return this;
 }
 RocketScientist.prototype.setOrbit = function(orbit){
 	this.choices['orbit'] = orbit;
-	
 	this.log('setOrbit',orbit)
+
 	// Remove existing selections
 	E('.orrery .selected').removeClass('selected');
 	E('#orbit_list .selected').addClass('selected');
-
-	// Select
-	E('.orrery .'+orbit).addClass('selected');
-	E('#orbit_list .orbit-'+orbit).addClass('selected');
-
-	this.allowNavigateBeyond('orbit');
+	if(orbit){
+		// Select
+		E('.orrery .'+orbit).addClass('selected');
+		E('#orbit_list .orbit-'+orbit).addClass('selected');
+		this.allowNavigateBeyond('orbit');
+	}else{
+		this.noNavigateBeyond('orbit');
+	}
+	
 	return this;
 }
 
