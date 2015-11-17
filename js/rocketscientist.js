@@ -216,7 +216,6 @@ function E(e){
 		}
 		return this;
 	}
-
 	stuQuery.prototype.css = function(css){
 		for(var i = 0; i < this.e.length; i++){
 			// Read the currently set style
@@ -229,10 +228,8 @@ function E(e){
 					if(pairs.length==2) styles[pairs[0]] = pairs[1];
 				}
 			}
-			console.log('existing style for ',this.e[i],styles);
 			// Add the user-provided style to what was there
 			for(key in css) styles[key] = css[key];
-			console.log('new style',styles);
 			// Build the CSS string
 			var newstyle = '';
 			for(key in styles){
@@ -321,7 +318,7 @@ function E(e){
 					var data = JSON.parse(httpRequest.responseText);
 					if(typeof fn==="function") fn.call((attrs['this'] ? attrs['this'] : this),data,attrs);
 				}else{
-					console.log('error loading '+file)
+					this.log('error loading '+file)
 					if(typeof attrs.error==="function") attrs.error.call((attrs['this'] ? attrs['this'] : this),httpRequest.responseText,attrs);
 				}
 			}
@@ -337,11 +334,12 @@ function E(e){
 
 
 function RocketScientist(){
-	this.z = {};
-	this.choices = {};
+	this.maxpanels = 4;
 	this.wide = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 	this.tall = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 	this.defaults = {'currency':'credits', 'length':'m', 'mass': 'kg' };
+	this.z = {};
+	this.choices = { 'type':'', 'goal':'', 'mission':'', 'orbit':'', 'bus':'', 'slots':{}, 'solar-panel':0, 'solar-panel-fixed':false };
 
 	this.getSections();
 	this.parseQueryString();
@@ -441,11 +439,6 @@ RocketScientist.prototype.init = function(data){
 	// Update all the convertable values
 	this.updateConvertables();
 	
-	// Add buttons
-//	var btn = '<button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button>';
-//	E('#instrument_list .list-bar').html(btn);
-//	E('#power_list .list-bar').html(btn);
-
 	// Add events to add/remove buttons
 	var _obj;
 	
@@ -456,8 +449,21 @@ RocketScientist.prototype.init = function(data){
 	E('#orbit_list button').on('click',{me:'test'},function(e){ _obj.setOrbit(E(e.currentTarget).attr('data-orbit')); });
 
 
-	// Add buttons for power list
-	E('#power_list button').on('click',{me:'test'},function(e){ _obj.addPowerPackage.call(_obj,e); });
+	// Add button events for instrument list
+	E('#instrument_list button').on('click',{me:'test'},function(e){ _obj.addPackage(e,'instrument'); });
+	
+	// Add button events for power list
+	E('#power_list button').on('click',{me:'test'},function(e){ _obj.addPackage(e,'power'); });
+
+	E('#instrument').on('load',{me:this},function(e){
+		e.data.me.log('loading instrument panel')
+		// Reset button states
+		E('#instrument button.add').prop('disabled',false);
+		E('#instrument button.remove').prop('disabled',true);
+	})
+
+	// Reset button states
+	this.updateButtons();
 
 	// We'll need to change the sizes when the window changes size
 	window.addEventListener('resize', function(event){ _obj.resize(); });
@@ -558,7 +564,7 @@ RocketScientist.prototype.setGoal = function(g){
 	this.updateBudget();
 
 	// Update what is displayed in the instrument requirements
-	console.log('Should update the instrument requirements');
+	this.log('Should update the instrument requirements');
 
 	this.allowNavigateBeyond('goal');
 
@@ -570,7 +576,10 @@ RocketScientist.prototype.setGoal = function(g){
 
 // Choose the bus size
 RocketScientist.prototype.setBus = function(size){
-	this.choices['bus'] = size;
+	this.choices['bus'] = this.data.bus[size];
+	// Construct a dictionary for filling slots
+	this.choices['slots'] = {};
+	for(var i in this.choices['bus'].slots) this.choices['slots'][i] = [];
 
 	// Get the selected satellite
 	var sat = E('#bus .satellite-'+size[0]);
@@ -609,10 +618,30 @@ RocketScientist.prototype.setBus = function(size){
 	this.allowNavigateBeyond('bus');
 	return this;
 }
+// Update the lists for the specified slot size
+RocketScientist.prototype.updateLists = function(size){
+	// Hide list items that aren't selectable
+	var li = E('.list li');
+	var s,el;
+	// Re-enable all list items
+	E('.slot-unavailable').removeClass('slot-unavailable');
+	for(var i = 0; i < li.e.length; i++){
+		el = E(li.e[i]);
+		s = el.attr('data-size');
+		if(s){
+			var available = false;
+			for(var j in this.data.bus[size].slots){
+				//BLAHif(this.choices['slots'][size]this.data.bus[size].slots[j] && j==s) available = true;
+			}
+			// Hide list items that have a specified slot size that doesn't fit
+			if(!available) el.addClass('slot-unavailable');
+		}
+	}
+}
 RocketScientist.prototype.setOrbit = function(orbit){
 	this.choices['orbit'] = orbit;
 	
-	console.log(orbit)
+	this.log('setOrbit',orbit)
 	// Remove existing selections
 	E('.orrery .selected').removeClass('selected');
 	E('#orbit_list .selected').addClass('selected');
@@ -638,8 +667,10 @@ RocketScientist.prototype.navigate = function(e){
 				found = i;
 			}
 		}
-		
+		E('#'+section).trigger('load');
+
 		// We know which section we want (found) and we know which we are on (this.currentsection)
+		// Remove existing hidden slide classes
 		E('.slide-hide').removeClass('slide-hide');
 		if(found > this.currentsection){
 			// Go right
@@ -686,38 +717,182 @@ RocketScientist.prototype.toggle3D = function(element){
 	E(element).toggleClass('threeD');
 	return this;
 }
+RocketScientist.prototype.log = function(){
+	var args = Array.prototype.slice.call(arguments, 0);
+	if(console && typeof console.log==="function") console.log('LOG',args);
+	return this;
+}
 RocketScientist.prototype.toggleAnimation = function(element){
 	E(element+' .satellite').toggleClass('spin');
 	return this;
 }
-RocketScientist.prototype.addPowerPackage = function(e){
+RocketScientist.prototype.addPackage = function(e,to){
 	var a = E(e.currentTarget);
-	var add = a.hasClass('add') ? true : false;
 	var type = a.parent().parent().attr('data-package');
-	if(type=="solar-panel") this.solarPanel(add,e);
-	else if(type=="solar-panel-surface") this.solarFixed(add,e);
+	this.log('addPackage',e,to,type);
+	if(to == "instrument") this.processInstrumentPackage(type,a);
+	else if(to == "power") this.processPowerPackage(type,a);
+	
+	this.updateButtons();
+}
+// Input is the type of slot e.g. dish-large and the event
+RocketScientist.prototype.processInstrumentPackage = function(type,el){
+	var add = el.hasClass('add') ? true : false;
+	var p = this.data.package[type];
+
+	if(add){
+		// Get the slots
+		var slots = E('#satellite .slot');
+		var slotsp = E('#satellite-power .slot');
+		var good = new Array();
+		for(var i = 0; i < slots.e.length; i++){
+			var s = E(slots.e[i]);
+			if(s.hasClass('slot-empty') && s.hasClass('slot'+p.slot)) good.push([slots.e[i],slotsp.e[i]]);
+		}
+
+		// Do we have an available slot?
+		if(this.choices['slots'][p.slot].length < this.choices['bus'].slots[p.slot]){
+			// Put it in the first available slot
+			var goodboth = E(good[0]);
+			good = E(good[0][0]);
+			if(p.image){
+				if(p.image.class) goodboth.addClass(p.image.class);
+				if(p.image.html){
+					html = p.image.html;
+					// Deal with directions of hemispheres
+					if(html.indexOf('south')>=0){
+						var dir = "north";
+						// Find the required direction
+						if(good.hasClass('normal')) dir = "south";
+						if(good.hasClass('down')) dir = "east";
+						if(good.hasClass('up')) dir = "west";
+						if(dir == "north") dir += " no-inside";
+						html = html.replace('south',dir);
+					}
+					goodboth.html(html+good.html());
+				}
+				goodboth.addClass('texture').addClass(type).removeClass('slot-empty');
+
+				// Add this slot
+				this.choices['slots'][p.slot].push(type);
+			}
+		}
+		this.log('addInstrumentPackage',type,this.data.package[type],slots)
+
+		this.log('addInstrumentPackage > slots',this.choices['slots'])
+
+	}else{
+		// Get the slots
+		var slots = E('#satellite .'+type);
+		var slotsp = E('#satellite-power .'+type);
+	
+		if(slots.e.length > 0){
+			// Remove last one first
+			// Put it in the first available slot
+			var goodboth = E([slots.e[slots.e.length-1],slotsp.e[slots.e.length-1]]);
+			good = E(slots.e[slots.e.length-1]);
+			if(p.image){
+				// Put it in the first available slot
+				if(p.image.class) good.removeClass(p.image.class);
+				if(p.image.html){
+					html = p.image.html;
+					// Deal with directions of hemispheres
+					if(html.indexOf('south')>=0){
+						var dir = "north";
+						// Find the required direction
+						if(good.hasClass('normal')) dir = "south";
+						if(good.hasClass('down')) dir = "east";
+						if(good.hasClass('up')) dir = "west";
+						html = html.replace('south',dir);
+					}
+					goodboth.html(good.html().replace(html,''));
+				}
+				goodboth.removeClass('texture').removeClass(type).addClass('slot-empty');
+
+				var n = this.choices['slots'][p.slot].length;
+				if(n > 0){
+					for(var i = n-1; i >= 0 ; i--){
+						if(this.choices['slots'][p.slot][i]==type){
+							this.choices['slots'][p.slot].splice(i,1);
+							break;
+						}
+					}
+				}
+			}
+		}
+		this.log(this.choices['slots'])
+	}
+
+	this.allowNavigateBeyond('instrument');
+
+	return this;
+}
+RocketScientist.prototype.updateButtons = function(){
+	// If we've filled up this slot type we can't add any more 
+	// of this type so lose the add buttons otherwise show them
+	var add = E('.list .add');
+	var rem = E('.list .remove');
+	if(this.choices['slots']){
+		btn = add.e.concat(rem.e);
+		for(var i = 0; i < btn.length; i++){
+			var a = E(btn[i]);
+			var s = a.attr('data-size');
+			var p = a.attr('data-package');
+			if(s && p){
+				var disable = false;
+				if(a.hasClass('add')){
+					if(this.choices['slots'][s]) disable = (this.choices['slots'][s].length == this.choices['bus'].slots[s]);
+					if(p=="solar-panel") disable = (this.choices['solar-panel'] < this.maxpanels) ? false : true;
+					if(p=="solar-panel-surface") disable = (this.choices['solar-panel-fixed']);
+				}else if(a.hasClass('remove')){
+					var n = 0;
+					for(var j in this.choices['slots'][s]) if(this.choices['slots'][s][j] == p) n++;
+					if(this.choices['slots'][s]) disable = (this.choices['slots'][s].length == 0 || n==0);
+					if(p=="solar-panel") disable = (this.choices['solar-panel'] <= 0);
+					if(p=="solar-panel-surface") disable = (!this.choices['solar-panel-fixed']);
+				}
+				a.prop('disabled',disable);
+			}
+		}
+	}else{
+		add.prop('disabled',false);
+		rem.prop('disabled',true);
+	}
+
+	this.log('updateButtons',add,rem)
+	return this;
+}
+
+RocketScientist.prototype.processPowerPackage = function(type,el){
+	var add = el.hasClass('add') ? true : false;
+	if(type=="solar-panel") this.solarPanel(add,el);
+	else if(type=="solar-panel-surface") this.solarFixed(add,el);
 
 	return this;
 }
 // Add or remove deployable solar panels up to a maximum
-RocketScientist.prototype.solarPanel = function(add,e){
-	var panels,ps;
-	var parent = E(e.currentTarget).parent();
+RocketScientist.prototype.solarPanel = function(add,el){
+	this.log('solarPanel',add,el)
+	var ps;
+	var parent = el.parent();
 	var a = parent.children('.add');
 	var m = parent.children('.remove');
-	var max = 8;
+	var max = this.maxpanels*2;
 	if(add){
-		panels = E('#sat-power .solar-panels');
+		var panels = E('#sat-power .solar-panels');
 		for(var i = 0; i < panels.e.length; i++){
 			ps = panels.e[i].getElementsByTagName('li');
-			if(ps.length < 4) panels.e[i].getElementsByTagName('ol')[0].innerHTML += '<li class="solar-panel"><\/li>';
+			if(ps.length < this.maxpanels) panels.e[i].getElementsByTagName('ol')[0].innerHTML += '<li class="solar-panel"><\/li>';
 		}
 	}else{
 		E('#sat-power .solar-panels li:eq(0)').remove();
-		if(E('#sat-power .solar-panels li').e.length==0) m.prop('disabled',true);
+	//	if(E('#sat-power .solar-panels li').e.length==0) m.prop('disabled',true);
 	}
 	// Find out how many panels we have
 	ps = E('#sat-power .solar-panels li');
+	this.choices['solar-panel'] = ps.e.length/2;
+
+/*
 	if(ps.e.length >= max){
 		// If we've reached the maximum number we hide the add button
 		a.prop('disabled',true);
@@ -728,18 +903,21 @@ RocketScientist.prototype.solarPanel = function(add,e){
 		a.prop('disabled',false);
 		m.prop('disabled',false);
 	}
+*/
 	return this;
 }
 // Toggle the fixed solar panels
-RocketScientist.prototype.solarFixed = function(add,e){
-	var parent = E(e.currentTarget).parent();
+RocketScientist.prototype.solarFixed = function(add,el){
+	var parent = el.parent();
 	var p = parent.children('.add');
 	var m = parent.children('.remove');
 	if(add){
+		this.choices['solar-panel-fixed'] = true;
 		E('#sat-power .satellite').addClass('solar-fixed');
 		p.prop('disabled',true);
 		m.prop('disabled',false);
 	}else{
+		this.choices['solar-panel-fixed'] = false;
 		E('#sat-power .satellite').removeClass('solar-fixed');
 		p.prop('disabled',false);
 		m.prop('disabled',true);
@@ -818,4 +996,8 @@ function test(){
 	E('#bus nav a:eq(1)').trigger('click');
 	E('#orbit_list .orbit-GEO button').trigger('click');
 	E('#orbit nav a:eq(1)').trigger('click');
+	E('#instrument_list .bg4x8:eq(0) .add').trigger('click');
+	E('#instrument_list .bg2x4:eq(1) .add').trigger('click');
+	E('#instrument_list .bg2x2:eq(1) .add').trigger('click');
+	E('#instrument nav a:eq(1)').trigger('click');
 }

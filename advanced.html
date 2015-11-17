@@ -210,12 +210,12 @@
 								<div class="holder blackandwhite">									<div class="satellite satellite-l">
 	<div class="solar-panels"><span class="label">Solar panels (left):</span><ol></ol></div>
 	<div class="solar-panels"><span class="label">Solar panels (right):</span><ol></ol></div>
-	<div class="row"><div class="slot slot-empty slot2 slot2x4 solar-left solar-right normal solar-back"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-left solar-back battery"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right solar-back battery"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-left solar-back"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right solar-back"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-top solar-back down"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty solar-back slot2 slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 solar-back slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-back"><div class="faces"><div class="face back"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 solar-back slot2x2"><div class="faces"><div class="face back"></div><div class="face front"></div></div></div><div class="slot slot-empty slot4 slot2x4 up solar-top solar-back"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-	<div class="row rowbig"><div class="slot slot-empty slot1 slot4x8 solar-top solar-back"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+	<div class="row"><div class="slot slot-empty slot2 slot2x4 solar-left normal solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
+	<div class="row"><div class="slot slot-empty slot-empty slot2 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+	<div class="row"><div class="slot slot-empty slot-empty slot2 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-top down"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot3 slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+	<div class="row"><div class="slot slot-empty slot-empty slot2 slot2x2"><div class="faces"><div class="face back"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2"><div class="faces"><div class="face back"></div><div class="face front"></div></div></div><div class="slot slot-empty slot4 slot2x4 up solar-top"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
+	<div class="row rowbig"><div class="slot slot-empty slot1 slot4x8 solar-top"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 </div>
 
 									<button class="fancy" data-size="large">Select large satellite</button>
@@ -355,7 +355,6 @@
 											<div class="requirements">
 												<div class="padder">
 													<h3>Requirements</h3>
-													<button class="fancy" onClick="toggleComms()">Toggle communications</button>
 												</div>
 											</div>
 											<div class="flex-grow">
@@ -377,7 +376,7 @@
 											<h3>Available instruments:</h3>
 											<ul>
 												<li data-package="atomic-clock" data-size="2x2">
-													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="atomic-clock">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="atomic-clock">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot texture atomic-clock"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
@@ -391,7 +390,7 @@
 													</div>
 												</li>
 												<li data-package="atomic-clock-small" data-size="1x2">
-													<div class="list-bar bg1x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg1x2"><button class="fancy add" data-size="1x2" data-package="atomic-clock-small">&plus;</button><button class="fancy remove" disabled="disabled" data-size="1x2" data-package="atomic-clock-small">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot texture atomic-clock-small"><div class="slot slot1x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
@@ -405,7 +404,7 @@
 													</div>
 												</li>
 												<li data-package="camera-fir" data-size="2x4">
-													<div class="list-bar bg2x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg2x4"><button class="fancy add" data-size="2x4" data-package="camera-fir">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x4" data-package="camera-fir">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot texture camera-fir"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
@@ -419,7 +418,7 @@
 													</div>
 												</li>
 												<li data-package="camera-mini" data-size="1x1">
-													<div class="list-bar bg1x1"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg1x1"><button class="fancy add" data-size="1x1" data-package="camera-mini">&plus;</button><button class="fancy remove" disabled="disabled" data-size="1x1" data-package="camera-mini">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot texture camera-mini"><div class="slot slot1x1"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
@@ -433,7 +432,7 @@
 													</div>
 												</li>
 												<li data-package="camera-nir" data-size="2x2">
-													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="camera-nir">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="camera-nir">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot texture camera-nir"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
@@ -447,7 +446,7 @@
 													</div>
 												</li>
 												<li data-package="camera-opt" data-size="2x2">
-													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="camera-opt">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="camera-opt">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot texture camera-opt"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
@@ -461,9 +460,9 @@
 													</div>
 												</li>
 												<li data-package="dish-large" data-size="4x8">
-													<div class="list-bar bg4x8"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg4x8"><button class="fancy add" data-size="4x8" data-package="dish-large">&plus;</button><button class="fancy remove" disabled="disabled" data-size="4x8" data-package="dish-large">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot "><div class="slot slot4x8"><div class="eg-bg"><img src="images/cleardot.gif" class="face front" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
+														<div class="package_slot "><div class="slot slot4x8"><div class="eg-bg radio"><img src="images/cleardot.gif" class="face front" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Radio dish (large)</strong></div>
@@ -475,9 +474,9 @@
 													</div>
 												</li>
 												<li data-package="dish-medium" data-size="2x4">
-													<div class="list-bar bg2x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg2x4"><button class="fancy add" data-size="2x4" data-package="dish-medium">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x4" data-package="dish-medium">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot "><div class="slot slot2x4"><div class="eg-bg"><img src="images/cleardot.gif" class="face front" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
+														<div class="package_slot "><div class="slot slot2x4"><div class="eg-bg radio"><img src="images/cleardot.gif" class="face front" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Radio dish</strong></div>
@@ -489,9 +488,9 @@
 													</div>
 												</li>
 												<li data-package="dish-small" data-size="1x2">
-													<div class="list-bar bg1x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg1x2"><button class="fancy add" data-size="1x2" data-package="dish-small">&plus;</button><button class="fancy remove" disabled="disabled" data-size="1x2" data-package="dish-small">&minus;</button></div>
 													<div class="list-left">
-														<div class="package_slot "><div class="slot slot1x2"><div class="eg-bg"><img src="images/cleardot.gif" class="face front" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
+														<div class="package_slot "><div class="slot slot1x2"><div class="eg-bg radio"><img src="images/cleardot.gif" class="face front" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
 													</div>
 													<div class="list-right">
 														<div class="package_title"><strong>Radio antenna (compact)</strong></div>
@@ -503,7 +502,7 @@
 													</div>
 												</li>
 												<li data-package="gps-rx" data-size="1x1">
-													<div class="list-bar bg1x1"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg1x1"><button class="fancy add" data-size="1x1" data-package="gps-rx">&plus;</button><button class="fancy remove" disabled="disabled" data-size="1x1" data-package="gps-rx">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot texture gps-rx"><div class="slot slot1x1"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
@@ -517,7 +516,7 @@
 													</div>
 												</li>
 												<li data-package="radar-alt" data-size="2x4">
-													<div class="list-bar bg2x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg2x4"><button class="fancy add" data-size="2x4" data-package="radar-alt">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x4" data-package="radar-alt">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot texture radar-alt"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
@@ -531,7 +530,7 @@
 													</div>
 												</li>
 												<li data-package="radar-dish" data-size="4x8">
-													<div class="list-bar bg4x8"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg4x8"><button class="fancy add" data-size="4x8" data-package="radar-dish">&plus;</button><button class="fancy remove" disabled="disabled" data-size="4x8" data-package="radar-dish">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot "><div class="slot slot4x8"><div class="eg-bg radar"><img src="images/cleardot.gif" class="face front" alt="" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
 													</div>
@@ -545,7 +544,7 @@
 													</div>
 												</li>
 												<li data-package="radio-antenna-cube" data-size="0x2">
-													<div class="list-bar bg0x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg0x2"><button class="fancy add" data-size="0x2" data-package="radio-antenna-cube">&plus;</button><button class="fancy remove" disabled="disabled" data-size="0x2" data-package="radio-antenna-cube">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot texture radio-antenna-cube"><div class="slot slot0x2"><div class="eg-bg"><img src="images/cleardot.gif" class="face front" alt="" /><div class="aerial1 aerial"></div></div></div></div>
 													</div>
@@ -559,7 +558,7 @@
 													</div>
 												</li>
 												<li data-package="radio-rx" data-size="2x2">
-													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="radio-rx">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="radio-rx">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot texture radio-rx"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
@@ -573,7 +572,7 @@
 													</div>
 												</li>
 												<li data-package="radio-tx" data-size="2x2">
-													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="radio-tx">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="radio-tx">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot texture radio-tx"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
@@ -587,7 +586,7 @@
 													</div>
 												</li>
 												<li data-package="spect-fir" data-size="2x4">
-													<div class="list-bar bg2x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg2x4"><button class="fancy add" data-size="2x4" data-package="spect-fir">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x4" data-package="spect-fir">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot texture spect-fir"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
@@ -601,7 +600,7 @@
 													</div>
 												</li>
 												<li data-package="spect-nir" data-size="2x2">
-													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="spect-nir">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="spect-nir">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot texture spect-nir"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
@@ -615,7 +614,7 @@
 													</div>
 												</li>
 												<li data-package="spect-opt" data-size="2x2">
-													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="spect-opt">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="spect-opt">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot texture spect-opt"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
@@ -681,7 +680,7 @@
 											<h3>Available power devices:</h3>
 											<ul>
 												<li data-package="battery-large">
-													<div class="list-bar bg2x2"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="battery-large">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="battery-large">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot texture battery-large"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
@@ -697,7 +696,7 @@
 													</div>
 												</li>
 												<li data-package="battery-small">
-													<div class="list-bar bg1x1"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg1x1"><button class="fancy add" data-size="1x1" data-package="battery-small">&plus;</button><button class="fancy remove" disabled="disabled" data-size="1x1" data-package="battery-small">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot texture battery-small"><div class="slot slot1x1"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
@@ -713,7 +712,7 @@
 													</div>
 												</li>
 												<li data-package="rtg">
-													<div class="list-bar bg2x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg2x4"><button class="fancy add" data-size="2x4" data-package="rtg">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x4" data-package="rtg">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot texture rtg"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
@@ -729,7 +728,7 @@
 													</div>
 												</li>
 												<li data-package="solar-panel">
-													<div class="list-bar bg4x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg4x4"><button class="fancy add" data-size="4x4" data-package="solar-panel">&plus;</button><button class="fancy remove" disabled="disabled" data-size="4x4" data-package="solar-panel">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot "><div class="slot slot4x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>
@@ -745,7 +744,7 @@
 													</div>
 												</li>
 												<li data-package="solar-panel-surface">
-													<div class="list-bar bg4x4"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg4x4"><button class="fancy add" data-size="4x4" data-package="solar-panel-surface">&plus;</button><button class="fancy remove" disabled="disabled" data-size="4x4" data-package="solar-panel-surface">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot "><div class="slot slot4x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="" /></div></div></div>
 													</div>

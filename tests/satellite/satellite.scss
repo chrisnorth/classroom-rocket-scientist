@@ -151,7 +151,7 @@
 	@include animation-iteration-count( infinite );
 	@include animation-timing-function( linear );
 }
-.threeD .satellite.spin, .threeD .satellite.spin .hemisphere {
+.threeD .satellite.spin, .threeD .satellite.spin .hemisphere.north, .threeD .satellite.spin .hemisphere.south {
 	@include animation-name( spin );
 }
 .threeD .satellite-c.spin {
@@ -187,6 +187,14 @@
 	@include animation-delay( -$rot*0.125 );
 	@include animation-name( toback );
 }
+.threeD .satellite.spin .slot.down .hemisphere {
+	@include animation-delay( -$rot*0.125 );
+	@include animation-name( tofront2 );
+}
+.threeD .satellite.spin .slot.up .hemisphere {
+	@include animation-delay( -$rot*0.125 );
+	@include animation-name( toback2 );
+}
 @-webkit-keyframes spin { 100% { -webkit-transform: $transform_y_neg_l $transform_x_neg_s $scale $spin; } }
 @-moz-keyframes spin { 100% { -moz-transform: $transform_y_neg_l $transform_x_neg_s $scale $spin;  } }
 @-o-keyframes spin { 100% { -o-transform: $transform_y_neg_l $transform_x_neg_s $scale $spin;  } }
@@ -197,10 +205,20 @@
 @-o-keyframes spin-c { 100% { -o-transform: $transform_y_neg_l $scale $spin; } }
 @keyframes spin-c { 100% { transform: $transform_y_neg_l $scale $spin; } }
 
-@-webkit-keyframes tofront { 0% { z-index: 300; } 49.8% { z-index: 300; } 50% { z-index: 1; } 99.9% { z-index: 1; } }
-@-moz-keyframes tofront { 0% { z-index: 300; } 49.8% { z-index: 300; } 50% { z-index: 1; } 99.9% { z-index: 1; } }
-@-o-keyframes tofront { 0% { z-index: 300; } 49.8% { z-index: 300; } 50% { z-index: 1; } 99.9% { z-index: 1; } }
-@keyframes tofront { 0% { z-index: 300; } 49.8% { z-index: 300; } 50% { z-index: 1; } 99.9% { z-index: 1; } }
+@-webkit-keyframes tofront { 0% { z-index: 300; } 49.8% { z-index: 300; } 50% { z-index: 2; } 99.9% { z-index: 2; } }
+@-moz-keyframes tofront { 0% { z-index: 299; } 49.8% { z-index: 299; } 50% { z-index: 2; } 99.9% { z-index: 2; } }
+@-o-keyframes tofront { 0% { z-index: 299; } 49.8% { z-index: 299; } 50% { z-index: 2; } 99.9% { z-index: 2; } }
+@keyframes tofront { 0% { z-index: 299; } 49.8% { z-index: 299; } 50% { z-index: 2; } 99.9% { z-index: 2; } }
+
+@-webkit-keyframes toback2 { 0% { z-index: 2; } 49.8% { z-index: 2; } 50% { z-index: 299; } 99.9% { z-index: 299; } }
+@-moz-keyframes toback2 { 0% { z-index: 2; } 49.8% { z-index: 2; } 50% { z-index: 299; } 99.9% { z-index: 299; } }
+@-o-keyframes toback2 { 0% { z-index: 2; } 49.8% { z-index: 2; } 50% { z-index: 299; } 99.9% { z-index: 299; } }
+@keyframes toback2 { 0% { z-index: 2; } 49.8% { z-index: 2; } 50% { z-index: 299; } 99.9% { z-index: 299; } }
+
+@-webkit-keyframes tofront2 { 0% { z-index: 300; } 49.8% { z-index: 300; } 50% { z-index: 1; } 99.9% { z-index: 1; } }
+@-moz-keyframes tofront2 { 0% { z-index: 300; } 49.8% { z-index: 300; } 50% { z-index: 1; } 99.9% { z-index: 1; } }
+@-o-keyframes tofront2 { 0% { z-index: 300; } 49.8% { z-index: 300; } 50% { z-index: 1; } 99.9% { z-index: 1; } }
+@keyframes tofront2 { 0% { z-index: 300; } 49.8% { z-index: 300; } 50% { z-index: 1; } 99.9% { z-index: 1; } }
 
 @-webkit-keyframes toback { 0% { z-index: 1; } 49.8% { z-index: 1; } 50% { z-index: 300; } 99.9% { z-index: 300; } }
 @-moz-keyframes toback { 0% { z-index: 1; } 49.8% { z-index: 1; } 50% { z-index: 300; } 99.9% { z-index: 300; } }
@@ -315,6 +333,9 @@
 .hemisphere.south{
 	top: -100%;
 }
+.hemisphere.east, .hemisphere.west {
+	height: 100%;
+}
 .slot4x8 .hemisphere { top: 0%; }
 .hemisphere, .dome, .inner { display: inline-block; }
 .dome, .inner { width: 100%; }
@@ -327,8 +348,8 @@
 .dome { height: 50%; border: 1px solid rgba(0,0,0,0.1); }
 .east .dome, .west .dome {
 	top: 0%;
-	left: 50%;
-	width: 50%;
+	left: 0%;
+	width: 100%;
 	height: 100%;
 }
 $inset: inset #{-$s * 0.2} #{-$s * 0.2} #{$s * 0.2} #{-$s * 0.05} rgba(0,0,0,0.4);
@@ -345,7 +366,7 @@ $ss: $s*0.11 $s*0.1 6px -10px rgba(0,0,0,0.3), $inset;
 	top: 50%;
 	left: 0;
 }
-$dometrans: height $trans ease, border-radius $trans ease;
+$dometrans: height $trans ease, width $trans ease, border-radius $trans ease;
 .hemisphere .inner, .dome, .hemisphere .inner:after {
 	@include transition( $dometrans );
 }
@@ -365,15 +386,24 @@ $dometrans: height $trans ease, border-radius $trans ease;
 	height: 50%;
 }
 .east .inner, .west .inner {
+	width: 0%;
 	height: 100%;
-	width: 60%;
-	left: 50%;
 	top: 0%;
-	@include transform( $transform_x_neg_50pc );
 }
-.threeD .no-inside .inner { height: 0px; display: none; }
-.no-inside .inner { border: 0px; }
-.threeD .north.no-inside .dome {
+.east .inner, .west .inner {
+	width: 200%;
+	z-index: 100;
+	left: 0%;
+}
+.east .inner {
+	@include transform( $transform_z_neg_50 $transform_x_neg_50pc $transform_rot_y_pos_90 );
+}
+.west .inner {
+	@include transform( $transform_z_neg_50 $transform_rot_y_neg_90 );
+}
+/* The northerly dish (pointing down) doesn't ever show its inside */
+.north .inner, .threeD .no-inside .inner { height: 0px; display: none; }
+.threeD .north .dome, .threeD .north.no-inside .dome {
 	height: 75%;
 	border-radius: 1em 1em 1em 1em / 0.85em 0.85em 0.75em 0.75em;
 }
@@ -387,18 +417,29 @@ $dometrans: height $trans ease, border-radius $trans ease;
 	left: 15%;
 	border-radius: 0.75em 0.85em 0.85em 0.75em / 1em 1em 1em 1em;
 }
-.threeD .west.no-inside .dome {
-	width: 85%;
+.threeD .west .dome {
+	width: 100%;
 	border-radius: 0.85em 0.75em 0.75em 0.85em / 1em 1em 1em 1em;
 }
 .south .inner { @include box-shadow( inset 0.3em -0.1em 0.2em -0.05em rgba(0,0,0,0.2) ); }
 .north .inner { @include box-shadow( inset 0.3em 0.1em 0.2em -0.05em rgba(0,0,0,0.2) ); }
 .east .inner { @include box-shadow( inset 0.15em 0.1em 0.2em -0.1em rgba(0,0,0,0.2) ); }
 .west .inner { @include box-shadow( inset 0.25em 0.2em 0.2em -0.05em rgba(0,0,0,0.2) ); }
-.threeD .slot2x4 .hemisphere {
+.threeD .slot2x4 .hemisphere.north, .threeD .slot2x4 .hemisphere.south {
 	@include transform( $transform_z_neg_l $transform_rot_y_neg_45 $transform_rot_x_pos_iso );
 }
-.threeD .slot4x8 .hemisphere {
+.threeD .slot2x4 .hemisphere.east, .threeD .slot2x4 .hemisphere.west {
+	@include transform-style( preserve-3d );
+}
+.threeD .slot2x4 .hemisphere.east .dome, .threeD .slot2x4 .hemisphere.west .dome {
+	@include transform( $transform_x_pos_t $transform_z_neg_50 $transform_rot_x_pos_45 );
+	@include transform-style( preserve-3d );
+}
+.threeD .slot2x4 .hemisphere.west .dome {
+	@include transform( $transform_z_neg_50 $transform_rot_x_pos_45 );
+	@include transform-style( preserve-3d );
+}
+.threeD .slot4x8 .hemisphere.north, .threeD .slot4x8 .hemisphere.south {
 	@include transform( $transform_z_neg_b $transform_rot_y_neg_45 $transform_rot_x_pos_iso );
 }
 .antenna .face { border: 0px; }
@@ -414,11 +455,11 @@ $aerial2: translateX($s * 0.75) translateY(-$s * 0.75);
 .threeD .aerial2 {
 	@include transform( $aerial2 );
 }
-.threeD .satellite.spin .slot2x4 .hemisphere {
+.threeD .satellite.spin .slot2x4 .hemisphere.north, .threeD .satellite.spin .slot2x4 .hemisphere.south {
 	@include animation-name( antispin );
 	@include transform-style( preserve-3d );
 }
-.threeD .satellite.spin .slot4x8 .hemisphere {
+.threeD .satellite.spin .slot4x8 .hemisphere.north, .threeD .satellite.spin .slot4x8 .hemisphere.south {
 	@include animation-name( antispin_big );
 	@include transform-style( preserve-3d );
 }
@@ -431,3 +472,4 @@ $aerial2: translateX($s * 0.75) translateY(-$s * 0.75);
 @keyframes antispin_big { 100% { transform: $transform_z_neg_b $aspin; } }
 
 /* End of Hemisphere CSS */
+

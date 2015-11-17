@@ -434,7 +434,7 @@ button.selected:hover, button.selected:focus {
 .list li:last-child { border-bottom: 0px; margin-bottom: 0; }
 .list li .list-bar, .list li .list-left,.list li .list-right { display: table-cell; width: auto; vertical-align: top; }
 .list li .list-bar {
-	width: $s;
+	width: $s*2.1;
 	vertical-align: top;
 	@include border-radius($s*0.25 0 0 $s*0.25);
 }
@@ -517,6 +517,8 @@ button.selected:hover, button.selected:focus {
 .slot2x4.texture.down .face.back,
 .slot2x4.texture.up .face.back,
 .slot2x4.texture .face.back { background: url('../images/foil_2x4.png'); background-size: 100% 100%; }
+
+.texture .face.front { background: url('../images/foil_2x2.png'); }
 
 @import "../tests/satellite/solar.scss";
 @import "../tests/orbits/css/style.scss";

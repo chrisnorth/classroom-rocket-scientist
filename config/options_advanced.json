@@ -352,7 +352,7 @@
 				"file": "images/cleardot.gif",
 				"alt": "",
 				"credit": "",
-				"class": "-bg",
+				"class": "-bg radio",
 				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
 			"mass": { "value": 30, "units": "kg", "dimension": "mass" },
@@ -372,7 +372,7 @@
 				"file": "images/cleardot.gif",
 				"alt": "",
 				"credit": "",
-				"class": "-bg",
+				"class": "-bg radio",
 				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
 			"mass": { "value": 20, "units": "kg", "dimension": "mass" },
@@ -392,7 +392,7 @@
 				"file": "images/cleardot.gif",
 				"alt": "",
 				"credit": "",
-				"class": "-bg",
+				"class": "-bg radio",
 				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
 			"mass": { "value": 0.5, "units": "kg", "dimension": "mass" },
@@ -446,7 +446,7 @@
 			"power": { "value": 500, "units": "watts", "dimension": "power" },
 			"requires": [{
 				"type": "package",
-				"oneof": ["solar.panel","solar.panel.surface"],
+				"oneof": ["solar-panel","solar-panel-surface"],
 				"label": "%package.battery-large.requires.solar.label%",
 				"error": "%package.battery-large.requires.solar.error%"
 			}]
@@ -470,7 +470,7 @@
 			"power": { "value": 30, "units": "watts", "dimension": "power" },
 			"requires": [{
 				"type": "package",
-				"oneof": ["solar.panel","solar.panel.surface"],
+				"oneof": ["solar-panel","solar-panel-surface"],
 				"label": "%package.battery-small.requires.solar.label%",
 				"error": "%package.battery-small.requires.solar.error%"
 			}]

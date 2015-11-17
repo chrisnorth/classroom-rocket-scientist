@@ -819,7 +819,7 @@ button.selected:hover, button.selected:focus {
   vertical-align: top; }
 
 .list li .list-bar {
-  width: 1.5em;
+  width: 3.15em;
   vertical-align: top;
   -webkit-border-radius: 0.375em 0 0 0.375em;
   -moz-border-radius: 0.375em 0 0 0.375em;
@@ -1283,7 +1283,7 @@ button.selected:hover, button.selected:focus {
   -moz-animation-timing-function: linear;
   animation-timing-function: linear; }
 
-.threeD .satellite.spin, .threeD .satellite.spin .hemisphere {
+.threeD .satellite.spin, .threeD .satellite.spin .hemisphere.north, .threeD .satellite.spin .hemisphere.south {
   -webkit-animation-name: spin;
   -moz-animation-name: spin;
   animation-name: spin; }
@@ -1353,6 +1353,24 @@ button.selected:hover, button.selected:focus {
   -moz-animation-name: toback;
   animation-name: toback; }
 
+.threeD .satellite.spin .slot.down .hemisphere {
+  -webkit-animation-delay: -4.5s;
+  -moz-animation-delay: -4.5s;
+  -o-animation-delay: -4.5s;
+  animation-delay: -4.5s;
+  -webkit-animation-name: tofront2;
+  -moz-animation-name: tofront2;
+  animation-name: tofront2; }
+
+.threeD .satellite.spin .slot.up .hemisphere {
+  -webkit-animation-delay: -4.5s;
+  -moz-animation-delay: -4.5s;
+  -o-animation-delay: -4.5s;
+  animation-delay: -4.5s;
+  -webkit-animation-name: toback2;
+  -moz-animation-name: toback2;
+  animation-name: toback2; }
+
 @-webkit-keyframes spin {
   100% {
     -webkit-transform: translateY(-1.5em) translateX(-0.375em) scale(1.24) rotateX(-35.264deg) rotateY(405deg); } }
@@ -1383,19 +1401,73 @@ button.selected:hover, button.selected:focus {
   49.8% {
     z-index: 300; }
   50% {
-    z-index: 1; }
+    z-index: 2; }
   99.9% {
-    z-index: 1; } }
+    z-index: 2; } }
 @-moz-keyframes tofront {
   0% {
-    z-index: 300; }
+    z-index: 299; }
   49.8% {
-    z-index: 300; }
+    z-index: 299; }
   50% {
-    z-index: 1; }
+    z-index: 2; }
   99.9% {
-    z-index: 1; } }
+    z-index: 2; } }
 @-o-keyframes tofront {
+  0% {
+    z-index: 299; }
+  49.8% {
+    z-index: 299; }
+  50% {
+    z-index: 2; }
+  99.9% {
+    z-index: 2; } }
+@keyframes tofront {
+  0% {
+    z-index: 299; }
+  49.8% {
+    z-index: 299; }
+  50% {
+    z-index: 2; }
+  99.9% {
+    z-index: 2; } }
+@-webkit-keyframes toback2 {
+  0% {
+    z-index: 2; }
+  49.8% {
+    z-index: 2; }
+  50% {
+    z-index: 299; }
+  99.9% {
+    z-index: 299; } }
+@-moz-keyframes toback2 {
+  0% {
+    z-index: 2; }
+  49.8% {
+    z-index: 2; }
+  50% {
+    z-index: 299; }
+  99.9% {
+    z-index: 299; } }
+@-o-keyframes toback2 {
+  0% {
+    z-index: 2; }
+  49.8% {
+    z-index: 2; }
+  50% {
+    z-index: 299; }
+  99.9% {
+    z-index: 299; } }
+@keyframes toback2 {
+  0% {
+    z-index: 2; }
+  49.8% {
+    z-index: 2; }
+  50% {
+    z-index: 299; }
+  99.9% {
+    z-index: 299; } }
+@-webkit-keyframes tofront2 {
   0% {
     z-index: 300; }
   49.8% {
@@ -1404,7 +1476,25 @@ button.selected:hover, button.selected:focus {
     z-index: 1; }
   99.9% {
     z-index: 1; } }
-@keyframes tofront {
+@-moz-keyframes tofront2 {
+  0% {
+    z-index: 300; }
+  49.8% {
+    z-index: 300; }
+  50% {
+    z-index: 1; }
+  99.9% {
+    z-index: 1; } }
+@-o-keyframes tofront2 {
+  0% {
+    z-index: 300; }
+  49.8% {
+    z-index: 300; }
+  50% {
+    z-index: 1; }
+  99.9% {
+    z-index: 1; } }
+@keyframes tofront2 {
   0% {
     z-index: 300; }
   49.8% {
@@ -1716,6 +1806,9 @@ button.selected:hover, button.selected:focus {
 .hemisphere.south {
   top: -100%; }
 
+.hemisphere.east, .hemisphere.west {
+  height: 100%; }
+
 .slot4x8 .hemisphere {
   top: 0%; }
 
@@ -1746,8 +1839,8 @@ button.selected:hover, button.selected:focus {
 
 .east .dome, .west .dome {
   top: 0%;
-  left: 50%;
-  width: 50%;
+  left: 0%;
+  width: 100%;
   height: 100%; }
 
 .north .dome {
@@ -1792,11 +1885,11 @@ button.selected:hover, button.selected:focus {
   left: 0; }
 
 .hemisphere .inner, .dome, .hemisphere .inner:after {
-  -webkit-transition: height 0.3s ease, border-radius 0.3s ease;
-  -moz-transition: height 0.3s ease, border-radius 0.3s ease;
-  -ms-transition: height 0.3s ease, border-radius 0.3s ease;
-  -o-transition: height 0.3s ease, border-radius 0.3s ease;
-  transition: height 0.3s ease, border-radius 0.3s ease; }
+  -webkit-transition: height 0.3s ease, width 0.3s ease, border-radius 0.3s ease;
+  -moz-transition: height 0.3s ease, width 0.3s ease, border-radius 0.3s ease;
+  -ms-transition: height 0.3s ease, width 0.3s ease, border-radius 0.3s ease;
+  -o-transition: height 0.3s ease, width 0.3s ease, border-radius 0.3s ease;
+  transition: height 0.3s ease, width 0.3s ease, border-radius 0.3s ease; }
 
 .hemisphere .inner {
   border-radius: 100%; }
@@ -1840,24 +1933,35 @@ button.selected:hover, button.selected:focus {
   height: 50%; }
 
 .east .inner, .west .inner {
+  width: 0%;
   height: 100%;
-  width: 60%;
-  left: 50%;
-  top: 0%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%); }
+  top: 0%; }
 
-.threeD .no-inside .inner {
+.east .inner, .west .inner {
+  width: 200%;
+  z-index: 100;
+  left: 0%; }
+
+.east .inner {
+  -webkit-transform: translateZ(-0.5em) translateX(-50%) rotateY(90deg);
+  -moz-transform: translateZ(-0.5em) translateX(-50%) rotateY(90deg);
+  -ms-transform: translateZ(-0.5em) translateX(-50%) rotateY(90deg);
+  -o-transform: translateZ(-0.5em) translateX(-50%) rotateY(90deg);
+  transform: translateZ(-0.5em) translateX(-50%) rotateY(90deg); }
+
+.west .inner {
+  -webkit-transform: translateZ(-0.5em) rotateY(-90deg);
+  -moz-transform: translateZ(-0.5em) rotateY(-90deg);
+  -ms-transform: translateZ(-0.5em) rotateY(-90deg);
+  -o-transform: translateZ(-0.5em) rotateY(-90deg);
+  transform: translateZ(-0.5em) rotateY(-90deg); }
+
+/* The northerly dish (pointing down) doesn't ever show its inside */
+.north .inner, .threeD .no-inside .inner {
   height: 0px;
   display: none; }
 
-.no-inside .inner {
-  border: 0px; }
-
-.threeD .north.no-inside .dome {
+.threeD .north .dome, .threeD .north.no-inside .dome {
   height: 75%;
   border-radius: 1em 1em 1em 1em / 0.85em 0.85em 0.75em 0.75em; }
 
@@ -1871,8 +1975,8 @@ button.selected:hover, button.selected:focus {
   left: 15%;
   border-radius: 0.75em 0.85em 0.85em 0.75em / 1em 1em 1em 1em; }
 
-.threeD .west.no-inside .dome {
-  width: 85%;
+.threeD .west .dome {
+  width: 100%;
   border-radius: 0.85em 0.75em 0.75em 0.85em / 1em 1em 1em 1em; }
 
 .south .inner {
@@ -1895,14 +1999,36 @@ button.selected:hover, button.selected:focus {
   -moz-box-shadow: inset 0.25em 0.2em 0.2em -0.05em rgba(0, 0, 0, 0.2);
   box-shadow: inset 0.25em 0.2em 0.2em -0.05em rgba(0, 0, 0, 0.2); }
 
-.threeD .slot2x4 .hemisphere {
+.threeD .slot2x4 .hemisphere.north, .threeD .slot2x4 .hemisphere.south {
   -webkit-transform: translateZ(-1.5em) rotateY(-45deg) rotateX(35.264deg);
   -moz-transform: translateZ(-1.5em) rotateY(-45deg) rotateX(35.264deg);
   -ms-transform: translateZ(-1.5em) rotateY(-45deg) rotateX(35.264deg);
   -o-transform: translateZ(-1.5em) rotateY(-45deg) rotateX(35.264deg);
   transform: translateZ(-1.5em) rotateY(-45deg) rotateX(35.264deg); }
 
-.threeD .slot4x8 .hemisphere {
+.threeD .slot2x4 .hemisphere.east, .threeD .slot2x4 .hemisphere.west {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d; }
+
+.threeD .slot2x4 .hemisphere.east .dome, .threeD .slot2x4 .hemisphere.west .dome {
+  -webkit-transform: translateX(0.1em) translateZ(-0.5em) rotateX(45deg);
+  -moz-transform: translateX(0.1em) translateZ(-0.5em) rotateX(45deg);
+  -ms-transform: translateX(0.1em) translateZ(-0.5em) rotateX(45deg);
+  -o-transform: translateX(0.1em) translateZ(-0.5em) rotateX(45deg);
+  transform: translateX(0.1em) translateZ(-0.5em) rotateX(45deg);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d; }
+
+.threeD .slot2x4 .hemisphere.west .dome {
+  -webkit-transform: translateZ(-0.5em) rotateX(45deg);
+  -moz-transform: translateZ(-0.5em) rotateX(45deg);
+  -ms-transform: translateZ(-0.5em) rotateX(45deg);
+  -o-transform: translateZ(-0.5em) rotateX(45deg);
+  transform: translateZ(-0.5em) rotateX(45deg);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d; }
+
+.threeD .slot4x8 .hemisphere.north, .threeD .slot4x8 .hemisphere.south {
   -webkit-transform: translateZ(-3em) rotateY(-45deg) rotateX(35.264deg);
   -moz-transform: translateZ(-3em) rotateY(-45deg) rotateX(35.264deg);
   -ms-transform: translateZ(-3em) rotateY(-45deg) rotateX(35.264deg);
@@ -1948,14 +2074,14 @@ button.selected:hover, button.selected:focus {
   -o-transform: translateX(1.125em) translateY(-1.125em);
   transform: translateX(1.125em) translateY(-1.125em); }
 
-.threeD .satellite.spin .slot2x4 .hemisphere {
+.threeD .satellite.spin .slot2x4 .hemisphere.north, .threeD .satellite.spin .slot2x4 .hemisphere.south {
   -webkit-animation-name: antispin;
   -moz-animation-name: antispin;
   animation-name: antispin;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d; }
 
-.threeD .satellite.spin .slot4x8 .hemisphere {
+.threeD .satellite.spin .slot4x8 .hemisphere.north, .threeD .satellite.spin .slot4x8 .hemisphere.south {
   -webkit-animation-name: antispin_big;
   -moz-animation-name: antispin_big;
   animation-name: antispin_big;
@@ -2000,6 +2126,9 @@ button.selected:hover, button.selected:focus {
 .slot2x4.texture .face.back {
   background: url("../images/foil_2x4.png");
   background-size: 100% 100%; }
+
+.texture .face.front {
+  background: url("../images/foil_2x2.png"); }
 
 .satellite.solar-fixed .row:first-child .solar-right .face.top {
   border-right: 4px solid #00a2d3; }

@@ -234,7 +234,6 @@
 											<div class="requirements">
 												<div class="padder">
 													<h3><!--#echo var="ui.requirements.title" --></h3>
-													<button class="fancy" onClick="toggleComms()">Toggle communications</button>
 												</div>
 											</div>
 											<div class="flex-grow">
@@ -256,7 +255,7 @@
 											<h3><!--#echo var="ui.sections.instrument.list" --></h3>
 											<ul><!--#for each="package" name="instrumentloop" -->
 												<li data-package="<!--#json name="this" -->" data-size="<!--#json name="slot" -->">
-													<div class="list-bar bg<!--#json name="slot" -->"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg<!--#json name="slot" -->"><button class="fancy add" data-size="<!--#json name="slot" -->" data-package="<!--#json name="this" -->">&plus;</button><button class="fancy remove" disabled="disabled" data-size="<!--#json name="slot" -->" data-package="<!--#json name="this" -->">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot <!--#json name="image.icon" -->"><div class="slot slot<!--#json name="slot" -->"><div class="eg<!--#json name="image.class" -->"><img src="images/cleardot.gif" class="face front" alt="<!--#json name="image.alt" -->" /><!--#json name="image.html" --></div></div></div>
 													</div>
@@ -322,7 +321,7 @@
 											<h3><!--#echo var="ui.sections.power.list" --></h3>
 											<ul><!--#for each="power" name="powerloop" -->
 												<li data-package="<!--#json name="this" -->">
-													<div class="list-bar bg<!--#json name="slot" -->"><button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button></div>
+													<div class="list-bar bg<!--#json name="slot" -->"><button class="fancy add" data-size="<!--#json name="slot" -->" data-package="<!--#json name="this" -->">&plus;</button><button class="fancy remove" disabled="disabled" data-size="<!--#json name="slot" -->" data-package="<!--#json name="this" -->">&minus;</button></div>
 													<div class="list-left">
 														<div class="package_slot <!--#json name="image.icon" -->"><div class="slot slot<!--#json name="slot" -->"><div class="eg<!--#json name="image.class" -->"><img src="images/cleardot.gif" class="face front" alt="<!--#json name="image.alt" -->" /><!--#json name="image.html" --></div></div></div>
 													</div>
