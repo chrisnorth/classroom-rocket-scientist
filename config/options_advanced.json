@@ -618,18 +618,26 @@
 	},
 	"orbit": {
 		"LEO": {
+			"title": "%orbit.LEO.title%",
+			"description": "%orbit.LEO.description%",
 			"altitude": { "value": 400, "units": "km", "dimension": "length" },
 			"period": { "value": 90, "units": "minutes", "dimension": "time" }
 		},
 		"MEO": {
+			"title": "%orbit.MEO.title%",
+			"description": "%orbit.MEO.description%",
 			"altitude": { "value": 2000, "units": "km", "dimension": "length" }, 
 			"period": { "value": 2, "units": "hours", "dimension": "time" }
 		},
 		"HEO": {
+			"title": "%orbit.HEO.title%",
+			"description": "%orbit.HEO.description%",
 			"altitude": { "value": 20000, "units": "km", "dimension": "length" },
 			"period": { "value": 12, "units": "hours", "dimension": "time" }
 		},
 		"GEO": {
+			"title": "%orbit.GEO.title%",
+			"description": "%orbit.GEO.description%",
 			"altitude": { "value": 35786, "units": "km", "dimension": "length" },
 			"period": { "value": 24, "units": "hours", "dimension": "time" }
 		}

@@ -14,7 +14,8 @@ sub loadLanguage {
 		$line =~ s/[\n\r]//g;
 		if($line !~ /^\-\-\-/ && $line !~ /^\.\.\./){
 			$line =~ s/[\s\t]+\#[^\#]*$//;
-			($key,$value) = split(/:[\t\s]+/,$line);
+			$line =~ s/^([^\:]*)\:[\t\s]+/$1====/g;
+			($key,$value) = split(/====/,$line);
 			$temp{$key} = $value;
 		}
 	}

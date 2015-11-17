@@ -35,6 +35,9 @@ ui.sections.bus.intro:                      The size of your satellite matters. 
 ui.sections.orbit.short:                    Orbit
 ui.sections.orbit.title:                    Select the orbit for your satellite
 ui.sections.orbit.intro:                    There are several different orbits around the Earth that you can choose from. Higher orbits need more powerful rockets to get to them.
+ui.sections.orbit.list:                     Available orbits:
+ui.sections.orbit.altitude:                 Altitude: 
+ui.sections.orbit.period:                   Period: 
 ui.sections.instrument.short:               Instruments
 ui.sections.instrument.title:               Select the instruments for your satellite
 ui.sections.instrument.intro:               To complete your mission you will need the correct instruments. You only have a limited number of slots and money so choose wisely.
@@ -107,10 +110,18 @@ package.solar-panel-surface.title:          Body-mounted solar panel
 package.solar-panel-surface.description:    Provides power
 package.solar-panel.title:                  Deployable solar panel
 package.solar-panel.description:            Provides power
-scenarios.NAV.title:                         Navigation
-scenarios.NAV.description:                   The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.
-scenarios.COMMS.title:                       Communication
-scenarios.COMMS.description:                 These are used for television, phone or internet transmissions, for example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.
-scenarios.EO.title:                          Earth observation
-scenarios.EO.description:                    These are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.
+orbit.LEO.title:                            Low-Earth orbit
+orbit.LEO.description:                      A description
+orbit.MEO.title:                            Medium-Earth orbit
+orbit.MEO.description:                      A description
+orbit.HEO.title:                            Highly-elliptical orbit
+orbit.HEO.description:                      A description
+orbit.GEO.title:                            Geo-stationary orbit
+orbit.GEO.description:                      A description
+scenarios.NAV.title:                        Navigation
+scenarios.NAV.description:                  The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.
+scenarios.COMMS.title:                      Communication
+scenarios.COMMS.description:                These are used for television, phone or internet transmissions, for example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.
+scenarios.EO.title:                         Earth observation
+scenarios.EO.description:                   These are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.
 ...

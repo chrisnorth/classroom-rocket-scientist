@@ -171,6 +171,44 @@
 							<p><!--#echo var="ui.sections.orbit.intro" --></p>
 						</div>
 						<div class="table-row">
+							<div class="lower">
+								<div class="row-flex row-flex-wrap">
+									<div class="col-60">
+										<div class="flex-col">
+											<div class="requirements">
+												<div class="padder">
+													<h3><!--#echo var="ui.requirements.title" --></h3>
+												</div>
+											</div>
+											<div class="flex-grow">
+												<ul class="orrery">
+													<li class="body"><a href="#orbit"><span></span></a><div class="disc"></div></li>
+													<li class="orbit GEO"><a href="#orbit"><span>Geostationary orbit</span></a></li>
+													<li class="orbit HEO"><a href="#orbit"><span>Highly-elliptical orbit</span></a></li>
+													<li class="orbit MEO"><a href="#orbit"><span>Mid-Earth orbit</span></a></li>
+													<li class="orbit LEO"><a href="#orbit"><span>Low-Earth orbit</span></a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="col-40">
+										<div id="orbit_list" class="list">
+											<h3><!--#echo var="ui.sections.orbit.list" --></h3>
+											<ul><!--#for each="orbit" name="orbitloop" -->
+												<li class="orbit-<!--#json name="this" -->">
+													<div class="list-bar bg-orbit"><button class="fancy add" data-orbit="<!--#json name="this" -->">&larr;</button></div>
+													<div class="list-right">
+														<div class="orbit_title"><strong><!--#json name="title" --></strong></div>
+														<div class="orbit_altitude"><!--#echo var="ui.sections.orbit.altitude" --><span data-dimension="<!--#json name="altitude.dimension" -->" data-units="<!--#json name="altitude.units" -->" data-value="<!--#json name="altitude.value" -->" class="value convertable"><!--#json name="altitude.value" --> <!--#json name="altitude.units" --></span></div>
+														<div class="orbit_period"><!--#echo var="ui.sections.orbit.period" --><span data-dimension="<!--#json name="period.dimension" -->" data-units="<!--#json name="period.units" -->" data-value="<!--#json name="period.value" -->" class="value convertable"><!--#json name="period.value" --> <!--#json name="period.units" --></span></div>
+														<div class="orbit_desc"><!--#json name="description" --></div>
+													</div>
+												</li><!--#endfor name="orbitloop" -->
+											</ul>
+										</div>
+									</div><!-- end right -->
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -193,7 +231,7 @@
 						<div class="table-row">
 							<div class="lower">
 								<div class="row-flex row-flex-wrap">
-									<div class="col-left">
+									<div class="col-60">
 										<div class="flex-col">
 											<div class="requirements">
 												<div class="padder">
@@ -215,7 +253,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-right">
+									<div class="col-40">
 										<div id="instrument_list" class="list">
 											<h3><!--#echo var="ui.sections.instrument.list" --></h3>
 											<ul><!--#for each="package" name="instrumentloop" -->
@@ -259,7 +297,7 @@
 						<div class="table-row">
 							<div class="lower">
 								<div class="row-flex row-flex-wrap">
-									<div class="col-left">
+									<div class="col-50">
 										<div class="flex-col">
 											<div class="requirements">
 												<div class="padder">
@@ -281,7 +319,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-right">
+									<div class="col-50">
 										<div id="power_list" class="list">
 											<h3><!--#echo var="ui.sections.power.list" --></h3>
 											<ul><!--#for each="power" name="powerloop" -->

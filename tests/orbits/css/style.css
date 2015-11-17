@@ -1,0 +1,217 @@
+.bg2x2 {
+  background-color: #02a24b; }
+
+.bg2x4 {
+  background-color: #f04031; }
+
+.bg4x4 {
+  background-color: #00a2d3; }
+
+.bg4x8 {
+  background-color: #662d8f; }
+
+.bg0x2 {
+  background-color: #57b7aa; }
+
+.bg1x2 {
+  background-color: #f6881f; }
+
+.bg1x1 {
+  background-color: #ffcb06; }
+
+/* Solar System Styles */
+ul.orrery {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  -webkit-transition: all 0.09s ease-in;
+  -moz-transition: all 0.09s ease-in;
+  -ms-transition: all 0.09s ease-in;
+  -o-transition: all 0.09s ease-in;
+  transition: all 0.09s ease-in;
+  overflow: hidden;
+  z-index: 0;
+  background-color: #202020; }
+
+ul.orrery li {
+  text-indent: -9999px;
+  display: block;
+  position: absolute;
+  border: 0.1em dashed #e1f4fe;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%; }
+
+ul.orrery li.orbit span {
+  color: transparent;
+  display: block;
+  position: absolute;
+  width: 0.5em;
+  height: 0.5em;
+  left: 50%;
+  margin-left: -0.25em;
+  top: -0.25em;
+  background: #777777; }
+
+ul.orrery li.orbit span:before {
+  left: 0px;
+  margin-left: -0.75em; }
+
+ul.orrery li.orbit span:after {
+  right: 0px;
+  margin-right: -0.75em; }
+
+ul.orrery li.orbit span:after, ul.orrery li.orbit span:before {
+  position: absolute;
+  top: 0px;
+  content: "";
+  width: 0.75em;
+  height: 0.25em;
+  display: block;
+  background-color: #00a2d3;
+  background-image: -webkit-linear-gradient(#e1f4fe 1px, transparent 1px), -webkit-linear-gradient(0deg, #e1f4fe 1px, transparent 1px), -webkit-linear-gradient(#48c7e9 1px, transparent 1px), -webkit-linear-gradient(0deg, #48c7e9 1px, transparent 1px);
+  background-image: linear-gradient(#e1f4fe 1px, transparent 1px), linear-gradient(90deg, #e1f4fe 1px, transparent 1px), linear-gradient(#48c7e9 1px, transparent 1px), linear-gradient(90deg, #48c7e9 1px, transparent 1px);
+  background-size: 1.5em 1.5em, 1.5em 1.5em, 0.375em 0.375em, 0.375em 0.375em;
+  background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+  box-sizing: border-box; }
+
+ul.orrery li.body {
+  width: 2em;
+  height: 2em;
+  margin-left: -1em;
+  margin-top: -1em;
+  border: none;
+  background: #02a24b;
+  background-image: url("../images/earth.svg");
+  background-size: 100% 100%;
+  z-index: 100; }
+
+ul.orrery li.LEO {
+  width: 3em;
+  height: 3em;
+  margin-top: -1.5em;
+  margin-left: -1.5em;
+  border-color: #bbbbbb; }
+
+ul.orrery li.LEO span {
+  left: 1.25em; }
+
+ul.orrery li.MEO {
+  width: 5em;
+  height: 5em;
+  margin-top: -2.5em;
+  margin-left: -2.5em;
+  border-color: #67c18d; }
+
+ul.orrery li.MEO span {
+  left: 2.25em; }
+
+ul.orrery li.HEO {
+  width: 9.4em;
+  height: 9.4em;
+  margin-top: -4.7em;
+  margin-left: -6.58em;
+  border-color: #f04031; }
+
+ul.orrery li.HEO span {
+  left: 4.45em; }
+
+ul.orrery li.GEO {
+  width: 24em;
+  height: 24em;
+  margin-top: -12em;
+  margin-left: -12em;
+  border-color: #048b9f; }
+
+ul.orrery li.GEO span {
+  left: 11.75em; }
+
+ul.orrery li.orbit:hover,
+ul.orrery li.orbit.selected {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-width: 0.2em; }
+
+ul.orrery li.orbit:hover span,
+ul.orrery li.orbit.selected span {
+  width: 1em;
+  height: 1em;
+  top: -0.6em; }
+
+ul.orrery li.orbit:hover span:before,
+ul.orrery li.orbit:hover span:after,
+ul.orrery li.orbit.selected span:before,
+ul.orrery li.orbit.selected span:after {
+  font-size: 2em; }
+
+/* CSS3 Animations */
+ul.orrery li {
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-name: orbit;
+  -moz-animation-name: orbit;
+  animation-name: orbit; }
+
+ul.orrery li.LEO {
+  -webkit-animation-duration: 15s;
+  -moz-animation-duration: 15s;
+  animation-duration: 15s;
+  -webkit-animation-delay: -0.1s;
+  -moz-animation-delay: -0.1s;
+  -o-animation-delay: -0.1s;
+  animation-delay: -0.1s; }
+
+ul.orrery li.MEO {
+  -webkit-animation-duration: 20s;
+  -moz-animation-duration: 20s;
+  animation-duration: 20s;
+  -webkit-animation-delay: -0.1s;
+  -moz-animation-delay: -0.1s;
+  -o-animation-delay: -0.1s;
+  animation-delay: -0.1s; }
+
+ul.orrery li.HEO {
+  -webkit-animation-duration: 120s;
+  -moz-animation-duration: 120s;
+  animation-duration: 120s;
+  -webkit-animation-delay: -0.1s;
+  -moz-animation-delay: -0.1s;
+  -o-animation-delay: -0.1s;
+  animation-delay: -0.1s; }
+
+ul.orrery li.GEO {
+  -webkit-animation-duration: 240s;
+  -moz-animation-duration: 240s;
+  animation-duration: 240s;
+  -webkit-animation-delay: -0.1s;
+  -moz-animation-delay: -0.1s;
+  -o-animation-delay: -0.1s;
+  animation-delay: -0.1s; }
+
+@-webkit-keyframes orbit {
+  100% {
+    -webkit-transform: rotate(360deg); } }
+@-moz-keyframes orbit {
+  100% {
+    -moz-transform: rotate(360deg); } }
+@-o-keyframes orbit {
+  100% {
+    -o-transform: rotate(360deg); } }
+@keyframes orbit {
+  100% {
+    transform: rotate(360deg); } }
+
+/*# sourceMappingURL=style.css.map */

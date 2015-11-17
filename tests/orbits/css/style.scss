@@ -1,0 +1,138 @@
+@import "../../satellite/definitions";
+@import "../../../css/definitions";
+
+$w: 40em;
+$h: 30em;
+$b: 2em;
+$line : 0.1em;
+$circle: 0.5em;
+$leo: 3em;
+$meo: 5em;
+$heo: 9.4em;
+$geo: 24em;
+$speed: 10s;
+$leo_time: 1.5;
+$meo_time: 2;
+$heo_time: 12;
+$geo_time: 24;
+
+/* Solar System Styles */
+ul.orrery {
+	position: relative;
+	width: 100%;
+	max-width: 100%;
+	height: 100%;
+	max-height: 100%;
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	@include transition(all 0.09s ease-in);
+	overflow: hidden;
+	z-index: 0;
+	background-color: $black-2;
+}
+ul.orrery li {
+	text-indent: -9999px;
+	display: block;
+	position: absolute;
+	border: $line dashed #e1f4fe;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	@include border-radius(50%);
+}
+ul.orrery li.orbit span {
+	color: transparent;
+	display: block;
+	position: absolute;
+	width: $circle;
+	height: $circle;
+	left: 50%;
+	margin-left: -$circle/2;
+	top: -$circle/2;
+	background: $grey-1;
+}
+$spw: $circle*1.5;
+ul.orrery li.orbit span:before { left: 0px; margin-left: -$spw; }
+ul.orrery li.orbit span:after { right: 0px; margin-right: -$spw; }
+ul.orrery li.orbit span:after, ul.orrery li.orbit span:before {
+	position: absolute;
+	top: 0px;
+	content: ""; width: $circle*1.5; height: $circle*0.5; display: block;
+	background-color: $blue-1;
+	background-image: -webkit-linear-gradient($blue-5 1px, transparent 1px), -webkit-linear-gradient(0deg, $blue-5 1px, transparent 1px), -webkit-linear-gradient($blue-3 1px, transparent 1px), -webkit-linear-gradient(0deg, $blue-3 1px, transparent 1px);
+	background-image: linear-gradient($blue-5 1px, transparent 1px), linear-gradient(90deg, $blue-5 1px, transparent 1px), linear-gradient($blue-3 1px, transparent 1px), linear-gradient(90deg, $blue-3 1px, transparent 1px);
+	background-size: $s $s, $s $s, $s * 0.25 $s * 0.25, $s * 0.25 $s * 0.25;
+	background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+	box-sizing: border-box;
+}
+
+ul.orrery li.body {
+	width: $b;
+	height: $b;
+	margin-left: -$b/2;
+	margin-top: -$b/2;
+	border: none;
+	background: $green-1;
+	background-image: url('../images/earth.svg');
+	background-size: 100% 100%;
+	z-index: 100;
+}
+ul.orrery li.LEO {
+	width: $leo;
+	height: $leo;
+	margin-top: -$leo/2;
+	margin-left: -$leo/2;
+	border-color: $grey-3;
+}
+ul.orrery li.LEO span { left: $leo/2 - $circle/2; }
+ul.orrery li.MEO {
+	width: $meo;
+	height: $meo;
+	margin-top: -$meo/2;
+	margin-left: -$meo/2;
+	border-color: $green-3;
+}
+ul.orrery li.MEO span { left: $meo/2 - $circle/2; }
+$r1: rotateX(45deg);
+$r2: rotateX(-45deg);
+ul.orrery li.HEO {
+	width: $heo;
+	height: $heo;
+	margin-top: -$heo/2;
+	margin-left: -$heo*0.7;
+	border-color: $red-1;
+}
+ul.orrery li.HEO span { left: $heo/2 - $circle/2; }
+ul.orrery li.GEO {
+	width: $geo;
+	height: $geo;
+	margin-top: -$geo/2;
+	margin-left: -$geo/2;
+	border-color: $blue-2;
+}
+ul.orrery li.GEO span { left: $geo/2 - $circle/2; }
+ul.orrery li.orbit:hover,
+ul.orrery li.orbit.selected { cursor: pointer; background-color: rgba(255,255,255,0.1); border-width: $line*2; }
+ul.orrery li.orbit:hover span,
+ul.orrery li.orbit.selected span { width: $circle*2; height: $circle*2; top: -$circle - $line; }
+ul.orrery li.orbit:hover span:before,
+ul.orrery li.orbit:hover span:after,
+ul.orrery li.orbit.selected span:before,
+ul.orrery li.orbit.selected span:after { font-size: 2em; }
+
+/* CSS3 Animations */
+ul.orrery li {
+	@include animation-iteration-count(infinite);
+	@include animation-timing-function(linear);
+	@include animation-name(orbit);
+}
+ul.orrery li.LEO { @include animation-duration($leo_time*$speed); @include animation-delay(-0.1s); }
+ul.orrery li.MEO { @include animation-duration($meo_time*$speed); @include animation-delay(-0.1s); }
+ul.orrery li.HEO { @include animation-duration($heo_time*$speed); @include animation-delay(-0.1s); }
+ul.orrery li.GEO { @include animation-duration($geo_time*$speed); @include animation-delay(-0.1s); }
+
+@-webkit-keyframes orbit { 100% { -webkit-transform: rotate(360deg); } }
+@-moz-keyframes orbit { 100% { -moz-transform: rotate(360deg); } }
+@-o-keyframes orbit { 100% { -o-transform: rotate(360deg); } }
+@keyframes orbit { 100% { transform: rotate(360deg); } }

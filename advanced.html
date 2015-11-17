@@ -267,6 +267,71 @@
 							<p>There are several different orbits around the Earth that you can choose from. Higher orbits need more powerful rockets to get to them.</p>
 						</div>
 						<div class="table-row">
+							<div class="lower">
+								<div class="row-flex row-flex-wrap">
+									<div class="col-60">
+										<div class="flex-col">
+											<div class="requirements">
+												<div class="padder">
+													<h3>Requirements</h3>
+												</div>
+											</div>
+											<div class="flex-grow">
+												<ul class="orrery">
+													<li class="body"><a href="#orbit"><span></span></a><div class="disc"></div></li>
+													<li class="orbit GEO"><a href="#orbit"><span>Geostationary orbit</span></a></li>
+													<li class="orbit HEO"><a href="#orbit"><span>Highly-elliptical orbit</span></a></li>
+													<li class="orbit MEO"><a href="#orbit"><span>Mid-Earth orbit</span></a></li>
+													<li class="orbit LEO"><a href="#orbit"><span>Low-Earth orbit</span></a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="col-40">
+										<div id="orbit_list" class="list">
+											<h3>Available orbits:</h3>
+											<ul>
+												<li class="orbit-GEO">
+													<div class="list-bar bg-orbit"><button class="fancy add" data-orbit="GEO">&larr;</button></div>
+													<div class="list-right">
+														<div class="orbit_title"><strong>Geo-stationary orbit</strong></div>
+														<div class="orbit_altitude">Altitude: <span data-dimension="length" data-units="km" data-value="35786" class="value convertable">35786 km</span></div>
+														<div class="orbit_period">Period: <span data-dimension="time" data-units="hours" data-value="24" class="value convertable">24 hours</span></div>
+														<div class="orbit_desc">A description</div>
+													</div>
+												</li>
+												<li class="orbit-HEO">
+													<div class="list-bar bg-orbit"><button class="fancy add" data-orbit="HEO">&larr;</button></div>
+													<div class="list-right">
+														<div class="orbit_title"><strong>Highly-elliptical orbit</strong></div>
+														<div class="orbit_altitude">Altitude: <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20000 km</span></div>
+														<div class="orbit_period">Period: <span data-dimension="time" data-units="hours" data-value="12" class="value convertable">12 hours</span></div>
+														<div class="orbit_desc">A description</div>
+													</div>
+												</li>
+												<li class="orbit-LEO">
+													<div class="list-bar bg-orbit"><button class="fancy add" data-orbit="LEO">&larr;</button></div>
+													<div class="list-right">
+														<div class="orbit_title"><strong>Low-Earth orbit</strong></div>
+														<div class="orbit_altitude">Altitude: <span data-dimension="length" data-units="km" data-value="400" class="value convertable">400 km</span></div>
+														<div class="orbit_period">Period: <span data-dimension="time" data-units="minutes" data-value="90" class="value convertable">90 minutes</span></div>
+														<div class="orbit_desc">A description</div>
+													</div>
+												</li>
+												<li class="orbit-MEO">
+													<div class="list-bar bg-orbit"><button class="fancy add" data-orbit="MEO">&larr;</button></div>
+													<div class="list-right">
+														<div class="orbit_title"><strong>Medium-Earth orbit</strong></div>
+														<div class="orbit_altitude">Altitude: <span data-dimension="length" data-units="km" data-value="2000" class="value convertable">2000 km</span></div>
+														<div class="orbit_period">Period: <span data-dimension="time" data-units="hours" data-value="2" class="value convertable">2 hours</span></div>
+														<div class="orbit_desc">A description</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div><!-- end right -->
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -289,7 +354,7 @@
 						<div class="table-row">
 							<div class="lower">
 								<div class="row-flex row-flex-wrap">
-									<div class="col-left">
+									<div class="col-60">
 										<div class="flex-col">
 											<div class="requirements">
 												<div class="padder">
@@ -311,7 +376,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-right">
+									<div class="col-40">
 										<div id="instrument_list" class="list">
 											<h3>Available instruments:</h3>
 											<ul>
@@ -593,7 +658,7 @@
 						<div class="table-row">
 							<div class="lower">
 								<div class="row-flex row-flex-wrap">
-									<div class="col-left">
+									<div class="col-50">
 										<div class="flex-col">
 											<div class="requirements">
 												<div class="padder">
@@ -615,7 +680,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-right">
+									<div class="col-50">
 										<div id="power_list" class="list">
 											<h3>Available power devices:</h3>
 											<ul>

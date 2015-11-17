@@ -323,8 +323,11 @@ section#launch { background-color: $black-1; color: $grey-5; }
 	-webkit-flex: 2;
 	flex: 2;
 }
-.col-left { width: 50%; }
-.col-right { width: 50%; position: relative; }
+.col-30 { width: 30%; position: relative; }
+.col-40 { width: 40%; position: relative; }
+.col-50 { width: 50%; position: relative; }
+.col-60 { width: 60%; position: relative; }
+.col-70 { width: 70%; position: relative; }
 
 
 $pattern_a: transparent 49%, white 49.4%, white 50.6%, transparent 51%, transparent;
@@ -350,7 +353,6 @@ $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 	height: 100%;
 	max-height: 100vh;
 }
-
 
 
 
@@ -443,19 +445,32 @@ button.selected:hover, button.selected:focus {
 .package_slot .slot4x8 .hemisphere .inner::after,.package_slot .hemisphere .inner::after { height: $s * 0.075; }
 .package_slot div { float: right; }
 .package_power, .package_mass, .package_cost { display: inline-block; }
+.bg-orbit { background-color: $grey-2; }
+.orbit-LEO .bg-orbit { background-color: $grey-3; }
+.orbit-MEO .bg-orbit { background-color: $green-3; }
+.orbit-HEO .bg-orbit { background-color: $red-1; }
+.orbit-GEO .bg-orbit { background-color: $blue-2; }
 
 .holder {
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
 }
-.requirements {
-}
 .requirements .padder {
 	background-color: $grey-5;
 	padding: $s*0.5;
 	margin-bottom: $s;
 }
+.requirements.fill-container .padder {
+	margin-bottom: 0;
+	margin-right: $s;
+}
+
+.fill-container { 
+	width: 100%;
+	height: 100%;
+}
+
 
 #bus .satellite:hover {
 	cursor: pointer;
@@ -483,3 +498,4 @@ button.selected:hover, button.selected:focus {
 .slot2x4.texture .face.back { background: url('../images/foil_2x4.png'); background-size: 100% 100%; }
 
 @import "../tests/satellite/solar.scss";
+@import "../tests/orbits/css/style.scss";

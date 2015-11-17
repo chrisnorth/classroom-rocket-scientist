@@ -618,18 +618,26 @@
 	},
 	"orbit": {
 		"LEO": {
+			"title": "Low-Earth orbit",
+			"description": "A description",
 			"altitude": { "value": 400, "units": "km", "dimension": "length" },
 			"period": { "value": 90, "units": "minutes", "dimension": "time" }
 		},
 		"MEO": {
+			"title": "Medium-Earth orbit",
+			"description": "A description",
 			"altitude": { "value": 2000, "units": "km", "dimension": "length" }, 
 			"period": { "value": 2, "units": "hours", "dimension": "time" }
 		},
 		"HEO": {
+			"title": "Highly-elliptical orbit",
+			"description": "A description",
 			"altitude": { "value": 20000, "units": "km", "dimension": "length" },
 			"period": { "value": 12, "units": "hours", "dimension": "time" }
 		},
 		"GEO": {
+			"title": "Geo-stationary orbit",
+			"description": "A description",
 			"altitude": { "value": 35786, "units": "km", "dimension": "length" },
 			"period": { "value": 24, "units": "hours", "dimension": "time" }
 		}

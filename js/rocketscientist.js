@@ -365,6 +365,7 @@ RocketScientist.prototype.getSections = function(){
 RocketScientist.prototype.init = function(data){
 
 	this.data = data;
+	this.currentsection = 0;
 	function updateConvertables(o){
 		for (i in o){
 			if(typeof(o[i])=="object") {
@@ -390,7 +391,7 @@ RocketScientist.prototype.init = function(data){
 
 	// We hide elements that shouldn't be visible (but we are leaving visible
 	// in the plain HTML so there is something if Javascript doesn't work.
-	for(var s = 0; s < this.sections.length; s++) E('#'+this.sections[s]).css({'position':'absolute','top':0,'left':(s>0 ? '100%':'0')});
+	for(var s = 0; s < this.sections.length; s++) E('#'+this.sections[s]).css({'position':'absolute','top':0,'left':(s>0 ? '100%':'0'),'visibility':(s>0 ? 'hidden':'visible')});
 
 	// Deal with button presses in the type section
 	E('#type button').on('click',{me:this},function(e){ _obj.setType(E(e.currentTarget).attr('data-type')); });
@@ -414,7 +415,9 @@ RocketScientist.prototype.init = function(data){
 	this.updateConvertables();
 	
 	// Add buttons
-	E('.list-bar').html('<button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button>');
+	var btn = '<button class="fancy add">&plus;</button><button class="fancy remove" disabled="disabled">&minus;</button>';
+	E('#instrument_list .list-bar').html(btn);
+	E('#power_list .list-bar').html(btn);
 
 	// Add events to add/remove buttons
 	var _obj;
@@ -422,8 +425,12 @@ RocketScientist.prototype.init = function(data){
 	this.makeSatelliteControls('#satellite');
 	this.makeSatelliteControls('#satellite-power');
 
+	// Add events to buttons in orbit section
+	E('#orbit_list button').on('click',{me:'test'},function(e){ _obj.setOrbit(E(e.currentTarget).attr('data-orbit')); });
+
+
 	// Add buttons for power list
-	var plus = E('#power_list button').on('click',{me:'test'},function(e){ _obj.addPowerPackage.call(_obj,e); });
+	E('#power_list button').on('click',{me:'test'},function(e){ _obj.addPowerPackage.call(_obj,e); });
 
 	// We'll need to change the sizes when the window changes size
 	window.addEventListener('resize', function(event){ _obj.resize(); });
@@ -431,6 +438,8 @@ RocketScientist.prototype.init = function(data){
 
 	// Quickly set and unset the type to reset the vertical scroll
 	this.setType('EO').setType('');
+	
+	for(var i in this.data.orbit) E('.orrery .'+i).on('click',{'me':this,'orbit':i},function(e){ e.data.me.setOrbit(e.data.orbit); });
 
 	// Remove the overlay we've added inline
 	E('#overlay').remove();
@@ -438,12 +447,11 @@ RocketScientist.prototype.init = function(data){
 	return this;
 }
 RocketScientist.prototype.updateConvertables = function(){
-	var el = E('.convertable');
-	for(var i = 0; i < el.e.length; i++){
-		var c = new Convertable(el.e[i]);
-		var str = "";
-		if(this.defaults[c.dimension]) str = c.toString({'units':this.defaults[c.dimension]});
-		if(str) el.e[i].innerHTML = str;
+	var el,c,i;
+	el = E('.convertable');
+	for(i = 0; i < el.e.length; i++){
+		c = new Convertable(el.e[i]);
+		if(this.defaults[c.dimension]) el.e[i].innerHTML = c.toString({'units':this.defaults[c.dimension]});
 	};
 	return this;
 }
@@ -453,11 +461,9 @@ RocketScientist.prototype.htmlDecode = function(input){ var d = document.createE
 RocketScientist.prototype.allowNavigateBeyond = function(t){
 	var found = false;
 	for(var i = 0; i < this.sections.length; i++){
-		if(!found){
-			E('#'+this.sections[i]+' .next a').removeClass('disabled');
-		}else{
-			E('#'+this.sections[i]+' .next a').addClass('disabled');
-		}
+		if(!found) E('#'+this.sections[i]+' .next a').removeClass('disabled');
+		else E('#'+this.sections[i]+' .next a').addClass('disabled');
+		
 		if(this.sections[i]==t && i < this.sections.length-1){
 			found = true;
 			this.navigable[this.sections[i+1]] = true;
@@ -489,12 +495,27 @@ RocketScientist.prototype.setType = function(t){
 		}
 		// Reset any goals
 		this.choices['goal'] = "";
+		this.choices['mission'] = "";
+		this.updateBudget();
 		E('#goal button').removeClass('selected');
-	
 		this.allowNavigateBeyond('type');
 	}else{
 		this.allowNavigateBeyond('');
 	}
+	return this;
+}
+RocketScientist.prototype.updateBudget = function(){
+	var budget;
+	var css = "";
+	if(this.choices.type && this.choices.goal){
+		this.choices.mission = this.data.scenarios[this.choices.type].missions[this.choices.goal];
+		budget = this.choices.mission.budget
+	}else{
+		budget = new Convertable(0,this.defaults.currency);
+		css = 'none';
+	}
+	E('#bar .togglecost .cost').html(budget.toString({'units':this.defaults.currency}))
+	E('#bar .togglecost').css({'display':css});
 	return this;
 }
 RocketScientist.prototype.setGoal = function(g){
@@ -510,17 +531,17 @@ RocketScientist.prototype.setGoal = function(g){
 	console.log('Would set the size for beginner level')
 
 	// Update the budget
-	this.choices.mission = this.data.scenarios[this.choices.type].missions[this.choices.goal];
-	E('#bar .togglecost .cost').html(this.choices.mission.budget.toString({'units':this.defaults.currency}))
+	this.updateBudget();
 
 	// Update what is displayed in the instrument requirements
-	console.log('Should update the instrument requirements')
+	console.log('Should update the instrument requirements');
 
 	this.allowNavigateBeyond('goal');
 	return this;
 }
 // Choose the bus size
 RocketScientist.prototype.setBus = function(btn,element){
+	// Get the selected satellite
 	var sat = E('#bus .satellite-'+element[0]);
 
 	// Reset all to black and white
@@ -538,26 +559,58 @@ RocketScientist.prototype.setBus = function(btn,element){
 	this.allowNavigateBeyond('bus');
 	return this;
 }
+RocketScientist.prototype.setOrbit = function(orbit){
+	this.choices['orbit'] = orbit;
+	
+	console.log(orbit)
+	// Remove existing selections
+	E('.orrery .selected').removeClass('selected');
+	E('#orbit_list .selected').addClass('selected');
+
+	// Select
+	E('.orrery .'+orbit).addClass('selected');
+	E('#orbit_list .orbit-'+orbit).addClass('selected');
+
+	this.allowNavigateBeyond('orbit');
+	return this;
+}
+
 RocketScientist.prototype.navigate = function(e){
 	e.originalEvent.preventDefault();
 	var href = E(e.currentTarget).attr('href');
 	var section = href.substr(1);
 	if(this.navigable[section]){
-		var found = false;
+		var found = -1;
 		var progress = 0;
 		for(var i = 0 ; i < this.sections.length; i++){
 			if(section==this.sections[i]){
 				progress = 100*i/this.sections.length;
-				found = true;
-				E(href).css({'position':'absolute','top':'0','left':'0'});
-			}else{
-				if(!found) E('#'+this.sections[i]).css({'position':'absolute','top':'0','left':'-100%'});
-				else E('#'+this.sections[i]).css({'position':'absolute','top':'0','left':'100%'});
+				found = i;
 			}
 		}
+		
+		// We know which section we want (found) and we know which we are on (this.currentsection)
+		if(found > this.currentsection){
+			// Go right
+			// Hide all the previous sections if they aren't already
+			for(var i = 0; i < this.currentsection;i++) E('#'+this.sections[i]).css({'position':'absolute','top':0,'left':'-100%','visibility':'hidden'});
+			// Move the current section off
+			E('#'+this.sections[this.currentsection]).css({'position':'absolute','top':'0','left':'-100%'});
+			// Move the new section in
+			E('#'+this.sections[this.currentsection+1]).css({'position':'absolute','top':'0','left':'0%'});
+		}else{
+			// Go left
+			// Move the current section off
+			E('#'+this.sections[this.currentsection]).css({'position':'absolute','top':'0','left':'100%'});
+			// Bring the new section in
+			E('#'+this.sections[found]).css({'position':'absolute','top':'0','left':'0'});
+			// Hide all the previous sections if they aren't already
+			for(var i = found+2; i < this.sections.length; i++) E('#'+this.sections[i]).css({'position':'absolute','top':0,'left':'100%','visibility':'hidden'});
+		}
+		// Update the progress bar
 		E('#progressbar .progress-inner').css({'width':progress.toFixed(1)+'%'});
 	}
-	
+	this.currentsection = found;
 	return false;
 }
 RocketScientist.prototype.makeSatelliteControls = function(selector){
