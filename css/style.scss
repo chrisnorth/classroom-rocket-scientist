@@ -504,14 +504,18 @@ button.selected:hover, button.selected:focus {
 
 @import "../tests/satellite/satellite.scss";
 
+.slot2x4.texture.down .face.left,
+.slot2x4.texture.up .face.right,
+.slot2x4.texture.normal .face.top { background: url('../images/foil_4x4.png'); background-size: 100% 100%; }
+
 .slot2x4.texture.down .face.top,
 .slot2x4.texture.up .face.top,
 .slot2x2.texture .face.top { background: url('../images/foil_4x2.png'); background-size: 100% 100%; }
 
-.slot2x2.texture .face.left,
 .slot2x2.texture .face.right,
 .slot2x2.texture .face.back { background: url('../images/foil_2x2.png'); background-size: 100% 100%; }
 
+.slot2x2.texture .face.left,
 .slot2x4.texture.normal .face.left,
 .slot2x4.texture.normal .face.right,
 .slot2x4.texture.down .face.back,

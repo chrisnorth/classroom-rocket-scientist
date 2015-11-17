@@ -413,7 +413,6 @@ RocketScientist.prototype.init = function(data){
 
 	if(E('body').hasClass('front')) return this;
 
-
 	// We hide elements that shouldn't be visible (but we are leaving visible
 	// in the plain HTML so there is something if Javascript doesn't work.
 	for(var s = 0; s < this.sections.length; s++) E('#'+this.sections[s]).addClass('js').addClass('slide').css({'left':(s>0 ? '100%':'0'),'visibility':(s>0 ? 'hidden':'visible')});
@@ -456,23 +455,24 @@ RocketScientist.prototype.init = function(data){
 	E('#power_list button').on('click',{me:'test'},function(e){ _obj.addPackage(e,'power'); });
 
 	E('#instrument').on('load',{me:this},function(e){
-		e.data.me.log('loading instrument panel')
+		e.data.me.log('Loading instrument panel')
 		// Reset button states
-		E('#instrument button.add').prop('disabled',false);
-		E('#instrument button.remove').prop('disabled',true);
+		//E('#instrument button.add').prop('disabled',false);
+		//E('#instrument button.remove').prop('disabled',true);
 	})
 
 	// Reset button states
 	this.updateButtons();
 
-	// We'll need to change the sizes when the window changes size
-	window.addEventListener('resize', function(event){ _obj.resize(); });
-	this.resize();
-
 	// Quickly set and unset the type to reset the vertical scroll
 	this.setType('EO').setType('');
 	
+	// Deal with orbit selection
 	for(var i in this.data.orbit) E('.orrery .'+i).on('click',{'me':this,'orbit':i},function(e){ e.data.me.setOrbit(e.data.orbit); });
+
+	// We'll need to change the sizes when the window changes size
+	window.addEventListener('resize', function(event){ _obj.resize(); });
+	this.resize();
 
 	// Remove the overlay we've added inline
 	E('#overlay').remove();
@@ -601,7 +601,8 @@ RocketScientist.prototype.setBus = function(size){
 	E('.slot-unavailable').removeClass('slot-unavailable');
 	for(var i = 0; i < li.e.length; i++){
 		el = E(li.e[i]);
-		s = el.attr('data-size');
+		s = el.find('.add').attr('data-size');
+		this.log(i,s,size,li.e[i])
 		if(s){
 			var available = false;
 			for(var j in this.data.bus[size].slots){
@@ -617,26 +618,6 @@ RocketScientist.prototype.setBus = function(size){
 
 	this.allowNavigateBeyond('bus');
 	return this;
-}
-// Update the lists for the specified slot size
-RocketScientist.prototype.updateLists = function(size){
-	// Hide list items that aren't selectable
-	var li = E('.list li');
-	var s,el;
-	// Re-enable all list items
-	E('.slot-unavailable').removeClass('slot-unavailable');
-	for(var i = 0; i < li.e.length; i++){
-		el = E(li.e[i]);
-		s = el.attr('data-size');
-		if(s){
-			var available = false;
-			for(var j in this.data.bus[size].slots){
-				//BLAHif(this.choices['slots'][size]this.data.bus[size].slots[j] && j==s) available = true;
-			}
-			// Hide list items that have a specified slot size that doesn't fit
-			if(!available) el.addClass('slot-unavailable');
-		}
-	}
 }
 RocketScientist.prototype.setOrbit = function(orbit){
 	this.choices['orbit'] = orbit;
@@ -755,10 +736,10 @@ RocketScientist.prototype.processInstrumentPackage = function(type,el){
 			// Put it in the first available slot
 			var goodboth = E(good[0]);
 			good = E(good[0][0]);
-			if(p.image){
-				if(p.image.class) goodboth.addClass(p.image.class);
-				if(p.image.html){
-					html = p.image.html;
+			if(p.texture){
+				if(p.texture.class) goodboth.addClass(p.texture.class);
+				if(p.texture.html){
+					html = p.texture.html;
 					// Deal with directions of hemispheres
 					if(html.indexOf('south')>=0){
 						var dir = "north";
@@ -791,11 +772,11 @@ RocketScientist.prototype.processInstrumentPackage = function(type,el){
 			// Put it in the first available slot
 			var goodboth = E([slots.e[slots.e.length-1],slotsp.e[slots.e.length-1]]);
 			good = E(slots.e[slots.e.length-1]);
-			if(p.image){
+			if(p.texture){
 				// Put it in the first available slot
-				if(p.image.class) good.removeClass(p.image.class);
-				if(p.image.html){
-					html = p.image.html;
+				if(p.texture.class) good.removeClass(p.texture.class);
+				if(p.texture.html){
+					html = p.texture.html;
 					// Deal with directions of hemispheres
 					if(html.indexOf('south')>=0){
 						var dir = "north";
@@ -820,7 +801,7 @@ RocketScientist.prototype.processInstrumentPackage = function(type,el){
 				}
 			}
 		}
-		this.log(this.choices['slots'])
+		this.log('processInstrumentPackage',this.choices['slots'])
 	}
 
 	this.allowNavigateBeyond('instrument');
@@ -892,18 +873,6 @@ RocketScientist.prototype.solarPanel = function(add,el){
 	ps = E('#sat-power .solar-panels li');
 	this.choices['solar-panel'] = ps.e.length/2;
 
-/*
-	if(ps.e.length >= max){
-		// If we've reached the maximum number we hide the add button
-		a.prop('disabled',true);
-		m.prop('disabled',false);
-	}else if(ps.e.length==0){
-		m.prop('disabled',true);
-	}else{
-		a.prop('disabled',false);
-		m.prop('disabled',false);
-	}
-*/
 	return this;
 }
 // Toggle the fixed solar panels
@@ -960,25 +929,6 @@ RocketScientist.prototype.resize = function(){
 	return this;
 }
 
-function toggleComms(){
-	var slots = [{'el':'sat','cls':'slot4x8','type':'north no-inside'},{'el':'sat','cls':'normal','type':'south'}];
-	var el,radio,cls,i,i2,e;
-	for(var s = 0; s < slots.length; s++){
-		e = E('#'+slots[s].el+' .'+slots[s].cls+':eq(0)');
-		if(e.e.length > 0){
-			if(E(e.e[0]).hasClass('radio')) E('#'+slots[s].el+' .hemisphere').remove();
-			else e.html('<div class="hemisphere '+slots[s].type+'"><div class="inner"><\/div><div class="dome"><\/div><\/div>'+e.html());
-			e.toggleClass('radio').toggleClass('slot-empty');
-		}
-	}
-	e = E('#sat .slot0x2:eq(0)');
-	if(e.e.length > 0){
-		if(e.hasClass('antenna')) E('#sat .aerial').remove();
-		else E('#sat .slot0x2:eq(0) .top:eq(0)').html("<div class=\"aerial1 aerial\"><\/div><div class=\"aerial2 aerial\"><\/div>");
-		e.toggleClass('antenna').toggleClass('slot-empty');
-	}
-}
-
 var rs;
 // On load
 E(document).ready(function(){
@@ -998,6 +948,7 @@ function test(){
 	E('#orbit nav a:eq(1)').trigger('click');
 	E('#instrument_list .bg4x8:eq(0) .add').trigger('click');
 	E('#instrument_list .bg2x4:eq(1) .add').trigger('click');
+	E('#instrument_list .bg2x4:eq(2) .add').trigger('click');
 	E('#instrument_list .bg2x2:eq(1) .add').trigger('click');
 	E('#instrument nav a:eq(1)').trigger('click');
 }

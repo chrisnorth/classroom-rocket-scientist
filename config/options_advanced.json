@@ -59,7 +59,7 @@
 			"depth": { "value": 0.1, "units": "m", "dimension": "length" }
 		},
 		"small": {
-			"slots": { "2x2": 2, "2x4": 1 },
+			"slots": { "2x2": 2, "2x4": 1, "4x4": 4 },
 			"cost": { "value": 4000000, "units": "dollars", "dimension": "currency" },
 			"mass": { "value": 250, "units": "kg", "dimension": "mass" },
 			"width": { "value": 1, "units": "m", "dimension": "length" },
@@ -67,7 +67,7 @@
 			"depth": { "value": 1, "units": "m", "dimension": "length" }
 		},
 		"medium":{
-			"slots": { "2x2": 4, "2x4": 2 },
+			"slots": { "2x2": 4, "2x4": 2, "4x4": 4 },
 			"cost": { "value": 315000000, "units": "euros", "dimension": "currency" },
 			"mass": { "value": 750, "units": "kg", "dimension": "mass" },
 			"width": { "value": 5, "units": "m", "dimension": "length" },
@@ -75,7 +75,7 @@
 			"depth": { "value": 2.5, "units": "m", "dimension": "length" }
 		},
 		"large":{
-			"slots": { "2x2": 8, "2x4": 3, "4x8": 1 },
+			"slots": { "2x2": 8, "2x4": 3, "4x8": 1, "4x4": 4 },
 			"cost": { "value": 2300000000, "units": "dollars", "dimension": "currency" },
 			"mass": { "value": 1500, "units": "kg", "dimension": "mass" },
 			"width": { "value": 10, "units": "m", "dimension": "length" },
@@ -88,10 +88,8 @@
 			"slot": "2x2",
 			"title": "%package.camera-opt.title%",
 			"description": "%package.camera-opt.description%",
-			"image": {
-				"icon": "texture camera-opt",
-				"alt": "",
-				"credit": ""
+			"texture": {
+				"icon": "texture camera-opt"
 			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
@@ -106,10 +104,8 @@
 			"slot":	"2x2",
 			"title": "%package.camera-nir.title%",
 			"description": "%package.camera-nir.description%",
-			"image": {
-				"icon": "texture camera-nir",
-				"alt": "",
-				"credit": ""
+			"texture": {
+				"icon": "texture camera-nir"
 			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
@@ -124,10 +120,8 @@
 			"slot":	"2x4",
 			"title": "%package.camera-fir.title%",
 			"description": "%package.camera-fir.description%",
-			"image": {
-				"icon": "texture camera-fir",
-				"alt": "",
-				"credit": ""
+			"texture": {
+				"icon": "texture camera-fir"
 			},
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
@@ -142,10 +136,8 @@
 			"slot":	"2x2",
 			"title": "%package.spect-opt.title%",
 			"description": "%package.spect-opt.description%",
-			"image": {
-				"icon": "texture spect-opt",
-				"alt": "",
-				"credit": ""
+			"texture": {
+				"icon": "texture spect-opt"
 			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
@@ -160,10 +152,8 @@
 			"slot":	"2x2",
 			"title": "%package.spect-nir.title%",
 			"description": "%package.spect-nir.description%",
-			"image": {
-				"icon": "texture spect-nir",
-				"alt": "",
-				"credit": ""
+			"texture": {
+				"icon": "texture spect-nir"
 			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
@@ -178,10 +168,8 @@
 			"slot":	"2x4",
 			"title": "%package.spect-fir.title%",
 			"description": "%package.spect-fir.description%",
-			"image": {
-				"icon": "texture spect-fir",
-				"alt": "",
-				"credit": ""
+			"texture": {
+				"icon": "texture spect-fir"
 			},
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
@@ -196,10 +184,8 @@
 			"slot":	"2x4",
 			"title": "%package.radar-alt.title%",
 			"description": "%package.radar-alt.description%",
-			"image": {
-				"icon": "texture radar-alt",
-				"alt": "",
-				"credit": ""
+			"texture": {
+				"icon": "texture radar-alt"
 			},
 			"mass": { "value": 40, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
@@ -220,10 +206,8 @@
 			"slot":	"4x8",
 			"title": "%package.radar-dish.title%",
 			"description": "%package.radar-dish.description%",
-			"image": {
-				"file": "images/cleardot.gif",
-				"alt": "",
-				"credit": "",
+			"texture": {
+				"icon": "",
 				"class": "-bg radar",
 				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
@@ -240,10 +224,8 @@
 			"slot":	"2x2",
 			"title": "%package.radio-rx.title%",
 			"description": "%package.radio-rx.description%",
-			"image": {
-				"icon": "texture radio-rx",
-				"alt": "",
-				"credit": ""
+			"texture": {
+				"icon": "texture radio-rx"
 			},
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
@@ -258,10 +240,8 @@
 			"slot":	"2x2",
 			"title": "%package.radio-tx.title%",
 			"description": "%package.radio-tx.description%",
-			"image": {
-				"icon": "texture radio-tx",
-				"alt": "",
-				"credit": ""
+			"texture": {
+				"icon": "texture radio-tx"
 			},
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
@@ -276,10 +256,8 @@
 			"slot":	"2x2",
 			"title": "%package.atomic-clock.title%",
 			"description": "%package.atomic-clock.description%",
-			"image": {
-				"icon": "texture atomic-clock",
-				"alt": "",
-				"credit": ""
+			"texture": {
+				"icon": "texture atomic-clock"
 			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 50000, "units": "GBP", "dimension": "currency" },
@@ -294,10 +272,8 @@
 			"slot":	"1x2",
 			"title": "%package.atomic-clock-small.title%",
 			"description": "%package.atomic-clock-small.description%",
-			"image": {
-				"icon": "texture atomic-clock-small",
-				"alt": "",
-				"credit": ""
+			"texture": {
+				"icon": "texture atomic-clock-small"
 			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 50000, "units": "GBP", "dimension": "currency" },
@@ -312,10 +288,8 @@
 			"slot":	"1x1",
 			"title": "%package.gps-rx.title%",
 			"description": "%package.gps-rx.description%",
-			"image": {
-				"icon": "texture gps-rx",
-				"alt": "",
-				"credit": ""
+			"texture": {
+				"icon": "texture gps-rx"
 			},
 			"mass": { "value": 0.5, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
@@ -330,10 +304,8 @@
 			"slot":	"1x1",
 			"title": "%package.camera-mini.title%",
 			"description": "%package.camera-mini.description%",
-			"image": {
-				"icon": "texture camera-mini",
-				"alt": "",
-				"credit": ""
+			"texture": {
+				"icon": "texture camera-mini"
 			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 50000, "units": "GBP", "dimension": "currency" },
@@ -348,10 +320,8 @@
 			"slot":	"4x8",
 			"title": "%package.dish-large.title%",
 			"description": "%package.dish-large.description%",
-			"image": {
-				"file": "images/cleardot.gif",
-				"alt": "",
-				"credit": "",
+			"texture": {
+				"icon": "",
 				"class": "-bg radio",
 				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
@@ -368,10 +338,8 @@
 			"slot":	"2x4",
 			"title": "%package.dish-medium.title%",
 			"description": "%package.dish-medium.description%",
-			"image": {
-				"file": "images/cleardot.gif",
-				"alt": "",
-				"credit": "",
+			"texture": {
+				"icon": "",
 				"class": "-bg radio",
 				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
@@ -388,10 +356,8 @@
 			"slot":	"1x2",
 			"title": "%package.dish-small.title%",
 			"description": "%package.dish-small.description%",
-			"image": {
-				"file": "images/cleardot.gif",
-				"alt": "",
-				"credit": "",
+			"texture": {
+				"icon": "",
 				"class": "-bg radio",
 				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
@@ -408,10 +374,8 @@
 			"slot":	"0x2",
 			"title": "%package.radio-antenna-cube.title%",
 			"description": "%package.radio-antenna-cube.description%",
-			"image": {
+			"texture": {
 				"icon": "texture radio-antenna-cube",
-				"alt": "",
-				"credit": "",
 				"class": "-bg",
 				"html": "<div class=\"aerial1 aerial\"></div>"
 			},
@@ -431,10 +395,8 @@
 			"slot":	"2x2",
 			"title": "%package.battery-large.title%",
 			"description": "%package.battery-large.description%",
-			"image": {
-				"icon": "texture battery-large",
-				"alt": "",
-				"credit": ""
+			"texture": {
+				"icon": "texture battery-large"
 			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
@@ -455,10 +417,8 @@
 			"slot":	"1x1",
 			"title": "%package.battery-small.title%",
 			"description": "%package.battery-small.description%",
-			"image": {
-				"icon": "texture battery-small",
-				"alt": "",
-				"credit": ""
+			"texture": {
+				"icon": "texture battery-small"
 			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
@@ -479,10 +439,8 @@
 			"slot":	"2x4",
 			"title": "%package.rtg.title%",
 			"description": "%package.rtg.description%",
-			"image": {
-				"icon": "texture rtg",
-				"alt": "",
-				"credit": ""
+			"texture": {
+				"icon": "texture rtg"
 			},
 			"mass": { "value": 60, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
