@@ -230,8 +230,9 @@ function Convertable(v,u,d){
 			var f = Math.pow(10,p);
 			return ''+(Math.round(v*f)/f).toFixed(p);
 		}
+		var showunits = (typeof attr.unitdisplayed==="boolean") ? attr.unitdisplayed : true;
 		function tidy(v,p,u){
-			return ''+addCommas(round(v,p)).replace(/\.0+$/,'').replace(/(\.0?[1-9]+)0+$/,"$1")+''+u;
+			return ''+addCommas(round(v,p)).replace(/\.0+$/,'').replace(/(\.0?[1-9]+)0+$/,"$1")+''+(showunits ? u : '');
 		}
 
 		if(dim=="length"){

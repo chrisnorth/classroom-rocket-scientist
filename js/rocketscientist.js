@@ -501,7 +501,7 @@ RocketScientist.prototype.updateConvertables = function(){
 	el = E('.convertable');
 	for(i = 0; i < el.e.length; i++){
 		c = new Convertable(el.e[i]);
-		if(this.defaults[c.dimension]) el.e[i].innerHTML = c.toString({'units':this.defaults[c.dimension]});
+		if(this.defaults[c.dimension]) el.e[i].innerHTML = c.toString({'units':this.defaults[c.dimension],'unitdisplayed':(el.e[i].getAttribute('nounits')=="true" ? false : true)});
 	};
 	return this;
 }
@@ -595,7 +595,7 @@ RocketScientist.prototype.updateBudgets = function(p,sign){
 			for(var j = 0; j < this.choices['slots'][i].length; j++){
 				var key = this.choices['slots'][i][j];
 				if(this.data.package[key]) total = add(total,this.data.package[key]);
-				if(this.data.power[key]) total = add(total,this.data.power[key],{'cost':1,'mass':1,'power':0});
+				if(this.data.power[key]) total = add(total,this.data.power[key],{'cost':1,'mass':1,'power':0});	// We don't include power
 			}
 		}
 	}
