@@ -344,15 +344,6 @@ p {
 .slot1x2 .face.back, .slot1x2 .eg {
   background: #f6881f; }
 
-.blackandwhite .slot:hover .face.front, .blackandwhite .slot:hover .face.back {
-  background: #000000; }
-
-.blackandwhite .slot:hover .face.left, .blackandwhite .slot:hover .face.right {
-  background: #202020; }
-
-.blackandwhite .slot:hover .face.top {
-  background: #404040; }
-
 .blackandwhite .slot .face.front, .blackandwhite .slot .face.back {
   background: #777777; }
 
@@ -1218,22 +1209,31 @@ p {
   left: 0px;
   bottom: 0px; }
 
+.threeD .aerials {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: rotateX(90deg);
+  -moz-transform: rotateX(90deg);
+  -ms-transform: rotateX(90deg);
+  -o-transform: rotateX(90deg);
+  transform: rotateX(90deg); }
+
 .threeD .aerial {
   height: 4.5em; }
 
 .threeD .aerial1 {
-  -webkit-transform: rotateX(90deg) translateX(-2.85em) translateY(3.555em);
-  -moz-transform: rotateX(90deg) translateX(-2.85em) translateY(3.555em);
-  -ms-transform: rotateX(90deg) translateX(-2.85em) translateY(3.555em);
-  -o-transform: rotateX(90deg) translateX(-2.85em) translateY(3.555em);
-  transform: rotateX(90deg) translateX(-2.85em) translateY(3.555em); }
+  -webkit-transform: translateX(-0.75em) translateY(3.6em);
+  -moz-transform: translateX(-0.75em) translateY(3.6em);
+  -ms-transform: translateX(-0.75em) translateY(3.6em);
+  -o-transform: translateX(-0.75em) translateY(3.6em);
+  transform: translateX(-0.75em) translateY(3.6em); }
 
 .threeD .aerial2 {
-  -webkit-transform: rotateX(90deg) translateX(-1.5em) translateY(-0.75em);
-  -moz-transform: rotateX(90deg) translateX(-1.5em) translateY(-0.75em);
-  -ms-transform: rotateX(90deg) translateX(-1.5em) translateY(-0.75em);
-  -o-transform: rotateX(90deg) translateX(-1.5em) translateY(-0.75em);
-  transform: rotateX(90deg) translateX(-1.5em) translateY(-0.75em); }
+  -webkit-transform: translateX(0.75em) translateY(-0.75em);
+  -moz-transform: translateX(0.75em) translateY(-0.75em);
+  -ms-transform: translateX(0.75em) translateY(-0.75em);
+  -o-transform: translateX(0.75em) translateY(-0.75em);
+  transform: translateX(0.75em) translateY(-0.75em); }
 
 .threeD .satellite.spin .slot2x4 .hemisphere.north, .threeD .satellite.spin .slot2x4 .hemisphere.south {
   -webkit-animation-name: antispin;

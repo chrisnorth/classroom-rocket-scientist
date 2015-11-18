@@ -442,9 +442,12 @@ $dometrans: height $trans ease, width $trans ease, border-radius $trans ease;
 .aerial { width: $s * 3; height: 0; border: $s * 0.1 solid $black-3; position: absolute; z-index: 100; }
 .aerial1 { border-left: 0px; border-bottom: 0px; right: 0px; bottom: 0px; }
 .aerial2 { border-right: 0px; border-top: 0px; left: 0px; bottom: 0px; }
+
+.threeD .aerials { @include transform-style( preserve-3d ); @include transform( $transform_rot_x_pos_90 ); }
 .threeD .aerial { height: $s * 3; }
-$aerial1: $transform_rot_x_pos_90 translateX(-$s * 1.9) translateY($s * 2.37);
-$aerial2: $transform_rot_x_pos_90 translateX(-$s * 1) translateY(-$s * 0.5);
+
+$aerial1: translateX(-$s*0.5) translateY($s * 2.4);
+$aerial2: translateX($s*0.5) translateY(-$s * 0.5);
 .threeD .aerial1 {
 	@include transform( $aerial1 );
 }

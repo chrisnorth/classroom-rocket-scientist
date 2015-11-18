@@ -37,6 +37,7 @@
 	"bus": {
 		"cube": {
 			"slots": { "0x2": 1, "1x1": 2, "1x2": 1 },
+			"surface": 1,
 			"cost": { "value": 10000, "units": "USD", "dimension": "currency" },
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 0.3, "units": "kg", "dimension": "mass" },
@@ -46,6 +47,7 @@
 		},
 		"small": {
 			"slots": { "2x2": 2, "2x4": 1, "4x4": 4 },
+			"surface": 2,
 			"cost": { "value": 4000000, "units": "USD", "dimension": "currency" },
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 150, "units": "kg", "dimension": "mass" },
@@ -55,6 +57,7 @@
 		},
 		"medium":{
 			"slots": { "2x2": 4, "2x4": 2, "4x4": 4 },
+			"surface": 3,
 			"cost": { "value": 315000000, "units": "EUR", "dimension": "currency" },
 			"mass": { "value": 500, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 250, "units": "kg", "dimension": "mass" },
@@ -64,6 +67,7 @@
 		},
 		"large":{
 			"slots": { "2x2": 8, "2x4": 3, "4x8": 1, "4x4": 4 },
+			"surface": 4,
 			"cost": { "value": 2300000000, "units": "USD", "dimension": "currency" },
 			"mass": { "value": 1000, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 500, "units": "kg", "dimension": "mass" },
@@ -366,7 +370,7 @@
 			"texture": {
 				"icon": "texture radio-antenna-cube",
 				"class": "-bg",
-				"html": "<div class=\"aerial1 aerial\"></div><div class=\"aerial2 aerial\"></div>"
+				"html": "<div class=\"aerials\"><div class=\"aerial1 aerial\"></div><div class=\"aerial2 aerial\"></div></div>"
 			},
 			"mass": { "value": 0.1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 4500, "units": "EUR", "dimension": "currency" },
