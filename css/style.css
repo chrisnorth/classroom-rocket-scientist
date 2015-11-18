@@ -269,7 +269,7 @@ nav li {
 .baritem a img, .baritem button img, nav a img, .coin {
   margin: 0.75em; }
 
-.baritem .coin, .baritem .weight {
+.baritem .coin, .baritem .weight, .baritem .power {
   float: left;
   margin-left: 0.75em; }
 
@@ -385,7 +385,11 @@ li select, li input, li .toggleinput {
   background: url("../images/mass.png");
   background-size: 100% 100%; }
 
-.coin, .weight {
+.power {
+  background: url("../images/power.png");
+  background-size: 100% 100%; }
+
+.coin, .weight, .power {
   display: inline-block;
   height: 1.5em;
   width: 1.5em;
