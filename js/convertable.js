@@ -1,7 +1,7 @@
 function Convertable(v,u,d){
 
 	var ph = {
-		"million": { "full": " million", "compact": " m" },
+		"million": { "full": " million", "compact": " mn" },
 		"billion": { "full": " billion", "compact": " Bn" },
 		"defaults": {
 			"length": "m",
@@ -261,11 +261,11 @@ function Convertable(v,u,d){
 
 			if(v.value > Math.pow(10,(6-p))){
 				v.value /= 1e6;
-				append = (ph.million.compact) ? ph.million.compact : "";
+				append = (ph.million.compact) ? ph.million.compact : ph.million.full;
 				// Change the "million" to "billion" if the number is too big
 				if(v.value >= 1000){
 					v.value /= 1000;
-					append = (ph.billion.compact) ? ph.billion.compact : "";
+					append = (ph.billion.compact) ? ph.billion.compact : ph.billion.full;
 				}
 			}
 			if(p == 0){

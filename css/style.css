@@ -266,8 +266,12 @@ nav li {
   width: 100%;
   text-align: left; }
 
-.baritem a img, .baritem button img, nav a img {
+.baritem a img, .baritem button img, nav a img, .coin {
   margin: 0.75em; }
+
+.baritem .coin {
+  float: left;
+  margin-left: 0.75em; }
 
 .baritem a, .baritem button, nav a {
   color: inherit;
@@ -373,6 +377,16 @@ li select, li input, li .toggleinput {
   font-family: Arial, sans-serif; }
 
 /* Sprites */
+.coin {
+  background: url("../images/coin.png");
+  background-size: 100% 100%;
+  border-radius: 50%;
+  display: inline-block;
+  height: 1.5em;
+  width: 1.5em;
+  line-height: 1.5em;
+  margin: 0 0.25em -0.4em 0; }
+
 img.icon, img.iconbig {
   opacity: 0.9;
   filter: alpha(opacity=90); }
@@ -452,7 +466,7 @@ img.close {
   color: #ffffff; }
 
 .cost {
-  color: #67c18d; }
+  color: #ffde00; }
 
 .power {
   color: #ffcb06; }
