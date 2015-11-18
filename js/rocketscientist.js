@@ -323,7 +323,7 @@ function E(e){
 					var data = JSON.parse(httpRequest.responseText);
 					if(typeof fn==="function") fn.call((attrs['this'] ? attrs['this'] : this),data,attrs);
 				}else{
-					this.log('error loading '+file)
+					console.log('error loading '+file);
 					if(typeof attrs.error==="function") attrs.error.call((attrs['this'] ? attrs['this'] : this),httpRequest.responseText,attrs);
 				}
 			}
@@ -338,7 +338,7 @@ function E(e){
 
 
 
-function RocketScientist(){
+function RocketScientist(data){
 	this.maxpanels = 4;
 	this.wide = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 	this.tall = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
@@ -348,7 +348,10 @@ function RocketScientist(){
 
 	this.getSections();
 	this.parseQueryString();
-	E().loadJSON('config/en_advanced_options.json',this.init,{'this':this});
+	if(data){
+		this.data = data;
+		this.init();
+	}else E().loadJSON('config/en_advanced_options.json',this.init,{'this':this});
 
 	return this;
 }
@@ -394,8 +397,8 @@ RocketScientist.prototype.getSections = function(){
 	return this;
 }
 RocketScientist.prototype.init = function(data){
-
-	this.data = data;
+	if(data) this.data = data;
+	if(!this.data) return;
 	this.currentsection = 0;
 	function updateConvertables(o){
 		for (i in o){
@@ -565,12 +568,12 @@ RocketScientist.prototype.updateBudget = function(){
 	var css = "";
 	if(this.choices.type && typeof this.choices.goal==="number"){
 		this.choices.mission = this.data.scenarios[this.choices.type].missions[this.choices.goal];
-		budget = this.choices.mission.budget
+		budget = new Convertable(this.choices.mission.budget)
 	}else{
 		budget = new Convertable(0,this.defaults.currency);
 		css = 'none';
 	}
-	this.log('updateBudget',budget,this.choices.type,this.choices.goal);
+	this.log('updateBudget',budget,this.choices.type,this.choices.goal,budget);
 	E('#bar .togglecost .cost').html(budget.toString({'units':this.defaults.currency}))
 	E('#bar .togglecost').css({'display':css});
 	return this;
@@ -971,26 +974,3 @@ RocketScientist.prototype.resize = function(){
 	return this;
 }
 
-var rs;
-// On load
-E(document).ready(function(){
-	rs = new RocketScientist();
-});
-
-function test(){
-	// Quick start
-	// Trigger selection
-	E('#type .NAV button').trigger('click');
-	E('#type nav a').trigger('click');
-	E('#goal .NAV button:eq(1)').trigger('click');
-	E('#goal nav a:eq(1)').trigger('click');
-	E('#bus .satellite-l').trigger('click');
-	E('#bus nav a:eq(1)').trigger('click');
-	E('#orbit_list .orbit-GEO button').trigger('click');
-	E('#orbit nav a:eq(1)').trigger('click');
-	E('#instrument_list .bg4x8:eq(0) .add').trigger('click');
-	E('#instrument_list .bg2x4:eq(1) .add').trigger('click');
-	E('#instrument_list .bg2x4:eq(2) .add').trigger('click');
-	E('#instrument_list .bg2x2:eq(1) .add').trigger('click');
-	E('#instrument nav a:eq(1)').trigger('click');
-}

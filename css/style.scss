@@ -328,7 +328,7 @@ section#type .holder p { text-align: left; }
 
 .lower { width: 100%; }
 .row-flex, .row-flex > div[class*='col-'] {  
-	display: -webkit-box;
+	display: block;
 	display: -moz-box;
 	display: -ms-flexbox;
 	display: -webkit-flex;
@@ -359,6 +359,8 @@ section#type .holder p { text-align: left; }
 	flex-flow: column nowrap;
 }
 .flex-grow {
+	position: relative;
+	display: block;
 	display: flex;
 	-webkit-flex: 2;
 	flex: 2;
@@ -454,7 +456,7 @@ table.data { margin: auto; margin-bottom: $lineh*0.5; }
 table.data td:first-child { text-align: right; padding-right: $s*0.25; }
 table.data td:last-child { text-align: left; }
 
-.list { position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; overflow-y: auto; margin-left: $s; }
+.list { position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; min-height: 250px;overflow-y: auto; margin-left: $s; }
 .list li { display: table; width: 100%; margin-bottom: $padding; }
 .list li:last-child { border-bottom: 0px; margin-bottom: 0; }
 .list li .list-bar, .list li .list-left,.list li .list-right { display: table-cell; width: auto; vertical-align: top; }

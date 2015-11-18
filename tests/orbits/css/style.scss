@@ -18,10 +18,12 @@ $geo_time: 24;
 
 /* Solar System Styles */
 ul.orrery {
-	position: relative;
-	width: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
 	max-width: 100%;
-	height: 100%;
 	max-height: 100%;
 	margin: 0px;
 	padding: 0px;

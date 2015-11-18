@@ -9,6 +9,38 @@
 	<!--[if !IE]> --><link href="tests/satellite/style-nonie.css" rel="stylesheet" type="text/css" media="screen" /><!-- <![endif]-->
 	<script type="text/javascript" src="js/convertable.js"></script>
 	<script type="text/javascript" src="js/rocketscientist.js"></script>
+	<script>
+		<!--#if expr="${LEVEL} = /beginner/"-->
+		var data = <!--#include file="../config/en_beginner_options.json" -->;
+		<!--#elif expr="${LEVEL} = /intermediate/"-->
+		var data = <!--#include file="../config/en_intermediate_options.json" -->;
+		<!--#elif expr="${LEVEL} = /advanced/"-->
+		var data = <!--#include file="../config/en_advanced_options.json" -->;
+		<!--#else--><!--#endif-->
+		var rs;
+		// On load
+		E(document).ready(function(){
+			rs = new RocketScientist(data);
+		});
+
+		function test(){
+			// Quick start
+			// Trigger selection
+			E('#type .NAV button').trigger('click');
+			E('#type nav a').trigger('click');
+			E('#goal .NAV button:eq(1)').trigger('click');
+			E('#goal nav a:eq(1)').trigger('click');
+			E('#bus .satellite-l').trigger('click');
+			E('#bus nav a:eq(1)').trigger('click');
+			E('#orbit_list .orbit-GEO button').trigger('click');
+			E('#orbit nav a:eq(1)').trigger('click');
+			E('#instrument_list .bg4x8:eq(0) .add').trigger('click');
+			E('#instrument_list .bg2x4:eq(1) .add').trigger('click');
+			E('#instrument_list .bg2x4:eq(2) .add').trigger('click');
+			E('#instrument_list .bg2x2:eq(1) .add').trigger('click');
+			E('#instrument nav a:eq(1)').trigger('click');
+		}	
+	</script>
 </head>
 <body>
 	<script type="text/javascript">

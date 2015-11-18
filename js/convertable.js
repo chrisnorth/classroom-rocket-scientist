@@ -1,3 +1,6 @@
+// Add Math.log10 function if it doesn't exist
+if(typeof Math.log10!=="function") Math.log10 = function(v) { return Math.log(v)/2.302585092994046; };
+
 function Convertable(v,u,d){
 
 	var ph = {

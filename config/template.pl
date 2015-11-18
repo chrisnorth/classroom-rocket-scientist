@@ -116,7 +116,7 @@ if($file_o){
 
 
 sub parseFile {
-	my ($file,$line,@lines,$indent,$html,$dir,$key);
+	my ($file,$line,@lines,$indent,$html,$dir,$key,@json,$i);
 	$html = "";
 	$file = $_[0];
 	$indent = ($_[1] ? $_[1] : "");
@@ -147,8 +147,26 @@ sub parseFile {
 		$inc = $3;
 		print "INC=$inc\n";
 		$insert = parseFile($dir.$inc,$ind);
-		#print "$insert\n";
 		$line =~ s/(^|[\n\r])([\t\s]*)\<\!\-\-\#include file=\"$inc\" \-\-\>/$insert/;
+	}
+	# Include any JSON files as one line
+	while($line =~ /\<\!\-\- *\#include *file=\"([^\"]+\.json)\" *\-\-\>/){
+		$inc = $1;
+		open(FILE,"$dir$inc");
+		@json = <FILE>;
+		close(FILE);
+		$insert = "";
+		for($i = 0; $i < @json; $i++){
+			$json[$i] =~ s/[\n\r]//g;
+			$json[$i] =~ s/^[\t\s]*//g;
+			$json[$i] =~ s/[\t\s]*$//g;
+			$json[$i] =~ s/\: *\{/\:\{/g;
+			$json[$i] =~ s/\{ *\"/\{\"/g;
+			$json[$i] =~ s/ *\}\,/\}\,/g;
+			$insert .= "$json[$i]";
+		}
+		print "INC JSON=$dir$inc\n";
+		$line =~ s/\<\!\-\- *\#include *file=\"$inc\" *\-\-\>/$insert/;
 	}
 	# Update any language variables
 	while($line =~ /\<\!--\#echo var=\"([^\"]*)" ?--\>/){
@@ -161,8 +179,6 @@ sub parseFile {
 		}
 	}
 
-	
-	
 	$html .= "$indent$line";
 
 	$html =~ s/%NEWLINE%/\n/g;
