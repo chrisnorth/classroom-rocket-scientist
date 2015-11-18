@@ -99,10 +99,6 @@
 .slot1x2 .face.front,
 .slot1x2 .face.back, .slot1x2 .eg { background: $orange-1; }
 
-.blackandwhite .slot:hover .face.front, .blackandwhite .slot:hover .face.back { background: $black-1; }
-.blackandwhite .slot:hover .face.left, .blackandwhite .slot:hover .face.right { background: $black-2; }
-.blackandwhite .slot:hover .face.top { background: $black-3; }
-
 .blackandwhite .slot .face.front, .blackandwhite .slot .face.back { background: $grey-1; }
 .blackandwhite .slot .face.left, .blackandwhite .slot .face.right { background: $grey-2; }
 .blackandwhite .slot .face.top { background: $grey-3; }

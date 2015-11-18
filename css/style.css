@@ -338,7 +338,7 @@ nav a:hover {
   text-decoration: none; }
 
 nav a.disabled {
-  color: #bbbbbb;
+  color: #efefef;
   cursor: default; }
 
 nav li:first-child {
@@ -946,15 +946,6 @@ button.selected:hover, button.selected:focus {
 #bus .satellite:hover {
   cursor: pointer; }
 
-#bus .satellite:hover .face {
-  background-color: #000000; }
-
-#bus .satellite:hover .face.left {
-  background-color: #202020; }
-
-#bus .satellite:hover .face.top {
-  background-color: #404040; }
-
 .satellite {
   font-size: 1em;
   padding: 3em;
@@ -1185,15 +1176,6 @@ button.selected:hover, button.selected:focus {
 .slot1x2 .face.front,
 .slot1x2 .face.back, .slot1x2 .eg {
   background: #f6881f; }
-
-.blackandwhite .slot:hover .face.front, .blackandwhite .slot:hover .face.back {
-  background: #000000; }
-
-.blackandwhite .slot:hover .face.left, .blackandwhite .slot:hover .face.right {
-  background: #202020; }
-
-.blackandwhite .slot:hover .face.top {
-  background: #404040; }
 
 .blackandwhite .slot .face.front, .blackandwhite .slot .face.back {
   background: #777777; }

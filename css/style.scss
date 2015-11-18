@@ -195,7 +195,7 @@ nav li { float: left; }
 nav { position: absolute; left: 0px; right: 0px; }
 nav a { height: $s*1.5; text-decoration: none; line-height: 1em; }
 nav a:hover { text-decoration: none; }
-nav a.disabled { color: $grey-3; cursor: default; }
+nav a.disabled { color: $grey-5; cursor: default; }
 nav li:first-child { float: left; }
 nav li:last-child { float: right; }
 nav li:first-child a:before { content: "❮"; font-size: 2em; padding-right: 0.15em; position: relative; top: 0.1em; }
@@ -497,12 +497,6 @@ button.selected:hover, button.selected:focus {
 #bus .satellite:hover {
 	cursor: pointer;
 }
-#bus .satellite:hover .face {
-	background-color: $black-1;
-}
-#bus .satellite:hover .face.left { background-color: $black-2; }
-#bus .satellite:hover .face.top { background-color: $black-3; }
-
 @import "../tests/satellite/satellite.scss";
 
 .slot2x4.texture.down .face.left,
