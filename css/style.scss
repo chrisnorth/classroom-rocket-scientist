@@ -507,7 +507,7 @@ button.selected:hover, button.selected:focus {
 
 .slot2x4.texture.down .face.left,
 .slot2x4.texture.up .face.right,
-.slot2x4.texture.normal .face.top { background: url('../images/foil_4x4.png'); background-size: 100% 100%; }
+.slot2x4.texture.upwards .face.top { background: url('../images/foil_4x4.png'); background-size: 100% 100%; }
 
 .slot2x4.texture.down .face.top,
 .slot2x4.texture.up .face.top,
@@ -517,8 +517,10 @@ button.selected:hover, button.selected:focus {
 .slot2x2.texture .face.back { background: url('../images/foil_2x2.png'); background-size: 100% 100%; }
 
 .slot2x2.texture .face.left,
-.slot2x4.texture.normal .face.left,
-.slot2x4.texture.normal .face.right,
+.slot2x4.texture.upwards .face.left,
+.slot2x4.texture.upwards .face.right,
+.slot2x4.texture.downwards .face.left,
+.slot2x4.texture.downwards .face.right,
 .slot2x4.texture.down .face.back,
 .slot2x4.texture.up .face.back,
 .slot2x4.texture .face.back { background: url('../images/foil_2x4.png'); background-size: 100% 100%; }

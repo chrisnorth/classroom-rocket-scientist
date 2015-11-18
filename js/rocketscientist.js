@@ -778,7 +778,8 @@ RocketScientist.prototype.processPackage = function(type,el,mode){
 					if(html.indexOf('south')>=0){
 						var dir = "north";
 						// Find the required direction
-						if(good.hasClass('normal')) dir = "south";
+						if(good.hasClass('upwards')) dir = "south";
+						if(good.hasClass('downwards')) dir = "north";
 						if(good.hasClass('down')) dir = "east";
 						if(good.hasClass('up')) dir = "west";
 						if(dir == "north") dir += " no-inside";
@@ -810,14 +811,15 @@ RocketScientist.prototype.processPackage = function(type,el,mode){
 			good = E(slots.e[slots.e.length-1]);
 			if(p.texture){
 				// Put it in the first available slot
-				if(p.texture.class) good.removeClass(p.texture.class);
+				if(p.texture.class) goodboth.removeClass(p.texture.class);
 				if(p.texture.html){
 					html = p.texture.html;
 					// Deal with directions of hemispheres
 					if(html.indexOf('south')>=0){
 						var dir = "north";
 						// Find the required direction
-						if(good.hasClass('normal')) dir = "south";
+						if(good.hasClass('upwards')) dir = "south";
+						if(good.hasClass('downwards')) dir = "north";
 						if(good.hasClass('down')) dir = "east";
 						if(good.hasClass('up')) dir = "west";
 						html = html.replace('south',dir);
