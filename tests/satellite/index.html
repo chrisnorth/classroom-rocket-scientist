@@ -78,8 +78,9 @@
 				aerial = el.getElementsByClassName('aerial');
 				for(var i = aerial.length-1; i >= 0; i--) removeEl(aerial[i]);
 			}else{
-				top = els[0].getElementsByClassName('top');
-				top[0].innerHTML = "<div class=\"aerial1 aerial\"><\/div><div class=\"aerial2 aerial\"><\/div>";
+				//top = els[0].getElementsByClassName('top');
+				//top[0].innerHTML = "<div class=\"aerial1 aerial\"><\/div><div class=\"aerial2 aerial\"><\/div>";
+				els[0].innerHTML = "<div class=\"aerial1 aerial\"><\/div><div class=\"aerial2 aerial\"><\/div>"+els[0].innerHTML;
 			}
 			toggleClass(els[0],'antenna');
 			toggleClass(els[0],'slot-empty');
@@ -149,7 +150,7 @@
 			</div>
 		</div><div class="holder">
 			<div class="satellite satellite-c solar-fixed" id="sat-c">
-				<div class="row rowflat"><div class="slot slot1 slot0x2 antenna"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"><div class="aerial1 aerial"></div><div class="aerial2 aerial"></div></div><div class="face left"></div><div class="face front"></div></div></div></div>
+				<div class="row rowflat"><div class="slot slot1 slot0x2 antenna"><div class="aerial1 aerial"></div><div class="aerial2 aerial"></div><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 				<div class="row"><div class="slot slot-empty slot1 slot1x1 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot1x1 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 				<div class="row"><div class="slot slot-empty slot1 slot1x2 solar-left solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 			</div>

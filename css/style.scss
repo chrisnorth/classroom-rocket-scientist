@@ -456,6 +456,7 @@ button.selected:hover, button.selected:focus {
 .eg { width: 100%; height: 100%; }
 .eg-bg .face { display: none; }
 .eg-bg .aerial { margin-top: $s*0.5; }
+.eg-bg .aerial2 { display: none; }
 .eg-bg.threeD .aerial1 { transform: none; margin-top: 0; }
 .package_slot { text-align: right; width: $s * 4; }
 .package_slot .slot4x8 .hemisphere { top: -100%; left: 0px; }

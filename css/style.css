@@ -872,6 +872,9 @@ button.selected:hover, button.selected:focus {
 .eg-bg .aerial {
   margin-top: 0.75em; }
 
+.eg-bg .aerial2 {
+  display: none; }
+
 .eg-bg.threeD .aerial1 {
   transform: none;
   margin-top: 0; }
@@ -2061,18 +2064,18 @@ button.selected:hover, button.selected:focus {
   height: 4.5em; }
 
 .threeD .aerial1 {
-  -webkit-transform: translateX(-1.125em) translateY(4.125em);
-  -moz-transform: translateX(-1.125em) translateY(4.125em);
-  -ms-transform: translateX(-1.125em) translateY(4.125em);
-  -o-transform: translateX(-1.125em) translateY(4.125em);
-  transform: translateX(-1.125em) translateY(4.125em); }
+  -webkit-transform: rotateX(90deg) translateX(-2.85em) translateY(3.555em);
+  -moz-transform: rotateX(90deg) translateX(-2.85em) translateY(3.555em);
+  -ms-transform: rotateX(90deg) translateX(-2.85em) translateY(3.555em);
+  -o-transform: rotateX(90deg) translateX(-2.85em) translateY(3.555em);
+  transform: rotateX(90deg) translateX(-2.85em) translateY(3.555em); }
 
 .threeD .aerial2 {
-  -webkit-transform: translateX(1.125em) translateY(-1.125em);
-  -moz-transform: translateX(1.125em) translateY(-1.125em);
-  -ms-transform: translateX(1.125em) translateY(-1.125em);
-  -o-transform: translateX(1.125em) translateY(-1.125em);
-  transform: translateX(1.125em) translateY(-1.125em); }
+  -webkit-transform: rotateX(90deg) translateX(-1.5em) translateY(-0.75em);
+  -moz-transform: rotateX(90deg) translateX(-1.5em) translateY(-0.75em);
+  -ms-transform: rotateX(90deg) translateX(-1.5em) translateY(-0.75em);
+  -o-transform: rotateX(90deg) translateX(-1.5em) translateY(-0.75em);
+  transform: rotateX(90deg) translateX(-1.5em) translateY(-0.75em); }
 
 .threeD .satellite.spin .slot2x4 .hemisphere.north, .threeD .satellite.spin .slot2x4 .hemisphere.south {
   -webkit-animation-name: antispin;
