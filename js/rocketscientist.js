@@ -342,8 +342,9 @@ function RocketScientist(data){
 	this.maxpanels = 4;
 	this.wide = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 	this.tall = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-	this.defaults = {'currency':'credits', 'length':'m', 'mass': 'kg', 'power':'watt' };
+	this.defaults = {'currency':'credits', 'length':'m', 'mass': 'kg', 'power':'watts' };
 	this.z = {};
+	this.totals = { 'cost': new Convertable(0,this.defaults.currency), 'power': new Convertable(0,this.defaults.power), 'mass':new Convertable(0,this.defaults.mass) };
 	this.choices = { 'type':'', 'goal':'', 'mission':'', 'orbit':'', 'bus':'', 'slots':{}, 'solar-panel':0, 'solar-panel-fixed':false };
 
 	this.getSections();
@@ -399,19 +400,20 @@ RocketScientist.prototype.getSections = function(){
 RocketScientist.prototype.init = function(data){
 	if(data) this.data = data;
 	if(!this.data) return;
-	this.currentsection = 0;
+
 	function updateConvertables(o){
-		for (i in o){
+		for (var i in o){
 			if(typeof(o[i])=="object") {
-				if(o[i].value && o[i].units && o[i].dimension) o[i] = new Convertable(o[i]);
+				if(typeof o[i].value!=="undefined" && typeof o[i].units!=="undefined" && typeof o[i].dimension!=="undefined") o[i] = new Convertable(o[i]);
 				else o[i] = updateConvertables(o[i]);
 			}
 		}
 		return o;
 	}  
 	// Loop over the data and update Convertables
-	updateConvertables(data);
+	this.data = updateConvertables(this.data);
 
+	this.currentsection = 0;
 	var _obj = this;
 
 	// Remove elements that show noscript messages
@@ -555,7 +557,7 @@ RocketScientist.prototype.setType = function(t){
 		// Reset any goals
 		this.choices['goal'] = "";
 		this.choices['mission'] = "";
-		this.updateBudget();
+		this.setBudget();
 		E('#goal button').removeClass('selected');
 		this.allowNavigateBeyond('type');
 	}else{
@@ -563,19 +565,55 @@ RocketScientist.prototype.setType = function(t){
 	}
 	return this;
 }
-RocketScientist.prototype.updateBudget = function(){
-	var budget;
-	var css = "";
-	if(this.choices.type && typeof this.choices.goal==="number"){
-		this.choices.mission = this.data.scenarios[this.choices.type].missions[this.choices.goal];
-		budget = new Convertable(this.choices.mission.budget)
-	}else{
-		budget = new Convertable(0,this.defaults.currency);
-		css = 'none';
+RocketScientist.prototype.setBudget = function(){
+	this.log('setBudget')
+	if(this.choices.type && typeof this.choices.goal==="number") this.choices.mission = this.data.scenarios[this.choices.type].missions[this.choices.goal];
+	E('#bar .togglecost').css({'display':(!this.choices.mission || this.choices.mission.budget.value==0) ? 'none':''})
+	this.updateTotals();
+	return this;
+}
+RocketScientist.prototype.updateBudgets = function(p,sign){
+
+	var total = { 'cost': new Convertable(0,this.defaults.currency), 'power': new Convertable(0,this.defaults.power), 'mass':new Convertable(0,this.defaults.mass) };
+
+	// Function to add a Convertable to another (applying multiplying factors first)
+	function add(tot,p,m){
+		if(!m) m = {'cost':1,'mass':1,'power':1};
+		for(var i in tot){
+			if(p[i] && p[i].typeof=="convertable"){
+				var c = p[i].copy();
+				c.value *= m[i];
+				tot[i].add(c);
+			}
+		}
+		return tot;
 	}
-	this.log('updateBudget',budget,this.choices.type,this.choices.goal,budget);
-	E('#bar .togglecost .cost').html(budget.toString({'units':this.defaults.currency}))
-	E('#bar .togglecost').css({'display':css});
+
+	if(this.choices['bus']) total = add(total,this.choices['bus']);
+	if(this.choices['slots']){
+		for(var i in this.choices['slots']){
+			for(var j = 0; j < this.choices['slots'][i].length; j++){
+				var key = this.choices['slots'][i][j];
+				if(this.data.package[key]) total = add(total,this.data.package[key]);
+				if(this.data.power[key]) total = add(total,this.data.power[key],{'cost':1,'mass':1,'power':0});
+			}
+		}
+	}
+	if(this.choices['solar-panel']){
+		var n = this.choices['solar-panel'];
+		total = add(total,this.data.power['solar-panel'],{'cost':n,'mass':n,'power':0});
+	}
+	if(this.choices['solar-panel-fixed']) total = add(total,this.data.power['solar-panel-surface'],{'cost':1,'mass':1,'power':0});
+
+	this.totals = total;
+
+	this.log('updateBudgets',this.data,this.choices,total)
+	this.updateTotals();
+}
+RocketScientist.prototype.updateTotals = function(){
+	E('#bar .togglecost .cost').html(this.totals.cost.toString({'units':this.defaults.currency}))
+	E('#bar .togglemass .mass').html(this.totals.mass.toString({'units':this.defaults.mass}))
+	E('#bar .togglepower .power').html(this.totals.power.toString({'units':this.defaults.power}))
 	return this;
 }
 RocketScientist.prototype.setGoal = function(g){
@@ -588,7 +626,7 @@ RocketScientist.prototype.setGoal = function(g){
 	E(E('#goal .'+this.choices.type+' button').e[this.choices.goal]).addClass('selected');
 
 	// Update the budget
-	this.updateBudget();
+	this.setBudget();
 
 	// Update what is displayed in the instrument requirements
 	this.log('Should update the instrument requirements');
@@ -745,19 +783,22 @@ RocketScientist.prototype.toggleAnimation = function(element){
 }
 RocketScientist.prototype.addPackage = function(e,to){
 	var a = E(e.currentTarget);
+	var add = a.hasClass('add') ? true : false;
 	var type = a.parent().parent().attr('data-package');
 	this.log('addPackage',e,to,type);
 	if(to == "instrument") this.processPackage(type,a,"instrument");
 	else if(to == "power") this.processPowerPackage(type,a);
-	
+
+	this.updateBudgets();
 	this.updateButtons();
+	return this;
 }
 // Input is the type of slot e.g. dish-large and the event
 RocketScientist.prototype.processPackage = function(type,el,mode){
 
 	var add = el.hasClass('add') ? true : false;
 	var p = (mode=="power") ? this.data['power'][type] : this.data.package[type];
-	this.log('processPackage',type,el,mode,p)
+	this.log('processPackage',type,el,mode,p);
 
 	if(add){
 		// Get the slots
@@ -844,7 +885,7 @@ RocketScientist.prototype.processPackage = function(type,el,mode){
 				}
 			}
 		}
-		this.log('processPackage',this.choices['slots'])
+		this.log('processPackage',this.choices['slots']);
 	}
 
 	this.allowNavigateBeyond('instrument');
@@ -908,11 +949,12 @@ RocketScientist.prototype.solarPanel = function(add,el){
 		var panels = E('#sat-power .solar-panels');
 		for(var i = 0; i < panels.e.length; i++){
 			ps = panels.e[i].getElementsByTagName('li');
-			if(ps.length < this.maxpanels) panels.e[i].getElementsByTagName('ol')[0].innerHTML += '<li class="solar-panel"><\/li>';
+			if(ps.length < this.maxpanels){
+				panels.e[i].getElementsByTagName('ol')[0].innerHTML += '<li class="solar-panel"><\/li>';
+			}
 		}
 	}else{
 		E('#sat-power .solar-panels li:eq(0)').remove();
-	//	if(E('#sat-power .solar-panels li').e.length==0) m.prop('disabled',true);
 	}
 	// Find out how many panels we have
 	ps = E('#sat-power .solar-panels li');

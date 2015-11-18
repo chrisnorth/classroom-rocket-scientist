@@ -328,6 +328,26 @@ function Convertable(v,u,d){
 		output.value *= -1;
 		return output;
 	}
+	
+	// Add the input values.
+	// Input:
+	//   An convertable
+	// Output:
+	//   A value object with the same dimension and units as this object
+	// Notes:
+	//   Only values with the same dimension will be summed
+	//   Input units can differ - this will take care of unit conversions
+	this.add = function(v){
+		if(v.typeof=="convertable"){
+			if(this.dimension===v.dimension){
+				var a = v.copy().convertTo(this.units);
+				this.value += a.value;
+			}
+		}
+		return this;
+	}
+
 	this.typeof = "convertable";
 	return this;
 }
+
