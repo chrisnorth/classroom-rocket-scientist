@@ -539,36 +539,14 @@ RocketScientist.prototype.noNavigateBeyond = function(t){
 	}
 	return this;
 }
-RocketScientist.prototype.setType = function(t){
-	this.choices['type'] = t;
-
-	// Reset any existing selection
-	E('#type button').removeClass('selected');
-
-	if(t){
-		// Select this button
-		E('#type .'+t+' button').addClass('selected');
-
-		// Update what is displayed in the goals section
-		for(s in this.data.scenarios){
-			if(t==s) E('#goal .'+s).css({'display':''});
-			else E('#goal .'+s).css({'display':'none'});
-		}
-		// Reset any goals
-		this.choices['goal'] = "";
-		this.choices['mission'] = "";
-		this.setBudget();
-		E('#goal button').removeClass('selected');
-		this.allowNavigateBeyond('type');
-	}else{
-		this.allowNavigateBeyond('');
-	}
-	return this;
-}
 RocketScientist.prototype.setBudget = function(){
 	this.log('setBudget')
 	if(this.choices.type && typeof this.choices.goal==="number") this.choices.mission = this.data.scenarios[this.choices.type].missions[this.choices.goal];
-	E('#bar .togglecost').css({'display':(!this.choices.mission || this.choices.mission.budget.value==0) ? 'none':''})
+	var d = (!this.choices.mission || this.choices.mission.budget.value==0) ? 'none':'';
+	E('#bar .togglecost').css({'display':d});
+	E('#bar .togglemass').css({'display':d});
+	E('#bar .togglepower').css({'display':d});
+	this.updateBudgets();
 	this.updateTotals();
 	return this;
 }
@@ -589,7 +567,7 @@ RocketScientist.prototype.updateBudgets = function(p,sign){
 		return tot;
 	}
 
-	if(this.choices['bus']) total = add(total,this.choices['bus']);
+	if(this.choices['bus']) total = add(total,this.choices['bus'],{'cost':1,'mass':0,'power':1});	// We don't include mass
 	if(this.choices['slots']){
 		for(var i in this.choices['slots']){
 			for(var j = 0; j < this.choices['slots'][i].length; j++){
@@ -614,6 +592,33 @@ RocketScientist.prototype.updateTotals = function(){
 	E('#bar .togglecost .cost').html(this.totals.cost.toString({'units':this.defaults.currency}))
 	E('#bar .togglemass .mass').html(this.totals.mass.toString({'units':this.defaults.mass}))
 	E('#bar .togglepower .power').html(this.totals.power.toString({'units':this.defaults.power}))
+	return this;
+}
+RocketScientist.prototype.setType = function(t){
+	this.choices['type'] = t;
+
+	// Reset any existing selection
+	E('#type button').removeClass('selected');
+
+	if(t){
+		// Select this button
+		E('#type .'+t+' button').addClass('selected');
+
+		// Update what is displayed in the goals section
+		for(s in this.data.scenarios){
+			if(t==s) E('#goal .'+s).css({'display':''});
+			else E('#goal .'+s).css({'display':'none'});
+		}
+		// Reset any goals
+		this.choices['goal'] = "";
+		this.choices['mission'] = "";
+		E('#goal button').removeClass('selected');
+		this.setBudget();
+
+		this.allowNavigateBeyond('type');
+	}else{
+		this.allowNavigateBeyond('');
+	}
 	return this;
 }
 RocketScientist.prototype.setGoal = function(g){
@@ -685,6 +690,7 @@ RocketScientist.prototype.setBus = function(size){
 	// Reset the selected DOM elements
 	sat.addClass("selected").parent().removeClass("blackandwhite").find('button').addClass('selected');
 
+	this.updateBudgets();
 	this.updateButtons();
 	this.allowNavigateBeyond('bus');
 	return this;

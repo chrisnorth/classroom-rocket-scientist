@@ -1,19 +1,4 @@
 {
-	"currency": {
-		"GBP": { "conv": 1 },
-		"USD": { "conv": 1.67 },
-		"EUR": { "conv": 1.21 },
-		"JPY": { "conv": 170.7 },
-		"CAD": { "conv": 1.8461 },
-		"AUD": { "conv": 1.8642 },
-		"CHF": { "conv": 1.473 },
-		"SEK": { "conv": 10.7654 },
-		"INR": { "conv": 100.1 },
-		"CNY": { "conv": 10.327 },
-		"RUB": { "conv": 59.136 },
-		"DBL": { "conv": 0.07485 },
-		"credits": { "conv": 0.01 }
-	},
 	"sections": [{
 		"id": "type",
 		"short": "%ui.sections.type.short%",
@@ -53,7 +38,8 @@
 		"cube": {
 			"slots": { "0x2": 1, "1x1": 2, "1x2": 1 },
 			"cost": { "value": 10000, "units": "USD", "dimension": "currency" },
-			"mass": { "value": 1.3, "units": "kg", "dimension": "mass" },
+			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
+			"structure": { "value": 0.3, "units": "kg", "dimension": "mass" },
 			"width": { "value": 0.1, "units": "m", "dimension": "length" },
 			"height": { "value": 0.1, "units": "m", "dimension": "length" },
 			"depth": { "value": 0.1, "units": "m", "dimension": "length" }
@@ -61,7 +47,8 @@
 		"small": {
 			"slots": { "2x2": 2, "2x4": 1, "4x4": 4 },
 			"cost": { "value": 4000000, "units": "USD", "dimension": "currency" },
-			"mass": { "value": 250, "units": "kg", "dimension": "mass" },
+			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
+			"structure": { "value": 150, "units": "kg", "dimension": "mass" },
 			"width": { "value": 1, "units": "m", "dimension": "length" },
 			"height": { "value": 1, "units": "m", "dimension": "length" },
 			"depth": { "value": 1, "units": "m", "dimension": "length" }
@@ -69,7 +56,8 @@
 		"medium":{
 			"slots": { "2x2": 4, "2x4": 2, "4x4": 4 },
 			"cost": { "value": 315000000, "units": "EUR", "dimension": "currency" },
-			"mass": { "value": 750, "units": "kg", "dimension": "mass" },
+			"mass": { "value": 500, "units": "kg", "dimension": "mass" },
+			"structure": { "value": 250, "units": "kg", "dimension": "mass" },
 			"width": { "value": 5, "units": "m", "dimension": "length" },
 			"height": { "value": 2.5, "units": "m", "dimension": "length" },
 			"depth": { "value": 2.5, "units": "m", "dimension": "length" }
@@ -77,7 +65,8 @@
 		"large":{
 			"slots": { "2x2": 8, "2x4": 3, "4x8": 1, "4x4": 4 },
 			"cost": { "value": 2300000000, "units": "USD", "dimension": "currency" },
-			"mass": { "value": 1500, "units": "kg", "dimension": "mass" },
+			"mass": { "value": 1000, "units": "kg", "dimension": "mass" },
+			"structure": { "value": 500, "units": "kg", "dimension": "mass" },
 			"width": { "value": 10, "units": "m", "dimension": "length" },
 			"height": { "value": 2.5, "units": "m", "dimension": "length" },
 			"depth": { "value": 2.5, "units": "m", "dimension": "length" }

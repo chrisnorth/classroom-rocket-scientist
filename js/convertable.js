@@ -4,7 +4,7 @@ if(typeof Math.log10!=="function") Math.log10 = function(v) { return Math.log(v)
 function Convertable(v,u,d){
 
 	var ph = {
-		"million": { "full": " million", "compact": " mil." },
+		"million": { "full": " million" },
 		"billion": { "full": " billion", "compact": " Bn" },
 		"defaults": {
 			"length": "m",
