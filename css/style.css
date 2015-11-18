@@ -269,7 +269,7 @@ nav li {
 .baritem a img, .baritem button img, nav a img, .coin {
   margin: 0.75em; }
 
-.baritem .coin {
+.baritem .coin, .baritem .weight {
   float: left;
   margin-left: 0.75em; }
 
@@ -379,8 +379,13 @@ li select, li input, li .toggleinput {
 /* Sprites */
 .coin {
   background: url("../images/coin.png");
-  background-size: 100% 100%;
-  border-radius: 50%;
+  background-size: 100% 100%; }
+
+.weight {
+  background: url("../images/mass.png");
+  background-size: 100% 100%; }
+
+.coin, .weight {
   display: inline-block;
   height: 1.5em;
   width: 1.5em;
@@ -810,7 +815,8 @@ button.selected:hover, button.selected:focus {
   line-height: 0.8em; }
 
 table.data, table.data td {
-  border: 0px; }
+  border: 0px;
+  padding: 0.1875em; }
 
 table.data {
   margin: auto;

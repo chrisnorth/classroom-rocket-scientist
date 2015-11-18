@@ -1,7 +1,7 @@
 function Convertable(v,u,d){
 
 	var ph = {
-		"million": { "full": " million", "compact": " mn" },
+		"million": { "full": " million", "compact": " mil." },
 		"billion": { "full": " billion", "compact": " Bn" },
 		"defaults": {
 			"length": "m",

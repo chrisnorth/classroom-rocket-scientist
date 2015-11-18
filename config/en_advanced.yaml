@@ -54,7 +54,7 @@ ui.sections.rocket.title:                   Build your rocket
 ui.sections.rocket.intro:                   Now you have a satellite you need to build a multi-stage rocket. The top of the rocket will hold your satellite so needs to be big enough. The lower stages need to be big enough to support those above.
 ui.sections.launch.short:                   Launch
 ui.sections.launch.title:                   Launch
-ui.sections.launch.intro:                   
+ui.sections.launch.intro:                   Ready to launch?
 bus.cube.title:                             Cube sat
 bus.cube.button:                            Select cube sat
 bus.small.title:                            Small satellite
