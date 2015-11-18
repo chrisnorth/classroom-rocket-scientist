@@ -91,7 +91,7 @@ h1, h2, h3 {
   font-weight: bold; }
 
 p {
-  margin-bottom: 1.5em;
+  margin-bottom: 0.75em;
   line-height: 1.5em; }
 
 strong {
@@ -814,7 +814,7 @@ table.data, table.data td {
 
 table.data {
   margin: auto;
-  margin-bottom: 0.375em; }
+  margin-bottom: 0.75em; }
 
 table.data td:first-child {
   text-align: right;
