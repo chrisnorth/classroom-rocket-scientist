@@ -809,6 +809,20 @@ button.selected:hover, button.selected:focus {
 .zoomcontrol button {
   line-height: 0.8em; }
 
+table.data, table.data td {
+  border: 0px; }
+
+table.data {
+  margin: auto;
+  margin-bottom: 0.375em; }
+
+table.data td:first-child {
+  text-align: right;
+  padding-right: 0.375em; }
+
+table.data td:last-child {
+  text-align: left; }
+
 .list {
   position: absolute;
   top: 0px;

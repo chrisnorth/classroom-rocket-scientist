@@ -563,13 +563,14 @@ RocketScientist.prototype.setType = function(t){
 RocketScientist.prototype.updateBudget = function(){
 	var budget;
 	var css = "";
-	if(this.choices.type && this.choices.goal){
+	if(this.choices.type && typeof this.choices.goal==="number"){
 		this.choices.mission = this.data.scenarios[this.choices.type].missions[this.choices.goal];
 		budget = this.choices.mission.budget
 	}else{
 		budget = new Convertable(0,this.defaults.currency);
 		css = 'none';
 	}
+	this.log('updateBudget',budget,this.choices.type,this.choices.goal);
 	E('#bar .togglecost .cost').html(budget.toString({'units':this.defaults.currency}))
 	E('#bar .togglecost').css({'display':css});
 	return this;

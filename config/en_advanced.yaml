@@ -31,6 +31,7 @@ ui.sections.goal.intro:                     Select the purpose of your satellite
 ui.sections.bus.short:                      Size
 ui.sections.bus.title:                      Choose the size of your satellite
 ui.sections.bus.intro:                      The size of your satellite matters. It needs to be big enough to hold all the instruments you need. Be careful though. The bigger your satellite, the more expensive it is.
+ui.sections.bus.type:                       Type:
 ui.sections.bus.cost:                       Cost:
 ui.sections.bus.mass:                       Mass:
 ui.sections.bus.size:                       Size:
