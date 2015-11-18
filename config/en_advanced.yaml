@@ -27,7 +27,7 @@ ui.sections.type.title:                     Select your type of satellite
 ui.sections.type.intro:                     Satellites have different purposes. Which type do you want to build?
 ui.sections.goal.short:                     Mission
 ui.sections.goal.title:                     Select the purpose of your satellite
-ui.sections.goal.intro:                     Select the purpose of your satellite
+ui.sections.goal.intro:                     Make sure to take a note of the budget you have. You will need to make sure you don't overspend.
 ui.sections.bus.short:                      Size
 ui.sections.bus.title:                      Choose the size of your satellite
 ui.sections.bus.intro:                      The size of your satellite matters. It needs to be big enough to hold all the instruments you need. Be careful though. The bigger your satellite, the more expensive it is.
