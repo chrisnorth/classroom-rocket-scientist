@@ -342,7 +342,7 @@ function RocketScientist(data){
 	this.maxpanels = 4;
 	this.wide = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 	this.tall = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-	this.defaults = {'currency':'credits', 'length':'m', 'mass': 'kg' };
+	this.defaults = {'currency':'credits', 'length':'m', 'mass': 'kg', 'power':'watt' };
 	this.z = {};
 	this.choices = { 'type':'', 'goal':'', 'mission':'', 'orbit':'', 'bus':'', 'slots':{}, 'solar-panel':0, 'solar-panel-fixed':false };
 

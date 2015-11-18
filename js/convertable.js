@@ -31,6 +31,8 @@ function Convertable(v,u,d){
 			"kg": { "unit": " kg", "dimension": "mass", "conv": 1 },
 			"lb": { "unit": " lb", "dimension": "mass", "conv": 2.205 },
 			"elephant": { "unit": " elephants", "dimension": "mass", "conv": 5400 },
+			"watts": { "unit": " W", "dimension": "power", "conv": 1 },
+			"horsepower": { "unit": " hp", "dimension": "power", "conv": 745.7 },
 			"years": { "unit": " years", "dimension": "time", "conv": 365.25*86400 },
 			"months": { "unit": " months", "dimension": "time", "conv": 30*86400 },
 			"days": { "unit": " days", "dimension": "time", "conv": 86400 },
@@ -133,14 +135,6 @@ function Convertable(v,u,d){
 				v.value /= 1760;
 				v.units = "mile";
 			}
-		}else if(v.dimension == "mass"){
-			if(v.units != to){
-				// Step 1: convert to defaults
-				if(ph.units[v.units].conv) v.value *= ph.units[v.units].conv;
-				// Step 2: convert to new unit
-				if(ph.units[to].conv) v.value /= ph.units[to].conv;
-				v.units = to;
-			}
 		}else if(v.dimension == "temperature"){
 			if(v.units != to){
 				// Step 1: convert to defaults
@@ -183,8 +177,15 @@ function Convertable(v,u,d){
 					v.units = to;
 				}
 			}
+		}else{	
+			if(v.units != to && ph.units[v.units] && ph.units[to]){
+				// Step 1: convert to defaults
+				if(ph.units[v.units].conv) v.value *= ph.units[v.units].conv;
+				// Step 2: convert to new unit
+				if(ph.units[to].conv) v.value /= ph.units[to].conv;
+				v.units = to;
+			}
 		}
-
 		return v;
 	}
 	// Format a <span>
@@ -241,14 +242,6 @@ function Convertable(v,u,d){
 			if(v.value > 1e15) return powerOfTen(v.value,v.unit);
 			return tidy(v.value,p,unit);
 		
-		}else if(dim=="mass"){
-
-			v = this.convertTo(to)
-			unit = (ph.units[v.units]) ? ph.units[v.units].unit : "";
-			if(typeof p!=="number") p = (v.value >= 1000) ? 0 : v.getPrecision();
-			if(v.value > 1e15) return powerOfTen(v.value,unit);
-			else return tidy(v.value,p,unit);
-			
 		}else if(dim=="currency"){
 	
 			var append = "";
@@ -313,7 +306,14 @@ function Convertable(v,u,d){
 			if(typeof v.value==="string") v.value = parseInt(v.value,10);
 			return tidy(v.value,p,unit);
 
-		}else return v.value;
+		}else{
+			v = this.convertTo(to);
+			unit = (ph.units[v.units]) ? ph.units[v.units].unit : "";
+			if(typeof p!=="number") p = (v.value >= 1000) ? 0 : v.getPrecision();
+			if(v.value > 1e15) return powerOfTen(v.value,unit);
+			else return tidy(v.value,p,unit);
+		}
+		 return v.value;
 	}
 	// Return the negative of the input value
 	// Input:

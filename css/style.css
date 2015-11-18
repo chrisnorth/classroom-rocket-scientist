@@ -266,10 +266,10 @@ nav li {
   width: 100%;
   text-align: left; }
 
-.baritem a img, .baritem button img, nav a img, .coin {
+.baritem a img, .baritem button img, nav a img, .coin-icon {
   margin: 0.75em; }
 
-.baritem .coin, .baritem .weight, .baritem .power {
+.baritem .coin-icon, .baritem .weight-icon, .baritem .power-icon {
   float: left;
   margin-left: 0.75em; }
 
@@ -377,19 +377,19 @@ li select, li input, li .toggleinput {
   font-family: Arial, sans-serif; }
 
 /* Sprites */
-.coin {
+.coin-icon {
   background: url("../images/coin.png");
   background-size: 100% 100%; }
 
-.weight {
+.weight-icon {
   background: url("../images/mass.png");
   background-size: 100% 100%; }
 
-.power {
+.power-icon {
   background: url("../images/power.png");
   background-size: 100% 100%; }
 
-.coin, .weight, .power {
+.coin-icon, .weight-icon, .power-icon {
   display: inline-block;
   height: 1.5em;
   width: 1.5em;

@@ -150,10 +150,10 @@ nav li { float: left; }
 .baritem.left a:hover { background: transparent; }
 .baritem.padded, nav li.padded { padding: $barheight*0.5 - $lineh*0.5; }
 .baritem button { border: 0px; background: transparent; font-size: 1em; margin: 0px; padding: 0px; width: 100%; text-align: left; }
-.baritem a img, .baritem button img, nav a img, .coin {
+.baritem a img, .baritem button img, nav a img, .coin-icon {
 	margin: $barheight*0.5 - $lineh*0.5;
 }
-.baritem .coin,.baritem .weight,.baritem .power { float: left; margin-left: $barheight*0.5 - $lineh*0.5; }
+.baritem .coin-icon,.baritem .weight-icon,.baritem .power-icon { float: left; margin-left: $barheight*0.5 - $lineh*0.5; }
 .baritem a, .baritem button, nav a {
 	color: inherit;
 	text-decoration: none;
@@ -210,19 +210,19 @@ li select, li input, li .toggleinput { float: right; font-size: 1em; font-family
 
 
 /* Sprites */
-.coin {
+.coin-icon {
 	background: url("../images/coin.png");
 	background-size: 100% 100%;
 }
-.weight {
+.weight-icon {
 	background: url("../images/mass.png");
 	background-size: 100% 100%;
 }
-.power {
+.power-icon {
 	background: url("../images/power.png");
 	background-size: 100% 100%;
 }
-.coin, .weight, .power {
+.coin-icon, .weight-icon, .power-icon {
 	display: inline-block;
 	height: $lineh;
 	width: $lineh;
