@@ -244,7 +244,7 @@ function E(e){
 			// Update style
 			this.e[i].setAttribute('style',newstyle);
 		}
-		return this;
+		return E(this.e);
 	}
 	stuQuery.prototype.parent = function(){
 		var tmp = [];
@@ -432,7 +432,7 @@ RocketScientist.prototype.init = function(data){
 
 	// We hide elements that shouldn't be visible (but we are leaving visible
 	// in the plain HTML so there is something if Javascript doesn't work.
-	for(var s = 0; s < this.sections.length; s++) E('#'+this.sections[s]).addClass('js').addClass('slide').css({'left':(s>0 ? '100%':'0'),'visibility':(s>0 ? 'hidden':'visible')});
+	for(var s = 0; s < this.sections.length; s++) E('#'+this.sections[s]).addClass('js').addClass('slide').css((s > 0 ? {'visibility':'hidden','left':'-100%'} : {}));
 
 	// Deal with button presses in the type section
 	E('#type button').on('click',{me:this},function(e){ _obj.setType(E(e.currentTarget).attr('data-type')); });
@@ -732,22 +732,24 @@ RocketScientist.prototype.navigate = function(e){
 		// We know which section we want (found) and we know which we are on (this.currentsection)
 		// Remove existing hidden slide classes
 		E('.slide-hide').removeClass('slide-hide');
+		E('.slide').removeClass('slideOutLeft').removeClass('slideOutRight').removeClass('slideInLeft').removeClass('slideInRight');
+		// Although we are using CSS3 animations we also have to manually set properties in CSS as a fallback
 		if(found > this.currentsection){
 			// Go right
 			// Hide all the previous sections if they aren't already
-			for(var i = 0; i < this.currentsection;i++) E('#'+this.sections[i]).css({'left':'-100%','visibility':'hidden'});
+			for(var i = 0; i < this.currentsection;i++) E('#'+this.sections[i]).css({'left':'-100%','margin-left':0});
 			// Move the current section off
-			E('#'+this.sections[this.currentsection]).addClass('slide-hide').css({'left':'-100%','visibility':''});
+			E('#'+this.sections[this.currentsection]).addClass('slideOutLeft').css({'left':'-100%','margin-left':0});
 			// Move the new section in
-			E('#'+this.sections[this.currentsection+1]).css({'left':'0%','visibility':'visible','display':''});
+			E('#'+this.sections[this.currentsection+1]).addClass('slideInRight').css({'left':'0%','margin-left':0,'visibility':''});
 		}else{
 			// Go left
 			// Move the current section off
-			E('#'+this.sections[this.currentsection]).css({'left':'100%','visibility':''}).addClass('slide-hide');
+			E('#'+this.sections[this.currentsection]).addClass('slideOutRight').css({'left':'-100%','margin-left':'','visibility':''});
 			// Bring the new section in
-			E('#'+this.sections[found]).focus().css({'left':'0','visibility':'visible'});
+			E('#'+this.sections[found]).focus().addClass('slideInLeft').css({'left':'0%','margin-left':0,'visibility':''});
 			// Hide all the following sections if they aren't already
-			for(var i = found+2; i < this.sections.length; i++) E('#'+this.sections[i]).css({'left':'100%','visibility':'hidden'});
+			for(var i = found+2; i < this.sections.length; i++) E('#'+this.sections[i]).css({'margin-left':'0%','left':'-100%','visibility':'hidden'});
 		}
 		// Update the progress bar
 		E('#progressbar .progress-inner').css({'width':progress.toFixed(1)+'%'});
@@ -989,32 +991,48 @@ RocketScientist.prototype.solarFixed = function(add,el){
 // Resize function called when window resizes
 RocketScientist.prototype.resize = function(){
 
+	this.wide = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+	this.tall = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
 	// Kludgy fix for old browsers that don't have vw/vh/flex in CSS
 	if(!this.has.vw){
 		function height(el){
 			if('getComputedStyle' in window) return parseInt(window.getComputedStyle(el, null).getPropertyValue('height'));
-			else return parseInt(document.getElementById('example').currentStyle.height);	
+			else return parseInt(el.currentStyle.height);	
 		}
-		function resize(){
-			E('section').css({'min-height':this.tall+'px'});
-			var paddh = tall-128;			// Hard-coded fudge based on padding
-			E('section').children('.padded').css({'min-height':paddh+'px'});
-			var table = E('section').children('.padded').children('.table');
-			table.css({'height':paddh+'px'});
-			var rows = table.children('.table-row');
 
-			for(var r = 0; r < rows.e.length; r++){
-				// Step up to the table parent
-				table = E(rows.e[r]).parent();
-				var fixed = table.children('.table-row-top');
-				var rs = table.children('.table-row');
-				var dh = paddh-height(fixed.e[0]);
-				var dr = rs.e.length;
-				if(dr <= 0) dr = 1;
-				E(rows.e[r]).css({'height':(dh/dr)+'px','overflow':'hidden'}).find('.list').css({'height':(dh)+'px'});
-				var req = E(rows.e[r]).find('.requirements');
-				if(req.e.length > 0){
-					E(rows.e[r]).find('.satellite-holder').css({'height':(dh-height(req.e[0]))+'px'});
+		// Set all section heights
+		E('section').css({'min-height':this.tall+'px'});
+		var paddh = this.tall-128;			// Hard-coded fudge based on padding
+		var h = {'min-height':paddh+'px'};
+		E('section').children('.padded').css(h);
+		E('section').children('.padded').children('.table').css(h);
+		E('.col-60').css({'float':'left'});
+		E('.col-50:eq(0)').css({'float':'left'});
+		E('.col-40').css({'float':'right'});
+		E('.col-50:eq(1)').css({'float':'right'});
+
+		for(var i = 0; i < this.sections.length; i++){
+			var table = E('#'+this.sections[i]+' .table');
+			var trt = table.children('.table-row-top');
+			if(trt.e.length==1){
+				var dh = height(trt.e[0]);
+				var dhh = {'min-height':(parseInt(h['min-height'])-dh)+'px'}
+				var holder = table.children('.table-row').css(dhh).children('.lower').css(dhh).children('.row-flex').css(dhh);
+				holder.children('.col-40').css(dhh);
+				holder.find('.col-50').css(dhh);
+				var els = ['.col-60','.col-50:eq(0)'];
+				for(var j = 0; j < els.length; j++){
+					var flexcol = holder.find(els[j]).css(dhh).children('.flex-col').css(dhh);
+					if(flexcol.e.length == 1){
+						var trt2 = flexcol.children('.requirements');
+						if(trt.e.length == 1){
+							var dhhh = { 'position':'absolute', 'top':height(trt2.e[0])+'px','left':'0px','right':'0px','bottom':'0px' };
+							console.log(dhh['min-height'],parseInt(dhh['min-height']),height(trt2.e[0]))
+							if(trt2.e.length == 1) dhhh['min-height'] = (parseInt(dhh['min-height'])-height(trt2.e[0]))+'px';
+							flexcol.children('.flex-grow').css(dhhh);
+						}
+					}
 				}
 			}
 		}

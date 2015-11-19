@@ -299,26 +299,62 @@ section:first-child { padding-top: $barheight + 0.2em; }
 body.front section:first-child { padding-top: $barheight; }
 .msg + section { padding-top: 0; }
 .padded { padding: $padded; }
-section.view { width: 100%; max-width: 100%; @include transition( left $slide ease ); }
+section.view { width: 100%; max-width: 100%; /*@include transition( margin-left $slide ease );*/ }
 section.view.js { position: absolute; top: 0px; }
 section.view h2 { text-align: center; }
 section.view p { text-align: center; }
 body.front section.view p { text-align: left; }
 
 /* CSS3 Animations */
-section.view.slide-hide {
+section.view.slideOutRight {
 	@include animation-iteration-count(1);
 	@include animation-timing-function(linear);
 	@include animation-duration($slide);
 	@include animation-delay(-0.1s);
 	@include animation-fill-mode(forwards);
-	@include animation-name(slideHide);
+	@include animation-name(slideOutRight);
 }
+@-webkit-keyframes slideOutRight { 0% { margin-left: 0%; left: 0%; visibility: visible; } 99.9% { margin-left: 100%; left: 0%; visibility: hidden; } 100% { margin-left: 100%; left: -100%; visibility: hidden; } }
+@-moz-keyframes slideOutRight { 0% { margin-left: 0%; left: 0%; visibility: visible; } 99.9% { margin-left: 100%; left: 0%; visibility: hidden; } 100% { margin-left: 100%; left: -100%; visibility: hidden; } }
+@-o-keyframes slideOutRight { 0% { margin-left: 0%; left: 0%; visibility: visible; } 99.9% { margin-left: 100%; left: 0%; visibility: hidden; } 100% { margin-left: 100%; left: -100%; visibility: hidden; } }
+@keyframes slideOutRight { 0% { margin-left: 0%; left: 0%; visibility: visible; } 99.9% { margin-left: 100%; left: 0%; visibility: hidden; } 100% { margin-left: 100%; left: -100%; visibility: hidden; } }
+section.view.slideOutLeft {
+	@include animation-iteration-count(1);
+	@include animation-timing-function(linear);
+	@include animation-duration($slide);
+	@include animation-delay(-0.1s);
+	@include animation-fill-mode(forwards);
+	@include animation-name(slideOutLeft);
+}
+@-webkit-keyframes slideOutLeft { 0% { margin-left: 0%; left: 0%; visibility: visible; } 99.9% { margin-left: -100%; left: 0%; } 100% { margin-left: 0%; left: -100%; visibility: hidden; } }
+@-moz-keyframes slideOutLeft { 0% { margin-left: 0%; left: 0%; visibility: visible; } 99.9% { margin-left: -100%; left: 0%; } 100% { margin-left: 0%; left: -100%; visibility: hidden; } }
+@-o-keyframes slideOutLeft { 0% { margin-left: 0%; left: 0%; visibility: visible; } 99.9% { margin-left: -100%; left: 0%; } 100% { margin-left: 0%; left: -100%; visibility: hidden; } }
+@keyframes slideOutLeft { 0% { margin-left: 0%; left: 0%; visibility: visible; } 99.9% { margin-left: -100%; left: 0%; } 100% { margin-left: 0%; left: -100%; visibility: hidden; } }
+section.view.slideInRight {
+	@include animation-iteration-count(1);
+	@include animation-timing-function(linear);
+	@include animation-duration($slide);
+	@include animation-delay(-0.1s);
+	@include animation-fill-mode(forwards);
+	@include animation-name(slideInRight);
+}
+@-webkit-keyframes slideInRight { 0% { margin-left: 100%; left: 0%; visibility: visible; } 100% { margin-left: 0%; left: 0%; visibility: visible; } }
+@-moz-keyframes slideInRight { 0% { margin-left: 100%; left: 0%; visibility: visible; } 100% { margin-left: 0%; left: 0%; visibility: visible; } }
+@-o-keyframes slideInRight { 0% { margin-left: 100%; left: 0%; visibility: visible; } 100% { margin-left: 0%; left: 0%; visibility: visible; } }
+@keyframes slideInRight { 0% { margin-left: 100%; left: 0%; visibility: visible; } 100% { margin-left: 0%; left: 0%; visibility: visible; } }
+section.view.slideInLeft {
+	@include animation-iteration-count(1);
+	@include animation-timing-function(linear);
+	@include animation-duration($slide);
+	@include animation-delay(-0.1s);
+	@include animation-fill-mode(forwards);
+	@include animation-name(slideInLeft);
+}
+@-webkit-keyframes slideInLeft { 0% { margin-left: -100%; left: 0%; visibility: visible; } 100% { margin-left: 0%; left: 0%; visibility: visible; } }
+@-moz-keyframes slideInLeft { 0% { margin-left: -100%; left: 0%; visibility: visible; } 100% { margin-left: 0%; left: 0%; visibility: visible; } }
+@-o-keyframes slideInLeft { 0% { margin-left: -100%; left: 0%; visibility: visible; } 100% { margin-left: 0%; left: 0%; visibility: visible; } }
+@keyframes slideInLeft { 0% { margin-left: -100%; left: 0%; visibility: visible; } 100% { margin-left: 0%; left: 0%; visibility: visible; } }
 
-@-webkit-keyframes slideHide { 0% { visibility: visible; } 100% { visibility: hidden;  } }
-@-moz-keyframes slideHide { 0% { visibility: visible; } 100% { visibility: hidden;  } }
-@-o-keyframes slideHide { 0% { visibility: visible; } 100% { visibility: hidden;  } }
-@keyframes slideHide { 0% { visibility: visible; } 100% { visibility: hidden; } }
 
 section#launch { background-color: $black-1; color: $grey-5; }
 section#type .holder { width: 33%; padding: 1em; }
@@ -418,7 +454,7 @@ section .padded { width: 100%; }
 .table-row-top { position: relative; }
 .table-row-top > .padder { padding-bottom: 0px; }
 .table-row-top.padded { margin-bottom: 0px; }
-.table-row { display: flex; position: relative; @include flex(1,100%); }
+.table-row { display: block; display: flex; position: relative; @include flex(1,100%); }
 .table-row > .padder { position: absolute; bottom: 0px; left: 0px; top: 0px; right: 0px; }
 
 .table-left, .table-right { vertical-align: top; position: relative; height: 100%; }

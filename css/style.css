@@ -548,11 +548,7 @@ body.front section:first-child {
 section.view {
   width: 100%;
   max-width: 100%;
-  -webkit-transition: left 1s ease;
-  -moz-transition: left 1s ease;
-  -ms-transition: left 1s ease;
-  -o-transition: left 1s ease;
-  transition: left 1s ease; }
+  /*@include transition( margin-left $slide ease );*/ }
 
 section.view.js {
   position: absolute;
@@ -568,7 +564,7 @@ body.front section.view p {
   text-align: left; }
 
 /* CSS3 Animations */
-section.view.slide-hide {
+section.view.slideOutRight {
   -webkit-animation-iteration-count: 1;
   -moz-animation-iteration-count: 1;
   animation-iteration-count: 1;
@@ -586,30 +582,248 @@ section.view.slide-hide {
   -moz-animation-fill-mode: forwards;
   -o-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
-  -webkit-animation-name: slideHide;
-  -moz-animation-name: slideHide;
-  animation-name: slideHide; }
+  -webkit-animation-name: slideOutRight;
+  -moz-animation-name: slideOutRight;
+  animation-name: slideOutRight; }
 
-@-webkit-keyframes slideHide {
+@-webkit-keyframes slideOutRight {
   0% {
+    margin-left: 0%;
+    left: 0%;
+    visibility: visible; }
+  99.9% {
+    margin-left: 100%;
+    left: 0%;
+    visibility: hidden; }
+  100% {
+    margin-left: 100%;
+    left: -100%;
+    visibility: hidden; } }
+@-moz-keyframes slideOutRight {
+  0% {
+    margin-left: 0%;
+    left: 0%;
+    visibility: visible; }
+  99.9% {
+    margin-left: 100%;
+    left: 0%;
+    visibility: hidden; }
+  100% {
+    margin-left: 100%;
+    left: -100%;
+    visibility: hidden; } }
+@-o-keyframes slideOutRight {
+  0% {
+    margin-left: 0%;
+    left: 0%;
+    visibility: visible; }
+  99.9% {
+    margin-left: 100%;
+    left: 0%;
+    visibility: hidden; }
+  100% {
+    margin-left: 100%;
+    left: -100%;
+    visibility: hidden; } }
+@keyframes slideOutRight {
+  0% {
+    margin-left: 0%;
+    left: 0%;
+    visibility: visible; }
+  99.9% {
+    margin-left: 100%;
+    left: 0%;
+    visibility: hidden; }
+  100% {
+    margin-left: 100%;
+    left: -100%;
+    visibility: hidden; } }
+section.view.slideOutLeft {
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-delay: -0.1s;
+  -moz-animation-delay: -0.1s;
+  -o-animation-delay: -0.1s;
+  animation-delay: -0.1s;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-name: slideOutLeft;
+  -moz-animation-name: slideOutLeft;
+  animation-name: slideOutLeft; }
+
+@-webkit-keyframes slideOutLeft {
+  0% {
+    margin-left: 0%;
+    left: 0%;
+    visibility: visible; }
+  99.9% {
+    margin-left: -100%;
+    left: 0%; }
+  100% {
+    margin-left: 0%;
+    left: -100%;
+    visibility: hidden; } }
+@-moz-keyframes slideOutLeft {
+  0% {
+    margin-left: 0%;
+    left: 0%;
+    visibility: visible; }
+  99.9% {
+    margin-left: -100%;
+    left: 0%; }
+  100% {
+    margin-left: 0%;
+    left: -100%;
+    visibility: hidden; } }
+@-o-keyframes slideOutLeft {
+  0% {
+    margin-left: 0%;
+    left: 0%;
+    visibility: visible; }
+  99.9% {
+    margin-left: -100%;
+    left: 0%; }
+  100% {
+    margin-left: 0%;
+    left: -100%;
+    visibility: hidden; } }
+@keyframes slideOutLeft {
+  0% {
+    margin-left: 0%;
+    left: 0%;
+    visibility: visible; }
+  99.9% {
+    margin-left: -100%;
+    left: 0%; }
+  100% {
+    margin-left: 0%;
+    left: -100%;
+    visibility: hidden; } }
+section.view.slideInRight {
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-delay: -0.1s;
+  -moz-animation-delay: -0.1s;
+  -o-animation-delay: -0.1s;
+  animation-delay: -0.1s;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-name: slideInRight;
+  -moz-animation-name: slideInRight;
+  animation-name: slideInRight; }
+
+@-webkit-keyframes slideInRight {
+  0% {
+    margin-left: 100%;
+    left: 0%;
     visibility: visible; }
   100% {
-    visibility: hidden; } }
-@-moz-keyframes slideHide {
+    margin-left: 0%;
+    left: 0%;
+    visibility: visible; } }
+@-moz-keyframes slideInRight {
   0% {
+    margin-left: 100%;
+    left: 0%;
     visibility: visible; }
   100% {
-    visibility: hidden; } }
-@-o-keyframes slideHide {
+    margin-left: 0%;
+    left: 0%;
+    visibility: visible; } }
+@-o-keyframes slideInRight {
   0% {
+    margin-left: 100%;
+    left: 0%;
     visibility: visible; }
   100% {
-    visibility: hidden; } }
-@keyframes slideHide {
+    margin-left: 0%;
+    left: 0%;
+    visibility: visible; } }
+@keyframes slideInRight {
   0% {
+    margin-left: 100%;
+    left: 0%;
     visibility: visible; }
   100% {
-    visibility: hidden; } }
+    margin-left: 0%;
+    left: 0%;
+    visibility: visible; } }
+section.view.slideInLeft {
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-delay: -0.1s;
+  -moz-animation-delay: -0.1s;
+  -o-animation-delay: -0.1s;
+  animation-delay: -0.1s;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-name: slideInLeft;
+  -moz-animation-name: slideInLeft;
+  animation-name: slideInLeft; }
+
+@-webkit-keyframes slideInLeft {
+  0% {
+    margin-left: -100%;
+    left: 0%;
+    visibility: visible; }
+  100% {
+    margin-left: 0%;
+    left: 0%;
+    visibility: visible; } }
+@-moz-keyframes slideInLeft {
+  0% {
+    margin-left: -100%;
+    left: 0%;
+    visibility: visible; }
+  100% {
+    margin-left: 0%;
+    left: 0%;
+    visibility: visible; } }
+@-o-keyframes slideInLeft {
+  0% {
+    margin-left: -100%;
+    left: 0%;
+    visibility: visible; }
+  100% {
+    margin-left: 0%;
+    left: 0%;
+    visibility: visible; } }
+@keyframes slideInLeft {
+  0% {
+    margin-left: -100%;
+    left: 0%;
+    visibility: visible; }
+  100% {
+    margin-left: 0%;
+    left: 0%;
+    visibility: visible; } }
 section#launch {
   background-color: #000000;
   color: #efefef; }
@@ -739,6 +953,7 @@ section .padded {
   margin-bottom: 0px; }
 
 .table-row {
+  display: block;
   display: flex;
   position: relative;
   -webkit-flex: 1 100%;
