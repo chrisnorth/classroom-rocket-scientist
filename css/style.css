@@ -1166,6 +1166,10 @@ table.data td:last-child {
 .list li .list-bar button:first-child {
   margin: 0.375em 0.375em 0 0.375em; }
 
+.list li .list-bar .value {
+  color: white;
+  text-align: center; }
+
 .list li .list-left {
   width: 6em;
   padding: 1em;

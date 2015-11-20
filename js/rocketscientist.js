@@ -603,7 +603,7 @@ RocketScientist.prototype.updateTotals = function(){
 	// Update battery-style indicator
 	var pc = 100*this.power.value/this.totals.power.value;
 	var p = E('#power_indicator');
-	p.children('.level').attr('style','width:'+Math.min(pc,100)+'%');
+	p.children('.level').css({'width':Math.min(pc,100)+'%'});
 	p.children('.value').html((pc >= 100 ? '&#9889;':'')+Math.round(pc)+'%');
 	
 	return this;
@@ -820,13 +820,13 @@ RocketScientist.prototype.processPackage = function(type,el,mode){
 
 	var add = el.hasClass('add') ? true : false;
 	var p = (mode=="power") ? this.data['power'][type] : this.data.package[type];
-	this.log('processPackage',type,el,mode,p);
+	var slots,slotsp,good;
 
 	if(add){
 		// Get the slots
-		var slots = E('#satellite .slot');
-		var slotsp = E('#satellite-power .slot');
-		var good = new Array();
+		slots = E('#satellite .slot');
+		slotsp = E('#satellite-power .slot');
+		good = new Array();
 		for(var i = 0; i < slots.e.length; i++){
 			var s = E(slots.e[i]);
 			if(s.hasClass('slot-empty') && s.hasClass('slot'+p.slot)) good.push([slots.e[i],slotsp.e[i]]);
@@ -868,8 +868,8 @@ RocketScientist.prototype.processPackage = function(type,el,mode){
 
 	}else{
 		// Get the slots
-		var slots = E('#satellite .'+type);
-		var slotsp = E('#satellite-power .'+type);
+		slots = E('#satellite .'+type);
+		slotsp = E('#satellite-power .'+type);
 	
 		if(slots.e.length > 0){
 			// Remove last one first
@@ -907,13 +907,29 @@ RocketScientist.prototype.processPackage = function(type,el,mode){
 				}
 			}
 		}
-		this.log('processPackage',this.choices['slots']);
 	}
 
+	this.updateValue(type,el,mode);
+	this.log('processPackage',type,el,mode,slotsp,el);
 	this.allowNavigateBeyond('instrument');
 
 	return this;
 }
+RocketScientist.prototype.updateValue = function(type,el,mode){
+	this.log('updateValue',type,el,mode)
+	var n = 0;
+	var p = (mode=="power") ? this.data['power'][type] : this.data.package[type];
+	if(type == "solar-panel") n = this.choices['solar-panel'];
+	else if(type == "solar-panel-surface") n = (this.choices['solar-panel-fixed'] ? 1 : 0);
+	else{
+		for(var i = 0; i < this.choices['slots'][p.slot].length; i++){
+			if(this.choices['slots'][p.slot][i]==type) n++;
+		}
+	}
+	el.parent().find('.value').html(n > 0 ? n : '&nbsp;');
+	return this;
+}
+
 RocketScientist.prototype.updateButtons = function(){
 	// If we've filled up this slot type we can't add any more 
 	// of this type so lose the add buttons otherwise show them
@@ -951,11 +967,13 @@ RocketScientist.prototype.updateButtons = function(){
 }
 
 RocketScientist.prototype.processPowerPackage = function(type,el){
+	this.log('processPowerPackage',type,el)
 	var add = el.hasClass('add') ? true : false;
 	if(type=="solar-panel") this.solarPanel(add,el);
 	else if(type=="solar-panel-surface") this.solarFixed(add,el);
 	else this.processPackage(type,el,"power");
 
+	this.updateValue(type,el,"power");
 	this.allowNavigateBeyond('power');
 	return this;
 }

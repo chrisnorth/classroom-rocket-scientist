@@ -572,6 +572,7 @@ table.data td:last-child { text-align: left; }
 }
 .list li .list-bar button { margin: $s*0.25 $s*0.25 0 $s*0.25; }
 .list li .list-bar button:first-child { margin: $s*0.25 $s*0.25 0 $s*0.25; }
+.list li .list-bar .value { color: white; text-align: center; }
 .list li .list-left { width: $s * 4; padding: 1em; padding-right: 0; background-color: $grey-5; }
 .list li .list-right { padding: 1em; background-color: $grey-5; }
 .slot0x2 .eg { margin-top: $s * 0.4; position: relative; }
