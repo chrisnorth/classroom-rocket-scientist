@@ -587,6 +587,9 @@ table.data td:last-child { text-align: left; }
 @import "../tests/satellite/solar.scss";
 @import "../tests/orbits/css/style.scss";
 
+.orrery, #satellite, #satellite-power {
+	min-height: 200px;
+}
 @media only screen and (max-width: 800px){
 
 	.table, .table-row, .row-flex-wrap, .row-flex, .row-flex > div[class*="col-"], .flex-col, .flex-grow { display: block; height: auto; flex: 0 0 auto; }

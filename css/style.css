@@ -177,11 +177,11 @@ img.screenshot {
   left: 0px;
   top: 0px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  -webkit-transition: width 1s ease-in-out;
-  -moz-transition: width 1s ease-in-out;
-  -ms-transition: width 1s ease-in-out;
-  -o-transition: width 1s ease-in-out;
-  transition: width 1s ease-in-out; }
+  -webkit-transition: width 0.5s ease-in-out;
+  -moz-transition: width 0.5s ease-in-out;
+  -ms-transition: width 0.5s ease-in-out;
+  -o-transition: width 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out; }
 
 menu, #bar {
   color: #efefef; }
@@ -571,9 +571,9 @@ section.view.slideOutRight {
   -webkit-animation-timing-function: linear;
   -moz-animation-timing-function: linear;
   animation-timing-function: linear;
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  animation-duration: 1s;
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  animation-duration: 0.5s;
   -webkit-animation-delay: -0.1s;
   -moz-animation-delay: -0.1s;
   -o-animation-delay: -0.1s;
@@ -645,9 +645,9 @@ section.view.slideOutLeft {
   -webkit-animation-timing-function: linear;
   -moz-animation-timing-function: linear;
   animation-timing-function: linear;
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  animation-duration: 1s;
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  animation-duration: 0.5s;
   -webkit-animation-delay: -0.1s;
   -moz-animation-delay: -0.1s;
   -o-animation-delay: -0.1s;
@@ -715,9 +715,9 @@ section.view.slideInRight {
   -webkit-animation-timing-function: linear;
   -moz-animation-timing-function: linear;
   animation-timing-function: linear;
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  animation-duration: 1s;
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  animation-duration: 0.5s;
   -webkit-animation-delay: -0.1s;
   -moz-animation-delay: -0.1s;
   -o-animation-delay: -0.1s;
@@ -773,9 +773,9 @@ section.view.slideInLeft {
   -webkit-animation-timing-function: linear;
   -moz-animation-timing-function: linear;
   animation-timing-function: linear;
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  animation-duration: 1s;
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  animation-duration: 0.5s;
   -webkit-animation-delay: -0.1s;
   -moz-animation-delay: -0.1s;
   -o-animation-delay: -0.1s;
@@ -2647,6 +2647,9 @@ ul.orrery li.GEO {
 @keyframes orbit {
   100% {
     transform: rotate(-360deg); } }
+.orrery, #satellite, #satellite-power {
+  min-height: 200px; }
+
 @media only screen and (max-width: 800px) {
   .table, .table-row, .row-flex-wrap, .row-flex, .row-flex > div[class*="col-"], .flex-col, .flex-grow {
     display: block;
