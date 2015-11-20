@@ -553,6 +553,7 @@ RocketScientist.prototype.setBudget = function(){
 RocketScientist.prototype.updateBudgets = function(p,sign){
 
 	var total = { 'cost': new Convertable(0,this.defaults.currency), 'power': new Convertable(0,this.defaults.power), 'mass':new Convertable(0,this.defaults.mass) };
+	var power = new Convertable(0,this.defaults.power);
 
 	// Function to add a Convertable to another (applying multiplying factors first)
 	function add(tot,p,m){
@@ -573,25 +574,38 @@ RocketScientist.prototype.updateBudgets = function(p,sign){
 			for(var j = 0; j < this.choices['slots'][i].length; j++){
 				var key = this.choices['slots'][i][j];
 				if(this.data.package[key]) total = add(total,this.data.package[key]);
-				if(this.data.power[key]) total = add(total,this.data.power[key],{'cost':1,'mass':1,'power':0});	// We don't include power
+				if(this.data.power[key]){
+					total = add(total,this.data.power[key],{'cost':1,'mass':1,'power':0});	// We don't include power
+					power.value += this.data.power[key].power.value;	// Store the power here
+				}
 			}
 		}
 	}
 	if(this.choices['solar-panel']){
 		var n = this.choices['solar-panel'];
 		total = add(total,this.data.power['solar-panel'],{'cost':n,'mass':n,'power':0});
+		power.value += this.data.power['solar-panel'].power.value*n;
 	}
 	if(this.choices['solar-panel-fixed']) total = add(total,this.data.power['solar-panel-surface'],{'cost':1,'mass':1,'power':0});
+	if(this.choices['solar-panel-fixed']) power.value += this.data.power['solar-panel-surface'].power.value;
 
 	this.totals = total;
+	this.power = power;
 
-	this.log('updateBudgets',this.data,this.choices,total)
+	this.log('updateBudgets',this.data,this.choices,total,power)
 	this.updateTotals();
 }
 RocketScientist.prototype.updateTotals = function(){
-	E('#bar .togglecost .cost').html(this.totals.cost.toString({'units':this.defaults.currency}))
-	E('#bar .togglemass .mass').html(this.totals.mass.toString({'units':this.defaults.mass}))
-	E('#bar .togglepower .power').html(this.totals.power.toString({'units':this.defaults.power}))
+	E('#bar .togglecost .cost').html(this.totals.cost.toString({'units':this.defaults.currency}));
+	E('#bar .togglemass .mass').html(this.totals.mass.toString({'units':this.defaults.mass}));
+	E('#bar .togglepower .power').html(this.totals.power.toString({'units':this.defaults.power}));
+
+	// Update battery-style indicator
+	var pc = 100*this.power.value/this.totals.power.value;
+	var p = E('#power_indicator');
+	p.children('.level').attr('style','width:'+Math.min(pc,100)+'%');
+	p.children('.value').html((pc >= 100 ? '&#9889;':'')+Math.round(pc)+'%');
+	
 	return this;
 }
 RocketScientist.prototype.setType = function(t){

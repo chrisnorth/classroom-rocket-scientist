@@ -290,7 +290,7 @@
 											<div class="flex-grow">
 												<div id="satellite" class="satellite-holder isogrid">
 													<div class="holder" id="sat">
-														<div class="zoomcontrol">
+														<div class="controls zoomcontrol">
 															<button class="fancy zoomin"><!--#echo var="ui.button.zoomin" --></button>
 															<button class="fancy zoomout"><!--#echo var="ui.button.zoomout" --></button>
 															<!--<button class="fancy make3D"><!--#echo var="ui.button.threeD" --></button>-->
@@ -355,11 +355,17 @@
 											<div class="flex-grow">
 												<div id="satellite-power" class="satellite-holder isogrid threeD">
 													<div class="holder" id="sat-power">
-														<div class="zoomcontrol">
+														<div class="controls zoomcontrol">
 															<button class="fancy zoomin"><!--#echo var="ui.button.zoomin" --></button>
 															<button class="fancy zoomout"><!--#echo var="ui.button.zoomout" --></button>
 															<!--<button class="fancy make3D"><!--#echo var="ui.button.threeD" --></button>
 															<button class="fancy animate"><!--#echo var="ui.button.spin" --></button>-->
+														</div>
+														<div class="controls batterycontrol">
+															<div id="power_indicator" class="meter">
+																<div class="level"></div>
+																<div class="value">0%</div>
+															</div>
 														</div>
 														<div class="satellite"></div>
 													</div>

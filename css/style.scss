@@ -484,8 +484,69 @@ button.selected {
 button.selected:hover, button.selected:focus {
 	@include background-gradient($green-1,$green-2);
 }
-.zoomcontrol { position: absolute; padding: $padding; left: 0px; top: 0px; font-size: 16px; z-index: $topz - 1; }
-.zoomcontrol button { line-height: 0.8em; }
+.controls { position: absolute; padding: $padding; top: 0px; font-size: 16px; z-index: $topz - 1; }
+.zoomcontrol { left: 0px; }
+.zoomcontrol button { line-height: 1em; }
+.batterycontrol { right: 0px; }
+.meter {
+	position: relative;
+	height: 2em;
+	line-height: 2em;
+	border: 1px solid black;
+}
+.meter .level {
+	position: relative;
+	display: block;
+	width: 0%;
+	height: 100%;
+	padding: 0px;
+	background-color: blue;
+	@include transition( all 0.5s linear );
+}
+.meter .value {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	font-size: 1em;
+	text-shadow: 0px 0px 2px black;
+	color: white;
+	text-align: center;
+}
+#power_indicator {
+	margin-right: 0.35em;
+	padding: 0.2em;
+	width: 4.5em;
+	border: 0px;
+	background: $grey-3;
+}
+#power_indicator:after {
+	content: "";
+	display: block;
+	position: absolute;
+	height: 60%;
+	top: 20%;
+	right: 0px;
+	width: 0.4em;
+	background: $grey-3;
+	border: 2px solid black;
+	border: 0px;
+	border-left: 0px;
+	margin-right: -0.4em;
+	border-radius: 0 0.2em 0.2em 0;
+}
+#power_indicator {
+	border-radius: 0.2em;
+}
+#power_indicator .level {
+	background-color: $yellow-1;
+}
+#power_indicator .value { color: black; text-shadow: none; }
+
 
 table.data, table.data td { border: 0px; padding: $s*0.125; }
 table.data { margin: auto; margin-bottom: $lineh*0.5; }

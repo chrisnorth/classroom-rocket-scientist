@@ -1,0 +1,116 @@
+<html>
+<head>
+	<title>Battery indicator test</title>
+	<script type="text/javascript">
+	function setPower(pc){
+		var l = pc;
+		if(pc > 100) l = 100;
+		if(pc < 0) l = 0;
+		var p = document.getElementById('power_indicator');
+		p.getElementsByClassName('level')[0].setAttribute('style','width:'+l+'%');
+		p.getElementsByClassName('value')[0].innerHTML = (pc >= 100 ? '&#9889;':'')+Math.round(pc)+'%';
+	}
+
+	function setThrust(pc){
+		var l = pc;
+		if(pc > 100) l = 100;
+		if(pc < 0) l = 0;
+		var p = document.getElementById('thrust_indicator');
+		p.getElementsByClassName('level')[0].setAttribute('style','width:'+l+'%');
+		p.getElementsByClassName('value')[0].innerHTML = Math.round(pc)+'%';
+	}
+	</script>
+	<style>
+	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		font-family: sans-serif;
+	}
+	/* apply a natural box layout model to all elements */
+	*, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+	.meter {
+		position: relative;
+		height: 2em;
+		line-height: 2em;
+		border: 2px solid black;
+	}
+	.meter .level {
+		position: relative;
+		display: block;
+		width: 0%;
+		height: 100%;
+		padding: 0px;
+		background-color: blue;
+		transition: all 0.5s linear;
+	}
+	.meter .value {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		width: 100%;
+		height: 100%;
+		margin: auto;
+		font-size: 1em;
+		text-shadow: 0px 0px 2px black;
+		color: white;
+		text-align: center;
+	}
+	#power_indicator {
+		margin-right: 0.35em;
+		padding: 0.2em;
+		width: 4.5em;
+	}
+	#power_indicator:after {
+		content: "";
+		display: block;
+		position: absolute;
+		height: 60%;
+		top: 20%;
+		right: 0px;
+		width: 0.4em;
+		background-color: white;
+		border: 2px solid black;
+		border-left: 0px;
+		margin-right: -0.4em;
+		border-radius: 0 0.2em 0.2em 0;
+	}
+	#power_indicator {
+		border-radius: 0.2em;
+	}
+	#power_indicator .level {
+		background-color: #ffcb06;
+	}
+	#power_indicator .value { color: black; text-shadow: none; }
+	</style>
+</head>
+	<div>
+		<button onClick="setPower(120)">120%</button>
+		<button onClick="setPower(100)">100%</button>
+		<button onClick="setPower(90)">90%</button>
+		<button onClick="setPower(60)">60%</button>
+		<button onClick="setPower(45)">45%</button>
+		<button onClick="setPower(14)">14%</button>
+		<button onClick="setPower(0)">0%</button>
+
+		<button onClick="setThrust(50)">50% thrust</button>
+
+	</div>
+
+	<div style="position: absolute;right: 0px;top:0px;font-size: 2em;">
+		<div id="power_indicator" class="meter">
+			<div class="level"></div>
+			<div class="value">0%</div>
+		</div>
+	</div>
+
+	<div style="position: relative">
+		<div id="thrust_indicator" class="meter">
+			<div class="level"></div>
+			<div class="value">0%</div>
+		</div>
+	</div>
+
+</body>
+</html>
