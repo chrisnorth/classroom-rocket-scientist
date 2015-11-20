@@ -601,7 +601,7 @@ RocketScientist.prototype.updateTotals = function(){
 	E('#bar .togglepower .power').html(this.totals.power.toString({'units':this.defaults.power}));
 
 	// Update battery-style indicator
-	var pc = 100*this.power.value/this.totals.power.value;
+	var pc = (this.totals.power.value > 0) ? 100*this.power.value/this.totals.power.value : 0;
 	var p = E('#power_indicator');
 	p.children('.level').css({'width':Math.min(pc,100)+'%'});
 	p.children('.value').html((pc >= 100 ? '&#9889;':'')+Math.round(pc)+'%');
