@@ -1270,6 +1270,10 @@ table.data td:last-child {
 .orbit-GEO .bg-orbit {
   background-color: #00b9e4; }
 
+.list li.selected .list-left, .list li.selected .list-right {
+  background-color: #606060;
+  color: white; }
+
 .holder {
   display: table-cell;
   vertical-align: middle;

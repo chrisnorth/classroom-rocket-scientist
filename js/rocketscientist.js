@@ -409,7 +409,7 @@ RocketScientist.prototype.setOrbit = function(orbit){
 
 	// Remove existing selections
 	E('.orrery .selected').removeClass('selected');
-	E('#orbit_list .selected').addClass('selected');
+	E('#orbit_list .selected').removeClass('selected');
 	if(orbit){
 		// Select
 		E('.orrery .'+orbit).addClass('selected');
@@ -615,6 +615,8 @@ RocketScientist.prototype.updateValue = function(type,el,mode){
 		}
 	}
 	el.parent().find('.value').html(n > 0 ? n : '&nbsp;');
+	if(n > 0) el.parent().parent().addClass('selected')
+	else el.parent().parent().removeClass('selected')
 	return this;
 }
 

@@ -572,6 +572,7 @@ table.data td:last-child { text-align: left; }
 .orbit-MEO .bg-orbit { background-color: $green-3; }
 .orbit-HEO .bg-orbit { background-color: $red-1; }
 .orbit-GEO .bg-orbit { background-color: $blue-2; }
+.list li.selected .list-left, .list li.selected .list-right { background-color: $black-4; color: white; }
 
 .holder {
 	display: table-cell;
