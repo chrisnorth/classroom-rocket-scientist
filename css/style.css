@@ -4,7 +4,7 @@
 .bg2x4 {
   background-color: #f04031; }
 
-.bg4x4 {
+.bg3x3, .bg4x4 {
   background-color: #00a2d3; }
 
 .bg4x8 {
@@ -112,7 +112,6 @@ em {
   font-style: italic; }
 
 button {
-  font-weight: bold;
   cursor: pointer; }
 
 ul.files {
@@ -150,6 +149,9 @@ ul.files li {
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden; }
+
+#main {
+  display: block; }
 
 #summary, #messages {
   display: none; }
@@ -245,6 +247,7 @@ nav li {
 
 .baritem span {
   display: inline-block;
+  line-height: 1.5em;
   margin: 0.75em;
   margin-left: 0; }
 
@@ -838,66 +841,78 @@ section#type .holder p {
 .not-at-start {
   display: none; }
 
-.lower {
+.page {
+  height: auto;
+  display: block;
   width: 100%; }
 
-.row-flex, .row-flex > div[class*='col-'] {
+.row-top {
   display: block;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  flex: 1 1 auto;
+  width: 100%;
+  position: relative;
+  padding-bottom: 0.75em; }
+
+.row-top p:last-child {
+  margin-bottom: 0px; }
+
+.row-main {
+  height: 400px;
+  display: block; }
+
+.col {
+  float: left;
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  position: relative; }
+
+.rows {
+  display: table;
+  width: 100%;
+  max-width: 100%;
   height: 100%; }
 
-.row-flex-wrap {
+.requirements {
+  display: table-row;
+  height: 1%; }
+
+.requirements .padder {
+  margin-bottom: 1em;
+  background-color: #efefef; }
+
+.col:last-child {
+  padding-left: 1em; }
+
+.display-area {
+  display: table-row;
+  position: relative; }
+
+.blueprint {
   width: 100%;
-  -webkit-flex-flow: row wrap;
-  align-content: flex-start;
-  flex: 0; }
-
-.row-flex > div[class*='col-'] {
-  /*margin:-.2px;*/
-  /* hack adjust for wrapping */ }
-
-.row-flex > div[class*='col-'] .flex {
-  width: 100%; }
-
-.flex-col {
-  display: flex;
-  display: -webkit-flex;
-  flex: 1 100%;
-  width: 100%;
-  flex-flow: column nowrap; }
-
-.flex-grow {
-  position: relative;
+  height: 100%;
+  overflow: hidden;
   display: block;
-  display: flex;
-  -webkit-flex: 2;
-  flex: 2; }
+  position: relative;
+  background-color: #9999ff; }
 
 .col-30 {
-  width: 30%;
-  position: relative; }
+  width: 30%; }
 
 .col-40 {
-  width: 40%;
-  position: relative; }
+  width: 40%; }
 
 .col-50 {
-  width: 50%;
-  position: relative; }
+  width: 50%; }
 
 .col-60 {
-  width: 60%;
-  position: relative; }
+  width: 60%; }
 
 .col-70 {
-  width: 70%;
-  position: relative; }
+  width: 70%; }
 
-.satellite-holder {
+.satellite-holder, .orrery-holder {
   margin: auto;
   position: relative;
   overflow: hidden;
@@ -1398,6 +1413,10 @@ table.data td:last-child {
 
 .slot4x2 .face.top {
   height: 50%; }
+
+.slot3x3 {
+  height: 3em;
+  width: 3em; }
 
 .slot4x4 {
   height: 3em;
@@ -2471,10 +2490,10 @@ table.data td:last-child {
 .satellite.solar-fixed .solar-top .face.front {
   border-top: 4px solid #00a2d3; }
 
-.satellite .solar-panel, .slot4x4, .satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-right .face.right, .satellite.solar-fixed .solar-top .face.top, .satellite.solar-fixed .solar-back .face.back, .slot4x4 {
+.satellite .solar-panel, .satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-right .face.right, .satellite.solar-fixed .solar-top .face.top, .satellite.solar-fixed .solar-back .face.back, .slot4x4, .slot3x3 {
   background-color: #00a2d3; }
 
-.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .satellite.solar-fixed .solar-back .face.back, .satellite.solar-fixed .solar-right .face.right, .satellite .solar-panel, .slot4x4 {
+.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .satellite.solar-fixed .solar-back .face.back, .satellite.solar-fixed .solar-right .face.right, .satellite .solar-panel, .slot4x4, .slot3x3 {
   background-image: -webkit-linear-gradient(#e1f4fe 1px, transparent 1px), -webkit-linear-gradient(0deg, #e1f4fe 1px, transparent 1px), -webkit-linear-gradient(#48c7e9 1px, transparent 1px), -webkit-linear-gradient(0deg, #48c7e9 1px, transparent 1px);
   background-image: linear-gradient(#e1f4fe 1px, transparent 1px), linear-gradient(90deg, #e1f4fe 1px, transparent 1px), linear-gradient(#48c7e9 1px, transparent 1px), linear-gradient(90deg, #48c7e9 1px, transparent 1px);
   background-size: 1.5em 1.5em, 1.5em 1.5em, 0.375em 0.375em, 0.375em 0.375em;
@@ -2504,7 +2523,7 @@ table.data td:last-child {
 .bg2x4 {
   background-color: #f04031; }
 
-.bg4x4 {
+.bg3x3, .bg4x4 {
   background-color: #00a2d3; }
 
 .bg4x8 {
@@ -2721,14 +2740,54 @@ ul.orrery li.GEO {
 @keyframes orbit {
   100% {
     transform: rotate(-360deg); } }
-.orrery, #satellite, #satellite-power {
-  min-height: 200px; }
-
 @media only screen and (max-width: 800px) {
+  .list li .list-bar, .list li .list-left, .list li .list-right {
+    display: block;
+    width: 100%;
+    max-width: 100%; }
+
+  .list li .list-bar {
+    -webkit-border-radius: 0.375em 0.375em 0 0;
+    -moz-border-radius: 0.375em 0.375em 0 0;
+    -ms-border-radius: 0.375em 0.375em 0 0;
+    border-radius: 0.375em 0.375em 0 0; }
+
+  .list li .list-bar button, .list li .list-bar button:first-child {
+    margin: 0.375em; }
+
+  .list li .list-bar .value {
+    display: inline-block; }
+
+  .package_slot {
+    width: 100%; }
+
+  .package_slot, .package_slot div {
+    float: none;
+    text-align: center;
+    line-height: 0; }
+
+  .list li .list-left, .list li .list-right {
+    text-align: center;
+    padding: 1em; }
+
+  .list li .list-left {
+    padding-bottom: 0px; }
+
+  .barmenu .baritem:first-child {
+    display: none; }
+
   .table, .table-row, .row-flex-wrap, .row-flex, .row-flex > div[class*="col-"], .flex-col, .flex-grow {
     display: block;
     height: auto;
+    min-height: 400px;
     flex: 0 0 auto; }
+
+  .orrery {
+    height: 420px; }
+
+  #satellite, #satellite-power, .satellite-holder, #sat {
+    max-height: 100%;
+    padding: 3em; }
 
   .col-60, .col-40, .col-50 {
     width: 100%; }
@@ -2760,5 +2819,12 @@ ul.orrery li.GEO {
 
   .padded {
     padding: 1em; } }
+@media only screen and (max-width: 600px) {
+  .baritem .coin-icon, .baritem .weight-icon, .baritem .power-icon {
+    margin-left: 0.375em;
+    margin-right: 0.375em; }
+
+  .baritem span {
+    margin-right: 0.375em; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -50,7 +50,7 @@ a { text-decoration: none; color: $blue-1; font-weight: bold; }
 a:hover, a:focus { text-decoration: underline; }
 a:visited { color: $purple-1; }
 em { font-style: italic; }
-button { font-weight: bold; cursor: pointer; }
+button { cursor: pointer; }
 
 
 ul.files { list-style-type: disc; margin-bottom: 1em; }
@@ -75,6 +75,7 @@ ul.files li { margin-left: 2em; }
 	overflow-x: hidden;
 }
 #main {
+	display: block;
 }
 #summary, #messages {
 	display: none;
@@ -143,6 +144,7 @@ nav li { float: left; }
 .baritem, nav li { display: inline-block; height: $barheight; }
 .baritem span {
 	display: inline-block;
+	line-height: $lineh;
 	margin: $barheight*0.5 - $lineh*0.5;
 	margin-left: 0;
 }
@@ -362,56 +364,29 @@ section#type .holder p { text-align: left; }
 .not-at-start { display: none; }
 
 
-.lower { width: 100%; }
-.row-flex, .row-flex > div[class*='col-'] {  
-	display: block;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	flex:1 1 auto;
-	height: 100%;
-}
+.page { height: auto; display: block; width: 100%; }
+.row-top { display: block; width: 100%; position: relative; padding-bottom: $s*0.5; }
+.row-top p:last-child { margin-bottom: 0px; }
+.row-main { height: 400px; display: block; }
+.col { float: left; display: inline-block; width: 50%; height: 100%; max-height: 100%; overflow-y: auto; position: relative; }
+.rows { display: table; width: 100%; max-width: 100%; height: 100%; }
+.requirements { display: table-row; height: 1%; }
+.requirements .padder { margin-bottom: 1em; background-color: #efefef;  }
+.col:last-child { padding-left: 1em; }
+.display-area { display: table-row; position: relative; }
+.blueprint { width: 100%; height: 100%; overflow: hidden; display: block; position: relative; background-color: #9999ff; }
 
-.row-flex-wrap {
-	width: 100%;
-	-webkit-flex-flow: row wrap;
-	align-content: flex-start;
-	flex:0;
-}
-
-.row-flex > div[class*='col-'] {
-	 /*margin:-.2px;*/ /* hack adjust for wrapping */
-}
-
-.row-flex > div[class*='col-'] .flex {
-	width:100%;
-}
-.flex-col {
-	display: flex;
-	display: -webkit-flex;
-	flex: 1 100%;
-	width: 100%;
-	flex-flow: column nowrap;
-}
-.flex-grow {
-	position: relative;
-	display: block;
-	display: flex;
-	-webkit-flex: 2;
-	flex: 2;
-}
-.col-30 { width: 30%; position: relative; }
-.col-40 { width: 40%; position: relative; }
-.col-50 { width: 50%; position: relative; }
-.col-60 { width: 60%; position: relative; }
-.col-70 { width: 70%; position: relative; }
+.col-30 { width: 30%; }
+.col-40 { width: 40%; }
+.col-50 { width: 50%; }
+.col-60 { width: 60%; }
+.col-70 { width: 70%; }
 
 
 $pattern_a: transparent 49%, white 49.4%, white 50.6%, transparent 51%, transparent;
 $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 
-.satellite-holder {
+.satellite-holder, .orrery-holder {
 	margin: auto;
 	position: relative;
 	overflow: hidden;
@@ -649,12 +624,21 @@ table.data td:last-child { text-align: left; }
 @import "../tests/satellite/solar.scss";
 @import "../tests/orbits/css/style.scss";
 
-.orrery, #satellite, #satellite-power {
-	min-height: 200px;
-}
 @media only screen and (max-width: 800px){
+	.list li .list-bar, .list li .list-left,.list li .list-right { display: block; width: 100%; max-width: 100%; }
+	.list li .list-bar { @include border-radius($s*0.25 $s*0.25 0 0); }
+	.list li .list-bar button, .list li .list-bar button:first-child { margin: $s*0.25; }
+	.list li .list-bar .value { display: inline-block; }
+	.package_slot {  width: 100%; }
+	.package_slot, .package_slot div { float: none; text-align: center; line-height: 0; }
+	.list li .list-left,.list li .list-right { text-align: center; padding: 1em; }
+	.list li .list-left { padding-bottom: 0px; }
 
-	.table, .table-row, .row-flex-wrap, .row-flex, .row-flex > div[class*="col-"], .flex-col, .flex-grow { display: block; height: auto; flex: 0 0 auto; }
+	.barmenu .baritem:first-child { display: none; }
+	.table, .table-row, .row-flex-wrap, .row-flex, .row-flex > div[class*="col-"], .flex-col, .flex-grow { display: block; height: auto; min-height: 400px; flex: 0 0 auto; }
+	.orrery { height: 420px; }
+	#satellite, #satellite-power, .satellite-holder, #sat { max-height: 100%; padding: $s*2; }
+
 	.col-60,.col-40,.col-50 { width: 100%; }
 	.list { margin-left: 0; position: relative; margin-top: $s; }
 	nav { position: relative; }
@@ -664,4 +648,10 @@ table.data td:last-child { text-align: left; }
 	.satellite-holder { display: block; height: auto; max-height: auto; }
 	section#type .holder { width: 100%; }
 	.padded { padding: $padded*0.5; }
+}
+
+@media only screen and (max-width: 600px){
+	.baritem .coin-icon, .baritem .weight-icon, .baritem .power-icon { margin-left: $lineh*0.25; margin-right: $lineh*0.25; }
+	.baritem span { margin-right: $lineh*0.25; }
+	
 }

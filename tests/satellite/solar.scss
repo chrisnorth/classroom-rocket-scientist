@@ -1,10 +1,10 @@
 .satellite.solar-fixed .row:first-child .solar-right .face.top { border-right: 4px solid $blue-1; }
 .satellite.solar-fixed .solar-top .face.left  { border-top: 4px solid $blue-1; }
 .satellite.solar-fixed .solar-top .face.front  { border-top: 4px solid $blue-1; }
-.satellite .solar-panel, .slot4x4, .satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-right .face.right, .satellite.solar-fixed .solar-top .face.top, .satellite.solar-fixed .solar-back .face.back, .slot4x4 {
+.satellite .solar-panel, .satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-right .face.right, .satellite.solar-fixed .solar-top .face.top, .satellite.solar-fixed .solar-back .face.back, .slot4x4, .slot3x3 {
 	background-color: $blue-1;
 }
-.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .satellite.solar-fixed .solar-back .face.back, .satellite.solar-fixed .solar-right .face.right, .satellite .solar-panel, .slot4x4 {
+.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .satellite.solar-fixed .solar-back .face.back, .satellite.solar-fixed .solar-right .face.right, .satellite .solar-panel, .slot4x4, .slot3x3 {
 	background-image: -webkit-linear-gradient($blue-5 1px, transparent 1px), -webkit-linear-gradient(0deg, $blue-5 1px, transparent 1px), -webkit-linear-gradient($blue-3 1px, transparent 1px), -webkit-linear-gradient(0deg, $blue-3 1px, transparent 1px);
 	background-image: linear-gradient($blue-5 1px, transparent 1px), linear-gradient(90deg, $blue-5 1px, transparent 1px), linear-gradient($blue-3 1px, transparent 1px), linear-gradient(90deg, $blue-3 1px, transparent 1px);
 	background-size: $s $s, $s $s, $s * 0.25 $s * 0.25, $s * 0.25 $s * 0.25;

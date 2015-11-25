@@ -8,6 +8,7 @@
 	<link rel="stylesheet" media="all" href="css/style.css"  type="text/css" />
 	<!--[if !IE]> --><link href="tests/satellite/style-nonie.css" rel="stylesheet" type="text/css" media="screen" /><!-- <![endif]-->
 	<script type="text/javascript" src="js/convertable.js"></script>
+	<script type="text/javascript" src="js/stuquery.js"></script>
 	<script type="text/javascript" src="js/rocketscientist.js"></script>
 	<script>
 		
@@ -65,22 +66,20 @@
 		<div id="main">
 			<section id="type" class="view">
 				<div class="padded">
-					<div class="table">
-						<div class="table-row-top">
+					<div class="page">
+						<div class="row-top">
 							<div class="msg noscriptmsg"></div>
+							<nav>
+								<ol>
+									<li class="prev"></li>
+									<li class="next"><a href="#goal"></a></li>
+								</ol>
+							</nav>
+							<h2></h2>
+							<p></p>
 						</div>
-						<div class="table-row">
-							<div class="">
-								<nav>
-									<ol>
-										<li class="prev"></li>
-										<li class="next"><a href="#goal"></a></li>
-									</ol>
-								</nav>
-								<h2></h2>
-								<p></p>
-								
-							</div>
+						<div class="row-main">
+							
 						</div>
 					</div>
 				</div>
@@ -88,8 +87,8 @@
 
 			<section id="goal" class="view">
 				<div class="padded">
-					<div class="table">
-						<div class="table-row-top">
+					<div class="page">
+						<div class="row-top">
 							<nav>
 								<ol>
 									<li class="prev"><a href="#type"></a></li>
@@ -109,8 +108,8 @@
 
 			<section id="instrument" class="view">
 				<div class="padded">
-					<div class="table">
-						<div class="table-row-top">
+					<div class="page">
+						<div class="row-top">
 							<nav>
 								<ol>
 									<li class="prev"><a href="#goal"></a></li>
@@ -120,39 +119,35 @@
 							<h2></h2>
 							<p></p>
 						</div>
-						<div class="table-row">
-							<div class="lower">
-								<div class="row-flex row-flex-wrap">
-									<div class="col-60">
-										<div class="flex-col">
-											<div class="requirements">
-												<div class="padder">
-													<h3></h3>
+						<div class="row-main">
+							<div class="col">
+								<div class="rows">
+									<div class="requirements">
+										<div class="padder">
+											<h3></h3>
+										</div>
+									</div>
+									<div class="display-area">
+										<div id="satellite" class="blueprint satellite-holder isogrid">
+											<div class="holder" id="sat">
+												<div class="controls zoomcontrol">
+													<button class="fancy zoomin"></button>
+													<button class="fancy zoomout"></button>
+													<!--<button class="fancy make3D"></button>-->
 												</div>
-											</div>
-											<div class="flex-grow">
-												<div id="satellite" class="satellite-holder isogrid">
-													<div class="holder" id="sat">
-														<div class="controls zoomcontrol">
-															<button class="fancy zoomin"></button>
-															<button class="fancy zoomout"></button>
-															<!--<button class="fancy make3D"></button>-->
-														</div>
-														<div class="satellite"></div>
-													</div>
-												</div>
+												<div class="satellite"></div>
 											</div>
 										</div>
 									</div>
-									<div class="col-40">
-										<div id="instrument_list" class="list">
-											<h3></h3>
-											<ul>
-											</ul>
-										</div>
-									</div><!-- end right -->
 								</div>
 							</div>
+							<div class="col">
+								<div id="instrument_list" class="list">
+									<h3></h3>
+									<ul>
+									</ul>
+								</div>
+							</div><!-- end right -->
 						</div>
 					</div>
 				</div>
@@ -160,8 +155,8 @@
 
 			<section id="power" class="view">
 				<div class="padded">
-					<div class="table">
-						<div class="table-row-top">
+					<div class="page">
+						<div class="row-top">
 							<nav>
 								<ol>
 									<li class="prev"><a href="#instrument"></a></li>
@@ -171,46 +166,42 @@
 							<h2></h2>
 							<p></p>
 						</div>
-						<div class="table-row">
-							<div class="lower">
-								<div class="row-flex row-flex-wrap">
-									<div class="col-50">
-										<div class="flex-col">
-											<div class="requirements">
-												<div class="padder">
-													<h3></h3>
+						<div class="row-main">
+							<div class="col">
+								<div class="rows">
+									<div class="requirements">
+										<div class="padder">
+											<h3></h3>
+										</div>
+									</div>
+									<div class="display-area">
+										<div id="satellite-power" class="blueprint satellite-holder isogrid threeD">
+											<div class="holder" id="sat-power">
+												<div class="controls zoomcontrol">
+													<button class="fancy zoomin"></button>
+													<button class="fancy zoomout"></button>
+													<!--<button class="fancy make3D"></button>
+													<button class="fancy animate"></button>-->
 												</div>
-											</div>
-											<div class="flex-grow">
-												<div id="satellite-power" class="satellite-holder isogrid threeD">
-													<div class="holder" id="sat-power">
-														<div class="controls zoomcontrol">
-															<button class="fancy zoomin"></button>
-															<button class="fancy zoomout"></button>
-															<!--<button class="fancy make3D"></button>
-															<button class="fancy animate"></button>-->
-														</div>
-														<div class="controls batterycontrol">
-															<div id="power_indicator" class="meter">
-																<div class="level"></div>
-																<div class="value">0%</div>
-															</div>
-														</div>
-														<div class="satellite"></div>
+												<div class="controls batterycontrol">
+													<div id="power_indicator" class="meter">
+														<div class="level"></div>
+														<div class="value">0%</div>
 													</div>
 												</div>
+												<div class="satellite"></div>
 											</div>
 										</div>
 									</div>
-									<div class="col-50">
-										<div id="power_list" class="list">
-											<h3></h3>
-											<ul>
-											</ul>
-										</div>
-									</div><!-- end right -->
 								</div>
 							</div>
+							<div class="col">
+								<div id="power_list" class="list">
+									<h3></h3>
+									<ul>
+									</ul>
+								</div>
+							</div><!-- end right -->
 						</div>
 					</div>
 				</div>
@@ -218,8 +209,8 @@
 
 			<section id="rocket" class="view">
 				<div class="padded">
-					<div class="table">
-						<div class="table-row-top">
+					<div class="page">
+						<div class="row-top">
 							<nav>
 								<ol>
 									<li class="prev"><a href="#power"></a></li>
@@ -228,6 +219,9 @@
 							</nav>
 							<h2></h2>
 							<p></p>
+						</div>
+						<div class="row-main">
+						
 						</div>
 					</div>
 				</div>

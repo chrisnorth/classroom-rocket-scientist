@@ -9,23 +9,28 @@
 	<script>
 	QUnit.test("convertable", function( assert ) {
 		function test(c,v,u,d) {
-			var conv = new Convertable(v,u,d);
-			assert.equal(conv.value, c.value, "Compare value");
-			assert.equal(conv.units, c.units, "Compare value");
+			if(typeof v==="object") var conv = new Convertable(v);
+			else var conv = new Convertable(v,u,d);
+			assert.equal(conv.value, c.value, "Compare value "+c.value+" "+conv.value);
+			assert.equal(conv.units, c.units, "Compare units "+c.units+" "+conv.units);
+			assert.equal(conv.dimension, c.dimension, "Compare dimension "+c.dimension+" "+conv.dimension);
 		}
 
 		test({'value':0,'units':'m','dimension':'length'},0,'m','length');
 		test({'value':100,'units':'m','dimension':'length'},100,'m','length');
 		test({'value':100,'units':'m','dimension':'length'},100,'m');
 		test({'value':undefined},100);
-		test({'value':100,'units':'K'},100,'K');
-		test({'value':0,'units':'C'},0,'C');
-		test({'value':'100','units':'K'},100,'K');
-		test({'value':42,'units':'GBP'},42,'GBP');
-		test({'value':42,'units':'%'},42,'%');
+		test({'value':100,'units':'K','dimension':'temperature'},100,'K');
+		test({'value':0,'units':'C','dimension':'temperature'},0,'C');
+		test({'value':'100','units':'K','dimension':'temperature'},100,'K');
+		test({'value':42,'units':'GBP','dimension':'currency'},42,'GBP');
+		test({'value':42,'units':'%','dimension':'percent'},42,'%');
 		test({'value':undefined,'units':undefined},2,'people');
-		test({'value':10,'units':'hours'},10,'hours');
-		test({'value':'inf','units':'hours'},'inf','hours');
+		test({'value':10,'units':'hours','dimension':'time'},10,'hours');
+		test({'value':'inf','units':'hours','dimension':'time'},'inf','hours');
+		test({'value':0,'units':'GBP','dimension':'currency'},0,'GBP','currency');
+		test({'value':0,'units':'GBP','dimension':'currency'},{'value':0,'units':'GBP','dimension':'currency'});
+		test({'value':5,'units':'mxm','dimension':'area'},{'value':5,'units':'mxm','dimension':'area'});
 
 		function fromHTML(c,el) {
 			var conv = new Convertable(el);
@@ -48,8 +53,8 @@
 	QUnit.test("convertable.convertTo()", function( assert ) {
 	
 		function check(v1,u1,v2,u2){
-			approx({'value':v1,'units':u1},v2,u2,u1,"Convert one direction "+v1);
-			approx({'value':v2,'units':u2},v1,u1,u2,"Convert other direction "+u1);
+			approx({'value':v1,'units':u1},v2,u2,u1,"Convert one direction "+v1+", "+u1);
+			approx({'value':v2,'units':u2},v1,u1,u2,"Convert other direction "+v2+", "+u2);
 		}
 		function approx(c,v,from,to,msg) {
 			var conv = new Convertable(v,from);
@@ -91,7 +96,7 @@
 		check('2.7 K',2.715,'K',1);
 		check('5&deg;',5,'degrees',1);
 		check('&pound;5.3',5.25,'GBP',1);
-		check('&pound;5 m',5000000,'GBP',1);
+		check('&pound;5 million',5000000,'GBP',1);
 		check('&pound;5 Bn',5000000000,'GBP',1);
 		check('&pound;5.2 Bn',5240000000,'GBP',1);
 		check('&pound;5.24 Bn',5240000000,'GBP',3);

@@ -2,347 +2,11 @@
 // but I can't get this to work any other way.
 var eventcache = {};
 
-function E(e){
-	
-	function matchSelector(e,selector){
-		var result = false;
-		// Does this one element match the selector
-		if(selector[0] == '.'){
-			selector = selector.substr(1);
-			for(var i = 0; i < e.classList.length; i++) if(e.classList[i] == selector) return true;
-		}else if(selector[0] == '#'){
-			if(e.id == selector.substr(1)) return true;
-		}else{
-			if(e.tagName == selector.substr(1).toUpperCase()) return true;
-		}
-		return false;
-	}
-	function getBy(e,selector){
-		var i = -1;
-		var result = new Array();
-		if(selector.indexOf(':eq') > 0){
-			var m = selector.replace(/(.*)\:eq\(([0-9]+)\)/,'$1 $2').split(" ");
-			selector = m[0];
-			i = parseInt(m[1]);
-		}
-		if(selector[0] == '.') els = e.getElementsByClassName(selector.substr(1));
-		else if(selector[0] == '#') els = e.getElementById(selector.substr(1));
-		else els = e.getElementsByTagName(selector);
-		if(!els) els = [];
-		if(typeof els.length!=="number") els = [els];
-		for(k = 0; k < els.length; k++){ result.push(els[k]); }
-		if(i >= 0 && result.length > 0){
-			if(i < result.length) result = [result[i]];
-			else result = [];
-		}
-		return result;
-	}
-
-	// Make our own fake, tiny, version of jQuery simulating the parts we need
-	function stuQuery(els){
-		if(typeof els==="string"){
-			var a,els,els2,i,j,k,tmp;
-			a = els.split(' ');
-			for(i = 0; i < a.length; i++){
-				if(i==0){
-					els = getBy(document,a[i]);
-				}else{
-					els2 = new Array();
-					for(j = 0; j < els.length; j++) els2 = els2.concat(getBy(els[j],a[i]));
-					els = els2.splice(0);
-				}
-			}
-		}
-		this.e = [];
-		if(!els) return this;
-		if(typeof els.length!=="number") els = [els];
-		this.e = els;
-		return this;
-	}
-	stuQuery.prototype.ready = function(f){ /in/.test(document.readyState)?setTimeout('E(document).ready('+f+')',9):f() }
-	// Return HTML or set the HTML
-	stuQuery.prototype.html = function(html){
-		if(!html && this.e.length == 1) return this.e[0].innerHTML;
-		if(html) for(var i = 0; i < this.e.length; i++) this.e[i].innerHTML = html;
-		return this;
-	}
-	stuQuery.prototype.append = function(html){
-		if(!html && this.e.length == 1) return this.e[0].innerHTML;
-		if(html) for(var i = 0; i < this.e.length; i++) this.e[i].innerHTML += html;
-		return this;	
-	}
-	stuQuery.prototype.setCache = function(a){
-		eventcache = a;
-		return;
-	}
-	function NodeMatch(a,el){
-		if(a && a.length > 0){
-			for(var i = 0; i < a.length; i++){
-				if(a[i].node == el) return {'success':true,'match':i};
-			}
-		}
-		return {'success':false};
-	}
-	function storeEvents(e,event,fn,fn2,data){
-		if(!eventcache[event]) eventcache[event] = new Array();
-		eventcache[event].push({'node':e,'fn':fn,'fn2':fn2,'data':data});
-	}
-	function getEvent(e){
-		if(eventcache[e.type]){
-			var m = NodeMatch(eventcache[e.type],e.currentTarget);
-			if(m.success){
-				if(m.match.data) e.data = eventcache[e.type][m.match].data;
-				return {'fn':eventcache[e.type][m.match].fn,'data':e};
-			}
-		}
-		return function(){ return {'fn':''}; }
-	}
-	// Try to remove an event with attached data and supplied function, fn.
-	stuQuery.prototype.off = function(event){
-
-		// If the remove function doesn't exist, we make it
-		if(typeof Element.prototype.removeEventListener !== "function"){
-			Element.prototype.removeEventListener = function (sEventType, fListener /*, useCapture (will be ignored!) */) {
-				if (!oListeners.hasOwnProperty(sEventType)) { return; }
-				var oEvtListeners = oListeners[sEventType];
-				for (var nElIdx = -1, iElId = 0; iElId < oEvtListeners.aEls.length; iElId++) {
-					if (oEvtListeners.aEls[iElId] === this) { nElIdx = iElId; break; }
-				}
-				if (nElIdx === -1) { return; }
-				for (var iLstId = 0, aElListeners = oEvtListeners.aEvts[nElIdx]; iLstId < aElListeners.length; iLstId++) {
-					if (aElListeners[iLstId] === fListener) { aElListeners.splice(iLstId, 1); }
-				}
-			}
-		}
-		for(var i = 0; i < this.e.length; i++){
-			var m = NodeMatch(eventcache[event],this.e[i]);
-			if(m.success){
-				this.e[i].removeEventListener(event,eventcache[event][m.match].fn2,false);
-				eventcache[event].splice(m.match,1);
-			}
-		}
-		return this;
-	}
-	// Add events
-	stuQuery.prototype.on = function(event,data,fn){
-		event = event || window.event; // For IE
-		this.cache = [4,5,6];
-		if(typeof data==="function" && !fn){
-			fn = data;
-			data = "";
-		}
-		if(typeof fn !== "function") return this;
-
-		if(this.e.length > 0){
-			var _obj = this;
-			var a = function(b){
-				var e = getEvent({'currentTarget':this,'type':event,'data':data,'originalEvent':b});
-				if(typeof e.fn === "function") return e.fn.call(_obj,e.data);
-			}
-		
-			for(var i = 0; i < this.e.length; i++){
-				storeEvents(this.e[i],event,fn,a,data);
-				if(this.e[i].addEventListener) this.e[i].addEventListener(event, a, false); 
-				else if(this.e[i].attachEvent) this.e[i].attachEvent(event, a);
-			}
-		}
-		return this;
-	}
-	stuQuery.prototype.trigger = function(e){
-		var event; // The custom event that will be created
-
-		if (document.createEvent) {
-			event = document.createEvent("HTMLEvents");
-			event.initEvent(e, true, true);
-		} else {
-			event = document.createEventObject();
-			event.eventType = e;
-		}
-
-		event.eventName = e;
-
-		for(var i = 0 ;  i < this.e.length ; i++){
-			if (document.createEvent) this.e[i].dispatchEvent(event);
-			else this.e[i].fireEvent("on" + event.eventType, event);
-		}
-
-		return this;
-	}
-	// If there is only one element, we trigger the focus event
-	stuQuery.prototype.focus = function(){
-		if(this.e.length == 1) this.e[0].focus();
-		return this;
-	}
-	// If there is only one element, we trigger the blur event
-	stuQuery.prototype.blur = function(){
-		if(this.e.length == 1) this.e[0].blur();
-		return this;
-	}
-	// Remove DOM elements
-	stuQuery.prototype.remove = function(){
-		if(!this.e) return this;
-		for(var i = this.e.length-1; i >= 0; i--){
-			if(!this.e[i]) return;
-			if(typeof this.e[i].remove==="function") this.e[i].remove(this.e[i]);
-			else if(typeof this.e[i].parentElement.removeChild==="function") this.e[i].parentElement.removeChild(this.e[i]);
-		}
-		return E(this.e);
-	}
-	// Check if a DOM element has the specified class
-	stuQuery.prototype.hasClass = function(cls){
-		var result = true;
-		for(var i = 0; i < this.e.length; i++){
-			if(!this.e[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) result = false;
-		}
-		return result;
-	}
-	// Toggle a class on a DOM element
-	stuQuery.prototype.toggleClass = function(cls){
-		// Remove/add it
-		for(var i = 0; i < this.e.length; i++){
-			if(this.e[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) this.e[i].className = this.e[i].className.replace(new RegExp("(\\s|^)" + cls + "(\\s|$)", "g")," ").replace(/ $/,'');
-			else this.e[i].className = (this.e[i].className+' '+cls).replace(/^ /,'');
-		}
-		return E(this.e);
-	}
-	// Toggle a class on a DOM element
-	stuQuery.prototype.addClass = function(cls){
-		// Remove/add it
-		for(var i = 0; i < this.e.length; i++){
-			if(!this.e[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) this.e[i].className = (this.e[i].className+' '+cls).replace(/^ /,'');
-		}
-		return E(this.e);
-	}
-	// Remove a class on a DOM element
-	stuQuery.prototype.removeClass = function(cls){
-		// Remove/add it
-		for(var i = 0; i < this.e.length; i++){
-			while(this.e[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) this.e[i].className = this.e[i].className.replace(new RegExp("(\\s|^)" + cls + "(\\s|$)", "g")," ").replace(/ $/,'').replace(/^ /,'');
-		}
-		return E(this.e);
-	}
-	stuQuery.prototype.css = function(css){
-		for(var i = 0; i < this.e.length; i++){
-			// Read the currently set style
-			var styles = {};
-			var style = this.e[i].getAttribute('style');
-			if(style){
-				var bits = this.e[i].getAttribute('style').split(";");
-				for(var b = 0; b < bits.length; b++){
-					var pairs = bits[b].split(":");
-					if(pairs.length==2) styles[pairs[0]] = pairs[1];
-				}
-			}
-			// Add the user-provided style to what was there
-			for(key in css) styles[key] = css[key];
-			// Build the CSS string
-			var newstyle = '';
-			for(key in styles){
-				if(newstyle) newstyle += ';';
-				if(styles[key]) newstyle += key+':'+styles[key];
-			}
-			// Update style
-			this.e[i].setAttribute('style',newstyle);
-		}
-		return E(this.e);
-	}
-	stuQuery.prototype.parent = function(){
-		var tmp = [];
-		for(var i = 0; i < this.e.length; i++) tmp.push(this.e[i].parentElement);
-		return E(tmp);
-	}
-	// Only look one level down
-	stuQuery.prototype.children = function(c){
-		if(typeof c==="string"){
-			// We are using a selector
-			var result = [];
-			for(var i = 0; i < this.e.length; i++){
-				for(var ch = 0; ch < this.e[i].children.length; ch++){
-					if(matchSelector(this.e[i].children[ch],c)) result.push(this.e[i].children[ch]);
-				}
-			}
-			return E(result);
-		}else{
-			// We are using an index
-			for(var i = 0; i < this.e.length; i++) this.e[i] = (this.e[i].children.length > c ? this.e[i].children[c] : this.e[i]);
-			return E(this.e);
-		}
-	}
-	stuQuery.prototype.find = function(selector){
-		var tmp = [];
-		var result = [];
-		for(var i = 0; i < this.e.length; i++){
-			tmp = getBy(this.e[i],selector);
-			for(k = 0; k < tmp.length; k++){ result.push(tmp[k]); }
-		}
-		// Return a new instance of stuQuery
-		return E(result);
-	}
-	stuQuery.prototype.attr = function(attr,val){
-		var tmp = [];
-		for(var i = 0; i < this.e.length; i++){
-			tmp.push(this.e[i].getAttribute(attr));
-			if(typeof val==="string") this.e[i].setAttribute(attr,val)
-		}
-		if(tmp.length==1) tmp = tmp[0];
-		return tmp;
-	}
-	stuQuery.prototype.prop = function(attr,val){
-		var tmp = [];
-		for(var i = 0; i < this.e.length; i++){
-			tmp.push(this.e[i].getAttribute(attr));
-			if(typeof val==="boolean"){
-				if(val) this.e[i].setAttribute(attr,attr);
-				else this.e[i].removeAttribute(attr);
-			}
-		}
-		if(tmp.length==1) tmp = tmp[0];
-		return tmp;
-	}
-	stuQuery.prototype.clone = function(){
-		var span = document.createElement('div');
-		span.appendChild(this.e[0].cloneNode(true));
-		return span.innerHTML;
-	}
-	stuQuery.prototype.replaceWith = function(html){
-		var span = document.createElement("span");
-		span.innerHTML = html;
-		var clone = E(this.e);
-		for(var i = 0; i < this.e.length; i++) clone.e[0].parentNode.replaceChild(span, clone.e[0]);
-  		return clone;
-	}
-	stuQuery.prototype.loadJSON = function(file,fn,attrs){
-
-		if(!attrs) attrs = {};
-		attrs['_file'] = file;
-
-		var httpRequest = new XMLHttpRequest();
-		httpRequest.onreadystatechange = function() {
-			if (httpRequest.readyState === 4) {
-				if (httpRequest.status === 200) {
-					var data = JSON.parse(httpRequest.responseText);
-					if(typeof fn==="function") fn.call((attrs['this'] ? attrs['this'] : this),data,attrs);
-				}else{
-					console.log('error loading '+file);
-					if(typeof attrs.error==="function") attrs.error.call((attrs['this'] ? attrs['this'] : this),httpRequest.responseText,attrs);
-				}
-			}
-		};
-		httpRequest.open('GET', file);
-		httpRequest.send(); 
-		return this;
-	}
-	return new stuQuery(e);
-}
-
-
-
-
 function RocketScientist(data){
 	this.maxpanels = 4;
 	this.wide = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 	this.tall = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-	this.defaults = {'currency':'credits', 'length':'m', 'mass': 'kg', 'power':'watts' };
+	this.defaults = {'currency':'credits', 'length':'m', 'area': 'mxm', 'mass': 'kg', 'power':'watts' };
 	this.z = {};
 	this.totals = { 'cost': new Convertable(0,this.defaults.currency), 'power': new Convertable(0,this.defaults.power), 'mass':new Convertable(0,this.defaults.mass) };
 	this.choices = { 'type':'', 'goal':'', 'mission':'', 'orbit':'', 'bus':'', 'slots':{}, 'solar-panel':0, 'solar-panel-fixed':false };
@@ -404,7 +68,7 @@ RocketScientist.prototype.init = function(data){
 	function updateConvertables(o){
 		for (var i in o){
 			if(typeof(o[i])=="object") {
-				if(typeof o[i].value!=="undefined" && typeof o[i].units!=="undefined" && typeof o[i].dimension!=="undefined") o[i] = new Convertable(o[i]);
+				if(typeof o[i].value==="number" && typeof o[i].units==="string" && typeof o[i].dimension==="string") o[i] = new Convertable(o[i]);
 				else o[i] = updateConvertables(o[i]);
 			}
 		}
@@ -449,8 +113,8 @@ RocketScientist.prototype.init = function(data){
 	});
 	
 	// Replace the default behaviour of the navigation links
-	E('.prev a').on('click',{me:this},function(e){ e.data.me.navigate(e); });
-	E('.next a').on('click',{me:this},function(e){ e.data.me.navigate(e); }).addClass('disabled');
+	E('.prev a').on('click',{me:this},function(e){ if(!E(e.currentTarget).hasClass('disabled')) e.data.me.navigate(e); });
+	E('.next a').on('click',{me:this},function(e){ if(!E(e.currentTarget).hasClass('disabled')) e.data.me.navigate(e); }).addClass('disabled');
 
 	// Update all the convertable values
 	this.updateConvertables();
@@ -586,8 +250,11 @@ RocketScientist.prototype.updateBudgets = function(p,sign){
 		total = add(total,this.data.power['solar-panel'],{'cost':n,'mass':n,'power':0});
 		power.value += this.data.power['solar-panel'].power.value*n;
 	}
-	if(this.choices['solar-panel-fixed']) total = add(total,this.data.power['solar-panel-surface'],{'cost':1,'mass':1,'power':0});
-	if(this.choices['solar-panel-fixed']) power.value += this.data.power['solar-panel-surface'].power.value;
+	if(this.choices['solar-panel-fixed']){
+		var n = this.choices['bus'].area.value;
+		total = add(total,this.data.power['solar-panel-surface'],{'cost':n,'mass':n,'power':0});
+		power.value += this.data.power['solar-panel-surface'].power.value*n;
+	}
 
 	this.totals = total;
 	this.power = power;
@@ -660,6 +327,7 @@ RocketScientist.prototype.setGoal = function(g){
 
 // Choose the bus size
 RocketScientist.prototype.setBus = function(size){
+	this.log('setBus',size);
 	this.choices['bus'] = this.data.bus[size];
 
 	// Reset any previous choices
@@ -685,9 +353,23 @@ RocketScientist.prototype.setBus = function(size){
 
 	// Hide list items that aren't selectable
 	var li = E('.list li');
+	console.log(li.e)
 	var s,el;
 	// Re-enable all list items
 	E('.slot-unavailable').removeClass('slot-unavailable');
+
+	var _obj = this;
+	function scaleConvertableByArea(el){
+		var props = ['cost','mass','power'];
+		var v,j,nv;
+		for(j = 0 ; j < props.length; j++){
+			v = el.find('.package_'+props[j]).find('.value');
+			nv = this.data.power['solar-panel-surface'][props[j]].convertTo(v.attr('data-dimension'));
+			v.attr('data-value',nv.value*_obj.data.bus[size].area.value);
+			console.log('updating',props[j],v,v.attr('data-value'),nv.value*_obj.data.bus[size].area.value)
+		}
+		return;
+	}
 	for(var i = 0; i < li.e.length; i++){
 		el = E(li.e[i]);
 		s = el.find('.add').attr('data-size');
@@ -698,8 +380,20 @@ RocketScientist.prototype.setBus = function(size){
 			}
 			// Hide list items that have a specified slot size that doesn't fit
 			if(!available) el.addClass('slot-unavailable');
+
+			// Update values for solar-panel-surface given the surface area
+			if(el.attr('data-package') == "solar-panel-surface"){
+				if(this.data.bus[size].area.typeof=="convertable"){
+					scaleConvertableByArea(el);
+				}
+				console.log('HERE',this.data.bus[size].area)
+			}
 		}
 	}
+	// Update any changed convertables
+	this.updateConvertables();
+
+
 
 	// Reset the selected DOM elements
 	sat.addClass("selected").parent().removeClass("blackandwhite").find('button').addClass('selected');
@@ -779,8 +473,8 @@ RocketScientist.prototype.makeSatelliteControls = function(selector){
 	var zc = this.z[selector].el.find('.zoomcontrol');
 	zc.children('.zoomin').on('click',{me:this,by:1.1,z:selector},function(e){ e.data.me.zoom(e.data.z,e.data.by); });
 	zc.children('.zoomout').on('click',{me:this,by:1/1.1,z:selector},function(e){ e.data.me.zoom(e.data.z,e.data.by); });
-	zc.children('.make3D').on('click',{me:this,by:1/1.1,z:selector},function(e){ e.data.me.toggle3D(e.data.z); });
-	zc.children('.animate').on('click',{me:this,by:1/1.1,z:selector},function(e){ e.data.me.toggleAnimation(e.data.z); });
+	zc.children('.make3D').on('click',{me:this,z:selector},function(e){ e.data.me.toggle3D(e.data.z); });
+	zc.children('.animate').on('click',{me:this,z:selector},function(e){ e.data.me.toggleAnimation(e.data.z); });
 
 	return this;
 }
@@ -791,12 +485,6 @@ RocketScientist.prototype.zoom = function(selector,factor){
 }
 RocketScientist.prototype.toggle3D = function(element){
 	E(element).toggleClass('threeD');
-	return this;
-}
-RocketScientist.prototype.log = function(){
-	if(!this.testmode) return this;
-	var args = Array.prototype.slice.call(arguments, 0);
-	if(console && typeof console.log==="function") console.log('LOG',args);
 	return this;
 }
 RocketScientist.prototype.toggleAnimation = function(element){
@@ -1026,49 +714,30 @@ RocketScientist.prototype.resize = function(){
 	this.wide = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 	this.tall = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
-	// Kludgy fix for old browsers that don't have vw/vh/flex in CSS
-	if(!this.has.vw){
-		function height(el){
-			if('getComputedStyle' in window) return parseInt(window.getComputedStyle(el, null).getPropertyValue('height'));
-			else return parseInt(el.currentStyle.height);	
-		}
-
-		// Set all section heights
-		E('section').css({'min-height':this.tall+'px'});
-		var paddh = this.tall-128;			// Hard-coded fudge based on padding
-		var h = {'min-height':paddh+'px'};
-		E('section').children('.padded').css(h);
-		E('section').children('.padded').children('.table').css(h);
-		E('.col-60').css({'float':'left'});
-		E('.col-50:eq(0)').css({'float':'left'});
-		E('.col-40').css({'float':'right'});
-		E('.col-50:eq(1)').css({'float':'right'});
-
-		for(var i = 0; i < this.sections.length; i++){
-			var table = E('#'+this.sections[i]+' .table');
-			var trt = table.children('.table-row-top');
-			if(trt.e.length==1){
-				var dh = height(trt.e[0]);
-				var dhh = {'min-height':(parseInt(h['min-height'])-dh)+'px'}
-				var holder = table.children('.table-row').css(dhh).children('.lower').css(dhh).children('.row-flex').css(dhh);
-				holder.children('.col-40').css(dhh);
-				holder.find('.col-50').css(dhh);
-				var els = ['.col-60','.col-50:eq(0)'];
-				for(var j = 0; j < els.length; j++){
-					var flexcol = holder.find(els[j]).css(dhh).children('.flex-col').css(dhh);
-					if(flexcol.e.length == 1){
-						var trt2 = flexcol.children('.requirements');
-						if(trt.e.length == 1){
-							var dhhh = { 'position':'absolute', 'top':height(trt2.e[0])+'px','left':'0px','right':'0px','bottom':'0px' };
-							console.log(dhh['min-height'],parseInt(dhh['min-height']),height(trt2.e[0]))
-							if(trt2.e.length == 1) dhhh['min-height'] = (parseInt(dhh['min-height'])-height(trt2.e[0]))+'px';
-							flexcol.children('.flex-grow').css(dhhh);
-						}
-					}
-				}
-			}
+	function height(el){
+		if('getComputedStyle' in window) return parseInt(window.getComputedStyle(el, null).getPropertyValue('height'));
+		else return parseInt(el.currentStyle.height);	
+	}
+	function verticalPadding(el){
+		if('getComputedStyle' in window) return (parseInt(window.getComputedStyle(el, null).getPropertyValue('padding-top')) + parseInt(window.getComputedStyle(el, null).getPropertyValue('padding-bottom')));
+		else return parseInt(el.currentStyle.paddingTop);	
+	}
+	var s = E('section');
+	var padd = verticalPadding(s.e[0]) + verticalPadding(s.children('.padded').e[0])+2;
+	for(var i = 0; i < this.sections.length; i++){
+		var page = E('#'+this.sections[i]+' .page');
+		if(page.e.length > 0){
+			var top = height(page.children('.row-top').e[0]);
+			page.css({'height':(this.tall-padd)+'px'})
+			page.children('.row-main').css({'height':(this.tall-padd-top)+'px'})
 		}
 	}
+
 	return this;
 }
-
+RocketScientist.prototype.log = function(){
+	if(!this.testmode) return this;
+	var args = Array.prototype.slice.call(arguments, 0);
+	if(console && typeof console.log==="function") console.log('LOG',args);
+	return this;
+}

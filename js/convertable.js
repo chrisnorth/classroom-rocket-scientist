@@ -8,6 +8,7 @@ function Convertable(v,u,d){
 		"billion": { "full": " billion", "compact": " Bn" },
 		"defaults": {
 			"length": "m",
+			"area": "m^2",
 			"temperature": "K",
 			"mass": "kg",
 			"time": "seconds",
@@ -25,11 +26,12 @@ function Convertable(v,u,d){
 			"bluewhale": { "unit": " blue whales", "dimension": "length", "conv": 30 },
 			"yard": { "unit": " yd", "dimension": "length", "conv": 1/1.094 },
 			"league": { "unit": " leagues", "dimension": "length", "conv": 4828.032 },
+			"m^2": { "unit": " m&sup2;", "dimension": "area", "conv": 1 },
 			"K": { "unit": " K", "dimension": "temperature" },
 			"C": { "unit": "&deg;C", "dimension": "temperature" },
 			"F": { "unit": "&deg;F", "dimension": "temperature" },
 			"kg": { "unit": " kg", "dimension": "mass", "conv": 1 },
-			"lb": { "unit": " lb", "dimension": "mass", "conv": 2.205 },
+			"lb": { "unit": " lb", "dimension": "mass", "conv": 1/2.205 },
 			"elephant": { "unit": " elephants", "dimension": "mass", "conv": 5400 },
 			"watts": { "unit": " W", "dimension": "power", "conv": 1 },
 			"horsepower": { "unit": " hp", "dimension": "power", "conv": 745.7 },
@@ -41,8 +43,8 @@ function Convertable(v,u,d){
 			"seconds": { "unit": " seconds", "dimension": "time", "conv": 1 },
 			"%": { "unit": "%", "dimension": "percent" },
 			"degrees": { "unit": "&deg;", "dimension": "angle", "conv": 1 },
-			"arcmin": { "unit": "'", "dimension": "angle", "conv": 60 },
-			"arcsec": { "unit": "\"", "dimension": "angle", "conv": 3600 }
+			"arcmin": { "unit": "'", "dimension": "angle", "conv": 1/60 },
+			"arcsec": { "unit": "\"", "dimension": "angle", "conv": 1/3600 }
 		},
 		"currency": {
 			"GBP": { "symbol": "&pound;", "conv": 1 },
@@ -66,16 +68,17 @@ function Convertable(v,u,d){
 		return false;
 	}
 	if(typeof v==="object"){
-		if(v.value && v.units && typeof v.dimension==="string"){
-			this.value = v.value;
-			this.units = v.units;
-			this.dimension = v.dimension;
-		}else if(typeof v.getAttribute==="function"){
-			this.value = v.getAttribute('data-value');
-			this.units = v.getAttribute('data-units');
-			this.dimension = v.getAttribute('data-dimension');
+		if(typeof v.getAttribute==="function"){
+			u = v.getAttribute('data-units');
+			d = v.getAttribute('data-dimension');
+			v = parseFloat(v.getAttribute('data-value'));
+		}else if(typeof v.value==="number" && typeof v.units==="string" && typeof v.dimension==="string"){
+			u = v.units;
+			d = v.dimension;
+			v = v.value;
 		}
-	}else if((typeof v==="number" || typeof v==="string") && u){
+	}
+	if((typeof v==="number" || typeof v==="string") && u){
 		this.value = (typeof v==="string") ? (v=="inf" ? v : parseFloat(v)) : v;
 		if(ph.units[u] || ph.currency[u]) this.units = u;
 		else return {};
