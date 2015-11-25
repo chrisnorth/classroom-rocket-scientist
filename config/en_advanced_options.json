@@ -465,6 +465,7 @@
 		},
 		"solar-panel": {
 			"slot":	"4x4",
+			"max": 4,
 			"title": "Deployable solar panel",
 			"description": "Provides power",
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },

@@ -3,7 +3,7 @@
 var eventcache = {};
 
 function RocketScientist(data){
-	this.maxpanels = 4;
+	this.maxpanels = 1;
 	this.wide = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 	this.tall = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 	this.defaults = {'currency':'credits', 'length':'m', 'area': 'mxm', 'mass': 'kg', 'power':'watts' };
@@ -64,6 +64,9 @@ RocketScientist.prototype.getSections = function(){
 RocketScientist.prototype.init = function(data){
 	if(data) this.data = data;
 	if(!this.data) return;
+
+	// The maximum number of solar panels is 1 unless set in the input data
+	if(this.data.power && this.data.power['solar-panel'] && typeof this.data.power['solar-panel'].max==="number") this.maxpanels = this.data.power['solar-panel'].max;
 
 	function updateConvertables(o){
 		for (var i in o){
@@ -321,8 +324,7 @@ RocketScientist.prototype.setBus = function(size){
 	this.log('setBus',size);
 	this.choices['bus'] = this.data.bus[size];
 
-	// Reset any previous choices
-	this.setOrbit('');
+	// Reset any previous choices regarding instruments, power options, or rockets
 	this.choices['solar-panel'] = 0;
 	this.choices['solar-panel-fixed'] = false;
 	this.choices['slots'] = "";
@@ -598,7 +600,7 @@ RocketScientist.prototype.updateValue = function(type,el,mode){
 			if(this.choices['slots'][p.slot][i]==type) n++;
 		}
 	}
-	el.parent().find('.value').html(n > 0 ? n : '&nbsp;');
+	el.parent().find('.value').html(n > 0 ? '&times;'+n : '');
 	if(n > 0) el.parent().parent().addClass('selected')
 	else el.parent().parent().removeClass('selected')
 	return this;
@@ -635,8 +637,10 @@ RocketScientist.prototype.updateButtons = function(){
 	}else{
 		add.prop('disabled',false);
 		rem.prop('disabled',true);
-		E('.list .list-bar .value').html('');
-		E('.list .selected').removeClass('selected')
+		E('#instrument_list .list-bar .value').html('');
+		E('#instrument_list .selected').removeClass('selected')
+		E('#power_list .list-bar .value').html('');
+		E('#power_list .selected').removeClass('selected')
 	}
 
 	//this.log('updateButtons',add,rem)
