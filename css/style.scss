@@ -199,10 +199,10 @@ nav { position: absolute; left: 0px; right: 0px; }
 nav a { height: $s*1.5; text-decoration: none; line-height: 1em; }
 nav a:hover { text-decoration: none; }
 nav a.disabled { color: $grey-5; cursor: default; }
-nav li:first-child { float: left; }
-nav li:last-child { float: right; }
-nav li:first-child a:before { content: "❮"; font-size: 2em; padding-right: 0.15em; position: relative; top: 0.1em; }
-nav li:last-child a:after { content: "❯"; font-size: 2em; padding-left: 0.15em; position: relative; top: 0.1em; }
+nav li.prev { float: left; }
+nav li.next { float: right; }
+nav li.prev a:before { content: "❮"; font-size: 2em; padding-right: 0.15em; position: relative; top: 0.1em; }
+nav li.next a:after { content: "❯"; font-size: 2em; padding-left: 0.15em; position: relative; top: 0.1em; }
 
 
 #options li { margin-top: 1em; }
@@ -371,8 +371,7 @@ section#type .holder p { text-align: left; }
 .col { float: left; display: inline-block; width: 50%; height: 100%; max-height: 100%; overflow-y: auto; position: relative; }
 .rows { display: table; width: 100%; max-width: 100%; height: 100%; }
 .requirements { display: table-row; height: 1%; }
-.requirements .padder { margin-bottom: 1em; background-color: #efefef;  }
-.col:last-child { padding-left: 1em; }
+.requirements .padder { margin-bottom: $padded; background-color: #efefef;  }
 .display-area { display: table-row; position: relative; }
 .blueprint { width: 100%; height: 100%; overflow: hidden; display: block; position: relative; background-color: #9999ff; }
 
@@ -528,7 +527,7 @@ table.data { margin: auto; margin-bottom: $lineh*0.5; }
 table.data td:first-child { text-align: right; padding-right: $s*0.25; }
 table.data td:last-child { text-align: left; }
 
-.list { position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; min-height: 250px;overflow-y: auto; margin-left: $s; }
+.list { position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; min-height: 250px;overflow-y: auto; margin-left: $padded; }
 .list li { display: table; width: 100%; margin-bottom: $padding; }
 .list li:last-child { border-bottom: 0px; margin-bottom: 0; }
 .list li .list-bar, .list li .list-left,.list li .list-right { display: table-cell; width: auto; vertical-align: top; }
@@ -582,16 +581,6 @@ table.data td:last-child { text-align: left; }
 .requirements .padder {
 	background-color: $grey-5;
 	padding: $s*0.5;
-	margin-bottom: $s;
-}
-.requirements.fill-container .padder {
-	margin-bottom: 0;
-	margin-right: $s;
-}
-
-.fill-container { 
-	width: 100%;
-	height: 100%;
 }
 
 

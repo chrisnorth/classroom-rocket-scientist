@@ -400,7 +400,7 @@
 			],
 			"power": { "value": 500, "units": "watts", "dimension": "power" },
 			"requires": [{
-				"type": "package",
+				"type": "power",
 				"oneof": ["solar-panel","solar-panel-surface"],
 				"label": "%package.battery-large.requires.solar.label%",
 				"error": "%package.battery-large.requires.solar.error%"
@@ -422,7 +422,7 @@
 			],
 			"power": { "value": 30, "units": "watts", "dimension": "power" },
 			"requires": [{
-				"type": "package",
+				"type": "power",
 				"oneof": ["solar-panel","solar-panel-surface"],
 				"label": "%package.battery-small.requires.solar.label%",
 				"error": "%package.battery-small.requires.solar.error%"

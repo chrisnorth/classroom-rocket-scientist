@@ -58,8 +58,8 @@ function E(e){
 	stuQuery.prototype.ready = function(f){ /in/.test(document.readyState)?setTimeout('E(document).ready('+f+')',9):f() }
 	// Return HTML or set the HTML
 	stuQuery.prototype.html = function(html){
-		if(!html && this.e.length == 1) return this.e[0].innerHTML;
-		if(html) for(var i = 0; i < this.e.length; i++) this.e[i].innerHTML = html;
+		if(typeof html!=="string" && this.e.length == 1) return this.e[0].innerHTML;
+		if(typeof html==="string") for(var i = 0; i < this.e.length; i++) this.e[i].innerHTML = html;
 		return this;
 	}
 	stuQuery.prototype.append = function(html){
