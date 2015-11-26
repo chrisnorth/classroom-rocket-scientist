@@ -638,6 +638,6 @@ table.data td:last-child { text-align: left; }
 }
 
 @media only screen and (max-width: 600px){
-	.baritem .coin-icon, .baritem .weight-icon, .baritem .power-icon { margin-left: $lineh*0.2; }
-	.baritem span { margin-left: $lineh*0.2; margin-right: $lineh*0.2; }
+	.baritem .coin-icon, .baritem .weight-icon, .baritem .power-icon { margin-left: $lineh*0.1; }
+	.baritem button img, .baritem span { margin-left: $lineh*0.1; margin-right: $lineh*0.1; }
 }

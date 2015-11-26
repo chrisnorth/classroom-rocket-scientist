@@ -2811,10 +2811,10 @@ ul.orrery li.GEO {
     padding: 1em; } }
 @media only screen and (max-width: 600px) {
   .baritem .coin-icon, .baritem .weight-icon, .baritem .power-icon {
-    margin-left: 0.3em; }
+    margin-left: 0.15em; }
 
-  .baritem span {
-    margin-left: 0.3em;
-    margin-right: 0.3em; } }
+  .baritem button img, .baritem span {
+    margin-left: 0.15em;
+    margin-right: 0.15em; } }
 
 /*# sourceMappingURL=style.css.map */
