@@ -129,7 +129,13 @@ var rs;
 		// Remove elements that show noscript messages
 		E('.noscriptmsg').remove();
 
-		// Set up main menu
+		// For testing - we add it here before attaching events otherwise they don't fire
+		if(this.testmode && !E('body').hasClass('front')){
+			E('#bar .barmenu').append('<div class="baritem"><button id="speedy"><span>automate</span></button></div>');
+			E('#speedy').on('click',function(e){ test(); E('#speedy').parent().remove(); });
+		}
+
+		// Set up main menu events
 		E('#bar .togglemenu').on('click',{me:this},function(e){ E('#menu').toggleClass('not-at-start'); })
 		E('#menu').on('mouseleave',{me:this},function(e){ E('#menu').toggleClass('not-at-start'); })
 		E('#menu .restart').on('click',{me:this},function(e){ location.href = location.href.replace(/[\/]+$/,'') + (location.protocol==="file:") ? "index.html" : ""; })
@@ -168,12 +174,6 @@ var rs;
 		this.data = updateConvertables(this.data);
 
 		this.currentsection = 0;
-
-		// For testing
-		if(this.testmode){
-			E('#bar .barmenu').append('<div class="baritem"><button id="speedy">automate</button></div>');
-			E('#speedy').on('click',function(e){ test(); E('#speedy').parent().remove(); });
-		}
 
 		// We hide elements that shouldn't be visible (but we are leaving visible
 		// in the plain HTML so there is something if Javascript doesn't work.
@@ -784,6 +784,7 @@ var rs;
 
 		this.wide = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 		this.tall = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+		var scaleH = !(window.getComputedStyle(E('#bar .left').e[0], null).getPropertyValue('display')==="none");
 
 		function height(el){
 			if('getComputedStyle' in window) return parseInt(window.getComputedStyle(el, null).getPropertyValue('height'));
@@ -799,8 +800,8 @@ var rs;
 			var page = E('#'+this.sections[i]+' .page');
 			if(page.e.length > 0){
 				var top = height(page.children('.row-top').e[0]);
-				page.css({'height':(this.tall-padd)+'px'})
-				page.children('.row-main').css({'height':(this.tall-padd-top)+'px'})
+				page.css({'height':(scaleH ? (this.tall-padd)+'px' : 'auto')})
+				page.children('.row-main').css({'height':(scaleH ? (this.tall-padd-top)+'px' : 'auto')})
 			}
 		}
 

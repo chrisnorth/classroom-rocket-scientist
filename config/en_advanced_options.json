@@ -32,7 +32,7 @@
 	},{
 		"id": "launch",
 		"short": "Launch",
-		"title": "Launch"
+		"title": "Ready to launch?"
 	}],
 	"bus": {
 		"cube": {

@@ -248,8 +248,7 @@ nav li {
 .baritem span {
   display: inline-block;
   line-height: 1.5em;
-  margin: 0.75em;
-  margin-left: 0; }
+  margin: 0.75em; }
 
 .baritem.left a {
   height: auto; }
@@ -274,7 +273,7 @@ nav li {
 
 .baritem .coin-icon, .baritem .weight-icon, .baritem .power-icon {
   float: left;
-  margin-left: 0.75em; }
+  margin-right: 0px; }
 
 .baritem a, .baritem button, nav a {
   color: inherit;
@@ -299,7 +298,7 @@ nav li {
   float: left; }
 
 .dropdown {
-  position: absolute;
+  position: fixed;
   z-index: 994;
   width: auto;
   line-height: 1.5em;
@@ -307,7 +306,9 @@ nav li {
   top: 3em;
   padding: 0;
   box-shadow: 0.1em 0.2em 0.2em rgba(0, 0, 0, 0.3);
-  border: 0px; }
+  border: 1px solid #404040;
+  border-right: 0px;
+  border-top: 0px; }
 
 .rtl .dropdown {
   left: 0;
@@ -472,9 +473,6 @@ img.close {
 .fullscreen img.fullscreen {
   background-position: -3em -9em; }
 
-.success {
-  color: #ffffff; }
-
 .cost {
   color: #ffde00; }
 
@@ -483,9 +481,6 @@ img.close {
 
 .mass {
   color: #aaa5d1; }
-
-.science {
-  color: #69dfff; }
 
 .profile {
   color: #f6dc8c; }
@@ -828,6 +823,10 @@ section.view.slideInLeft {
 section#launch {
   background-color: #000000;
   color: #efefef; }
+
+section#launch p {
+  max-width: 500px;
+  margin: auto; }
 
 section#type .holder {
   width: 33%;
@@ -2763,7 +2762,7 @@ ul.orrery li.GEO {
   .list li .list-left {
     padding-bottom: 0px; }
 
-  .barmenu .baritem:first-child {
+  .barmenu .left {
     display: none; }
 
   .table, .table-row, .row-flex-wrap, .row-flex, .row-flex > div[class*="col-"], .flex-col, .flex-grow {
@@ -2779,8 +2778,9 @@ ul.orrery li.GEO {
     max-height: 100%;
     padding: 3em; }
 
-  .col-60, .col-40, .col-50 {
-    width: 100%; }
+  .col {
+    width: 100%;
+    float: none; }
 
   .list {
     margin-left: 0;
@@ -2811,10 +2811,10 @@ ul.orrery li.GEO {
     padding: 1em; } }
 @media only screen and (max-width: 600px) {
   .baritem .coin-icon, .baritem .weight-icon, .baritem .power-icon {
-    margin-left: 0.375em;
-    margin-right: 0.375em; }
+    margin-left: 0.3em; }
 
   .baritem span {
-    margin-right: 0.375em; } }
+    margin-left: 0.3em;
+    margin-right: 0.3em; } }
 
 /*# sourceMappingURL=style.css.map */
