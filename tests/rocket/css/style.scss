@@ -1,0 +1,23 @@
+@import "../../satellite/definitions";
+@import "../../../css/definitions";
+
+$rs: $s*4;
+
+.slider-container { width: 100%; height: 25%; min-height: $s*2; overflow: hidden; position: relative; }
+.slider-container .slider { height: 100%; margin-left: 50%; }
+.slider-container ul { display: block; height: 100%; margin: 0px; padding: 0px; white-space: nowrap; @include transition(margin-left $trans linear); }
+.slider-container li { display: inline-block; width: $rs; height: 100%; padding: 0px; margin: 0px; border: 1px solid white; overflow: hidden; background-color: #dfdfdf; }
+.slider-container li .part { display: table; width: 100%; height: 100%; }
+.slider-container li .part > div { display: table-cell; vertical-align: middle; text-align: center; }
+.slider-container button { display: block; width: $rs; text-align: center; padding: 0px; top: 0px; bottom: 0px; position: absolute; border: 0px; cursor: pointer; line-height: 0.5em; }
+.slider-container button span { font-size: $rs/2; }
+.slider-container .prev {
+	@include fader(#ffffff,1,#ffffff,0);
+	left: 0px;
+}
+.slider-container .next {
+	@include fader(#ffffff,0,#ffffff,1);
+	right: 0px;
+}
+.slider-container .prev span { float: left; }
+.slider-container .next span { float: right; }

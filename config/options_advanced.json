@@ -477,245 +477,243 @@
 			"power": { "value": 300, "units": "watts", "dimension": "power" }
 		}
 	},
-	"rocket": {
-		"firststage": [{
-			"title": "S",
-			"type": "Solid-fuel rocket",
-			"diameter": { "value": 3.0, "units": "metres", "dimension": "length" },
-			"height": { "value": 12.0, "units": "metres", "dimension": "length" },
-			"drymass": { "value": 10500, "units": "kg", "dimension": "mass" },
-			"thrust": { "value": 2200, "units": "kN", "dimension": "force" },
-			"fuel": { "value": 88000, "units": "kg", "dimension": "mass" },
-			"impulse": { "value": 280, "units": "s", "dimension": "time" },
-			"notes": "Based on Vega 1st stage (https://en.wikipedia.org/wiki/Vega_(rocket))"
-		},{
-			"title": "M",
-			"type": "Liquid-fuel rocket",
-			"diameter": { "value": 3.0, "units": "metres", "dimension": "length" },
-			"height": { "value": 30.0, "units": "metres", "dimension": "length" },
-			"drymass": { "value": 9000, "units": "kg", "dimension": "mass" },
-			"thrust": { "value": 1500, "units": "kN", "dimension": "force" },
-			"fuel": { "value": 120000, "units": "kg", "dimension": "mass" },
-			"impulse": { "value": 300, "units": "s", "dimension": "time" },
-			"notes": "Based on Soyuz 1st stage (http://www.spaceflight101.com/soyuz-2-1v.html)"
-		},{
-			"title": "L",
-			"type": "Liquid-fuel rocket",
-			"diameter": { "value": 3.5, "units": "metres", "dimension": "length" },
-			"height": { "value": 40.0, "units": "metres", "dimension": "length" },
-			"drymass": { "value": 24000, "units": "kg", "dimension": "mass" },
-			"thrust": { "value": 6000, "units": "kN", "dimension": "force" },
-			"fuel": { "value": 400000, "units": "kg", "dimension": "mass" },
-			"impulse": { "value": 280, "units": "s", "dimension": "time" },
-			"notes": "Based on Falcon 9 first stage (http://www.spaceflight101.com/falcon-9-v11.html)"
-		},{
-			"title": "XL",
-			"type": "Liquid-fuel rocket",
-			"diameter": { "value": 8, "units": "metres", "dimension": "length" },
-			"height": { "value": 50.0, "units": "metres", "dimension": "length" },
-			"drymass": { "value": 85000, "units": "kg", "dimension": "mass" },
-			"thrust": { "value": 7400, "units": "kN", "dimension": "force" },
-			"fuel": { "value": 900000, "units": "kg", "dimension": "mass" },
-			"impulse": { "value": 360, "units": "s", "dimension": "time" },
-			"notes": "Based on SLS (https://en.wikipedia.org/wiki/Space_Launch_System)"
-		},{
-			"title": "XXL",
-			"type": "Liquid-fuel rocket",
-			"diameter": { "value": 10, "units": "metres", "dimension": "length" },
-			"height": { "value": 42.0, "units": "metres", "dimension": "length" },
-			"drymass": { "value": 130000, "units": "kg", "dimension": "mass" },
-			"thrust": { "value": 34000, "units": "kN", "dimension": "force" },
-			"fuel": { "value": 2000000, "units": "kg", "dimension": "mass" },
-			"impulse": { "value": 263, "units": "s", "dimension": "time" },
-			"notes": "Based on Saturn V 1st stage (https://en.wikipedia.org/wiki/Saturn_V)"
-		},{
-			"title": "Plane",
-			"type": "Air-breathing rocket",
-			"diameter": { "value": 6, "units": "metres", "dimension": "length" },
-			"height": { "value": 82.0, "units": "metres", "dimension": "length" },
-			"drymass": { "value": 310000, "units": "kg", "dimension": "mass" },
-			"thrust": { "value": 2000, "units": "kN", "dimension": "force" },
-			"fuel": { "value": 15000, "units": "kg", "dimension": "mass" },
-			"impulse": { "value": 3600, "units": "s", "dimension": "time" },
-			"notes": "Based on SABRE (https://en.wikipedia.org/wiki/SABRE_(rocket_engine))"
-		},{
-			"title": "RocketPlane",
-			"type": "Liquid-fuel rocket",
-			"diameter": { "value": 6, "units": "metres", "dimension": "length" },
-			"height": { "value": 82.0, "units": "metres", "dimension": "length" },
-			"drymass": { "value": 53000, "units": "kg", "dimension": "mass" },
-			"thrust": { "value": 3000, "units": "kN", "dimension": "force" },
-			"fuel": { "value": 260000, "units": "kg", "dimension": "mass" },
-			"impulse": { "value": 460, "units": "s", "dimension": "time" },
-			"notes": "Based on SABRE (https://en.wikipedia.org/wiki/SABRE_(rocket_engine))"
-		}],
-		"secondstage": [{
-			"title": "None",
-			"type": "",
-			"diameter": { "value": 0, "units": "metres", "dimension": "length" },
-			"height": { "value": 0.0, "units": "metres", "dimension": "length" },
-			"drymass": { "value": 0, "units": "kg", "dimension": "mass" },
-			"thrust": { "value": 0, "units": "kN", "dimension": "force" },
-			"fuel": { "value": 0, "units": "kg", "dimension": "mass" },
-			"impulse": { "value": 0, "units": "s", "dimension": "time" },
-			"notes": "No stage"
-		},{
-			"title": "XS",
-			"type": "Solid-fuel rocket",
-			"diameter": { "value": 1.3, "units": "metres", "dimension": "length" },
-			"height": { "value": 17, "units": "metres", "dimension": "length" },
-			"drymass": { "value": 2000, "units": "kg", "dimension": "mass" },
-			"thrust": { "value": 480, "units": "kN", "dimension": "force" },
-			"fuel": { "value": 15000, "units": "kg", "dimension": "mass" },
-			"impulse": { "value": 280, "units": "s", "dimension": "time" },
-			"notes": "Based on Pegasus (http://www.astronautix.com/engines/pegasus1.htm)"
-		},{
-			"title": "S",
-			"type": "Solid-fuel rocket",
-			"diameter": { "value": 2, "units": "metres", "dimension": "length" },
-			"height": { "value": 14, "units": "metres", "dimension": "length" },
-			"drymass": { "value": 3000, "units": "kg", "dimension": "mass" },
-			"thrust": { "value": 870, "units": "kN", "dimension": "force" },
-			"fuel": { "value": 24000, "units": "kg", "dimension": "mass" },
-			"impulse": { "value": 290, "units": "s", "dimension": "time" },
-			"notes": "Based on Vega 2nd stage (https://en.wikipedia.org/wiki/Vega_(rocket))"
-		},{
-			"title": "M",
-			"type": "Liquid-fuel rocket",
-			"diameter": { "value": 3, "units": "metres", "dimension": "length" },
-			"height": { "value": 7, "units": "metres", "dimension": "length" },
-			"drymass": { "value": 2400, "units": "kg", "dimension": "mass" },
-			"thrust": { "value": 300, "units": "kN", "dimension": "force" },
-			"fuel": { "value": 25000, "units": "kg", "dimension": "mass" },
-			"impulse": { "value": 360, "units": "s", "dimension": "time" },
-			"notes": "Based on Soyuz 2nd stage (https://en.wikipedia.org/wiki/Soyuz_(rocket_family)#First_stage)"
-		},{
-			"title": "L",
-			"type": "Liquid-fuel rocket",
-			"diameter": { "value": 3.5, "units": "metres", "dimension": "length" },
-			"height": { "value": 15, "units": "metres", "dimension": "length" },
-			"drymass": { "value": 4000, "units": "kg", "dimension": "mass" },
-			"thrust": { "value": 800, "units": "kN", "dimension": "force" },
-			"fuel": { "value": 90000, "units": "kg", "dimension": "mass" },
-			"impulse": { "value": 340, "units": "s", "dimension": "time" },
-			"notes": "Based on Falcon 9 2nd stage (http://www.spaceflight101.com/falcon-9-v11.html)"
-		},{
-			"title": "XL",
-			"type": "Liquid-fuel rocket",
-			"diameter": { "value": 8, "units": "metres", "dimension": "length" },
-			"height": { "value": 15, "units": "metres", "dimension": "length" },
-			"drymass": { "value": 6000, "units": "kg", "dimension": "mass" },
-			"thrust": { "value": 400, "units": "kN", "dimension": "force" },
-			"fuel": { "value": 129000, "units": "kg", "dimension": "mass" },
-			"impulse": { "value": 460, "units": "s", "dimension": "time" },
-			"notes": "Based on SLS (https://en.wikipedia.org/wiki/Space_Launch_System)"
-		},{
-			"title": "XXL",
-			"type": "Liquid-fuel rocket",
-			"diameter": { "value": 10, "units": "metres", "dimension": "length" },
-			"height": { "value": 25, "units": "metres", "dimension": "length" },
-			"drymass": { "value": 40000, "units": "kg", "dimension": "mass" },
-			"thrust": { "value": 4400, "units": "kN", "dimension": "force" },
-			"fuel": { "value": 450000, "units": "kg", "dimension": "mass" },
-			"impulse": { "value": 421, "units": "s", "dimension": "time" },
-			"notes": "Based on Saturn V 2nd stage (https://en.wikipedia.org/wiki/Saturn_V)"
-		}],
-		"thirdstage": [{
-			"title": "None",
-			"type": "",
-			"diameter": { "value": 0, "units": "metres", "dimension": "length" },
-			"height": { "value": 0.0, "units": "metres", "dimension": "length" },
-			"drymass": { "value": 0, "units": "kg", "dimension": "mass" },
-			"thrust": { "value": 0, "units": "kN", "dimension": "force" },
-			"fuel": { "value": 0, "units": "kg", "dimension": "mass" },
-			"impulse": { "value": 0, "units": "s", "dimension": "time" },
-			"notes": "No stage"
-		},{
-			"title": "S",
-			"type": "Solid-fuel rocket",
-			"diameter": { "value": 2, "units": "metres", "dimension": "length" },
-			"height": { "value": 2, "units": "metres", "dimension": "length" },
-			"drymass": { "value": 1300, "units": "kg", "dimension": "mass" },
-			"thrust": { "value": 260, "units": "kN", "dimension": "force" },
-			"fuel": { "value": 10000, "units": "kg", "dimension": "mass" },
-			"impulse": { "value": 315, "units": "s", "dimension": "time" },
-			"notes": "Based on Vega 3rd stage (https://en.wikipedia.org/wiki/Vega_(rocket))"
-		},{
-			"title": "M",
-			"type": "Solid-fuel rocket",
-			"diameter": { "value": 3, "units": "metres", "dimension": "length" },
-			"height": { "value": 7, "units": "metres", "dimension": "length" },
-			"drymass": { "value": 2400, "units": "kg", "dimension": "mass" },
-			"thrust": { "value": 300, "units": "kN", "dimension": "force" },
-			"fuel": { "value": 22000, "units": "kg", "dimension": "mass" },
-			"impulse": { "value": 360, "units": "s", "dimension": "time" },
-			"notes": "Based on Inertial Upper Stage (https://en.wikipedia.org/wiki/Inertial_Upper_Stage)"
-		},{
-			"title": "L",
-			"type": "Liquid-fuel rocket",
-			"diameter": { "value": 7, "units": "metres", "dimension": "length" },
-			"height": { "value": 19, "units": "metres", "dimension": "length" },
-			"drymass": { "value": 13500, "units": "kg", "dimension": "mass" },
-			"thrust": { "value": 1000, "units": "kN", "dimension": "force" },
-			"fuel": { "value": 110000, "units": "kg", "dimension": "mass" },
-			"impulse": { "value": 420, "units": "s", "dimension": "time" },
-			"notes": "Based on Saturn V 3rd stage (https://en.wikipedia.org/wiki/Saturn_V)"
-		}],
-		"boosters": [{
-			"title": "M",
-			"type": "Solid-fuel rocket",
-			"diameter": { "value": 3, "units": "metres", "dimension": "length" },
-			"height": { "value": 45, "units": "metres", "dimension": "length" },
-			"drymass": { "value": 90000, "units": "kg", "dimension": "mass" },
-			"thrust": { "value": 12000, "units": "kN", "dimension": "force" },
-			"fuel": { "value": 500000, "units": "kg", "dimension": "mass" },
-			"impulse": { "value": 240, "units": "s", "dimension": "time" },
-			"notes": "Based on Space Shuttle SRB"
-		}],
-		"payloadbay": [{
-			"title": "None",
-			"type": "",
-			"diameter": { "value": 0, "units": "metres", "dimension": "length" },
-			"height": { "value": 0.0, "units": "metres", "dimension": "length" },
-			"payload": { "value": 0, "units": "kg", "dimension": "mass" },
-			"drymass": { "value": 0, "units": "kg", "dimension": "mass" }
-		},{
-			"title": "XS",
-			"type": "Payload",
-			"diameter": { "value": 1, "units": "metres", "dimension": "length" },
-			"height": { "value": 2, "units": "metres", "dimension": "length" },
-			"payload": { "value": 500, "units": "kg", "dimension": "mass" },
-			"drymass": { "value": 500, "units": "kg", "dimension": "mass" }
-		},{
-			"title": "S",
-			"type": "Payload",
-			"diameter": { "value": 2, "units": "metres", "dimension": "length" },
-			"height": { "value": 5, "units": "metres", "dimension": "length" },
-			"payload": { "value": 1500, "units": "kg", "dimension": "mass" },
-			"drymass": { "value": 1000, "units": "kg", "dimension": "mass" }
-		},{
-			"title": "M",
-			"type": "Payload",
-			"diameter": { "value": 3, "units": "metres", "dimension": "length" },
-			"height": { "value": 8, "units": "metres", "dimension": "length" },
-			"payload": { "value": 3000, "units": "kg", "dimension": "mass" },
-			"drymass": { "value": 5000, "units": "kg", "dimension": "mass" }
-		},{
-			"title": "L",
-			"type": "Payload",
-			"diameter": { "value": 8, "units": "metres", "dimension": "length" },
-			"height": { "value": 10, "units": "metres", "dimension": "length" },
-			"payload": { "value": 5000, "units": "kg", "dimension": "mass" },
-			"drymass": { "value": 10000, "units": "kg", "dimension": "mass" }
-		},{
-			"title": "XL",
-			"type": "Payload",
-			"diameter": { "value": 10, "units": "metres", "dimension": "length" },
-			"height": { "value": 15, "units": "metres", "dimension": "length" },
-			"payload": { "value": 10000, "units": "kg", "dimension": "mass" },
-			"drymass": { "value": 20000, "units": "kg", "dimension": "mass" }
-		}]
-	},
+	"firststage": [{
+		"title": "S",
+		"type": "Solid-fuel rocket",
+		"diameter": { "value": 3.0, "units": "metres", "dimension": "length" },
+		"height": { "value": 12.0, "units": "metres", "dimension": "length" },
+		"drymass": { "value": 10500, "units": "kg", "dimension": "mass" },
+		"thrust": { "value": 2200, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 88000, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 280, "units": "s", "dimension": "time" },
+		"notes": "Based on Vega 1st stage (https://en.wikipedia.org/wiki/Vega_(rocket))"
+	},{
+		"title": "M",
+		"type": "Liquid-fuel rocket",
+		"diameter": { "value": 3.0, "units": "metres", "dimension": "length" },
+		"height": { "value": 30.0, "units": "metres", "dimension": "length" },
+		"drymass": { "value": 9000, "units": "kg", "dimension": "mass" },
+		"thrust": { "value": 1500, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 120000, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 300, "units": "s", "dimension": "time" },
+		"notes": "Based on Soyuz 1st stage (http://www.spaceflight101.com/soyuz-2-1v.html)"
+	},{
+		"title": "L",
+		"type": "Liquid-fuel rocket",
+		"diameter": { "value": 3.5, "units": "metres", "dimension": "length" },
+		"height": { "value": 40.0, "units": "metres", "dimension": "length" },
+		"drymass": { "value": 24000, "units": "kg", "dimension": "mass" },
+		"thrust": { "value": 6000, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 400000, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 280, "units": "s", "dimension": "time" },
+		"notes": "Based on Falcon 9 first stage (http://www.spaceflight101.com/falcon-9-v11.html)"
+	},{
+		"title": "XL",
+		"type": "Liquid-fuel rocket",
+		"diameter": { "value": 8, "units": "metres", "dimension": "length" },
+		"height": { "value": 50.0, "units": "metres", "dimension": "length" },
+		"drymass": { "value": 85000, "units": "kg", "dimension": "mass" },
+		"thrust": { "value": 7400, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 900000, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 360, "units": "s", "dimension": "time" },
+		"notes": "Based on SLS (https://en.wikipedia.org/wiki/Space_Launch_System)"
+	},{
+		"title": "XXL",
+		"type": "Liquid-fuel rocket",
+		"diameter": { "value": 10, "units": "metres", "dimension": "length" },
+		"height": { "value": 42.0, "units": "metres", "dimension": "length" },
+		"drymass": { "value": 130000, "units": "kg", "dimension": "mass" },
+		"thrust": { "value": 34000, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 2000000, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 263, "units": "s", "dimension": "time" },
+		"notes": "Based on Saturn V 1st stage (https://en.wikipedia.org/wiki/Saturn_V)"
+	},{
+		"title": "Plane",
+		"type": "Air-breathing rocket",
+		"diameter": { "value": 6, "units": "metres", "dimension": "length" },
+		"height": { "value": 82.0, "units": "metres", "dimension": "length" },
+		"drymass": { "value": 310000, "units": "kg", "dimension": "mass" },
+		"thrust": { "value": 2000, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 15000, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 3600, "units": "s", "dimension": "time" },
+		"notes": "Based on SABRE (https://en.wikipedia.org/wiki/SABRE_(rocket_engine))"
+	},{
+		"title": "RocketPlane",
+		"type": "Liquid-fuel rocket",
+		"diameter": { "value": 6, "units": "metres", "dimension": "length" },
+		"height": { "value": 82.0, "units": "metres", "dimension": "length" },
+		"drymass": { "value": 53000, "units": "kg", "dimension": "mass" },
+		"thrust": { "value": 3000, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 260000, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 460, "units": "s", "dimension": "time" },
+		"notes": "Based on SABRE (https://en.wikipedia.org/wiki/SABRE_(rocket_engine))"
+	}],
+	"secondstage": [{
+		"title": "None",
+		"type": "",
+		"diameter": { "value": 0, "units": "metres", "dimension": "length" },
+		"height": { "value": 0.0, "units": "metres", "dimension": "length" },
+		"drymass": { "value": 0, "units": "kg", "dimension": "mass" },
+		"thrust": { "value": 0, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 0, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 0, "units": "s", "dimension": "time" },
+		"notes": "No stage"
+	},{
+		"title": "XS",
+		"type": "Solid-fuel rocket",
+		"diameter": { "value": 1.3, "units": "metres", "dimension": "length" },
+		"height": { "value": 17, "units": "metres", "dimension": "length" },
+		"drymass": { "value": 2000, "units": "kg", "dimension": "mass" },
+		"thrust": { "value": 480, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 15000, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 280, "units": "s", "dimension": "time" },
+		"notes": "Based on Pegasus (http://www.astronautix.com/engines/pegasus1.htm)"
+	},{
+		"title": "S",
+		"type": "Solid-fuel rocket",
+		"diameter": { "value": 2, "units": "metres", "dimension": "length" },
+		"height": { "value": 14, "units": "metres", "dimension": "length" },
+		"drymass": { "value": 3000, "units": "kg", "dimension": "mass" },
+		"thrust": { "value": 870, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 24000, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 290, "units": "s", "dimension": "time" },
+		"notes": "Based on Vega 2nd stage (https://en.wikipedia.org/wiki/Vega_(rocket))"
+	},{
+		"title": "M",
+		"type": "Liquid-fuel rocket",
+		"diameter": { "value": 3, "units": "metres", "dimension": "length" },
+		"height": { "value": 7, "units": "metres", "dimension": "length" },
+		"drymass": { "value": 2400, "units": "kg", "dimension": "mass" },
+		"thrust": { "value": 300, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 25000, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 360, "units": "s", "dimension": "time" },
+		"notes": "Based on Soyuz 2nd stage (https://en.wikipedia.org/wiki/Soyuz_(rocket_family)#First_stage)"
+	},{
+		"title": "L",
+		"type": "Liquid-fuel rocket",
+		"diameter": { "value": 3.5, "units": "metres", "dimension": "length" },
+		"height": { "value": 15, "units": "metres", "dimension": "length" },
+		"drymass": { "value": 4000, "units": "kg", "dimension": "mass" },
+		"thrust": { "value": 800, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 90000, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 340, "units": "s", "dimension": "time" },
+		"notes": "Based on Falcon 9 2nd stage (http://www.spaceflight101.com/falcon-9-v11.html)"
+	},{
+		"title": "XL",
+		"type": "Liquid-fuel rocket",
+		"diameter": { "value": 8, "units": "metres", "dimension": "length" },
+		"height": { "value": 15, "units": "metres", "dimension": "length" },
+		"drymass": { "value": 6000, "units": "kg", "dimension": "mass" },
+		"thrust": { "value": 400, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 129000, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 460, "units": "s", "dimension": "time" },
+		"notes": "Based on SLS (https://en.wikipedia.org/wiki/Space_Launch_System)"
+	},{
+		"title": "XXL",
+		"type": "Liquid-fuel rocket",
+		"diameter": { "value": 10, "units": "metres", "dimension": "length" },
+		"height": { "value": 25, "units": "metres", "dimension": "length" },
+		"drymass": { "value": 40000, "units": "kg", "dimension": "mass" },
+		"thrust": { "value": 4400, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 450000, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 421, "units": "s", "dimension": "time" },
+		"notes": "Based on Saturn V 2nd stage (https://en.wikipedia.org/wiki/Saturn_V)"
+	}],
+	"thirdstage": [{
+		"title": "None",
+		"type": "",
+		"diameter": { "value": 0, "units": "metres", "dimension": "length" },
+		"height": { "value": 0.0, "units": "metres", "dimension": "length" },
+		"drymass": { "value": 0, "units": "kg", "dimension": "mass" },
+		"thrust": { "value": 0, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 0, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 0, "units": "s", "dimension": "time" },
+		"notes": "No stage"
+	},{
+		"title": "S",
+		"type": "Solid-fuel rocket",
+		"diameter": { "value": 2, "units": "metres", "dimension": "length" },
+		"height": { "value": 2, "units": "metres", "dimension": "length" },
+		"drymass": { "value": 1300, "units": "kg", "dimension": "mass" },
+		"thrust": { "value": 260, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 10000, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 315, "units": "s", "dimension": "time" },
+		"notes": "Based on Vega 3rd stage (https://en.wikipedia.org/wiki/Vega_(rocket))"
+	},{
+		"title": "M",
+		"type": "Solid-fuel rocket",
+		"diameter": { "value": 3, "units": "metres", "dimension": "length" },
+		"height": { "value": 7, "units": "metres", "dimension": "length" },
+		"drymass": { "value": 2400, "units": "kg", "dimension": "mass" },
+		"thrust": { "value": 300, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 22000, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 360, "units": "s", "dimension": "time" },
+		"notes": "Based on Inertial Upper Stage (https://en.wikipedia.org/wiki/Inertial_Upper_Stage)"
+	},{
+		"title": "L",
+		"type": "Liquid-fuel rocket",
+		"diameter": { "value": 7, "units": "metres", "dimension": "length" },
+		"height": { "value": 19, "units": "metres", "dimension": "length" },
+		"drymass": { "value": 13500, "units": "kg", "dimension": "mass" },
+		"thrust": { "value": 1000, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 110000, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 420, "units": "s", "dimension": "time" },
+		"notes": "Based on Saturn V 3rd stage (https://en.wikipedia.org/wiki/Saturn_V)"
+	}],
+	"boosters": [{
+		"title": "M",
+		"type": "Solid-fuel rocket",
+		"diameter": { "value": 3, "units": "metres", "dimension": "length" },
+		"height": { "value": 45, "units": "metres", "dimension": "length" },
+		"drymass": { "value": 90000, "units": "kg", "dimension": "mass" },
+		"thrust": { "value": 12000, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 500000, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 240, "units": "s", "dimension": "time" },
+		"notes": "Based on Space Shuttle SRB"
+	}],
+	"payloadbay": [{
+		"title": "None",
+		"type": "",
+		"diameter": { "value": 0, "units": "metres", "dimension": "length" },
+		"height": { "value": 0.0, "units": "metres", "dimension": "length" },
+		"payload": { "value": 0, "units": "kg", "dimension": "mass" },
+		"drymass": { "value": 0, "units": "kg", "dimension": "mass" }
+	},{
+		"title": "XS",
+		"type": "Payload",
+		"diameter": { "value": 1, "units": "metres", "dimension": "length" },
+		"height": { "value": 2, "units": "metres", "dimension": "length" },
+		"payload": { "value": 500, "units": "kg", "dimension": "mass" },
+		"drymass": { "value": 500, "units": "kg", "dimension": "mass" }
+	},{
+		"title": "S",
+		"type": "Payload",
+		"diameter": { "value": 2, "units": "metres", "dimension": "length" },
+		"height": { "value": 5, "units": "metres", "dimension": "length" },
+		"payload": { "value": 1500, "units": "kg", "dimension": "mass" },
+		"drymass": { "value": 1000, "units": "kg", "dimension": "mass" }
+	},{
+		"title": "M",
+		"type": "Payload",
+		"diameter": { "value": 3, "units": "metres", "dimension": "length" },
+		"height": { "value": 8, "units": "metres", "dimension": "length" },
+		"payload": { "value": 3000, "units": "kg", "dimension": "mass" },
+		"drymass": { "value": 5000, "units": "kg", "dimension": "mass" }
+	},{
+		"title": "L",
+		"type": "Payload",
+		"diameter": { "value": 8, "units": "metres", "dimension": "length" },
+		"height": { "value": 10, "units": "metres", "dimension": "length" },
+		"payload": { "value": 5000, "units": "kg", "dimension": "mass" },
+		"drymass": { "value": 10000, "units": "kg", "dimension": "mass" }
+	},{
+		"title": "XL",
+		"type": "Payload",
+		"diameter": { "value": 10, "units": "metres", "dimension": "length" },
+		"height": { "value": 15, "units": "metres", "dimension": "length" },
+		"payload": { "value": 10000, "units": "kg", "dimension": "mass" },
+		"drymass": { "value": 20000, "units": "kg", "dimension": "mass" }
+	}],
 	"orbit": {
 		"LEO": {
 			"title": "%orbit.LEO.title%",

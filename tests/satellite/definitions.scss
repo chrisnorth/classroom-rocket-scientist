@@ -138,6 +138,17 @@ $trans: 0.3s;
 	background-image:-o-linear-gradient(top,$c1,$c2);
 	background-image:linear-gradient(to bottom,$c1,$c2);
 }
+@mixin fader($c1,$o1,$c2,$o2){
+	$rgba1: rgba($c1,$o1);
+	$rgba2: rgba($c2,$o2);
+	$ie-hex-str1: ie-hex-str($rgba1);
+	$ie-hex-str2: ie-hex-str($rgba2);
+	background: -moz-linear-gradient(left, $rgba1 0%, $rgba2 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, $rgba1 0%, $rgba2 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, $rgba1 0%, $rgba2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$ie-hex-str1, endColorstr=$ie-hex-str2,GradientType=1 ); /* IE6-9 */
+}
+
 @mixin flex($d,$auto){
  	 -webkit-flex: $d $auto;
 	  -webkit-box: $d $auto;

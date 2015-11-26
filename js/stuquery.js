@@ -1,3 +1,6 @@
+// I don't like to pollute the global namespace 
+// but I can't get this to work any other way.
+var eventcache = {};
 function E(e){
 	
 	function matchSelector(e,selector){

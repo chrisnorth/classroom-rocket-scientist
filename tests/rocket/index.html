@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
+	<title>Rocket test</title>
+	<link rel="stylesheet" href="css/style.css" />
+	<style>
+	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+		-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+	}
+	/* apply a natural box layout model to all elements */
+	*, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+	html, head { height: 100%; }
+	body {
+		width: 100%;
+		height: 100vh;
+	}
+	.page { width: 50%; height: 500px; margin: auto; }
+
+	.thirdstage li { background-color: #ddddff; }
+	.secondstage li { background-color: #ffdddd; }
+	.firststage li { background-color: #ddffdd; }
+
+	</style>
+	<script type="text/javascript" src="../../js/stuquery.js"></script>
+	<script>
+	function Slider(s,callback){
+		this.el = s;
+		this.callback = callback;
+		this.n = 2.5;	// How many to show
+		this.ul = s.find('ul:eq(0)');	// Get the ul
+		this.li = this.ul.find('li');	// Get the li
+		// Update the property
+		if(!this.ul.attr('data-select')) this.ul.attr('data-select','0');	// Set the property if it doesn't exist
+		this.setSelected(parseInt(this.ul.attr('data-select')));
+		var _obj = this;
+		// We'll need to change the sizes when the window changes size
+		window.addEventListener('resize',function(e){ _obj.resize(); });
+		// Add events to buttons
+		this.el.find('button').on('click',{me:this},function(e){ e.data.me.navigate(e); });
+		// Set the size
+		this.resize();
+		return this;
+	}
+	Slider.prototype.setSelected = function(s){
+		var n = this.li.e.length;
+		this.selected = ((s+n)%n);
+		this.ul.attr(this.sel,this.selected);
+		this.ul.find('.selected').removeClass('selected');
+		E(this.li.e[this.selected]).addClass('selected');
+		return this;
+	}
+	Slider.prototype.navigate = function(e){
+		var f = E(e.currentTarget).hasClass('next');
+		this.setSelected(this.selected + (f ? 1 : -1));
+		this.resize();
+		if(typeof this.callback==="function") this.callback.call(this,this.selected);
+		return this;
+	}
+	Slider.prototype.resize = function(){
+		function width(el){
+			if('getComputedStyle' in window) return parseInt(window.getComputedStyle(el, null).getPropertyValue('width'));
+			else return parseInt(el.currentStyle.width);	
+		}
+		var w = width(this.el.e[0]);
+		this.el.find('.stage').css({'width':(w/this.n).toFixed(1)+'px'});	// Set the widths
+		this.el.find('button').css({'width':(w/(this.n*2)).toFixed(1)+'px'});	// Change widths of buttons
+		this.ul.css({'margin-left':'-'+((this.selected+0.5)*(w/this.n)).toFixed(1)+'px'});	// Update the offset for the list
+		
+		return this;
+	}
+	E(document).ready(function(){
+		var sliders = new Array();
+		sliders.push(new Slider(E('.payload'),function(a){ console.log('payload',a) }));
+		sliders.push(new Slider(E('.firststage'),function(a){ console.log('firststage',a) }));
+		sliders.push(new Slider(E('.secondstage'),function(a){ console.log('secondstage',a) }));
+		sliders.push(new Slider(E('.thirdstage'),function(a){ console.log('thirdstage',a) }));
+	});
+	</script>
+</head>
+<body class="cover">
+	<div class="page">
+		<div class="slider-container payload">
+			<div class="slider">
+				<button class="prev"><span>&#x276E;</span></button>
+				<ul>
+					<li class="stage"><div class="part"><div class="S">Small</div></div></li><li class="stage"><div class="part"><div class="M">Medium</div></div></li><li class="stage"><div class="part"><div class="L">Large</div></div></li><li class="stage"><div class="part"><div class="XL">Extra-large</div></div></li>
+				</ul>
+				<button class="next"><span>&#x276F;</span></button>
+			</div>
+		</div>
+		<div class="slider-container thirdstage">
+			<div class="slider">
+				<button class="prev"><span>&#x276E;</span></button>
+				<ul data-select="1">
+					<li class="stage"><div class="part"><div class="S">Small</div></div></li><li class="stage"><div class="part"><div class="M">Medium</div></div></li><li class="stage"><div class="part"><div class="L">Large</div></div></li><li class="stage"><div class="part"><div class="XL">Extra-large</div></div></li><li class="stage"><div class="part"><div class="XXL">XXL</div></div></li>
+				</ul>
+				<button class="next"><span>&#x276F;</span></button>
+			</div>
+		</div>
+		<div class="slider-container secondstage">
+			<div class="slider">
+				<button class="prev"><span>&#x276E;</span></button>
+				<ul>
+					<li class="stage"><div class="part"><div class="S">Small</div></div></li><li class="stage"><div class="part"><div class="M">Medium</div></div></li><li class="stage"><div class="part"><div class="L">Large</div></div></li><li class="stage"><div class="part"><div class="XL">Extra-large</div></div></li><li class="stage"><div class="part"><div class="XXL">XXL</div></div></li>
+				</ul>
+				<button class="next"><span>&#x276F;</span></button>
+			</div>
+		</div>
+		<div class="slider-container firststage">
+			<div class="slider">
+				<button class="prev"><span>&#x276E;</span></button>
+				<ul>
+					<li class="stage"><div class="part"><div class="S">Small</div></div></li><li class="stage"><div class="part"><div class="M">Medium</div></div></li><li class="stage"><div class="part"><div class="L">Large</div></div></li><li class="stage"><div class="part"><div class="XL">Extra-large</div></div></li>
+				</ul>
+				<button class="next"><span>&#x276F;</span></button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

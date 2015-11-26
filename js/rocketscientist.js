@@ -1,6 +1,3 @@
-// I don't like to pollute the global namespace 
-// but I can't get this to work any other way.
-var eventcache = {};
 var rs;
 
 (function(E) {
@@ -129,7 +126,7 @@ var rs;
 
 		// For testing - we add it here before attaching events otherwise they don't fire
 		if(this.testmode && !E('body').hasClass('front')){
-			E('#bar .barmenu').append('<div class="baritem"><button id="speedy"><span>automate</span></button></div>');
+			E('#menu').append('<li class="baritem"><button id="speedy"><span>cheat</span></button></li>');
 			E('#speedy').on('click',function(e){ test(); E('#speedy').parent().remove(); });
 		}
 
@@ -220,6 +217,13 @@ var rs;
 			//E('#instrument button.add').prop('disabled',false);
 			//E('#instrument button.remove').prop('disabled',true);
 		})
+
+		// Update rocket stages
+		this.sliders = new Array();
+		this.sliders.push(new Slider(E('.payload'),function(a){ console.log('payload',a) }));
+		this.sliders.push(new Slider(E('.firststage'),function(a){ console.log('firststage',a) }));
+		this.sliders.push(new Slider(E('.secondstage'),function(a){ console.log('secondstage',a) }));
+		this.sliders.push(new Slider(E('.thirdstage'),function(a){ console.log('thirdstage',a) }));
 
 		// Reset button states
 		this.updateButtons();
@@ -825,6 +829,52 @@ var rs;
 		if(!this.testmode) return this;
 		var args = Array.prototype.slice.call(arguments, 0);
 		if(console && typeof console.log==="function") console.log('LOG',args);
+		return this;
+	}
+
+	function Slider(s,callback){
+		this.el = s;
+		this.callback = callback;
+		this.n = 2.5;	// How many to show
+		this.ul = s.find('ul:eq(0)');	// Get the ul
+		this.li = this.ul.find('li');	// Get the li
+		// Update the property
+		if(!this.ul.attr('data-select')) this.ul.attr('data-select','0');	// Set the property if it doesn't exist
+		this.setSelected(parseInt(this.ul.attr('data-select')));
+		var _obj = this;
+		// We'll need to change the sizes when the window changes size
+		window.addEventListener('resize',function(e){ _obj.resize(); });
+		// Add events to buttons
+		this.el.find('button').on('click',{me:this},function(e){ e.data.me.navigate(e); });
+		// Set the size
+		this.resize();
+		return this;
+	}
+	Slider.prototype.setSelected = function(s){
+		var n = this.li.e.length;
+		this.selected = ((s+n)%n);
+		this.ul.attr(this.sel,this.selected);
+		this.ul.find('.selected').removeClass('selected');
+		E(this.li.e[this.selected]).addClass('selected');
+		return this;
+	}
+	Slider.prototype.navigate = function(e){
+		var f = E(e.currentTarget).hasClass('next');
+		this.setSelected(this.selected + (f ? 1 : -1));
+		this.resize();
+		if(typeof this.callback==="function") this.callback.call(this,this.selected);
+		return this;
+	}
+	Slider.prototype.resize = function(){
+		function width(el){
+			if('getComputedStyle' in window) return parseInt(window.getComputedStyle(el, null).getPropertyValue('width'));
+			else return parseInt(el.currentStyle.width);	
+		}
+		var w = width(this.el.e[0]);
+		this.el.find('.stage').css({'width':(w/this.n).toFixed(1)+'px'});	// Set the widths
+		this.el.find('button').css({'width':(w/(this.n*2)).toFixed(1)+'px'});	// Change widths of buttons
+		this.ul.css({'margin-left':'-'+((this.selected+0.5)*(w/this.n)).toFixed(1)+'px'});	// Update the offset for the list
+		
 		return this;
 	}
 

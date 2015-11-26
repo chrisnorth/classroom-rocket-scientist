@@ -35,6 +35,7 @@ body {
 	width: 100%;
 	line-height: $lineh;
 	overflow-x: hidden;
+	background-color: $black-2;
 }
 .scriptonly { display: none; }
 
@@ -259,9 +260,9 @@ img.close { background-position: -4.5em -10.5em; }
 .profile { color: #f6dc8c; }
 .error { color: #ff4a4a; }
 .warning { color: #ffee00; }
-.COMMS { background-color: $red-5; }
-.EO { background-color: $green-5; }
-.NAV { background-color: $blue-5; }
+.COMMS { background-color: $red-4; }
+.EO { background-color: $green-4; }
+.NAV { background-color: $blue-4; }
 
 
 section {
@@ -362,7 +363,7 @@ section#type .holder p { text-align: left; }
 .page { height: auto; display: block; width: 100%; }
 .row-top { display: block; width: 100%; position: relative; padding-bottom: $s*0.5; }
 .row-top p:last-child { margin-bottom: 0px; }
-.row-main { height: 400px; display: block; }
+.row-main { height: 300px; display: block; }
 .col { float: left; display: inline-block; width: 50%; height: 100%; max-height: 100%; overflow-y: auto; position: relative; }
 .rows { display: table; width: 100%; max-width: 100%; height: 100%; }
 .requirements { display: table-row; height: 1%; }
@@ -392,7 +393,11 @@ $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 	max-height: 100vh;
 	bottom: 0px;
 }
-
+.rocket-holder {
+	width: 100%;
+	position: relative;
+	height: 100%;
+}
 .holder-holder {
 	display: table;
 	width: 100%;
@@ -608,6 +613,7 @@ table.data td:last-child { text-align: left; }
 
 @import "../tests/satellite/solar.scss";
 @import "../tests/orbits/css/style.scss";
+@import "../tests/rocket/css/style.scss";
 
 .not-at-start { display: none!important; }
 
@@ -629,7 +635,7 @@ table.data td:last-child { text-align: left; }
 	.col { width: 100%; float: none; }
 	.list { margin-left: 0; position: relative; margin-top: $s; }
 	nav { position: relative; }
-	.orrery-holder { height: 400px; }
+	.orrery-holder, .rocket-holder { height: 400px; }
 	.holder { display: block; }
 	#type .holder { width: 100%; }
 	.satellite-holder { display: block; height: auto; max-height: auto; }
