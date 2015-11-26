@@ -853,7 +853,7 @@ var rs;
 	Slider.prototype.setSelected = function(s){
 		var n = this.li.e.length;
 		this.selected = ((s+n)%n);
-		this.ul.attr(this.sel,this.selected);
+		this.ul.attr('data-select',this.selected);
 		this.ul.find('.selected').removeClass('selected');
 		E(this.li.e[this.selected]).addClass('selected');
 		return this;

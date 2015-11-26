@@ -479,7 +479,6 @@
 	},
 	"firststage": [{
 		"title": "S",
-		"size": 2,
 		"type": "Solid-fuel rocket",
 		"diameter": { "value": 3.0, "units": "metres", "dimension": "length" },
 		"height": { "value": 12.0, "units": "metres", "dimension": "length" },
@@ -490,7 +489,6 @@
 		"notes": "Based on Vega 1st stage (https://en.wikipedia.org/wiki/Vega_(rocket))"
 	},{
 		"title": "M",
-		"size": 3,
 		"type": "Liquid-fuel rocket",
 		"diameter": { "value": 3.0, "units": "metres", "dimension": "length" },
 		"height": { "value": 30.0, "units": "metres", "dimension": "length" },
@@ -501,7 +499,6 @@
 		"notes": "Based on Soyuz 1st stage (http://www.spaceflight101.com/soyuz-2-1v.html)"
 	},{
 		"title": "L",
-		"size": 4,
 		"type": "Liquid-fuel rocket",
 		"diameter": { "value": 3.5, "units": "metres", "dimension": "length" },
 		"height": { "value": 40.0, "units": "metres", "dimension": "length" },
@@ -512,7 +509,6 @@
 		"notes": "Based on Falcon 9 first stage (http://www.spaceflight101.com/falcon-9-v11.html)"
 	},{
 		"title": "XL",
-		"size": 5,
 		"type": "Liquid-fuel rocket",
 		"diameter": { "value": 8, "units": "metres", "dimension": "length" },
 		"height": { "value": 50.0, "units": "metres", "dimension": "length" },
@@ -523,7 +519,6 @@
 		"notes": "Based on SLS (https://en.wikipedia.org/wiki/Space_Launch_System)"
 	},{
 		"title": "XXL",
-		"size": 6,
 		"type": "Liquid-fuel rocket",
 		"diameter": { "value": 10, "units": "metres", "dimension": "length" },
 		"height": { "value": 42.0, "units": "metres", "dimension": "length" },
@@ -534,7 +529,6 @@
 		"notes": "Based on Saturn V 1st stage (https://en.wikipedia.org/wiki/Saturn_V)"
 	},{
 		"title": "Plane",
-		"size": 7,
 		"type": "Air-breathing rocket",
 		"diameter": { "value": 6, "units": "metres", "dimension": "length" },
 		"height": { "value": 82.0, "units": "metres", "dimension": "length" },
@@ -545,7 +539,6 @@
 		"notes": "Based on SABRE (https://en.wikipedia.org/wiki/SABRE_(rocket_engine))"
 	},{
 		"title": "RocketPlane",
-		"size": 7,
 		"type": "Liquid-fuel rocket",
 		"diameter": { "value": 6, "units": "metres", "dimension": "length" },
 		"height": { "value": 82.0, "units": "metres", "dimension": "length" },
@@ -557,7 +550,6 @@
 	}],
 	"secondstage": [{
 		"title": "None",
-		"size": 0,
 		"type": "",
 		"diameter": { "value": 0, "units": "metres", "dimension": "length" },
 		"height": { "value": 0.0, "units": "metres", "dimension": "length" },
@@ -568,7 +560,6 @@
 		"notes": "No stage"
 	},{
 		"title": "XS",
-		"size": 1,
 		"type": "Solid-fuel rocket",
 		"diameter": { "value": 1.3, "units": "metres", "dimension": "length" },
 		"height": { "value": 17, "units": "metres", "dimension": "length" },
@@ -579,7 +570,6 @@
 		"notes": "Based on Pegasus (http://www.astronautix.com/engines/pegasus1.htm)"
 	},{
 		"title": "S",
-		"size": 2,
 		"type": "Solid-fuel rocket",
 		"diameter": { "value": 2, "units": "metres", "dimension": "length" },
 		"height": { "value": 14, "units": "metres", "dimension": "length" },
@@ -590,7 +580,6 @@
 		"notes": "Based on Vega 2nd stage (https://en.wikipedia.org/wiki/Vega_(rocket))"
 	},{
 		"title": "M",
-		"size": 3,
 		"type": "Liquid-fuel rocket",
 		"diameter": { "value": 3, "units": "metres", "dimension": "length" },
 		"height": { "value": 7, "units": "metres", "dimension": "length" },
@@ -601,7 +590,6 @@
 		"notes": "Based on Soyuz 2nd stage (https://en.wikipedia.org/wiki/Soyuz_(rocket_family)#First_stage)"
 	},{
 		"title": "L",
-		"size": 4,
 		"type": "Liquid-fuel rocket",
 		"diameter": { "value": 3.5, "units": "metres", "dimension": "length" },
 		"height": { "value": 15, "units": "metres", "dimension": "length" },
@@ -612,7 +600,6 @@
 		"notes": "Based on Falcon 9 2nd stage (http://www.spaceflight101.com/falcon-9-v11.html)"
 	},{
 		"title": "XL",
-		"size": 5,
 		"type": "Liquid-fuel rocket",
 		"diameter": { "value": 8, "units": "metres", "dimension": "length" },
 		"height": { "value": 15, "units": "metres", "dimension": "length" },
@@ -623,7 +610,6 @@
 		"notes": "Based on SLS (https://en.wikipedia.org/wiki/Space_Launch_System)"
 	},{
 		"title": "XXL",
-		"size": 6,
 		"type": "Liquid-fuel rocket",
 		"diameter": { "value": 10, "units": "metres", "dimension": "length" },
 		"height": { "value": 25, "units": "metres", "dimension": "length" },
