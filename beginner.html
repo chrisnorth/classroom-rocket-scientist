@@ -9,36 +9,12 @@
 	<!--[if !IE]> --><link href="tests/satellite/style-nonie.css" rel="stylesheet" type="text/css" media="screen" /><!-- <![endif]-->
 	<script type="text/javascript" src="js/convertable.js"></script>
 	<script type="text/javascript" src="js/stuquery.js"></script>
-	<script type="text/javascript" src="js/rocketscientist.js"></script>
 	<script>
 		
 		var data = ;
 		
-		var rs;
-		// On load
-		E(document).ready(function(){
-			rs = new RocketScientist(data);
-		});
-
-		function test(){
-			// Quick start
-			// Trigger selection
-			E('#type .NAV button').trigger('click');
-			E('#type nav a').trigger('click');
-			E('#goal .NAV button:eq(1)').trigger('click');
-			E('#goal nav a:eq(1)').trigger('click');
-			E('#bus .satellite-l').trigger('click');
-			E('#bus nav a:eq(1)').trigger('click');
-			E('#orbit_list .orbit-GEO button').trigger('click');
-			
-			E('#orbit nav a:eq(1)').trigger('click');
-			E('#instrument_list .bg4x8:eq(0) .add').trigger('click');
-			E('#instrument_list .bg2x4:eq(1) .add').trigger('click');
-			E('#instrument_list .bg2x4:eq(2) .add').trigger('click');
-			E('#instrument_list .bg2x2:eq(1) .add').trigger('click');
-			E('#instrument nav a:eq(1)').trigger('click');
-		}	
 	</script>
+	<script type="text/javascript" src="js/rocketscientist.js"></script>
 </head>
 <body>
 	<script type="text/javascript">
@@ -266,15 +242,11 @@
 
 </section>
 		<menu id="menu" class="dropdown not-at-start">
-	<li class="baritem" data="restart"><button title=""><img src="images/cleardot.gif" class="icon restart" alt="" /><span></span></button></li>
-	<li class="baritem" data="level"><button title=""><img src="images/cleardot.gif" class="icon difficulty" alt="" /><span></span></button></li>
+	<li class="baritem restart" data="restart"><button title=""><img src="images/cleardot.gif" class="icon restart" alt="" /><span></span></button></li>
+	<!--li class="baritem" data="level"><button title=""><img src="images/cleardot.gif" class="icon difficulty" alt="" /><span></span></button></li-->
 	<!--<li class="baritem" data="help"><a href="#guide"><img src="images/cleardot.gif" class="icon help" alt="" /><span>Help</span></a></li>-->
-	<li class="baritem" data="units"><button title=""><img src="images/cleardot.gif" class="icon options" alt="" /><span></span></button></li>
-	<li class="baritem" data="fullscreen"><button class="fullscreenbtn" title=""><img alt="" class="icon fullscreen" src="images/cleardot.gif" /><span></span></button></li>
-	<li class="baritem">
-		<button class="togglebtn togglelang" title="Change Language"><!--LANGUAGE--><img src="images/cleardot.gif" class="icon globe" alt="Language" /><span></span></button>
-		<div id="language" class="dropdown"><ul></ul></div>
-	</li>
+	<li class="baritem units" data="units"><button title=""><img src="images/cleardot.gif" class="icon options" alt="" /><span></span></button></li>
+	<li class="baritem fullscreen not-at-start" data="fullscreen"><button title=""><img alt="" class="icon fullscreen" src="images/cleardot.gif" /><span></span></button></li>
 </menu>
 	</div>
 </body>

@@ -169,30 +169,26 @@ nav li { float: left; }
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
-
 .barmenu .baritem { float: right; }
 .barmenu .baritem.left { float: left; }
 .rtl .barmenu .baritem { float: left; }
 .dropdown {
-	z-index: $topz - 6;
-	/*
-	display: none;
 	position: absolute;
-	top: 3em;
-	*/
+	z-index: $topz - 6;
 	width: auto;
 	line-height: $lineh;
 	right: 0;
+	top: $barheight;
 	padding: 0;
 	box-shadow: 0.1em 0.2em 0.2em rgba(0,0,0,0.3);
-	border: 1px solid rgba(255,255,255,0.8);
-	border-top: 0px;
-	border-right: 0px;
+	border: 0px;
 }
 .rtl .dropdown { left: 0; border-right: 1px solid rgba(255,255,255,0.8); border-left: 0px; right: auto; }
 .dropdown .baritem, .rtl .dropdown .baritem { float: none; display: block; }
 /*.dropdown .baritem a { padding: 0.75em 1em; }*/
 .dropdown.fullwidth { width: 100%; left: 0px; border-left: 0px; }
+#menu { z-index: $topz+1; }
+
 
 /* Navigation menus */
 nav { position: absolute; left: 0px; right: 0px; }
@@ -361,7 +357,6 @@ section.view.slideInLeft {
 section#launch { background-color: $black-1; color: $grey-5; }
 section#type .holder { width: 33%; padding: 1em; }
 section#type .holder p { text-align: left; }
-.not-at-start { display: none; }
 
 
 .page { height: auto; display: block; width: 100%; }
@@ -613,6 +608,8 @@ table.data td:last-child { text-align: left; }
 
 @import "../tests/satellite/solar.scss";
 @import "../tests/orbits/css/style.scss";
+
+.not-at-start { display: none!important; }
 
 @media only screen and (max-width: 800px){
 	.list li .list-bar, .list li .list-left,.list li .list-right { display: block; width: 100%; max-width: 100%; }

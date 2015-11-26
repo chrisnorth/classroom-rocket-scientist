@@ -1,0 +1,90 @@
+"main": {
+	"tiny":{
+		"boosters": [0]
+	},
+	"small":{
+		"boosters": [0,2,4],
+		"payloadbay": ["small"],
+		"upperstage": ["small"],
+		"height": { "value": 18,"units":"m","dimension":"length" },
+		"diameter": { "value": 2.67,"units":"m","dimension":"length" },
+		"mass": {
+			"body": {"value": 5000,"units":"kg","dimension":"mass" },
+			"fuel": {"value": 50000,"units":"kg","dimension":"mass" }
+		},
+		"thrust": {"value": 667,"units":"kN","dimension":"force" }
+	},
+	"medium":{
+		"boosters":[0,2,4],
+		"payloadbay": ["small","medium"],
+		"upperstage": ["small","medium"],
+		"height": { "value": 11.7,"units":"m","dimension":"length" },
+		"diameter": { "value": 3,"units":"m","dimension":"length" },
+		"mass": {
+			"body": {"value": 7330,"units":"kg","dimension":"mass" },
+			"fuel": {"value": 88400,"units":"kg","dimension":"mass" }
+		},
+		"thrust": {"value": 2200,"units":"kN","dimension":"force" }
+	},
+	"large":{
+		"boosters":[0,2,4],
+		"payloadbay": ["small","medium","large"],
+		"upperstage": ["small","medium","large"],
+		"height": { "value": 42,"units":"m","dimension":"length" },
+		"diameter": { "value": 10,"units":"m","dimension":"length" },
+		"mass": {
+			"body": {"value": 130000,"units":"kg","dimension":"mass" },
+			"fuel": {"value": 2160000,"units":"kg","dimension":"mass" }
+		},
+		"thrust": {"value": 33400,"units":"kN","dimension":"force" }
+	}
+},
+"payloadbay": {
+	"small": {
+		"mass": {"value": 45,"units":"kg","dimension":"mass" }
+	},
+	"medium": {
+		"mass": {"value": 1450,"units":"kg","dimension":"mass" }
+	},
+	"large": {
+		"mass": {"value": 120000,"units":"kg","dimension":"mass" }
+	}
+},
+"booster": {
+	"height": { "value": 45.46,"units":"m","dimension":"length" },
+	"diameter": { "value": 3.71,"units":"m","dimension":"length" },
+	"mass": {
+		"body": {"value": 90000,"units":"kg","dimension":"mass" },
+		"fuel": {"value": 500000,"units":"kg","dimension":"mass" }
+	},
+	"thrust": {"value": 12000,"units":"kN","dimension":"force" }
+},
+"upperstage": {
+	"small": {
+		"height": { "value": 1,"units":"m","dimension":"length" },
+		"diameter": { "value": 0.3,"units":"m","dimension":"length" },
+		"mass": {
+			"body": {"value": 21,"units":"kg","dimension":"mass" },
+			"fuel": {"value": 21,"units":"kg","dimension":"mass" }
+		},
+		"thrust": {"value": 7,"units":"kN","dimension":"force" }
+	},
+	"medium": {
+		"height": { "value": 8.39,"units":"m","dimension":"length" },
+		"diameter": { "value": 1.9,"units":"m","dimension":"length" },
+		"mass": {
+			"body": {"value": 2850,"units":"kg","dimension":"mass" },
+			"fuel": {"value": 26000,"units":"kg","dimension":"mass" }
+		},
+		"thrust": {"value": 871,"units":"kN","dimension":"force" }
+	},
+	"large": {
+		"height": { "value": 24.8,"units":"m","dimension":"length" },
+		"diameter": { "value": 10,"units":"m","dimension":"length" },
+		"mass": {
+			"body": {"value": 40100,"units":"kg","dimension":"mass" },
+			"fuel": {"value": 456100,"units":"kg","dimension":"mass" }
+		},
+		"thrust": {"value": 4400,"units":"kN","dimension":"force" }
+	}
+}
