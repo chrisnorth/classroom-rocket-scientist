@@ -132,7 +132,7 @@ var rs;
 		// Set up main menu
 		E('#bar .togglemenu').on('click',{me:this},function(e){ E('#menu').toggleClass('not-at-start'); })
 		E('#menu').on('mouseleave',{me:this},function(e){ E('#menu').toggleClass('not-at-start'); })
-		E('#menu .restart').on('click',{me:this},function(e){ location.href = location.href.replace(/[\/]+$/,'') + (location.protocol!=="file:") ? "index.html" : ""; })
+		E('#menu .restart').on('click',{me:this},function(e){ location.href = location.href.replace(/[\/]+$/,'') + (location.protocol==="file:") ? "index.html" : ""; })
 
 		// If we are on the front page we can update the links for local use
 		if(E('body').hasClass('front')){

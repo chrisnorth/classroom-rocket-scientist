@@ -1,5 +1,8 @@
 ---
 ui.level:                                   (advanced)
+ui.level.beginner:                          Beginner (ages 7-11)
+ui.level.intermediate:                      Intermediate (ages 10-12)
+ui.level.advanced:                          Advanced (ages 11-14)
 ui.nojs:                                    Oops! The interactive parts of <em>Classroom rocket scientist</em> need Javascript to be enabled. Sorry about that.
 ui.title:                                   Classroom rocket scientist
 ui.introduction:                            This is an intro.
