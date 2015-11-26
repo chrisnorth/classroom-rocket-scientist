@@ -111,8 +111,6 @@ var rs;
 				this.navigable[id] = true;
 			}
 		}
-		// Make first section navigable
-		//this.navigable[this.sections[0]] = true;
 		this.has = {};
 		this.has['vw'] = (E('#progressbar').css({'width':'100vw'}).e[0].offsetWidth==this.wide);
 
@@ -270,7 +268,7 @@ var rs;
 		for(var i = 0; i < this.navs.length; i++){
 			var href = this.navs[i].attr('href').substr(1);
 			if(href=="goal") this.setNavigable(href,i,this.choices.type); // To get to goal we require the type to be set
-			else if(href=="bus") this.setNavigable(href,i,this.choices.goal); // To get to bus we need the goal to be set
+			else if(href=="bus") this.setNavigable(href,i,typeof this.choices.goal==="number"); // To get to bus we need the goal to be set
 			else if(href=="instrument") this.setNavigable(href,i,this.choices.bus);	// To get to the instruments section we need a bus
 			else if(href=="power") this.setNavigable(href,i,this.choices.bus);	// To get to the power section we need a bus
 			else if(href=="rocket") this.setNavigable(href,i,this.choices.bus);	// To get to the rocket section we need a bus

@@ -2790,7 +2790,7 @@ ul.orrery li.GEO {
   nav {
     position: relative; }
 
-  ul.orrery {
+  .orrery-holder {
     height: 400px; }
 
   .holder {
