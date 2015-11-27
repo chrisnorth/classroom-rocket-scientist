@@ -835,7 +835,7 @@ var rs;
 	function Slider(s,callback){
 		this.el = s;
 		this.callback = callback;
-		this.n = 2.5;	// How many to show
+		this.n = 2.2;	// How many to show
 		this.ul = s.find('ul:eq(0)');	// Get the ul
 		this.li = this.ul.find('li');	// Get the li
 		// Update the property
