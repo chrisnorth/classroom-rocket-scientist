@@ -1015,9 +1015,13 @@ section#type .holder p {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$ie-hex-str1, endColorstr=$ie-hex-str2,GradientType=1 );
   /* IE6-9 */ }
 
-.rocket-holder {
+.rocket-holder .holder {
   vertical-align: bottom;
-  padding-bottom: 1.5em; }
+  padding-bottom: 0.75em;
+  background-image: url("../images/silhouette.png");
+  background-position: 5% bottom;
+  background-repeat: no-repeat;
+  background-size: auto 10em; }
 
 .rocket-holder .stage {
   margin: auto;
@@ -1032,11 +1036,8 @@ section#type .holder p {
   width: 100%; }
 
 .rocket-holder .nozzle {
-  height: 1.5em;
+  height: 0.75em;
   top: 100%; }
-
-.rocket-holder .nozzle::after {
-  height: 50%; }
 
 .rocket-holder .firststage {
   z-index: 4; }

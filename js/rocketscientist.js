@@ -789,8 +789,8 @@ var rs;
 		this.log('setStage',stage,i);
 		this.choices[stage] = i;
 		var h = 0;
-		var wide = this.data[stage][i].diameter.value*0.6;
-		var tall = this.data[stage][i].height.value*0.6;	// Can't go below 0.6 otherwise the fixed width nozzle messes up
+		var wide = this.data[stage][i].diameter.value*0.5;
+		var tall = this.data[stage][i].height.value*0.5;	// Can't go below 0.5 otherwise the fixed width nozzle messes up
 		if(wide < 0) wide = 0;
 		if(tall < 0) tall = 0;
 		E('.rocket-holder .'+stage).css({'width':wide+'em','height':tall+'em'}).children('.part').html((tall > 0 && stage!="payloadbay") ? '<div class="nozzle"></div>' : '');

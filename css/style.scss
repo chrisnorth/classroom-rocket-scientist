@@ -470,16 +470,13 @@ $nozzle: $s*0.25;
 .rocket .part, .rocket .payloadbay .part:before {
 	@include cylinder($grey-4,1,$grey-5,1,$grey-3,1);
 }
-.rocket-holder { vertical-align: bottom; padding-bottom: $s; }
+.rocket-holder .holder { vertical-align: bottom; padding-bottom: $s*0.5; background-image: url('../images/silhouette.png'); background-position: 5% bottom; background-repeat: no-repeat; background-size: auto 10em; }
 .rocket-holder .stage { margin: auto; width: 0px; position: relative; border-bottom: 1px solid $grey-2; }
 .rocket-holder .part { height: 100%; }
 .rocket-holder .payloadbay .part { width: 100%; }
 .rocket-holder .nozzle {
-	height: $s;
+	height: $s*0.5;
 	top: 100%;
-}
-.rocket-holder .nozzle::after {
-	height: 50%;
 }
 .rocket-holder .firststage { z-index: 4; }
 .rocket-holder .secondstage { z-index: 3; }
