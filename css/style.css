@@ -948,11 +948,13 @@ section#type .holder p {
   display: block; }
 
 .rocket-holder .part, .rocket-holder .payload .part:before {
-  background: -moz-linear-gradient(left, white 0%, #999999 100%);
+  background: lightgray;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #cccccc 0%, #efefef 30%, #bbbbbb 100%);
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, white 0%, #999999 100%);
+  background: -webkit-linear-gradient(left, #cccccc 0%, #efefef 30%, #bbbbbb 100%);
   /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, white 0%, #999999 100%);
+  background: linear-gradient(to right, #cccccc 0%, #efefef 30%, #bbbbbb 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$ie-hex-str1, endColorstr=$ie-hex-str2,GradientType=1 );
   /* IE6-9 */ }

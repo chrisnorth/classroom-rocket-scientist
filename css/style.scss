@@ -423,7 +423,7 @@ $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 	display: block;
 }
 .rocket-holder .part, .rocket-holder .payload .part:before {
-	@include fader(#ffffff,1,$grey-2,1);
+	@include cylinder($grey-4,1,$grey-5,1,$grey-3,1);
 }
 
 .isogrid {
