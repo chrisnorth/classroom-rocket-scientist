@@ -387,43 +387,56 @@
 						</div>
 						<div class="row-main">
 							<div class="col">
+								<div class="holder-holder">
+									<div class="isogrid rocket-holder rocket" id="vehicle">
+										<div class="holder">
+											<div class="controls zoomcontrol">
+												<button class="fancy zoomin"><!--#echo var="ui.button.zoomin" --></button>
+												<button class="fancy zoomout"><!--#echo var="ui.button.zoomout" --></button>
+											</div>
+											<div class="stage payloadbay"><div class="part"></div></div><div class="stage thirdstage"><div class="part"></div></div><div class="stage secondstage"><div class="part"></div></div><div class="stage firststage"><div class="part"></div></div>
+										</div>
+									</div>
+								</div>
 							</div>
 							<div class="col">
-								<div class="rocket-holder">
-									<div class="slider-container payloadbay">
-										<div class="slider">
-											<button class="prev"><span>&#x276E;</span></button>
-											<ul>
-												<!--#for each="payloadbay" name="payloadbayloop" --><li class="stage stage-<!--#json name="key" -->"><div class="part" style="width:<!--#json name="diameter.value" -->%"></div><div class="stage-holder"><div class="stage-about"><!--#json name="key" --></div></div></li><!--#endfor name="payloadbayloop" -->
-											</ul>
-											<button class="next"><span>&#x276F;</span></button>
+								<div class="padd-left">
+									<div class="rocket rocket-builder">
+										<div class="slider-container payloadbay">
+											<div class="slider">
+												<button class="prev"><span>&#x276E;</span></button>
+												<ul>
+													<!--#for each="payloadbay" name="payloadbayloop" --><li class="stage stage-<!--#json name="key" -->"><div class="part" style="width:<!--#json name="diameter.value" -->%"></div><div class="stage-holder"><div class="stage-about"><!--#json name="key" --></div></div></li><!--#endfor name="payloadbayloop" -->
+												</ul>
+												<button class="next"><span>&#x276F;</span></button>
+											</div>
 										</div>
-									</div>
-									<div class="slider-container thirdstage">
-										<div class="slider">
-											<button class="prev"><span>&#x276E;</span></button>
-											<ul>
-												<!--#for each="thirdstage" name="thirdstageloop" --><li class="stage stage-<!--#json name="key" -->"><div class="part" style="width:<!--#json name="diameter.value" -->%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about"><!--#json name="key" --></div></div></li><!--#endfor name="thirdstageloop" -->
-											</ul>
-											<button class="next"><span>&#x276F;</span></button>
+										<div class="slider-container thirdstage">
+											<div class="slider">
+												<button class="prev"><span>&#x276E;</span></button>
+												<ul>
+													<!--#for each="thirdstage" name="thirdstageloop" --><li class="stage stage-<!--#json name="key" -->"><div class="part" style="width:<!--#json name="diameter.value" -->%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about"><!--#json name="key" --></div></div></li><!--#endfor name="thirdstageloop" -->
+												</ul>
+												<button class="next"><span>&#x276F;</span></button>
+											</div>
 										</div>
-									</div>
-									<div class="slider-container secondstage">
-										<div class="slider">
-											<button class="prev"><span>&#x276E;</span></button>
-											<ul>
-												<!--#for each="secondstage" name="secondstageloop" --><li class="stage stage-<!--#json name="key" -->"><div class="part" style="width:<!--#json name="diameter.value" -->%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about"><!--#json name="key" --></div></div></li><!--#endfor name="secondstageloop" -->
-											</ul>
-											<button class="next"><span>&#x276F;</span></button>
+										<div class="slider-container secondstage">
+											<div class="slider">
+												<button class="prev"><span>&#x276E;</span></button>
+												<ul>
+													<!--#for each="secondstage" name="secondstageloop" --><li class="stage stage-<!--#json name="key" -->"><div class="part" style="width:<!--#json name="diameter.value" -->%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about"><!--#json name="key" --></div></div></li><!--#endfor name="secondstageloop" -->
+												</ul>
+												<button class="next"><span>&#x276F;</span></button>
+											</div>
 										</div>
-									</div>
-									<div class="slider-container firststage">
-										<div class="slider">
-											<button class="prev"><span>&#x276E;</span></button>
-											<ul>
-												<!--#for each="firststage" name="firststageloop" --><li class="stage stage-<!--#json name="key" -->"><div class="part" style="width:<!--#json name="diameter.value" -->%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about"><!--#json name="key" --></div></div></li><!--#endfor name="firststageloop" -->
-											</ul>
-											<button class="next"><span>&#x276F;</span></button>
+										<div class="slider-container firststage">
+											<div class="slider">
+												<button class="prev"><span>&#x276E;</span></button>
+												<ul>
+													<!--#for each="firststage" name="firststageloop" --><li class="stage stage-<!--#json name="key" -->"><div class="part" style="width:<!--#json name="diameter.value" -->%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about"><!--#json name="key" --></div></div></li><!--#endfor name="firststageloop" -->
+												</ul>
+												<button class="next"><span>&#x276F;</span></button>
+											</div>
 										</div>
 									</div>
 								</div>

@@ -904,7 +904,7 @@ section#type .holder p {
 .col-70 {
   width: 70%; }
 
-.satellite-holder, .orrery-holder {
+.satellite-holder, .orrery-holder, .rocket-holder {
   margin: auto;
   position: relative;
   overflow: hidden;
@@ -916,9 +916,8 @@ section#type .holder p {
   max-height: 100vh;
   bottom: 0px; }
 
-.rocket-holder {
-  width: 100%;
-  position: relative;
+.padd-left {
+  margin-left: 2em;
   height: 100%; }
 
 .holder-holder {
@@ -928,36 +927,45 @@ section#type .holder p {
   height: 100%;
   max-height: 100vh; }
 
-.rocket-holder .part {
-  height: 80%;
+.rocket {
+  width: 100%;
+  position: relative;
+  height: 100%; }
+
+.rocket .part {
   margin: auto;
   display: block; }
 
-.rocket-holder .nozzle:before {
+.rocket-builder .part {
+  height: 80%; }
+
+.rocket .nozzle:before {
   content: "";
   position: absolute;
-  top: 0%;
-  left: 0%;
   border-style: solid;
   border-color: transparent transparent #606060 transparent;
-  border-width: 0 0.75em 0.75em 0.75em;
+  border-width: 0 0.375em 0.375em 0.375em;
+  top: 0%;
+  left: 0%;
   height: 0;
   width: 100%; }
 
-.rocket-holder .nozzle {
+.rocket .nozzle {
   position: relative;
   display: block;
-  top: 100%;
   left: 5%;
-  height: 25%;
   width: 90%; }
 
-.rocket-holder .nozzle:after {
+.rocket-builder .nozzle {
+  top: 100%;
+  height: 25%; }
+
+.rocket .nozzle:after {
   content: "";
   position: absolute;
   display: block;
   width: 100%;
-  top: 0.75em;
+  top: 0.375em;
   height: 100%;
   left: 0%;
   background: lightgray;
@@ -971,24 +979,31 @@ section#type .holder p {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$ie-hex-str1, endColorstr=$ie-hex-str2,GradientType=1 );
   /* IE6-9 */ }
 
-.rocket-holder .stage-None .nozzle {
+.rocket .stage-None .nozzle {
   display: none; }
 
-.rocket-holder .payloadbay .part {
-  height: 100%;
+.rocket .payloadbay .part {
   margin: auto;
   display: block;
   background: none; }
 
-.rocket-holder .payloadbay .part:before {
+.rocket-builder .payloadbay .part {
+  top: 20%; }
+
+.rocket .payloadbay .part:before {
   content: "";
   border-radius: 100% 100% 0 0;
   width: inherit;
   position: absolute;
+  display: block;
   height: 100%;
-  display: block; }
+  top: 0%; }
 
-.rocket-holder .part, .rocket-holder .payloadbay .part:before {
+.rocket-builder .payloadbay .part:before {
+  height: 80%;
+  top: 20%; }
+
+.rocket .part, .rocket .payloadbay .part:before {
   background: lightgray;
   /* Old browsers */
   background: -moz-linear-gradient(left, #cccccc 0%, #efefef 30%, #bbbbbb 100%);
@@ -999,6 +1014,41 @@ section#type .holder p {
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$ie-hex-str1, endColorstr=$ie-hex-str2,GradientType=1 );
   /* IE6-9 */ }
+
+.rocket-holder {
+  vertical-align: bottom;
+  padding-bottom: 1.5em; }
+
+.rocket-holder .stage {
+  margin: auto;
+  width: 0px;
+  position: relative;
+  border-bottom: 1px solid #999999; }
+
+.rocket-holder .part {
+  height: 100%; }
+
+.rocket-holder .payloadbay .part {
+  width: 100%; }
+
+.rocket-holder .nozzle {
+  height: 1.5em;
+  top: 100%; }
+
+.rocket-holder .nozzle::after {
+  height: 50%; }
+
+.rocket-holder .firststage {
+  z-index: 4; }
+
+.rocket-holder .secondstage {
+  z-index: 3; }
+
+.rocket-holder .thirdstage {
+  z-index: 2; }
+
+.rocket-holder .payloadbay {
+  z-index: 1; }
 
 .isogrid {
   background: #e1f4fe;
@@ -2978,7 +3028,7 @@ ul.orrery li.GEO {
   nav {
     position: relative; }
 
-  .orrery-holder, .rocket-holder {
+  .orrery-holder, .rocket {
     height: 400px; }
 
   .holder {

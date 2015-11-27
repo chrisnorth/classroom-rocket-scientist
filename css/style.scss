@@ -381,7 +381,7 @@ section#type .holder p { text-align: left; }
 $pattern_a: transparent 49%, white 49.4%, white 50.6%, transparent 51%, transparent;
 $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 
-.satellite-holder, .orrery-holder {
+.satellite-holder, .orrery-holder, .rocket-holder {
 	margin: auto;
 	position: relative;
 	overflow: hidden;
@@ -393,11 +393,7 @@ $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 	max-height: 100vh;
 	bottom: 0px;
 }
-.rocket-holder {
-	width: 100%;
-	position: relative;
-	height: 100%;
-}
+.padd-left { margin-left: $padded; height: 100%; }
 .holder-holder {
 	display: table;
 	width: 100%;
@@ -405,30 +401,41 @@ $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 	height: 100%;
 	max-height: 100vh;
 }
-.rocket-holder .part {
-	height: 80%; margin: auto; display: block;
+.rocket {
+	width: 100%;
+	position: relative;
+	height: 100%;
 }
-$nozzle: $s*0.5;
-.rocket-holder .nozzle:before {
+.rocket .part {
+	margin: auto;
+	display: block;
+}
+.rocket-builder .part {
+	height: 80%;
+}
+$nozzle: $s*0.25;
+.rocket .nozzle:before {
 	content: "";
 	position: absolute;
-	top: 0%;
-	left: 0%;
 	border-style: solid;
 	border-color: transparent transparent $black-4 transparent;
 	border-width: 0 $nozzle $nozzle $nozzle;
+	top: 0%;
+	left: 0%;
 	height: 0;
 	width: 100%;
 }
-.rocket-holder .nozzle {
+.rocket .nozzle {
 	position: relative;
 	display: block;
-	top: 100%;
 	left: 5%;
-	height: 25%;
 	width: 90%;
 }
-.rocket-holder .nozzle:after {
+.rocket-builder .nozzle {
+	top: 100%;
+	height: 25%;
+}
+.rocket .nozzle:after {
 	content: "";
 	position: absolute;
 	display: block;
@@ -438,24 +445,47 @@ $nozzle: $s*0.5;
 	left: 0%;
 	@include cylinder($grey-1,1,$grey-2,1,$black-4,1);
 }
-.rocket-holder .stage-None .nozzle { display: none; }
-.rocket-holder .payloadbay .part {
-	height: 100%;
+.rocket .stage-None .nozzle { display: none; }
+.rocket .payloadbay .part {
 	margin: auto;
 	display: block;
 	background: none;
 }
-.rocket-holder .payloadbay .part:before {
+.rocket-builder .payloadbay .part {
+	top: 20%;
+}
+.rocket .payloadbay .part:before {
 	content: "";
 	border-radius: 100% 100% 0 0;
 	width: inherit;
 	position: absolute;
-	height: 100%;
 	display: block;
+	height: 100%;
+	top: 0%;
 }
-.rocket-holder .part, .rocket-holder .payloadbay .part:before {
+.rocket-builder .payloadbay .part:before {
+	height: 80%;
+	top: 20%;
+}
+.rocket .part, .rocket .payloadbay .part:before {
 	@include cylinder($grey-4,1,$grey-5,1,$grey-3,1);
 }
+.rocket-holder { vertical-align: bottom; padding-bottom: $s; }
+.rocket-holder .stage { margin: auto; width: 0px; position: relative; border-bottom: 1px solid $grey-2; }
+.rocket-holder .part { height: 100%; }
+.rocket-holder .payloadbay .part { width: 100%; }
+.rocket-holder .nozzle {
+	height: $s;
+	top: 100%;
+}
+.rocket-holder .nozzle::after {
+	height: 50%;
+}
+.rocket-holder .firststage { z-index: 4; }
+.rocket-holder .secondstage { z-index: 3; }
+.rocket-holder .thirdstage { z-index: 2; }
+.rocket-holder .payloadbay { z-index: 1; }
+
 
 .isogrid {
 	background: $blue-5;
@@ -683,7 +713,7 @@ table.data td:last-child { text-align: left; }
 	.col { width: 100%; float: none; }
 	.list { margin-left: 0; position: relative; margin-top: $s; }
 	nav { position: relative; }
-	.orrery-holder, .rocket-holder { height: 400px; }
+	.orrery-holder, .rocket { height: 400px; }
 	.holder { display: block; }
 	#type .holder { width: 100%; }
 	.satellite-holder { display: block; height: auto; max-height: auto; }

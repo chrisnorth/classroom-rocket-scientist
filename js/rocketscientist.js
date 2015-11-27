@@ -200,6 +200,7 @@ var rs;
 	
 		this.makeSatelliteControls('#satellite');
 		this.makeSatelliteControls('#satellite-power');
+		this.makeSatelliteControls('#vehicle');
 
 		// Add events to buttons in orbit section
 		E('#orbit_list button').on('click',{me:'test'},function(e){ _obj.setOrbit(E(e.currentTarget).attr('data-orbit')); });
@@ -223,8 +224,8 @@ var rs;
 		var stages = ['firststage','secondstage','thirdstage','payloadbay'];
 		for(var s = 0; s < stages.length; s++){
 			var l = stages[s];
-			this.sliders.push(new Slider(E('.'+l),{stage:l},function(e){ _obj.setStage(e.data.stage,e.i); }));
-			for(var i = 0; i < this.data[l].length; i++) E('.'+l+' .stage-'+this.data[l][i].key).find('.part').css({'width':(this.data[l][i].diameter.value*10).toFixed(1)+'%'});
+			this.sliders.push(new Slider(E('.rocket-builder .'+l),{stage:l},function(e){ _obj.setStage(e.data.stage,e.i); }));
+			for(var i = 0; i < this.data[l].length; i++) E('.rocket-builder .'+l+' .stage-'+this.data[l][i].key).find('.part').css({'width':(this.data[l][i].diameter.value*10).toFixed(1)+'%'});
 		}
 
 		// Reset button states
@@ -787,6 +788,12 @@ var rs;
 	RocketScientist.prototype.setStage = function(stage,i){
 		this.log('setStage',stage,i);
 		this.choices[stage] = i;
+		var h = 0;
+		var wide = this.data[stage][i].diameter.value*0.6;
+		var tall = this.data[stage][i].height.value*0.6;	// Can't go below 0.6 otherwise the fixed width nozzle messes up
+		if(wide < 0) wide = 0;
+		if(tall < 0) tall = 0;
+		E('.rocket-holder .'+stage).css({'width':wide+'em','height':tall+'em'}).children('.part').html((tall > 0 && stage!="payloadbay") ? '<div class="nozzle"></div>' : '');
 		return this;
 	}
 	// Resize function called when window resizes
@@ -880,6 +887,7 @@ var rs;
 			else return parseInt(el.currentStyle.width);	
 		}
 		var w = width(this.el.e[0]);
+		console.log('resize',w,this.el.e[0])
 		this.el.find('.stage').css({'width':(w/this.n).toFixed(1)+'px'});	// Set the widths
 		this.el.find('button').css({'width':(w/5).toFixed(1)+'px'});	// Change widths of buttons
 		this.ul.css({'margin-left':'-'+((this.selected+0.5)*(w/this.n)).toFixed(1)+'px'});	// Update the offset for the list
