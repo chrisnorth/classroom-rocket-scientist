@@ -2787,7 +2787,8 @@ ul.orrery li.GEO {
   height: 25%;
   min-height: 3em;
   overflow: hidden;
-  position: relative; }
+  position: relative;
+  background-color: #efefef; }
 
 .slider-container .slider {
   height: 100%;
@@ -2846,22 +2847,22 @@ ul.orrery li.GEO {
   font-size: 3em; }
 
 .slider-container .prev {
-  background: -moz-linear-gradient(left, white 0%, rgba(255, 255, 255, 0) 100%);
+  background: -moz-linear-gradient(left, #efefef 0%, rgba(239, 239, 239, 0) 100%);
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, white 0%, rgba(255, 255, 255, 0) 100%);
+  background: -webkit-linear-gradient(left, #efefef 0%, rgba(239, 239, 239, 0) 100%);
   /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(to right, #efefef 0%, rgba(239, 239, 239, 0) 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$ie-hex-str1, endColorstr=$ie-hex-str2,GradientType=1 );
   /* IE6-9 */
   left: 0px; }
 
 .slider-container .next {
-  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, white 100%);
+  background: -moz-linear-gradient(left, rgba(239, 239, 239, 0) 0%, #efefef 100%);
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, white 100%);
+  background: -webkit-linear-gradient(left, rgba(239, 239, 239, 0) 0%, #efefef 100%);
   /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, white 100%);
+  background: linear-gradient(to right, rgba(239, 239, 239, 0) 0%, #efefef 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$ie-hex-str1, endColorstr=$ie-hex-str2,GradientType=1 );
   /* IE6-9 */
