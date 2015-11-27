@@ -406,15 +406,46 @@ $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 	max-height: 100vh;
 }
 .rocket-holder .part {
-	height: 100%; margin: auto; display: block;
+	height: 80%; margin: auto; display: block;
 }
-.rocket-holder .payload .part {
+$nozzle: $s*0.5;
+.rocket-holder .nozzle:before {
+	content: "";
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	border-style: solid;
+	border-color: transparent transparent $black-4 transparent;
+	border-width: 0 $nozzle $nozzle $nozzle;
+	height: 0;
+	width: 100%;
+}
+.rocket-holder .nozzle {
+	position: relative;
+	display: block;
+	top: 100%;
+	left: 5%;
+	height: 25%;
+	width: 90%;
+}
+.rocket-holder .nozzle:after {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 100%;
+	top: $nozzle;
+	height: 100%;
+	left: 0%;
+	@include cylinder($grey-1,1,$grey-2,1,$black-4,1);
+}
+.rocket-holder .stage-None .nozzle { display: none; }
+.rocket-holder .payloadbay .part {
 	height: 100%;
 	margin: auto;
 	display: block;
 	background: none;
 }
-.rocket-holder .payload .part:before {
+.rocket-holder .payloadbay .part:before {
 	content: "";
 	border-radius: 100% 100% 0 0;
 	width: inherit;
@@ -422,7 +453,7 @@ $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 	height: 100%;
 	display: block;
 }
-.rocket-holder .part, .rocket-holder .payload .part:before {
+.rocket-holder .part, .rocket-holder .payloadbay .part:before {
 	@include cylinder($grey-4,1,$grey-5,1,$grey-3,1);
 }
 

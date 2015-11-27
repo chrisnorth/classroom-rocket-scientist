@@ -929,17 +929,58 @@ section#type .holder p {
   max-height: 100vh; }
 
 .rocket-holder .part {
-  height: 100%;
+  height: 80%;
   margin: auto;
   display: block; }
 
-.rocket-holder .payload .part {
+.rocket-holder .nozzle:before {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  border-style: solid;
+  border-color: transparent transparent #606060 transparent;
+  border-width: 0 0.75em 0.75em 0.75em;
+  height: 0;
+  width: 100%; }
+
+.rocket-holder .nozzle {
+  position: relative;
+  display: block;
+  top: 100%;
+  left: 5%;
+  height: 25%;
+  width: 90%; }
+
+.rocket-holder .nozzle:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  top: 0.75em;
+  height: 100%;
+  left: 0%;
+  background: lightgray;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #777777 0%, #999999 30%, #606060 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #777777 0%, #999999 30%, #606060 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #777777 0%, #999999 30%, #606060 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$ie-hex-str1, endColorstr=$ie-hex-str2,GradientType=1 );
+  /* IE6-9 */ }
+
+.rocket-holder .stage-None .nozzle {
+  display: none; }
+
+.rocket-holder .payloadbay .part {
   height: 100%;
   margin: auto;
   display: block;
   background: none; }
 
-.rocket-holder .payload .part:before {
+.rocket-holder .payloadbay .part:before {
   content: "";
   border-radius: 100% 100% 0 0;
   width: inherit;
@@ -947,7 +988,7 @@ section#type .holder p {
   height: 100%;
   display: block; }
 
-.rocket-holder .part, .rocket-holder .payload .part:before {
+.rocket-holder .part, .rocket-holder .payloadbay .part:before {
   background: lightgray;
   /* Old browsers */
   background: -moz-linear-gradient(left, #cccccc 0%, #efefef 30%, #bbbbbb 100%);
@@ -2834,7 +2875,7 @@ ul.orrery li.GEO {
 
 .slider-container button {
   display: block;
-  width: 6em;
+  width: 3.6em;
   text-align: center;
   padding: 0px;
   top: 0px;
@@ -2844,6 +2885,9 @@ ul.orrery li.GEO {
   cursor: pointer;
   line-height: 0.5em;
   z-index: 1; }
+
+.slider-container button:focus {
+  outline: none; }
 
 .slider-container button span {
   font-size: 3em; }
@@ -2869,12 +2913,6 @@ ul.orrery li.GEO {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$ie-hex-str1, endColorstr=$ie-hex-str2,GradientType=1 );
   /* IE6-9 */
   right: 0px; }
-
-.slider-container .prev span {
-  float: left; }
-
-.slider-container .next span {
-  float: right; }
 
 .not-at-start {
   display: none !important; }

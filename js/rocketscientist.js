@@ -158,13 +158,13 @@ var rs;
 		// A function that creates Convertable types for any well-defined data structures
 		function updateConvertables(o){
 			for (var i in o){
-				if(typeof(o[i])=="object") {
-					if(typeof o[i].value==="number" && typeof o[i].units==="string" && typeof o[i].dimension==="string") o[i] = new Convertable(o[i]);
+				if(typeof o[i]=="object"){
+					if(typeof o[i].value!=="undefined" && typeof o[i].units==="string" && typeof o[i].dimension==="string") o[i] = new Convertable(o[i]);
 					else o[i] = updateConvertables(o[i]);
 				}
 			}
 			return o;
-		}  
+		} 
 		// Loop over the data and update Convertables
 		this.data = updateConvertables(this.data);
 
@@ -220,10 +220,12 @@ var rs;
 
 		// Update rocket stages
 		this.sliders = new Array();
-		this.sliders.push(new Slider(E('.payload'),function(a){ console.log('payload',a) }));
-		this.sliders.push(new Slider(E('.firststage'),function(a){ console.log('firststage',a) }));
-		this.sliders.push(new Slider(E('.secondstage'),function(a){ console.log('secondstage',a) }));
-		this.sliders.push(new Slider(E('.thirdstage'),function(a){ console.log('thirdstage',a) }));
+		var stages = ['firststage','secondstage','thirdstage','payloadbay'];
+		for(var s = 0; s < stages.length; s++){
+			var l = stages[s];
+			this.sliders.push(new Slider(E('.'+l),{stage:l},function(e){ _obj.setStage(e.data.stage,e.i); }));
+			for(var i = 0; i < this.data[l].length; i++) E('.'+l+' .stage-'+this.data[l][i].key).find('.part').css({'width':(this.data[l][i].diameter.value*10).toFixed(1)+'%'});
+		}
 
 		// Reset button states
 		this.updateButtons();
@@ -437,9 +439,12 @@ var rs;
 			var props = ['cost','mass','power'];
 			var v,j,nv;
 			for(j = 0 ; j < props.length; j++){
-				v = el.find('.package_'+props[j]).find('.value');
-				nv = this.data.power['solar-panel-surface'][props[j]].convertTo(v.attr('data-dimension'));
-				v.attr('data-value',nv.value*_obj.data.bus[size].area.value);
+				if(_obj.data.power['solar-panel-surface'][props[j]].typeof=="convertable"){
+					v = el.find('.package_'+props[j]).find('.value');
+					console.log('scaleConvertableByArea',_obj.data.power['solar-panel-surface'][props[j]],v.attr('data-dimension'))
+					nv = _obj.data.power['solar-panel-surface'][props[j]].convertTo(v.attr('data-dimension'));
+					v.attr('data-value',nv.value*_obj.data.bus[size].area.value);
+				}
 			}
 			return;
 		}
@@ -456,9 +461,7 @@ var rs;
 
 				// Update values for solar-panel-surface given the surface area
 				if(el.attr('data-package') == "solar-panel-surface"){
-					if(this.data.bus[size].area.typeof=="convertable"){
-						scaleConvertableByArea(el);
-					}
+					if(this.data.bus[size].area.typeof=="convertable") scaleConvertableByArea(el);
 				}
 			}
 		}
@@ -781,6 +784,11 @@ var rs;
 		}
 		return this;
 	}
+	RocketScientist.prototype.setStage = function(stage,i){
+		this.log('setStage',stage,i);
+		this.choices[stage] = i;
+		return this;
+	}
 	// Resize function called when window resizes
 	RocketScientist.prototype.resize = function(){
 
@@ -832,10 +840,11 @@ var rs;
 		return this;
 	}
 
-	function Slider(s,callback){
+	function Slider(s,data,callback){
 		this.el = s;
+		this.data = data;
 		this.callback = callback;
-		this.n = 2.2;	// How many to show
+		this.n = 1.6;	// How many to show
 		this.ul = s.find('ul:eq(0)');	// Get the ul
 		this.li = this.ul.find('li');	// Get the li
 		// Update the property
@@ -862,7 +871,7 @@ var rs;
 		var f = E(e.currentTarget).hasClass('next');
 		this.setSelected(this.selected + (f ? 1 : -1));
 		this.resize();
-		if(typeof this.callback==="function") this.callback.call(this,this.selected);
+		if(typeof this.callback==="function") this.callback.call(this,{i:this.selected,data:this.data});
 		return this;
 	}
 	Slider.prototype.resize = function(){
@@ -872,7 +881,7 @@ var rs;
 		}
 		var w = width(this.el.e[0]);
 		this.el.find('.stage').css({'width':(w/this.n).toFixed(1)+'px'});	// Set the widths
-		this.el.find('button').css({'width':(w/(this.n*2)).toFixed(1)+'px'});	// Change widths of buttons
+		this.el.find('button').css({'width':(w/5).toFixed(1)+'px'});	// Change widths of buttons
 		this.ul.css({'margin-left':'-'+((this.selected+0.5)*(w/this.n)).toFixed(1)+'px'});	// Update the offset for the list
 		
 		return this;

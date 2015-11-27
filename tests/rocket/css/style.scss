@@ -9,7 +9,8 @@ $rs: $s*4;
 .slider-container li { position: relative; display: inline-block; width: $rs; height: 100%; padding: 0px; margin: 0px; border: 1px solid white; overflow: hidden; background-color: $grey-5; }
 .slider-container li .stage-holder { position: absolute; left: 0px; top: 0px; display: table; width: 100%; height: 100%; }
 .slider-container li .stage-holder > div { display: table-cell; vertical-align: middle; text-align: center; }
-.slider-container button { display: block; width: $rs; text-align: center; padding: 0px; top: 0px; bottom: 0px; position: absolute; border: 0px; cursor: pointer; line-height: 0.5em; z-index: 1; }
+.slider-container button { display: block; width: $rs*0.6; text-align: center; padding: 0px; top: 0px; bottom: 0px; position: absolute; border: 0px; cursor: pointer; line-height: 0.5em; z-index: 1; }
+.slider-container button:focus { outline: none; }
 .slider-container button span { font-size: $rs/2; }
 .slider-container .prev {
 	@include fader($grey-5,1,$grey-5,0);
@@ -19,5 +20,3 @@ $rs: $s*4;
 	@include fader($grey-5,0,$grey-5,1);
 	right: 0px;
 }
-.slider-container .prev span { float: left; }
-.slider-container .next span { float: right; }

@@ -18,6 +18,7 @@
 
 		test({'value':0,'units':'m','dimension':'length'},0,'m','length');
 		test({'value':100,'units':'m','dimension':'length'},100,'m','length');
+		test({'value':100.5,'units':'m','dimension':'length'},100.5,'m','length');
 		test({'value':100,'units':'m','dimension':'length'},100,'m');
 		test({'value':undefined},100);
 		test({'value':100,'units':'K','dimension':'temperature'},100,'K');
@@ -30,7 +31,7 @@
 		test({'value':'inf','units':'hours','dimension':'time'},'inf','hours');
 		test({'value':0,'units':'GBP','dimension':'currency'},0,'GBP','currency');
 		test({'value':0,'units':'GBP','dimension':'currency'},{'value':0,'units':'GBP','dimension':'currency'});
-		test({'value':5,'units':'mxm','dimension':'area'},{'value':5,'units':'mxm','dimension':'area'});
+		test({'value':5,'units':'m^2','dimension':'area'},{'value':5,'units':'m^2','dimension':'area'});
 
 		function fromHTML(c,el) {
 			var conv = new Convertable(el);
@@ -87,19 +88,19 @@
 			assert.equal(conv.toString(p),str,"Format "+conv.toString()+" as "+str);
 		}
 
-		check('9.1 m',9.14,'m');
-		check('9.1 m',9.14,'m',1);
-		check('9.14 m',9.14,'m',2);
-		check('0.2 m',0.15,'m',1);
-		check('-0.2 m',-0.16,'m',1);
-		check('-0.2 m',-0.23,'m',1);
-		check('2.7 K',2.715,'K',1);
+		check('9.1&thinsp;m',9.14,'m');
+		check('9.1&thinsp;m',9.14,'m',1);
+		check('9.14&thinsp;m',9.14,'m',2);
+		check('0.2&thinsp;m',0.15,'m',1);
+		check('-0.2&thinsp;m',-0.16,'m',1);
+		check('-0.2&thinsp;m',-0.23,'m',1);
+		check('2.7&thinsp;K',2.715,'K',1);
 		check('5&deg;',5,'degrees',1);
 		check('&pound;5.3',5.25,'GBP',1);
-		check('&pound;5 million',5000000,'GBP',1);
-		check('&pound;5 Bn',5000000000,'GBP',1);
-		check('&pound;5.2 Bn',5240000000,'GBP',1);
-		check('&pound;5.24 Bn',5240000000,'GBP',3);
+		check('&pound;5&thinsp;Mn',5000000,'GBP',1);
+		check('&pound;5&thinsp;Bn',5000000000,'GBP',1);
+		check('&pound;5.2&thinsp;Bn',5240000000,'GBP',1);
+		check('&pound;5.24&thinsp;Bn',5240000000,'GBP',3);
 		check('&infin;','inf','GBP',3);
 	});
 

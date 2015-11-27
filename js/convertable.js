@@ -15,7 +15,8 @@ function Convertable(v,u,d){
 			"percent": "%",
 			"angle": "degrees",
 			"currency": "GBP",
-			"force": "kN"
+			"force": "kN",
+			"power": "watts"
 		},
 		"units": {
 			"km": { "unit": "&thinsp;km", "dimension": "length", "conv": 1000 },
