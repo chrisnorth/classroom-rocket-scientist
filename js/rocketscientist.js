@@ -221,9 +221,9 @@ var rs;
 
 		// Update rocket stages
 		this.sliders = new Array();
-		var stages = ['firststage','secondstage','thirdstage','payloadbay'];
-		for(var s = 0; s < stages.length; s++){
-			var l = stages[s];
+		this.stages = ['firststage','secondstage','thirdstage','payloadbay'];
+		for(var s = 0; s < this.stages.length; s++){
+			var l = this.stages[s];
 			this.sliders.push(new Slider(E('.rocket-builder .'+l),{stage:l},function(e){ _obj.setStage(e.data.stage,e.i); }));
 			for(var i = 0; i < this.data[l].length; i++) E('.rocket-builder .'+l+' .stage-'+this.data[l][i].key).find('.part').css({'width':(this.data[l][i].diameter.value*10).toFixed(1)+'%'});
 		}
@@ -794,6 +794,20 @@ var rs;
 		if(wide < 0) wide = 0;
 		if(tall < 0) tall = 0;
 		E('.rocket-holder .'+stage).css({'width':wide+'em','height':tall+'em'}).children('.part').html((tall > 0 && stage!="payloadbay") ? '<div class="nozzle"></div>' : '');
+		var ok = true;
+		var a,b;
+		var d = 1e6;
+		for(var i = 0; i < this.stages.length; i++){
+			a = this.stages[i];
+			if(this.choices[a]){
+				if(this.data[a][this.choices[a]].diameter.value > d) ok = false;
+				d = this.data[a][this.choices[a]].diameter.value;
+			}
+		}
+		if(ok) E('.rocket-holder').removeClass('wobble');
+		else E('.rocket-holder').addClass('wobble');
+		this.choices['rocket-stable'] = ok;
+
 		return this;
 	}
 	// Resize function called when window resizes

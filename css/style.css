@@ -1050,6 +1050,50 @@ section#type .holder p {
 .rocket-holder .payloadbay {
   z-index: 1; }
 
+.rocket-holder.wobble .stage {
+  animation-name: wobble;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out; }
+
+.rocket-holder.wobble .stage:last-child {
+  transform-origin: 50% 100%; }
+
+.rocket-holder.wobble .stage:nth-child(2n) {
+  animation-delay: -1s; }
+
+.rocket-holder.wobble .stage:nth-child(3n) {
+  animation-delay: -0.4s; }
+
+@-webkit-keyframes wobble {
+  0% {
+    transform: rotate(-1.75deg); }
+  50% {
+    transform: rotate(2.5deg); }
+  100% {
+    transform: rotate(-1.75deg); } }
+@-moz-keyframes wobble {
+  0% {
+    transform: rotate(-1.75deg); }
+  50% {
+    transform: rotate(2.5deg); }
+  100% {
+    transform: rotate(-1.75deg); } }
+@-o-keyframes wobble {
+  0% {
+    transform: rotate(-1.75deg); }
+  50% {
+    transform: rotate(2.5deg); }
+  100% {
+    transform: rotate(-1.75deg); } }
+@keyframes wobble {
+  0% {
+    transform: rotate(-1.75deg); }
+  50% {
+    transform: rotate(2.5deg); }
+  100% {
+    transform: rotate(-1.75deg); } }
 .isogrid {
   background: #e1f4fe;
   background-image: -webkit-linear-gradient(0deg, transparent 48%, white 49%, white 51%, transparent 52%, transparent), -webkit-linear-gradient(-90deg, transparent 48%, white 49%, white 51%, transparent 52%, transparent);

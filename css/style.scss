@@ -485,6 +485,29 @@ $nozzle: $s*0.25;
 .rocket-holder .secondstage { z-index: 3; }
 .rocket-holder .thirdstage { z-index: 2; }
 .rocket-holder .payloadbay { z-index: 1; }
+.rocket-holder.wobble .stage {
+	animation-name: wobble;
+	animation-iteration-count: infinite;
+	transform-origin: 50% 50%;
+	animation-duration: $wobble;
+	animation-timing-function: ease-in-out;
+}
+.rocket-holder.wobble .stage:last-child {
+	transform-origin: 50% 100%;
+}
+.rocket-holder.wobble .stage:nth-child(2n){
+	animation-delay: -$wobble*0.5;
+}
+.rocket-holder.wobble .stage:nth-child(3n){
+	animation-delay: -$wobble*0.2;
+}
+@-webkit-keyframes wobble { 0% { transform: rotate(-1.75deg); } 50% { transform: rotate(2.5deg); } 100% { transform: rotate(-1.75deg); } }
+@-moz-keyframes wobble { 0% { transform: rotate(-1.75deg); } 50% { transform: rotate(2.5deg); } 100% { transform: rotate(-1.75deg); } }
+@-o-keyframes wobble { 0% { transform: rotate(-1.75deg); } 50% { transform: rotate(2.5deg); } 100% { transform: rotate(-1.75deg); } }
+@keyframes wobble { 0% { transform: rotate(-1.75deg); } 50% { transform: rotate(2.5deg); } 100% { transform: rotate(-1.75deg); } }
+
+
+
 
 
 .isogrid {
