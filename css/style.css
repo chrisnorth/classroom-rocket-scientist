@@ -928,6 +928,35 @@ section#type .holder p {
   height: 100%;
   max-height: 100vh; }
 
+.rocket-holder .part {
+  height: 100%;
+  margin: auto;
+  display: block; }
+
+.rocket-holder .payload .part {
+  height: 100%;
+  margin: auto;
+  display: block;
+  background: none; }
+
+.rocket-holder .payload .part:before {
+  content: "";
+  border-radius: 100% 100% 0 0;
+  width: inherit;
+  position: absolute;
+  height: 100%;
+  display: block; }
+
+.rocket-holder .part, .rocket-holder .payload .part:before {
+  background: -moz-linear-gradient(left, white 0%, #999999 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, white 0%, #999999 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, white 0%, #999999 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$ie-hex-str1, endColorstr=$ie-hex-str2,GradientType=1 );
+  /* IE6-9 */ }
+
 .isogrid {
   background: #e1f4fe;
   background-image: -webkit-linear-gradient(0deg, transparent 48%, white 49%, white 51%, transparent 52%, transparent), -webkit-linear-gradient(-90deg, transparent 48%, white 49%, white 51%, transparent 52%, transparent);
@@ -2777,6 +2806,7 @@ ul.orrery li.GEO {
   transition: margin-left 0.3s linear; }
 
 .slider-container li {
+  position: relative;
   display: inline-block;
   width: 6em;
   height: 100%;
@@ -2784,14 +2814,17 @@ ul.orrery li.GEO {
   margin: 0px;
   border: 1px solid white;
   overflow: hidden;
-  background-color: #dfdfdf; }
+  background-color: #efefef; }
 
-.slider-container li .part {
+.slider-container li .stage-holder {
+  position: absolute;
+  left: 0px;
+  top: 0px;
   display: table;
   width: 100%;
   height: 100%; }
 
-.slider-container li .part > div {
+.slider-container li .stage-holder > div {
   display: table-cell;
   vertical-align: middle;
   text-align: center; }
@@ -2806,7 +2839,8 @@ ul.orrery li.GEO {
   position: absolute;
   border: 0px;
   cursor: pointer;
-  line-height: 0.5em; }
+  line-height: 0.5em;
+  z-index: 1; }
 
 .slider-container button span {
   font-size: 3em; }

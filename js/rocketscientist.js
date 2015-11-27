@@ -126,7 +126,7 @@ var rs;
 
 		// For testing - we add it here before attaching events otherwise they don't fire
 		if(this.testmode && !E('body').hasClass('front')){
-			E('#menu').append('<li class="baritem"><button id="speedy"><span>cheat</span></button></li>');
+			E('#menu').append('<li class="baritem"><button id="speedy"><img class="icon options" alt="" src="images/cleardot.gif" /><span>Test</span></button></li>');
 			E('#speedy').on('click',function(e){ test(); E('#speedy').parent().remove(); });
 		}
 
@@ -906,4 +906,5 @@ function test(){
 	E('#instrument_list .bg2x4:eq(2) .add').trigger('click');
 	E('#instrument_list .bg2x2:eq(1) .add').trigger('click');
 	E('#instrument nav a:eq(1)').trigger('click');
+	E('#power nav a:eq(1)').trigger('click');
 }	

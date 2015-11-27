@@ -387,12 +387,14 @@
 						</div>
 						<div class="row-main">
 							<div class="col">
+							</div>
+							<div class="col">
 								<div class="rocket-holder">
 									<div class="slider-container payload">
 										<div class="slider">
 											<button class="prev"><span>&#x276E;</span></button>
 											<ul>
-												<!--#for each="payloadbay" name="payloadbayloop" --><li class="stage"><div class="part"><div class="<!--#json name="title" -->"><!--#json name="title" --></div></div></li><!--#endfor name="payloadbayloop" -->
+												<!--#for each="payloadbay" name="payloadbayloop" --><li class="stage"><div class="part" style="width:<!--#json name="diameter.value" -->0%"></div><div class="stage-holder"><div class="<!--#json name="title" -->"><!--#json name="title" --></div></div></li><!--#endfor name="payloadbayloop" -->
 											</ul>
 											<button class="next"><span>&#x276F;</span></button>
 										</div>
@@ -401,7 +403,7 @@
 										<div class="slider">
 											<button class="prev"><span>&#x276E;</span></button>
 											<ul>
-												<!--#for each="thirdstage" name="thirdstageloop" --><li class="stage"><div class="part"><div class="<!--#json name="title" -->"><!--#json name="title" --></div></div></li><!--#endfor name="thirdstageloop" -->
+												<!--#for each="thirdstage" name="thirdstageloop" --><li class="stage"><div class="part" style="width:<!--#json name="diameter.value" -->0%"></div><div class="stage-holder"><div class="<!--#json name="title" -->"><!--#json name="title" --></div></div></li><!--#endfor name="thirdstageloop" -->
 											</ul>
 											<button class="next"><span>&#x276F;</span></button>
 										</div>
@@ -410,7 +412,7 @@
 										<div class="slider">
 											<button class="prev"><span>&#x276E;</span></button>
 											<ul>
-												<!--#for each="secondstage" name="secondstageloop" --><li class="stage"><div class="part"><div class="<!--#json name="title" -->"><!--#json name="title" --></div></div></li><!--#endfor name="secondstageloop" -->
+												<!--#for each="secondstage" name="secondstageloop" --><li class="stage"><div class="part" style="width:<!--#json name="diameter.value" -->0%"></div><div class="stage-holder"><div class="<!--#json name="title" -->"><!--#json name="title" --></div></div></li><!--#endfor name="secondstageloop" -->
 											</ul>
 											<button class="next"><span>&#x276F;</span></button>
 										</div>
@@ -419,14 +421,12 @@
 										<div class="slider">
 											<button class="prev"><span>&#x276E;</span></button>
 											<ul>
-												<!--#for each="firststage" name="firststageloop" --><li class="stage"><div class="part"><div class="<!--#json name="title" -->"><!--#json name="title" --></div></div></li><!--#endfor name="firststageloop" -->
+												<!--#for each="firststage" name="firststageloop" --><li class="stage"><div class="part" style="width:<!--#json name="diameter.value" -->0%"></div><div class="stage-holder"><div class="<!--#json name="title" -->"><!--#json name="title" --></div></div></li><!--#endfor name="firststageloop" -->
 											</ul>
 											<button class="next"><span>&#x276F;</span></button>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="col">
 							</div>
 						</div>
 					</div>

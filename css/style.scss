@@ -405,9 +405,26 @@ $pattern_b: transparent 48%, white 49%, white 51%, transparent 52%, transparent;
 	height: 100%;
 	max-height: 100vh;
 }
-
-
-
+.rocket-holder .part {
+	height: 100%; margin: auto; display: block;
+}
+.rocket-holder .payload .part {
+	height: 100%;
+	margin: auto;
+	display: block;
+	background: none;
+}
+.rocket-holder .payload .part:before {
+	content: "";
+	border-radius: 100% 100% 0 0;
+	width: inherit;
+	position: absolute;
+	height: 100%;
+	display: block;
+}
+.rocket-holder .part, .rocket-holder .payload .part:before {
+	@include fader(#ffffff,1,$grey-2,1);
+}
 
 .isogrid {
 	background: $blue-5;
