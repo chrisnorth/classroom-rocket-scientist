@@ -93,6 +93,22 @@
 			],
 			"power": { "value": 50, "units": "watts", "dimension": "power" }
 		},
+        "camera-opt-hires" : {
+			"slot": "2x4",
+			"title": "%package.camera-opt-hires.title%",
+			"description": "%package.camera-opt-hires.description%",
+			"texture": {
+				"icon": "texture camera-opt-hires"
+			},
+			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"dimensions": [
+				{ "value": 1.0, "units": "m", "dimension": "length" },
+				{ "value": 1.0, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" }
+			],
+			"power": { "value": 50, "units": "watts", "dimension": "power" }
+		},
 		"camera-nir": {
 			"slot":	"2x2",
 			"title": "%package.camera-nir.title%",
@@ -740,7 +756,7 @@
 		"MEO": {
 			"title": "%orbit.MEO.title%",
 			"description": "%orbit.MEO.description%",
-			"altitude": { "value": 2000, "units": "km", "dimension": "length" }, 
+			"altitude": { "value": 2000, "units": "km", "dimension": "length" },
 			"period": { "value": 2, "units": "hours", "dimension": "time" }
 		},
 		"HEO": {
@@ -766,8 +782,8 @@
 				"credit": "ESA"
 			},
 			"missions": [{
-				"title": "Satellite Navigation System",
-				"description": "Tell people their location",
+				"title": "%scenarios.NAV.sat-nav.title%",
+				"description": "%scenarios.NAV.sat-nav.description%",
 				"success": "",
 				"image": {
 					"file": "images/satnav.jpg",
@@ -783,8 +799,8 @@
 				},{
 					"type": "package",
 					"oneof": ["atomicclock"],
-					"label": "Wavelength coverage from sub-mm to far-IR.",
-					"error": "You are not able to observe the required wavelengths."
+					"label": "%scenarios.NAV.sat-nav.req.atomic.label",
+					"error": "%scenarios.NAV.sat-nav.req.atomic.error%"
 				},{
 					"type": "package",
 					"oneof": ["radio_tx"],
@@ -792,10 +808,14 @@
 					"error": "You do not have any way to transmit timing signals to people on the ground."
 				},{
 					"type": "orbit",
-					"oneof": ["MEO","HEO","GEO"],
+					"oneof": ["HEO","GEO"],
 					"label": "See the whole planet.",
 					"error": "The orbit you have chosen does not allow you to see the whole planet"
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-small","battery-large"],
+                    "label": ""
+                }]
 			},{
 				"title": "Map-making",
 				"description": "Map the surface of the Earth",
@@ -805,7 +825,10 @@
 					"credit": ""
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
-				"requires": []
+				"requires": [{
+                    "type": "package",
+                    |
+                    }]
 			}]
 		},
 		"COMMS": {
@@ -896,7 +919,7 @@
 				},
 				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
 				"requires": []
-			}]		
+			}]
 		}
 	}
 }

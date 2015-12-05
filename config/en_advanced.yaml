@@ -43,8 +43,8 @@ ui.sections.orbit.short:                    Orbit
 ui.sections.orbit.title:                    Select the orbit for your satellite
 ui.sections.orbit.intro:                    There are several different orbits around the Earth that you can choose from. Higher orbits need more powerful rockets to get to them.
 ui.sections.orbit.list:                     Available orbits:
-ui.sections.orbit.altitude:                 Altitude: 
-ui.sections.orbit.period:                   Period: 
+ui.sections.orbit.altitude:                 Altitude:
+ui.sections.orbit.period:                   Period:
 ui.sections.instrument.short:               Instruments
 ui.sections.instrument.title:               Select the instruments for your satellite
 ui.sections.instrument.intro:               To complete your mission you will need the correct instruments. You only have a limited number of slots and money so choose wisely.
@@ -69,60 +69,62 @@ bus.medium.title:                           Medium satellite
 bus.medium.button:                          Select medium satellite
 bus.large.title:                            Large satellite
 bus.large.button:                           Select large satellite
-package.camera-opt.title:                   Camera (optical)    # The title of the optical camera instrument
-package.camera-opt.description:             Images of ground
-package.camera-nir.title:                   Camera (NIR)
-package.camera-nir.description:             Images of vegetation
-package.camera-fir.title:                   Camera (FIR)
-package.camera-fir.description:             Images of clouds
-package.spect-opt.title:                    Spectrometer (optical)
-package.spect-opt.description:              Properties of ground
-package.spect-nir.title:                    Spectrometer (NIR)
-package.spect-nir.description:              Properties of vegetation
-package.spect-fir.title:                    Spectrometer (FIR)
-package.spect-fir.description:              Properties of clouds
+package.camera-opt.title:                   Optical camera    # The title of the optical camera instrument
+package.camera-opt.description:             Provides images of the ground, such as for mapping or for monitoring natural disasters. Can also be used to monitor cloud cover. The resolution depends on the orbit altitude.
+package.camera-opt-hires.title:             High-resolution optical camera    # The title of the optical camera instrument
+package.camera-opt-hires.description:       Provides very high-resolution images of the ground, such as for monitoring natural disasters, but only when used in low-Earth orbit.
+package.camera-nir.title:                   Vegetation camera
+package.camera-nir.description:             Provides infrared images of vegetation and land-usage on the ground. Only works in daylight, as it relies on reflected sunlight.
+package.camera-fir.title:                   Atmospheric camera
+package.camera-fir.description:             Provides infrared images of the clouds and weather systems in the Earth's atmosphere, useful for weather forecasting and climate monitoring, even during darkness.
+package.spect-opt.title:                    Optical Spectrometer
+package.spect-opt.description:              Measures detailed properties of the Earth's surface, such as deforestation.
+package.spect-nir.title:                    Vegetation Spectrometer
+package.spect-nir.description:              Measures the properties of vegetation on the ground, such type of vegetation and how healthy it is.
+package.spect-fir.title:                    Atmospheric Spectrometer
+package.spect-fir.description:              Uses infrared light to measure properties of the Earth's atmosphere, such as clouds, moisture level, surface temperature and air temperature, even during darkness.
 package.radar-alt.title:                    Radar altimeter
-package.radar-alt.description:              Measuring topography
+package.radar-alt.description:              Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earth quakes.
 package.radar-alt.requires.dish.label:      Requires a radar dish
 package.radar-alt.requires.dish.error:      You need to include a radar dish for the altimeter to work
 package.radar-dish.title:                   Radar dish
-package.radar-dish.description:             Measuring topography
+package.radar-dish.description:             Radar dish for transmitting and receiving the radio waves for the radar altimiter
 package.radio-rx.title:                     Radio receiver
-package.radio-rx.description:               Communications
+package.radio-rx.description:               Receives communications from the ground
 package.radio-tx.title:                     Radio transmitter
-package.radio-tx.description:               Communications
+package.radio-tx.description:               Transmits communications to the ground
 package.atomic-clock.title:                 Atomic clock
-package.atomic-clock.description:           Navigation (GPS timing)
+package.atomic-clock.description:           Very accurate clock, required by navigation satellites to measure the time to very high precision.
 package.atomic-clock-small.title:           Atomic clock (compact)
-package.atomic-clock-small.description:     Navigation (GPS timing)
+package.atomic-clock-small.description:     Very accurate clock, required by navigation satellites to measure the time to very high precision.
 package.gps-rx.title:                       GPS receiver (miniature)
-package.gps-rx.description:                 Positioning
+package.gps-rx.description:                 Used to monitor the satellite's position to very high accuract
 package.camera-mini.title:                  Camera (miniature)
-package.camera-mini.description:            Images of ground
+package.camera-mini.description:            Takes images of the ground
 package.dish-large.title:                   Radio dish (large)
-package.dish-large.description:             For up to 8 instruments
+package.dish-large.description:             Radio dish capable of controlling and transmitting images & data from up to 8 instruments
 package.dish-medium.title:                  Radio dish
-package.dish-medium.description:            For up to 4 instruments
+package.dish-medium.description:            Radio dish capable of controlling and transmitting images & data from up to 4 instruments
 package.dish-small.title:                   Radio antenna (compact)
-package.dish-small.description:             For up to 2 instruments
+package.dish-small.description:             Radio dish capable of controlling and transmitting images & data from up to 2 instruments
 package.radio-antenna-cube.title:           Radio antenna (deployable)
-package.radio-antenna-cube.description:     For up to 2 instruments
+package.radio-antenna-cube.description:     Deployable radio antenna capable of controlling and transmitting images & data from up to 2 instruments
 package.battery-large.title:                Large battery
-package.battery-large.description:          Provides power
-package.battery-large.requires.solar.label: Requires solar panels
+package.battery-large.description:          Stores power from solar panels to allow operation when not in sunlight
+package.battery-large.requires.solar.label: Requires solar panels to charge up
 package.battery-large.requires.solar.error: Requires solar panels
 package.battery-small.title:                Small battery
-package.battery-small.description:          Provides power
+package.battery-small.description:          Stores power from solar panels to allow operation when not in sunlight
 package.battery-small.requires.solar.label: Requires solar panels
 package.battery-small.requires.solar.error: Requires solar panels
 package.rtg.title:                          RTG
-package.rtg.description:                    Provides power
+package.rtg.description:                    A "Radioisotope Thermal Generator" uses nuclear technology to provide power. Due to safety concerns, can't be used in low-Earth orbit.
 package.rtg.requires.orbit.label:           Not for low-Earth orbit
 package.rtg.requires.orbit.error:           Can't use an RTG in low-Earth orbit
 package.solar-panel-surface.title:          Body-mounted solar panel
-package.solar-panel-surface.description:    Provides power
+package.solar-panel-surface.description:    Solar panels mounted onto surface of satellite, collecting sunlight to provice power. Can power instruments, or charge up batteries.
 package.solar-panel.title:                  Deployable solar panel
-package.solar-panel.description:            Provides power
+package.solar-panel.description:            Solar panels deployed from edge of satellite, collecting sunlight to provice power. Can power instruments, or charge up batteries.
 orbit.LEO.title:                            Low-Earth orbit
 orbit.LEO.description:                      A description
 orbit.MEO.title:                            Medium-Earth orbit
@@ -131,10 +133,14 @@ orbit.HEO.title:                            Highly-elliptical orbit
 orbit.HEO.description:                      A description
 orbit.GEO.title:                            Geo-stationary orbit
 orbit.GEO.description:                      A description
-scenarios.NAV.title:                        Navigation
+scenarios.NAV.title:                        Navigation Satellite
 scenarios.NAV.description:                  The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.
-scenarios.COMMS.title:                      Communication
+scenarios.NAV.sat-nav.title:                Satellite Navigation System
+scenarios.NAV.sat-nav.description:          Tells people their location
+scenarios.NAV.sat-nav.req.atomic.label:     Measures time accurately
+scenarios.NAV.sat-nav.req.atomic.error:      You are not able to measure the time accurately enough.
+scenarios.COMMS.title:                      Communication Satellite
 scenarios.COMMS.description:                These are used for television, phone or internet transmissions, for example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.
-scenarios.EO.title:                         Earth observation
+scenarios.EO.title:                         Earth Observation Satellite
 scenarios.EO.description:                   These are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.
 ...
