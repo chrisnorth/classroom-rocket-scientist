@@ -47,7 +47,7 @@
 		},
 		"small": {
 			"slots": { "2x2": 2, "2x4": 1, "3x3": 1, "4x4": 4 },
-			"cost": { "value": 4000000, "units": "USD", "dimension": "currency" },
+			"cost": { "value": 50, "units": "credits", "dimension": "currency" },
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 150, "units": "kg", "dimension": "mass" },
 			"width": { "value": 1, "units": "m", "dimension": "length" },
@@ -57,7 +57,7 @@
 		},
 		"medium":{
 			"slots": { "2x2": 4, "2x4": 2, "3x3": 1, "4x4": 4 },
-			"cost": { "value": 315000000, "units": "EUR", "dimension": "currency" },
+			"cost": { "value": 100, "units": "credits", "dimension": "currency" },
 			"mass": { "value": 500, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 250, "units": "kg", "dimension": "mass" },
 			"width": { "value": 5, "units": "m", "dimension": "length" },
@@ -67,7 +67,7 @@
 		},
 		"large":{
 			"slots": { "2x2": 8, "2x4": 3, "4x8": 1, "3x3": 1, "4x4": 4 },
-			"cost": { "value": 2300000000, "units": "USD", "dimension": "currency" },
+			"cost": { "value": 500, "units": "credits", "dimension": "currency" },
 			"mass": { "value": 1000, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 500, "units": "kg", "dimension": "mass" },
 			"width": { "value": 10, "units": "m", "dimension": "length" },
@@ -237,7 +237,7 @@
 				"icon": "texture radio-rx"
 			},
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" },
@@ -253,7 +253,7 @@
 				"icon": "texture radio-tx"
 			},
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" },
@@ -269,7 +269,7 @@
 				"icon": "texture atomic-clock"
 			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 50000, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.1, "units": "m", "dimension": "length" },
 				{ "value": 0.1, "units": "m", "dimension": "length" },
@@ -285,13 +285,13 @@
 				"icon": "texture atomic-clock-small"
 			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 50000, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.1, "units": "m", "dimension": "length" },
 				{ "value": 0.1, "units": "m", "dimension": "length" },
 				{ "value": 0.05, "units": "m", "dimension": "length" }
 			],
-			"power": { "value": 10, "units": "watts", "dimension": "power" }
+			"power": { "value": 5, "units": "watts", "dimension": "power" }
 		},
 		"gps-rx": {
 			"slot":	"1x1",
@@ -408,7 +408,7 @@
 				"icon": "texture battery-large"
 			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 20, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" },
@@ -430,7 +430,7 @@
 				"icon": "texture battery-small"
 			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 15, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.05, "units": "m", "dimension": "length" },
 				{ "value": 0.05, "units": "m", "dimension": "length" },
@@ -471,7 +471,7 @@
 			"title": "%package.solar-panel-surface.title%",
 			"description": "%package.solar-panel-surface.description%",
 			"mass": { "value": 5, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 15, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 1.0, "units": "m", "dimension": "length" },
 				{ "value": 1.0, "units": "m", "dimension": "length" }
@@ -485,7 +485,7 @@
 			"title": "%package.solar-panel.title%",
 			"description": "%package.solar-panel.description%",
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 20, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 1.0, "units": "m", "dimension": "length" },
 				{ "value": 1.0, "units": "m", "dimension": "length" }
@@ -825,10 +825,6 @@
 					"credit": ""
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
-				"requires": [{
-                    "type": "package",
-                    |
-                    }]
 			}]
 		},
 		"COMMS": {
