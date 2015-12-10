@@ -3,36 +3,41 @@
 var eventcache = {};
 function E(e){
 	
-	function matchSelector(e,selector){
+	function matchSelector(e,s){
 		var result = false;
-		// Does this one element match the selector
-		if(selector[0] == '.'){
-			selector = selector.substr(1);
-			for(var i = 0; i < e.classList.length; i++) if(e.classList[i] == selector) return true;
-		}else if(selector[0] == '#'){
-			if(e.id == selector.substr(1)) return true;
+		// Does this one element match the s
+		if(s[0] == '.'){
+			s = s.substr(1);
+			for(var i = 0; i < e.classList.length; i++) if(e.classList[i] == s) return true;
+		}else if(s[0] == '#'){
+			if(e.id == s.substr(1)) return true;
 		}else{
-			if(e.tagName == selector.substr(1).toUpperCase()) return true;
+			if(e.tagName == s.substr(1).toUpperCase()) return true;
 		}
 		return false;
 	}
-	function getBy(e,selector){
+	function getBy(e,s){
 		var i = -1;
 		var result = new Array();
-		if(selector.indexOf(':eq') > 0){
-			var m = selector.replace(/(.*)\:eq\(([0-9]+)\)/,'$1 $2').split(" ");
-			selector = m[0];
+		if(s.indexOf(':eq') > 0){
+			var m = s.replace(/(.*)\:eq\(([0-9]+)\)/,'$1 $2').split(" ");
+			s = m[0];
 			i = parseInt(m[1]);
 		}
-		if(selector[0] == '.') els = e.getElementsByClassName(selector.substr(1));
-		else if(selector[0] == '#') els = e.getElementById(selector.substr(1));
-		else els = e.getElementsByTagName(selector);
+		if(s[0] == '.') els = e.getElementsByClassName(s.substr(1));
+		else if(s[0] == '#') els = e.getElementById(s.substr(1));
+		else els = e.getElementsByTagName(s);
 		if(!els) els = [];
-		if(typeof els.length!=="number") els = [els];
-		for(k = 0; k < els.length; k++){ result.push(els[k]); }
-		if(i >= 0 && result.length > 0){
-			if(i < result.length) result = [result[i]];
-			else result = [];
+		
+		// If it is a select field we don't want to select the options within it
+		if(els.nodeName && els.nodeName=="SELECT") result.push(els);
+		else{
+			if(typeof els.length!=="number") els = [els];
+			for(k = 0; k < els.length; k++){ result.push(els[k]); }
+			if(i >= 0 && result.length > 0){
+				if(i < result.length) result = [result[i]];
+				else result = [];
+			}
 		}
 		return result;
 	}
@@ -71,10 +76,11 @@ function E(e){
 		if(html) for(var i = 0; i < this.e.length; i++) this.e[i].innerHTML += html;
 		return this;	
 	}
+	/*
 	stuQuery.prototype.setCache = function(a){
 		eventcache = a;
 		return;
-	}
+	}*/
 	function NodeMatch(a,el){
 		if(a && a.length > 0){
 			for(var i = 0; i < a.length; i++){
@@ -151,10 +157,10 @@ function E(e){
 	stuQuery.prototype.trigger = function(e){
 		var event; // The custom event that will be created
 
-		if (document.createEvent) {
+		if(document.createEvent) {
 			event = document.createEvent("HTMLEvents");
 			event.initEvent(e, true, true);
-		} else {
+		}else{
 			event = document.createEventObject();
 			event.eventType = e;
 		}
@@ -162,7 +168,7 @@ function E(e){
 		event.eventName = e;
 
 		for(var i = 0 ;  i < this.e.length ; i++){
-			if (document.createEvent) this.e[i].dispatchEvent(event);
+			if(document.createEvent) this.e[i].dispatchEvent(event);
 			else this.e[i].fireEvent("on" + event.eventType, event);
 		}
 
@@ -183,7 +189,7 @@ function E(e){
 		if(!this.e) return this;
 		for(var i = this.e.length-1; i >= 0; i--){
 			if(!this.e[i]) return;
-			if(typeof this.e[i].remove==="function") this.e[i].remove(this.e[i]);
+			if(typeof this.e[i].remove==="function") this.e[i].remove();
 			else if(typeof this.e[i].parentElement.removeChild==="function") this.e[i].parentElement.removeChild(this.e[i]);
 		}
 		return E(this.e);
@@ -285,7 +291,8 @@ function E(e){
 			if(typeof val==="string" || typeof val==="number") this.e[i].setAttribute(attr,val)
 		}
 		if(tmp.length==1) tmp = tmp[0];
-		return tmp;
+		if(typeof val==="undefined") return tmp;
+		else return E(this.e);
 	}
 	stuQuery.prototype.prop = function(attr,val){
 		var tmp = [];
@@ -311,25 +318,44 @@ function E(e){
 		for(var i = 0; i < this.e.length; i++) clone.e[0].parentNode.replaceChild(span, clone.e[0]);
   		return clone;
 	}
-	stuQuery.prototype.loadJSON = function(file,fn,attrs){
-
+	//=========================================================
+	// ajax(url,{'complete':function,'error':function,'dataType':'json'})
+	// complete: function - a function executed on completion
+	// error: function - a function executed on an error
+	// dataType: json - will convert the text to JSON
+	stuQuery.prototype.ajax = function(url,attrs){
+		if(typeof url!=="string") return false;
 		if(!attrs) attrs = {};
-		attrs['_file'] = file;
+		attrs['url'] = url;
 
-		var httpRequest = new XMLHttpRequest();
-		httpRequest.onreadystatechange = function() {
-			if (httpRequest.readyState === 4) {
-				if (httpRequest.status === 200) {
-					var data = JSON.parse(httpRequest.responseText);
-					if(typeof fn==="function") fn.call((attrs['this'] ? attrs['this'] : this),data,attrs);
-				}else{
-					console.log('error loading '+file);
-					if(typeof attrs.error==="function") attrs.error.call((attrs['this'] ? attrs['this'] : this),httpRequest.responseText,attrs);
-				}
-			}
-		};
-		httpRequest.open('GET', file);
-		httpRequest.send(); 
+		// code for IE7+/Firefox/Chrome/Opera/Safari or for IE6/IE5
+		var oReq = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+		oReq.addEventListener("load", complete);
+		oReq.addEventListener("error", error);
+
+		function complete(evt) {
+			if(oReq.status === 200) {
+				if(typeof attrs.complete==="function") attrs.complete.call((attrs['this'] ? attrs['this'] : this), (attrs['dataType']=="json") ? JSON.parse(oReq.responseText) : oReq.responseText, attrs);
+			}else error(evt);
+		}
+
+		function error(evt){
+			if(typeof attrs.error==="function") attrs.error.call((attrs['this'] ? attrs['this'] : this),evt,attrs);
+		}
+
+		try{ oReq.open('GET', url); }
+		catch(err){ error(err); }
+
+		try{ oReq.send(); }
+		catch(err){ error(err); }
+
+		return this;
+	}
+	stuQuery.prototype.loadJSON = function(url,fn,attrs){
+		if(!attrs) attrs = {};
+		attrs.dataType = "json";
+		attrs.complete = fn;
+		this.ajax(url,attrs);
 		return this;
 	}
 	return new stuQuery(e);
