@@ -827,8 +827,9 @@
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
-                    |
-                    }]
+                    "oneof": [],
+                    "label": ""
+                }]
 			}]
 		},
 		"COMMS": {

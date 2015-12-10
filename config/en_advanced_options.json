@@ -79,8 +79,8 @@
 	"package": {
 		"camera-opt" : {
 			"slot": "2x2",
-			"title": "Camera (optical)",
-			"description": "Images of ground",
+			"title": "Optical camera",
+			"description": "Provides images of the ground, such as for mapping or for monitoring natural disasters. Can also be used to monitor cloud cover. The resolution depends on the orbit altitude.",
 			"texture": {
 				"icon": "texture camera-opt"
 			},
@@ -93,10 +93,26 @@
 			],
 			"power": { "value": 50, "units": "watts", "dimension": "power" }
 		},
+        "camera-opt-hires" : {
+			"slot": "2x4",
+			"title": "High-resolution optical camera",
+			"description": "Provides very high-resolution images of the ground, such as for monitoring natural disasters, but only when used in low-Earth orbit.",
+			"texture": {
+				"icon": "texture camera-opt-hires"
+			},
+			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"dimensions": [
+				{ "value": 1.0, "units": "m", "dimension": "length" },
+				{ "value": 1.0, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" }
+			],
+			"power": { "value": 50, "units": "watts", "dimension": "power" }
+		},
 		"camera-nir": {
 			"slot":	"2x2",
-			"title": "Camera (NIR)",
-			"description": "Images of vegetation",
+			"title": "Vegetation camera",
+			"description": "Provides infrared images of vegetation and land-usage on the ground. Only works in daylight, as it relies on reflected sunlight.",
 			"texture": {
 				"icon": "texture camera-nir"
 			},
@@ -111,8 +127,8 @@
 		},
 		"camera-fir": {
 			"slot":	"2x4",
-			"title": "Camera (FIR)",
-			"description": "Images of clouds",
+			"title": "Atmospheric camera",
+			"description": "Provides infrared images of the clouds and weather systems in the Earth's atmosphere, useful for weather forecasting and climate monitoring, even during darkness.",
 			"texture": {
 				"icon": "texture camera-fir"
 			},
@@ -127,8 +143,8 @@
 		},
 		"spect-opt": {
 			"slot":	"2x2",
-			"title": "Spectrometer (optical)",
-			"description": "Properties of ground",
+			"title": "Optical Spectrometer",
+			"description": "Measures detailed properties of the Earth's surface, such as deforestation.",
 			"texture": {
 				"icon": "texture spect-opt"
 			},
@@ -143,8 +159,8 @@
 		},
 		"spect-nir": {
 			"slot":	"2x2",
-			"title": "Spectrometer (NIR)",
-			"description": "Properties of vegetation",
+			"title": "Vegetation Spectrometer",
+			"description": "Measures the properties of vegetation on the ground, such type of vegetation and how healthy it is.",
 			"texture": {
 				"icon": "texture spect-nir"
 			},
@@ -159,8 +175,8 @@
 		},
 		"spect-fir": {
 			"slot":	"2x4",
-			"title": "Spectrometer (FIR)",
-			"description": "Properties of clouds",
+			"title": "Atmospheric Spectrometer",
+			"description": "Uses infrared light to measure properties of the Earth's atmosphere, such as clouds, moisture level, surface temperature and air temperature, even during darkness.",
 			"texture": {
 				"icon": "texture spect-fir"
 			},
@@ -176,7 +192,7 @@
 		"radar-alt": {
 			"slot":	"2x4",
 			"title": "Radar altimeter",
-			"description": "Measuring topography",
+			"description": "Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earth quakes.",
 			"texture": {
 				"icon": "texture radar-alt"
 			},
@@ -198,7 +214,7 @@
 		"radar-dish": {
 			"slot":	"4x8",
 			"title": "Radar dish",
-			"description": "Measuring topography",
+			"description": "Radar dish for transmitting and receiving the radio waves for the radar altimiter",
 			"texture": {
 				"icon": "",
 				"class": "-bg radar",
@@ -216,7 +232,7 @@
 		"radio-rx": {
 			"slot":	"2x2",
 			"title": "Radio receiver",
-			"description": "Communications",
+			"description": "Receives communications from the ground",
 			"texture": {
 				"icon": "texture radio-rx"
 			},
@@ -232,7 +248,7 @@
 		"radio-tx": {
 			"slot":	"2x2",
 			"title": "Radio transmitter",
-			"description": "Communications",
+			"description": "Transmits communications to the ground",
 			"texture": {
 				"icon": "texture radio-tx"
 			},
@@ -248,7 +264,7 @@
 		"atomic-clock": {
 			"slot":	"2x2",
 			"title": "Atomic clock",
-			"description": "Navigation (GPS timing)",
+			"description": "Very accurate clock, required by navigation satellites to measure the time to very high precision.",
 			"texture": {
 				"icon": "texture atomic-clock"
 			},
@@ -264,7 +280,7 @@
 		"atomic-clock-small": {
 			"slot":	"1x2",
 			"title": "Atomic clock (compact)",
-			"description": "Navigation (GPS timing)",
+			"description": "Very accurate clock, required by navigation satellites to measure the time to very high precision.",
 			"texture": {
 				"icon": "texture atomic-clock-small"
 			},
@@ -280,7 +296,7 @@
 		"gps-rx": {
 			"slot":	"1x1",
 			"title": "GPS receiver (miniature)",
-			"description": "Positioning",
+			"description": "Used to monitor the satellite's position to very high accuract",
 			"texture": {
 				"icon": "texture gps-rx"
 			},
@@ -296,7 +312,7 @@
 		"camera-mini": {
 			"slot":	"1x1",
 			"title": "Camera (miniature)",
-			"description": "Images of ground",
+			"description": "Takes images of the ground",
 			"texture": {
 				"icon": "texture camera-mini"
 			},
@@ -312,7 +328,7 @@
 		"dish-large": {
 			"slot":	"4x8",
 			"title": "Radio dish (large)",
-			"description": "For up to 8 instruments",
+			"description": "Radio dish capable of controlling and transmitting images & data from up to 8 instruments",
 			"texture": {
 				"icon": "",
 				"class": "-bg radio",
@@ -330,7 +346,7 @@
 		"dish-medium": {
 			"slot":	"2x4",
 			"title": "Radio dish",
-			"description": "For up to 4 instruments",
+			"description": "Radio dish capable of controlling and transmitting images & data from up to 4 instruments",
 			"texture": {
 				"icon": "",
 				"class": "-bg radio",
@@ -348,7 +364,7 @@
 		"dish-small": {
 			"slot":	"1x2",
 			"title": "Radio antenna (compact)",
-			"description": "For up to 2 instruments",
+			"description": "Radio dish capable of controlling and transmitting images & data from up to 2 instruments",
 			"texture": {
 				"icon": "",
 				"class": "-bg radio",
@@ -366,7 +382,7 @@
 		"radio-antenna-cube": {
 			"slot":	"0x2",
 			"title": "Radio antenna (deployable)",
-			"description": "For up to 2 instruments",
+			"description": "Deployable radio antenna capable of controlling and transmitting images & data from up to 2 instruments",
 			"texture": {
 				"icon": "texture radio-antenna-cube",
 				"class": "-bg",
@@ -387,7 +403,7 @@
 		"battery-large": {
 			"slot":	"2x2",
 			"title": "Large battery",
-			"description": "Provides power",
+			"description": "Stores power from solar panels to allow operation when not in sunlight",
 			"texture": {
 				"icon": "texture battery-large"
 			},
@@ -402,14 +418,14 @@
 			"requires": [{
 				"type": "power",
 				"oneof": ["solar-panel","solar-panel-surface"],
-				"label": "Requires solar panels",
+				"label": "Requires solar panels to charge up",
 				"error": "Requires solar panels"
 			}]
 		},
 		"battery-small": {
 			"slot":	"1x1",
 			"title": "Small battery",
-			"description": "Provides power",
+			"description": "Stores power from solar panels to allow operation when not in sunlight",
 			"texture": {
 				"icon": "texture battery-small"
 			},
@@ -431,7 +447,7 @@
 		"rtg": {
 			"slot":	"2x4",
 			"title": "RTG",
-			"description": "Provides power",
+			"description": "A \"Radioisotope Thermal Generator\" uses nuclear technology to provide power. Due to safety concerns, can't be used in low-Earth orbit.",
 			"texture": {
 				"icon": "texture rtg"
 			},
@@ -453,7 +469,7 @@
 		"solar-panel-surface": {
 			"slot":	"3x3",
 			"title": "Body-mounted solar panel",
-			"description": "Provides power",
+			"description": "Solar panels mounted onto surface of satellite, collecting sunlight to provice power. Can power instruments, or charge up batteries.",
 			"mass": { "value": 5, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -467,7 +483,7 @@
 			"slot":	"4x4",
 			"max": 4,
 			"title": "Deployable solar panel",
-			"description": "Provides power",
+			"description": "Solar panels deployed from edge of satellite, collecting sunlight to provice power. Can power instruments, or charge up batteries.",
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
 			"dimensions": [
@@ -740,7 +756,7 @@
 		"MEO": {
 			"title": "Medium-Earth orbit",
 			"description": "A description",
-			"altitude": { "value": 2000, "units": "km", "dimension": "length" }, 
+			"altitude": { "value": 2000, "units": "km", "dimension": "length" },
 			"period": { "value": 2, "units": "hours", "dimension": "time" }
 		},
 		"HEO": {
@@ -758,7 +774,7 @@
 	},
 	"scenarios": {
 		"NAV": {
-			"title": "Navigation",
+			"title": "Navigation Satellite",
 			"description": "The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension=\"length\" data-units=\"km\" data-value=\"20000\" class=\"value convertable\">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.",
 			"image": {
 				"file": "images/satnav.jpg",
@@ -767,7 +783,7 @@
 			},
 			"missions": [{
 				"title": "Satellite Navigation System",
-				"description": "Tell people their location",
+				"description": "Tells people their location",
 				"success": "",
 				"image": {
 					"file": "images/satnav.jpg",
@@ -783,8 +799,8 @@
 				},{
 					"type": "package",
 					"oneof": ["atomicclock"],
-					"label": "Wavelength coverage from sub-mm to far-IR.",
-					"error": "You are not able to observe the required wavelengths."
+					"label": "%scenarios.NAV.sat-nav.req.atomic.label",
+					"error": "You are not able to measure the time accurately enough."
 				},{
 					"type": "package",
 					"oneof": ["radio_tx"],
@@ -792,10 +808,14 @@
 					"error": "You do not have any way to transmit timing signals to people on the ground."
 				},{
 					"type": "orbit",
-					"oneof": ["MEO","HEO","GEO"],
+					"oneof": ["HEO","GEO"],
 					"label": "See the whole planet.",
 					"error": "The orbit you have chosen does not allow you to see the whole planet"
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-small","battery-large"],
+                    "label": ""
+                }]
 			},{
 				"title": "Map-making",
 				"description": "Map the surface of the Earth",
@@ -805,11 +825,15 @@
 					"credit": ""
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
-				"requires": []
+				"requires": [{
+                    "type": "package",
+                    "oneof": [],
+                    "label": ""
+                }]
 			}]
 		},
 		"COMMS": {
-			"title": "Communication",
+			"title": "Communication Satellite",
 			"description": "These are used for television, phone or internet transmissions, for example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.",
 			"image": {
 				"file": "images/satnav.jpg",
@@ -849,7 +873,7 @@
 			}]
 		},
 		"EO": {
-			"title": "Earth observation",
+			"title": "Earth Observation Satellite",
 			"description": "These are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.",
 			"image": {
 				"file": "images/satnav.jpg",
@@ -896,7 +920,7 @@
 				},
 				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
 				"requires": []
-			}]		
+			}]
 		}
 	}
 }

@@ -71,7 +71,7 @@ bus.large.title:                            Large satellite
 bus.large.button:                           Select large satellite
 package.camera-opt.title:                   Optical camera    # The title of the optical camera instrument
 package.camera-opt.description:             Provides images of the ground, such as for mapping or for monitoring natural disasters. Can also be used to monitor cloud cover. The resolution depends on the orbit altitude.
-package.camera-opt-hires.title:             High-resolution optical camera    # The title of the optical camera instrument
+package.camera-opt-hires.title:             High-resolution optical camera
 package.camera-opt-hires.description:       Provides very high-resolution images of the ground, such as for monitoring natural disasters, but only when used in low-Earth orbit.
 package.camera-nir.title:                   Vegetation camera
 package.camera-nir.description:             Provides infrared images of vegetation and land-usage on the ground. Only works in daylight, as it relies on reflected sunlight.
@@ -143,4 +143,4 @@ scenarios.COMMS.title:                      Communication Satellite
 scenarios.COMMS.description:                These are used for television, phone or internet transmissions, for example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.
 scenarios.EO.title:                         Earth Observation Satellite
 scenarios.EO.description:                   These are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.
-...
+---
