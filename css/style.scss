@@ -739,6 +739,7 @@ table.data td:last-child { text-align: left; }
 	.satellite-holder { display: block; height: auto; max-height: auto; }
 	section#type .holder { width: 100%; }
 	.padded { padding: $padded*0.5; }
+	.padd-left { margin-left: 0px;  }
 }
 
 @media only screen and (max-width: 600px){

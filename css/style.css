@@ -3091,7 +3091,10 @@ ul.orrery li.GEO {
     width: 100%; }
 
   .padded {
-    padding: 1em; } }
+    padding: 1em; }
+
+  .padd-left {
+    margin-left: 0px; } }
 @media only screen and (max-width: 600px) {
   .baritem .coin-icon, .baritem .weight-icon, .baritem .power-icon {
     margin-left: 0.15em; }
