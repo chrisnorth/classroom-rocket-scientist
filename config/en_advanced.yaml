@@ -92,7 +92,7 @@ package.radar-dish.description:             Radar dish for transmitting and rece
 package.radio-rx.title:                     Radio receiver
 package.radio-rx.description:               Receives communications from the ground
 package.radio-tx.title:                     Radio transmitter
-package.radio-tx.description:               Transmits communications to the ground
+package.radio-tx.description:               Transmits information to the ground
 package.atomic-clock.title:                 Atomic clock
 package.atomic-clock.description:           Very accurate clock, required by navigation satellites to measure the time to very high precision.
 package.atomic-clock-small.title:           Atomic clock (compact)
