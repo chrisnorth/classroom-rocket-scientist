@@ -84,21 +84,21 @@ package.spect-nir.description:              Measures the properties of vegetatio
 package.spect-fir.title:                    Atmospheric Spectrometer
 package.spect-fir.description:              Uses infrared light to measure properties of the Earth's atmosphere, such as clouds, moisture level, surface temperature and air temperature, even during darkness.
 package.radar-alt.title:                    Radar altimeter
-package.radar-alt.description:              Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earth quakes.
+package.radar-alt.description:              Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earthquakes.
 package.radar-alt.requires.dish.label:      Requires a radar dish
 package.radar-alt.requires.dish.error:      You need to include a radar dish for the altimeter to work
 package.radar-dish.title:                   Radar dish
-package.radar-dish.description:             Radar dish for transmitting and receiving the radio waves for the radar altimiter
+package.radar-dish.description:             Transmits and receives radio waves for the radar altimeter
 package.radio-rx.title:                     Radio receiver
-package.radio-rx.description:               Receives communications from the ground
+package.radio-rx.description:               Receives instructions from the ground control team
 package.radio-tx.title:                     Radio transmitter
-package.radio-tx.description:               Transmits information to the ground
+package.radio-tx.description:               Transmits information collected by the satellite to the ground
 package.atomic-clock.title:                 Atomic clock
 package.atomic-clock.description:           Very accurate clock, required by navigation satellites to measure the time to very high precision.
 package.atomic-clock-small.title:           Atomic clock (compact)
 package.atomic-clock-small.description:     Very accurate clock, required by navigation satellites to measure the time to very high precision.
 package.gps-rx.title:                       GPS receiver (miniature)
-package.gps-rx.description:                 Used to monitor the satellite's position to very high accuract
+package.gps-rx.description:                 Used to monitor the satellite's position to very high accuracy
 package.camera-mini.title:                  Camera (miniature)
 package.camera-mini.description:            Takes images of the ground
 package.dish-large.title:                   Radio dish (large)
@@ -118,25 +118,25 @@ package.battery-small.description:          Stores power from solar panels to al
 package.battery-small.requires.solar.label: Requires solar panels
 package.battery-small.requires.solar.error: Requires solar panels
 package.rtg.title:                          RTG
-package.rtg.description:                    A "Radioisotope Thermal Generator" uses nuclear technology to provide power. Due to safety concerns, can't be used in low-Earth orbit.
+package.rtg.description:                    A "Radioisotope Thermal Generator" uses nuclear technology to provide power. Due to safety concerns, it can't be used in low-Earth orbit.
 package.rtg.requires.orbit.label:           Not for low-Earth orbit
 package.rtg.requires.orbit.error:           Can't use an RTG in low-Earth orbit
 package.solar-panel-surface.title:          Body-mounted solar panel
-package.solar-panel-surface.description:    Solar panels mounted onto surface of satellite, collecting sunlight to provice power. Can power instruments, or charge up batteries.
+package.solar-panel-surface.description:    Solar panels mounted onto surface of satellite, collecting sunlight to provide power. Can power instruments, or charge up batteries.
 package.solar-panel.title:                  Deployable solar panel
-package.solar-panel.description:            Solar panels deployed from edge of satellite, collecting sunlight to provice power. Can power instruments, or charge up batteries.
+package.solar-panel.description:            Solar panels deployed from edge of satellite, collecting sunlight to provide power. Can power instruments, or charge up batteries.
 orbit.LEO.title:                            Low-Earth orbit
-orbit.LEO.description:                      A description
+orbit.LEO.description:                      Satellites in low-Earth orbit pass over a different part of the Earth in each orbit. It is cheaper to send satellites to Low-Earth orbit than other orbits and satellites here can be reached for repairs. Low-Earth orbit satellites can look at small areas in high detail for short periods of time. 
 orbit.MEO.title:                            Medium-Earth orbit
-orbit.MEO.description:                      A description
+orbit.MEO.description:                      Satellites in medium-Earth orbit are higher above the Earth than low-Earth orbits, but lower than geostationary orbits. They cover a different part of Earth in each orbit. They can see a larger area in less detail than low-Earth orbits.
 orbit.HEO.title:                            Highly-elliptical orbit
-orbit.HEO.description:                      A description
+orbit.HEO.description:                      Highly-elliptical orbits are much closer to the Earth at one point in their orbit (called perigee) than another (called apogee), giving an elliptical rather than circular orbit. Due to Kepler's laws, they spend most of their time at apogee, above one area of Earth than another at perigee. They are useful for covering areas including high latitudes. More than one satellite can be used for continuous coverage of an area.
 orbit.GEO.title:                            Geo-stationary orbit
-orbit.GEO.description:                      A description
+orbit.GEO.description:                      Satellites in geostationary orbits orbit at the same speed as the Earth spins, so stay above the same location on Earth near the equator and complete a full orbit in 24 hours. They are much higher above the Earth's surface than other orbits, so can see the entire hemisphere in less detail.
 scenarios.NAV.title:                        Navigation Satellite
 scenarios.NAV.description:                  The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.
 scenarios.NAV.sat-nav.title:                Satellite Navigation System
-scenarios.NAV.sat-nav.description:          Tells people their location
+scenarios.NAV.sat-nav.description:          Uses signals from four navigation satellites so satnav users can find their location on Earth.
 scenarios.NAV.sat-nav.req.atomic.label:     Measures time accurately
 scenarios.NAV.sat-nav.req.atomic.error:      You are not able to measure the time accurately enough.
 scenarios.COMMS.title:                      Communication Satellite
