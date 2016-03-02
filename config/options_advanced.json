@@ -799,7 +799,7 @@
 				},{
 					"type": "package",
 					"oneof": ["atomicclock"],
-					"label": "%scenarios.NAV.sat-nav.req.atomic.label",
+					"label": "%scenarios.NAV.sat-nav.req.atomic.label%",
 					"error": "%scenarios.NAV.sat-nav.req.atomic.error%"
 				},{
 					"type": "package",
