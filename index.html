@@ -1,130 +1,64 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
 	<meta charset="utf-8" />
-
 	<meta name="viewport" content="width=device-width" />
-
 	<title>Classroom rocket scientist</title>
-
 	<link rel="stylesheet" media="all" href="css/fonts.css" type="text/css"/>
-
 	<link rel="stylesheet" media="all" href="css/style.css"  type="text/css" />
-
 	<!--[if !IE]> --><link href="tests/satellite/style-nonie.css" rel="stylesheet" type="text/css" media="screen" /><!-- <![endif]-->
-
 	<script type="text/javascript" src="js/convertable.js"></script>
-
 	<script type="text/javascript" src="js/stuquery.js"></script>
-
 	<script type="text/javascript" src="js/rocketscientist.js"></script>
-
 </head>
-
 <body class="front">
 
-
-
 	<div id="application">
-
 		<header>
-
 			<div id="bar">
-
 				<div class="barmenu">
-
 					<div class="baritem">
-
 						<button class="togglebtn togglemenu" title="Menu"><img src="images/cleardot.gif" class="icon menu" alt="" /></button></a>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div id="progressbar"><div class="progress-inner"></div></div>
-
 		</header>
 
-
-
 		<div id="main">
-
 			<section id="start" class="view">
-
 				<div class="table">
-
 					<div class="table-row-top">
-
 						<div class="msg noscriptmsg">Oops! The interactive parts of <em>Classroom rocket scientist</em> need Javascript to be enabled. Sorry about that.</div>
-
 					</div>
-
 					<div class="table-row">
-
 						<div class="padded">
-
 							<h1>Classroom rocket scientist</h1>
-
 							<p>This is an intro.</p>
-
 							<a href="beginner">Beginner (ages 7-11)</a> / <a href="intermediate">Intermediate (ages 9-11)</a> / <a href="advanced">Advanced (ages 11-14)</a>
-
 						</div>
-
 					</div>
-
 				</div>
-
 			</section>
-
 		</div>
-
-
 		<section id="units" class="not-at-start">
-
 	<h2>Units</h2>
-
 	<form id="optionform">
-
 		<ul>
-
 			<li><label for="changecurrency">Currency:</label> <select name="changecurrency" id="changecurrency"><option selected="selected" value="GBP">British Pounds £</option><option value="USD">US Dollars $</option><option value="EUR">Euros €</option><option value="JPY">Japanese Yen ¥</option><option value="CAD">Canadian Dollars C$</option><option value="AUD">Austrialian Dollars $</option><option value="CHF">Swiss Francs Fr.</option><option value="SEK">Swedish Krona kr</option><option value="CNY">Chinese Yuan ¥</option><option value="INR">Indian Rupees ₨</option><option value="RUB">Russian Ruble RUB</option><option value="DBL">Doubloons DBL</option></select></li>
-
 			<li><label for="changelength">Length units:</label> <select name="changelength" id="changelength"><option selected="selected" value="m">Metres</option><option value="ft">Feet</option><option value="cubit">Cubits</option><option value="bluewhale">Blue Whales</option><option value="yard">Yards</option></select></li>
-
 			<li><label for="changemass">Mass units:</label> <select name="changemass" id="changemass"><option selected="selected" value="kg">Kilograms</option><option value="lb">Pounds</option><option value="elephant">Elephants</option></select></li>
-
 		</ul>
-
 	</form>
 
-
-
 </section>
-
-
 		<menu id="menu" class="dropdown not-at-start">
-
 	<li class="baritem restart" data="restart"><button title="Start over"><img src="images/cleardot.gif" class="icon restart" alt="" /><span>Restart</span></button></li>
-
 	<!--li class="baritem" data="level"><button title="Change the difficulty"><img src="images/cleardot.gif" class="icon difficulty" alt="" /><span>Difficulty</span></button></li-->
-
 	<!--<li class="baritem" data="help"><a href="#guide"><img src="images/cleardot.gif" class="icon help" alt="" /><span>Help</span></a></li>-->
-
 	<li class="baritem units" data="units"><button title="Change the units"><img src="images/cleardot.gif" class="icon options" alt="" /><span>Units</span></button></li>
-
 	<li class="baritem fullscreen not-at-start" data="fullscreen"><button title="Switch between viewing fullscreen or in a standard browser window"><img alt="" class="icon fullscreen" src="images/cleardot.gif" /><span>Toggle fullscreen</span></button></li>
-
 </menu>
-
 	</div>
-
 </body>
-
 </html>
-
