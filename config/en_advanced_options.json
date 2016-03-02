@@ -47,7 +47,7 @@
 		},
 		"small": {
 			"slots": { "2x2": 2, "2x4": 1, "3x3": 1, "4x4": 4 },
-			"cost": { "value": 4000000, "units": "USD", "dimension": "currency" },
+			"cost": { "value": 50, "units": "credits", "dimension": "currency" },
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 150, "units": "kg", "dimension": "mass" },
 			"width": { "value": 1, "units": "m", "dimension": "length" },
@@ -57,7 +57,7 @@
 		},
 		"medium":{
 			"slots": { "2x2": 4, "2x4": 2, "3x3": 1, "4x4": 4 },
-			"cost": { "value": 315000000, "units": "EUR", "dimension": "currency" },
+			"cost": { "value": 100, "units": "credits", "dimension": "currency" },
 			"mass": { "value": 500, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 250, "units": "kg", "dimension": "mass" },
 			"width": { "value": 5, "units": "m", "dimension": "length" },
@@ -67,7 +67,7 @@
 		},
 		"large":{
 			"slots": { "2x2": 8, "2x4": 3, "4x8": 1, "3x3": 1, "4x4": 4 },
-			"cost": { "value": 2300000000, "units": "USD", "dimension": "currency" },
+			"cost": { "value": 500, "units": "credits", "dimension": "currency" },
 			"mass": { "value": 1000, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 500, "units": "kg", "dimension": "mass" },
 			"width": { "value": 10, "units": "m", "dimension": "length" },
@@ -192,7 +192,7 @@
 		"radar-alt": {
 			"slot":	"2x4",
 			"title": "Radar altimeter",
-			"description": "Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earth quakes.",
+			"description": "Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earthquakes.",
 			"texture": {
 				"icon": "texture radar-alt"
 			},
@@ -214,7 +214,7 @@
 		"radar-dish": {
 			"slot":	"4x8",
 			"title": "Radar dish",
-			"description": "Radar dish for transmitting and receiving the radio waves for the radar altimiter",
+			"description": "Transmits and receives radio waves for the radar altimeter",
 			"texture": {
 				"icon": "",
 				"class": "-bg radar",
@@ -232,12 +232,12 @@
 		"radio-rx": {
 			"slot":	"2x2",
 			"title": "Radio receiver",
-			"description": "Receives communications from the ground",
+			"description": "Receives instructions from the ground control team",
 			"texture": {
 				"icon": "texture radio-rx"
 			},
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" },
@@ -248,12 +248,12 @@
 		"radio-tx": {
 			"slot":	"2x2",
 			"title": "Radio transmitter",
-			"description": "Transmits communications to the ground",
+			"description": "Transmits information collected by the satellite to the ground",
 			"texture": {
 				"icon": "texture radio-tx"
 			},
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" },
@@ -269,7 +269,7 @@
 				"icon": "texture atomic-clock"
 			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 50000, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.1, "units": "m", "dimension": "length" },
 				{ "value": 0.1, "units": "m", "dimension": "length" },
@@ -285,18 +285,18 @@
 				"icon": "texture atomic-clock-small"
 			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 50000, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.1, "units": "m", "dimension": "length" },
 				{ "value": 0.1, "units": "m", "dimension": "length" },
 				{ "value": 0.05, "units": "m", "dimension": "length" }
 			],
-			"power": { "value": 10, "units": "watts", "dimension": "power" }
+			"power": { "value": 5, "units": "watts", "dimension": "power" }
 		},
 		"gps-rx": {
 			"slot":	"1x1",
 			"title": "GPS receiver (miniature)",
-			"description": "Used to monitor the satellite's position to very high accuract",
+			"description": "Used to monitor the satellite's position to very high accuracy",
 			"texture": {
 				"icon": "texture gps-rx"
 			},
@@ -408,7 +408,7 @@
 				"icon": "texture battery-large"
 			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 20, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" },
@@ -430,7 +430,7 @@
 				"icon": "texture battery-small"
 			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 15, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.05, "units": "m", "dimension": "length" },
 				{ "value": 0.05, "units": "m", "dimension": "length" },
@@ -447,7 +447,7 @@
 		"rtg": {
 			"slot":	"2x4",
 			"title": "RTG",
-			"description": "A \"Radioisotope Thermal Generator\" uses nuclear technology to provide power. Due to safety concerns, can't be used in low-Earth orbit.",
+			"description": "A \"Radioisotope Thermal Generator\" uses nuclear technology to provide power. Due to safety concerns, it can't be used in low-Earth orbit.",
 			"texture": {
 				"icon": "texture rtg"
 			},
@@ -469,9 +469,9 @@
 		"solar-panel-surface": {
 			"slot":	"3x3",
 			"title": "Body-mounted solar panel",
-			"description": "Solar panels mounted onto surface of satellite, collecting sunlight to provice power. Can power instruments, or charge up batteries.",
+			"description": "Solar panels mounted onto surface of satellite, collecting sunlight to provide power. Can power instruments, or charge up batteries.",
 			"mass": { "value": 5, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 15, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 1.0, "units": "m", "dimension": "length" },
 				{ "value": 1.0, "units": "m", "dimension": "length" }
@@ -483,9 +483,9 @@
 			"slot":	"4x4",
 			"max": 4,
 			"title": "Deployable solar panel",
-			"description": "Solar panels deployed from edge of satellite, collecting sunlight to provice power. Can power instruments, or charge up batteries.",
+			"description": "Solar panels deployed from edge of satellite, collecting sunlight to provide power. Can power instruments, or charge up batteries.",
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 20, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 1.0, "units": "m", "dimension": "length" },
 				{ "value": 1.0, "units": "m", "dimension": "length" }
@@ -749,25 +749,25 @@
 	"orbit": {
 		"LEO": {
 			"title": "Low-Earth orbit",
-			"description": "A description",
+			"description": "Satellites in low-Earth orbit pass over a different part of the Earth in each orbit. It is cheaper to send satellites to Low-Earth orbit than other orbits and satellites here can be reached for repairs. Low-Earth orbit satellites can look at small areas in high detail for short periods of time. ",
 			"altitude": { "value": 400, "units": "km", "dimension": "length" },
 			"period": { "value": 90, "units": "minutes", "dimension": "time" }
 		},
 		"MEO": {
 			"title": "Medium-Earth orbit",
-			"description": "A description",
+			"description": "Satellites in medium-Earth orbit are higher above the Earth than low-Earth orbits, but lower than geostationary orbits. They cover a different part of Earth in each orbit. They can see a larger area in less detail than low-Earth orbits.",
 			"altitude": { "value": 2000, "units": "km", "dimension": "length" },
 			"period": { "value": 2, "units": "hours", "dimension": "time" }
 		},
 		"HEO": {
 			"title": "Highly-elliptical orbit",
-			"description": "A description",
+			"description": "Highly-elliptical orbits are much closer to the Earth at one point in their orbit (called perigee) than another (called apogee), giving an elliptical rather than circular orbit. Due to Kepler's laws, they spend most of their time at apogee, above one area of Earth than another at perigee. They are useful for covering areas including high latitudes. More than one satellite can be used for continuous coverage of an area.",
 			"altitude": { "value": 20000, "units": "km", "dimension": "length" },
 			"period": { "value": 12, "units": "hours", "dimension": "time" }
 		},
 		"GEO": {
 			"title": "Geo-stationary orbit",
-			"description": "A description",
+			"description": "Satellites in geostationary orbits orbit at the same speed as the Earth spins, so stay above the same location on Earth near the equator and complete a full orbit in 24 hours. They are much higher above the Earth's surface than other orbits, so can see the entire hemisphere in less detail.",
 			"altitude": { "value": 35786, "units": "km", "dimension": "length" },
 			"period": { "value": 24, "units": "hours", "dimension": "time" }
 		}
@@ -783,7 +783,7 @@
 			},
 			"missions": [{
 				"title": "Satellite Navigation System",
-				"description": "Tells people their location",
+				"description": "Uses signals from four navigation satellites so satnav users can find their location on Earth.",
 				"success": "",
 				"image": {
 					"file": "images/satnav.jpg",
