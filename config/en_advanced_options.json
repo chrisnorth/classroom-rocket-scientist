@@ -37,7 +37,7 @@
 	"bus": {
 		"cube": {
 			"slots": { "0x2": 1, "1x1": 2, "1x2": 1, "3x3": 1 },
-			"cost": { "value": 10000, "units": "USD", "dimension": "currency" },
+			"cost": { "value": 0.5, "units": "credits", "dimension": "currency" },
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 0.3, "units": "kg", "dimension": "mass" },
 			"width": { "value": 0.1, "units": "m", "dimension": "length" },
@@ -47,7 +47,7 @@
 		},
 		"small": {
 			"slots": { "2x2": 2, "2x4": 1, "3x3": 1, "4x4": 4 },
-			"cost": { "value": 50, "units": "credits", "dimension": "currency" },
+			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 150, "units": "kg", "dimension": "mass" },
 			"width": { "value": 1, "units": "m", "dimension": "length" },
@@ -85,7 +85,7 @@
 				"icon": "texture camera-opt"
 			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" },
@@ -101,7 +101,7 @@
 				"icon": "texture camera-opt-hires"
 			},
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 15, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 1.0, "units": "m", "dimension": "length" },
 				{ "value": 1.0, "units": "m", "dimension": "length" },
@@ -117,7 +117,7 @@
 				"icon": "texture camera-nir"
 			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 20, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" },
@@ -133,7 +133,7 @@
 				"icon": "texture camera-fir"
 			},
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 30, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 1.0, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" },
@@ -149,7 +149,7 @@
 				"icon": "texture spect-opt"
 			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" },
@@ -165,7 +165,7 @@
 				"icon": "texture spect-nir"
 			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 20, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" },
@@ -181,7 +181,7 @@
 				"icon": "texture spect-fir"
 			},
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 30, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 1.0, "units": "m", "dimension": "length" },
 				{ "value": 1.0, "units": "m", "dimension": "length" },
@@ -197,7 +197,7 @@
 				"icon": "texture radar-alt"
 			},
 			"mass": { "value": 40, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 1.0, "units": "m", "dimension": "length" },
 				{ "value": 1.0, "units": "m", "dimension": "length" },
@@ -221,7 +221,7 @@
 				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
 			"mass": { "value": 40, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 2.0, "units": "m", "dimension": "length" },
 				{ "value": 2.0, "units": "m", "dimension": "length" },
@@ -237,7 +237,7 @@
 				"icon": "texture radio-rx"
 			},
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
+			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" },
@@ -253,7 +253,7 @@
 				"icon": "texture radio-tx"
 			},
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
+			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" },
@@ -269,7 +269,7 @@
 				"icon": "texture atomic-clock"
 			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
+			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.1, "units": "m", "dimension": "length" },
 				{ "value": 0.1, "units": "m", "dimension": "length" },
@@ -285,7 +285,7 @@
 				"icon": "texture atomic-clock-small"
 			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
+			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.1, "units": "m", "dimension": "length" },
 				{ "value": 0.1, "units": "m", "dimension": "length" },
@@ -301,7 +301,7 @@
 				"icon": "texture gps-rx"
 			},
 			"mass": { "value": 0.5, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 2, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.05, "units": "m", "dimension": "length" },
 				{ "value": 0.05, "units": "m", "dimension": "length" },
@@ -317,7 +317,7 @@
 				"icon": "texture camera-mini"
 			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 50000, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.05, "units": "m", "dimension": "length" },
 				{ "value": 0.05, "units": "m", "dimension": "length" },
@@ -335,7 +335,7 @@
 				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
 			"mass": { "value": 30, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 2, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 2.0, "units": "m", "dimension": "length" },
 				{ "value": 2.0, "units": "m", "dimension": "length" },
@@ -353,7 +353,7 @@
 				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
 			"mass": { "value": 20, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 1.0, "units": "m", "dimension": "length" },
 				{ "value": 1.0, "units": "m", "dimension": "length" },
@@ -371,7 +371,7 @@
 				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
 			"mass": { "value": 0.5, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 0.5, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.1, "units": "m", "dimension": "length" },
 				{ "value": 0.05, "units": "m", "dimension": "length" },
@@ -389,7 +389,7 @@
 				"html": "<div class=\"aerials\"><div class=\"aerial1 aerial\"></div><div class=\"aerial2 aerial\"></div></div>"
 			},
 			"mass": { "value": 0.1, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 4500, "units": "EUR", "dimension": "currency" },
+			"cost": { "value": 0.5, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.98, "units": "m", "dimension": "length" },
 				{ "value": 0.98, "units": "m", "dimension": "length" },
@@ -452,7 +452,7 @@
 				"icon": "texture rtg"
 			},
 			"mass": { "value": 60, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "GBP", "dimension": "currency" },
+			"cost": { "value": 30, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" },
@@ -499,6 +499,7 @@
 		"diameter": { "value": 0, "units": "m", "dimension": "length" },
 		"height": { "value": 0.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 0, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 0, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 0, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 0, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 0, "units": "s", "dimension": "time" },
@@ -509,6 +510,7 @@
 		"diameter": { "value": 3.0, "units": "m", "dimension": "length" },
 		"height": { "value": 12.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 10500, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 23, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 2200, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 88000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 280, "units": "s", "dimension": "time" },
@@ -519,6 +521,7 @@
 		"diameter": { "value": 3.0, "units": "m", "dimension": "length" },
 		"height": { "value": 30.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 9000, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 12, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 1500, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 120000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 300, "units": "s", "dimension": "time" },
@@ -529,6 +532,7 @@
 		"diameter": { "value": 3.5, "units": "m", "dimension": "length" },
 		"height": { "value": 40.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 24000, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 60, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 6000, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 400000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 280, "units": "s", "dimension": "time" },
@@ -539,6 +543,7 @@
 		"diameter": { "value": 8, "units": "m", "dimension": "length" },
 		"height": { "value": 50.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 85000, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 220, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 7400, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 900000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 360, "units": "s", "dimension": "time" },
@@ -549,6 +554,7 @@
 		"diameter": { "value": 10, "units": "m", "dimension": "length" },
 		"height": { "value": 42.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 130000, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 370, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 34000, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 2000000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 263, "units": "s", "dimension": "time" },
@@ -559,6 +565,7 @@
 		"diameter": { "value": 6, "units": "m", "dimension": "length" },
 		"height": { "value": 82.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 310000, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 190, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 2000, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 15000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 3600, "units": "s", "dimension": "time" },
@@ -569,6 +576,7 @@
 		"diameter": { "value": 6, "units": "m", "dimension": "length" },
 		"height": { "value": 82.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 53000, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 450, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 3000, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 260000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 460, "units": "s", "dimension": "time" },
@@ -580,6 +588,7 @@
 		"diameter": { "value": 0, "units": "m", "dimension": "length" },
 		"height": { "value": 0.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 0, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 0, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 0, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 0, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 0, "units": "s", "dimension": "time" },
@@ -590,6 +599,7 @@
 		"diameter": { "value": 1.3, "units": "m", "dimension": "length" },
 		"height": { "value": 17, "units": "m", "dimension": "length" },
 		"drymass": { "value": 2000, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 5, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 480, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 15000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 280, "units": "s", "dimension": "time" },
@@ -600,6 +610,7 @@
 		"diameter": { "value": 2, "units": "m", "dimension": "length" },
 		"height": { "value": 14, "units": "m", "dimension": "length" },
 		"drymass": { "value": 3000, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 10, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 870, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 24000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 290, "units": "s", "dimension": "time" },
@@ -610,6 +621,7 @@
 		"diameter": { "value": 3, "units": "m", "dimension": "length" },
 		"height": { "value": 7, "units": "m", "dimension": "length" },
 		"drymass": { "value": 2400, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 15, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 300, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 25000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 360, "units": "s", "dimension": "time" },
@@ -620,6 +632,7 @@
 		"diameter": { "value": 3.5, "units": "m", "dimension": "length" },
 		"height": { "value": 15, "units": "m", "dimension": "length" },
 		"drymass": { "value": 4000, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 20, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 800, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 90000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 340, "units": "s", "dimension": "time" },
@@ -630,6 +643,7 @@
 		"diameter": { "value": 8, "units": "m", "dimension": "length" },
 		"height": { "value": 15, "units": "m", "dimension": "length" },
 		"drymass": { "value": 6000, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 30, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 400, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 129000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 460, "units": "s", "dimension": "time" },
@@ -640,6 +654,7 @@
 		"diameter": { "value": 10, "units": "m", "dimension": "length" },
 		"height": { "value": 25, "units": "m", "dimension": "length" },
 		"drymass": { "value": 40000, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 50, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 4400, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 450000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 421, "units": "s", "dimension": "time" },
@@ -651,6 +666,7 @@
 		"diameter": { "value": 0, "units": "m", "dimension": "length" },
 		"height": { "value": 0.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 0, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 1, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 0, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 0, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 0, "units": "s", "dimension": "time" },
@@ -661,6 +677,7 @@
 		"diameter": { "value": 2, "units": "m", "dimension": "length" },
 		"height": { "value": 2, "units": "m", "dimension": "length" },
 		"drymass": { "value": 1300, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 2, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 260, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 10000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 315, "units": "s", "dimension": "time" },
@@ -671,6 +688,7 @@
 		"diameter": { "value": 3, "units": "m", "dimension": "length" },
 		"height": { "value": 7, "units": "m", "dimension": "length" },
 		"drymass": { "value": 2400, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 4, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 300, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 22000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 360, "units": "s", "dimension": "time" },
@@ -681,6 +699,7 @@
 		"diameter": { "value": 7, "units": "m", "dimension": "length" },
 		"height": { "value": 19, "units": "m", "dimension": "length" },
 		"drymass": { "value": 13500, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 8, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 1000, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 110000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 420, "units": "s", "dimension": "time" },
@@ -692,6 +711,7 @@
 		"diameter": { "value": 3, "units": "m", "dimension": "length" },
 		"height": { "value": 45, "units": "m", "dimension": "length" },
 		"drymass": { "value": 90000, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 20, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 12000, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 500000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 240, "units": "s", "dimension": "time" },
@@ -704,7 +724,8 @@
 		"diameter": { "value": 0, "units": "m", "dimension": "length" },
 		"height": { "value": 0.0, "units": "m", "dimension": "length" },
 		"payload": { "value": 0, "units": "kg", "dimension": "mass" },
-		"drymass": { "value": 0, "units": "kg", "dimension": "mass" }
+		"drymass": { "value": 0, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 0, "units": "credits", "dimension": "currency" }
 	},{
 		"key": "XS",
 		"size": 1,
@@ -712,7 +733,8 @@
 		"diameter": { "value": 1, "units": "m", "dimension": "length" },
 		"height": { "value": 2, "units": "m", "dimension": "length" },
 		"payload": { "value": 500, "units": "kg", "dimension": "mass" },
-		"drymass": { "value": 500, "units": "kg", "dimension": "mass" }
+		"drymass": { "value": 500, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 1, "units": "credits", "dimension": "currency" }
 	},{
 		"key": "S",
 		"size": 2,
@@ -720,7 +742,8 @@
 		"diameter": { "value": 2, "units": "m", "dimension": "length" },
 		"height": { "value": 5, "units": "m", "dimension": "length" },
 		"payload": { "value": 1500, "units": "kg", "dimension": "mass" },
-		"drymass": { "value": 1000, "units": "kg", "dimension": "mass" }
+		"drymass": { "value": 1000, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 1, "units": "credits", "dimension": "currency" }
 	},{
 		"key": "M",
 		"size": 3,
@@ -728,7 +751,8 @@
 		"diameter": { "value": 3, "units": "m", "dimension": "length" },
 		"height": { "value": 8, "units": "m", "dimension": "length" },
 		"payload": { "value": 3000, "units": "kg", "dimension": "mass" },
-		"drymass": { "value": 5000, "units": "kg", "dimension": "mass" }
+		"drymass": { "value": 5000, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 3, "units": "credits", "dimension": "currency" }
 	},{
 		"key": "L",
 		"size": 4,
@@ -736,7 +760,8 @@
 		"diameter": { "value": 8, "units": "m", "dimension": "length" },
 		"height": { "value": 10, "units": "m", "dimension": "length" },
 		"payload": { "value": 5000, "units": "kg", "dimension": "mass" },
-		"drymass": { "value": 10000, "units": "kg", "dimension": "mass" }
+		"drymass": { "value": 10000, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 8, "units": "credits", "dimension": "currency" }
 	},{
 		"key": "XL",
 		"size": 5,
@@ -744,7 +769,8 @@
 		"diameter": { "value": 10, "units": "m", "dimension": "length" },
 		"height": { "value": 15, "units": "m", "dimension": "length" },
 		"payload": { "value": 10000, "units": "kg", "dimension": "mass" },
-		"drymass": { "value": 20000, "units": "kg", "dimension": "mass" }
+		"drymass": { "value": 20000, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 10, "units": "credits", "dimension": "currency" }
 	}],
 	"orbit": {
 		"LEO": {
