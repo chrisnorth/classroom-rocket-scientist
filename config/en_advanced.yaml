@@ -80,7 +80,7 @@ package.camera-fir.description:             Provides infrared images of the clou
 package.spect-opt.title:                    Optical Spectrometer
 package.spect-opt.description:              Measures detailed properties of the Earth's surface, such as deforestation.
 package.spect-nir.title:                    Vegetation Spectrometer
-package.spect-nir.description:              Measures the properties of vegetation on the ground, such as type of vegetation and how healthy it is.
+package.spect-nir.description:              Measures the properties of vegetation on the ground, such type of vegetation and how healthy it is.
 package.spect-fir.title:                    Atmospheric Spectrometer
 package.spect-fir.description:              Uses infrared light to measure properties of the Earth's atmosphere, such as clouds, moisture level, surface temperature and air temperature, even during darkness.
 package.radar-alt.title:                    Radar altimeter
@@ -122,7 +122,7 @@ package.rtg.description:                    A "Radioisotope Thermal Generator" u
 package.rtg.requires.orbit.label:           Not for low-Earth orbit
 package.rtg.requires.orbit.error:           Can't use an RTG in low-Earth orbit
 package.solar-panel-surface.title:          Body-mounted solar panel
-package.solar-panel-surface.description:    Solar panels mounted onto the surface of the satellite, collecting sunlight to provide power. Can power instruments, or charge up batteries.
+package.solar-panel-surface.description:    Solar panels mounted onto surface of satellite, collecting sunlight to provide power. Can power instruments, or charge up batteries.
 package.solar-panel.title:                  Deployable solar panel
 package.solar-panel.description:            Solar panels deployed from edge of satellite, collecting sunlight to provide power. Can power instruments, or charge up batteries.
 orbit.LEO.title:                            Low-Earth orbit
@@ -130,9 +130,9 @@ orbit.LEO.description:                      Satellites in low-Earth orbit pass o
 orbit.MEO.title:                            Medium-Earth orbit
 orbit.MEO.description:                      Satellites in medium-Earth orbit are higher above the Earth than low-Earth orbits, but lower than geostationary orbits. They cover a different part of Earth in each orbit. They can see a larger area in less detail than low-Earth orbits.
 orbit.HEO.title:                            Highly-elliptical orbit
-orbit.HEO.description:                      Highly-elliptical orbits are much closer to the Earth at one point in their orbit than another, giving an elliptical rather than circular orbit. They are useful for covering areas including high latitudes. More than one satellite can be used for continuous coverage of an area.
+orbit.HEO.description:                      Highly-elliptical orbits are much closer to the Earth at one point in their orbit (called perigee) than another (called apogee), giving an elliptical rather than circular orbit. Due to Kepler's laws, they spend most of their time at apogee, above one area of Earth than another at perigee. They are useful for covering areas including high latitudes. More than one satellite can be used for continuous coverage of an area.
 orbit.GEO.title:                            Geo-stationary orbit
-orbit.GEO.description:                      Satellites in geostationary orbits stay above the same location on Earth near the equator and complete a full orbit in 24 hours. They are much higher above the Earth's surface than other orbits, so can see the entire hemisphere in less detail.
+orbit.GEO.description:                      Satellites in geostationary orbits orbit at the same speed as the Earth spins, so stay above the same location on Earth near the equator and complete a full orbit in 24 hours. They are much higher above the Earth's surface than other orbits, so can see the entire hemisphere in less detail.
 scenarios.NAV.title:                        Navigation Satellite
 scenarios.NAV.description:                  The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.
 scenarios.NAV.sat-nav.title:                Satellite Navigation System
@@ -141,7 +141,6 @@ scenarios.NAV.sat-nav.req.atomic.label:     Measures time accurately
 scenarios.NAV.sat-nav.req.atomic.error:      You are not able to measure the time accurately enough.
 scenarios.COMMS.title:                      Communication Satellite
 scenarios.COMMS.description:                These are used for television, phone or internet transmissions, for example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.
-
 scenarios.EO.title:                         Earth Observation Satellite
 scenarios.EO.description:                   These are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.
 ---
