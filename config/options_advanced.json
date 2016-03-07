@@ -854,7 +854,7 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-opt-hires"],
-                    "label": "%scenarios.NAV.map.req.opt-hires.label%"
+                    "label": "%scenarios.NAV.map.req.opt-hires.label%",
 					"error": "%scenarios.NAV.map.req.opt-hires.label%"
                 },{
 					"type": "orbit",
@@ -862,7 +862,7 @@
 					"label": "%scenarios.NAV.map.req.orbit.label%",
 					"error": "%scenarios.NAV.map.req.orbit.error%"
 			}]
-		},
+		}]},
 		"COMMS": {
 			"title": "%scenarios.COMMS.title%",
 			"description": "%scenarios.COMMS.description%",
@@ -975,8 +975,8 @@
 					"oneof": ["LEO"],
 					"label": "%scenarios.EO.weather.req.orbit.label%",
 					"error": "%scenarios.EO.weather.req.orbit.error%"}]
-			}]
-			},{
+			},
+            {
 				"title": "%scenarios.EO.veg-map.title%",
 				"description": "%scenarios.EO.veg-map.description%",
 				"image": {
@@ -1050,7 +1050,6 @@
 					"oneof": ["LEO"],
 					"label": "%scenarios.EO.surface.req.orbit.label%",
 					"error": "%scenarios.EO.surface.req.orbit.error%"}]
-			}]
 			}]
 		}
 	}

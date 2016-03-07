@@ -160,7 +160,7 @@
 		"spect-nir": {
 			"slot":	"2x2",
 			"title": "Vegetation Spectrometer",
-			"description": "Measures the properties of vegetation on the ground, such type of vegetation and how healthy it is.",
+			"description": "Measures the properties of vegetation on the ground, such as type of vegetation and how healthy it is.",
 			"texture": {
 				"icon": "texture spect-nir"
 			},
@@ -192,7 +192,7 @@
 		"radar-alt": {
 			"slot":	"2x4",
 			"title": "Radar altimeter",
-			"description": "Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earthquakes.",
+			"description": "Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earthquakes. Requires a radar dish to work.",
 			"texture": {
 				"icon": "texture radar-alt"
 			},
@@ -208,7 +208,7 @@
 				"type": "package",
 				"oneof": ["radar-dish"],
 				"label": "Requires a radar dish",
-				"error": "You need to include a radar dish for the altimeter to work"
+				"error": "You need to include a radar dish for the altimeter to work."
 			}]
 		},
 		"radar-dish": {
@@ -217,7 +217,7 @@
 			"description": "Transmits and receives radio waves for the radar altimeter",
 			"texture": {
 				"icon": "",
-				"class": "-bg radar",
+				"class": "-bg radio",
 				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
 			"mass": { "value": 40, "units": "kg", "dimension": "mass" },
@@ -787,13 +787,13 @@
 		},
 		"HEO": {
 			"title": "Highly-elliptical orbit",
-			"description": "Highly-elliptical orbits are much closer to the Earth at one point in their orbit (called perigee) than another (called apogee), giving an elliptical rather than circular orbit. Due to Kepler's laws, they spend most of their time at apogee, above one area of Earth than another at perigee. They are useful for covering areas including high latitudes. More than one satellite can be used for continuous coverage of an area.",
+			"description": "Highly-elliptical orbits are much closer to the Earth at one point in their orbit than another, giving an elliptical rather than circular orbit. They are useful for covering areas including high latitudes. More than one satellite can be used for continuous coverage of an area.",
 			"altitude": { "value": 20000, "units": "km", "dimension": "length" },
 			"period": { "value": 12, "units": "hours", "dimension": "time" }
 		},
 		"GEO": {
 			"title": "Geo-stationary orbit",
-			"description": "Satellites in geostationary orbits orbit at the same speed as the Earth spins, so stay above the same location on Earth near the equator and complete a full orbit in 24 hours. They are much higher above the Earth's surface than other orbits, so can see the entire hemisphere in less detail.",
+			"description": "Satellites in geostationary orbits stay above the same location on Earth near the equator and complete a full orbit in 24 hours. They are much higher above the Earth's surface than other orbits, so can see the entire hemisphere in less detail.",
 			"altitude": { "value": 35786, "units": "km", "dimension": "length" },
 			"period": { "value": 24, "units": "hours", "dimension": "time" }
 		}
@@ -809,7 +809,7 @@
 			},
 			"missions": [{
 				"title": "Satellite Navigation System",
-				"description": "Uses signals from four navigation satellites so satnav users can find their location on Earth.",
+				"description": "Uses signals from four navigation satellites so satnav users can find their location on Earth. Need to be able to see half a hemisphere at a time, measure time accurately and transmit signals of the location.",
 				"success": "",
 				"image": {
 					"file": "images/satnav.jpg",
@@ -825,7 +825,7 @@
 				},{
 					"type": "package",
 					"oneof": ["atomicclock"],
-					"label": "%scenarios.NAV.sat-nav.req.atomic.label",
+					"label": "Needs to be able to measures time very accurately",
 					"error": "You are not able to measure the time accurately enough."
 				},{
 					"type": "package",
@@ -844,7 +844,7 @@
                 }]
 			},{
 				"title": "Map-making",
-				"description": "Map the surface of the Earth",
+				"description": "Map the surface of the Earth. Need to be able to take images of small areas of the Earth's surface and measure the height of the ground in high detail.",
 				"image": {
 					"file": "images/mapmaker.jpg",
 					"alt": "Mapping",
@@ -853,11 +853,16 @@
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
-                    "oneof": [],
-                    "label": ""
-                }]
+                    "oneof": ["camera-opt-hires"],
+                    "label": "An instrument capable of high resolution images.",
+					"error": "An instrument capable of high resolution images."
+                },{
+					"type": "orbit",
+					"oneof": ["LEO"],
+					"label": "See detail of planet surface.",
+					"error": "The orbit you have chosen does not allow you to see the planet surface in enough detail."
 			}]
-		},
+		}]},
 		"COMMS": {
 			"title": "Communication Satellite",
 			"description": "These are used for television, phone or internet transmissions, for example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.",
@@ -868,34 +873,79 @@
 			},
 			"missions": [{
 				"title": "Satellite telephone system",
-				"description": "Let people talk over the phone using satellites",
+				"description": "Lets people talk over the phone using satellites.",
 				"image": {
 					"file": "images/satphone.jpg",
 					"alt": "Phone",
 					"credit": ""
 				},
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
-				"requires": []
+				"requires": [{
+                    "type": "package",
+                    "oneof": ["radio-tx"],
+                    "label": "A way to send signals.",
+					"error": "You do not have a way to send signals to the ground."
+                },{
+                    "type": "package",
+                    "oneof": ["radio-rx"],
+                    "label": "A way to receive signals.",
+					"error": "You do not have a way to receive signals from the ground."
+                },{
+					"type": "orbit",
+					"oneof": ["GEO"],
+					"label": "Satellite is continuously above one area of Earth",
+					"error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."
+			}]
 			},{
 				"title": "Satellite internet",
-				"description": "Connect to the internet using satellites",
+				"description": "Connect to the internet using satellites.",
 				"image": {
 					"file": "images/satinternet.jpg",
 					"alt": "Internet",
 					"credit": ""
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
-				"requires": []
+				"requires": [{
+                    "type": "package",
+                    "oneof": ["radio-tx"],
+                    "label": "A way to send signals.",
+					"error": "You do not have a way to send signals to the ground."
+                },{
+                    "type": "package",
+                    "oneof": ["radio-rx"],
+                    "label": "A way to receive signals.",
+					"error": "You do not have a way to receive signals from the ground."
+                },{
+					"type": "orbit",
+					"oneof": ["GEO"],
+					"label": "Satellite is continuously above one area of Earth",
+					"error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."
+			}]
 			},{
 				"title": "Satellite TV",
-				"description": "Provide satellite TV",
+				"description": "Provide satellite TV.",
 				"image": {
 					"file": "images/sattv.jpg",
 					"alt": "TV",
 					"credit": ""
 				},
 				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
-				"requires": []
+				"requires": [{
+                    "type": "package",
+                    "oneof": ["radio-tx"],
+                    "label": "A way to send signals.",
+					"error": "You do not have a way to send signals to the ground."
+                },{
+                    "type": "package",
+                    "oneof": ["radio-rx"],
+                    "label": "A way to receive signals.",
+					"error": "You do not have a way to receive signals from the ground."
+                },{
+					"type": "orbit",
+					"oneof": ["GEO"],
+					"label": "Satellite is continuously above one area of Earth",
+					"error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."
+			}]
 			}]
 		},
 		"EO": {
@@ -908,44 +958,98 @@
 			},
 			"missions": [{
 				"title": "Weather forecasting",
-				"description": "Monitor the weather",
+				"description": "Monitor the weather.",
 				"image": {
 					"file": "images/weather.jpg",
 					"alt": "Weather",
 					"credit": ""
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
-				"requires": []
-			},{
+				"requires": [{
+                    "type": "package",
+                    "oneof": ["camera-fir","camera-opt"],
+                    "label": "To take images of clouds and weather systems on Earth.",
+					"error": "You do not have a way to take images of the weather on Earth."
+                },{
+					"type": "orbit",
+					"oneof": ["LEO"],
+					"label": "See detail of Earth's weather systems.",
+					"error": "The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail."}]
+			},
+            {
 				"title": "Vegetation mapping",
-				"description": "Map the plants over the surface of the Earth",
+				"description": "Map the plants over the surface of the Earth.",
 				"image": {
 					"file": "images/vegetation.jpg",
 					"alt": "Vegetation",
 					"credit": ""
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
-				"requires": []
+				"requires": [{
+                    "type": "package",
+                    "oneof": ["radio-tx"],
+                    "label": "A way to transmit signals.",
+					"error": "You do not have a way to transmit signals to the ground."
+                },{
+                    "type": "package",
+                    "oneof": ["camera-nir","spect-nir"],
+                    "label": "To take images of the vegetation on Earth.",
+					"error": "You do not have a way to take images of the vegetation on Earth."
+                }
+				]
 			},{
 				"title": "Natural disaster monitoring",
-				"description": "Study areas of natural disasters",
+				"description": "Study areas of natural disasters.",
 				"image": {
 					"file": "images/disaster.jpg",
 					"alt": "Disasters",
 					"credit": ""
 				},
 				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
-				"requires": []
+				"requires": [{
+                    "type": "package",
+                    "oneof": ["camera-opt-hires"],
+                    "label": "To take images of Earth where disaster has occured.",
+					"error": "You do not have a way to take images of Earth where disaster has occured."
+                },{
+                    "type": "package",
+                    "oneof": ["radio-tx"],
+                    "label": "A way to transmit signals.",
+					"error": "You do not have a way to transmit signals to the ground."
+                },{
+					"type": "orbit",
+					"oneof": ["LEO"],
+					"label": "See detail of planet surface.",
+					"error": "The orbit you have chosen does not allow you to see the planet surface in enough detail."}]
 			},{
 				"title": "Surface mapping",
-				"description": "Measure the height of land over the surface",
+				"description": "Measure the height of land over the surface.",
 				"image": {
 					"file": "images/surface.jpg",
 					"alt": "Surface",
 					"credit": ""
 				},
 				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
-				"requires": []
+				"requires": [{
+                    "type": "package",
+                    "oneof": ["radar-alt"],
+                    "label": "To measure the height of the ground in very high resolution.",
+					"error": "You do not have a way to measure the height of the ground in very high resolution."
+                },{
+                    "type": "package",
+                    "oneof": ["radar-dish"],
+                    "label": "Radar altimeter requires a radar dish to work.",
+					"error": "Your radar altimeter cannot work as it does not have a radar dish."
+                },{
+                    "type": "package",
+                    "oneof": ["radio-tx"],
+                    "label": "A way to transmit signals.",
+					"error": "You do not have a way to transmit signals to the ground."
+                },{
+					"type": "orbit",
+					"oneof": ["LEO"],
+					"label": "See detail of planet surface.",
+					"error": "The orbit you have chosen does not allow you to see the planet surface in enough detail."}]
 			}]
 		}
 	}

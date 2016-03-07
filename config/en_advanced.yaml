@@ -84,7 +84,7 @@ package.spect-nir.description:              Measures the properties of vegetatio
 package.spect-fir.title:                    Atmospheric Spectrometer
 package.spect-fir.description:              Uses infrared light to measure properties of the Earth's atmosphere, such as clouds, moisture level, surface temperature and air temperature, even during darkness.
 package.radar-alt.title:                    Radar altimeter
-package.radar-alt.description:              Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earthquakes.
+package.radar-alt.description:              Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earthquakes. Requires a radar dish to work.
 package.radar-alt.requires.dish.label:      Requires a radar dish
 package.radar-alt.requires.dish.error:      You need to include a radar dish for the altimeter to work.
 package.radar-dish.title:                   Radar dish
@@ -143,19 +143,19 @@ scenarios.NAV.sat-nav.req.atomic.label:     Needs to be able to measures time ve
 scenarios.NAV.sat-nav.req.atomic.error:     You are not able to measure the time accurately enough.
 scenarios.NAV.sat-nav.req.radio-tx.label: A way to send signals.
 scenarios.NAV.sat-nav.req.radio-tx.error: You do not have any way to transmit timing signals to people on the ground.
-scenarios.NAV.sat-nav.req.orbit.label: See the whole planet. 
+scenarios.NAV.sat-nav.req.orbit.label: See the whole planet.
 scenarios.NAV.sat-nav.req.orbit.error: The orbit you have chosen does not allow you to see the whole planet
 scenarios.NAV.map.title: Map-making
 scenarios.NAV.map.description: Map the surface of the Earth. Need to be able to take images of small areas of the Earth's surface and measure the height of the ground in high detail.
 scenarios.NAV.map.req.opt-hires.label: An instrument capable of high resolution images.
 scenarios.NAV.map.req.opt-hires.error: The instrument you have chosen does not allow you to see the planet surface in enough detail.
-scenarios.NAV.map.req.orbit.label: See detail of planet surface. 
+scenarios.NAV.map.req.orbit.label: See detail of planet surface.
 scenarios.NAV.map.req.orbit.error: The orbit you have chosen does not allow you to see the planet surface in enough detail.
 scenarios.COMMS.title:                      Communication Satellite
 scenarios.COMMS.description:                These are used for television, phone or internet transmissions, for example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.
 scenarios.COMMS.phone.title: Satellite telephone system
 scenarios.COMMS.phone.description: Lets people talk over the phone using satellites.
-scenarios.COMMS.phone.req.radio-tx.label: A way to send signals. 
+scenarios.COMMS.phone.req.radio-tx.label: A way to send signals.
 scenarios.COMMS.phone.req.radio-tx.error: You do not have a way to send signals to the ground.
 scenarios.COMMS.phone.req.radio-rx.label: A way to receive signals.
 scenarios.COMMS.phone.req.radio-rx.error: You do not have a way to receive signals from the ground.
@@ -185,7 +185,7 @@ scenarios.EO.weather.req.camera.label: To take images of clouds and weather syst
 scenarios.EO.weather.req.camera.error: You do not have a way to take images of the weather on Earth.
 scenarios.EO.weather.req.orbit.label: See detail of Earth's weather systems.
 scenarios.EO.weather.req.orbit.error: The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail.
-scenarios.EO.veg-map.title: Vegetation mapping 
+scenarios.EO.veg-map.title: Vegetation mapping
 scenarios.EO.veg-map.description: Map the plants over the surface of the Earth.
 scenarios.EO.veg-map.req.radio-tx.label: A way to transmit signals.
 scenarios.EO.veg-map.req.radio-tx.error: You do not have a way to transmit signals to the ground.
