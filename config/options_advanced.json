@@ -820,31 +820,31 @@
 				"requires": [{
 					"type": "bus",
 					"oneof": ["small","medium","large"],
-					"label": "A satellite that is small, medium or large.",
-					"error": "Your satellite must be big enough for your mission."
+					"label": "%scenarios.NAV.sat-nav.req.bus.label%",
+					"error": "%scenarios.NAV.sat-nav.req.bus.error%"
 				},{
 					"type": "package",
 					"oneof": ["atomicclock"],
-					"label": "%scenarios.NAV.sat-nav.req.atomic.label",
+					"label": "%scenarios.NAV.sat-nav.req.atomic.label%",
 					"error": "%scenarios.NAV.sat-nav.req.atomic.error%"
 				},{
 					"type": "package",
 					"oneof": ["radio_tx"],
-					"label": "A way to send signals.",
-					"error": "You do not have any way to transmit timing signals to people on the ground."
+					"label": "%scenarios.NAV.sat-nav.req.radio-tx.label%",
+					"error": "%scenarios.NAV.sat-nav.req.radio-tx.error%"
 				},{
 					"type": "orbit",
 					"oneof": ["HEO","GEO"],
-					"label": "See the whole planet.",
-					"error": "The orbit you have chosen does not allow you to see the whole planet"
+					"label": "%scenarios.NAV.sat-nav.req.orbit.label%",
+					"error": "%scenarios.NAV.sat-nav.req.orbit.error%"
 				},{
                     "type": "power",
                     "oneof": ["battery-small","battery-large"],
                     "label": ""
                 }]
 			},{
-				"title": "Map-making",
-				"description": "Map the surface of the Earth",
+				"title": "%scenarios.NAV.map.title%",
+				"description": "%scenarios.NAV.map.description%",
 				"image": {
 					"file": "images/mapmaker.jpg",
 					"alt": "Mapping",
@@ -853,9 +853,14 @@
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
-                    "oneof": [],
-                    "label": ""
-                }]
+                    "oneof": ["camera-opt-hires"],
+                    "label": "%scenarios.NAV.map.req.opt-hires.label%"
+					"error": "%scenarios.NAV.map.req.opt-hires.label%"
+                },{
+					"type": "orbit",
+					"oneof": ["LEO"],
+					"label": "%scenarios.NAV.map.req.orbit.label%",
+					"error": "%scenarios.NAV.map.req.orbit.error%"
 			}]
 		},
 		"COMMS": {
@@ -867,35 +872,80 @@
 				"credit": "ESA"
 			},
 			"missions": [{
-				"title": "Satellite telephone system",
-				"description": "Let people talk over the phone using satellites",
+				"title": "%scenarios.COMMS.phone.title%",
+				"description": "%scenarios.COMMS.phone.description%",
 				"image": {
 					"file": "images/satphone.jpg",
 					"alt": "Phone",
 					"credit": ""
 				},
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
-				"requires": []
+				"requires": [{
+                    "type": "package",
+                    "oneof": ["radio-tx"],
+                    "label": "%scenarios.COMMS.phone.req.radio-tx.label%",
+					"error": "%scenarios.COMMS.phone.req.radio-tx.error%"
+                },{
+                    "type": "package",
+                    "oneof": ["radio-rx"],
+                    "label": "%scenarios.COMMS.phone.req.radio-rx.label%",
+					"error": "%scenarios.COMMS.phone.req.radio-rx.error%"
+                },{
+					"type": "orbit",
+					"oneof": ["GEO"],
+					"label": "%scenarios.COMMS.phone.req.orbit.label%",
+					"error": "%scenarios.COMMS.phone.req.orbit.error%"
+			}]
 			},{
-				"title": "Satellite internet",
-				"description": "Connect to the internet using satellites",
+				"title": "%scenarios.COMMS.internet.title%",
+				"description": "%scenarios.COMMS.internet.description%",
 				"image": {
 					"file": "images/satinternet.jpg",
 					"alt": "Internet",
 					"credit": ""
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
-				"requires": []
+				"requires": [{
+                    "type": "package",
+                    "oneof": ["radio-tx"],
+                    "label": "%scenarios.COMMS.internet.req.radio-tx.label%",
+					"error": "%scenarios.COMMS.internet.req.radio-tx.error%"
+                },{
+                    "type": "package",
+                    "oneof": ["radio-rx"],
+                    "label": "%scenarios.COMMS.internet.req.radio-rx.label%",
+					"error": "%scenarios.COMMS.internet.req.radio-rx.error%"
+                },{
+					"type": "orbit",
+					"oneof": ["GEO"],
+					"label": "%scenarios.COMMS.internet.req.orbit.label%",
+					"error": "%scenarios.COMMS.internet.req.orbit.error%"
+			}]
 			},{
-				"title": "Satellite TV",
-				"description": "Provide satellite TV",
+				"title": "%scenarios.COMMS.tv.title%",
+				"description": "%scenarios.COMMS.tv.description%",
 				"image": {
 					"file": "images/sattv.jpg",
 					"alt": "TV",
 					"credit": ""
 				},
 				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
-				"requires": []
+				"requires": [{
+                    "type": "package",
+                    "oneof": ["radio-tx"],
+                    "label": "%scenarios.COMMS.tv.req.radio-tx.label%",
+					"error": "%scenarios.COMMS.tv.req.radio-tx.error%"
+                },{
+                    "type": "package",
+                    "oneof": ["radio-rx"],
+                    "label": "%scenarios.COMMS.tv.req.radio-rx.label%",
+					"error": "%scenarios.COMMS.tv.req.radio-rx.error%"
+                },{
+					"type": "orbit",
+					"oneof": ["GEO"],
+					"label": "%scenarios.COMMS.tv.req.orbit.label%",
+					"error": "%scenarios.COMMS.tv.req.orbit.error%"
+			}]
 			}]
 		},
 		"EO": {
@@ -907,45 +957,100 @@
 				"credit": "ESA"
 			},
 			"missions": [{
-				"title": "Weather forecasting",
-				"description": "Monitor the weather",
+				"title": "%scenarios.EO.weather.title%",
+				"description": "%scenarios.EO.weather.description%",
 				"image": {
 					"file": "images/weather.jpg",
 					"alt": "Weather",
 					"credit": ""
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
-				"requires": []
+				"requires": [{
+                    "type": "package",
+                    "oneof": ["camera-fir","camera-opt"],
+                    "label": "%scenarios.EO.weather.req.camera.label%",
+					"error": "%scenarios.EO.weather.req.camera.error%"
+                },{
+					"type": "orbit",
+					"oneof": ["LEO"],
+					"label": "%scenarios.EO.weather.req.orbit.label%",
+					"error": "%scenarios.EO.weather.req.orbit.error%"}]
+			}]
 			},{
-				"title": "Vegetation mapping",
-				"description": "Map the plants over the surface of the Earth",
+				"title": "%scenarios.EO.veg-map.title%",
+				"description": "%scenarios.EO.veg-map.description%",
 				"image": {
 					"file": "images/vegetation.jpg",
 					"alt": "Vegetation",
 					"credit": ""
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
-				"requires": []
+				"requires": [{
+                    "type": "package",
+                    "oneof": ["radio-tx"],
+                    "label": "%scenarios.EO.veg-map.req.radio-tx.label%",
+					"error": "%scenarios.EO.veg-map.req.radio-tx.error%"
+                },{
+                    "type": "package",
+                    "oneof": ["camera-nir","spect-nir"],
+                    "label": "%scenarios.EO.veg-map.req.camera.label%",
+					"error": "%scenarios.EO.veg-map.req.camera.error%"
+                }
+				]
 			},{
-				"title": "Natural disaster monitoring",
-				"description": "Study areas of natural disasters",
+				"title": "%scenarios.EO.disaster.title%",
+				"description": "%scenarios.EO.disaster.description%",
 				"image": {
 					"file": "images/disaster.jpg",
 					"alt": "Disasters",
 					"credit": ""
 				},
 				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
-				"requires": []
+				"requires": [{
+                    "type": "package",
+                    "oneof": ["camera-opt-hires"],
+                    "label": "%scenarios.EO.disaster.req.camera.label%",
+					"error": "%scenarios.EO.disaster.req.camera.error%"
+                },{
+                    "type": "package",
+                    "oneof": ["radio-tx"],
+                    "label": "%scenarios.EO.disaster.req.radio-tx.label%",
+					"error": "%scenarios.EO.disaster.req.radio-tx.error%"
+                },{
+					"type": "orbit",
+					"oneof": ["LEO"],
+					"label": "%scenarios.EO.disaster.req.orbit.label%",
+					"error": "%scenarios.EO.disaster.req.orbit.error%"}]
 			},{
-				"title": "Surface mapping",
-				"description": "Measure the height of land over the surface",
+				"title": "%scenarios.EO.surface.title%",
+				"description": "%scenarios.EO.surface.description%",
 				"image": {
 					"file": "images/surface.jpg",
 					"alt": "Surface",
 					"credit": ""
 				},
 				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
-				"requires": []
+				"requires": [{
+                    "type": "package",
+                    "oneof": ["radar-alt"],
+                    "label": "%scenarios.EO.surface.req.radar-alt.label%",
+					"error": "%scenarios.EO.surface.req.radar-alt.error%"
+                },{
+                    "type": "package",
+                    "oneof": ["radar-dish"],
+                    "label": "%scenarios.EO.surface.req.dish.label%",
+					"error": "%scenarios.EO.surface.req.dish.error%"
+                },{
+                    "type": "package",
+                    "oneof": ["radio-tx"],
+                    "label": "%scenarios.EO.surface.req.radio-tx.label%",
+					"error": "%scenarios.EO.surface.req.radio-tx.error%"
+                },{
+					"type": "orbit",
+					"oneof": ["LEO"],
+					"label": "%scenarios.EO.surface.req.orbit.label%",
+					"error": "%scenarios.EO.surface.req.orbit.error%"}]
+			}]
 			}]
 		}
 	}

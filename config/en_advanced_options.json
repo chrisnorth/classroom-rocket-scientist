@@ -775,7 +775,7 @@
 	"orbit": {
 		"LEO": {
 			"title": "Low-Earth orbit",
-			"description": "Satellites in low-Earth orbit pass over a different part of the Earth in each orbit. It is cheaper to send satellites to Low-Earth orbit than other orbits and satellites here can be reached for repairs. Low-Earth orbit satellites can look at small areas in high detail for short periods of time. ",
+			"description": "Satellites in low-Earth orbit pass over a different part of the Earth in each orbit. It is cheaper to send satellites to Low-Earth orbit than other orbits and satellites here can be reached for repairs. Low-Earth orbit satellites can look at small areas in high detail for short periods of time.",
 			"altitude": { "value": 400, "units": "km", "dimension": "length" },
 			"period": { "value": 90, "units": "minutes", "dimension": "time" }
 		},

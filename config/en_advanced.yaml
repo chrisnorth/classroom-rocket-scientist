@@ -80,13 +80,13 @@ package.camera-fir.description:             Provides infrared images of the clou
 package.spect-opt.title:                    Optical Spectrometer
 package.spect-opt.description:              Measures detailed properties of the Earth's surface, such as deforestation.
 package.spect-nir.title:                    Vegetation Spectrometer
-package.spect-nir.description:              Measures the properties of vegetation on the ground, such type of vegetation and how healthy it is.
+package.spect-nir.description:              Measures the properties of vegetation on the ground, such as type of vegetation and how healthy it is.
 package.spect-fir.title:                    Atmospheric Spectrometer
 package.spect-fir.description:              Uses infrared light to measure properties of the Earth's atmosphere, such as clouds, moisture level, surface temperature and air temperature, even during darkness.
 package.radar-alt.title:                    Radar altimeter
 package.radar-alt.description:              Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earthquakes.
 package.radar-alt.requires.dish.label:      Requires a radar dish
-package.radar-alt.requires.dish.error:      You need to include a radar dish for the altimeter to work
+package.radar-alt.requires.dish.error:      You need to include a radar dish for the altimeter to work.
 package.radar-dish.title:                   Radar dish
 package.radar-dish.description:             Transmits and receives radio waves for the radar altimeter
 package.radio-rx.title:                     Radio receiver
@@ -126,21 +126,87 @@ package.solar-panel-surface.description:    Solar panels mounted onto surface of
 package.solar-panel.title:                  Deployable solar panel
 package.solar-panel.description:            Solar panels deployed from edge of satellite, collecting sunlight to provide power. Can power instruments, or charge up batteries.
 orbit.LEO.title:                            Low-Earth orbit
-orbit.LEO.description:                      Satellites in low-Earth orbit pass over a different part of the Earth in each orbit. It is cheaper to send satellites to Low-Earth orbit than other orbits and satellites here can be reached for repairs. Low-Earth orbit satellites can look at small areas in high detail for short periods of time. 
+orbit.LEO.description:                      Satellites in low-Earth orbit pass over a different part of the Earth in each orbit. It is cheaper to send satellites to Low-Earth orbit than other orbits and satellites here can be reached for repairs. Low-Earth orbit satellites can look at small areas in high detail for short periods of time.
 orbit.MEO.title:                            Medium-Earth orbit
 orbit.MEO.description:                      Satellites in medium-Earth orbit are higher above the Earth than low-Earth orbits, but lower than geostationary orbits. They cover a different part of Earth in each orbit. They can see a larger area in less detail than low-Earth orbits.
 orbit.HEO.title:                            Highly-elliptical orbit
-orbit.HEO.description:                      Highly-elliptical orbits are much closer to the Earth at one point in their orbit (called perigee) than another (called apogee), giving an elliptical rather than circular orbit. Due to Kepler's laws, they spend most of their time at apogee, above one area of Earth than another at perigee. They are useful for covering areas including high latitudes. More than one satellite can be used for continuous coverage of an area.
+orbit.HEO.description:                      Highly-elliptical orbits are much closer to the Earth at one point in their orbit than another, giving an elliptical rather than circular orbit. They are useful for covering areas including high latitudes. More than one satellite can be used for continuous coverage of an area.
 orbit.GEO.title:                            Geo-stationary orbit
-orbit.GEO.description:                      Satellites in geostationary orbits orbit at the same speed as the Earth spins, so stay above the same location on Earth near the equator and complete a full orbit in 24 hours. They are much higher above the Earth's surface than other orbits, so can see the entire hemisphere in less detail.
+orbit.GEO.description:                      Satellites in geostationary orbits stay above the same location on Earth near the equator and complete a full orbit in 24 hours. They are much higher above the Earth's surface than other orbits, so can see the entire hemisphere in less detail.
 scenarios.NAV.title:                        Navigation Satellite
 scenarios.NAV.description:                  The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.
 scenarios.NAV.sat-nav.title:                Satellite Navigation System
-scenarios.NAV.sat-nav.description:          Uses signals from four navigation satellites so satnav users can find their location on Earth.
-scenarios.NAV.sat-nav.req.atomic.label:     Measures time accurately
-scenarios.NAV.sat-nav.req.atomic.error:      You are not able to measure the time accurately enough.
+scenarios.NAV.sat-nav.description:          Uses signals from four navigation satellites so satnav users can find their location on Earth. Need to be able to see half a hemisphere at a time, measure time accurately and transmit signals of the location.
+scenarios.NAV.sat-nav.req.bus.label: A satellite that is small, medium or large.
+scenarios.NAV.sat-nav.req.bus.error: Your satellite must be big enough for your mission.
+scenarios.NAV.sat-nav.req.atomic.label:     Needs to be able to measures time very accurately
+scenarios.NAV.sat-nav.req.atomic.error:     You are not able to measure the time accurately enough.
+scenarios.NAV.sat-nav.req.radio-tx.label: A way to send signals.
+scenarios.NAV.sat-nav.req.radio-tx.error: You do not have any way to transmit timing signals to people on the ground.
+scenarios.NAV.sat-nav.req.orbit.label: See the whole planet. 
+scenarios.NAV.sat-nav.req.orbit.error: The orbit you have chosen does not allow you to see the whole planet
+scenarios.NAV.map.title: Map-making
+scenarios.NAV.map.description: Map the surface of the Earth. Need to be able to take images of small areas of the Earth's surface and measure the height of the ground in high detail.
+scenarios.NAV.map.req.opt-hires.label: An instrument capable of high resolution images.
+scenarios.NAV.map.req.opt-hires.error: The instrument you have chosen does not allow you to see the planet surface in enough detail.
+scenarios.NAV.map.req.orbit.label: See detail of planet surface. 
+scenarios.NAV.map.req.orbit.error: The orbit you have chosen does not allow you to see the planet surface in enough detail.
 scenarios.COMMS.title:                      Communication Satellite
 scenarios.COMMS.description:                These are used for television, phone or internet transmissions, for example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.
+scenarios.COMMS.phone.title: Satellite telephone system
+scenarios.COMMS.phone.description: Lets people talk over the phone using satellites.
+scenarios.COMMS.phone.req.radio-tx.label: A way to send signals. 
+scenarios.COMMS.phone.req.radio-tx.error: You do not have a way to send signals to the ground.
+scenarios.COMMS.phone.req.radio-rx.label: A way to receive signals.
+scenarios.COMMS.phone.req.radio-rx.error: You do not have a way to receive signals from the ground.
+scenarios.COMMS.phone.req.orbit.label: Satellite is continuously above one area of Earth
+scenarios.COMMS.phone.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
+scenarios.COMMS.internet.title: Satellite internet
+scenarios.COMMS.internet.description: Connect to the internet using satellites.
+scenarios.COMMS.internet.req.radio-tx.label: A way to send signals.
+scenarios.COMMS.internet.req.radio-tx.error: You do not have a way to send signals to the ground.
+scenarios.COMMS.internet.req.radio-rx.label: A way to receive signals.
+scenarios.COMMS.internet.req.radio-rx.error: You do not have a way to receive signals from the ground.
+scenarios.COMMS.internet.req.orbit.label: Satellite is continuously above one area of Earth
+scenarios.COMMS.internet.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
+scenarios.COMMS.tv.title: Satellite TV
+scenarios.COMMS.tv.description: Provide satellite TV.
+scenarios.COMMS.tv.req.radio-tx.label: A way to send signals.
+scenarios.COMMS.tv.req.radio-tx.error: You do not have a way to send signals to the ground.
+scenarios.COMMS.tv.req.radio-rx.label: A way to receive signals.
+scenarios.COMMS.tv.req.radio-rx.error: You do not have a way to receive signals from the ground.
+scenarios.COMMS.tv.req.orbit.label: Satellite is continuously above one area of Earth
+scenarios.COMMS.tv.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
 scenarios.EO.title:                         Earth Observation Satellite
 scenarios.EO.description:                   These are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.
+scenarios.EO.weather.title: Weather forecasting
+scenarios.EO.weather.description: Monitor the weather.
+scenarios.EO.weather.req.camera.label: To take images of clouds and weather systems on Earth.
+scenarios.EO.weather.req.camera.error: You do not have a way to take images of the weather on Earth.
+scenarios.EO.weather.req.orbit.label: See detail of Earth's weather systems.
+scenarios.EO.weather.req.orbit.error: The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail.
+scenarios.EO.veg-map.title: Vegetation mapping 
+scenarios.EO.veg-map.description: Map the plants over the surface of the Earth.
+scenarios.EO.veg-map.req.radio-tx.label: A way to transmit signals.
+scenarios.EO.veg-map.req.radio-tx.error: You do not have a way to transmit signals to the ground.
+scenarios.EO.veg-map.req.camera.label: To take images of the vegetation on Earth.
+scenarios.EO.veg-map.req.camera.error: You do not have a way to take images of the vegetation on Earth.
+scenarios.EO.disaster.title: Natural disaster monitoring
+scenarios.EO.disaster.description: Study areas of natural disasters.
+scenarios.EO.disaster.req.camera.label: To take images of Earth where disaster has occured.
+scenarios.EO.disaster.req.camera.error: You do not have a way to take images of Earth where disaster has occured.
+scenarios.EO.disaster.req.radio-tx.label: A way to transmit signals.
+scenarios.EO.disaster.req.radio-tx.error: You do not have a way to transmit signals to the ground.
+scenarios.EO.disaster.req.orbit.label: See detail of planet surface.
+scenarios.EO.disaster.req.orbit.error: The orbit you have chosen does not allow you to see the planet surface in enough detail.
+scenarios.EO.surface.title: Surface mapping
+scenarios.EO.surface.description: Measure the height of land over the surface.
+scenarios.EO.surface.req.radar-alt.label: To measure the height of the ground in very high resolution.
+scenarios.EO.surface.req.radar-alt.error: You do not have a way to measure the height of the ground in very high resolution.
+scenarios.EO.surface.req.dish.label: Radar altimeter requires a radar dish to work.
+scenarios.EO.surface.req.dish.error: Your radar altimeter cannot work as it does not have a radar dish.
+scenarios.EO.surface.req.radio-tx.label: A way to transmit signals.
+scenarios.EO.surface.req.radio-tx.error: You do not have a way to transmit signals to the ground.
+scenarios.EO.surface.req.orbit.label: See detail of planet surface.
+scenarios.EO.surface.req.orbit.error: The orbit you have chosen does not allow you to see the planet surface in enough detail.
 ---
