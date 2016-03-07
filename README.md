@@ -19,11 +19,11 @@ The HTML is created from the `templates` directory so edit the files in there no
 
 To regenerate the static HTML there is a `perl` script:
 
-	perl templates/template.pl -mode beginner templates/index.html index.html
+	perl config/template.pl -mode beginner templates/index.html index.html
 
-	perl templates/template.pl -mode beginner templates/level.html beginner.html
-	perl templates/template.pl -mode intermediate templates/level.html intermediate.html
-	perl templates/template.pl -mode advanced templates/level.html advanced.html
+	perl config/template.pl -mode beginner templates/level.html beginner.html
+	perl config/template.pl -mode intermediate templates/level.html intermediate.html
+	perl config/template.pl -mode advanced templates/level.html advanced.html
 
 ### CSS
 
