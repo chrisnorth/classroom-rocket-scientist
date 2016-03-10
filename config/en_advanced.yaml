@@ -108,7 +108,11 @@ package.dish-medium.description:            Radio dish capable of controlling an
 package.dish-small.title:                   Radio antenna (compact)
 package.dish-small.description:             Radio dish capable of controlling and transmitting images & data from up to 2 instruments
 package.radio-antenna-cube.title:           Radio antenna (deployable)
-package.radio-antenna-cube.description:     Deployable radio antenna capable of controlling and transmitting images & data from up to 2 instruments
+package.radio-antenna-cube.description:     Deployable radio antenna capable of controlling and transmitting images & data from up to 2 instruments.
+package.internet-en.title: Internet encoder
+package.internet-en.description: 
+package.tv-en.title: TV encoder
+package.tv-en.description:
 package.battery-large.title:                Large battery
 package.battery-large.description:          Stores power from solar panels to allow operation when not in sunlight
 package.battery-large.requires.solar.label: Requires solar panels to charge up
@@ -130,7 +134,7 @@ orbit.LEO.description:                      Satellites in low-Earth orbit pass o
 orbit.MEO.title:                            Medium-Earth orbit
 orbit.MEO.description:                      Satellites in medium-Earth orbit are higher above the Earth than low-Earth orbits, but lower than geostationary orbits. They cover a different part of Earth in each orbit. They can see a larger area in less detail than low-Earth orbits.
 orbit.HEO.title:                            Highly-elliptical orbit
-orbit.HEO.description:                      Highly-elliptical orbits are much closer to the Earth at one point in their orbit than another, giving an elliptical rather than circular orbit. They are useful for covering areas including high latitudes. More than one satellite can be used for continuous coverage of an area.
+orbit.HEO.description:                      Highly-elliptical orbits are much closer to the Earth at one point in their orbit than another, giving an elongated (elliptical) rather than circular orbit. They are useful for covering areas including polar regions. More than one satellite can be used for continuous coverage of an area.
 orbit.GEO.title:                            Geo-stationary orbit
 orbit.GEO.description:                      Satellites in geostationary orbits stay above the same location on Earth near the equator and complete a full orbit in 24 hours. They are much higher above the Earth's surface than other orbits, so can see the entire hemisphere in less detail.
 scenarios.NAV.title:                        Navigation Satellite
@@ -139,54 +143,60 @@ scenarios.NAV.sat-nav.title:                Satellite Navigation System
 scenarios.NAV.sat-nav.description:          Uses signals from four navigation satellites so satnav users can find their location on Earth. Need to be able to see half a hemisphere at a time, measure time accurately and transmit signals of the location.
 scenarios.NAV.sat-nav.req.bus.label: A satellite that is small, medium or large.
 scenarios.NAV.sat-nav.req.bus.error: Your satellite must be big enough for your mission.
-scenarios.NAV.sat-nav.req.atomic.label:     Needs to be able to measures time very accurately
+scenarios.NAV.sat-nav.req.atomic.label:     Needs to be able to measure time very accurately
 scenarios.NAV.sat-nav.req.atomic.error:     You are not able to measure the time accurately enough.
 scenarios.NAV.sat-nav.req.radio-tx.label: A way to send signals.
-scenarios.NAV.sat-nav.req.radio-tx.error: You do not have any way to transmit timing signals to people on the ground.
+scenarios.NAV.sat-nav.req.radio-tx.error: Your satellite does not have any way to transmit timing signals to people on the ground.
 scenarios.NAV.sat-nav.req.orbit.label: See the whole planet.
-scenarios.NAV.sat-nav.req.orbit.error: The orbit you have chosen does not allow you to see the whole planet
+scenarios.NAV.sat-nav.req.orbit.error: The orbit you have chosen does not allow you to see the whole planet.
 scenarios.NAV.map.title: Map-making
 scenarios.NAV.map.description: Map the surface of the Earth. Need to be able to take images of small areas of the Earth's surface and measure the height of the ground in high detail.
 scenarios.NAV.map.req.opt-hires.label: An instrument capable of high resolution images.
 scenarios.NAV.map.req.opt-hires.error: The instrument you have chosen does not allow you to see the planet surface in enough detail.
 scenarios.NAV.map.req.orbit.label: See detail of planet surface.
-scenarios.NAV.map.req.orbit.error: The orbit you have chosen does not allow you to see the planet surface in enough detail.
+scenarios.NAV.map.req.orbit.error: The orbit you have chosen does not allow your satellite to see the planet surface in enough detail.
 scenarios.COMMS.title:                      Communication Satellite
 scenarios.COMMS.description:                These are used for television, phone or internet transmissions, for example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.
 scenarios.COMMS.phone.title: Satellite telephone system
 scenarios.COMMS.phone.description: Lets people talk over the phone using satellites.
 scenarios.COMMS.phone.req.radio-tx.label: A way to send signals.
-scenarios.COMMS.phone.req.radio-tx.error: You do not have a way to send signals to the ground.
+scenarios.COMMS.phone.req.radio-tx.error: Your satellite does not have a way to send signals to the ground.
 scenarios.COMMS.phone.req.radio-rx.label: A way to receive signals.
-scenarios.COMMS.phone.req.radio-rx.error: You do not have a way to receive signals from the ground.
+scenarios.COMMS.phone.req.radio-rx.error: Your satellite does not have a way to receive signals from the ground.
 scenarios.COMMS.phone.req.orbit.label: Satellite is continuously above one area of Earth
 scenarios.COMMS.phone.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
 scenarios.COMMS.internet.title: Satellite internet
-scenarios.COMMS.internet.description: Connect to the internet using satellites.
+scenarios.COMMS.internet.description: Connect to the internet using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.
 scenarios.COMMS.internet.req.radio-tx.label: A way to send signals.
 scenarios.COMMS.internet.req.radio-tx.error: You do not have a way to send signals to the ground.
 scenarios.COMMS.internet.req.radio-rx.label: A way to receive signals.
 scenarios.COMMS.internet.req.radio-rx.error: You do not have a way to receive signals from the ground.
+scenarios.COMMS.internet.req.internet-en.label: A way to encode internet signals.
+scenarios.COMMS.internet.req.internet-en.error: You do not have a way to encode internet signals.
 scenarios.COMMS.internet.req.orbit.label: Satellite is continuously above one area of Earth
 scenarios.COMMS.internet.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
 scenarios.COMMS.tv.title: Satellite TV
-scenarios.COMMS.tv.description: Provide satellite TV.
+scenarios.COMMS.tv.description: Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.
 scenarios.COMMS.tv.req.radio-tx.label: A way to send signals.
 scenarios.COMMS.tv.req.radio-tx.error: You do not have a way to send signals to the ground.
 scenarios.COMMS.tv.req.radio-rx.label: A way to receive signals.
 scenarios.COMMS.tv.req.radio-rx.error: You do not have a way to receive signals from the ground.
-scenarios.COMMS.tv.req.orbit.label: Satellite is continuously above one area of Earth
+scenarios.COMMS.tv.req.orbit.label: Satellite is continuously above one area of Earth.
+scenarios.COMMS.tv.req.tv-en.label: A way to encode TV signals.
+scenarios.COMMS.tv.req.tv-en.error: You do not have a way to encode TV signals.
 scenarios.COMMS.tv.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
 scenarios.EO.title:                         Earth Observation Satellite
 scenarios.EO.description:                   These are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.
 scenarios.EO.weather.title: Weather forecasting
-scenarios.EO.weather.description: Monitor the weather.
-scenarios.EO.weather.req.camera.label: To take images of clouds and weather systems on Earth.
-scenarios.EO.weather.req.camera.error: You do not have a way to take images of the weather on Earth.
+scenarios.EO.weather.description: Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean. 
+scenarios.EO.weather.req.camera-fir.label: Infrared light identifies cloud types and temperatures on Earth.
+scenarios.EO.weather.req.camera-fir.error: You do not have a way to identify cloud types and measure temperatures on Earth.
+scenarios.EO.weather.req.camera-opt.label: To take images of clouds and weather systems on Earth.
+scenarios.EO.weather.req.camera-opt.error: You do not have a way to take images of the weather on Earth.
 scenarios.EO.weather.req.orbit.label: See detail of Earth's weather systems.
 scenarios.EO.weather.req.orbit.error: The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail.
 scenarios.EO.veg-map.title: Vegetation mapping
-scenarios.EO.veg-map.description: Map the plants over the surface of the Earth.
+scenarios.EO.veg-map.description: Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmitting the images back to the ground.
 scenarios.EO.veg-map.req.radio-tx.label: A way to transmit signals.
 scenarios.EO.veg-map.req.radio-tx.error: You do not have a way to transmit signals to the ground.
 scenarios.EO.veg-map.req.camera.label: To take images of the vegetation on Earth.

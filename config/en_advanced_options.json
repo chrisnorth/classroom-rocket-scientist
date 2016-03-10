@@ -217,7 +217,7 @@
 			"description": "Transmits and receives radio waves for the radar altimeter",
 			"texture": {
 				"icon": "",
-				"class": "-bg radio",
+				"class": "-bg radar",
 				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
 			"mass": { "value": 40, "units": "kg", "dimension": "mass" },
@@ -382,7 +382,7 @@
 		"radio-antenna-cube": {
 			"slot":	"0x2",
 			"title": "Radio antenna (deployable)",
-			"description": "Deployable radio antenna capable of controlling and transmitting images & data from up to 2 instruments",
+			"description": "Deployable radio antenna capable of controlling and transmitting images & data from up to 2 instruments.",
 			"texture": {
 				"icon": "texture radio-antenna-cube",
 				"class": "-bg",
@@ -397,6 +397,38 @@
 			],
 			"power": { "value": 2, "units": "watts", "dimension": "power" },
 			"ref": "http://cubesatshop.com/index.php?page=shop.product.details&category.id=6&flypage=flypage.tpl&product.id=66&option=com.virtuemart&Itemid=70&vmcchk=1&Itemid=70"
+		},
+		"internet-en" : {
+			"slot": "2x2",
+			"title": "Internet encoder",
+			"description": "",
+			"texture": {
+				"icon": ""
+			},
+			"mass": { "value": 0, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 0, "units": "credits", "dimension": "currency" },
+			"dimensions": [
+				{ "value": 0, "units": "m", "dimension": "length" },
+				{ "value": 0, "units": "m", "dimension": "length" },
+				{ "value": 0, "units": "m", "dimension": "length" }
+			],
+			"power": { "value": 0, "units": "watts", "dimension": "power" }
+		},
+		"tv-en" : {
+			"slot": "2x2",
+			"title": "TV encoder",
+			"description": "",
+			"texture": {
+				"icon": ""
+			},
+			"mass": { "value": 0, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 0, "units": "credits", "dimension": "currency" },
+			"dimensions": [
+				{ "value": 0, "units": "m", "dimension": "length" },
+				{ "value": 0, "units": "m", "dimension": "length" },
+				{ "value": 0, "units": "m", "dimension": "length" }
+			],
+			"power": { "value": 0, "units": "watts", "dimension": "power" }
 		}
 	},
 	"power": {
@@ -787,7 +819,7 @@
 		},
 		"HEO": {
 			"title": "Highly-elliptical orbit",
-			"description": "Highly-elliptical orbits are much closer to the Earth at one point in their orbit than another, giving an elliptical rather than circular orbit. They are useful for covering areas including high latitudes. More than one satellite can be used for continuous coverage of an area.",
+			"description": "Highly-elliptical orbits are much closer to the Earth at one point in their orbit than another, giving an elongated (elliptical) rather than circular orbit. They are useful for covering areas including polar regions. More than one satellite can be used for continuous coverage of an area.",
 			"altitude": { "value": 20000, "units": "km", "dimension": "length" },
 			"period": { "value": 12, "units": "hours", "dimension": "time" }
 		},
@@ -825,18 +857,18 @@
 				},{
 					"type": "package",
 					"oneof": ["atomicclock"],
-					"label": "Needs to be able to measures time very accurately",
+					"label": "Needs to be able to measure time very accurately",
 					"error": "You are not able to measure the time accurately enough."
 				},{
 					"type": "package",
 					"oneof": ["radio_tx"],
 					"label": "A way to send signals.",
-					"error": "You do not have any way to transmit timing signals to people on the ground."
+					"error": "Your satellite does not have any way to transmit timing signals to people on the ground."
 				},{
 					"type": "orbit",
 					"oneof": ["HEO","GEO"],
 					"label": "See the whole planet.",
-					"error": "The orbit you have chosen does not allow you to see the whole planet"
+					"error": "The orbit you have chosen does not allow you to see the whole planet."
 				},{
                     "type": "power",
                     "oneof": ["battery-small","battery-large"],
@@ -860,7 +892,7 @@
 					"type": "orbit",
 					"oneof": ["LEO"],
 					"label": "See detail of planet surface.",
-					"error": "The orbit you have chosen does not allow you to see the planet surface in enough detail."
+					"error": "The orbit you have chosen does not allow your satellite to see the planet surface in enough detail."
 			}]
 		}]},
 		"COMMS": {
@@ -884,12 +916,12 @@
                     "type": "package",
                     "oneof": ["radio-tx"],
                     "label": "A way to send signals.",
-					"error": "You do not have a way to send signals to the ground."
+					"error": "Your satellite does not have a way to send signals to the ground."
                 },{
                     "type": "package",
                     "oneof": ["radio-rx"],
                     "label": "A way to receive signals.",
-					"error": "You do not have a way to receive signals from the ground."
+					"error": "Your satellite does not have a way to receive signals from the ground."
                 },{
 					"type": "orbit",
 					"oneof": ["GEO"],
@@ -916,6 +948,11 @@
                     "label": "A way to receive signals.",
 					"error": "You do not have a way to receive signals from the ground."
                 },{
+                    "type": "package",
+                    "oneof": ["internet-en"],
+                    "label": "A way to ",
+					"error": "You do not have a way to"
+				},{
 					"type": "orbit",
 					"oneof": ["GEO"],
 					"label": "Satellite is continuously above one area of Earth",
@@ -941,9 +978,14 @@
                     "label": "A way to receive signals.",
 					"error": "You do not have a way to receive signals from the ground."
                 },{
+                    "type": "package",
+                    "oneof": ["tv-en"],
+                    "label": "A way to ",
+					"error": "You do not have a way to "
+				},{
 					"type": "orbit",
 					"oneof": ["GEO"],
-					"label": "Satellite is continuously above one area of Earth",
+					"label": "Satellite is continuously above one area of Earth.",
 					"error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."
 			}]
 			}]
@@ -967,7 +1009,12 @@
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
-                    "oneof": ["camera-fir","camera-opt"],
+                    "oneof": ["camera-fir"],
+                    "label": "To identify cloud types and temperatures on Earth.",
+					"error": "You do not have a way to identify cloud types and temperatures on Earth."
+                },{
+                    "type": "package",
+                    "oneof": ["camera-opt"],
                     "label": "To take images of clouds and weather systems on Earth.",
 					"error": "You do not have a way to take images of the weather on Earth."
                 },{

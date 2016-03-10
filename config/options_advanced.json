@@ -397,6 +397,38 @@
 			],
 			"power": { "value": 2, "units": "watts", "dimension": "power" },
 			"ref": "http://cubesatshop.com/index.php?page=shop.product.details&category.id=6&flypage=flypage.tpl&product.id=66&option=com.virtuemart&Itemid=70&vmcchk=1&Itemid=70"
+		},
+		"internet-en" : {
+			"slot": "2x2",
+			"title": "%package.internet-en.title%",
+			"description": "%package.internet-en.description%",
+			"texture": {
+				"icon": ""
+			},
+			"mass": { "value": 0, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 0, "units": "credits", "dimension": "currency" },
+			"dimensions": [
+				{ "value": 0, "units": "m", "dimension": "length" },
+				{ "value": 0, "units": "m", "dimension": "length" },
+				{ "value": 0, "units": "m", "dimension": "length" }
+			],
+			"power": { "value": 0, "units": "watts", "dimension": "power" }
+		},
+		"tv-en" : {
+			"slot": "2x2",
+			"title": "%package.tv-en.title%",
+			"description": "%package.tv-en.description%",
+			"texture": {
+				"icon": ""
+			},
+			"mass": { "value": 0, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 0, "units": "credits", "dimension": "currency" },
+			"dimensions": [
+				{ "value": 0, "units": "m", "dimension": "length" },
+				{ "value": 0, "units": "m", "dimension": "length" },
+				{ "value": 0, "units": "m", "dimension": "length" }
+			],
+			"power": { "value": 0, "units": "watts", "dimension": "power" }
 		}
 	},
 	"power": {
@@ -916,6 +948,11 @@
                     "label": "%scenarios.COMMS.internet.req.radio-rx.label%",
 					"error": "%scenarios.COMMS.internet.req.radio-rx.error%"
                 },{
+                    "type": "package",
+                    "oneof": ["internet-en"],
+                    "label": "%scenarios.COMMS.internet.req.internet-en.label%",
+					"error": "%scenarios.COMMS.internet.req.internet-en.error%"
+				},{
 					"type": "orbit",
 					"oneof": ["GEO"],
 					"label": "%scenarios.COMMS.internet.req.orbit.label%",
@@ -941,6 +978,11 @@
                     "label": "%scenarios.COMMS.tv.req.radio-rx.label%",
 					"error": "%scenarios.COMMS.tv.req.radio-rx.error%"
                 },{
+                    "type": "package",
+                    "oneof": ["tv-en"],
+                    "label": "%scenarios.COMMS.tv.req.tv-en.label%",
+					"error": "%scenarios.COMMS.tv.req.tv-en.error%"
+				},{
 					"type": "orbit",
 					"oneof": ["GEO"],
 					"label": "%scenarios.COMMS.tv.req.orbit.label%",
@@ -967,9 +1009,14 @@
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
-                    "oneof": ["camera-fir","camera-opt"],
-                    "label": "%scenarios.EO.weather.req.camera.label%",
-					"error": "%scenarios.EO.weather.req.camera.error%"
+                    "oneof": ["camera-fir"],
+                    "label": "%scenarios.EO.weather.req.camera-fir.label%",
+					"error": "%scenarios.EO.weather.req.camera-fir.error%"
+                },{
+                    "type": "package",
+                    "oneof": ["camera-opt"],
+                    "label": "%scenarios.EO.weather.req.camera-opt.label%",
+					"error": "%scenarios.EO.weather.req.camera-opt.error%"
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],
