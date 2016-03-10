@@ -930,7 +930,7 @@
 			}]
 			},{
 				"title": "Satellite internet",
-				"description": "Connect to the internet using satellites.",
+				"description": "Connect to the internet using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.",
 				"image": {
 					"file": "images/satinternet.jpg",
 					"alt": "Internet",
@@ -950,8 +950,8 @@
                 },{
                     "type": "package",
                     "oneof": ["internet-en"],
-                    "label": "A way to ",
-					"error": "You do not have a way to"
+                    "label": "A way to encode internet signals.",
+					"error": "You do not have a way to encode internet signals."
 				},{
 					"type": "orbit",
 					"oneof": ["GEO"],
@@ -960,7 +960,7 @@
 			}]
 			},{
 				"title": "Satellite TV",
-				"description": "Provide satellite TV.",
+				"description": "Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.",
 				"image": {
 					"file": "images/sattv.jpg",
 					"alt": "TV",
@@ -980,8 +980,8 @@
                 },{
                     "type": "package",
                     "oneof": ["tv-en"],
-                    "label": "A way to ",
-					"error": "You do not have a way to "
+                    "label": "A way to encode TV signals.",
+					"error": "You do not have a way to encode TV signals."
 				},{
 					"type": "orbit",
 					"oneof": ["GEO"],
@@ -1000,7 +1000,7 @@
 			},
 			"missions": [{
 				"title": "Weather forecasting",
-				"description": "Monitor the weather.",
+				"description": "Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean. ",
 				"image": {
 					"file": "images/weather.jpg",
 					"alt": "Weather",
@@ -1010,8 +1010,8 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-fir"],
-                    "label": "To identify cloud types and temperatures on Earth.",
-					"error": "You do not have a way to identify cloud types and temperatures on Earth."
+                    "label": "Infrared light identifies cloud types and temperatures on Earth.",
+					"error": "You do not have a way to identify cloud types and measure temperatures on Earth."
                 },{
                     "type": "package",
                     "oneof": ["camera-opt"],
@@ -1025,7 +1025,7 @@
 			},
             {
 				"title": "Vegetation mapping",
-				"description": "Map the plants over the surface of the Earth.",
+				"description": "Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmitting the images back to the ground.",
 				"image": {
 					"file": "images/vegetation.jpg",
 					"alt": "Vegetation",
