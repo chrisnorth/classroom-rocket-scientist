@@ -1064,6 +1064,21 @@
                     "label": "%scenarios.EO.disaster.req.radio-tx.label%",
 					"error": "%scenarios.EO.disaster.req.radio-tx.error%"
                 },{
+                    "type": "package",
+                    "oneof": ["radar-alt"],
+                    "label": "%scenarios.EO.disaster.req.radar-alt.label%",
+					"error": "%scenarios.EO.disaster.req.radar-alt.error%"
+                },{
+                    "type": "package",
+                    "oneof": ["radar-dish"],
+                    "label": "%scenarios.EO.disaster.req.dish.label%",
+					"error": "%scenarios.EO.disaster.req.dish.error%"
+                },{
+                    "type": "package",
+                    "oneof": ["camera-nir"],
+                    "label": "%scenarios.EO.disaster.req.camera-nir.label%",
+					"error": "%scenarios.EO.disaster.req.camera-nir.error%"
+                },{
 					"type": "orbit",
 					"oneof": ["LEO"],
 					"label": "%scenarios.EO.disaster.req.orbit.label%",
@@ -1092,6 +1107,11 @@
                     "oneof": ["radio-tx"],
                     "label": "%scenarios.EO.surface.req.radio-tx.label%",
 					"error": "%scenarios.EO.surface.req.radio-tx.error%"
+                },{
+                    "type": "package",
+                    "oneof": ["sat-tracker"],
+                    "label": "%scenarios.EO.surface.req.sat-tracker.label%",
+					"error": "%scenarios.EO.surface.req.sat-tracker.error%"
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],

@@ -1046,7 +1046,7 @@
 				]
 			},{
 				"title": "Natural disaster monitoring",
-				"description": "Study areas of natural disasters.",
+				"description": "When natural disasters occur, satellites are used to take images of the ground and assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras help by showing floods and fires and radio waves can show regions of earth deformation, such as after earthquakes.",
 				"image": {
 					"file": "images/disaster.jpg",
 					"alt": "Disasters",
@@ -1056,21 +1056,36 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-opt-hires"],
-                    "label": "To take images of Earth where disaster has occured.",
-					"error": "You do not have a way to take images of Earth where disaster has occured."
+                    "label": "To take high resolution images of Earth where disaster has occured.",
+					"error": "You do not have a way to take high resolution images of Earth where disaster has occured."
                 },{
                     "type": "package",
                     "oneof": ["radio-tx"],
                     "label": "A way to transmit signals.",
 					"error": "You do not have a way to transmit signals to the ground."
                 },{
+                    "type": "package",
+                    "oneof": ["radar-alt"],
+                    "label": "Uses radio waves to measure the height of the surface.",
+					"error": "You do not have a way to measure the height of the surface, such as for earthquakes."
+                },{
+                    "type": "package",
+                    "oneof": ["radar-dish"],
+                    "label": "Radar altimeter requires a radar dish to work.",
+					"error": "Your radar altimeter cannot work as it does not have a radar dish."
+                },{
+                    "type": "package",
+                    "oneof": ["camera-nir"],
+                    "label": "Infrared camera can detect fires, including forest fires.",
+					"error": "You do not have a way to detect fires in disaster regions."
+                },{
 					"type": "orbit",
 					"oneof": ["LEO"],
 					"label": "See detail of planet surface.",
-					"error": "The orbit you have chosen does not allow you to see the planet surface in enough detail."}]
+					"error": "The orbit you have chosen does not allow you to see the disaster region in enough detail."}]
 			},{
 				"title": "Surface mapping",
-				"description": "Measure the height of land over the surface.",
+				"description": "Measure the varying height of land and oceans over the Earth's surface. ",
 				"image": {
 					"file": "images/surface.jpg",
 					"alt": "Surface",
@@ -1092,6 +1107,11 @@
                     "oneof": ["radio-tx"],
                     "label": "A way to transmit signals.",
 					"error": "You do not have a way to transmit signals to the ground."
+                },{
+                    "type": "package",
+                    "oneof": ["sat-tracker"],
+                    "label": "Enables high level precision of the satellite location.",
+					"error": "You do not have a way to locate the position of the satellite accurately."
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],
