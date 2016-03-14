@@ -4,6 +4,24 @@ var eventcache = {};
 
 function S(e){
 	
+	function querySelector(els,selector){
+		var result = new Array();
+		var a,els2,i,j,k,tmp;
+		if(selector.indexOf(':eq') >= 0){
+			a = selector.split(' ');
+			for(i = 0; i < a.length; i++){
+				if(i==0){
+					tmp = getBy(els,a[i]);
+				}else{
+					els2 = new Array();
+					for(j = 0; j < tmp.length; j++) els2 = els2.concat(getBy(tmp[j],a[i]));
+					tmp = els2.splice(0);
+				}
+			}
+		}else tmp = els.querySelectorAll(selector);					// We can use the built-in selector
+		for(k = 0; k < tmp.length; k++){ result.push(tmp[k]); }
+		return result;
+	}
 	function getBy(e,s){
 		var i = -1;
 		var result = new Array();
@@ -45,11 +63,8 @@ function S(e){
 	// Make our own fake, tiny, version of jQuery simulating the parts we need
 	function stuQuery(els){
 		var elements;
-		if(typeof els==="string"){
-			var tmp = document.querySelectorAll(els);	// IE8+
-			this.e = new Array();
-			for(k = 0; k < tmp.length; k++){ this.e.push(tmp[k]); }
-		}else if(typeof els==="object") this.e = (typeof els.length=="number") ? els : [els];
+		if(typeof els==="string") this.e = querySelector(document,els);
+		else if(typeof els==="object") this.e = (typeof els.length=="number") ? els : [els];
 		return this;
 	}
 	stuQuery.prototype.ready = function(f){ /in/.test(document.readyState)?setTimeout('S(document).ready('+f+')',9):f() }
@@ -265,11 +280,7 @@ function S(e){
 	stuQuery.prototype.find = function(selector){
 		var tmp = [];
 		var result = new Array();
-		for(var i = 0; i < this.e.length; i++){
-			if(selector.indexOf(':eq') >= 0) tmp = getBy(this.e[i],selector);	// If we have an :eq(n) style selector we use our manual selection
-			else tmp = this.e[i].querySelectorAll(selector);					// We can use the built-in selector
-			for(k = 0; k < tmp.length; k++){ result.push(tmp[k]); }
-		}
+		for(var i = 0; i < this.e.length; i++) result = result.concat(querySelector(this.e[i],selector));
 		// Return a new instance of stuQuery
 		return S(result);
 	}
