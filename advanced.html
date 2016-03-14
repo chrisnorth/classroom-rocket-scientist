@@ -1,1976 +1,985 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
 	<meta charset="utf-8" />
-
 	<meta name="viewport" content="width=device-width" />
-
 	<title>Classroom rocket scientist</title>
-
 	<link rel="stylesheet" media="all" href="css/fonts.css" type="text/css"/>
-
 	<link rel="stylesheet" media="all" href="css/style.css"  type="text/css" />
-
 	<!--[if !IE]> --><link href="tests/satellite/style-nonie.css" rel="stylesheet" type="text/css" media="screen" /><!-- <![endif]-->
-
 	<script type="text/javascript" src="js/convertable.js"></script>
-
 	<script type="text/javascript" src="js/stuquery.js"></script>
-
 	<script>
-
 		
-
 		var data = {"sections": [{"id": "type","short": "Type","title": "Select your type of satellite"},{"id": "goal","short": "Mission","title": "Select the purpose of your satellite"},{"id": "bus","short": "Size","title": "Choose the size of your satellite"},{"id": "orbit","short": "Orbit","title": "Select the orbit for your satellite"},{"id": "instrument","short": "Instruments","title": "Select the instruments for your satellite","list": "Available instruments:"},{"id": "power","short": "Power","title": "Add power","list": "Available power devices:"},{"id": "rocket","short": "Rocket","title": "Build your rocket"},{"id": "launch","short": "Launch","title": "Ready to launch?"}],"bus":{"cube":{"slots":{"0x2": 1, "1x1": 2, "1x2": 1, "3x3": 1},"cost":{"value": 0.5, "units": "credits", "dimension": "currency"},"mass":{"value": 1, "units": "kg", "dimension": "mass"},"structure":{"value": 0.3, "units": "kg", "dimension": "mass"},"width":{"value": 0.1, "units": "m", "dimension": "length"},"height":{"value": 0.1, "units": "m", "dimension": "length"},"depth":{"value": 0.1, "units": "m", "dimension": "length"},"area":{"value": 0.1, "units": "m^2", "dimension": "area" }},"small":{"slots":{"2x2": 2, "2x4": 1, "3x3": 1, "4x4": 4},"cost":{"value": 5, "units": "credits", "dimension": "currency"},"mass":{"value": 100, "units": "kg", "dimension": "mass"},"structure":{"value": 150, "units": "kg", "dimension": "mass"},"width":{"value": 1, "units": "m", "dimension": "length"},"height":{"value": 1, "units": "m", "dimension": "length"},"depth":{"value": 1, "units": "m", "dimension": "length"},"area":{"value": 1, "units": "m^2", "dimension": "area" }},"medium":{"slots":{"2x2": 4, "2x4": 2, "3x3": 1, "4x4": 4},"cost":{"value": 100, "units": "credits", "dimension": "currency"},"mass":{"value": 500, "units": "kg", "dimension": "mass"},"structure":{"value": 250, "units": "kg", "dimension": "mass"},"width":{"value": 5, "units": "m", "dimension": "length"},"height":{"value": 2.5, "units": "m", "dimension": "length"},"depth":{"value": 2.5, "units": "m", "dimension": "length"},"area":{"value": 3, "units": "m^2", "dimension": "area" }},"large":{"slots":{"2x2": 8, "2x4": 3, "4x8": 1, "3x3": 1, "4x4": 4},"cost":{"value": 500, "units": "credits", "dimension": "currency"},"mass":{"value": 1000, "units": "kg", "dimension": "mass"},"structure":{"value": 500, "units": "kg", "dimension": "mass"},"width":{"value": 10, "units": "m", "dimension": "length"},"height":{"value": 2.5, "units": "m", "dimension": "length"},"depth":{"value": 2.5, "units": "m", "dimension": "length"},"area":{"value": 10, "units": "m^2", "dimension": "area" }}},"package":{"camera-opt" :{"slot": "2x2","title": "Optical camera","description": "Provides images of the ground, such as for mapping or for monitoring natural disasters. Can also be used to monitor cloud cover. The resolution depends on the orbit altitude.","texture":{"icon": "texture camera-opt"},"mass":{"value": 50, "units": "kg", "dimension": "mass"},"cost":{"value": 10, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 50, "units": "watts", "dimension": "power" }},"camera-opt-hires" :{"slot": "2x4","title": "High-resolution optical camera","description": "Provides very high-resolution images of the ground, such as for monitoring natural disasters, but only when used in low-Earth orbit.","texture":{"icon": "texture camera-opt-hires"},"mass":{"value": 100, "units": "kg", "dimension": "mass"},"cost":{"value": 15, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 1.0, "units": "m", "dimension": "length"},{"value": 1.0, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 50, "units": "watts", "dimension": "power" }},"camera-nir":{"slot":	"2x2","title": "Vegetation camera","description": "Provides infrared images of vegetation and land-usage on the ground. Only works in daylight, as it relies on reflected sunlight.","texture":{"icon": "texture camera-nir"},"mass":{"value": 50, "units": "kg", "dimension": "mass"},"cost":{"value": 20, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 50, "units": "watts", "dimension": "power" }},"camera-fir":{"slot":	"2x4","title": "Atmospheric camera","description": "Provides infrared images of the clouds and weather systems in the Earth's atmosphere, useful for weather forecasting and climate monitoring, even during darkness.","texture":{"icon": "texture camera-fir"},"mass":{"value": 100, "units": "kg", "dimension": "mass"},"cost":{"value": 30, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 1.0, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 300, "units": "watts", "dimension": "power" }},"spect-opt":{"slot":	"2x2","title": "Optical Spectrometer","description": "Measures detailed properties of the Earth's surface, such as deforestation.","texture":{"icon": "texture spect-opt"},"mass":{"value": 50, "units": "kg", "dimension": "mass"},"cost":{"value": 10, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 150, "units": "watts", "dimension": "power" }},"spect-nir":{"slot":	"2x2","title": "Vegetation Spectrometer","description": "Measures the properties of vegetation on the ground, such as type of vegetation and how healthy it is.","texture":{"icon": "texture spect-nir"},"mass":{"value": 50, "units": "kg", "dimension": "mass"},"cost":{"value": 20, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 150, "units": "watts", "dimension": "power" }},"spect-fir":{"slot":	"2x4","title": "Atmospheric Spectrometer","description": "Uses infrared light to measure properties of the Earth's atmosphere, such as clouds, moisture level, surface temperature and air temperature, even during darkness.","texture":{"icon": "texture spect-fir"},"mass":{"value": 100, "units": "kg", "dimension": "mass"},"cost":{"value": 30, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 1.0, "units": "m", "dimension": "length"},{"value": 1.0, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 300, "units": "watts", "dimension": "power" }},"radar-alt":{"slot":	"2x4","title": "Radar altimeter","description": "Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earthquakes. Requires a radar dish to work.","texture":{"icon": "texture radar-alt"},"mass":{"value": 40, "units": "kg", "dimension": "mass"},"cost":{"value": 5, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 1.0, "units": "m", "dimension": "length"},{"value": 1.0, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 70, "units": "watts", "dimension": "power"},"requires": [{"type": "package","oneof": ["radar-dish"],"label": "Requires a radar dish","error": "You need to include a radar dish for the altimeter to work."}]},"radar-dish":{"slot":	"4x8","title": "Radar dish","description": "Transmits and receives radio waves for the radar altimeter","texture":{"icon": "","class": "-bg radar","html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"},"mass":{"value": 40, "units": "kg", "dimension": "mass"},"cost":{"value": 1, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 2.0, "units": "m", "dimension": "length"},{"value": 2.0, "units": "m", "dimension": "length"},{"value": 1.0, "units": "m", "dimension": "length" }],"power":{"value": 0, "units": "watts", "dimension": "power" }},"radio-rx":{"slot":	"2x2","title": "Radio receiver","description": "Receives instructions from the ground control team","texture":{"icon": "texture radio-rx"},"mass":{"value": 10, "units": "kg", "dimension": "mass"},"cost":{"value": 1, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 20, "units": "watts", "dimension": "power" }},"radio-tx":{"slot":	"2x2","title": "Radio transmitter","description": "Transmits information collected by the satellite to the ground","texture":{"icon": "texture radio-tx"},"mass":{"value": 10, "units": "kg", "dimension": "mass"},"cost":{"value": 1, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 20, "units": "watts", "dimension": "power" }},"atomic-clock":{"slot":	"2x2","title": "Atomic clock","description": "Very accurate clock, required by navigation satellites to measure the time to very high precision.","texture":{"icon": "texture atomic-clock"},"mass":{"value": 1, "units": "kg", "dimension": "mass"},"cost":{"value": 1, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.1, "units": "m", "dimension": "length"},{"value": 0.1, "units": "m", "dimension": "length"},{"value": 0.05, "units": "m", "dimension": "length" }],"power":{"value": 10, "units": "watts", "dimension": "power" }},"atomic-clock-small":{"slot":	"1x2","title": "Atomic clock (compact)","description": "Very accurate clock, required by navigation satellites to measure the time to very high precision.","texture":{"icon": "texture atomic-clock-small"},"mass":{"value": 1, "units": "kg", "dimension": "mass"},"cost":{"value": 1, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.1, "units": "m", "dimension": "length"},{"value": 0.1, "units": "m", "dimension": "length"},{"value": 0.05, "units": "m", "dimension": "length" }],"power":{"value": 5, "units": "watts", "dimension": "power" }},"gps-rx":{"slot":	"1x1","title": "GPS receiver (miniature)","description": "Used to monitor the satellite's position to very high accuracy","texture":{"icon": "texture gps-rx"},"mass":{"value": 0.5, "units": "kg", "dimension": "mass"},"cost":{"value": 2, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.05, "units": "m", "dimension": "length"},{"value": 0.05, "units": "m", "dimension": "length"},{"value": 0.1, "units": "m", "dimension": "length" }],"power":{"value": 5, "units": "watts", "dimension": "power" }},"camera-mini":{"slot":	"1x1","title": "Camera (miniature)","description": "Takes images of the ground","texture":{"icon": "texture camera-mini"},"mass":{"value": 1, "units": "kg", "dimension": "mass"},"cost":{"value": 5, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.05, "units": "m", "dimension": "length"},{"value": 0.05, "units": "m", "dimension": "length"},{"value": 0.1, "units": "m", "dimension": "length" }],"power":{"value": 5, "units": "watts", "dimension": "power" }},"dish-large":{"slot":	"4x8","title": "Radio dish (large)","description": "Radio dish capable of controlling and transmitting images & data from up to 8 instruments","texture":{"icon": "","class": "-bg radio","html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"},"mass":{"value": 30, "units": "kg", "dimension": "mass"},"cost":{"value": 2, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 2.0, "units": "m", "dimension": "length"},{"value": 2.0, "units": "m", "dimension": "length"},{"value": 1.0, "units": "m", "dimension": "length" }],"power":{"value": 0, "units": "watts", "dimension": "power" }},"dish-medium":{"slot":	"2x4","title": "Radio dish","description": "Radio dish capable of controlling and transmitting images & data from up to 4 instruments","texture":{"icon": "","class": "-bg radio","html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"},"mass":{"value": 20, "units": "kg", "dimension": "mass"},"cost":{"value": 1, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 1.0, "units": "m", "dimension": "length"},{"value": 1.0, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 0, "units": "watts", "dimension": "power" }},"dish-small":{"slot":	"1x2","title": "Radio antenna (compact)","description": "Radio dish capable of controlling and transmitting images & data from up to 2 instruments","texture":{"icon": "","class": "-bg radio","html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"},"mass":{"value": 0.5, "units": "kg", "dimension": "mass"},"cost":{"value": 0.5, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.1, "units": "m", "dimension": "length"},{"value": 0.05, "units": "m", "dimension": "length"},{"value": 0.05, "units": "m", "dimension": "length" }],"power":{"value": 0, "units": "watts", "dimension": "power" }},"radio-antenna-cube":{"slot":	"0x2","title": "Radio antenna (deployable)","description": "Deployable radio antenna capable of controlling and transmitting images & data from up to 2 instruments.","texture":{"icon": "texture radio-antenna-cube","class": "-bg","html": "<div class=\"aerials\"><div class=\"aerial1 aerial\"></div><div class=\"aerial2 aerial\"></div></div>"},"mass":{"value": 0.1, "units": "kg", "dimension": "mass"},"cost":{"value": 0.5, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.98, "units": "m", "dimension": "length"},{"value": 0.98, "units": "m", "dimension": "length"},{"value": 0.07, "units": "m", "dimension": "length" }],"power":{"value": 2, "units": "watts", "dimension": "power"},"ref": "http://cubesatshop.com/index.php?page=shop.product.details&category.id=6&flypage=flypage.tpl&product.id=66&option=com.virtuemart&Itemid=70&vmcchk=1&Itemid=70"},"internet-en" :{"slot": "2x2","title": "Internet encoder","description": "","texture":{"icon": ""},"mass":{"value": 0, "units": "kg", "dimension": "mass"},"cost":{"value": 0, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0, "units": "m", "dimension": "length"},{"value": 0, "units": "m", "dimension": "length"},{"value": 0, "units": "m", "dimension": "length" }],"power":{"value": 0, "units": "watts", "dimension": "power" }},"tv-en" :{"slot": "2x2","title": "TV encoder","description": "","texture":{"icon": ""},"mass":{"value": 0, "units": "kg", "dimension": "mass"},"cost":{"value": 0, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0, "units": "m", "dimension": "length"},{"value": 0, "units": "m", "dimension": "length"},{"value": 0, "units": "m", "dimension": "length" }],"power":{"value": 0, "units": "watts", "dimension": "power" }}},"power":{"battery-large":{"slot":	"2x2","title": "Large battery","description": "Stores power from solar panels to allow operation when not in sunlight","texture":{"icon": "texture battery-large"},"mass":{"value": 50, "units": "kg", "dimension": "mass"},"cost":{"value": 20, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 500, "units": "watts", "dimension": "power"},"requires": [{"type": "power","oneof": ["solar-panel","solar-panel-surface"],"label": "Requires solar panels to charge up","error": "Requires solar panels"}]},"battery-small":{"slot":	"1x1","title": "Small battery","description": "Stores power from solar panels to allow operation when not in sunlight","texture":{"icon": "texture battery-small"},"mass":{"value": 1, "units": "kg", "dimension": "mass"},"cost":{"value": 15, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.05, "units": "m", "dimension": "length"},{"value": 0.05, "units": "m", "dimension": "length"},{"value": 0.05, "units": "m", "dimension": "length" }],"power":{"value": 30, "units": "watts", "dimension": "power"},"requires": [{"type": "power","oneof": ["solar-panel","solar-panel-surface"],"label": "Requires solar panels","error": "Requires solar panels"}]},"rtg":{"slot":	"2x4","title": "RTG","description": "A \"Radioisotope Thermal Generator\" uses nuclear technology to provide power. Due to safety concerns, it can't be used in low-Earth orbit.","texture":{"icon": "texture rtg"},"mass":{"value": 60, "units": "kg", "dimension": "mass"},"cost":{"value": 30, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length"},{"value": 1.0, "units": "m", "dimension": "length" }],"power":{"value": 300, "units": "watts", "dimension": "power"},"requires": [{"type": "orbit","oneof": ["MEO","HEO","GEO"],"label": "Not for low-Earth orbit","error": "Can't use an RTG in low-Earth orbit"}]},"solar-panel-surface":{"slot":	"3x3","title": "Body-mounted solar panel","description": "Solar panels mounted onto surface of satellite, collecting sunlight to provide power. Can power instruments, or charge up batteries.","mass":{"value": 5, "units": "kg", "dimension": "mass"},"cost":{"value": 15, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 1.0, "units": "m", "dimension": "length"},{"value": 1.0, "units": "m", "dimension": "length" }],"power":{"value": 150, "units": "watts", "dimension": "power"},"comments": "Costs are per unit area. Area defined by satellite size."},"solar-panel":{"slot":	"4x4","max": 4,"title": "Deployable solar panel","description": "Solar panels deployed from edge of satellite, collecting sunlight to provide power. Can power instruments, or charge up batteries.","mass":{"value": 10, "units": "kg", "dimension": "mass"},"cost":{"value": 20, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 1.0, "units": "m", "dimension": "length"},{"value": 1.0, "units": "m", "dimension": "length" }],"power":{"value": 300, "units": "watts", "dimension": "power" }}},"firststage": [{"key": "None","type": "","diameter":{"value": 0, "units": "m", "dimension": "length"},"height":{"value": 0.0, "units": "m", "dimension": "length"},"drymass":{"value": 0, "units": "kg", "dimension": "mass"},"cost":{"value": 0, "units": "credits", "dimension": "currency"},"thrust":{"value": 0, "units": "kN", "dimension": "force"},"fuel":{"value": 0, "units": "kg", "dimension": "mass"},"impulse":{"value": 0, "units": "s", "dimension": "time"},"notes": "No stage"},{"key": "S","type": "Solid-fuel rocket","diameter":{"value": 3.0, "units": "m", "dimension": "length"},"height":{"value": 12.0, "units": "m", "dimension": "length"},"drymass":{"value": 10500, "units": "kg", "dimension": "mass"},"cost":{"value": 23, "units": "credits", "dimension": "currency"},"thrust":{"value": 2200, "units": "kN", "dimension": "force"},"fuel":{"value": 88000, "units": "kg", "dimension": "mass"},"impulse":{"value": 280, "units": "s", "dimension": "time"},"notes": "Based on Vega 1st stage (https://en.wikipedia.org/wiki/Vega_(rocket))"},{"key": "M","type": "Liquid-fuel rocket","diameter":{"value": 3.0, "units": "m", "dimension": "length"},"height":{"value": 30.0, "units": "m", "dimension": "length"},"drymass":{"value": 9000, "units": "kg", "dimension": "mass"},"cost":{"value": 12, "units": "credits", "dimension": "currency"},"thrust":{"value": 1500, "units": "kN", "dimension": "force"},"fuel":{"value": 120000, "units": "kg", "dimension": "mass"},"impulse":{"value": 300, "units": "s", "dimension": "time"},"notes": "Based on Soyuz 1st stage (http://www.spaceflight101.com/soyuz-2-1v.html)"},{"key": "L","type": "Liquid-fuel rocket","diameter":{"value": 3.5, "units": "m", "dimension": "length"},"height":{"value": 40.0, "units": "m", "dimension": "length"},"drymass":{"value": 24000, "units": "kg", "dimension": "mass"},"cost":{"value": 60, "units": "credits", "dimension": "currency"},"thrust":{"value": 6000, "units": "kN", "dimension": "force"},"fuel":{"value": 400000, "units": "kg", "dimension": "mass"},"impulse":{"value": 280, "units": "s", "dimension": "time"},"notes": "Based on Falcon 9 first stage (http://www.spaceflight101.com/falcon-9-v11.html)"},{"key": "XL","type": "Liquid-fuel rocket","diameter":{"value": 8, "units": "m", "dimension": "length"},"height":{"value": 50.0, "units": "m", "dimension": "length"},"drymass":{"value": 85000, "units": "kg", "dimension": "mass"},"cost":{"value": 220, "units": "credits", "dimension": "currency"},"thrust":{"value": 7400, "units": "kN", "dimension": "force"},"fuel":{"value": 900000, "units": "kg", "dimension": "mass"},"impulse":{"value": 360, "units": "s", "dimension": "time"},"notes": "Based on SLS (https://en.wikipedia.org/wiki/Space_Launch_System)"},{"key": "XXL","type": "Liquid-fuel rocket","diameter":{"value": 10, "units": "m", "dimension": "length"},"height":{"value": 42.0, "units": "m", "dimension": "length"},"drymass":{"value": 130000, "units": "kg", "dimension": "mass"},"cost":{"value": 370, "units": "credits", "dimension": "currency"},"thrust":{"value": 34000, "units": "kN", "dimension": "force"},"fuel":{"value": 2000000, "units": "kg", "dimension": "mass"},"impulse":{"value": 263, "units": "s", "dimension": "time"},"notes": "Based on Saturn V 1st stage (https://en.wikipedia.org/wiki/Saturn_V)"},{"key": "Plane","type": "Air-breathing rocket","diameter":{"value": 6, "units": "m", "dimension": "length"},"height":{"value": 82.0, "units": "m", "dimension": "length"},"drymass":{"value": 310000, "units": "kg", "dimension": "mass"},"cost":{"value": 190, "units": "credits", "dimension": "currency"},"thrust":{"value": 2000, "units": "kN", "dimension": "force"},"fuel":{"value": 15000, "units": "kg", "dimension": "mass"},"impulse":{"value": 3600, "units": "s", "dimension": "time"},"notes": "Based on SABRE (https://en.wikipedia.org/wiki/SABRE_(rocket_engine))"},{"key": "RocketPlane","type": "Liquid-fuel rocket","diameter":{"value": 6, "units": "m", "dimension": "length"},"height":{"value": 82.0, "units": "m", "dimension": "length"},"drymass":{"value": 53000, "units": "kg", "dimension": "mass"},"cost":{"value": 450, "units": "credits", "dimension": "currency"},"thrust":{"value": 3000, "units": "kN", "dimension": "force"},"fuel":{"value": 260000, "units": "kg", "dimension": "mass"},"impulse":{"value": 460, "units": "s", "dimension": "time"},"notes": "Based on SABRE (https://en.wikipedia.org/wiki/SABRE_(rocket_engine))"}],"secondstage": [{"key": "None","type": "","diameter":{"value": 0, "units": "m", "dimension": "length"},"height":{"value": 0.0, "units": "m", "dimension": "length"},"drymass":{"value": 0, "units": "kg", "dimension": "mass"},"cost":{"value": 0, "units": "credits", "dimension": "currency"},"thrust":{"value": 0, "units": "kN", "dimension": "force"},"fuel":{"value": 0, "units": "kg", "dimension": "mass"},"impulse":{"value": 0, "units": "s", "dimension": "time"},"notes": "No stage"},{"key": "XS","type": "Solid-fuel rocket","diameter":{"value": 1.3, "units": "m", "dimension": "length"},"height":{"value": 17, "units": "m", "dimension": "length"},"drymass":{"value": 2000, "units": "kg", "dimension": "mass"},"cost":{"value": 5, "units": "credits", "dimension": "currency"},"thrust":{"value": 480, "units": "kN", "dimension": "force"},"fuel":{"value": 15000, "units": "kg", "dimension": "mass"},"impulse":{"value": 280, "units": "s", "dimension": "time"},"notes": "Based on Pegasus (http://www.astronautix.com/engines/pegasus1.htm)"},{"key": "S","type": "Solid-fuel rocket","diameter":{"value": 2, "units": "m", "dimension": "length"},"height":{"value": 14, "units": "m", "dimension": "length"},"drymass":{"value": 3000, "units": "kg", "dimension": "mass"},"cost":{"value": 10, "units": "credits", "dimension": "currency"},"thrust":{"value": 870, "units": "kN", "dimension": "force"},"fuel":{"value": 24000, "units": "kg", "dimension": "mass"},"impulse":{"value": 290, "units": "s", "dimension": "time"},"notes": "Based on Vega 2nd stage (https://en.wikipedia.org/wiki/Vega_(rocket))"},{"key": "M","type": "Liquid-fuel rocket","diameter":{"value": 3, "units": "m", "dimension": "length"},"height":{"value": 7, "units": "m", "dimension": "length"},"drymass":{"value": 2400, "units": "kg", "dimension": "mass"},"cost":{"value": 15, "units": "credits", "dimension": "currency"},"thrust":{"value": 300, "units": "kN", "dimension": "force"},"fuel":{"value": 25000, "units": "kg", "dimension": "mass"},"impulse":{"value": 360, "units": "s", "dimension": "time"},"notes": "Based on Soyuz 2nd stage (https://en.wikipedia.org/wiki/Soyuz_(rocket_family)#First_stage)"},{"key": "L","type": "Liquid-fuel rocket","diameter":{"value": 3.5, "units": "m", "dimension": "length"},"height":{"value": 15, "units": "m", "dimension": "length"},"drymass":{"value": 4000, "units": "kg", "dimension": "mass"},"cost":{"value": 20, "units": "credits", "dimension": "currency"},"thrust":{"value": 800, "units": "kN", "dimension": "force"},"fuel":{"value": 90000, "units": "kg", "dimension": "mass"},"impulse":{"value": 340, "units": "s", "dimension": "time"},"notes": "Based on Falcon 9 2nd stage (http://www.spaceflight101.com/falcon-9-v11.html)"},{"key": "XL","type": "Liquid-fuel rocket","diameter":{"value": 8, "units": "m", "dimension": "length"},"height":{"value": 15, "units": "m", "dimension": "length"},"drymass":{"value": 6000, "units": "kg", "dimension": "mass"},"cost":{"value": 30, "units": "credits", "dimension": "currency"},"thrust":{"value": 400, "units": "kN", "dimension": "force"},"fuel":{"value": 129000, "units": "kg", "dimension": "mass"},"impulse":{"value": 460, "units": "s", "dimension": "time"},"notes": "Based on SLS (https://en.wikipedia.org/wiki/Space_Launch_System)"},{"key": "XXL","type": "Liquid-fuel rocket","diameter":{"value": 10, "units": "m", "dimension": "length"},"height":{"value": 25, "units": "m", "dimension": "length"},"drymass":{"value": 40000, "units": "kg", "dimension": "mass"},"cost":{"value": 50, "units": "credits", "dimension": "currency"},"thrust":{"value": 4400, "units": "kN", "dimension": "force"},"fuel":{"value": 450000, "units": "kg", "dimension": "mass"},"impulse":{"value": 421, "units": "s", "dimension": "time"},"notes": "Based on Saturn V 2nd stage (https://en.wikipedia.org/wiki/Saturn_V)"}],"thirdstage": [{"key": "None","type": "","diameter":{"value": 0, "units": "m", "dimension": "length"},"height":{"value": 0.0, "units": "m", "dimension": "length"},"drymass":{"value": 0, "units": "kg", "dimension": "mass"},"cost":{"value": 1, "units": "credits", "dimension": "currency"},"thrust":{"value": 0, "units": "kN", "dimension": "force"},"fuel":{"value": 0, "units": "kg", "dimension": "mass"},"impulse":{"value": 0, "units": "s", "dimension": "time"},"notes": "No stage"},{"key": "S","type": "Solid-fuel rocket","diameter":{"value": 2, "units": "m", "dimension": "length"},"height":{"value": 2, "units": "m", "dimension": "length"},"drymass":{"value": 1300, "units": "kg", "dimension": "mass"},"cost":{"value": 2, "units": "credits", "dimension": "currency"},"thrust":{"value": 260, "units": "kN", "dimension": "force"},"fuel":{"value": 10000, "units": "kg", "dimension": "mass"},"impulse":{"value": 315, "units": "s", "dimension": "time"},"notes": "Based on Vega 3rd stage (https://en.wikipedia.org/wiki/Vega_(rocket))"},{"key": "M","type": "Solid-fuel rocket","diameter":{"value": 3, "units": "m", "dimension": "length"},"height":{"value": 7, "units": "m", "dimension": "length"},"drymass":{"value": 2400, "units": "kg", "dimension": "mass"},"cost":{"value": 4, "units": "credits", "dimension": "currency"},"thrust":{"value": 300, "units": "kN", "dimension": "force"},"fuel":{"value": 22000, "units": "kg", "dimension": "mass"},"impulse":{"value": 360, "units": "s", "dimension": "time"},"notes": "Based on Inertial Upper Stage (https://en.wikipedia.org/wiki/Inertial_Upper_Stage)"},{"key": "L","type": "Liquid-fuel rocket","diameter":{"value": 7, "units": "m", "dimension": "length"},"height":{"value": 19, "units": "m", "dimension": "length"},"drymass":{"value": 13500, "units": "kg", "dimension": "mass"},"cost":{"value": 8, "units": "credits", "dimension": "currency"},"thrust":{"value": 1000, "units": "kN", "dimension": "force"},"fuel":{"value": 110000, "units": "kg", "dimension": "mass"},"impulse":{"value": 420, "units": "s", "dimension": "time"},"notes": "Based on Saturn V 3rd stage (https://en.wikipedia.org/wiki/Saturn_V)"}],"boosters": [{"key": "M","type": "Solid-fuel rocket","diameter":{"value": 3, "units": "m", "dimension": "length"},"height":{"value": 45, "units": "m", "dimension": "length"},"drymass":{"value": 90000, "units": "kg", "dimension": "mass"},"cost":{"value": 20, "units": "credits", "dimension": "currency"},"thrust":{"value": 12000, "units": "kN", "dimension": "force"},"fuel":{"value": 500000, "units": "kg", "dimension": "mass"},"impulse":{"value": 240, "units": "s", "dimension": "time"},"notes": "Based on Space Shuttle SRB"}],"payloadbay": [{"key": "None","size": 0,"type": "","diameter":{"value": 0, "units": "m", "dimension": "length"},"height":{"value": 0.0, "units": "m", "dimension": "length"},"payload":{"value": 0, "units": "kg", "dimension": "mass"},"drymass":{"value": 0, "units": "kg", "dimension": "mass"},"cost":{"value": 0, "units": "credits", "dimension": "currency" }},{"key": "XS","size": 1,"type": "Payload","diameter":{"value": 1, "units": "m", "dimension": "length"},"height":{"value": 2, "units": "m", "dimension": "length"},"payload":{"value": 500, "units": "kg", "dimension": "mass"},"drymass":{"value": 500, "units": "kg", "dimension": "mass"},"cost":{"value": 1, "units": "credits", "dimension": "currency" }},{"key": "S","size": 2,"type": "Payload","diameter":{"value": 2, "units": "m", "dimension": "length"},"height":{"value": 5, "units": "m", "dimension": "length"},"payload":{"value": 1500, "units": "kg", "dimension": "mass"},"drymass":{"value": 1000, "units": "kg", "dimension": "mass"},"cost":{"value": 1, "units": "credits", "dimension": "currency" }},{"key": "M","size": 3,"type": "Payload","diameter":{"value": 3, "units": "m", "dimension": "length"},"height":{"value": 8, "units": "m", "dimension": "length"},"payload":{"value": 3000, "units": "kg", "dimension": "mass"},"drymass":{"value": 5000, "units": "kg", "dimension": "mass"},"cost":{"value": 3, "units": "credits", "dimension": "currency" }},{"key": "L","size": 4,"type": "Payload","diameter":{"value": 8, "units": "m", "dimension": "length"},"height":{"value": 10, "units": "m", "dimension": "length"},"payload":{"value": 5000, "units": "kg", "dimension": "mass"},"drymass":{"value": 10000, "units": "kg", "dimension": "mass"},"cost":{"value": 8, "units": "credits", "dimension": "currency" }},{"key": "XL","size": 5,"type": "Payload","diameter":{"value": 10, "units": "m", "dimension": "length"},"height":{"value": 15, "units": "m", "dimension": "length"},"payload":{"value": 10000, "units": "kg", "dimension": "mass"},"drymass":{"value": 20000, "units": "kg", "dimension": "mass"},"cost":{"value": 10, "units": "credits", "dimension": "currency" }}],"orbit":{"LEO":{"title": "Low-Earth orbit","description": "Satellites in low-Earth orbit pass over a different part of the Earth in each orbit. It is cheaper to send satellites to Low-Earth orbit than other orbits and satellites here can be reached for repairs. Low-Earth orbit satellites can look at small areas in high detail for short periods of time.","altitude":{"value": 400, "units": "km", "dimension": "length"},"period":{"value": 90, "units": "minutes", "dimension": "time" }},"MEO":{"title": "Medium-Earth orbit","description": "Satellites in medium-Earth orbit are higher above the Earth than low-Earth orbits, but lower than geostationary orbits. They cover a different part of Earth in each orbit. They can see a larger area in less detail than low-Earth orbits.","altitude":{"value": 2000, "units": "km", "dimension": "length"},"period":{"value": 2, "units": "hours", "dimension": "time" }},"HEO":{"title": "Highly-elliptical orbit","description": "Highly-elliptical orbits are much closer to the Earth at one point in their orbit than another, giving an elongated (elliptical) rather than circular orbit. They are useful for covering areas including polar regions. More than one satellite can be used for continuous coverage of an area.","altitude":{"value": 20000, "units": "km", "dimension": "length"},"period":{"value": 12, "units": "hours", "dimension": "time" }},"GEO":{"title": "Geo-stationary orbit","description": "Satellites in geostationary orbits stay above the same location on Earth near the equator and complete a full orbit in 24 hours. They are much higher above the Earth's surface than other orbits, so can see the entire hemisphere in less detail.","altitude":{"value": 35786, "units": "km", "dimension": "length"},"period":{"value": 24, "units": "hours", "dimension": "time" }}},"scenarios":{"NAV":{"title": "Navigation Satellite","description": "The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension=\"length\" data-units=\"km\" data-value=\"20000\" class=\"value convertable\">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.","image":{"file": "images/satnav.jpg","alt": "Sat nav system","credit": "ESA"},"missions": [{"title": "Satellite Navigation System","description": "Uses signals from four navigation satellites so satnav users can find their location on Earth. Need to be able to see half a hemisphere at a time, measure time accurately and transmit signals of the location.","success": "","image":{"file": "images/satnav.jpg","alt": "Sat nav system","credit": ""},"budget":{"value": 100, "units": "credits", "dimension": "currency"},"requires": [{"type": "bus","oneof": ["small","medium","large"],"label": "A satellite that is small, medium or large.","error": "Your satellite must be big enough for your mission."},{"type": "package","oneof": ["atomicclock"],"label": "Needs to be able to measure time very accurately","error": "You are not able to measure the time accurately enough."},{"type": "package","oneof": ["radio_tx"],"label": "A way to send signals.","error": "Your satellite does not have any way to transmit timing signals to people on the ground."},{"type": "orbit","oneof": ["HEO","GEO"],"label": "See the whole planet.","error": "The orbit you have chosen does not allow you to see the whole planet."},{"type": "power","oneof": ["battery-small","battery-large"],"label": ""}]},{"title": "Map-making","description": "Map the surface of the Earth. Need to be able to take images of small areas of the Earth's surface and measure the height of the ground in high detail.","image":{"file": "images/mapmaker.jpg","alt": "Mapping","credit": ""},"budget":{"value": 200, "units": "credits", "dimension": "currency"},"requires": [{"type": "package","oneof": ["camera-opt-hires"],"label": "An instrument capable of high resolution images.","error": "An instrument capable of high resolution images."},{"type": "orbit","oneof": ["LEO"],"label": "See detail of planet surface.","error": "The orbit you have chosen does not allow your satellite to see the planet surface in enough detail."}]}]},"COMMS":{"title": "Communication Satellite","description": "These are used for television, phone or internet transmissions, for example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.","image":{"file": "images/satnav.jpg","alt": "Sat nav system","credit": "ESA"},"missions": [{"title": "Satellite telephone system","description": "Lets people talk over the phone using satellites.","image":{"file": "images/satphone.jpg","alt": "Phone","credit": ""},"budget":{"value": 100, "units": "credits", "dimension": "currency"},"requires": [{"type": "package","oneof": ["radio-tx"],"label": "A way to send signals.","error": "Your satellite does not have a way to send signals to the ground."},{"type": "package","oneof": ["radio-rx"],"label": "A way to receive signals.","error": "Your satellite does not have a way to receive signals from the ground."},{"type": "orbit","oneof": ["GEO"],"label": "Satellite is continuously above one area of Earth","error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."}]},{"title": "Satellite internet","description": "Connect to the internet using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.","image":{"file": "images/satinternet.jpg","alt": "Internet","credit": ""},"budget":{"value": 200, "units": "credits", "dimension": "currency"},"requires": [{"type": "package","oneof": ["radio-tx"],"label": "A way to send signals.","error": "You do not have a way to send signals to the ground."},{"type": "package","oneof": ["radio-rx"],"label": "A way to receive signals.","error": "You do not have a way to receive signals from the ground."},{"type": "package","oneof": ["internet-en"],"label": "A way to encode internet signals.","error": "You do not have a way to encode internet signals."},{"type": "orbit","oneof": ["GEO"],"label": "Satellite is continuously above one area of Earth","error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."}]},{"title": "Satellite TV","description": "Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.","image":{"file": "images/sattv.jpg","alt": "TV","credit": ""},"budget":{"value": 500, "units": "credits", "dimension": "currency"},"requires": [{"type": "package","oneof": ["radio-tx"],"label": "A way to send signals.","error": "You do not have a way to send signals to the ground."},{"type": "package","oneof": ["radio-rx"],"label": "A way to receive signals.","error": "You do not have a way to receive signals from the ground."},{"type": "package","oneof": ["tv-en"],"label": "A way to encode TV signals.","error": "You do not have a way to encode TV signals."},{"type": "orbit","oneof": ["GEO"],"label": "Satellite is continuously above one area of Earth.","error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."}]}]},"EO":{"title": "Earth Observation Satellite","description": "These are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.","image":{"file": "images/satnav.jpg","alt": "Sat nav system","credit": "ESA"},"missions": [{"title": "Weather forecasting","description": "Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean. ","image":{"file": "images/weather.jpg","alt": "Weather","credit": ""},"budget":{"value": 200, "units": "credits", "dimension": "currency"},"requires": [{"type": "package","oneof": ["camera-fir"],"label": "Infrared light identifies cloud types and temperatures on Earth.","error": "You do not have a way to identify cloud types and measure temperatures on Earth."},{"type": "package","oneof": ["camera-opt"],"label": "To take images of clouds and weather systems on Earth.","error": "You do not have a way to take images of the weather on Earth."},{"type": "orbit","oneof": ["LEO"],"label": "See detail of Earth's weather systems.","error": "The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail."}]},{"title": "Vegetation mapping","description": "Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmitting the images back to the ground.","image":{"file": "images/vegetation.jpg","alt": "Vegetation","credit": ""},"budget":{"value": 200, "units": "credits", "dimension": "currency"},"requires": [{"type": "package","oneof": ["radio-tx"],"label": "A way to transmit signals.","error": "You do not have a way to transmit signals to the ground."},{"type": "package","oneof": ["camera-nir","spect-nir"],"label": "To take images of the vegetation on Earth.","error": "You do not have a way to take images of the vegetation on Earth."}]},{"title": "Natural disaster monitoring","description": "When natural disasters occur, satellites are used to take images of the ground and assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras help by showing floods and fires and radio waves can show regions of earth deformation, such as after earthquakes.","image":{"file": "images/disaster.jpg","alt": "Disasters","credit": ""},"budget":{"value": 500, "units": "credits", "dimension": "currency"},"requires": [{"type": "package","oneof": ["camera-opt-hires"],"label": "To take high resolution images of Earth where disaster has occured.","error": "You do not have a way to take high resolution images of Earth where disaster has occured."},{"type": "package","oneof": ["radio-tx"],"label": "A way to transmit signals.","error": "You do not have a way to transmit signals to the ground."},{"type": "package","oneof": ["radar-alt"],"label": "Uses radio waves to measure the height of the surface.","error": "You do not have a way to measure the height of the surface, such as for earthquakes."},{"type": "package","oneof": ["radar-dish"],"label": "Radar altimeter requires a radar dish to work.","error": "Your radar altimeter cannot work as it does not have a radar dish."},{"type": "package","oneof": ["camera-nir"],"label": "Infrared camera can detect fires, including forest fires.","error": "You do not have a way to detect fires in disaster regions."},{"type": "orbit","oneof": ["LEO"],"label": "See detail of planet surface.","error": "The orbit you have chosen does not allow you to see the disaster region in enough detail."}]},{"title": "Surface mapping","description": "Measure the varying height of land and oceans over the Earth's surface. ","image":{"file": "images/surface.jpg","alt": "Surface","credit": ""},"budget":{"value": 500, "units": "credits", "dimension": "currency"},"requires": [{"type": "package","oneof": ["radar-alt"],"label": "To measure the height of the ground in very high resolution.","error": "You do not have a way to measure the height of the ground in very high resolution."},{"type": "package","oneof": ["radar-dish"],"label": "Radar altimeter requires a radar dish to work.","error": "Your radar altimeter cannot work as it does not have a radar dish."},{"type": "package","oneof": ["radio-tx"],"label": "A way to transmit signals.","error": "You do not have a way to transmit signals to the ground."},{"type": "package","oneof": ["sat-tracker"],"label": "Enables high level precision of the satellite location.","error": "You do not have a way to locate the position of the satellite accurately."},{"type": "orbit","oneof": ["LEO"],"label": "See detail of planet surface.","error": "The orbit you have chosen does not allow you to see the planet surface in enough detail."}]}]}}};
-
 		
-
 	</script>
-
 	<script type="text/javascript" src="js/rocketscientist.js"></script>
-
 </head>
-
 <body>
-
 	<script type="text/javascript">
-
 		document.body.innerHTML += '<div id="overlay" style="z-index:10000;width:100%;max-width:100%;width: 100vw;height: 100%;height:100vh;max-height:100%;background-color:black;display:table;position:absolute;color:white;"><div style="display:table-cell;vertical-align:middle;text-align:center;">Loading space programme...</div></div>';
-
 	</script>
-
-
 
 	<div id="application" class="advanced">
 
-
-
 		<header>
-
 			<div id="bar" class="scriptonly">
-
 				<div class="barmenu">
-
 					<div class="baritem left padded"><h1><a href="index.html">Classroom rocket scientist</a></h1></div>
-
 					<div class="baritem"><button class="togglebtn togglemenu" title="Menu"><img src="images/cleardot.gif" class="icon menu" alt="" /></button></div>
-
 					
-
 					<div class="baritem"><button class="togglecost"><!--<img src="images/cleardot.gif" class="icon cost" />--><span class="coin-icon"></span><span class="cost cost_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span></button></div>
-
 					
-
 					
-
 					<div class="baritem"><button class="togglemass"><span class="weight-icon"></span><span class="mass mass_total value convertable" data-value="0" data-units="kg" data-dimension="mass">0 kg</span></button></div>
-
 					<div class="baritem"><button class="togglepower"><span class="power-icon"></span><span class="power power_total value convertable" data-value="0" data-units="watts" data-dimension="power">0 W</span></button></div>
-
 					
-
 					<div class="baritem warnings not-at-start">
-
 						<a class="togglewarning" title="View warnings" href="#messages"><img class="icon warning" title="Warnings" src="images/cleardot.gif"> <span class="warning value">3</span></a>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div id="progressbar"><div class="progress-inner"></div></div>
-
 		</header>
 
-
-
 		<div id="main">
-
 			<section id="type" class="view">
-
 				<div class="padded">
-
 					<div class="page">
-
 						<div class="row-top">
-
 							<div class="msg noscriptmsg">Oops! The interactive parts of <em>Classroom rocket scientist</em> need Javascript to be enabled. Sorry about that.</div>
-
 							<nav>
-
 								<ol>
-
 									<li class="prev"></li>
-
 									<li class="next"><a href="#goal">Mission</a></li>
-
 								</ol>
-
 							</nav>
-
 							<h2>Select your type of satellite</h2>
-
 							<p>Satellites have different purposes. Which type do you want to build?</p>
-
 						</div>
-
 						<div class="row-main">
-
 							
-
 							<div class="holder">
-
 								<div class="padded COMMS type">
-
 									<h3>Communication Satellite</h3>
-
 									<p>These are used for television, phone or internet transmissions, for example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.</p>
-
 									<button class="fancy" data-type="COMMS">Select this type</button>
-
 								</div>
-
 							</div>
-
 							<div class="holder">
-
 								<div class="padded EO type">
-
 									<h3>Earth Observation Satellite</h3>
-
 									<p>These are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.</p>
-
 									<button class="fancy" data-type="EO">Select this type</button>
-
 								</div>
-
 							</div>
-
 							<div class="holder">
-
 								<div class="padded NAV type">
-
 									<h3>Navigation Satellite</h3>
-
 									<p>The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.</p>
-
 									<button class="fancy" data-type="NAV">Select this type</button>
-
 								</div>
-
 							</div>
-
 						</div>
-
 					</div>
-
 				</div>
-
 			</section>
-
-
 
 			<section id="goal" class="view">
-
 				<div class="padded">
-
 					<div class="page">
-
 						<div class="row-top">
-
 							<nav>
-
 								<ol>
-
 									<li class="prev"><a href="#type">Type</a></li>
-
 									<li class="next"><a href="#bus">Size</a></li>
-
 								</ol>
-
 							</nav>
-
 							<h2>Select the purpose of your satellite</h2>
-
 							<p>Make sure to take a note of the budget you have. You will need to make sure you don't overspend.</p>
-
 						</div>
-
 						<div class="COMMS row-main">
-
 							<div class="holder-holder">
-
 								<div class="holder">
-
 									<div class="padded">
-
 										<h3>Satellite telephone system</h3>
-
 										<p>Lets people talk over the phone using satellites.</p>
-
 										<table class="data">
-
 											<tr><td class="budget">Budget:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="100" class="length value convertable">100 credits</span></td></tr>
-
 										</table>
-
 										<button class="fancy" data-goal="0">Select this mission</button>
-
 									</div>
-
 								</div>
-
 								<div class="holder">
-
 									<div class="padded">
-
 										<h3>Satellite internet</h3>
-
 										<p>Connect to the internet using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.</p>
-
 										<table class="data">
-
 											<tr><td class="budget">Budget:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="200" class="length value convertable">200 credits</span></td></tr>
-
 										</table>
-
 										<button class="fancy" data-goal="1">Select this mission</button>
-
 									</div>
-
 								</div>
-
 								<div class="holder">
-
 									<div class="padded">
-
 										<h3>Satellite TV</h3>
-
 										<p>Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.</p>
-
 										<table class="data">
-
 											<tr><td class="budget">Budget:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="500" class="length value convertable">500 credits</span></td></tr>
-
 										</table>
-
 										<button class="fancy" data-goal="2">Select this mission</button>
-
 									</div>
-
 								</div>
-
 							</div>
-
 						</div>
-
 						<div class="EO row-main">
-
 							<div class="holder-holder">
-
 								<div class="holder">
-
 									<div class="padded">
-
 										<h3>Weather forecasting</h3>
-
 										<p>Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean. </p>
-
 										<table class="data">
-
 											<tr><td class="budget">Budget:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="200" class="length value convertable">200 credits</span></td></tr>
-
 										</table>
-
 										<button class="fancy" data-goal="0">Select this mission</button>
-
 									</div>
-
 								</div>
-
 								<div class="holder">
-
 									<div class="padded">
-
 										<h3>Vegetation mapping</h3>
-
 										<p>Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmitting the images back to the ground.</p>
-
 										<table class="data">
-
 											<tr><td class="budget">Budget:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="200" class="length value convertable">200 credits</span></td></tr>
-
 										</table>
-
 										<button class="fancy" data-goal="1">Select this mission</button>
-
 									</div>
-
 								</div>
-
 								<div class="holder">
-
 									<div class="padded">
-
 										<h3>Natural disaster monitoring</h3>
-
 										<p>When natural disasters occur, satellites are used to take images of the ground and assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras help by showing floods and fires and radio waves can show regions of earth deformation, such as after earthquakes.</p>
-
 										<table class="data">
-
 											<tr><td class="budget">Budget:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="500" class="length value convertable">500 credits</span></td></tr>
-
 										</table>
-
 										<button class="fancy" data-goal="2">Select this mission</button>
-
 									</div>
-
 								</div>
-
 								<div class="holder">
-
 									<div class="padded">
-
 										<h3>Surface mapping</h3>
-
 										<p>Measure the varying height of land and oceans over the Earth's surface. </p>
-
 										<table class="data">
-
 											<tr><td class="budget">Budget:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="500" class="length value convertable">500 credits</span></td></tr>
-
 										</table>
-
 										<button class="fancy" data-goal="3">Select this mission</button>
-
 									</div>
-
 								</div>
-
 							</div>
-
 						</div>
-
 						<div class="NAV row-main">
-
 							<div class="holder-holder">
-
 								<div class="holder">
-
 									<div class="padded">
-
 										<h3>Satellite Navigation System</h3>
-
 										<p>Uses signals from four navigation satellites so satnav users can find their location on Earth. Need to be able to see half a hemisphere at a time, measure time accurately and transmit signals of the location.</p>
-
 										<table class="data">
-
 											<tr><td class="budget">Budget:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="100" class="length value convertable">100 credits</span></td></tr>
-
 										</table>
-
 										<button class="fancy" data-goal="0">Select this mission</button>
-
 									</div>
-
 								</div>
-
 								<div class="holder">
-
 									<div class="padded">
-
 										<h3>Map-making</h3>
-
 										<p>Map the surface of the Earth. Need to be able to take images of small areas of the Earth's surface and measure the height of the ground in high detail.</p>
-
 										<table class="data">
-
 											<tr><td class="budget">Budget:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="200" class="length value convertable">200 credits</span></td></tr>
-
 										</table>
-
 										<button class="fancy" data-goal="1">Select this mission</button>
-
 									</div>
-
 								</div>
-
 							</div>
-
 						</div>
-
 					</div>
-
 				</div>
-
 			</section>
 
-
-
 			
-
 			<section id="bus" class="view">
-
 				<div class="padded">
-
 					<div class="page">
-
 						<div class="row-top">
-
 							<nav>
-
 								<ol>
-
 									<li class="prev"><a href="#goal">Mission</a></li>
-
 									<li class="next"><a href="#orbit">Orbit</a></li>
-
 								</ol>
-
 							</nav>
-
 							<h2>Choose the size of your satellite</h2>
-
 							<p>The size of your satellite matters. It needs to be big enough to hold all the instruments you need. Be careful though. The bigger your satellite, the more expensive it is.</p>
-
 						</div>
-
 						<div class="row-main">
-
 							<div class="satellite-holder isogrid">
-
 								
-
-								<div class="holder blackandwhite">
-									<div class="satellite satellite-c not-level-1 not-level-2">
-
+								<div class="holder blackandwhite">									<div class="satellite satellite-c not-level-1 not-level-2">
 	<div class="row rowflat"><div class="slot slot-empty slot1 slot0x2"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-
 	<div class="row"><div class="slot slot-empty slot1 slot1x1 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot1x1 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-
 	<div class="row"><div class="slot slot-empty slot1 slot1x2 solar-left solar-right downwards"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-
 </div>
 
-
-
 									<table class="data">
-
 										<tr><td class="bus_type">Type:</td><td>Cube sat</span></td></tr>
-
 										<tr><td class="bus_size">Structure size:</td><td><span data-dimension="length" data-units="m" data-value="0.1" nounits="true" class="value convertable">0.1</span> &times; <span data-dimension="length" data-units="m" data-value="0.1" nounits="true" class="value convertable">0.1</span> &times; <span data-dimension="length" data-units="m" data-value="0.1" class="value convertable">0.1 m</span></td></tr>
-
 										<tr><td class="bus_structure">Structure mass:</td><td><span data-dimension="mass" data-units="kg" data-value="0.3" class="value convertable">0.3 kg</span></td></tr>
-
 										<tr><td class="bus_mass">Payload mass:</td><td><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="1" class="value convertable">1 kg</span></td></tr>
-
 										<tr><td class="bus_cost">Structure cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="0.5" class="value convertable">0.5 credits</span></td></tr>
-
 									</table>
-
 									<button class="fancy" data-size="cube">Select cube sat</button>
-
 								</div>
-
 								
-
-								<div class="holder blackandwhite">
-									<div class="satellite satellite-l">
-
+								<div class="holder blackandwhite">									<div class="satellite satellite-l">
 	<div class="solar-panels"><span class="label">Solar panels (left):</span><ol></ol></div>
-
 	<div class="solar-panels"><span class="label">Solar panels (right):</span><ol></ol></div>
-
 	<div class="row"><div class="slot slot-empty slot2 slot2x4 solar-left upwards solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-
 	<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-
 	<div class="row"><div class="slot slot-empty slot2 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-
 	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-top down"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-
 	<div class="row"><div class="slot slot-empty slot2 slot2x2"><div class="faces"><div class="face back"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot3 slot2x2"><div class="faces"><div class="face back"></div><div class="face front"></div></div></div><div class="slot slot-empty slot4 slot2x4 up solar-top"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-
 	<div class="row rowbig"><div class="slot slot-empty slot1 slot4x8 solar-top downwards"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-
 </div>
 
-
-
 									<table class="data">
-
 										<tr><td class="bus_type">Type:</td><td>Large satellite</span></td></tr>
-
 										<tr><td class="bus_size">Structure size:</td><td><span data-dimension="length" data-units="m" data-value="10" nounits="true" class="value convertable">10</span> &times; <span data-dimension="length" data-units="m" data-value="2.5" nounits="true" class="value convertable">2.5</span> &times; <span data-dimension="length" data-units="m" data-value="2.5" class="value convertable">2.5 m</span></td></tr>
-
 										<tr><td class="bus_structure">Structure mass:</td><td><span data-dimension="mass" data-units="kg" data-value="500" class="value convertable">500 kg</span></td></tr>
-
 										<tr><td class="bus_mass">Payload mass:</td><td><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="1000" class="value convertable">1000 kg</span></td></tr>
-
 										<tr><td class="bus_cost">Structure cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="500" class="value convertable">500 credits</span></td></tr>
-
 									</table>
-
 									<button class="fancy" data-size="large">Select large satellite</button>
-
 								</div>
-
 								
-
-								<div class="holder blackandwhite">
-									<div class="satellite satellite-m">
-
+								<div class="holder blackandwhite">									<div class="satellite satellite-m">
 	<div class="solar-panels"><span class="label">Solar panels (left):</span><ol></ol></div>
-
 	<div class="solar-panels"><span class="label">Solar panels (right):</span><ol></ol></div>
-
 	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-left solar-right upwards"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-
 	<div class="row"><div class="slot slot-empty slot1 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-
 	<div class="row"><div class="slot slot-empty slot1 slot2x2 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face front"></div></div></div></div>
-
 	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-left solar-right downwards"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-
 </div>
 
-
-
 									<table class="data">
-
 										<tr><td class="bus_type">Type:</td><td>Medium satellite</span></td></tr>
-
 										<tr><td class="bus_size">Structure size:</td><td><span data-dimension="length" data-units="m" data-value="5" nounits="true" class="value convertable">5</span> &times; <span data-dimension="length" data-units="m" data-value="2.5" nounits="true" class="value convertable">2.5</span> &times; <span data-dimension="length" data-units="m" data-value="2.5" class="value convertable">2.5 m</span></td></tr>
-
 										<tr><td class="bus_structure">Structure mass:</td><td><span data-dimension="mass" data-units="kg" data-value="250" class="value convertable">250 kg</span></td></tr>
-
 										<tr><td class="bus_mass">Payload mass:</td><td><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="500" class="value convertable">500 kg</span></td></tr>
-
 										<tr><td class="bus_cost">Structure cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="100" class="value convertable">100 credits</span></td></tr>
-
 									</table>
-
 									<button class="fancy" data-size="medium">Select medium satellite</button>
-
 								</div>
-
 								
-
-								<div class="holder blackandwhite">
-									<div class="satellite satellite-s">
-
+								<div class="holder blackandwhite">									<div class="satellite satellite-s">
 	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-left solar-right upwards"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-
 	<div class="row"><div class="slot slot-empty slot1 slot2x2 solar-left downwards"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2 solar-right bottom"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
-
 </div>
 
-
-
 									<table class="data">
-
 										<tr><td class="bus_type">Type:</td><td>Small satellite</span></td></tr>
-
 										<tr><td class="bus_size">Structure size:</td><td><span data-dimension="length" data-units="m" data-value="1" nounits="true" class="value convertable">1</span> &times; <span data-dimension="length" data-units="m" data-value="1" nounits="true" class="value convertable">1</span> &times; <span data-dimension="length" data-units="m" data-value="1" class="value convertable">1 m</span></td></tr>
-
 										<tr><td class="bus_structure">Structure mass:</td><td><span data-dimension="mass" data-units="kg" data-value="150" class="value convertable">150 kg</span></td></tr>
-
 										<tr><td class="bus_mass">Payload mass:</td><td><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="100" class="value convertable">100 kg</span></td></tr>
-
 										<tr><td class="bus_cost">Structure cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="5" class="value convertable">5 credits</span></td></tr>
-
 									</table>
-
 									<button class="fancy" data-size="small">Select small satellite</button>
-
 								</div>
-
 								
-
 							</div>
-
 						</div>
-
 					</div>
-
 				</div>
-
 			</section>
-
 			
 
-
-
 			
-
 			<section id="orbit" class="view">
-
 				<div class="padded">
-
 					<div class="page">
-
 						<div class="row-top">
-
 							<nav>
-
 								<ol>
-
 									<li class="prev"><a href="#bus">Size</a></li>
-
 									<li class="next"><a href="#instrument">Instruments</a></li>
-
 								</ol>
-
 							</nav>
-
 							<h2>Select the orbit for your satellite</h2>
-
 							<p>There are several different orbits around the Earth that you can choose from. Higher orbits need more powerful rockets to get to them.</p>
-
 						</div>
-
 						<div class="row-main">
-
 							<div class="col">
-
 								<div class="rows">
-
 									<div class="requirements">
-
 										<div class="padder">
-
 											<h3>Requirements</h3>
-
 										</div>
-
 									</div>
-
 									<div class="display-area">
-
 										<div class="blueprint orrery-holder isogrid">
-
 											<ul class="orrery">
-
 												<li class="body"><a href="#orbit"><span></span></a><div class="disc"></div></li>
-
 												<li class="orbit GEO"><a href="#orbit"><span>Geostationary orbit</span></a></li>
-
 												<li class="orbit HEO"><a href="#orbit"><span>Highly-elliptical orbit</span></a></li>
-
 												<li class="orbit MEO"><a href="#orbit"><span>Mid-Earth orbit</span></a></li>
-
 												<li class="orbit LEO"><a href="#orbit"><span>Low-Earth orbit</span></a></li>
-
 											</ul>
-
 										</div>
-
 									</div>
-
 								</div>
-
 							</div>
-
 							<div class="col">
-
 								<div id="orbit_list" class="list">
-
 									<h3>Available orbits:</h3>
-
 									<ul>
-
 										<li class="orbit-GEO">
-
 											<div class="list-bar bg-orbit"><button class="fancy add" data-orbit="GEO">&larr;</button></div>
-
 											<div class="list-right">
-
 												<div class="orbit_title"><strong>Geo-stationary orbit</strong></div>
-
 												<div class="orbit_altitude">Altitude:<span data-dimension="length" data-units="km" data-value="35786" class="value convertable">35786 km</span></div>
-
 												<div class="orbit_period">Period:<span data-dimension="time" data-units="hours" data-value="24" class="value convertable">24 hours</span></div>
-
 												<div class="orbit_desc">Satellites in geostationary orbits stay above the same location on Earth near the equator and complete a full orbit in 24 hours. They are much higher above the Earth's surface than other orbits, so can see the entire hemisphere in less detail.</div>
-
 											</div>
-
 										</li>
-
 										<li class="orbit-HEO">
-
 											<div class="list-bar bg-orbit"><button class="fancy add" data-orbit="HEO">&larr;</button></div>
-
 											<div class="list-right">
-
 												<div class="orbit_title"><strong>Highly-elliptical orbit</strong></div>
-
 												<div class="orbit_altitude">Altitude:<span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20000 km</span></div>
-
 												<div class="orbit_period">Period:<span data-dimension="time" data-units="hours" data-value="12" class="value convertable">12 hours</span></div>
-
 												<div class="orbit_desc">Highly-elliptical orbits are much closer to the Earth at one point in their orbit than another, giving an elongated (elliptical) rather than circular orbit. They are useful for covering areas including polar regions. More than one satellite can be used for continuous coverage of an area.</div>
-
 											</div>
-
 										</li>
-
 										<li class="orbit-LEO">
-
 											<div class="list-bar bg-orbit"><button class="fancy add" data-orbit="LEO">&larr;</button></div>
-
 											<div class="list-right">
-
 												<div class="orbit_title"><strong>Low-Earth orbit</strong></div>
-
 												<div class="orbit_altitude">Altitude:<span data-dimension="length" data-units="km" data-value="400" class="value convertable">400 km</span></div>
-
 												<div class="orbit_period">Period:<span data-dimension="time" data-units="minutes" data-value="90" class="value convertable">90 minutes</span></div>
-
 												<div class="orbit_desc">Satellites in low-Earth orbit pass over a different part of the Earth in each orbit. It is cheaper to send satellites to Low-Earth orbit than other orbits and satellites here can be reached for repairs. Low-Earth orbit satellites can look at small areas in high detail for short periods of time.</div>
-
 											</div>
-
 										</li>
-
 										<li class="orbit-MEO">
-
 											<div class="list-bar bg-orbit"><button class="fancy add" data-orbit="MEO">&larr;</button></div>
-
 											<div class="list-right">
-
 												<div class="orbit_title"><strong>Medium-Earth orbit</strong></div>
-
 												<div class="orbit_altitude">Altitude:<span data-dimension="length" data-units="km" data-value="2000" class="value convertable">2000 km</span></div>
-
 												<div class="orbit_period">Period:<span data-dimension="time" data-units="hours" data-value="2" class="value convertable">2 hours</span></div>
-
 												<div class="orbit_desc">Satellites in medium-Earth orbit are higher above the Earth than low-Earth orbits, but lower than geostationary orbits. They cover a different part of Earth in each orbit. They can see a larger area in less detail than low-Earth orbits.</div>
-
 											</div>
-
 										</li>
-
 									</ul>
-
 								</div>
-
 							</div><!-- end right -->
-
 						</div>
-
 					</div>
-
 				</div>
-
 			</section>
-
 			
-
-
 
 			<section id="instrument" class="view">
-
 				<div class="padded">
-
 					<div class="page">
-
 						<div class="row-top">
-
 							<nav>
-
 								<ol>
-
 									<li class="prev"><a href="#orbit">Orbit</a></li>
-
 									<li class="next"><a href="#power">Power</a></li>
-
 								</ol>
-
 							</nav>
-
 							<h2>Select the instruments for your satellite</h2>
-
 							<p>To complete your mission you will need the correct instruments. You only have a limited number of slots and money so choose wisely.</p>
-
 						</div>
-
 						<div class="row-main">
-
 							<div class="col">
-
 								<div class="rows">
-
 									<div class="requirements">
-
 										<div class="padder">
-
 											<h3>Requirements</h3>
-
 										</div>
-
 									</div>
-
 									<div class="display-area">
-
 										<div id="satellite" class="blueprint satellite-holder isogrid">
-
 											<div class="holder" id="sat">
-
 												<div class="controls zoomcontrol">
-
 													<button class="fancy zoomin">&plus;</button>
-
 													<button class="fancy zoomout">&minus;</button>
-
 													<!--<button class="fancy make3D">2D/3D</button>-->
-
 												</div>
-
 												<div class="satellite"></div>
-
 											</div>
-
 										</div>
-
 									</div>
-
 								</div>
-
 							</div>
-
 							<div class="col">
-
 								<div id="instrument_list" class="list">
-
 									<h3>Available instruments:</h3>
-
 									<ul>
-
 										<li data-package="atomic-clock" data-size="2x2">
-
 											<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="atomic-clock">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="atomic-clock">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot texture atomic-clock"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Atomic clock" /></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Atomic clock</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.1" class="length value convertable">0.1 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.1" class="length value convertable">0.1 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.05" class="length value convertable">0.05 m</span></div -->
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="1" class="value convertable">1 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="1" class="value convertable">1 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="10" class="value convertable">10 watts</span></div>
-
 												<div class="package_desc">Very accurate clock, required by navigation satellites to measure the time to very high precision.</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="atomic-clock-small" data-size="1x2">
-
 											<div class="list-bar bg1x2"><button class="fancy add" data-size="1x2" data-package="atomic-clock-small">&plus;</button><button class="fancy remove" disabled="disabled" data-size="1x2" data-package="atomic-clock-small">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot texture atomic-clock-small"><div class="slot slot1x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Atomic clock (compact)" /></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Atomic clock (compact)</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.1" class="length value convertable">0.1 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.1" class="length value convertable">0.1 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.05" class="length value convertable">0.05 m</span></div -->
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="1" class="value convertable">1 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="1" class="value convertable">1 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="5" class="value convertable">5 watts</span></div>
-
 												<div class="package_desc">Very accurate clock, required by navigation satellites to measure the time to very high precision.</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="camera-fir" data-size="2x4">
-
 											<div class="list-bar bg2x4"><button class="fancy add" data-size="2x4" data-package="camera-fir">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x4" data-package="camera-fir">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot texture camera-fir"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Atmospheric camera" /></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Atmospheric camera</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="30" class="value convertable">30 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="100" class="value convertable">100 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="300" class="value convertable">300 watts</span></div>
-
 												<div class="package_desc">Provides infrared images of the clouds and weather systems in the Earth's atmosphere, useful for weather forecasting and climate monitoring, even during darkness.</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="camera-mini" data-size="1x1">
-
 											<div class="list-bar bg1x1"><button class="fancy add" data-size="1x1" data-package="camera-mini">&plus;</button><button class="fancy remove" disabled="disabled" data-size="1x1" data-package="camera-mini">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot texture camera-mini"><div class="slot slot1x1"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Camera (miniature)" /></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Camera (miniature)</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.05" class="length value convertable">0.05 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.05" class="length value convertable">0.05 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.1" class="length value convertable">0.1 m</span></div -->
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="5" class="value convertable">5 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="1" class="value convertable">1 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="5" class="value convertable">5 watts</span></div>
-
 												<div class="package_desc">Takes images of the ground</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="camera-nir" data-size="2x2">
-
 											<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="camera-nir">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="camera-nir">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot texture camera-nir"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Vegetation camera" /></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Vegetation camera</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="20" class="value convertable">20 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="50" class="value convertable">50 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="50" class="value convertable">50 watts</span></div>
-
 												<div class="package_desc">Provides infrared images of vegetation and land-usage on the ground. Only works in daylight, as it relies on reflected sunlight.</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="camera-opt" data-size="2x2">
-
 											<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="camera-opt">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="camera-opt">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot texture camera-opt"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Optical camera" /></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Optical camera</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="10" class="value convertable">10 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="50" class="value convertable">50 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="50" class="value convertable">50 watts</span></div>
-
 												<div class="package_desc">Provides images of the ground, such as for mapping or for monitoring natural disasters. Can also be used to monitor cloud cover. The resolution depends on the orbit altitude.</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="camera-opt-hires" data-size="2x4">
-
 											<div class="list-bar bg2x4"><button class="fancy add" data-size="2x4" data-package="camera-opt-hires">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x4" data-package="camera-opt-hires">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot texture camera-opt-hires"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="High-resolution optical camera" /></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>High-resolution optical camera</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="15" class="value convertable">15 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="100" class="value convertable">100 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="50" class="value convertable">50 watts</span></div>
-
 												<div class="package_desc">Provides very high-resolution images of the ground, such as for monitoring natural disasters, but only when used in low-Earth orbit.</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="dish-large" data-size="4x8">
-
 											<div class="list-bar bg4x8"><button class="fancy add" data-size="4x8" data-package="dish-large">&plus;</button><button class="fancy remove" disabled="disabled" data-size="4x8" data-package="dish-large">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot "><div class="slot slot4x8"><div class="eg-bg radio"><img src="images/cleardot.gif" class="face front" alt="Radio dish (large)" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Radio dish (large)</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="2" class="length value convertable">2 m</span> &times; <span data-dimension="length" data-units="m" data-value="2" class="length value convertable">2 m</span> &times; <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span></div -->
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="2" class="value convertable">2 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="30" class="value convertable">30 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="0" class="value convertable">0 watts</span></div>
-
 												<div class="package_desc">Radio dish capable of controlling and transmitting images & data from up to 8 instruments</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="dish-medium" data-size="2x4">
-
 											<div class="list-bar bg2x4"><button class="fancy add" data-size="2x4" data-package="dish-medium">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x4" data-package="dish-medium">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot "><div class="slot slot2x4"><div class="eg-bg radio"><img src="images/cleardot.gif" class="face front" alt="Radio dish" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Radio dish</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="1" class="value convertable">1 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="20" class="value convertable">20 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="0" class="value convertable">0 watts</span></div>
-
 												<div class="package_desc">Radio dish capable of controlling and transmitting images & data from up to 4 instruments</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="dish-small" data-size="1x2">
-
 											<div class="list-bar bg1x2"><button class="fancy add" data-size="1x2" data-package="dish-small">&plus;</button><button class="fancy remove" disabled="disabled" data-size="1x2" data-package="dish-small">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot "><div class="slot slot1x2"><div class="eg-bg radio"><img src="images/cleardot.gif" class="face front" alt="Radio antenna (compact)" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Radio antenna (compact)</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.1" class="length value convertable">0.1 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.05" class="length value convertable">0.05 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.05" class="length value convertable">0.05 m</span></div -->
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="0.5" class="value convertable">0.5 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="0.5" class="value convertable">0.5 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="0" class="value convertable">0 watts</span></div>
-
 												<div class="package_desc">Radio dish capable of controlling and transmitting images & data from up to 2 instruments</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="gps-rx" data-size="1x1">
-
 											<div class="list-bar bg1x1"><button class="fancy add" data-size="1x1" data-package="gps-rx">&plus;</button><button class="fancy remove" disabled="disabled" data-size="1x1" data-package="gps-rx">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot texture gps-rx"><div class="slot slot1x1"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="GPS receiver (miniature)" /></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>GPS receiver (miniature)</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.05" class="length value convertable">0.05 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.05" class="length value convertable">0.05 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.1" class="length value convertable">0.1 m</span></div -->
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="2" class="value convertable">2 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="0.5" class="value convertable">0.5 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="5" class="value convertable">5 watts</span></div>
-
 												<div class="package_desc">Used to monitor the satellite's position to very high accuracy</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="internet-en" data-size="2x2">
-
 											<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="internet-en">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="internet-en">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot "><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Internet encoder" /></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Internet encoder</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0" class="length value convertable">0 m</span> &times; <span data-dimension="length" data-units="m" data-value="0" class="length value convertable">0 m</span> &times; <span data-dimension="length" data-units="m" data-value="0" class="length value convertable">0 m</span></div -->
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="0" class="value convertable">0 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="0" class="value convertable">0 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="0" class="value convertable">0 watts</span></div>
-
 												<div class="package_desc"></div>
-
 											</div>
-
 										</li>
-
 										<li data-package="radar-alt" data-size="2x4">
-
 											<div class="list-bar bg2x4"><button class="fancy add" data-size="2x4" data-package="radar-alt">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x4" data-package="radar-alt">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot texture radar-alt"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Radar altimeter" /></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Radar altimeter</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="5" class="value convertable">5 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="40" class="value convertable">40 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="70" class="value convertable">70 watts</span></div>
-
 												<div class="package_desc">Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earthquakes. Requires a radar dish to work.</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="radar-dish" data-size="4x8">
-
 											<div class="list-bar bg4x8"><button class="fancy add" data-size="4x8" data-package="radar-dish">&plus;</button><button class="fancy remove" disabled="disabled" data-size="4x8" data-package="radar-dish">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot "><div class="slot slot4x8"><div class="eg-bg radar"><img src="images/cleardot.gif" class="face front" alt="Radar dish" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Radar dish</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="2" class="length value convertable">2 m</span> &times; <span data-dimension="length" data-units="m" data-value="2" class="length value convertable">2 m</span> &times; <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span></div -->
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="1" class="value convertable">1 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="40" class="value convertable">40 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="0" class="value convertable">0 watts</span></div>
-
 												<div class="package_desc">Transmits and receives radio waves for the radar altimeter</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="radio-antenna-cube" data-size="0x2">
-
 											<div class="list-bar bg0x2"><button class="fancy add" data-size="0x2" data-package="radio-antenna-cube">&plus;</button><button class="fancy remove" disabled="disabled" data-size="0x2" data-package="radio-antenna-cube">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot texture radio-antenna-cube"><div class="slot slot0x2"><div class="eg-bg"><img src="images/cleardot.gif" class="face front" alt="Radio antenna (deployable)" /><div class="aerials"><div class="aerial1 aerial"></div><div class="aerial2 aerial"></div></div></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Radio antenna (deployable)</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.98" class="length value convertable">0.98 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.98" class="length value convertable">0.98 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.07" class="length value convertable">0.07 m</span></div -->
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="0.5" class="value convertable">0.5 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="0.1" class="value convertable">0.1 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="2" class="value convertable">2 watts</span></div>
-
 												<div class="package_desc">Deployable radio antenna capable of controlling and transmitting images & data from up to 2 instruments.</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="radio-rx" data-size="2x2">
-
 											<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="radio-rx">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="radio-rx">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot texture radio-rx"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Radio receiver" /></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Radio receiver</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="1" class="value convertable">1 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="10" class="value convertable">10 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="20" class="value convertable">20 watts</span></div>
-
 												<div class="package_desc">Receives instructions from the ground control team</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="radio-tx" data-size="2x2">
-
 											<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="radio-tx">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="radio-tx">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot texture radio-tx"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Radio transmitter" /></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Radio transmitter</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="1" class="value convertable">1 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="10" class="value convertable">10 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="20" class="value convertable">20 watts</span></div>
-
 												<div class="package_desc">Transmits information collected by the satellite to the ground</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="spect-fir" data-size="2x4">
-
 											<div class="list-bar bg2x4"><button class="fancy add" data-size="2x4" data-package="spect-fir">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x4" data-package="spect-fir">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot texture spect-fir"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Atmospheric Spectrometer" /></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Atmospheric Spectrometer</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="30" class="value convertable">30 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="100" class="value convertable">100 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="300" class="value convertable">300 watts</span></div>
-
 												<div class="package_desc">Uses infrared light to measure properties of the Earth's atmosphere, such as clouds, moisture level, surface temperature and air temperature, even during darkness.</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="spect-nir" data-size="2x2">
-
 											<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="spect-nir">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="spect-nir">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot texture spect-nir"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Vegetation Spectrometer" /></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Vegetation Spectrometer</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="20" class="value convertable">20 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="50" class="value convertable">50 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="150" class="value convertable">150 watts</span></div>
-
 												<div class="package_desc">Measures the properties of vegetation on the ground, such as type of vegetation and how healthy it is.</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="spect-opt" data-size="2x2">
-
 											<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="spect-opt">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="spect-opt">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot texture spect-opt"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Optical Spectrometer" /></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Optical Spectrometer</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="10" class="value convertable">10 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="50" class="value convertable">50 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="150" class="value convertable">150 watts</span></div>
-
 												<div class="package_desc">Measures detailed properties of the Earth's surface, such as deforestation.</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="tv-en" data-size="2x2">
-
 											<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="tv-en">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="tv-en">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot "><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="TV encoder" /></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>TV encoder</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0" class="length value convertable">0 m</span> &times; <span data-dimension="length" data-units="m" data-value="0" class="length value convertable">0 m</span> &times; <span data-dimension="length" data-units="m" data-value="0" class="length value convertable">0 m</span></div -->
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="0" class="value convertable">0 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="0" class="value convertable">0 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="0" class="value convertable">0 watts</span></div>
-
 												<div class="package_desc"></div>
-
 											</div>
-
 										</li>
-
 									</ul>
-
 								</div>
-
 							</div><!-- end right -->
-
 						</div>
-
 					</div>
-
 				</div>
-
 			</section>
-
-
 
 			<section id="power" class="view">
-
 				<div class="padded">
-
 					<div class="page">
-
 						<div class="row-top">
-
 							<nav>
-
 								<ol>
-
 									<li class="prev"><a href="#instrument">Instruments</a></li>
-
 									<li class="next"><a href="#rocket">Rocket</a></li>
-
 								</ol>
-
 							</nav>
-
 							<h2>Add power</h2>
-
 							<p>Your satellite needs power. There are different ways to do that. You can use solar panels on the sides of the satellite, deployable solar panels, and batteries.</p>
-
 						</div>
-
 						<div class="row-main">
-
 							<div class="col">
-
 								<div class="rows">
-
 									<div class="requirements">
-
 										<div class="padder">
-
 											<h3>Requirements</h3>
-
 										</div>
-
 									</div>
-
 									<div class="display-area">
-
 										<div id="satellite-power" class="blueprint satellite-holder isogrid threeD">
-
 											<div class="holder" id="sat-power">
-
 												<div class="controls zoomcontrol">
-
 													<button class="fancy zoomin">&plus;</button>
-
 													<button class="fancy zoomout">&minus;</button>
-
 													<!--<button class="fancy make3D">2D/3D</button>
-
 													<button class="fancy animate">Animate</button>-->
-
 												</div>
-
 												<div class="controls batterycontrol">
-
 													<div id="power_indicator" class="meter">
-
 														<div class="level"></div>
-
 														<div class="value">0%</div>
-
 													</div>
-
 												</div>
-
 												<div class="satellite"></div>
-
 											</div>
-
 										</div>
-
 									</div>
-
 								</div>
-
 							</div>
-
 							<div class="col">
-
 								<div id="power_list" class="list">
-
 									<h3>Available power devices:</h3>
-
 									<ul>
-
 										<li data-package="battery-large">
-
 											<div class="list-bar bg2x2 "><button class="fancy add" data-size="2x2" data-package="battery-large">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="battery-large">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot texture battery-large"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Large battery" /></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Large battery</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
-
 												
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="20" class="value convertable">20 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="50" class="value convertable">50 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="500" class="value convertable">500 watts</span></div>
-
 												
-
 												<div class="package_desc">Stores power from solar panels to allow operation when not in sunlight</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="battery-small">
-
 											<div class="list-bar bg1x1 "><button class="fancy add" data-size="1x1" data-package="battery-small">&plus;</button><button class="fancy remove" disabled="disabled" data-size="1x1" data-package="battery-small">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot texture battery-small"><div class="slot slot1x1"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Small battery" /></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Small battery</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.05" class="length value convertable">0.05 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.05" class="length value convertable">0.05 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.05" class="length value convertable">0.05 m</span></div -->
-
 												
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="15" class="value convertable">15 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="1" class="value convertable">1 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="30" class="value convertable">30 watts</span></div>
-
 												
-
 												<div class="package_desc">Stores power from solar panels to allow operation when not in sunlight</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="rtg">
-
 											<div class="list-bar bg2x4 "><button class="fancy add" data-size="2x4" data-package="rtg">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x4" data-package="rtg">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot texture rtg"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="RTG" /></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>RTG</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span></div -->
-
 												
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="30" class="value convertable">30 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="60" class="value convertable">60 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="300" class="value convertable">300 watts</span></div>
-
 												
-
 												<div class="package_desc">A "Radioisotope Thermal Generator" uses nuclear technology to provide power. Due to safety concerns, it can't be used in low-Earth orbit.</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="solar-panel">
-
 											<div class="list-bar bg4x4 "><button class="fancy add" data-size="4x4" data-package="solar-panel">&plus;</button><button class="fancy remove" disabled="disabled" data-size="4x4" data-package="solar-panel">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot "><div class="slot slot4x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Deployable solar panel" /></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Deployable solar panel</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="" data-units="" data-value="" class="length value convertable"> </span></div -->
-
 												
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="20" class="value convertable">20 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="10" class="value convertable">10 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="300" class="value convertable">300 watts</span></div>
-
 												
-
 												<div class="package_desc">Solar panels deployed from edge of satellite, collecting sunlight to provide power. Can power instruments, or charge up batteries.</div>
-
 											</div>
-
 										</li>
-
 										<li data-package="solar-panel-surface">
-
 											<div class="list-bar bg3x3 "><button class="fancy add" data-size="3x3" data-package="solar-panel-surface">&plus;</button><button class="fancy remove" disabled="disabled" data-size="3x3" data-package="solar-panel-surface">&minus;</button><div class="value"></div></div>
-
 											<div class="list-left">
-
 												<div class="package_slot "><div class="slot slot3x3"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Body-mounted solar panel" /></div></div></div>
-
 											</div>
-
 											<div class="list-right">
-
 												<div class="package_title"><strong>Body-mounted solar panel</strong></div>
-
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="" data-units="" data-value="" class="length value convertable"> </span></div -->
-
 												
-
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="15" class="value convertable">15 credits</span></div>
-
 												<div class="package_mass"><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="5" class="value convertable">5 kg</span></div>
-
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="150" class="value convertable">150 watts</span></div>
-
 												
-
 												<div class="package_desc">Solar panels mounted onto surface of satellite, collecting sunlight to provide power. Can power instruments, or charge up batteries.</div>
-
 											</div>
-
 										</li>
-
 									</ul>
-
 								</div>
-
 							</div><!-- end right -->
-
 						</div>
-
 					</div>
-
 				</div>
-
 			</section>
-
-
 
 			<section id="rocket" class="view">
-
 				<div class="padded">
-
 					<div class="page">
-
 						<div class="row-top">
-
 							<nav>
-
 								<ol>
-
 									<li class="prev"><a href="#power">Power</a></li>
-
 									<li class="next"><a href="#launch">Launch</a></li>
-
 								</ol>
-
 							</nav>
-
 							<h2>Build your rocket</h2>
-
 							<p>Now you have a satellite you need to build a multi-stage rocket. The top of the rocket will hold your satellite so needs to be big enough. The lower stages need to be big enough to support those above.</p>
-
 						</div>
-
 						<div class="row-main">
-
 							<div class="col">
-
 								<div class="holder-holder">
-
 									<div class="isogrid rocket-holder rocket" id="vehicle">
-
 										<div class="holder">
-
 											<div class="controls zoomcontrol">
-
 												<button class="fancy zoomin">&plus;</button>
-
 												<button class="fancy zoomout">&minus;</button>
-
 											</div>
-
 											<div class="stage payloadbay"><div class="part"></div></div><div class="stage thirdstage"><div class="part"></div></div><div class="stage secondstage"><div class="part"></div></div><div class="stage firststage"><div class="part"></div></div>
-
 										</div>
-
 									</div>
-
 								</div>
-
 							</div>
-
 							<div class="col">
-
 								<div class="padd-left">
-
 									<div class="rocket rocket-builder">
-
 										<div class="slider-container payloadbay">
-
 											<div class="slider">
-
 												<button class="prev"><span>&#x276E;</span></button>
-
 												<ul>
-
 													<li class="stage stage-None"><div class="part" style="width:0%"></div><div class="stage-holder"><div class="stage-about">None</div></div></li><li class="stage stage-XS"><div class="part" style="width:1%"></div><div class="stage-holder"><div class="stage-about">XS</div></div></li><li class="stage stage-S"><div class="part" style="width:2%"></div><div class="stage-holder"><div class="stage-about">S</div></div></li><li class="stage stage-M"><div class="part" style="width:3%"></div><div class="stage-holder"><div class="stage-about">M</div></div></li><li class="stage stage-L"><div class="part" style="width:8%"></div><div class="stage-holder"><div class="stage-about">L</div></div></li><li class="stage stage-XL"><div class="part" style="width:10%"></div><div class="stage-holder"><div class="stage-about">XL</div></div></li>
-
 												</ul>
-
 												<button class="next"><span>&#x276F;</span></button>
-
 											</div>
-
 										</div>
-
 										<div class="slider-container thirdstage">
-
 											<div class="slider">
-
 												<button class="prev"><span>&#x276E;</span></button>
-
 												<ul>
-
 													<li class="stage stage-None"><div class="part" style="width:0%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about">None</div></div></li><li class="stage stage-S"><div class="part" style="width:2%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about">S</div></div></li><li class="stage stage-M"><div class="part" style="width:3%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about">M</div></div></li><li class="stage stage-L"><div class="part" style="width:7%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about">L</div></div></li>
-
 												</ul>
-
 												<button class="next"><span>&#x276F;</span></button>
-
 											</div>
-
 										</div>
-
 										<div class="slider-container secondstage">
-
 											<div class="slider">
-
 												<button class="prev"><span>&#x276E;</span></button>
-
 												<ul>
-
 													<li class="stage stage-None"><div class="part" style="width:0%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about">None</div></div></li><li class="stage stage-XS"><div class="part" style="width:1.3%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about">XS</div></div></li><li class="stage stage-S"><div class="part" style="width:2%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about">S</div></div></li><li class="stage stage-M"><div class="part" style="width:3%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about">M</div></div></li><li class="stage stage-L"><div class="part" style="width:3.5%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about">L</div></div></li><li class="stage stage-XL"><div class="part" style="width:8%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about">XL</div></div></li><li class="stage stage-XXL"><div class="part" style="width:10%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about">XXL</div></div></li>
-
 												</ul>
-
 												<button class="next"><span>&#x276F;</span></button>
-
 											</div>
-
 										</div>
-
 										<div class="slider-container firststage">
-
 											<div class="slider">
-
 												<button class="prev"><span>&#x276E;</span></button>
-
 												<ul>
-
 													<li class="stage stage-None"><div class="part" style="width:0%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about">None</div></div></li><li class="stage stage-S"><div class="part" style="width:3%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about">S</div></div></li><li class="stage stage-M"><div class="part" style="width:3%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about">M</div></div></li><li class="stage stage-L"><div class="part" style="width:3.5%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about">L</div></div></li><li class="stage stage-XL"><div class="part" style="width:8%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about">XL</div></div></li><li class="stage stage-XXL"><div class="part" style="width:10%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about">XXL</div></div></li><li class="stage stage-Plane"><div class="part" style="width:6%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about">Plane</div></div></li><li class="stage stage-RocketPlane"><div class="part" style="width:6%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about">RocketPlane</div></div></li>
-
 												</ul>
-
 												<button class="next"><span>&#x276F;</span></button>
-
 											</div>
-
 										</div>
-
 									</div>
-
 								</div>
-
 							</div>
-
 						</div>
-
 					</div>
-
 				</div>
-
 			</section>
-
-
 
 			<section id="launch" class="view">
-
 				<div class="padded">
-
 					<div class="page">
-
 						<div class="row-top">
-
 							<nav>
-
 								<ol>
-
 									<li class="prev"><a href="#rocket">Rocket</a></li>
-
 								</ol>
-
 							</nav>
-
 							<h2>Ready to launch?</h2>
-
 							<p class="errors">We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail.</p>
-
 							<p class="ok">Final checks have shown that your mission is within budget, you have a suitable rocket, and you have a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.</p>
-
 							<p><button class="fancy">Go for launch!</button></p>
-
 						</div>
-
 					</div>
-
 				</div>
-
 			</section>
-
-
 
 		</div>
 
 
-
-
-
 		<section id="messages">
-
 			<h2>Messages</h2>
-
 			<ul></ul>
-
 		</section>
-
-
 
 		<section id="summary">
-
 			<h2>Summary</h2>
-
 		</section>
-
-
 		<section id="units" class="not-at-start">
-
 	<h2>Units</h2>
-
 	<form id="optionform">
-
 		<ul>
-
 			<li><label for="changecurrency">Currency:</label> <select name="changecurrency" id="changecurrency"><option selected="selected" value="GBP">British Pounds £</option><option value="USD">US Dollars $</option><option value="EUR">Euros €</option><option value="JPY">Japanese Yen ¥</option><option value="CAD">Canadian Dollars C$</option><option value="AUD">Austrialian Dollars $</option><option value="CHF">Swiss Francs Fr.</option><option value="SEK">Swedish Krona kr</option><option value="CNY">Chinese Yuan ¥</option><option value="INR">Indian Rupees ₨</option><option value="RUB">Russian Ruble RUB</option><option value="DBL">Doubloons DBL</option></select></li>
-
 			<li><label for="changelength">Length units:</label> <select name="changelength" id="changelength"><option selected="selected" value="m">Metres</option><option value="ft">Feet</option><option value="cubit">Cubits</option><option value="bluewhale">Blue Whales</option><option value="yard">Yards</option></select></li>
-
 			<li><label for="changemass">Mass units:</label> <select name="changemass" id="changemass"><option selected="selected" value="kg">Kilograms</option><option value="lb">Pounds</option><option value="elephant">Elephants</option></select></li>
-
 		</ul>
-
 	</form>
 
-
-
 </section>
-
-
 		<menu id="menu" class="dropdown not-at-start">
-
 	<li class="baritem restart" data="restart"><button title="Start over"><img src="images/cleardot.gif" class="icon restart" alt="" /><span>Restart</span></button></li>
-
 	<!--li class="baritem" data="level"><button title="Change the difficulty"><img src="images/cleardot.gif" class="icon difficulty" alt="" /><span>Difficulty</span></button></li-->
-
 	<!--<li class="baritem" data="help"><a href="#guide"><img src="images/cleardot.gif" class="icon help" alt="" /><span>Help</span></a></li>-->
-
 	<li class="baritem units" data="units"><button title="Change the units"><img src="images/cleardot.gif" class="icon options" alt="" /><span>Units</span></button></li>
-
 	<li class="baritem fullscreen not-at-start" data="fullscreen"><button title="Switch between viewing fullscreen or in a standard browser window"><img alt="" class="icon fullscreen" src="images/cleardot.gif" /><span>Toggle fullscreen</span></button></li>
-
 </menu>
-
 	</div>
-
 </body>
-
 </html>
-
