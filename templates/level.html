@@ -110,7 +110,27 @@
 				</div>
 			</section>
 
-			<!--#if expr="${LEVEL} = /intermediate/"-->
+			<!--#if expr="${LEVEL} = /beginner/"-->
+			<section id="bus" class="noview">
+				<div class="padded">
+					<div class="page">
+						<div class="row-top">
+							<h2><!--#echo var="ui.sections.bus.title" --></h2>
+							<p><!--#echo var="ui.sections.bus.intro" --></p>
+						</div>
+						<div class="row-main">
+							<div class="satellite-holder isogrid">
+								<!--#for each="bus" name="satellites_b" -->
+								<div class="holder blackandwhite">
+									<!--#include file="satellites/<!--#json name="this" -->.html" -->
+								</div>
+								<!--#endfor name="satellites_b" -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--#elif expr="${LEVEL} = /intermediate/"-->
 			<section id="bus" class="view">
 				<div class="padded">
 					<div class="page">

@@ -547,6 +547,9 @@ section.view {
   max-width: 100%;
   /*@include transition( margin-left $slide ease );*/ }
 
+section.noview {
+  display: none; }
+
 section.view.js {
   position: absolute;
   top: 0px; }

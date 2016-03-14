@@ -298,6 +298,7 @@ body.front section:first-child { padding-top: $barheight; }
 .msg + section { padding-top: 0; }
 .padded { padding: $padded; }
 section.view { width: 100%; max-width: 100%; /*@include transition( margin-left $slide ease );*/ }
+section.noview { display: none; }
 section.view.js { position: absolute; top: 0px; }
 section.view h2 { text-align: center; }
 section.view p { text-align: center; }

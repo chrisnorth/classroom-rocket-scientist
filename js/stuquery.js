@@ -1,21 +1,9 @@
 // I don't like to pollute the global namespace 
 // but I can't get this to work any other way.
 var eventcache = {};
-function E(e){
+
+function S(e){
 	
-	function matchSelector(e,s){
-		var result = false;
-		// Does this one element match the s
-		if(s[0] == '.'){
-			s = s.substr(1);
-			for(var i = 0; i < e.classList.length; i++) if(e.classList[i] == s) return true;
-		}else if(s[0] == '#'){
-			if(e.id == s.substr(1)) return true;
-		}else{
-			if(e.tagName == s.substr(1).toUpperCase()) return true;
-		}
-		return false;
-	}
 	function getBy(e,s){
 		var i = -1;
 		var result = new Array();
@@ -28,7 +16,6 @@ function E(e){
 		else if(s[0] == '#') els = e.getElementById(s.substr(1));
 		else els = e.getElementsByTagName(s);
 		if(!els) els = [];
-		
 		// If it is a select field we don't want to select the options within it
 		if(els.nodeName && els.nodeName=="SELECT") result.push(els);
 		else{
@@ -41,29 +28,31 @@ function E(e){
 		}
 		return result;
 	}
+	function matchSelector(e,s){
+		var result = false;
+		// Does this one element match the s
+		if(s[0] == '.'){
+			s = s.substr(1);
+			for(var i = 0; i < e.classList.length; i++) if(e.classList[i] == s) return true;
+		}else if(s[0] == '#'){
+			if(e.id == s.substr(1)) return true;
+		}else{
+			if(e.tagName == s.toUpperCase()) return true;
+		}
+		return false;
+	}
 
 	// Make our own fake, tiny, version of jQuery simulating the parts we need
 	function stuQuery(els){
+		var elements;
 		if(typeof els==="string"){
-			var a,els,els2,i,j,k,tmp;
-			a = els.split(' ');
-			for(i = 0; i < a.length; i++){
-				if(i==0){
-					els = getBy(document,a[i]);
-				}else{
-					els2 = new Array();
-					for(j = 0; j < els.length; j++) els2 = els2.concat(getBy(els[j],a[i]));
-					els = els2.splice(0);
-				}
-			}
-		}
-		this.e = [];
-		if(!els) return this;
-		if(typeof els.length!=="number") els = [els];
-		this.e = els;
+			var tmp = document.querySelectorAll(els);	// IE8+
+			this.e = new Array();
+			for(k = 0; k < tmp.length; k++){ this.e.push(tmp[k]); }
+		}else if(typeof els==="object") this.e = (typeof els.length=="number") ? els : [els];
 		return this;
 	}
-	stuQuery.prototype.ready = function(f){ /in/.test(document.readyState)?setTimeout('E(document).ready('+f+')',9):f() }
+	stuQuery.prototype.ready = function(f){ /in/.test(document.readyState)?setTimeout('S(document).ready('+f+')',9):f() }
 	// Return HTML or set the HTML
 	stuQuery.prototype.html = function(html){
 		if(typeof html==="number") html = ''+html;
@@ -76,11 +65,6 @@ function E(e){
 		if(html) for(var i = 0; i < this.e.length; i++) this.e[i].innerHTML += html;
 		return this;	
 	}
-	/*
-	stuQuery.prototype.setCache = function(a){
-		eventcache = a;
-		return;
-	}*/
 	function NodeMatch(a,el){
 		if(a && a.length > 0){
 			for(var i = 0; i < a.length; i++){
@@ -192,7 +176,7 @@ function E(e){
 			if(typeof this.e[i].remove==="function") this.e[i].remove();
 			else if(typeof this.e[i].parentElement.removeChild==="function") this.e[i].parentElement.removeChild(this.e[i]);
 		}
-		return E(this.e);
+		return S(this.e);
 	}
 	// Check if a DOM element has the specified class
 	stuQuery.prototype.hasClass = function(cls){
@@ -209,7 +193,7 @@ function E(e){
 			if(this.e[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) this.e[i].className = this.e[i].className.replace(new RegExp("(\\s|^)" + cls + "(\\s|$)", "g")," ").replace(/ $/,'');
 			else this.e[i].className = (this.e[i].className+' '+cls).replace(/^ /,'');
 		}
-		return E(this.e);
+		return S(this.e);
 	}
 	// Toggle a class on a DOM element
 	stuQuery.prototype.addClass = function(cls){
@@ -217,7 +201,7 @@ function E(e){
 		for(var i = 0; i < this.e.length; i++){
 			if(!this.e[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) this.e[i].className = (this.e[i].className+' '+cls).replace(/^ /,'');
 		}
-		return E(this.e);
+		return S(this.e);
 	}
 	// Remove a class on a DOM element
 	stuQuery.prototype.removeClass = function(cls){
@@ -225,12 +209,13 @@ function E(e){
 		for(var i = 0; i < this.e.length; i++){
 			while(this.e[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) this.e[i].className = this.e[i].className.replace(new RegExp("(\\s|^)" + cls + "(\\s|$)", "g")," ").replace(/ $/,'').replace(/^ /,'');
 		}
-		return E(this.e);
+		return S(this.e);
 	}
 	stuQuery.prototype.css = function(css){
+		var styles;
 		for(var i = 0; i < this.e.length; i++){
 			// Read the currently set style
-			var styles = {};
+			styles = {};
 			var style = this.e[i].getAttribute('style');
 			if(style){
 				var bits = this.e[i].getAttribute('style').split(";");
@@ -239,23 +224,26 @@ function E(e){
 					if(pairs.length==2) styles[pairs[0]] = pairs[1];
 				}
 			}
-			// Add the user-provided style to what was there
-			for(key in css) styles[key] = css[key];
-			// Build the CSS string
-			var newstyle = '';
-			for(key in styles){
-				if(newstyle) newstyle += ';';
-				if(styles[key]) newstyle += key+':'+styles[key];
+			if(typeof css==="object"){
+				// Add the user-provided style to what was there
+				for(key in css) styles[key] = css[key];
+				// Build the CSS string
+				var newstyle = '';
+				for(key in styles){
+					if(newstyle) newstyle += ';';
+					if(styles[key]) newstyle += key+':'+styles[key];
+				}
+				// Update style
+				this.e[i].setAttribute('style',newstyle);
 			}
-			// Update style
-			this.e[i].setAttribute('style',newstyle);
 		}
-		return E(this.e);
+		if(this.e.length==1 && typeof css==="string") return styles[css];
+		return S(this.e);
 	}
 	stuQuery.prototype.parent = function(){
 		var tmp = [];
 		for(var i = 0; i < this.e.length; i++) tmp.push(this.e[i].parentElement);
-		return E(tmp);
+		return S(tmp);
 	}
 	// Only look one level down
 	stuQuery.prototype.children = function(c){
@@ -267,22 +255,23 @@ function E(e){
 					if(matchSelector(this.e[i].children[ch],c)) result.push(this.e[i].children[ch]);
 				}
 			}
-			return E(result);
+			return S(result);
 		}else{
 			// We are using an index
 			for(var i = 0; i < this.e.length; i++) this.e[i] = (this.e[i].children.length > c ? this.e[i].children[c] : this.e[i]);
-			return E(this.e);
+			return S(this.e);
 		}
 	}
 	stuQuery.prototype.find = function(selector){
 		var tmp = [];
-		var result = [];
+		var result = new Array();
 		for(var i = 0; i < this.e.length; i++){
-			tmp = getBy(this.e[i],selector);
+			if(selector.indexOf(':eq') >= 0) tmp = getBy(this.e[i],selector);	// If we have an :eq(n) style selector we use our manual selection
+			else tmp = this.e[i].querySelectorAll(selector);					// We can use the built-in selector
 			for(k = 0; k < tmp.length; k++){ result.push(tmp[k]); }
 		}
 		// Return a new instance of stuQuery
-		return E(result);
+		return S(result);
 	}
 	stuQuery.prototype.attr = function(attr,val){
 		var tmp = [];
@@ -292,7 +281,7 @@ function E(e){
 		}
 		if(tmp.length==1) tmp = tmp[0];
 		if(typeof val==="undefined") return tmp;
-		else return E(this.e);
+		else return S(this.e);
 	}
 	stuQuery.prototype.prop = function(attr,val){
 		var tmp = [];
@@ -314,7 +303,7 @@ function E(e){
 	stuQuery.prototype.replaceWith = function(html){
 		var span = document.createElement("span");
 		span.innerHTML = html;
-		var clone = E(this.e);
+		var clone = S(this.e);
 		for(var i = 0; i < this.e.length; i++) clone.e[0].parentNode.replaceChild(span, clone.e[0]);
   		return clone;
 	}
