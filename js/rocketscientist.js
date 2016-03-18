@@ -447,8 +447,9 @@ var rs;
 			for(var i = 0; i < this.requirements.length; i++){
 				if(this.requirements[i]['type'] == sections[s] && this.requirements[i]['label'] != "") li += "<li>"+this.requirements[i]['label']+"</li>";
 			}
-			this.log('List of requirements',li)
+			this.log('List of requirements',li);
 			if(li) ul.after("<ul>"+li+"</ul>");
+			S('#'+s+' .requirements').css({'display':(li ? '':'none')});
 		}
 		return this;
 	}
