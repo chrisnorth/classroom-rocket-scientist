@@ -60,7 +60,7 @@ var rs;
 		this.maxpanels = 1;
 		this.wide = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 		this.tall = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-		this.defaults = {'currency':'credits', 'length':'m', 'area': 'mxm', 'mass': 'kg', 'power':'watts' };
+		this.defaults = {'currency':'credits', 'length':'m', 'area': 'mxm', 'mass': 'kg', 'power':'watts', 'powerdensity':'watts/m^2' };
 		this.z = {};
 		this.totals = { 'cost': new Convertable(0,this.defaults.currency), 'power': new Convertable(0,this.defaults.power), 'mass':new Convertable(0,this.defaults.mass) };
 		this.choices = { 'type':'', 'goal':'', 'mission':'', 'orbit':'', 'bus':'', 'slots':{}, 'solar-panel':0, 'solar-panel-fixed':false };
@@ -331,12 +331,18 @@ var rs;
 		if(this.choices['solar-panel']){
 			var n = this.choices['solar-panel'];
 			total = add(total,this.data['power']['solar-panel'],{'cost':n,'mass':n,'power':0});
+			console.log(this.data['power']['solar-panel'].power,n);
 			power.value += this.data['power']['solar-panel'].power.value*n;
 		}
 		if(this.choices['solar-panel-fixed']){
-			var n = this.choices['bus'].area.value;
+			var n = (this.choices['bus'].area) ? this.choices['bus'].area.convertTo('m^2').value : 0;
+			var pow = new Convertable(0,'watts','power');
+			var p = this.data['power']['solar-panel-surface'].power.copy();
+			if(p.dimension == "powerdensity") pow.value = p.convertTo('watts/m^2').value * n;
+			else if(p.dimension == "power") pow.value = p.convertTo('watts').value * n;
 			total = add(total,this.data['power']['solar-panel-surface'],{'cost':n,'mass':n,'power':0});
-			power.value += this.data['power']['solar-panel-surface'].power.value*n;
+			power.value += pow.value;
+			console.log(this.data['power']['solar-panel-surface'].power,s.power,total)
 		}
 
 		this.totals = total;
@@ -351,7 +357,7 @@ var rs;
 		S('#bar .togglepower .power').html(this.totals.power.toString({'units':this.defaults.power}));
 
 		// Update battery-style indicator
-		var pc = (this.power.value == Infinity) ? 100 : (this.totals.power.value > 0 ? 100*this.power.value/this.totals.power.value : 0);
+		var pc = (this.power.value == Infinity) ? 100 : (this.totals.power.value > 0 ? 100*this.power.value/this.totals.power.value : 100);
 		var p = S('#power_indicator');
 		p.children('.level').css({'width':Math.min(pc,100)+'%'});
 		p.children('.value').html((pc >= 100 ? '&#9889;':'')+Math.round(pc)+'%');
@@ -486,17 +492,11 @@ var rs;
 		// Remove existing selections
 		S('#bus .selected').removeClass('selected');
 
-
-console.log('here',S('#satellite .satellite'),S('#satellite-power .satellite'))
-
-console.log(html,sat,size,S('#bus .satellite-'+size[0]))
-
 		// Update satellite section with choice
 		var html = sat.clone();
 		S('#satellite .satellite').replaceWith(html);
 		S('#satellite-power .satellite').replaceWith(html);
 
-console.log('there',S('.list li'))
 		// Hide list items that aren't selectable
 		var li = S('.list li');
 		var s,el;
@@ -511,9 +511,11 @@ console.log('there',S('.list li'))
 			for(j = 0 ; j < props.length; j++){
 				if(_obj.data.power['solar-panel-surface'][props[j]].typeof=="convertable"){
 					v = el.find('.package_'+props[j]).find('.value');
-					console.log('scaleConvertableByArea',_obj.data.power['solar-panel-surface'][props[j]],v.attr('data-dimension'))
-					nv = _obj.data.power['solar-panel-surface'][props[j]].convertTo(v.attr('data-dimension'));
-					v.attr('data-value',nv.value*_obj.data.bus[size].area.value);
+					if(v.attr('data-dimension')!="powerdensity"){
+						console.log('scaleConvertableByArea',_obj.data.power['solar-panel-surface'][props[j]],v.attr('data-dimension'))
+						nv = _obj.data.power['solar-panel-surface'][props[j]].convertTo(v.attr('data-dimension'));
+						v.attr('data-value',nv.value*_obj.data.bus[size].area.value);
+					}
 				}
 			}
 			return;

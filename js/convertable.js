@@ -16,7 +16,8 @@ function Convertable(v,u,d){
 			"angle": "degrees",
 			"currency": "GBP",
 			"force": "kN",
-			"power": "watts"
+			"power": "watts",
+			"powerdensity": "watts/m^2"
 		},
 		"units": {
 			"km": { "unit": "&thinsp;km", "dimension": "length", "conv": 1000 },
@@ -38,6 +39,7 @@ function Convertable(v,u,d){
 			"lb": { "unit": "&thinsp;lb", "dimension": "mass", "conv": 1/2.205 },
 			"elephant": { "unit": "&thinsp;elephants", "dimension": "mass", "conv": 5400 },
 			"watts": { "unit": "&thinsp;W", "dimension": "power", "conv": 1 },
+			"watts/m^2": { "unit": "&thinsp;W/m&sup2;", "dimension": "powerdensity", "conv": 1 },
 			"horsepower": { "unit": "&thinsp;hp", "dimension": "power", "conv": 745.7 },
 			"years": { "unit": "&thinsp;years", "dimension": "time", "conv": 365.25*86400 },
 			"months": { "unit": "&thinsp;months", "dimension": "time", "conv": 30*86400 },
