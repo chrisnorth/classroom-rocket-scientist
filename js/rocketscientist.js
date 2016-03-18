@@ -307,7 +307,8 @@ var rs;
 			for(var i in tot){
 				if(p[i] && p[i].typeof=="convertable"){
 					var c = p[i].copy();
-					c.value *= m[i];
+					if(c.value != Infinity) c.value *= m[i];
+					else c.value = (m[i]==0) ? 0 : Infinity;
 					tot[i].add(c);
 				}
 			}
@@ -319,23 +320,23 @@ var rs;
 			for(var i in this.choices['slots']){
 				for(var j = 0; j < this.choices['slots'][i].length; j++){
 					var key = this.choices['slots'][i][j];
-					if(this.data.package[key]) total = add(total,this.data.package[key]);
-					if(this.data.power[key]){
-						total = add(total,this.data.power[key],{'cost':1,'mass':1,'power':0});	// We don't include power
-						power.value += this.data.power[key].power.value;	// Store the power here
+					if(this.data['package'][key]) total = add(total,this.data['package'][key]);
+					if(this.data['power'][key]){
+						total = add(total,this.data['power'][key],{'cost':1,'mass':1,'power':0});	// We don't include power
+						power.value += this.data['power'][key].power.value;	// Store the power here
 					}
 				}
 			}
 		}
 		if(this.choices['solar-panel']){
 			var n = this.choices['solar-panel'];
-			total = add(total,this.data.power['solar-panel'],{'cost':n,'mass':n,'power':0});
-			power.value += this.data.power['solar-panel'].power.value*n;
+			total = add(total,this.data['power']['solar-panel'],{'cost':n,'mass':n,'power':0});
+			power.value += this.data['power']['solar-panel'].power.value*n;
 		}
 		if(this.choices['solar-panel-fixed']){
 			var n = this.choices['bus'].area.value;
-			total = add(total,this.data.power['solar-panel-surface'],{'cost':n,'mass':n,'power':0});
-			power.value += this.data.power['solar-panel-surface'].power.value*n;
+			total = add(total,this.data['power']['solar-panel-surface'],{'cost':n,'mass':n,'power':0});
+			power.value += this.data['power']['solar-panel-surface'].power.value*n;
 		}
 
 		this.totals = total;
@@ -350,7 +351,7 @@ var rs;
 		S('#bar .togglepower .power').html(this.totals.power.toString({'units':this.defaults.power}));
 
 		// Update battery-style indicator
-		var pc = (this.totals.power.value > 0) ? 100*this.power.value/this.totals.power.value : 0;
+		var pc = (this.power.value == Infinity) ? 100 : (this.totals.power.value > 0 ? 100*this.power.value/this.totals.power.value : 0);
 		var p = S('#power_indicator');
 		p.children('.level').css({'width':Math.min(pc,100)+'%'});
 		p.children('.value').html((pc >= 100 ? '&#9889;':'')+Math.round(pc)+'%');

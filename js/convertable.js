@@ -72,6 +72,7 @@ function Convertable(v,u,d){
 		return false;
 	}
 	if(typeof v==="object"){
+		if(typeof v.value==="string" && (v.value=="inf" || v.value=="Infinity")) v.value = Infinity;
 		if(typeof v.getAttribute==="function"){
 			u = v.getAttribute('data-units');
 			d = v.getAttribute('data-dimension');
@@ -83,7 +84,7 @@ function Convertable(v,u,d){
 		}
 	}
 	if((typeof v==="number" || typeof v==="string") && u){
-		this.value = (typeof v==="string") ? (v=="inf" ? v : parseFloat(v)) : v;
+		this.value = (typeof v==="string") ? ((v=="inf" || v=="Infinity") ? Infinity : parseFloat(v)) : v;
 		if(ph.units[u] || ph.currency[u]) this.units = u;
 		else return {};
 		if(d) this.dimension = d;

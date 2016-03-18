@@ -432,72 +432,6 @@
 		}
 	},
 	"power": {
-		"battery-large": {
-			"slot":	"2x2",
-			"title": "Large battery",
-			"description": "Stores power from solar panels to allow operation when not in sunlight",
-			"texture": {
-				"icon": "texture battery-large"
-			},
-			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 20, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 500, "units": "watts", "dimension": "power" },
-			"requires": [{
-				"type": "power",
-				"oneof": ["solar-panel","solar-panel-surface"],
-				"label": "Requires solar panels to charge up",
-				"error": "Requires solar panels"
-			}]
-		},
-		"battery-small": {
-			"slot":	"1x1",
-			"title": "Small battery",
-			"description": "Stores power from solar panels to allow operation when not in sunlight",
-			"texture": {
-				"icon": "texture battery-small"
-			},
-			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 15, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.05, "units": "m", "dimension": "length" },
-				{ "value": 0.05, "units": "m", "dimension": "length" },
-				{ "value": 0.05, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 30, "units": "watts", "dimension": "power" },
-			"requires": [{
-				"type": "power",
-				"oneof": ["solar-panel","solar-panel-surface"],
-				"label": "Requires solar panels",
-				"error": "Requires solar panels"
-			}]
-		},
-		"rtg": {
-			"slot":	"2x4",
-			"title": "RTG",
-			"description": "A \"Radioisotope Thermal Generator\" uses nuclear technology to provide power. Due to safety concerns, it can't be used in low-Earth orbit.",
-			"texture": {
-				"icon": "texture rtg"
-			},
-			"mass": { "value": 60, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 30, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 1.0, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 300, "units": "watts", "dimension": "power" },
-			"requires": [{
-				"type": "orbit",
-				"oneof": ["MEO","HEO","GEO"],
-				"label": "Not for low-Earth orbit",
-				"error": "Can't use an RTG in low-Earth orbit"
-			}]
-		},
 		"solar-panel-surface": {
 			"slot":	"3x3",
 			"title": "Body-mounted solar panel",
@@ -508,7 +442,7 @@
 				{ "value": 1.0, "units": "m", "dimension": "length" },
 				{ "value": 1.0, "units": "m", "dimension": "length" }
 			],
-			"power": { "value": 150, "units": "watts", "dimension": "power" },
+			"power": { "value": "inf", "units": "watts", "dimension": "power" },
 			"comments": "Costs are per unit area. Area defined by satellite size."
 		},
 		"solar-panel": {
@@ -522,7 +456,7 @@
 				{ "value": 1.0, "units": "m", "dimension": "length" },
 				{ "value": 1.0, "units": "m", "dimension": "length" }
 			],
-			"power": { "value": 300, "units": "watts", "dimension": "power" }
+			"power": { "value": "inf", "units": "watts", "dimension": "power" }
 		}
 	},
 	"firststage": [{
