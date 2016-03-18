@@ -953,6 +953,17 @@ section#type .holder p {
   height: 0;
   width: 100%; }
 
+#vehicle .stage:before {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-color: transparent transparent #cccccc transparent;
+  border-width: 0 0;
+  top: 0%;
+  left: 0%;
+  height: 0;
+  width: 100%; }
+
 .rocket .nozzle {
   position: relative;
   display: block;
@@ -1020,7 +1031,7 @@ section#type .holder p {
 
 .rocket-holder .holder {
   vertical-align: bottom;
-  padding-bottom: 1.125em;
+  padding: 0.75em 0;
   background-image: url("../images/silhouette.png");
   background-position: 5% bottom;
   background-repeat: no-repeat;
@@ -1031,7 +1042,7 @@ section#type .holder p {
   width: 0px;
   position: relative;
   border-bottom: 1px solid #999999;
-  opacity: 0.7; }
+  opacity: 0.5; }
 
 .rocket-holder .part {
   height: 100%; }

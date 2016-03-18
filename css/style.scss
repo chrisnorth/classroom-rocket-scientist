@@ -426,6 +426,17 @@ $nozzle: $s*0.25;
 	height: 0;
 	width: 100%;
 }
+#vehicle .stage:before {
+	content: "";
+	position: absolute;
+	border-style: solid;
+	border-color: transparent transparent $grey-4 transparent;
+	border-width: 0 0;
+	top: 0%;
+	left: 0%;
+	height: 0;
+	width: 100%;
+}
 .rocket .nozzle {
 	position: relative;
 	display: block;
@@ -471,8 +482,8 @@ $nozzle: $s*0.25;
 .rocket .part, .rocket .payloadbay .part:before {
 	@include cylinder($grey-4,1,$grey-5,1,$grey-3,1,25%);
 }
-.rocket-holder .holder { vertical-align: bottom; padding-bottom: $s*0.75; background-image: url('../images/silhouette.png'); background-position: 5% bottom; background-repeat: no-repeat; background-size: auto 10em; }
-.rocket-holder .stage { margin: auto; width: 0px; position: relative; border-bottom: 1px solid $grey-2; opacity:0.7; }
+.rocket-holder .holder { vertical-align: bottom; padding: $s*0.5 0; background-image: url('../images/silhouette.png'); background-position: 5% bottom; background-repeat: no-repeat; background-size: auto 10em; }
+.rocket-holder .stage { margin: auto; width: 0px; position: relative; border-bottom: 1px solid $grey-2; opacity:0.5; }
 .rocket-holder .part { height: 100%; }
 .rocket-holder .payloadbay .part { width: 100%; }
 .rocket-holder .nozzle {

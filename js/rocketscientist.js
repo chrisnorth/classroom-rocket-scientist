@@ -223,7 +223,9 @@ var rs;
 		// Update rocket stages
 		this.sliders = new Array();
 		this.stages = ['firststage','secondstage','thirdstage','payloadbay'];
+		this.stageslookup = {};
 		for(var s = 0; s < this.stages.length; s++){
+			this.stageslookup[this.stages[s]] = s;
 			var l = this.stages[s];
 			this.sliders.push(new Slider(S('.rocket-builder .'+l),{stage:l},function(e){ _obj.setStage(e.data.stage,e.i); }));
 			for(var i = 0; i < this.data[l].length; i++) S('.rocket-builder .'+l+' .stage-'+this.data[l][i].key).find('.part').css({'width':(this.data[l][i].diameter.value*10).toFixed(1)+'%'});
@@ -331,7 +333,6 @@ var rs;
 		if(this.choices['solar-panel']){
 			var n = this.choices['solar-panel'];
 			total = add(total,this.data['power']['solar-panel'],{'cost':n,'mass':n,'power':0});
-			console.log(this.data['power']['solar-panel'].power,n);
 			power.value += this.data['power']['solar-panel'].power.value*n;
 		}
 		if(this.choices['solar-panel-fixed']){
@@ -342,7 +343,6 @@ var rs;
 			else if(p.dimension == "power") pow.value = p.convertTo('watts').value * n;
 			total = add(total,this.data['power']['solar-panel-surface'],{'cost':n,'mass':n,'power':0});
 			power.value += pow.value;
-			console.log(this.data['power']['solar-panel-surface'].power,s.power,total)
 		}
 
 		this.totals = total;
@@ -512,7 +512,7 @@ var rs;
 				if(_obj.data.power['solar-panel-surface'][props[j]].typeof=="convertable"){
 					v = el.find('.package_'+props[j]).find('.value');
 					if(v.attr('data-dimension')!="powerdensity"){
-						console.log('scaleConvertableByArea',_obj.data.power['solar-panel-surface'][props[j]],v.attr('data-dimension'))
+						//console.log('scaleConvertableByArea',_obj.data.power['solar-panel-surface'][props[j]],v.attr('data-dimension'))
 						nv = _obj.data.power['solar-panel-surface'][props[j]].convertTo(v.attr('data-dimension'));
 						v.attr('data-value',nv.value*_obj.data.bus[size].area.value);
 					}
@@ -887,6 +887,28 @@ var rs;
 		else S('.rocket-holder').addClass('wobble');
 		this.choices['rocket-stable'] = ok;
 
+		css = "";
+		var w,h,st;
+		var d = new Array();
+		// Loop over the stages storing the width, height and ID for stages which exist
+		for(var s = 0; s < this.stages.length; s++){
+			if(this.choices[this.stages[s]]){
+				st = this.stages[s];
+				d.push({'w':this.data[st][this.choices[st]].diameter.value*0.5,'h':this.data[st][this.choices[st]].height.value*0.5,'s':st});
+			}
+		}
+		// Loop over all but the final stage (which doesn't need a fairing)
+		for(var i = 0; i < d.length-1; i++){
+			// The difference in width between the current stage and the next one
+			w = (d[i].w-d[i+1].w)/2;
+			if(w > 0){
+				// The height of the next stage
+				h = Math.min(w,d[i+1].h*0.8);
+				css += '#vehicle .stage.'+d[i].s+':before { border-width: 0 '+w+'em '+h+'em; top: -'+(h)+'em; }';
+			}
+		}
+		S('#customstylesheet').html(css);
+
 		return this;
 	}
 	// Resize function called when window resizes
@@ -980,7 +1002,6 @@ var rs;
 			else return parseInt(el.currentStyle.width);	
 		}
 		var w = width(this.el.e[0]);
-		//console.log('resize',w,this.el.e[0])
 		this.el.find('.stage').css({'width':(w/this.n).toFixed(1)+'px'});	// Set the widths
 		this.el.find('button').css({'width':(w/5).toFixed(1)+'px'});	// Change widths of buttons
 		this.ul.css({'margin-left':'-'+((this.selected+0.5)*(w/this.n)).toFixed(1)+'px'});	// Update the offset for the list
