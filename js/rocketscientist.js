@@ -101,7 +101,7 @@ var rs;
 		var sec = S('section');
 		this.sections = [];
 		this.navigable = {};
-		for(var i = 0 ;i < sec.e.length; i++){
+		for(var i = 0 ;i < sec.length; i++){
 			var el = S(sec.e[i]);
 			if(el.hasClass('view')){
 				var id = el.attr('id');
@@ -140,7 +140,7 @@ var rs;
 		if(S('body').hasClass('front')){
 			if(location.protocol==="file:"){
 				var el = S('#start a');
-				for(var i = 0; i < el.e.length; i++) el.e[i].href = el.e[i].href+".html";
+				for(var i = 0; i < el.length; i++) el.e[i].href = el.e[i].href+".html";
 			}
 			return this;
 		}
@@ -250,7 +250,7 @@ var rs;
 	RocketScientist.prototype.updateConvertables = function(){
 		var el,c,i;
 		el = S('.convertable');
-		for(i = 0; i < el.e.length; i++){
+		for(i = 0; i < el.length; i++){
 			c = new Convertable(el.e[i]);
 			if(this.defaults[c.dimension]) el.e[i].innerHTML = c.toString({'units':this.defaults[c.dimension],'unitdisplayed':(el.e[i].getAttribute('nounits')=="true" ? false : true)});
 		};
@@ -269,9 +269,9 @@ var rs;
 	RocketScientist.prototype.updateNavigation = function(){
 		if(!this.navs){
 			var navs = S('section nav li a');
-			if(navs && navs.e.length > 0){
-				this.navs = new Array(navs.e.length);
-				for(var i = 0; i < navs.e.length; i++) this.navs[i] = S(navs.e[i]);
+			if(navs && navs.length > 0){
+				this.navs = new Array(navs.length);
+				for(var i = 0; i < navs.length; i++) this.navs[i] = S(navs.e[i]);
 			}
 		}
 		for(var i = 0; i < this.navs.length; i++){
@@ -440,10 +440,12 @@ var rs;
 		var sections = {'orbit':'orbit','instrument':'package','power':'power'};
 		var ul,li,i;
 		for(var s in sections){
+			// Remove existing requirements
+			S('#'+s+' .requirements ul').remove();
 			ul = S('#'+s+' .requirements h3');
 			li = "";
 			for(var i = 0; i < this.requirements.length; i++){
-				if(this.requirements[i]['type'] == sections[s]) li += "<li>"+this.requirements[i]['label']+"</li>";
+				if(this.requirements[i]['type'] == sections[s] && this.requirements[i]['label'] != "") li += "<li>"+this.requirements[i]['label']+"</li>";
 			}
 			this.log('List of requirements',li)
 			if(li) ul.after("<ul>"+li+"</ul>");
@@ -504,7 +506,7 @@ console.log('there',S('.list li'))
 			}
 			return;
 		}
-		for(var i = 0; i < li.e.length; i++){
+		for(var i = 0; i < li.length; i++){
 			el = S(li.e[i]);
 			s = el.find('.add').attr('data-size');
 			if(s){
@@ -536,7 +538,7 @@ console.log('there',S('.list li'))
 		this.log('setOrbit',orbit)
 
 		// If we have an orbit section in the DOM we deal with that
-		if(S('#orbit').length() > 0){
+		if(S('#orbit').length > 0){
 			// Remove existing selections
 			S('.orrery .selected').removeClass('selected');
 			S('#orbit_list .selected').removeClass('selected');
@@ -646,7 +648,7 @@ console.log('there',S('.list li'))
 			slots = S('#satellite .slot');
 			slotsp = S('#satellite-power .slot');
 			good = new Array();
-			for(var i = 0; i < slots.e.length; i++){
+			for(var i = 0; i < slots.length; i++){
 				var s = S(slots.e[i]);
 				if(s.hasClass('slot-empty') && s.hasClass('slot'+p.slot)) good.push([slots.e[i],slotsp.e[i]]);
 			}
@@ -690,11 +692,11 @@ console.log('there',S('.list li'))
 			slots = S('#satellite .'+type);
 			slotsp = S('#satellite-power .'+type);
 	
-			if(slots.e.length > 0){
+			if(slots.length > 0){
 				// Remove last one first
 				// Put it in the first available slot
-				var goodboth = S([slots.e[slots.e.length-1],slotsp.e[slots.e.length-1]]);
-				good = S(slots.e[slots.e.length-1]);
+				var goodboth = S([slots.e[slots.length-1],slotsp.e[slots.length-1]]);
+				good = S(slots.e[slots.length-1]);
 				if(p.texture){
 					// Put it in the first available slot
 					if(p.texture.class) goodboth.removeClass(p.texture.class);
@@ -812,7 +814,7 @@ console.log('there',S('.list li'))
 		var max = this.maxpanels*2;
 		if(add){
 			var panels = S('#sat-power .solar-panels');
-			for(var i = 0; i < panels.e.length; i++){
+			for(var i = 0; i < panels.length; i++){
 				ps = panels.e[i].getElementsByTagName('li');
 				if(ps.length < this.maxpanels){
 					panels.e[i].getElementsByTagName('ol')[0].innerHTML += '<li class="solar-panel"><\/li>';
@@ -823,7 +825,7 @@ console.log('there',S('.list li'))
 		}
 		// Find out how many panels we have
 		ps = S('#sat-power .solar-panels li');
-		this.choices['solar-panel'] = ps.e.length/2;
+		this.choices['solar-panel'] = ps.length/2;
 
 		return this;
 	}
@@ -889,7 +891,7 @@ console.log('there',S('.list li'))
 		var padd = verticalPadding(s.e[0]) + verticalPadding(s.children('.padded').e[0])+2;
 		for(var i = 0; i < this.sections.length; i++){
 			var page = S('#'+this.sections[i]+' .page');
-			if(page.e.length > 0){
+			if(page.length > 0){
 				var top = height(page.children('.row-top').e[0]);
 				page.css({'height':(scaleH ? (this.tall-padd)+'px' : 'auto')})
 				page.children('.row-main').css({'height':(scaleH ? (this.tall-padd-top)+'px' : 'auto')})
@@ -941,7 +943,7 @@ console.log('there',S('.list li'))
 		return this;
 	}
 	Slider.prototype.setSelected = function(s){
-		var n = this.li.e.length;
+		var n = this.li.length;
 		this.selected = ((s+n)%n);
 		this.ul.attr('data-select',this.selected);
 		this.ul.find('.selected').removeClass('selected');
