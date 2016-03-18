@@ -1030,7 +1030,8 @@ section#type .holder p {
   margin: auto;
   width: 0px;
   position: relative;
-  border-bottom: 1px solid #999999; }
+  border-bottom: 1px solid #999999;
+  opacity: 0.7; }
 
 .rocket-holder .part {
   height: 100%; }

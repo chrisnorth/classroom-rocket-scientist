@@ -190,8 +190,8 @@ var rs;
 		});
 	
 		// Replace the default behaviour of the navigation links
-		S('.prev a').on('click',{me:this},function(e){ if(!S(e.currentTarget).hasClass('disabled')) e.data.me.navigate(e); });
-		S('.next a').on('click',{me:this},function(e){ if(!S(e.currentTarget).hasClass('disabled')) e.data.me.navigate(e); }).addClass('disabled');
+		S('nav .prev a').on('click',{me:this},function(e){ if(!S(e.currentTarget).hasClass('disabled')) e.data.me.navigate(e); });
+		S('nav .next a').on('click',{me:this},function(e){ if(!S(e.currentTarget).hasClass('disabled')) e.data.me.navigate(e); }).addClass('disabled');
 
 		// Update all the convertable values
 		this.updateConvertables();
