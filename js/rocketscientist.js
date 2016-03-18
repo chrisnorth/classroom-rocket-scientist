@@ -408,8 +408,9 @@ var rs;
 		return this;
 	}
 	RocketScientist.prototype.setDefault = function(key){
+		this.log('setDefault',key)
 		if(!key) return;
-		if(this.choices['type'] && this.choices['goal']){
+		if(this.choices['type'] && typeof this.choices['goal']==="number"){
 			// Look for If this goal/mission comes with a bus size, we set that
 			var m = this.data.scenarios[this.choices['type']].missions[this.choices['goal']];
 			if(m.choices){
