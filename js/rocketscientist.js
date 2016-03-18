@@ -903,7 +903,7 @@ var rs;
 			w = (d[i].w-d[i+1].w)/2;
 			if(w > 0){
 				// The height of the next stage
-				h = Math.min(w,d[i+1].h*0.8);
+				h = Math.min(w*3,d[i+1].h*0.7);
 				css += '#vehicle .stage.'+d[i].s+':before { border-width: 0 '+w+'em '+h+'em; top: -'+(h)+'em; }';
 			}
 		}
