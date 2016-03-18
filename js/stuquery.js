@@ -78,8 +78,26 @@ function S(e){
 	stuQuery.prototype.length = function(){ return (this.e && this.e.length) ? this.e.length : 0; }
 	stuQuery.prototype.append = function(html){
 		if(!html && this.e.length == 1) return this.e[0].innerHTML;
-		if(html) for(var i = 0; i < this.e.length; i++) this.e[i].innerHTML += html;
+		if(html) for(var i = 0; i < this.e.length; i++){ this.e[i].innerHTML += html; }
 		return this;	
+	}
+	stuQuery.prototype.prepend = function(j){
+		if(!j && this.e.length==1) return this.e[0].innerHTML;
+		if(j) for(var e=0;e<this.e.length;e++){ this.e[e].innerHTML = j+this.e[e].innerHTML }
+		return this;
+	}
+	stuQuery.prototype.before=function(t){
+		var d = document.createElement('div');
+		d.innerHTML = t;
+		var e = d.childNodes;
+		for(var i = 0 ; i < el.length ; i++){
+			for(var j = 0; j < e.length; j++) el[i].parentNode.insertBefore(e[j], el[i]);
+		}
+		return this;
+	}
+	stuQuery.prototype.after=function(t){
+		for(var i = 0 ; i < this.e.length ; i++) this.e[i].insertAdjacentHTML('afterend', t)
+		return this;
 	}
 	function NodeMatch(a,el){
 		if(a && a.length > 0){

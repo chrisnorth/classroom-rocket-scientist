@@ -872,7 +872,8 @@
 				},{
                     "type": "power",
                     "oneof": ["battery-small","battery-large"],
-                    "label": ""
+                    "label": "%scenarios.NAV.sat-nav.req.power.label%",
+                    "error": "%scenarios.NAV.sat-nav.req.orbit.error%"
                 }]
 			},{
 				"title": "%scenarios.NAV.map.title%",

@@ -401,8 +401,8 @@ var rs;
 		//	oneof: array (strings)
 		//	label: value (string)
 		//	error: value (string)
-
 		this.requirements = this.data.scenarios[this.choices['type']].missions[this.choices['goal']].requires;
+		this.updateRequirements();
 
 		// If this goal/mission comes with a bus size or orbit, we set them
 		this.setDefault('bus');
@@ -428,6 +428,27 @@ var rs;
 				}else this.log('No preset for '+key);
 			}
 		}
+	}
+	RocketScientist.prototype.updateRequirements = function(){
+		// Each requirement object consists of:
+		//  type: key (string) e.g. "package", "power", "orbit", "bus"
+		//	oneof: array (strings)
+		//	label: value (string)
+		//	error: value (string)
+		this.log('updateRequirements',this.requirements);
+		// The keys are the HTML <section> IDs and the values are the JSON data keys
+		var sections = {'orbit':'orbit','instrument':'package','power':'power'};
+		var ul,li,i;
+		for(var s in sections){
+			ul = S('#'+s+' .requirements h3');
+			li = "";
+			for(var i = 0; i < this.requirements.length; i++){
+				if(this.requirements[i]['type'] == sections[s]) li += "<li>"+this.requirements[i]['label']+"</li>";
+			}
+			this.log('List of requirements',li)
+			if(li) ul.after("<ul>"+li+"</ul>");
+		}
+		return this;
 	}
 	// Choose the bus size
 	RocketScientist.prototype.setBus = function(size){

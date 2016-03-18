@@ -872,7 +872,8 @@
 				},{
                     "type": "power",
                     "oneof": ["battery-small","battery-large"],
-                    "label": ""
+                    "label": "",
+                    "error": "The orbit you have chosen does not allow you to see the whole planet."
                 }]
 			},{
 				"title": "Map-making",
