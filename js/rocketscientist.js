@@ -396,12 +396,6 @@ var rs;
 
 		// Update what is displayed in the instrument requirements
 		this.log('Set the instrument requirements');
-		// Each requirement object consists of:
-		//  type: key (string) e.g. "package", "power", "orbit", "bus"
-		//	oneof: array (strings)
-		//	label: value (string)
-		//	error: value (string)
-		this.requirements = this.data.scenarios[this.choices['type']].missions[this.choices['goal']].requires;
 		this.updateRequirements();
 
 		// If this goal/mission comes with a bus size or orbit, we set them
@@ -430,12 +424,27 @@ var rs;
 		}
 	}
 	RocketScientist.prototype.updateRequirements = function(){
+		this.log('updateRequirements',this.choices['type'],this.choices['goal']);
 		// Each requirement object consists of:
 		//  type: key (string) e.g. "package", "power", "orbit", "bus"
 		//	oneof: array (strings)
 		//	label: value (string)
 		//	error: value (string)
-		this.log('updateRequirements',this.requirements);
+		this.requirements = new Array();
+		var c;
+		if(this.data.scenarios[this.choices['type']].missions[this.choices['goal']].requires) this.requirements = this.requirements.concat(this.data.scenarios[this.choices['type']].missions[this.choices['goal']].requires);
+		if(this.choices['slots']){
+			// Loop over the slot types
+			for(var slottype in this.choices['slots']){
+				// For each slot key, find out if it has any requirements
+				for(var i = 0; i < this.choices['slots'][slottype].length ;i++){
+					c = this.choices['slots'][slottype][i];
+					if(this.data['package'][c] && this.data['package'][c].requires) this.requirements = this.requirements.concat(this.data['package'][c].requires);
+					if(this.data['power'][c] && this.data['power'][c].requires) this.requirements = this.requirements.concat(this.data['power'][c].requires);
+				}
+			}
+		}
+
 		// The keys are the HTML <section> IDs and the values are the JSON data keys
 		var sections = {'orbit':'orbit','instrument':'package','power':'power'};
 		var ul,li,i;
@@ -730,6 +739,9 @@ console.log('there',S('.list li'))
 				}
 			}
 		}
+
+		// Update the requirements;
+		this.updateRequirements();
 
 		this.updateValue(type,el,mode);
 		this.log('processPackage',type,el,mode,slotsp,el);
