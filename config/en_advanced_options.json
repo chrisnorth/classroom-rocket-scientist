@@ -848,7 +848,6 @@
 					"alt": "Sat nav system",
 					"credit": ""
 				},
-				"bus": "medium",
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
 				"requires": [{
 					"type": "bus",
@@ -894,8 +893,9 @@
 					"oneof": ["LEO"],
 					"label": "See detail of planet surface.",
 					"error": "The orbit you have chosen does not allow your satellite to see the planet surface in enough detail."
+				}]
 			}]
-		}]},
+		},
 		"COMMS": {
 			"title": "Communication Satellite",
 			"description": "These are used for television, phone or internet transmissions, for example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.",
@@ -928,7 +928,7 @@
 					"oneof": ["GEO"],
 					"label": "Satellite is continuously above one area of Earth",
 					"error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."
-			}]
+				}]
 			},{
 				"title": "Satellite internet",
 				"description": "Connect to the internet using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.",
@@ -958,7 +958,7 @@
 					"oneof": ["GEO"],
 					"label": "Satellite is continuously above one area of Earth",
 					"error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."
-			}]
+				}]
 			},{
 				"title": "Satellite TV",
 				"description": "Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.",
@@ -988,7 +988,7 @@
 					"oneof": ["GEO"],
 					"label": "Satellite is continuously above one area of Earth.",
 					"error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."
-			}]
+				}]
 			}]
 		},
 		"EO": {
@@ -1022,9 +1022,9 @@
 					"type": "orbit",
 					"oneof": ["LEO"],
 					"label": "See detail of Earth's weather systems.",
-					"error": "The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail."}]
-			},
-            {
+					"error": "The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail."
+				}]
+			},{
 				"title": "Vegetation mapping",
 				"description": "Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmitting the images back to the ground.",
 				"image": {
@@ -1043,8 +1043,7 @@
                     "oneof": ["camera-nir","spect-nir"],
                     "label": "To take images of the vegetation on Earth.",
 					"error": "You do not have a way to take images of the vegetation on Earth."
-                }
-				]
+                }]
 			},{
 				"title": "Natural disaster monitoring",
 				"description": "When natural disasters occur, satellites are used to take images of the ground and assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras help by showing floods and fires and radio waves can show regions of earth deformation, such as after earthquakes.",
@@ -1083,7 +1082,8 @@
 					"type": "orbit",
 					"oneof": ["LEO"],
 					"label": "See detail of planet surface.",
-					"error": "The orbit you have chosen does not allow you to see the disaster region in enough detail."}]
+					"error": "The orbit you have chosen does not allow you to see the disaster region in enough detail."
+				}]
 			},{
 				"title": "Surface mapping",
 				"description": "Measure the varying height of land and oceans over the Earth's surface. ",
@@ -1117,7 +1117,8 @@
 					"type": "orbit",
 					"oneof": ["LEO"],
 					"label": "See detail of planet surface.",
-					"error": "The orbit you have chosen does not allow you to see the planet surface in enough detail."}]
+					"error": "The orbit you have chosen does not allow you to see the planet surface in enough detail."
+				}]
 			}]
 		}
 	}

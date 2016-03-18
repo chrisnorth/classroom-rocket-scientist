@@ -64,6 +64,7 @@ var rs;
 		this.z = {};
 		this.totals = { 'cost': new Convertable(0,this.defaults.currency), 'power': new Convertable(0,this.defaults.power), 'mass':new Convertable(0,this.defaults.mass) };
 		this.choices = { 'type':'', 'goal':'', 'mission':'', 'orbit':'', 'bus':'', 'slots':{}, 'solar-panel':0, 'solar-panel-fixed':false };
+		this.requirements = new Array();
 
 		this.getSections();
 		this.parseQueryString();
@@ -280,7 +281,7 @@ var rs;
 			else if(href=="instrument") this.setNavigable(href,i,this.choices.bus);	// To get to the instruments section we need a bus
 			else if(href=="power") this.setNavigable(href,i,this.choices.bus);	// To get to the power section we need a bus
 			else if(href=="rocket") this.setNavigable(href,i,this.choices.bus);	// To get to the rocket section we need a bus
-			else this.navs[i].removeClass('disabled')
+			else this.setNavigable(href,i,true); // We can get to the orbit section regardless
 		}
 		return this;
 	}
@@ -394,15 +395,39 @@ var rs;
 		this.setBudget();
 
 		// Update what is displayed in the instrument requirements
-		this.log('Should update the instrument requirements');
-console.log('here',this.choices['type'],this.choices['goal'],this.data.scenarios[this.choices['type']].missions[this.choices['goal']].bus,this.data.bus['medium'])
+		this.log('Set the instrument requirements');
+		// Each requirement object consists of:
+		//  type: key (string) e.g. "package", "power", "orbit", "bus"
+		//	oneof: array (strings)
+		//	label: value (string)
+		//	error: value (string)
 
-		// If this goal comes with a size, we set that
-		if(this.data.scenarios[this.choices['type']].missions[this.choices['goal']].bus) this.setBus(this.data.scenarios[this.choices['type']].missions[this.choices['goal']].bus)
+		this.requirements = this.data.scenarios[this.choices['type']].missions[this.choices['goal']].requires;
 
+		// If this goal/mission comes with a bus size or orbit, we set them
+		this.setDefault('bus');
+		this.setDefault('orbit');
+
+		// Update the navigation
 		this.updateNavigation();
 
 		return this;
+	}
+	RocketScientist.prototype.setDefault = function(key){
+		if(!key) return;
+		if(this.choices['type'] && this.choices['goal']){
+			// Look for If this goal/mission comes with a bus size, we set that
+			var m = this.data.scenarios[this.choices['type']].missions[this.choices['goal']];
+			if(m.choices){
+				// If a choice for this key has been pre-set by the mission, we use that
+				if(m.choices[key]){
+					// Ideally we would validate the input here
+					this.log('Auto-setting '+key+' to '+m.choices[key],m);
+					if(key=="bus") this.setBus(m.choices[key]);
+					if(key=="orbit") this.setOrbit(m.choices[key]);
+				}else this.log('No preset for '+key);
+			}
+		}
 	}
 	// Choose the bus size
 	RocketScientist.prototype.setBus = function(size){
@@ -489,14 +514,19 @@ console.log('there',S('.list li'))
 		this.choices['orbit'] = orbit;
 		this.log('setOrbit',orbit)
 
-		// Remove existing selections
-		S('.orrery .selected').removeClass('selected');
-		S('#orbit_list .selected').removeClass('selected');
-		if(orbit){
-			// Select
-			S('.orrery .'+orbit).addClass('selected');
-			S('#orbit_list .orbit-'+orbit).addClass('selected');
+		// If we have an orbit section in the DOM we deal with that
+		if(S('#orbit').length() > 0){
+			// Remove existing selections
+			S('.orrery .selected').removeClass('selected');
+			S('#orbit_list .selected').removeClass('selected');
+			if(orbit){
+				// Select
+				S('.orrery .'+orbit).addClass('selected');
+				S('#orbit_list .orbit-'+orbit).addClass('selected');
+			}
 		}
+
+		// Update the navigation
 		this.updateNavigation();
 
 		return this;

@@ -848,7 +848,6 @@
 					"alt": "Sat nav system",
 					"credit": ""
 				},
-				"bus": "medium",
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
 				"requires": [{
 					"type": "bus",

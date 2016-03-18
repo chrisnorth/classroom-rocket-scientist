@@ -848,7 +848,10 @@
 					"alt": "Sat nav system",
 					"credit": ""
 				},
-				"bus": "medium",
+				"choices": {
+					"bus": "medium",
+					"orbit": "LEO"
+				},
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
 				"requires": [{
 					"type": "bus",
@@ -884,6 +887,10 @@
 					"credit": ""
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"choices": {
+					"bus": "medium",
+					"orbit": "LEO"
+				},
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-opt-hires"],
@@ -913,6 +920,10 @@
 					"credit": ""
 				},
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
+				"choices": {
+					"bus": "medium",
+					"orbit": "LEO"
+				},
 				"requires": [{
                     "type": "package",
                     "oneof": ["radio-tx"],
@@ -938,6 +949,10 @@
 					"credit": ""
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"choices": {
+					"bus": "medium",
+					"orbit": "LEO"
+				},
 				"requires": [{
                     "type": "package",
                     "oneof": ["radio-tx"],
@@ -968,6 +983,10 @@
 					"credit": ""
 				},
 				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
+				"choices": {
+					"bus": "medium",
+					"orbit": "LEO"
+				},
 				"requires": [{
                     "type": "package",
                     "oneof": ["radio-tx"],
@@ -1008,6 +1027,10 @@
 					"credit": ""
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"choices": {
+					"bus": "medium",
+					"orbit": "LEO"
+				},
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-fir"],
@@ -1023,8 +1046,7 @@
 					"oneof": ["LEO"],
 					"label": "See detail of Earth's weather systems.",
 					"error": "The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail."}]
-			},
-            {
+			},{
 				"title": "Vegetation mapping",
 				"description": "Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmitting the images back to the ground.",
 				"image": {
@@ -1033,6 +1055,10 @@
 					"credit": ""
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"choices": {
+					"bus": "medium",
+					"orbit": "LEO"
+				},
 				"requires": [{
                     "type": "package",
                     "oneof": ["radio-tx"],
@@ -1054,6 +1080,10 @@
 					"credit": ""
 				},
 				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
+				"choices": {
+					"bus": "medium",
+					"orbit": "LEO"
+				},
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-opt-hires"],
@@ -1093,6 +1123,10 @@
 					"credit": ""
 				},
 				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
+				"choices": {
+					"bus": "medium",
+					"orbit": "LEO"
+				},
 				"requires": [{
                     "type": "package",
                     "oneof": ["radar-alt"],

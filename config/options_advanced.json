@@ -893,8 +893,9 @@
 					"oneof": ["LEO"],
 					"label": "%scenarios.NAV.map.req.orbit.label%",
 					"error": "%scenarios.NAV.map.req.orbit.error%"
+				}]
 			}]
-		}]},
+		},
 		"COMMS": {
 			"title": "%scenarios.COMMS.title%",
 			"description": "%scenarios.COMMS.description%",
@@ -927,7 +928,7 @@
 					"oneof": ["GEO"],
 					"label": "%scenarios.COMMS.phone.req.orbit.label%",
 					"error": "%scenarios.COMMS.phone.req.orbit.error%"
-			}]
+				}]
 			},{
 				"title": "%scenarios.COMMS.internet.title%",
 				"description": "%scenarios.COMMS.internet.description%",
@@ -957,7 +958,7 @@
 					"oneof": ["GEO"],
 					"label": "%scenarios.COMMS.internet.req.orbit.label%",
 					"error": "%scenarios.COMMS.internet.req.orbit.error%"
-			}]
+				}]
 			},{
 				"title": "%scenarios.COMMS.tv.title%",
 				"description": "%scenarios.COMMS.tv.description%",
@@ -987,7 +988,7 @@
 					"oneof": ["GEO"],
 					"label": "%scenarios.COMMS.tv.req.orbit.label%",
 					"error": "%scenarios.COMMS.tv.req.orbit.error%"
-			}]
+				}]
 			}]
 		},
 		"EO": {
@@ -1021,9 +1022,9 @@
 					"type": "orbit",
 					"oneof": ["LEO"],
 					"label": "%scenarios.EO.weather.req.orbit.label%",
-					"error": "%scenarios.EO.weather.req.orbit.error%"}]
-			},
-            {
+					"error": "%scenarios.EO.weather.req.orbit.error%"
+				}]
+			},{
 				"title": "%scenarios.EO.veg-map.title%",
 				"description": "%scenarios.EO.veg-map.description%",
 				"image": {
@@ -1042,8 +1043,7 @@
                     "oneof": ["camera-nir","spect-nir"],
                     "label": "%scenarios.EO.veg-map.req.camera.label%",
 					"error": "%scenarios.EO.veg-map.req.camera.error%"
-                }
-				]
+                }]
 			},{
 				"title": "%scenarios.EO.disaster.title%",
 				"description": "%scenarios.EO.disaster.description%",
@@ -1082,7 +1082,8 @@
 					"type": "orbit",
 					"oneof": ["LEO"],
 					"label": "%scenarios.EO.disaster.req.orbit.label%",
-					"error": "%scenarios.EO.disaster.req.orbit.error%"}]
+					"error": "%scenarios.EO.disaster.req.orbit.error%"
+				}]
 			},{
 				"title": "%scenarios.EO.surface.title%",
 				"description": "%scenarios.EO.surface.description%",
@@ -1116,7 +1117,8 @@
 					"type": "orbit",
 					"oneof": ["LEO"],
 					"label": "%scenarios.EO.surface.req.orbit.label%",
-					"error": "%scenarios.EO.surface.req.orbit.error%"}]
+					"error": "%scenarios.EO.surface.req.orbit.error%"
+				}]
 			}]
 		}
 	}

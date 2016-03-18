@@ -21,7 +21,7 @@ if($0 =~ /^(.*\/)[^\/]+/){ $basedir = $1; }
 
 # Find all the language files
 @langs = ();
-# Open astronaut directory
+# Open directory
 opendir($dh,$basedir);
 while(my $file = readdir $dh) {
 	if($file =~ /^(.*).yaml$/i){
@@ -35,31 +35,34 @@ foreach $lang (@langs){
 }
 
 sub processLanguage {
-	my ($lang,$line,@lines,$key,$value,%keys,$scalar);
+	my ($lang,$line,@lines,$key,$value,%keys,$scalar,$code,$level);
 	$lang = $_[0];
 
+	($code,$level) = split(/_/,$lang);
+	
 	%keys = loadLanguage($basedir.$lang.".yaml");
 
 	foreach $v (@versions){
 		$json = "";
-		if(-e $basedir.$v){
+		if(-e $basedir.$v && $v =~ /$level/){
 			print "    $v";
 			open(FILE,$basedir.$v);
 			@lines = <FILE>;
 			close(FILE);
+			$msg = "";
 			foreach $line (@lines){
 				while($line =~ /%([^%]+)%/){
 					$key = $1;
 					$replace = ($keys{$key}) ? $keys{$key} : "";
 					$replace =~ s/\"/\\\"/g;
-					if(!$keys{$key}){ print "\nWARNING: Couldn't find text for the key \%$key\$\n"; }
+					if(!$keys{$key}){ $msg .= "WARNING: Couldn't find text for the key \%$key\$\n"; }
 					$line =~ s/%$key%/$replace/;
 				}
 				$json .= $line;
 			}
 			$new = $lang."_options.json";
-	
 			print " -> $new\n";
+			if($msg){ print "$msg"; }
 			open(JSON,">",$basedir.$new);
 			print JSON $json;
 			close(JSON);

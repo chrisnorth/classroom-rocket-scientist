@@ -75,6 +75,7 @@ function S(e){
 		if(typeof html==="string") for(var i = 0; i < this.e.length; i++) this.e[i].innerHTML = html;
 		return this;
 	}
+	stuQuery.prototype.length = function(){ return (this.e && this.e.length) ? this.e.length : 0; }
 	stuQuery.prototype.append = function(html){
 		if(!html && this.e.length == 1) return this.e[0].innerHTML;
 		if(html) for(var i = 0; i < this.e.length; i++) this.e[i].innerHTML += html;
