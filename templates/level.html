@@ -426,7 +426,15 @@
 											<div class="slider">
 												<button class="prev"><span>&#x276E;</span></button>
 												<ul>
-													<!--#for each="payloadbay" name="payloadbayloop" --><li class="stage stage-<!--#json name="key" -->"><div class="part" style="width:<!--#json name="diameter.value" -->%"></div><div class="stage-holder"><div class="stage-about"><!--#json name="key" --></div></div></li><!--#endfor name="payloadbayloop" -->
+													<!--#for each="payloadbay" name="payloadbayloop" --><li class="stage stage-<!--#json name="key" -->">
+														<div class="part" style="width:<!--#json name="diameter.value" -->%"></div>
+														<div class="stage-holder">
+															<div class="stage-about <!--#if expr="<!--#json name="diameter.value" --> = 0"-->centre<!--#else--><!--#endif-->">
+																<!--#if expr="<!--#json name="diameter.value" --> = 0"-->None<!--#else--><!--#echo var="ui.sections.rocket.size" --><span data-dimension="<!--#json name="diameter.dimension" -->" data-units="<!--#json name="diameter.units" -->" data-value="<!--#json name="diameter.value" -->" class="value convertable"><!--#json name="diameter.value" --><!--#json name="diameter.units" --></span>
+																<br /><!--#echo var="ui.sections.rocket.drymass" --><span data-dimension="<!--#json name="drymass.dimension" -->" data-units="<!--#json name="drymass.units" -->" data-value="<!--#json name="drymass.value" -->" class="value convertable"><!--#json name="drymass.value" --><!--#json name="drymass.units" --></span><!--#endif-->
+															</div>
+														</div>
+													</li><!--#endfor name="payloadbayloop" -->
 												</ul>
 												<button class="next"><span>&#x276F;</span></button>
 											</div>
@@ -435,7 +443,18 @@
 											<div class="slider">
 												<button class="prev"><span>&#x276E;</span></button>
 												<ul>
-													<!--#for each="thirdstage" name="thirdstageloop" --><li class="stage stage-<!--#json name="key" -->"><div class="part" style="width:<!--#json name="diameter.value" -->%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about"><!--#json name="key" --></div></div></li><!--#endfor name="thirdstageloop" -->
+													<!--#for each="thirdstage" name="thirdstageloop" --><li class="stage stage-<!--#json name="key" -->">
+														<div class="part" style="width:<!--#json name="diameter.value" -->%">
+															<div class="nozzle"></div>
+														</div>
+														<div class="stage-holder">
+															<div class="stage-about <!--#if expr="<!--#json name="diameter.value" --> = 0"-->centre<!--#else--><!--#endif-->">
+																<!--#if expr="<!--#json name="diameter.value" --> = 0"-->None<!--#else--><!--#echo var="ui.sections.rocket.size" --><span data-dimension="<!--#json name="diameter.dimension" -->" data-units="<!--#json name="diameter.units" -->" data-value="<!--#json name="diameter.value" -->" class="value convertable"><!--#json name="diameter.value" --><!--#json name="diameter.units" --></span>
+																<br /><!--#echo var="ui.sections.rocket.drymass" --><span data-dimension="<!--#json name="drymass.dimension" -->" data-units="<!--#json name="drymass.units" -->" data-value="<!--#json name="drymass.value" -->" class="value convertable"><!--#json name="drymass.value" --><!--#json name="drymass.units" --></span>
+																<br /><!--#echo var="ui.sections.rocket.fuel" --><span data-dimension="<!--#json name="fuel.dimension" -->" data-units="<!--#json name="fuel.units" -->" data-value="<!--#json name="fuel.value" -->" class="value convertable"><!--#json name="fuel.value" --><!--#json name="fuel.units" --></span><!--#endif-->
+															</div>
+														</div>
+													</li><!--#endfor name="thirdstageloop" -->
 												</ul>
 												<button class="next"><span>&#x276F;</span></button>
 											</div>
@@ -444,7 +463,18 @@
 											<div class="slider">
 												<button class="prev"><span>&#x276E;</span></button>
 												<ul>
-													<!--#for each="secondstage" name="secondstageloop" --><li class="stage stage-<!--#json name="key" -->"><div class="part" style="width:<!--#json name="diameter.value" -->%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about"><!--#json name="key" --></div></div></li><!--#endfor name="secondstageloop" -->
+													<!--#for each="secondstage" name="secondstageloop" --><li class="stage stage-<!--#json name="key" -->">
+														<div class="part" style="width:<!--#json name="diameter.value" -->%">
+															<div class="nozzle"></div>
+														</div>
+														<div class="stage-holder">
+															<div class="stage-about <!--#if expr="<!--#json name="diameter.value" --> = 0"-->centre<!--#else--><!--#endif-->">
+																<!--#if expr="<!--#json name="diameter.value" --> = 0"-->None<!--#else--><!--#echo var="ui.sections.rocket.size" --><span data-dimension="<!--#json name="diameter.dimension" -->" data-units="<!--#json name="diameter.units" -->" data-value="<!--#json name="diameter.value" -->" class="value convertable"><!--#json name="diameter.value" --><!--#json name="diameter.units" --></span>
+																<br /><!--#echo var="ui.sections.rocket.drymass" --><span data-dimension="<!--#json name="drymass.dimension" -->" data-units="<!--#json name="drymass.units" -->" data-value="<!--#json name="drymass.value" -->" class="value convertable"><!--#json name="drymass.value" --><!--#json name="drymass.units" --></span>
+																<br /><!--#echo var="ui.sections.rocket.fuel" --><span data-dimension="<!--#json name="fuel.dimension" -->" data-units="<!--#json name="fuel.units" -->" data-value="<!--#json name="fuel.value" -->" class="value convertable"><!--#json name="fuel.value" --><!--#json name="fuel.units" --></span><!--#endif-->
+															</div>
+														</div>
+													</li><!--#endfor name="secondstageloop" -->
 												</ul>
 												<button class="next"><span>&#x276F;</span></button>
 											</div>
@@ -453,7 +483,18 @@
 											<div class="slider">
 												<button class="prev"><span>&#x276E;</span></button>
 												<ul>
-													<!--#for each="firststage" name="firststageloop" --><li class="stage stage-<!--#json name="key" -->"><div class="part" style="width:<!--#json name="diameter.value" -->%"><div class="nozzle"></div></div><div class="stage-holder"><div class="stage-about"><!--#json name="key" --></div></div></li><!--#endfor name="firststageloop" -->
+													<!--#for each="firststage" name="firststageloop" --><li class="stage stage-<!--#json name="key" -->">
+														<div class="part" style="width:<!--#json name="diameter.value" -->%">
+															<div class="nozzle"></div>
+														</div>
+														<div class="stage-holder">
+															<div class="stage-about <!--#if expr="<!--#json name="diameter.value" --> = 0"-->centre<!--#else--><!--#endif-->">
+																<!--#if expr="<!--#json name="diameter.value" --> = 0"-->None<!--#else--><!--#echo var="ui.sections.rocket.size" --><span data-dimension="<!--#json name="diameter.dimension" -->" data-units="<!--#json name="diameter.units" -->" data-value="<!--#json name="diameter.value" -->" class="value convertable"><!--#json name="diameter.value" --><!--#json name="diameter.units" --></span>
+																<br /><!--#echo var="ui.sections.rocket.drymass" --><span data-dimension="<!--#json name="drymass.dimension" -->" data-units="<!--#json name="drymass.units" -->" data-value="<!--#json name="drymass.value" -->" class="value convertable"><!--#json name="drymass.value" --><!--#json name="drymass.units" --></span>
+																<br /><!--#echo var="ui.sections.rocket.fuel" --><span data-dimension="<!--#json name="fuel.dimension" -->" data-units="<!--#json name="fuel.units" -->" data-value="<!--#json name="fuel.value" -->" class="value convertable"><!--#json name="fuel.value" --><!--#json name="fuel.units" --></span><!--#endif-->
+															</div>
+														</div>
+													</li><!--#endfor name="firststageloop" -->
 												</ul>
 												<button class="next"><span>&#x276F;</span></button>
 											</div>

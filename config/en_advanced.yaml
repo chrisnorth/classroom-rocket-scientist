@@ -56,6 +56,9 @@ ui.sections.power.list:                     Available power devices:
 ui.sections.rocket.short:                   Rocket
 ui.sections.rocket.title:                   Build your rocket
 ui.sections.rocket.intro:                   Now you have a satellite you need to build a multi-stage rocket. The top of the rocket will hold your satellite so needs to be big enough. The lower stages need to be big enough to support those above.
+ui.sections.rocket.size:                    Diameter: 
+ui.sections.rocket.drymass:                 Dry mass: 
+ui.sections.rocket.fuel:                    Fuel: 
 ui.sections.launch.short:                   Launch
 ui.sections.launch.title:                   Ready to launch?
 ui.sections.launch.checklist:               We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail.

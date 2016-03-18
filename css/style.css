@@ -1009,18 +1009,18 @@ section#type .holder p {
 .rocket .part, .rocket .payloadbay .part:before {
   background: lightgray;
   /* Old browsers */
-  background: -moz-linear-gradient(left, #cccccc 0%, #efefef 30%, #bbbbbb 100%);
+  background: -moz-linear-gradient(left, #cccccc 0%, #efefef 25%, #bbbbbb 100%);
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #cccccc 0%, #efefef 30%, #bbbbbb 100%);
+  background: -webkit-linear-gradient(left, #cccccc 0%, #efefef 25%, #bbbbbb 100%);
   /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, #cccccc 0%, #efefef 30%, #bbbbbb 100%);
+  background: linear-gradient(to right, #cccccc 0%, #efefef 25%, #bbbbbb 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$ie-hex-str1, endColorstr=$ie-hex-str2,GradientType=1 );
   /* IE6-9 */ }
 
 .rocket-holder .holder {
   vertical-align: bottom;
-  padding-bottom: 0.75em;
+  padding-bottom: 1.125em;
   background-image: url("../images/silhouette.png");
   background-position: 5% bottom;
   background-repeat: no-repeat;
@@ -2967,10 +2967,24 @@ ul.orrery li.GEO {
   width: 100%;
   height: 100%; }
 
-.slider-container li .stage-holder > div {
+.slider-container li .stage-holder .stage-about {
   display: table-cell;
+  vertical-align: top;
+  text-align: left;
+  opacity: 0;
+  padding: 0.75em;
+  -webkit-transition: opacity 0.3s linear;
+  -moz-transition: opacity 0.3s linear;
+  -ms-transition: opacity 0.3s linear;
+  -o-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear; }
+
+.slider-container li .stage-holder .stage-about.centre {
   vertical-align: middle;
   text-align: center; }
+
+.slider-container li.selected .stage-holder .stage-about {
+  opacity: 1; }
 
 .slider-container button {
   display: block;

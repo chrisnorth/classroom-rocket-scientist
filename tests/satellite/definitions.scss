@@ -149,16 +149,16 @@ $trans: 0.3s;
 	background: linear-gradient(to right, $rgba1 0%, $rgba2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$ie-hex-str1, endColorstr=$ie-hex-str2,GradientType=1 ); /* IE6-9 */
 }
-@mixin cylinder($c1,$o1,$c2,$o2,$c3,$o3){
+@mixin cylinder($c1,$o1,$c2,$o2,$c3,$o3,$stop){
 	$rgba1: rgba($c1,$o1);
 	$rgba2: rgba($c2,$o2);
 	$rgba3: rgba($c3,$o3);
 	$ie-hex-str1: ie-hex-str($rgba1);
 	$ie-hex-str2: ie-hex-str($rgba3);
 	background: rgb(211,211,211); /* Old browsers */
-	background: -moz-linear-gradient(left, $rgba1 0%, $rgba2 30%, $rgba3 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(left, $rgba1 0%,$rgba2 30%,$rgba3 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to right, $rgba1 0%,$rgba2 30%,$rgba3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	background: -moz-linear-gradient(left, $rgba1 0%, $rgba2 $stop, $rgba3 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, $rgba1 0%,$rgba2 $stop,$rgba3 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, $rgba1 0%,$rgba2 $stop,$rgba3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$ie-hex-str1, endColorstr=$ie-hex-str2,GradientType=1 ); /* IE6-9 */
 }
 

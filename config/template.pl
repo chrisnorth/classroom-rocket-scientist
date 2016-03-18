@@ -210,8 +210,22 @@ sub parseConditional {
 }
 
 sub parseIf {
-	my($exp);
+	my($exp,$k,$v,%var,$match,$rep);
 	$exp = $_[0];
+
+	# If the equality expression is OK we dummy replace it
+	if($exp =~ /expr=\"([^\s]+) = ([^\s]+)"/){
+		$match = "expr=\"$1 = $2\"";
+		if($1 ne "\$\{LEVEL\}"){
+			if($1 == $2){
+				$rep = $mode;
+			}else{
+				$rep = "noreplace";
+			}
+			$exp =~ s/$match/expr=\"\$\{LEVEL\} = \/$rep\/\"/;
+			print "CONDITION: $1==$2 $exp\n";
+		}
+	}
 
 	# If none of the if or elif patterns match, we can remove them
 	if($exp !~ /expr=\"\$\{LEVEL\} = \/$mode\/"/){
