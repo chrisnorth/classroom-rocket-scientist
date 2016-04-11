@@ -352,6 +352,11 @@ var rs;
 			power.value += pow.value;
 		}
 
+		// Add costs from rocket stages BLAH
+		for(var s = 0; s < this.stages.length ; s++){
+			if(this.choices[this.stages[s]]) total = add(total,this.choices[this.stages[s]],{'cost':1,'mass':0,'power':0});	// We don't include mass or energy
+		}
+
 		this.totals = total;
 		this.power = power;
 
@@ -666,10 +671,12 @@ var rs;
 		this.z[selector].el.css({'font-size':this.z[selector].z.toFixed(3)+'em'});
 		return this;
 	}
+	// Add the CSS class for displaying pseudo-3D CSS
 	RocketScientist.prototype.toggle3D = function(element){
 		S(element).toggleClass('threeD');
 		return this;
 	}
+	// Toggle the spinning animation class
 	RocketScientist.prototype.toggleAnimation = function(element){
 		S(element+' .satellite').toggleClass('spin');
 		return this;
@@ -902,7 +909,7 @@ var rs;
 	}
 	RocketScientist.prototype.setStage = function(stage,i){
 		this.log('setStage',stage,i);
-		this.choices[stage] = i;
+		this.choices[stage] = this.data[stage][i];
 		var h = 0;
 		var wide = this.data[stage][i].diameter.value*0.5;
 		var tall = this.data[stage][i].height.value*0.5;	// Can't go below 0.5 otherwise the fixed width nozzle messes up
@@ -915,8 +922,8 @@ var rs;
 		for(var i = 0; i < this.stages.length; i++){
 			a = this.stages[i];
 			if(this.choices[a]){
-				if(this.data[a][this.choices[a]].diameter.value > d) ok = false;
-				d = this.data[a][this.choices[a]].diameter.value;
+				if(this.choices[a].diameter.value > d) ok = false;
+				d = this.choices[a].diameter.value;
 			}
 		}
 		if(ok) S('.rocket-holder').removeClass('wobble');
@@ -930,7 +937,7 @@ var rs;
 		for(var s = 0; s < this.stages.length; s++){
 			if(this.choices[this.stages[s]]){
 				st = this.stages[s];
-				d.push({'w':this.data[st][this.choices[st]].diameter.value*0.5,'h':this.data[st][this.choices[st]].height.value*0.5,'s':st});
+				d.push({'w':this.choices[this.stages[s]].diameter.value*0.5,'h':this.choices[this.stages[s]].height.value*0.5,'s':st});
 			}
 		}
 		// Loop over all but the final stage (which doesn't need a fairing)
@@ -944,6 +951,8 @@ var rs;
 			}
 		}
 		S('#customstylesheet').html(css);
+
+		this.updateBudgets();
 
 		return this;
 	}

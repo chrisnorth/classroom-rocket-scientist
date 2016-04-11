@@ -3020,6 +3020,14 @@ ul.orrery li.GEO {
 .slider-container button span {
   font-size: 3em; }
 
+.slider-container li .stage-holder table {
+  border: 0px;
+  width: 100%;
+  line-height: 1.5em; }
+
+.slider-container li .stage-holder table td:last-child {
+  text-align: right; }
+
 .slider-container .prev {
   background: -moz-linear-gradient(left, #efefef 0%, rgba(239, 239, 239, 0) 100%);
   /* FF3.6-15 */
