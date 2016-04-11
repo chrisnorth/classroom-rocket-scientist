@@ -854,7 +854,7 @@ section#type .holder p {
   margin-bottom: 0px; }
 
 .row-main {
-  height: 300px;
+  min-height: 300px;
   display: block; }
 
 .col {

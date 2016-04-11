@@ -14,23 +14,21 @@ var rs;
 		browserPrefixes = 'webkit moz o ms khtml'.split(' ');
 	
 	// check for native support
-	if (typeof document.cancelFullScreen != 'undefined') {
+	if(typeof document.cancelFullScreen != 'undefined') {
 		fullScreenApi.supportsFullScreen = true;
-	} else {	 
+	}else{	 
 		// check for fullscreen support by vendor prefix
-		for (var i = 0, il = browserPrefixes.length; i < il; i++ ) {
+		for(var i = 0, il = browserPrefixes.length; i < il; i++ ) {
 			fullScreenApi.prefix = browserPrefixes[i];
-			
-			if (typeof document[fullScreenApi.prefix + 'CancelFullScreen' ] != 'undefined' ) {
+			if(typeof document[fullScreenApi.prefix + 'CancelFullScreen' ] != 'undefined' ) {
 				fullScreenApi.supportsFullScreen = true;
-				
 				break;
 			}
 		}
 	}
 	
 	// update methods to do something useful
-	if (fullScreenApi.supportsFullScreen) {
+	if(fullScreenApi.supportsFullScreen) {
 		fullScreenApi.fullScreenEventName = fullScreenApi.prefix + 'fullscreenchange';
 		
 		fullScreenApi.isFullScreen = function() {
@@ -72,6 +70,15 @@ var rs;
 			this.data = data;
 			this.init();
 		}else S().loadJSON('config/en_advanced_options.json',this.init,{'this':this});
+
+		S(document).on('keyup',{me:this},function(e){
+			var rs = e.data.me;
+			var sec = S('#'+rs.sections[rs.currentsection]);
+			// Left=37
+			if(e.originalEvent.keyCode==37) sec.find('.prev a').trigger('click');
+			// Right=39
+			if(e.originalEvent.keyCode==39) sec.find('.next a').trigger('click');
+		});
 
 		return this;
 	}
@@ -610,6 +617,34 @@ var rs;
 			S('#progressbar .progress-inner').css({'width':progress.toFixed(1)+'%'});
 		}
 		this.currentsection = found;
+		//S('#'+this.currentsection).focus()
+		
+		function findNextTabStop(el) {
+			var universe = document.querySelectorAll('input, button, select, textarea, a[href]');
+			var list = Array.prototype.filter.call(universe, function(item) {return item.tabIndex >= "0"});
+			for(var i = list.indexOf(el)+1; i < list.length; i++){
+				if(isVisible(list[i])) return list[i];
+			}
+			return list[0];
+		}
+		
+		// Check if an element is really visible
+		function isVisible(el) {
+			if(!el) return false;
+			var visible = true;
+			visible = visible && el.offsetWidth > 0 && el.offsetHeight > 0;
+			if(visible) {
+				while('BODY' != el.tagName && visible) {
+					visible = visible && 'hidden' != window.getComputedStyle(el).visibility;
+					el = el.parentElement;
+				}
+			}
+			return visible;
+		}
+
+		// Focus on the first focusable element in the new section
+		findNextTabStop(S('#'+section).find('.row-top .next a').e[0]).focus();
+
 		return false;
 	}
 	RocketScientist.prototype.makeSatelliteControls = function(selector){
@@ -904,7 +939,7 @@ var rs;
 			if(w > 0){
 				// The height of the next stage
 				h = Math.min(w*3,d[i+1].h*0.7);
-				css += '#vehicle .stage.'+d[i].s+':before { border-width: 0 '+w+'em '+h+'em; top: -'+(h)+'em; }';
+				css += '#vehicle .stage.'+d[i].s+':before { border-width: 0 '+w+'em '+h+'em; top: -'+(h*0.95)+'em; }';
 			}
 		}
 		S('#customstylesheet').html(css);
@@ -932,8 +967,18 @@ var rs;
 			var page = S('#'+this.sections[i]+' .page');
 			if(page.length > 0){
 				var top = height(page.children('.row-top').e[0]);
-				page.css({'height':(scaleH ? (this.tall-padd)+'px' : 'auto')})
-				page.children('.row-main').css({'height':(scaleH ? (this.tall-padd-top)+'px' : 'auto')})
+				page.css({'height':(scaleH ? (this.tall-padd)+'px' : 'auto')});
+				var versions = page.children('.row-main');
+				for(var j = 0; j < versions.length; j++){
+					var el = S(page.children('.row-main').e[j]);
+					// Clear any existing height that has been set
+					el.css({'height':'auto'});
+					// Find the minimum height needed. It is either enough to fill
+					// the screen height or the element's natural height whichever
+					// is largest
+					var h = Math.max(((el) ? (height(page.children('.row-main').e[j]) || 0) : 0),(this.tall-padd-top));
+					el.css({'height':((scaleH) ? h+'px' : 'auto')})
+				}
 			}
 		}
 
