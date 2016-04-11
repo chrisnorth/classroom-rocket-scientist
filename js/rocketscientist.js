@@ -466,13 +466,14 @@ var rs;
 		for(var s in sections){
 			// Remove existing requirements
 			S('#'+s+' .requirements ul').remove();
+			S('#'+s+' .requirements ol').remove();
 			ul = S('#'+s+' .requirements h3');
 			li = "";
 			for(var i = 0; i < this.requirements.length; i++){
 				if(this.requirements[i]['type'] == sections[s] && this.requirements[i]['label'] != "") li += "<li>"+this.requirements[i]['label']+"</li>";
 			}
 			this.log('List of requirements',li);
-			if(li) ul.after("<ul>"+li+"</ul>");
+			if(li) ul.after("<ol>"+li+"</ol>");
 			S('#'+s+' .requirements').css({'display':(li ? '':'none')});
 		}
 		return this;

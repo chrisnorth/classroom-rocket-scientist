@@ -880,6 +880,10 @@ section#type .holder p {
   margin-bottom: 2em;
   background-color: #efefef; }
 
+.requirements ol {
+  list-style: disc;
+  margin-left: 1em; }
+
 .display-area {
   display: table-row;
   position: relative; }
