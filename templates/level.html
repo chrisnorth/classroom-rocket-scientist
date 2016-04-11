@@ -22,7 +22,7 @@
 </head>
 <body>
 	<script type="text/javascript">
-		document.body.innerHTML += '<div id="overlay" style="z-index:10000;width:100%;max-width:100%;width: 100vw;height: 100%;height:100vh;max-height:100%;background-color:black;display:table;position:absolute;color:white;"><div style="display:table-cell;vertical-align:middle;text-align:center;"><!--#echo var="ui.loading" --></div></div>';
+		document.body.innerHTML += '<div id="overlay" style=""><div style="display:table-cell;vertical-align:middle;text-align:center;"><!--#echo var="ui.loading" --></div></div>';
 	</script>
 
 	<div id="application" class="<!--#if expr="${LEVEL} = /beginner/"-->beginner<!--#elif expr="${LEVEL} = /intermediate/"-->intermediate<!--#elif expr="${LEVEL} = /advanced/"-->advanced<!--#else--><!--#endif-->">

@@ -35,24 +35,24 @@ ui.sections.bus.short:                      Size
 ui.sections.bus.title:                      Choose the size of your satellite
 ui.sections.bus.intro:                      The size of your satellite matters. It needs to be big enough to hold all the instruments you need. Be careful though. The bigger your satellite, the more expensive it is.
 ui.sections.bus.type:                       Type:
-ui.sections.bus.cost:                       Structure cost:
-ui.sections.bus.mass:                       Payload mass:
-ui.sections.bus.structure:                  Structure mass:
-ui.sections.bus.size:                       Structure size:
+ui.sections.bus.cost:                       Structure cost: 
+ui.sections.bus.mass:                       Payload mass: 
+ui.sections.bus.structure:                  Structure mass: 
+ui.sections.bus.size:                       Structure size: 
 ui.sections.orbit.short:                    Orbit
 ui.sections.orbit.title:                    Select the orbit for your satellite
 ui.sections.orbit.intro:                    There are several different orbits around the Earth that you can choose from. Higher orbits need more powerful rockets to get to them.
-ui.sections.orbit.list:                     Available orbits:
-ui.sections.orbit.altitude:                 Altitude:
-ui.sections.orbit.period:                   Period:
+ui.sections.orbit.list:                     Available orbits: 
+ui.sections.orbit.altitude:                 Altitude: 
+ui.sections.orbit.period:                   Period: 
 ui.sections.instrument.short:               Instruments
 ui.sections.instrument.title:               Select the instruments for your satellite
 ui.sections.instrument.intro:               To complete your mission you will need the correct instruments. You only have a limited number of slots and money so choose wisely.
-ui.sections.instrument.list:                Available instruments:
+ui.sections.instrument.list:                Available instruments: 
 ui.sections.power.short:                    Power
 ui.sections.power.title:                    Add power
 ui.sections.power.intro:                    Your satellite needs power. There are different ways to do that. You can use solar panels on the sides of the satellite, deployable solar panels, and batteries.
-ui.sections.power.list:                     Available power devices:
+ui.sections.power.list:                     Available power devices: 
 ui.sections.rocket.short:                   Rocket
 ui.sections.rocket.title:                   Build your rocket
 ui.sections.rocket.intro:                   Now you have a satellite you need to build a multi-stage rocket. The top of the rocket will hold your satellite so needs to be big enough. The lower stages need to be big enough to support those above.

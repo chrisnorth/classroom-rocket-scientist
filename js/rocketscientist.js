@@ -919,15 +919,19 @@ var rs;
 		var ok = true;
 		var a,b;
 		var d = 1e6;
+		// Check if the rocket is 'stable' i.e. each stage is narrower than those below
 		for(var i = 0; i < this.stages.length; i++){
 			a = this.stages[i];
-			if(this.choices[a]){
+			// If the stage has a diameter, check if it is larger than
+			if(this.choices[a] && this.choices[a].diameter.value > 0){
 				if(this.choices[a].diameter.value > d) ok = false;
 				d = this.choices[a].diameter.value;
 			}
 		}
+		// Add the 'wobble' class if the rocket is unstable
 		if(ok) S('.rocket-holder').removeClass('wobble');
 		else S('.rocket-holder').addClass('wobble');
+		// Save the state for use at launch
 		this.choices['rocket-stable'] = ok;
 
 		css = "";
@@ -940,7 +944,7 @@ var rs;
 				d.push({'w':this.choices[this.stages[s]].diameter.value*0.5,'h':this.choices[this.stages[s]].height.value*0.5,'s':st});
 			}
 		}
-		// Loop over all but the final stage (which doesn't need a fairing)
+		// Loop over all but the final stage (which doesn't need a fairing) adding fairings
 		for(var i = 0; i < d.length-1; i++){
 			// The difference in width between the current stage and the next one
 			w = (d[i].w-d[i+1].w)/2;

@@ -16,6 +16,7 @@ $rs: $s*4;
 .slider-container button span { font-size: $rs/2; }
 .slider-container li .stage-holder table { border: 0px; width: 100%; line-height: 1.5em; }
 .slider-container li .stage-holder table td:last-child { text-align: right; }
+
 .slider-container .prev {
 	@include fader($grey-5,1,$grey-5,0);
 	left: 0px;

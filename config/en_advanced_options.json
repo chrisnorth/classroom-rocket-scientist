@@ -19,12 +19,12 @@
 		"id": "instrument",
 		"short": "Instruments",
 		"title": "Select the instruments for your satellite",
-		"list": "Available instruments:"
+		"list": "Available instruments: "
 	},{
 		"id": "power",
 		"short": "Power",
 		"title": "Add power",
-		"list": "Available power devices:"
+		"list": "Available power devices: "
 	},{
 		"id": "rocket",
 		"short": "Rocket",
