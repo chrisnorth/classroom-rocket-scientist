@@ -694,8 +694,8 @@ table.data td:last-child { text-align: left; }
 .orbit-HEO .bg-orbit, .list li.selected.orbit-HEO .list-right { background-color: $red-1; }
 .orbit-GEO .bg-orbit, .list li.selected.orbit-GEO .list-right { background-color: $blue-2; }
 .list li.selected .list-left, .list li.selected .list-right { background-color: $black-4; color: white; }
-.list li.selected .list-bar { width: $s*0.25; }
-.list li.selected .list-bar button.add { display: none; }
+#orbit_list li.selected .list-bar { width: $s*0.25; }
+#orbit_list li.selected .list-bar button.add { display: none; }
 
 
 .holder {

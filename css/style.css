@@ -1468,10 +1468,10 @@ table.data td:last-child {
   background-color: #606060;
   color: white; }
 
-.list li.selected .list-bar {
+#orbit_list li.selected .list-bar {
   width: 0.375em; }
 
-.list li.selected .list-bar button.add {
+#orbit_list li.selected .list-bar button.add {
   display: none; }
 
 .holder {
