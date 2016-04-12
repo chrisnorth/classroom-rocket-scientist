@@ -68,8 +68,8 @@
 						<div class="row-main">
 							<!--#for each="scenarios" name="scenarios" -->
 							<div class="holder">
+								<div class="image"><img src="<!--#json name="image.file" -->" alt="<!--#json name="image.alt" -->" title="<!--#json name="image.alt" --> / <!--#json name="image.credit" -->" /></div>
 								<div class="padded <!--#json name="this" --> type">
-									<div class="image"><img src="<!--#json name="image.file" -->" alt="<!--#json name="image.alt" -->" title="<!--#json name="image.alt" --> / <!--#json name="image.credit" -->" /></div>
 									<h3><!--#echo var="scenarios.<!--#json name="this" -->.title" --></h3>
 									<p><!--#echo var="scenarios.<!--#json name="this" -->.description" --></p>
 									<button class="fancy" data-type="<!--#json name="this" -->"><!--#echo var="ui.button.type" --></button>
@@ -96,8 +96,8 @@
 						<div class="<!--#json name="this" --> row-main">
 							<div class="holder-holder"><table><tr><!--#for each="missions" name="this.loopinner" -->
 								<td>
-									<div class="padded">
-										<div class="image"><img src="<!--#json name="image.file" -->" alt="<!--#json name="image.alt" -->" title="<!--#json name="image.alt" --> / <!--#json name="image.credit" -->" /></div>
+									<div class="image"><img src="<!--#json name="image.file" -->" alt="<!--#json name="image.alt" -->" title="<!--#json name="image.alt" --> / <!--#json name="image.credit" -->" /></div>
+									<div class="padded paddedsmall">
 										<h3><!--#json name="title" --></h3>
 										<p><!--#json name="description" --></p>
 										<table class="data">

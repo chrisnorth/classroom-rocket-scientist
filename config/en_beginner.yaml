@@ -206,7 +206,7 @@ scenarios.EO.veg-map.req.radio-tx.error: You do not have a way to transmit signa
 scenarios.EO.veg-map.req.camera.label: To take images of the vegetation on Earth.
 scenarios.EO.veg-map.req.camera.error: You do not have a way to take images of the vegetation on Earth.
 scenarios.EO.disaster.title: Natural disaster monitoring
-scenarios.EO.disaster.description: When natural disasters occur, satellites are used to take images of the ground and assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras help by showing floods and fires and radio waves can show regions of earth deformation, such as after earthquakes.
+scenarios.EO.disaster.description: When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras can show floods and fires. Radio waves can show regions of earth deformation, such as after earthquakes.
 scenarios.EO.disaster.req.camera.label: To take high resolution images of Earth where disaster has occured.
 scenarios.EO.disaster.req.camera.error: You do not have a way to take high resolution images of Earth where disaster has occured.
 scenarios.EO.disaster.req.radio-tx.label: A way to transmit signals.

@@ -1007,7 +1007,7 @@
 				]
 			},{
 				"title": "Natural disaster monitoring",
-				"description": "When natural disasters occur, satellites are used to take images of the ground and assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras help by showing floods and fires and radio waves can show regions of earth deformation, such as after earthquakes.",
+				"description": "When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras can show floods and fires. Radio waves can show regions of earth deformation, such as after earthquakes.",
 				"image": {
 					"file": "images/disaster.jpg",
 					"alt": "Disasters",

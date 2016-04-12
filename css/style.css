@@ -512,6 +512,18 @@ img.close {
 .NAV {
   background-color: #8fd7ed; }
 
+#goal .COMMS, #goal .EO, #goal .NAV {
+  background-color: transparent; }
+
+#goal .COMMS .padded {
+  background-color: #f9aa8f; }
+
+#goal .EO .padded {
+  background-color: #9bd4ae; }
+
+#goal .NAV .padded {
+  background-color: #8fd7ed; }
+
 section {
   background: white;
   -moz-box-sizing: border-box;
@@ -552,6 +564,9 @@ body.front section:first-child {
 
 .padded {
   padding: 2em; }
+
+.paddedsmall {
+  padding: 1em; }
 
 section.view {
   width: 100%;
@@ -845,10 +860,13 @@ section#launch p {
 
 section#type .holder {
   width: 33%;
-  padding: 1em; }
+  padding: 0 1em; }
 
 section#type .holder p {
   text-align: left; }
+
+section#type .image, section#goal .image {
+  line-height: 0; }
 
 section#type .image img, section#goal .image img {
   width: 100%; }
@@ -858,6 +876,9 @@ section#goal table {
   width: 100%;
   vertical-align: middle;
   text-align: center; }
+
+section#goal .holder-holder > table td {
+  padding: 0 0.5em; }
 
 section#goal table p {
   text-align: left; }
@@ -3162,6 +3183,9 @@ ul.orrery li.GEO {
 
   .padded {
     padding: 1em; }
+
+  .paddedsmall {
+    padding: 0.5em; }
 
   .padd-left {
     margin-left: 0px; } }

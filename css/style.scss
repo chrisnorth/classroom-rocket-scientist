@@ -275,6 +275,10 @@ img.close { background-position: -4.5em -10.5em; }
 .EO { background-color: $green-4; }
 .NAV { background-color: $blue-4; }
 
+#goal .COMMS,#goal .EO,#goal .NAV { background-color: transparent; }
+#goal .COMMS .padded { background-color: $red-4; }
+#goal .EO .padded { background-color: $green-4; }
+#goal .NAV .padded { background-color: $blue-4; }
 
 section {
 	background: white;
@@ -308,6 +312,7 @@ section:first-child { padding-top: $barheight + 0.2em; }
 body.front section:first-child { padding-top: $barheight; }
 .msg + section { padding-top: 0; }
 .padded { padding: $padded; }
+.paddedsmall { padding: $padded*0.5; }
 section.view { width: 100%; max-width: 100%; /*@include transition( margin-left $slide ease );*/ }
 section.noview { display: none; }
 section.view.js { position: absolute; top: 0px; }
@@ -368,10 +373,10 @@ section.view.slideInLeft {
 
 section#launch { background-color: $black-1; color: $grey-5; }
 section#launch p { max-width: 500px; margin: auto; }
-section#type .holder { width: 33%; padding: 1em; }
+section#type .holder { width: 33%; padding: 0 1em; }
 section#type .holder p { text-align: left; }
 
-
+section#type .image, section#goal .image { line-height: 0; }
 section#type .image img, section#goal .image img { width: 100%; }
 section#goal table {
 	table-layout: fixed;
@@ -379,6 +384,10 @@ section#goal table {
 	vertical-align: middle;
 	text-align: center;
 }
+section#goal .holder-holder > table td {
+	padding: 0 $padded*0.25;
+}
+
 section#goal table p { text-align: left; }
 .page { height: auto; display: block; width: 100%; }
 .row-top { display: block; width: 100%; position: relative; padding-bottom: $s*0.5; }
@@ -774,6 +783,7 @@ table.data td:last-child { text-align: left; }
 	.satellite-holder { display: block; height: auto; max-height: auto; }
 	section#type .holder { width: 100%; }
 	.padded { padding: $padded*0.5; }
+	.paddedsmall { padding: $padded*0.25; }
 	.padd-left { margin-left: 0px;  }
 }
 
