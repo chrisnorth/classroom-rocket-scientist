@@ -73,6 +73,9 @@ body {
   overflow-x: hidden;
   background-color: #202020; }
 
+body.nooverflow {
+  overflow-y: hidden; }
+
 .scriptonly {
   display: none; }
 
@@ -886,6 +889,36 @@ section#type .image img {
 
 section#goal table p {
   text-align: left; }
+
+section.fullpage {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 10000;
+  vertical-align: middle; }
+
+section.fullpage h2 {
+  display: block; }
+
+section.fullpage li {
+  margin-top: 1em; }
+
+section .close {
+  font-size: 2em;
+  margin-top: -0.15em;
+  float: right;
+  cursor: pointer;
+  text-decoration: none; }
+
+section.fullpage {
+  padding-top: 0px; }
+
+section.fullpage .container {
+  margin: auto;
+  width: 600px;
+  max-width: 90%; }
 
 .page {
   height: auto;

@@ -1,3 +1,4 @@
+// stuQuery version 1.0
 // I don't like to pollute the global namespace 
 // but I can't get this to work any other way.
 var eventcache = {};
@@ -64,7 +65,7 @@ function S(e){
 	function stuQuery(els){
 		var elements;
 		if(typeof els==="string") this.e = querySelector(document,els);
-		else if(typeof els==="object") this.e = (typeof els.length=="number") ? els : [els];
+		else if(typeof els==="object") this.e = (typeof els.length=="number" && !(els.nodeName && els.nodeName=="SELECT")) ? els : [els];
 		this.length = (this.e ? this.e.length : 0);
 		return this;
 	}
@@ -107,16 +108,16 @@ function S(e){
 		}
 		return {'success':false};
 	}
-	function storeEvents(e,event,fn,fn2,data){
+	function storeEvents(e,event,fn,fn2,data,i){
 		if(!eventcache[event]) eventcache[event] = new Array();
-		eventcache[event].push({'node':e,'fn':fn,'fn2':fn2,'data':data});
+		eventcache[event].push({'node':e,'fn':fn,'fn2':fn2,'data':data,'i':i});
 	}
 	function getEvent(e){
 		if(eventcache[e.type]){
 			var m = NodeMatch(eventcache[e.type],e.currentTarget);
 			if(m.success){
 				if(m.match.data) e.data = eventcache[e.type][m.match].data;
-				return {'fn':eventcache[e.type][m.match].fn,'data':e};
+				return {'fn':eventcache[e.type][m.match].fn,'data':e,'i':eventcache[e.type][m.match].i};
 			}
 		}
 		return function(){ return {'fn':''}; }
@@ -150,7 +151,7 @@ function S(e){
 	// Add events
 	stuQuery.prototype.on = function(event,data,fn){
 		event = event || window.event; // For IE
-		this.cache = [4,5,6];
+		//this.cache = [4,5,6];
 		if(typeof data==="function" && !fn){
 			fn = data;
 			data = "";
@@ -161,11 +162,10 @@ function S(e){
 			var _obj = this;
 			var a = function(b){
 				var e = getEvent({'currentTarget':this,'type':event,'data':data,'originalEvent':b});
-				if(typeof e.fn === "function") return e.fn.call(_obj,e.data);
+				if(typeof e.fn === "function") return e.fn.call(S(_obj.e[e.i]),e.data);
 			}
-		
 			for(var i = 0; i < this.e.length; i++){
-				storeEvents(this.e[i],event,fn,a,data);
+				storeEvents(this.e[i],event,fn,a,data,i);
 				if(this.e[i].addEventListener) this.e[i].addEventListener(event, a, false); 
 				else if(this.e[i].attachEvent) this.e[i].attachEvent(event, a);
 			}

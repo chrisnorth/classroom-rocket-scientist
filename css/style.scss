@@ -37,6 +37,9 @@ body {
 	overflow-x: hidden;
 	background-color: $black-2;
 }
+body.nooverflow {
+	overflow-y: hidden;
+}
 .scriptonly { display: none; }
 
 h1 { font-size: 2em; margin-bottom: 0.5em; }
@@ -387,8 +390,16 @@ section .holder-holder {
 section#type .image, section#goal .image { line-height: 0; }
 section .image img { width: 3em; height: 3em; margin: $padded*0.5 0; }
 section#type .image img { width: 4em; height: 4em; }
-
 section#goal table p { text-align: left; }
+section.fullpage { position: fixed; top: 0px; left: 0px; right: 0px; bottom: 0px; z-index: 10000; vertical-align: middle; }
+section.fullpage h2 { display: block; }
+section.fullpage li { margin-top: 1em; }
+section .close { font-size: 2em; margin-top: -0.15em; float: right; cursor: pointer; text-decoration: none; }
+section.fullpage { padding-top: 0px; }
+section.fullpage .container { margin: auto; width: 600px; max-width: 90%; }
+section.fullpage form {  }
+
+
 .page { height: auto; display: block; width: 100%; }
 .row-top { display: block; width: 100%; position: relative; padding-bottom: $s*0.5; }
 .row-top p:last-child { margin-bottom: 0px; }

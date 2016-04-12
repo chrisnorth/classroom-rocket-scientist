@@ -1,11 +1,16 @@
-<section id="units" class="not-at-start">
-	<h2>Units</h2>
-	<form id="optionform">
-		<ul>
-			<li><label for="changecurrency">Currency:</label> <select name="changecurrency" id="changecurrency"><option selected="selected" value="GBP">British Pounds £</option><option value="USD">US Dollars $</option><option value="EUR">Euros €</option><option value="JPY">Japanese Yen ¥</option><option value="CAD">Canadian Dollars C$</option><option value="AUD">Austrialian Dollars $</option><option value="CHF">Swiss Francs Fr.</option><option value="SEK">Swedish Krona kr</option><option value="CNY">Chinese Yuan ¥</option><option value="INR">Indian Rupees ₨</option><option value="RUB">Russian Ruble RUB</option><option value="DBL">Doubloons DBL</option></select></li>
-			<li><label for="changelength">Length units:</label> <select name="changelength" id="changelength"><option selected="selected" value="m">Metres</option><option value="ft">Feet</option><option value="cubit">Cubits</option><option value="bluewhale">Blue Whales</option><option value="yard">Yards</option></select></li>
-			<li><label for="changemass">Mass units:</label> <select name="changemass" id="changemass"><option selected="selected" value="kg">Kilograms</option><option value="lb">Pounds</option><option value="elephant">Elephants</option></select></li>
-		</ul>
-	</form>
-
+<section id="units" class="not-at-start fullpage">
+	<div class="container">
+		<div class="padded">
+			<a class="close" title="<!--#echo var="ui.sections.units.close" -->" href="#">&times;</a>
+			<h2><!--#echo var="ui.sections.units.title" --></h2>
+			<form id="optionform">
+				<ul>
+					<li><label for="changecurrency"><!--#echo var="ui.sections.units.currency" --></label> <select name="changecurrency" id="changecurrency" data-units="currency"><option selected="selected" value="credits">Credits</option><option selected="selected" value="GBP">British Pounds £</option><option value="USD">US Dollars $</option><option value="EUR">Euros €</option><option value="JPY">Japanese Yen ¥</option><option value="CAD">Canadian Dollars C$</option><option value="AUD">Austrialian Dollars $</option><option value="CHF">Swiss Francs Fr.</option><option value="SEK">Swedish Krona kr</option><option value="CNY">Chinese Yuan ¥</option><option value="INR">Indian Rupees ₨</option><option value="RUB">Russian Ruble RUB</option><option value="DBL">Doubloons DBL</option></select></li>
+					<li><label for="changelength"><!--#echo var="ui.sections.units.length" --></label> <select name="changelength" id="changelength" data-units="length"><option selected="selected" value="m">Metres</option><option value="ft">Feet</option><option value="cubit">Cubits</option><option value="bluewhale">Blue Whales</option><option value="yard">Yards</option></select></li>
+					<li><label for="changemass"><!--#echo var="ui.sections.units.mass" --></label> <select name="changemass" id="changemass" data-units="mass"><option selected="selected" value="kg">Kilograms</option><option value="lb">Pounds</option><option value="elephant">Elephants</option></select></li>
+					<li><label for="changeenergy"><!--#echo var="ui.sections.units.power" --></label> <select name="changepower" id="changepower" data-units="power"><option selected="selected" value="watts">watts</option><option value="horsepower">horsepower</option></select></li>
+				</ul>
+			</form>
+		</div>
+	</div>
 </section>

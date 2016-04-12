@@ -142,6 +142,21 @@ var rs;
 		S('#bar .togglemenu').on('click',{me:this},function(e){ S('#menu').toggleClass('not-at-start'); })
 		S('#menu').on('mouseleave',{me:this},function(e){ S('#menu').toggleClass('not-at-start'); })
 		S('#menu .restart').on('click',{me:this},function(e){ location.href = location.href.replace(/[\/]+$/,'') + (location.protocol==="file:") ? "index.html" : ""; })
+		S('#menu .units').on('click',{me:this},function(e){ S('#units').removeClass('not-at-start'); S('body').addClass('nooverflow'); });
+		S('#units .close').on('click',{me:this},function(e){ S('#units').addClass('not-at-start'); S('body').removeClass('nooverflow'); });
+		// Deal with changes to the unit selectors
+		S('#units select').on('change',{me:this},function(e){
+			// Get the unit type
+			var u = this.attr('data-units');
+			if(typeof u==="string"){
+				// Set to the selected value
+				e.data.me.defaults[u] = this.e[0].value;
+				// Update all the convertables
+				e.data.me.updateConvertables();
+			}
+		});
+		// Add fullscreen to menu if the browser supports it
+		if(fullScreenApi.supportsFullScreen) S('#menu .fullscreen').removeClass('not-at-start').find('button').on('click', {me:this}, function(e){ e.data.me.toggleFullScreen(); });
 
 		// If we are on the front page we can update the links for local use
 		if(S('body').hasClass('front')){
@@ -156,9 +171,6 @@ var rs;
 		if(data) this.data = data;
 		if(!this.data) return;
 	
-		// Add fullscreen to menu if the browser supports it
-		if(fullScreenApi.supportsFullScreen) S('#menu .fullscreen').removeClass('not-at-start').find('button').on('click', {me:this}, function(e){ e.data.me.toggleFullScreen(); });
-
 	
 		// The maximum number of solar panels is 1 unless set in the input data
 		if(this.data.power && this.data.power['solar-panel'] && typeof this.data.power['solar-panel'].max==="number") this.maxpanels = this.data.power['solar-panel'].max;
@@ -486,6 +498,11 @@ var rs;
 			if(li) ul.after("<ol>"+li+"</ol>");
 			S('#'+s+' .requirements').css({'display':(li ? '':'none')});
 		}
+		var ok = 0;
+		for(var i = 0; i < this.requirements.length; i++){
+			if(this.requirements[i].met) ok++;
+		}
+		console.log('Met ',ok,' of ',this.requirements.length,' requirements')
 		return this;
 	}
 	// Update each of the requirements with a flag to say if it is met or not

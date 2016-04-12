@@ -65,6 +65,12 @@ ui.sections.launch.title:                   Ready to launch?
 ui.sections.launch.checklist:               We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail.
 ui.sections.launch.goforlaunch:             Final checks have shown that your mission is within budget, you have a suitable rocket, and you have a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.
 ui.sections.launch.button:                  Go for launch!
+ui.sections.units.title:                    Change units:
+ui.sections.units.close:                    Close options
+ui.sections.units.currency:                 Currency units:
+ui.sections.units.length:                   Length units:
+ui.sections.units.mass:                     Mass units:
+ui.sections.units.power:                    Power units:
 bus.cube.title:                             Cube sat
 bus.cube.button:                            Select cube sat
 bus.small.title:                            Small satellite
