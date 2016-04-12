@@ -493,6 +493,7 @@
 			"power": { "value": 300, "units": "watts", "dimension": "power" },
 			"requires": [{
 				"type": "orbit",
+				"showin": "power",
 				"oneof": ["MEO","HEO","GEO"],
 				"label": "%package.rtg.requires.orbit.label%",
 				"error": "%package.rtg.requires.orbit.error%"

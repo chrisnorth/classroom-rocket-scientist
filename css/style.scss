@@ -398,6 +398,10 @@ section#goal table p { text-align: left; }
 .requirements { display: table-row; height: 1%; }
 .requirements .padder { margin-bottom: $padded; background-color: #efefef;  }
 .requirements ol { list-style: disc; margin-left: 1em; }
+.requirements li.met { list-style: none; margin-left: -1em; }
+.requirements li.met:before { content: "✔"; padding-right: 0.25em; color: $green-1; }
+.requirements li.notmet { list-style: none; margin-left: -1em; }
+.requirements li.notmet:before { content: "✘"; padding-right: 0.2em; color: $red-1; }
 .display-area { display: table-row; position: relative; }
 .blueprint { width: 100%; height: 100%; overflow: hidden; display: block; position: relative; background-color: #9999ff; }
 
@@ -674,7 +678,7 @@ table.data td:last-child { text-align: left; }
 .list li:last-child { border-bottom: 0px; margin-bottom: 0; }
 .list li .list-bar, .list li .list-left,.list li .list-right { display: table-cell; width: auto; vertical-align: top; }
 .list li .list-bar {
-	width: $s*2.1;
+	width: $s*2.17;
 	vertical-align: top;
 	@include border-radius($s*0.25 0 0 $s*0.25);
 }
@@ -708,7 +712,7 @@ table.data td:last-child { text-align: left; }
 .package_slot div { float: right; }
 .package_power, .package_mass, .package_cost { display: inline-block; }
 .bg-orbit { background-color: $grey-2; }
-.slot-unavailable { display: none!important; }
+.slot-unavailable button { display: none!important; }
 .orbit-LEO .bg-orbit, .list li.selected.orbit-LEO .list-right { background-color: $grey-3; }
 .orbit-MEO .bg-orbit, .list li.selected.orbit-MEO .list-right { background-color: $green-3; }
 .orbit-HEO .bg-orbit, .list li.selected.orbit-HEO .list-right { background-color: $red-1; }

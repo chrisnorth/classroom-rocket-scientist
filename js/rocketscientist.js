@@ -61,7 +61,7 @@ var rs;
 		this.defaults = {'currency':'credits', 'length':'m', 'area': 'mxm', 'mass': 'kg', 'power':'watts', 'powerdensity':'watts/m^2' };
 		this.z = {};
 		this.totals = { 'cost': new Convertable(0,this.defaults.currency), 'power': new Convertable(0,this.defaults.power), 'mass':new Convertable(0,this.defaults.mass) };
-		this.choices = { 'type':'', 'goal':'', 'mission':'', 'orbit':'', 'bus':'', 'slots':{}, 'solar-panel':0, 'solar-panel-fixed':false };
+		this.choices = { 'type':'', 'goal':'', 'mission':'', 'orbit':'', 'bus':'', 'slots':{}, 'solar-panel':0, 'solar-panel-surface':false };
 		this.requirements = new Array();
 
 		this.getSections();
@@ -342,7 +342,7 @@ var rs;
 			total = add(total,this.data['power']['solar-panel'],{'cost':n,'mass':n,'power':0});
 			power.value += this.data['power']['solar-panel'].power.value*n;
 		}
-		if(this.choices['solar-panel-fixed']){
+		if(this.choices['solar-panel-surface']){
 			var n = (this.choices['bus'].area) ? this.choices['bus'].area.convertTo('m^2').value : 0;
 			var pow = new Convertable(0,'watts','power');
 			var p = this.data['power']['solar-panel-surface'].power.copy();
@@ -426,6 +426,7 @@ var rs;
 
 		return this;
 	}
+	// Function to take a preset choice from the chosen scenario
 	RocketScientist.prototype.setDefault = function(key){
 		this.log('setDefault',key)
 		if(!key) return;
@@ -459,11 +460,15 @@ var rs;
 				// For each slot key, find out if it has any requirements
 				for(var i = 0; i < this.choices['slots'][slottype].length ;i++){
 					c = this.choices['slots'][slottype][i];
+					// Add the requirements to our array
 					if(this.data['package'][c] && this.data['package'][c].requires) this.requirements = this.requirements.concat(this.data['package'][c].requires);
 					if(this.data['power'][c] && this.data['power'][c].requires) this.requirements = this.requirements.concat(this.data['power'][c].requires);
 				}
 			}
 		}
+
+		// See which requirements are met
+		this.checkRequirements();
 
 		// The keys are the HTML <section> IDs and the values are the JSON data keys
 		var sections = {'orbit':'orbit','instrument':'package','power':'power'};
@@ -475,13 +480,37 @@ var rs;
 			ul = S('#'+s+' .requirements h3');
 			li = "";
 			for(var i = 0; i < this.requirements.length; i++){
-				if(this.requirements[i]['type'] == sections[s] && this.requirements[i]['label'] != "") li += "<li>"+this.requirements[i]['label']+"</li>";
+				if((this.requirements[i]['showin'] == sections[s] || this.requirements[i]['type'] == sections[s]) && this.requirements[i]['label'] != "") li += "<li"+((this.data.options && this.data.options['require-hint']) ? (this.requirements[i]['met'] ? ' class="met"' : ' class="notmet"') : "")+">"+this.requirements[i]['label']+"</li>";
 			}
 			this.log('List of requirements',li);
 			if(li) ul.after("<ol>"+li+"</ol>");
 			S('#'+s+' .requirements').css({'display':(li ? '':'none')});
 		}
 		return this;
+	}
+	// Update each of the requirements with a flag to say if it is met or not
+	RocketScientist.prototype.checkRequirements = function(){
+		this.log('checkRequirements',this.requirements);
+		// Build array of choice keys that we will check against
+		var ch = [];
+		if(this.choices['orbit']) ch.push(this.choices['orbit']);
+		if(this.choices['solar-panel-surface']) ch.push('solar-panel-surface');
+		if(this.choices['solar-panel'] > 0) ch.push('solar-panel');
+		for(var j in this.choices.slots){
+			for(var i = 0; i < this.choices.slots[j].length; i++) ch.push(this.choices.slots[j][i]);
+		}
+		console.log(ch)
+		var ok;
+		for(var i = 0; i < this.requirements.length; i++){
+			ok = false;
+			for(var o = 0; o < this.requirements[i].oneof.length; o++){
+				for(var c = 0; c < ch.length; c++){
+					if(ch[c] == this.requirements[i].oneof) ok = true;
+				}
+			}
+			this.requirements[i].met = ok;
+			console.log(this.requirements[i],ok)
+		}
 	}
 	// Choose the bus size
 	RocketScientist.prototype.setBus = function(size){
@@ -490,7 +519,7 @@ var rs;
 
 		// Reset any previous choices regarding instruments, power options, or rockets
 		this.choices['solar-panel'] = 0;
-		this.choices['solar-panel-fixed'] = false;
+		this.choices['solar-panel-surface'] = false;
 		this.choices['slots'] = "";
 		this.updateButtons();
 		this.choices['slots'] = {};
@@ -558,6 +587,7 @@ var rs;
 
 		this.updateBudgets();
 		this.updateNavigation();
+		this.updateRequirements();
 		return this;
 	}
 	RocketScientist.prototype.setOrbit = function(orbit){
@@ -800,7 +830,7 @@ var rs;
 		var n = 0;
 		var p = (mode=="power") ? this.data['power'][type] : this.data.package[type];
 		if(type == "solar-panel") n = this.choices['solar-panel'];
-		else if(type == "solar-panel-surface") n = (this.choices['solar-panel-fixed'] ? 1 : 0);
+		else if(type == "solar-panel-surface") n = (this.choices['solar-panel-surface'] ? 1 : 0);
 		else{
 			for(var i = 0; i < this.choices['slots'][p.slot].length; i++){
 				if(this.choices['slots'][p.slot][i]==type) n++;
@@ -829,13 +859,13 @@ var rs;
 					if(a.hasClass('add')){
 						if(this.choices['slots'][s]) disable = (this.choices['slots'][s].length == this.choices['bus'].slots[s]);
 						if(p=="solar-panel") disable = (this.choices['solar-panel'] < this.maxpanels) ? false : true;
-						if(p=="solar-panel-surface") disable = (this.choices['solar-panel-fixed']);
+						if(p=="solar-panel-surface") disable = (this.choices['solar-panel-surface']);
 					}else if(a.hasClass('remove')){
 						var n = 0;
 						for(var j in this.choices['slots'][s]) if(this.choices['slots'][s][j] == p) n++;
 						if(this.choices['slots'][s]) disable = (this.choices['slots'][s].length == 0 || n==0);
 						if(p=="solar-panel") disable = (this.choices['solar-panel'] <= 0);
-						if(p=="solar-panel-surface") disable = (!this.choices['solar-panel-fixed']);
+						if(p=="solar-panel-surface") disable = (!this.choices['solar-panel-surface']);
 					}
 					a.prop('disabled',disable);
 				}
@@ -859,6 +889,9 @@ var rs;
 		if(type=="solar-panel") this.solarPanel(add,el);
 		else if(type=="solar-panel-surface") this.solarFixed(add,el);
 		else this.processPackage(type,el,"power");
+
+		// Update the requirements;
+		this.updateRequirements();
 
 		this.updateValue(type,el,"power");
 		this.updateNavigation();
@@ -895,12 +928,12 @@ var rs;
 		var p = parent.children('.add');
 		var m = parent.children('.remove');
 		if(add){
-			this.choices['solar-panel-fixed'] = true;
+			this.choices['solar-panel-surface'] = true;
 			S('#sat-power .satellite').addClass('solar-fixed');
 			p.prop('disabled',true);
 			m.prop('disabled',false);
 		}else{
-			this.choices['solar-panel-fixed'] = false;
+			this.choices['solar-panel-surface'] = false;
 			S('#sat-power .satellite').removeClass('solar-fixed');
 			p.prop('disabled',false);
 			m.prop('disabled',true);

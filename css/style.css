@@ -932,6 +932,24 @@ section#goal table p {
   list-style: disc;
   margin-left: 1em; }
 
+.requirements li.met {
+  list-style: none;
+  margin-left: -1em; }
+
+.requirements li.met:before {
+  content: "✔";
+  padding-right: 0.25em;
+  color: #02a24b; }
+
+.requirements li.notmet {
+  list-style: none;
+  margin-left: -1em; }
+
+.requirements li.notmet:before {
+  content: "✘";
+  padding-right: 0.2em;
+  color: #f04031; }
+
 .display-area {
   display: table-row;
   position: relative; }
@@ -1394,7 +1412,7 @@ table.data td:last-child {
   vertical-align: top; }
 
 .list li .list-bar {
-  width: 3.15em;
+  width: 3.255em;
   vertical-align: top;
   -webkit-border-radius: 0.375em 0 0 0.375em;
   -moz-border-radius: 0.375em 0 0 0.375em;
@@ -1489,7 +1507,7 @@ table.data td:last-child {
 .bg-orbit {
   background-color: #999999; }
 
-.slot-unavailable {
+.slot-unavailable button {
   display: none !important; }
 
 .orbit-LEO .bg-orbit, .list li.selected.orbit-LEO .list-right {

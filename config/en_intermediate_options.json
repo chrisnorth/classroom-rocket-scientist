@@ -1,4 +1,7 @@
 {
+	"options": {
+		"require-hint": true
+	},
 	"sections": [{
 		"id": "type",
 		"short": "Type",
@@ -493,6 +496,7 @@
 			"power": { "value": 300, "units": "watts", "dimension": "power" },
 			"requires": [{
 				"type": "orbit",
+				"showin": "power",
 				"oneof": ["MEO","HEO","GEO"],
 				"label": "Not for low-Earth orbit",
 				"error": "Can't use an RTG in low-Earth orbit"

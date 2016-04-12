@@ -1,4 +1,7 @@
 {
+	"options": {
+		"require-hint": true
+	},
 	"sections": [{
 		"id": "type",
 		"short": "Type",
@@ -1088,7 +1091,8 @@
 						"oneof": ["LEO"],
 						"label": "See detail of planet surface.",
 						"error": "The orbit you have chosen does not allow you to see the planet surface in enough detail."
-					}]
+					}
+				]
 			}]
 		}
 	}
