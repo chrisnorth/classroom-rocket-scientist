@@ -1252,23 +1252,26 @@ button.fancy:hover, button.fancy:focus {
   background-image: -moz-linear-gradient(top, #cccccc, #efefef);
   background-image: -ms-linear-gradient(top, #cccccc, #efefef);
   background-image: -o-linear-gradient(top, #cccccc, #efefef);
-  background-image: linear-gradient(to bottom, #cccccc, #efefef); }
+  background-image: linear-gradient(to bottom, #cccccc, #efefef);
+  box-shadow: 0 0 5px #00a2d3; }
 
 button.selected {
-  background: #02a24b;
-  background-image: -webkit-linear-gradient(top, #02a24b, #0ab26b);
-  background-image: -moz-linear-gradient(top, #02a24b, #0ab26b);
-  background-image: -ms-linear-gradient(top, #02a24b, #0ab26b);
-  background-image: -o-linear-gradient(top, #02a24b, #0ab26b);
-  background-image: linear-gradient(to bottom, #02a24b, #0ab26b); }
+  background: #606060;
+  background-image: -webkit-linear-gradient(top, #606060, #808080);
+  background-image: -moz-linear-gradient(top, #606060, #808080);
+  background-image: -ms-linear-gradient(top, #606060, #808080);
+  background-image: -o-linear-gradient(top, #606060, #808080);
+  background-image: linear-gradient(to bottom, #606060, #808080);
+  color: white; }
 
 button.selected:hover, button.selected:focus {
-  background: #02a24b;
-  background-image: -webkit-linear-gradient(top, #02a24b, #0ab26b);
-  background-image: -moz-linear-gradient(top, #02a24b, #0ab26b);
-  background-image: -ms-linear-gradient(top, #02a24b, #0ab26b);
-  background-image: -o-linear-gradient(top, #02a24b, #0ab26b);
-  background-image: linear-gradient(to bottom, #02a24b, #0ab26b); }
+  background: #606060;
+  background-image: -webkit-linear-gradient(top, #606060, #808080);
+  background-image: -moz-linear-gradient(top, #606060, #808080);
+  background-image: -ms-linear-gradient(top, #606060, #808080);
+  background-image: -o-linear-gradient(top, #606060, #808080);
+  background-image: linear-gradient(to bottom, #606060, #808080);
+  color: white; }
 
 .controls {
   position: absolute;
