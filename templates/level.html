@@ -68,7 +68,7 @@
 						<div class="row-main">
 							<!--#for each="scenarios" name="scenarios" -->
 							<div class="holder <!--#json name="this" -->">
-								<div class="image"><img src="<!--#json name="image.file" -->" alt="<!--#json name="image.alt" -->" title="<!--#json name="image.alt" --> / <!--#json name="image.credit" -->" /></div>
+								<div class="image"><img src="<!--#json name="image.file" -->" alt="<!--#json name="image.alt" -->" title="<!--#json name="image.alt" -->" /></div>
 								<div class="padded">
 									<h3><!--#echo var="scenarios.<!--#json name="this" -->.title" --></h3>
 									<p><!--#echo var="scenarios.<!--#json name="this" -->.description" --></p>
@@ -96,7 +96,7 @@
 						<div class="<!--#json name="this" --> row-main">
 							<div class="holder-holder"><!--#for each="missions" name="this.loopinner" -->
 								<div class="holder">
-									<div class="image"><img src="<!--#json name="image.file" -->" alt="<!--#json name="image.alt" -->" title="<!--#json name="image.alt" --> / <!--#json name="image.credit" -->" /></div>
+									<div class="image"><img src="<!--#json name="image.file" -->" alt="<!--#json name="image.alt" -->" title="<!--#json name="image.alt" -->" /></div>
 									<div class="padded paddedsmall">
 										<h3><!--#json name="title" --></h3>
 										<p><!--#json name="description" --></p>
@@ -566,6 +566,16 @@
 		<!--#include file="units.html" -->
 
 		<!--#include file="menu.html" -->
+		
+		<section id="about" class="not-at-start fullpage">
+			<div class="container">
+				<div class="padded">
+					<a class="close" title="<!--#echo var="ui.close" -->" href="#">&times;</a>
+					<h2><!--#echo var="ui.sections.about.title" --></h2>
+					<!--#echo var="ui.sections.about.intro" -->
+				</div>
+			</div>
+		</section>
 	</div>
 
 	<style id="customstylesheet"></style>
