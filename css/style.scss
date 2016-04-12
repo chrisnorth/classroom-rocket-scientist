@@ -271,17 +271,14 @@ img.close { background-position: -4.5em -10.5em; }
 .profile { color: #f6dc8c; }
 .error { color: #ff4a4a; }
 .warning { color: #ffee00; }
-.COMMS { background-color: $red-4; }
-.EO { background-color: $green-4; }
-.NAV { background-color: $blue-4; }
 
 #goal .COMMS,#goal .EO,#goal .NAV { background-color: transparent; }
-#goal .COMMS .padded { background-color: $red-4; }
-#goal .COMMS .image { background-color: $red-1; }
-#goal .EO .padded { background-color: $green-4; }
-#goal .EO .image { background-color: $green-1; }
-#goal .NAV .padded { background-color: $blue-4; }
-#goal .NAV .image { background-color: $blue-1; }
+.COMMS .padded { background-color: $red-4; }
+.COMMS .image { background-color: $red-1; }
+.EO .padded { background-color: $green-4; }
+.EO .image { background-color: $green-1; }
+.NAV .padded { background-color: $blue-4; }
+.NAV .image { background-color: $blue-1; }
 
 section {
 	background: white;
@@ -388,8 +385,8 @@ section .holder {
 }
 
 section#type .image, section#goal .image { line-height: 0; }
-section#type .image img { width: 100%; }
-section#goal .image img { width: 3em; height: 3em; margin: $padded*0.5 0; }
+section .image img { width: 3em; height: 3em; margin: $padded*0.5 0; }
+section#type .image img { width: 4em; height: 4em; }
 
 section#goal table p { text-align: left; }
 .page { height: auto; display: block; width: 100%; }

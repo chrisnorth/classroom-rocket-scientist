@@ -503,34 +503,25 @@ img.close {
 .warning {
   color: #ffee00; }
 
-.COMMS {
-  background-color: #f9aa8f; }
-
-.EO {
-  background-color: #9bd4ae; }
-
-.NAV {
-  background-color: #8fd7ed; }
-
 #goal .COMMS, #goal .EO, #goal .NAV {
   background-color: transparent; }
 
-#goal .COMMS .padded {
+.COMMS .padded {
   background-color: #f9aa8f; }
 
-#goal .COMMS .image {
+.COMMS .image {
   background-color: #f04031; }
 
-#goal .EO .padded {
+.EO .padded {
   background-color: #9bd4ae; }
 
-#goal .EO .image {
+.EO .image {
   background-color: #02a24b; }
 
-#goal .NAV .padded {
+.NAV .padded {
   background-color: #8fd7ed; }
 
-#goal .NAV .image {
+.NAV .image {
   background-color: #00a2d3; }
 
 section {
@@ -884,13 +875,14 @@ section .holder {
 section#type .image, section#goal .image {
   line-height: 0; }
 
-section#type .image img {
-  width: 100%; }
-
-section#goal .image img {
+section .image img {
   width: 3em;
   height: 3em;
   margin: 1em 0; }
+
+section#type .image img {
+  width: 4em;
+  height: 4em; }
 
 section#goal table p {
   text-align: left; }
