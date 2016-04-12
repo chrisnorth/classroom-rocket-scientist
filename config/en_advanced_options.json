@@ -931,36 +931,6 @@
 					"error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."
 				}]
 			},{
-				"title": "Satellite internet",
-				"description": "Connect to the internet using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.",
-				"image": {
-					"file": "images/icon-internet.png",
-					"alt": "Satellite internet",
-					"credit": "parkjisun"
-				},
-				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
-				"requires": [{
-                    "type": "package",
-                    "oneof": ["radio-tx"],
-                    "label": "A way to send signals.",
-					"error": "You do not have a way to send signals to the ground."
-                },{
-                    "type": "package",
-                    "oneof": ["radio-rx"],
-                    "label": "A way to receive signals.",
-					"error": "You do not have a way to receive signals from the ground."
-                },{
-                    "type": "package",
-                    "oneof": ["internet-en"],
-                    "label": "A way to encode internet signals.",
-					"error": "You do not have a way to encode internet signals."
-				},{
-					"type": "orbit",
-					"oneof": ["GEO"],
-					"label": "Satellite is continuously above one area of Earth",
-					"error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."
-				}]
-			},{
 				"title": "Satellite TV",
 				"description": "Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.",
 				"image": {
@@ -988,6 +958,36 @@
 					"type": "orbit",
 					"oneof": ["GEO"],
 					"label": "Satellite is continuously above one area of Earth.",
+					"error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."
+				}]
+			},{
+				"title": "Satellite internet",
+				"description": "Connect to the internet using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.",
+				"image": {
+					"file": "images/icon-internet.png",
+					"alt": "Satellite internet",
+					"credit": "parkjisun"
+				},
+				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"requires": [{
+                    "type": "package",
+                    "oneof": ["radio-tx"],
+                    "label": "A way to send signals.",
+					"error": "You do not have a way to send signals to the ground."
+                },{
+                    "type": "package",
+                    "oneof": ["radio-rx"],
+                    "label": "A way to receive signals.",
+					"error": "You do not have a way to receive signals from the ground."
+                },{
+                    "type": "package",
+                    "oneof": ["internet-en"],
+                    "label": "A way to encode internet signals.",
+					"error": "You do not have a way to encode internet signals."
+				},{
+					"type": "orbit",
+					"oneof": ["GEO"],
+					"label": "Satellite is continuously above one area of Earth",
 					"error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."
 				}]
 			}]

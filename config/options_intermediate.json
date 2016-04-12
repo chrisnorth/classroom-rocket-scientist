@@ -927,37 +927,7 @@
 					"oneof": ["GEO"],
 					"label": "%scenarios.COMMS.phone.req.orbit.label%",
 					"error": "%scenarios.COMMS.phone.req.orbit.error%"
-			}]
-			},{
-				"title": "%scenarios.COMMS.internet.title%",
-				"description": "%scenarios.COMMS.internet.description%",
-				"image": {
-					"file": "images/satinternet.jpg",
-					"alt": "Internet",
-					"credit": ""
-				},
-				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
-				"requires": [{
-                    "type": "package",
-                    "oneof": ["radio-tx"],
-                    "label": "%scenarios.COMMS.internet.req.radio-tx.label%",
-					"error": "%scenarios.COMMS.internet.req.radio-tx.error%"
-                },{
-                    "type": "package",
-                    "oneof": ["radio-rx"],
-                    "label": "%scenarios.COMMS.internet.req.radio-rx.label%",
-					"error": "%scenarios.COMMS.internet.req.radio-rx.error%"
-                },{
-                    "type": "package",
-                    "oneof": ["internet-en"],
-                    "label": "%scenarios.COMMS.internet.req.internet-en.label%",
-					"error": "%scenarios.COMMS.internet.req.internet-en.error%"
-				},{
-					"type": "orbit",
-					"oneof": ["GEO"],
-					"label": "%scenarios.COMMS.internet.req.orbit.label%",
-					"error": "%scenarios.COMMS.internet.req.orbit.error%"
-			}]
+				}]
 			},{
 				"title": "%scenarios.COMMS.tv.title%",
 				"description": "%scenarios.COMMS.tv.description%",
@@ -987,7 +957,37 @@
 					"oneof": ["GEO"],
 					"label": "%scenarios.COMMS.tv.req.orbit.label%",
 					"error": "%scenarios.COMMS.tv.req.orbit.error%"
-			}]
+				}]
+			},{
+				"title": "%scenarios.COMMS.internet.title%",
+				"description": "%scenarios.COMMS.internet.description%",
+				"image": {
+					"file": "images/satinternet.jpg",
+					"alt": "Internet",
+					"credit": ""
+				},
+				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"requires": [{
+                    "type": "package",
+                    "oneof": ["radio-tx"],
+                    "label": "%scenarios.COMMS.internet.req.radio-tx.label%",
+					"error": "%scenarios.COMMS.internet.req.radio-tx.error%"
+                },{
+                    "type": "package",
+                    "oneof": ["radio-rx"],
+                    "label": "%scenarios.COMMS.internet.req.radio-rx.label%",
+					"error": "%scenarios.COMMS.internet.req.radio-rx.error%"
+                },{
+                    "type": "package",
+                    "oneof": ["internet-en"],
+                    "label": "%scenarios.COMMS.internet.req.internet-en.label%",
+					"error": "%scenarios.COMMS.internet.req.internet-en.error%"
+				},{
+					"type": "orbit",
+					"oneof": ["GEO"],
+					"label": "%scenarios.COMMS.internet.req.orbit.label%",
+					"error": "%scenarios.COMMS.internet.req.orbit.error%"
+				}]
 			}]
 		},
 		"EO": {
