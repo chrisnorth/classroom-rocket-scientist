@@ -850,6 +850,18 @@ section#type .holder {
 section#type .holder p {
   text-align: left; }
 
+section#type .image img, section#goal .image img {
+  width: 100%; }
+
+section#goal table {
+  table-layout: fixed;
+  width: 100%;
+  vertical-align: middle;
+  text-align: center; }
+
+section#goal table p {
+  text-align: left; }
+
 .page {
   height: auto;
   display: block;

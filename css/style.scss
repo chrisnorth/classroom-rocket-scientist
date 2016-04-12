@@ -372,6 +372,14 @@ section#type .holder { width: 33%; padding: 1em; }
 section#type .holder p { text-align: left; }
 
 
+section#type .image img, section#goal .image img { width: 100%; }
+section#goal table {
+	table-layout: fixed;
+	width: 100%;
+	vertical-align: middle;
+	text-align: center;
+}
+section#goal table p { text-align: left; }
 .page { height: auto; display: block; width: 100%; }
 .row-top { display: block; width: 100%; position: relative; padding-bottom: $s*0.5; }
 .row-top p:last-child { margin-bottom: 0px; }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="500" height="150" viewBox="0 0 500 150" id="svg2" version="1.1" inkscape:version="0.91 r13725" sodipodi:docname="icon-comms.svg">
+  <defs id="defs4">
+    <clipPath clipPathUnits="userSpaceOnUse" id="clipPath4175">
+      <rect ry="0" y="883.15" x="-124.36" height="218.82" width="729.42" id="rect4177" style="opacity:1;fill:#1c661d;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="1.4" inkscape:cx="236.45" inkscape:cy="146.36" inkscape:document-units="px" inkscape:current-layer="layer1" showgrid="false" units="px" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0" inkscape:window-width="1280" inkscape:window-height="752" inkscape:window-x="1" inkscape:window-y="0" inkscape:window-maximized="0" />
+  <metadata id="metadata7">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(0,-902.4)">
+    <path style="opacity:1;fill:#f04031;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" d="M 0 0 L 0 150 L 500 150 L 500 0 L 0 0 z M 233.82 25 L 254.97 46.148 L 241.85 59.266 L 220.7 38.119 L 233.82 25 z M 275.2 37.533 L 287.47 49.801 L 281.86 49.801 L 284.64 52.588 C 286.5 54.447 286.5 57.492 284.64 59.35 L 263.21 80.779 C 261.35 82.639 258.31 82.639 256.45 80.779 L 253.52 77.852 C 253.05 78.5 252.51 79.14 251.9 79.754 C 251.69 79.971 251.47 80.179 251.24 80.379 C 256.94 89.126 255.96 100.96 248.28 108.64 L 235.16 95.512 C 235.09 95.573 235.03 95.652 234.96 95.715 C 231.72 98.957 227.82 100.32 226.25 98.748 C 224.68 97.179 226.04 93.279 229.29 90.035 C 229.35 89.971 229.43 89.908 229.49 89.846 L 216.37 76.723 C 224.04 69.045 235.87 68.062 244.62 73.762 C 244.82 73.537 245.03 73.317 245.25 73.1 C 245.86 72.489 246.5 71.95 247.15 71.482 L 244.22 68.553 C 242.36 66.695 242.36 63.648 244.22 61.789 L 265.65 40.361 C 267.51 38.5 270.56 38.5 272.42 40.361 L 275.2 43.145 L 275.2 37.533 z M 278.85 70.039 L 300 91.186 L 286.88 104.3 L 265.73 83.156 L 278.85 70.039 z M 200 92.154 L 203.12 92.154 C 203.12 108.54 216.46 121.88 232.85 121.88 L 232.85 125 C 214.73 125 200 110.27 200 92.154 z M 205.81 92.154 L 208.94 92.154 C 208.94 105.34 219.66 116.06 232.85 116.06 L 232.85 119.19 C 217.94 119.19 205.81 107.06 205.81 92.154 z M 212.21 92.154 L 215.33 92.154 C 215.33 96.834 217.15 101.23 220.46 104.54 C 223.77 107.85 228.17 109.67 232.84 109.67 L 232.84 112.79 C 227.33 112.79 222.15 110.65 218.25 106.75 C 214.35 102.85 212.21 97.667 212.21 92.154 z M 217.99 92.154 L 221.11 92.154 C 221.11 98.626 226.38 103.89 232.85 103.89 L 232.85 107.01 C 224.65 107.01 217.99 100.35 217.99 92.154 z " transform="translate(0,902.4)" id="rect4136" />
+    <g id="g4202" transform="matrix(1.5625,0,0,1.5625,200,927.4)" />
+  </g>
+</svg>

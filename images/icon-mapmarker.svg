@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="500" height="150" viewBox="0 0 500 150" id="svg2" version="1.1" inkscape:version="0.91 r13725" sodipodi:docname="icon-mapmarker.svg" inkscape:export-filename="/Users/stuartlowe/Projects/classroom-rocket-scientist/classroom-rocket-scientist/images/icon-weather.png" inkscape:export-xdpi="90" inkscape:export-ydpi="90">
+  <defs id="defs4">
+    <clipPath clipPathUnits="userSpaceOnUse" id="clipPath4175">
+      <rect ry="0" y="883.15" x="-124.36" height="218.82" width="729.42" id="rect4177" style="opacity:1;fill:#1c661d;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="1.4" inkscape:cx="236.45" inkscape:cy="146.36" inkscape:document-units="px" inkscape:current-layer="layer1" showgrid="false" units="px" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0" inkscape:window-width="1280" inkscape:window-height="752" inkscape:window-x="1" inkscape:window-y="0" inkscape:window-maximized="0" />
+  <metadata id="metadata7">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(0,-902.4)">
+    <path style="opacity:1;fill:#00a2d3;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" d="M 0 0 L 0 150 L 500 150 L 500 0 L 0 0 z M 250 24.99 L 250.01 24.99 C 268.43 24.99 283.36 39.929 283.36 58.359 C 283.36 76.779 250 125 250 125 C 250 125 216.64 76.779 216.64 58.359 C 216.64 39.929 231.57 24.99 250 24.99 z M 250 39.051 C 240.31 39.051 232.44 46.91 232.44 56.6 C 232.44 66.3 240.31 74.15 250 74.15 C 259.69 74.15 267.56 66.3 267.56 56.6 C 267.56 46.91 259.69 39.051 250 39.051 z " transform="translate(0,902.4)" id="rect4136" />
+    <g style="display:none" display="none" id="g4403" transform="matrix(1.1667,0,0,1.1667,191.66,920.06)">
+      <rect style="display:inline;fill:#000000" x="5" y="5" display="inline" width="90" height="90" id="rect4405" />
+    </g>
+  </g>
+</svg>
