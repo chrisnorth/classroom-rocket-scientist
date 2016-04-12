@@ -518,11 +518,20 @@ img.close {
 #goal .COMMS .padded {
   background-color: #f9aa8f; }
 
+#goal .COMMS .image {
+  background-color: #f04031; }
+
 #goal .EO .padded {
   background-color: #9bd4ae; }
 
+#goal .EO .image {
+  background-color: #02a24b; }
+
 #goal .NAV .padded {
   background-color: #8fd7ed; }
+
+#goal .NAV .image {
+  background-color: #00a2d3; }
 
 section {
   background: white;
@@ -868,8 +877,13 @@ section#type .holder p {
 section#type .image, section#goal .image {
   line-height: 0; }
 
-section#type .image img, section#goal .image img {
+section#type .image img {
   width: 100%; }
+
+section#goal .image img {
+  width: 3em;
+  height: 3em;
+  margin: 1em 0; }
 
 section#goal table {
   table-layout: fixed;
