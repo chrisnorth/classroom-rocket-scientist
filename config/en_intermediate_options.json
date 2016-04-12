@@ -1025,7 +1025,7 @@
 			},
             {
 				"title": "Vegetation mapping",
-				"description": "Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmitting the images back to the ground.",
+				"description": "Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmit the images back to the ground.",
 				"image": {
 					"file": "images/vegetation.jpg",
 					"alt": "Vegetation",
