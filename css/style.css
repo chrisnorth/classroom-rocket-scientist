@@ -869,10 +869,14 @@ section#launch p {
 
 section#type .holder {
   width: 33%;
-  padding: 0 1em; }
+  vertical-align: middle; }
 
 section#type .holder p {
   text-align: left; }
+
+section .holder {
+  padding: 0 0.5em 0.5em 0.5em;
+  vertical-align: top; }
 
 section#type .image, section#goal .image {
   line-height: 0; }
@@ -884,15 +888,6 @@ section#goal .image img {
   width: 3em;
   height: 3em;
   margin: 1em 0; }
-
-section#goal table {
-  table-layout: fixed;
-  width: 100%;
-  vertical-align: middle;
-  text-align: center; }
-
-section#goal .holder-holder > table td {
-  padding: 0 0.5em; }
 
 section#goal table p {
   text-align: left; }

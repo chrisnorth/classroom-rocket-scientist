@@ -376,21 +376,17 @@ section.view.slideInLeft {
 
 section#launch { background-color: $black-1; color: $grey-5; }
 section#launch p { max-width: 500px; margin: auto; }
-section#type .holder { width: 33%; padding: 0 1em; }
+section#type .holder { width: 33%; vertical-align: middle; }
 section#type .holder p { text-align: left; }
+
+section .holder {
+	padding: 0 $padded*0.25 $padded*0.25 $padded*0.25;
+	vertical-align: top;
+}
 
 section#type .image, section#goal .image { line-height: 0; }
 section#type .image img { width: 100%; }
 section#goal .image img { width: 3em; height: 3em; margin: $padded*0.5 0; }
-section#goal table {
-	table-layout: fixed;
-	width: 100%;
-	vertical-align: middle;
-	text-align: center;
-}
-section#goal .holder-holder > table td {
-	padding: 0 $padded*0.25;
-}
 
 section#goal table p { text-align: left; }
 .page { height: auto; display: block; width: 100%; }
