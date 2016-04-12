@@ -881,7 +881,7 @@
 				"image": {
 					"file": "images/icon-topography.png",
 					"alt": "Map-making",
-					"credit": "Nono Martínez Alonso"
+					"credit": "parkjisun"
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{

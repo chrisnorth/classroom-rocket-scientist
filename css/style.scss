@@ -373,15 +373,15 @@ section.view.slideInLeft {
 
 section#launch { background-color: $black-1; color: $grey-5; }
 section#launch p { max-width: 500px; margin: auto; }
+section#goal .holder,section#type .holder {
+	padding: 0 $padded*0.25 $padded*0.25 $padded*0.25;
+	vertical-align: top;
+}
 section#type .holder { width: 33%; vertical-align: middle; }
 section#type .holder p { text-align: left; }
 
 section .holder-holder {
 	table-layout: fixed;
-}
-section .holder {
-	padding: 0 $padded*0.25 $padded*0.25 $padded*0.25;
-	vertical-align: top;
 }
 
 section#type .image, section#goal .image { line-height: 0; }

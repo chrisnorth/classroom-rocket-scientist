@@ -858,6 +858,10 @@ section#launch p {
   max-width: 500px;
   margin: auto; }
 
+section#goal .holder, section#type .holder {
+  padding: 0 0.5em 0.5em 0.5em;
+  vertical-align: top; }
+
 section#type .holder {
   width: 33%;
   vertical-align: middle; }
@@ -867,10 +871,6 @@ section#type .holder p {
 
 section .holder-holder {
   table-layout: fixed; }
-
-section .holder {
-  padding: 0 0.5em 0.5em 0.5em;
-  vertical-align: top; }
 
 section#type .image, section#goal .image {
   line-height: 0; }
