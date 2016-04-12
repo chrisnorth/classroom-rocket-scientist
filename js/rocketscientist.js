@@ -499,17 +499,15 @@ var rs;
 		for(var j in this.choices.slots){
 			for(var i = 0; i < this.choices.slots[j].length; i++) ch.push(this.choices.slots[j][i]);
 		}
-		console.log(ch)
 		var ok;
 		for(var i = 0; i < this.requirements.length; i++){
 			ok = false;
 			for(var o = 0; o < this.requirements[i].oneof.length; o++){
 				for(var c = 0; c < ch.length; c++){
-					if(ch[c] == this.requirements[i].oneof) ok = true;
+					if(ch[c] == this.requirements[i].oneof[o]) ok = true;
 				}
 			}
 			this.requirements[i].met = ok;
-			console.log(this.requirements[i],ok)
 		}
 	}
 	// Choose the bus size
