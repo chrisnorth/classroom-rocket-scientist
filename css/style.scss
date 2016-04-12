@@ -379,6 +379,9 @@ section#launch p { max-width: 500px; margin: auto; }
 section#type .holder { width: 33%; vertical-align: middle; }
 section#type .holder p { text-align: left; }
 
+section .holder-holder {
+	table-layout: fixed;
+}
 section .holder {
 	padding: 0 $padded*0.25 $padded*0.25 $padded*0.25;
 	vertical-align: top;

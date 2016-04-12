@@ -874,6 +874,9 @@ section#type .holder {
 section#type .holder p {
   text-align: left; }
 
+section .holder-holder {
+  table-layout: fixed; }
+
 section .holder {
   padding: 0 0.5em 0.5em 0.5em;
   vertical-align: top; }
