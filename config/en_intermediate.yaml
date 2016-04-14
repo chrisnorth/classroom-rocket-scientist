@@ -37,32 +37,32 @@ ui.sections.goal.intro:                     Make sure to take a note of the budg
 ui.sections.bus.short:                      Size
 ui.sections.bus.title:                      Choose the size of your satellite
 ui.sections.bus.intro:                      The size of your satellite matters. It needs to be big enough to hold all the instruments you need. Be careful though. The bigger your satellite, the more expensive it is.
-ui.sections.bus.type:                       Type: 
-ui.sections.bus.cost:                       Structure cost: 
-ui.sections.bus.mass:                       Payload mass: 
-ui.sections.bus.structure:                  Structure mass: 
-ui.sections.bus.size:                       Structure size: 
+ui.sections.bus.type:                       Type:
+ui.sections.bus.cost:                       Structure cost:
+ui.sections.bus.mass:                       Payload mass:
+ui.sections.bus.structure:                  Structure mass:
+ui.sections.bus.size:                       Structure size:
 ui.sections.orbit.short:                    Orbit
 ui.sections.orbit.title:                    Select the orbit for your satellite
 ui.sections.orbit.intro:                    There are several different orbits around the Earth that you can choose from. Higher orbits need more powerful rockets to get to them.
-ui.sections.orbit.list:                     Available orbits: 
-ui.sections.orbit.altitude:                 Altitude: 
-ui.sections.orbit.period:                   Period: 
+ui.sections.orbit.list:                     Available orbits:
+ui.sections.orbit.altitude:                 Altitude:
+ui.sections.orbit.period:                   Period:
 ui.sections.instrument.short:               Instruments
 ui.sections.instrument.title:               Select the instruments for your satellite
 ui.sections.instrument.intro:               To complete your mission you will need the correct instruments. You only have a limited number of slots and money so choose wisely.
-ui.sections.instrument.list:                Available instruments: 
+ui.sections.instrument.list:                Available instruments:
 ui.sections.power.short:                    Power
 ui.sections.power.title:                    Add power
 ui.sections.power.intro:                    Your satellite needs power. There are different ways to do that. You can use solar panels on the sides of the satellite, deployable solar panels, and batteries.
-ui.sections.power.list:                     Available power devices: 
+ui.sections.power.list:                     Available power devices:
 ui.sections.rocket.short:                   Rocket
 ui.sections.rocket.title:                   Build your rocket
 ui.sections.rocket.intro:                   Now you have a satellite you need to build a multi-stage rocket. The top of the rocket will hold your satellite so needs to be big enough. The lower stages need to be big enough to support those above.
-ui.sections.rocket.size:                    Diameter: 
-ui.sections.rocket.drymass:                 Dry mass: 
-ui.sections.rocket.fuel:                    Fuel: 
-ui.sections.rocket.cost:                    Cost: 
+ui.sections.rocket.size:                    Diameter:
+ui.sections.rocket.drymass:                 Dry mass:
+ui.sections.rocket.fuel:                    Fuel:
+ui.sections.rocket.cost:                    Cost:
 ui.sections.launch.short:                   Launch
 ui.sections.launch.title:                   Ready to launch?
 ui.sections.launch.checklist:               We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail.
@@ -124,7 +124,7 @@ package.dish-small.description:             Radio dish capable of controlling an
 package.radio-antenna-cube.title:           Radio antenna (deployable)
 package.radio-antenna-cube.description:     Deployable radio antenna capable of controlling and transmitting images & data from up to 2 instruments.
 package.internet-en.title: Internet encoder
-package.internet-en.description: 
+package.internet-en.description:
 package.tv-en.title: TV encoder
 package.tv-en.description:
 package.battery-large.title:                Large battery
@@ -172,7 +172,7 @@ scenarios.NAV.map.req.orbit.error: The orbit you have chosen does not allow your
 scenarios.COMMS.title:                      Communication
 scenarios.COMMS.description:                These satellites are used for television, phone or internet transmissions. For example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.
 scenarios.COMMS.phone.title: Satellite telephone system
-scenarios.COMMS.phone.description: Lets people talk over the phone using satellites.
+scenarios.COMMS.phone.description: Lets people talk over the phone from remote regions of the world using satellites.
 scenarios.COMMS.phone.req.radio-tx.label: A way to send signals.
 scenarios.COMMS.phone.req.radio-tx.error: Your satellite does not have a way to send signals to the ground.
 scenarios.COMMS.phone.req.radio-rx.label: A way to receive signals.
@@ -180,7 +180,7 @@ scenarios.COMMS.phone.req.radio-rx.error: Your satellite does not have a way to 
 scenarios.COMMS.phone.req.orbit.label: Satellite is continuously above one area of Earth
 scenarios.COMMS.phone.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
 scenarios.COMMS.internet.title: Satellite internet
-scenarios.COMMS.internet.description: Connect to the internet using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.
+scenarios.COMMS.internet.description: Connect to the internet from remote regions of the world using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.
 scenarios.COMMS.internet.req.radio-tx.label: A way to send signals.
 scenarios.COMMS.internet.req.radio-tx.error: You do not have a way to send signals to the ground.
 scenarios.COMMS.internet.req.radio-rx.label: A way to receive signals.
@@ -202,7 +202,7 @@ scenarios.COMMS.tv.req.orbit.error: The orbit you have chosen means your satelli
 scenarios.EO.title:                         Earth Observation
 scenarios.EO.description:                   These satellites are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.
 scenarios.EO.weather.title: Weather forecasting
-scenarios.EO.weather.description: Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean. 
+scenarios.EO.weather.description: Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean.
 scenarios.EO.weather.req.camera-fir.label: Infrared light identifies cloud types and temperatures on Earth.
 scenarios.EO.weather.req.camera-fir.error: You do not have a way to identify cloud types and measure temperatures on Earth.
 scenarios.EO.weather.req.camera-opt.label: To take images of clouds and weather systems on Earth.
@@ -230,7 +230,7 @@ scenarios.EO.disaster.req.camera-nir.error: You do not have a way to detect fire
 scenarios.EO.disaster.req.orbit.label: See detail of planet surface.
 scenarios.EO.disaster.req.orbit.error: The orbit you have chosen does not allow you to see the disaster region in enough detail.
 scenarios.EO.surface.title: Surface mapping
-scenarios.EO.surface.description: Measure the varying height of land and oceans over the Earth's surface. 
+scenarios.EO.surface.description: Measure the varying height of land and oceans over the Earth's surface.
 scenarios.EO.surface.req.radar-alt.label: To measure the height of the ground in very high resolution.
 scenarios.EO.surface.req.radar-alt.error: You do not have a way to measure the height of the ground in very high resolution.
 scenarios.EO.surface.req.dish.label: Radar altimeter requires a radar dish to work.
