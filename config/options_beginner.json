@@ -38,16 +38,6 @@
 		"title": "%ui.sections.launch.title%"
 	}],
 	"bus": {
-		"cube": {
-			"slots": { "0x2": 1, "1x1": 2, "1x2": 1, "3x3": 1 },
-			"cost": { "value": 0.5, "units": "credits", "dimension": "currency" },
-			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
-			"structure": { "value": 0.3, "units": "kg", "dimension": "mass" },
-			"width": { "value": 0.1, "units": "m", "dimension": "length" },
-			"height": { "value": 0.1, "units": "m", "dimension": "length" },
-			"depth": { "value": 0.1, "units": "m", "dimension": "length" },
-			"area": { "value": 0.1, "units": "m^2", "dimension": "area" }
-		},
 		"small": {
 			"slots": { "2x2": 2, "2x4": 1, "3x3": 1, "4x4": 4 },
 			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
