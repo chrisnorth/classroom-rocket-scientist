@@ -22,12 +22,12 @@
 		"id": "instrument",
 		"short": "Instruments",
 		"title": "Select the instruments for your satellite",
-		"list": "Available instruments: "
+		"list": "Available instruments:"
 	},{
 		"id": "power",
 		"short": "Power",
 		"title": "Add power",
-		"list": "Available power devices: "
+		"list": "Available power sources:"
 	},{
 		"id": "rocket",
 		"short": "Rocket",
@@ -38,16 +38,6 @@
 		"title": "Ready to launch?"
 	}],
 	"bus": {
-		"cube": {
-			"slots": { "0x2": 1, "1x1": 2, "1x2": 1, "3x3": 1 },
-			"cost": { "value": 0.5, "units": "credits", "dimension": "currency" },
-			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
-			"structure": { "value": 0.3, "units": "kg", "dimension": "mass" },
-			"width": { "value": 0.1, "units": "m", "dimension": "length" },
-			"height": { "value": 0.1, "units": "m", "dimension": "length" },
-			"depth": { "value": 0.1, "units": "m", "dimension": "length" },
-			"area": { "value": 0.1, "units": "m^2", "dimension": "area" }
-		},
 		"small": {
 			"slots": { "2x2": 2, "2x4": 1, "3x3": 1, "4x4": 4 },
 			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
@@ -82,8 +72,8 @@
 	"package": {
 		"camera-opt" : {
 			"slot": "2x2",
-			"title": "Optical camera",
-			"description": "Provides images of the ground, such as for mapping or for monitoring natural disasters. Can also be used to monitor cloud cover. The resolution depends on the orbit altitude.",
+			"title": "Camera",
+			"description": "Takes pictures of the ground. Can be used to create maps or for tracking natural disasters, such as floods or volcanic eruptions. Can also be used to track clouds. The amount of detail depends how high above the ground your satellite is orbiting.",
 			"texture": {
 				"icon": "texture camera-opt"
 			},
@@ -98,8 +88,8 @@
 		},
         "camera-opt-hires" : {
 			"slot": "2x4",
-			"title": "High-resolution optical camera",
-			"description": "Provides very high-resolution images of the ground, such as for monitoring natural disasters, but only when used in low-Earth orbit.",
+			"title": "Powerful camera",
+			"description": "Takes very detailed pictures of the ground. Can be used for tracking natural disasters, such as floods or volcanic eruptions, but only when your satellite is in low-Earth orbit.",
 			"texture": {
 				"icon": "texture camera-opt-hires"
 			},
@@ -114,8 +104,8 @@
 		},
 		"camera-nir": {
 			"slot":	"2x2",
-			"title": "Vegetation camera",
-			"description": "Provides infrared images of vegetation and land-usage on the ground. Only works in daylight, as it relies on reflected sunlight.",
+			"title": "Plant Life camera",
+			"description": "Takes images of plants and farmland on the ground. Only works in during the day, as it captures sunlight reflecting off the ground.",
 			"texture": {
 				"icon": "texture camera-nir"
 			},
@@ -130,7 +120,7 @@
 		},
 		"camera-fir": {
 			"slot":	"2x4",
-			"title": "Atmospheric camera",
+			"title": "Atmosphere camera",
 			"description": "Provides infrared images of the clouds and weather systems in the Earth's atmosphere, useful for weather forecasting and climate monitoring, even during darkness.",
 			"texture": {
 				"icon": "texture camera-fir"
@@ -146,8 +136,8 @@
 		},
 		"spect-opt": {
 			"slot":	"2x2",
-			"title": "Optical Spectrometer",
-			"description": "Measures detailed properties of the Earth's surface, such as deforestation.",
+			"title": "Light Prism",
+			"description": "Studies changes on the Earth's surface, such as shrinking forests and lakes.",
 			"texture": {
 				"icon": "texture spect-opt"
 			},
@@ -162,8 +152,8 @@
 		},
 		"spect-nir": {
 			"slot":	"2x2",
-			"title": "Vegetation Spectrometer",
-			"description": "Measures the properties of vegetation on the ground, such as type of vegetation and how healthy it is.",
+			"title": "Plant Life Prism",
+			"description": "Studies plant life on the ground, measuring the different types of plant life and how healthy it is.",
 			"texture": {
 				"icon": "texture spect-nir"
 			},
@@ -178,8 +168,8 @@
 		},
 		"spect-fir": {
 			"slot":	"2x4",
-			"title": "Atmospheric Spectrometer",
-			"description": "Uses infrared light to measure properties of the Earth's atmosphere, such as clouds, moisture level, surface temperature and air temperature, even during darkness.",
+			"title": "Atmosphere Prism",
+			"description": "Uses light to study Earth's atmosphere, even during nighttime. Used to look at the clouds, ground temperature and air temperature.",
 			"texture": {
 				"icon": "texture spect-fir"
 			},
@@ -194,8 +184,8 @@
 		},
 		"radar-alt": {
 			"slot":	"2x4",
-			"title": "Radar altimeter",
-			"description": "Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earthquakes. Requires a radar dish to work.",
+			"title": "Terrain Mapper",
+			"description": "Uses radio waves to measure the shape of the ground in great detail. Can be used to map the mountains and valleys on the Earth's surface. Also provides information about the effect of earthquakes. Requires a radio dish to work.",
 			"texture": {
 				"icon": "texture radar-alt"
 			},
@@ -210,14 +200,14 @@
 			"requires": [{
 				"type": "package",
 				"oneof": ["radar-dish"],
-				"label": "Requires a radar dish",
-				"error": "You need to include a radar dish for the altimeter to work."
+				"label": "Requires a radio dish",
+				"error": "You need to include a radio dish for the terrain mapper to work."
 			}]
 		},
 		"radar-dish": {
 			"slot":	"4x8",
-			"title": "Radar dish",
-			"description": "Transmits and receives radio waves for the radar altimeter",
+			"title": "Radio dish",
+			"description": "Sends and receives radio waves for the terrain mapper",
 			"texture": {
 				"icon": "",
 				"class": "-bg radar",
@@ -251,7 +241,7 @@
 		"radio-tx": {
 			"slot":	"2x2",
 			"title": "Radio transmitter",
-			"description": "Transmits information collected by the satellite to the ground",
+			"description": "Sends information collected by the satellite to Earth",
 			"texture": {
 				"icon": "texture radio-tx"
 			},
@@ -267,7 +257,7 @@
 		"atomic-clock": {
 			"slot":	"2x2",
 			"title": "Atomic clock",
-			"description": "Very accurate clock, required by navigation satellites to measure the time to very high precision.",
+			"description": "Very accurate clock. Navigation satellites need these to measure the time very precisely.",
 			"texture": {
 				"icon": "texture atomic-clock"
 			},
@@ -282,8 +272,8 @@
 		},
 		"atomic-clock-small": {
 			"slot":	"1x2",
-			"title": "Atomic clock (compact)",
-			"description": "Very accurate clock, required by navigation satellites to measure the time to very high precision.",
+			"title": "Atomic clock (small)",
+			"description": "Very accurate clock. Navigation satellites need these to measure the time very precisely.",
 			"texture": {
 				"icon": "texture atomic-clock-small"
 			},
@@ -299,7 +289,7 @@
 		"gps-rx": {
 			"slot":	"1x1",
 			"title": "GPS receiver (miniature)",
-			"description": "Used to monitor the satellite's position to very high accuracy",
+			"description": "Used to monitor the satellite's position very accurately",
 			"texture": {
 				"icon": "texture gps-rx"
 			},
@@ -315,7 +305,7 @@
 		"camera-mini": {
 			"slot":	"1x1",
 			"title": "Camera (miniature)",
-			"description": "Takes images of the ground",
+			"description": "Takes pictures of the ground",
 			"texture": {
 				"icon": "texture camera-mini"
 			},
@@ -331,7 +321,7 @@
 		"dish-large": {
 			"slot":	"4x8",
 			"title": "Radio dish (large)",
-			"description": "Radio dish capable of controlling and transmitting images & data from up to 8 instruments",
+			"description": "Controlling and transmitting images & data from up to 8 instruments",
 			"texture": {
 				"icon": "",
 				"class": "-bg radio",
@@ -349,7 +339,7 @@
 		"dish-medium": {
 			"slot":	"2x4",
 			"title": "Radio dish",
-			"description": "Radio dish capable of controlling and transmitting images & data from up to 4 instruments",
+			"description": "Controls up to 4 instruments. Also sends images & data collected by instruments to Earth.",
 			"texture": {
 				"icon": "",
 				"class": "-bg radio",
@@ -366,8 +356,8 @@
 		},
 		"dish-small": {
 			"slot":	"1x2",
-			"title": "Radio antenna (compact)",
-			"description": "Radio dish capable of controlling and transmitting images & data from up to 2 instruments",
+			"title": "Radio antenna (small)",
+			"description": "Controls up to 2 instruments. Also sends images & data collected by instruments to Earth.",
 			"texture": {
 				"icon": "",
 				"class": "-bg radio",
@@ -384,8 +374,8 @@
 		},
 		"radio-antenna-cube": {
 			"slot":	"0x2",
-			"title": "Radio antenna (deployable)",
-			"description": "Deployable radio antenna capable of controlling and transmitting images & data from up to 2 instruments.",
+			"title": "Radio antenna (unfolded)",
+			"description": "Controls up to 2 instruments. Also sends images & data collected by instruments to Earth.",
 			"texture": {
 				"icon": "texture radio-antenna-cube",
 				"class": "-bg",
@@ -437,8 +427,8 @@
 	"power": {
 		"solar-panel-surface": {
 			"slot":	"3x3",
-			"title": "Body-mounted solar panel",
-			"description": "Solar panels mounted onto surface of satellite, collecting sunlight to provide power. Can power instruments, or charge up batteries.",
+			"title": "Solar panels",
+			"description": "Solar panels fixed to the satellite. Collect sunlight to provide power. Can power instruments or charge up batteries.",
 			"mass": { "value": 5, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 15, "units": "credits", "dimension": "currency" },
 			"dimensions": [
@@ -451,8 +441,8 @@
 		"solar-panel": {
 			"slot":	"4x4",
 			"max": 4,
-			"title": "Deployable solar panel",
-			"description": "Solar panels deployed from edge of satellite, collecting sunlight to provide power. Can power instruments, or charge up batteries.",
+			"title": "Solar panel wings",
+			"description": "Solar panels unfolded from the edge of the satellite. Collect sunlight to provide power. Can power instruments or charge up batteries.",
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 20, "units": "credits", "dimension": "currency" },
 			"dimensions": [
@@ -743,26 +733,26 @@
 	}],
 	"orbit": {
 		"LEO": {
-			"title": "Low-Earth orbit",
-			"description": "Satellites in low-Earth orbit pass over a different part of the Earth in each orbit. It is cheaper to send satellites to Low-Earth orbit than other orbits and satellites here can be reached for repairs. Low-Earth orbit satellites can look at small areas in high detail for short periods of time.",
+			"title": "Low orbit",
+			"description": "Satellites in low-Earth orbit are closest to the Earth. They pass over a different part of the Earth in each orbit. It is cheaper to send satellites to Low-Earth orbit than other orbits and satellites here can be reached for repairs. Low-Earth orbit satellites can look at small areas in lots of detail for a short time.",
 			"altitude": { "value": 400, "units": "km", "dimension": "length" },
 			"period": { "value": 90, "units": "minutes", "dimension": "time" }
 		},
 		"MEO": {
 			"title": "Medium-Earth orbit",
-			"description": "Satellites in medium-Earth orbit are higher above the Earth than low-Earth orbits, but lower than geostationary orbits. They cover a different part of Earth in each orbit. They can see a larger area in less detail than low-Earth orbits.",
+			"description": "Satellites in medium-Earth orbit are higher above the Earth than those in low-Earth orbits, but lower than geostationary orbits. They cover a different part of Earth in each orbit. They can see a larger area than low-Earth orbits but in less detail.",
 			"altitude": { "value": 2000, "units": "km", "dimension": "length" },
 			"period": { "value": 2, "units": "hours", "dimension": "time" }
 		},
 		"HEO": {
-			"title": "Highly-elliptical orbit",
-			"description": "Highly-elliptical orbits are much closer to the Earth at one point in their orbit than another, giving an elongated (elliptical) rather than circular orbit. They are useful for covering areas including polar regions. More than one satellite can be used for continuous coverage of an area.",
+			"title": "Elliptical orbit",
+			"description": "Elliptical orbits are much closer to the Earth at one point in their orbit than another. They travel along an elliptical path, shaped like a rugby ball, rather than circular one. They are useful for covering areas such as the North and South Poles.",
 			"altitude": { "value": 20000, "units": "km", "dimension": "length" },
 			"period": { "value": 12, "units": "hours", "dimension": "time" }
 		},
 		"GEO": {
 			"title": "Geo-stationary orbit",
-			"description": "Satellites in geostationary orbits stay above the same location on Earth near the equator and complete a full orbit in 24 hours. They are much higher above the Earth's surface than other orbits, so can see the entire hemisphere in less detail.",
+			"description": "Satellites in geostationary (pronounced jee-oh-stay-shon-ary) orbits stay above the same part of Earth and move with the planet as it rotates. They are much higher above the Earth's surface than other orbits, so can see huge areas but not in much detail.",
 			"altitude": { "value": 35786, "units": "km", "dimension": "length" },
 			"period": { "value": 24, "units": "hours", "dimension": "time" }
 		}
@@ -770,19 +760,19 @@
 	"scenarios": {
 		"NAV": {
 			"title": "Navigation",
-			"description": "The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension=\"length\" data-units=\"km\" data-value=\"20000\" class=\"value convertable\">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.",
+			"description": "GPS is made up of 24 satellites that orbit <span data-dimension=\"length\" data-units=\"km\" data-value=\"20000\" class=\"value convertable\">20,000 km</span> above the surface of the Earth. It is possible to work out the exact location of a GPS reciever on Earth (e.g. in a mobile phone) by timing exactly how long it takes for four of these satellites to communicate with the reciever.",
 			"image": {
 				"file": "images/icon-nav.png",
 				"alt": "Navigation",
 				"credit": "parkjisun"
 			},
 			"missions": [{
-				"title": "Satellite Navigation System",
-				"description": "Uses signals from four navigation satellites so satnav users can find their location on Earth. Need to be able to see half a hemisphere at a time, measure time accurately and transmit signals of the location.",
+				"title": "",
+				"description": "Uses signals from four navigation satellites so sat nav users can find their location on Earth. Need to be able to see huge area of Earth at a time, measure time accurately and send information about the location.",
 				"success": "",
 				"image": {
 					"file": "images/icon-mapmarker.png",
-					"alt": "Satellite Navigation System",
+					"alt": "",
 					"credit": "Housin Aziz"
 				},
 				"choices": {
@@ -798,13 +788,13 @@
 				},{
 					"type": "package",
 					"oneof": ["atomicclock"],
-					"label": "Needs to be able to measure time very accurately",
+					"label": "Needs to be able to measure time very accurately.",
 					"error": "You are not able to measure the time accurately enough."
 				},{
 					"type": "package",
 					"oneof": ["radio_tx"],
 					"label": "A way to send signals.",
-					"error": "Your satellite does not have any way to transmit timing signals to people on the ground."
+					"error": "Your satellite does not have any way to send signals to people on the ground."
 				},{
 					"type": "orbit",
 					"oneof": ["HEO","GEO"],
@@ -851,7 +841,7 @@
 			},
 			"missions": [{
 				"title": "Satellite telephone system",
-				"description": "Lets people talk over the phone using satellites.",
+				"description": "Lets people talk over the phone from remote regions of the world using satellites.",
 				"image": {
 					"file": "images/icon-phone.png",
 					"alt": "Satellite telephone system",
@@ -914,7 +904,7 @@
 				}]
 			},{
 				"title": "Satellite internet",
-				"description": "Connect to the internet using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.",
+				"description": "Connect to the internet from remote regions of the world using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.",
 				"image": {
 					"file": "images/icon-internet.png",
 					"alt": "Satellite internet",
@@ -958,7 +948,7 @@
 			},
 			"missions": [{
 				"title": "Weather forecasting",
-				"description": "Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean. ",
+				"description": "Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean.",
 				"image": {
 					"file": "images/icon-cloud.png",
 					"alt": "Weather forecasting",
@@ -1055,7 +1045,7 @@
 				}]
 			},{
 				"title": "Surface mapping",
-				"description": "Measure the varying height of land and oceans over the Earth's surface. ",
+				"description": "Measure the varying height of land and oceans over the Earth's surface.",
 				"image": {
 					"file": "images/icon-surface.png",
 					"alt": "Surface mapping",

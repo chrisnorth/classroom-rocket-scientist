@@ -19,12 +19,12 @@
 		"id": "instrument",
 		"short": "Instruments",
 		"title": "Select the instruments for your satellite",
-		"list": "Available instruments: "
+		"list": "Available instruments:"
 	},{
 		"id": "power",
 		"short": "Power",
 		"title": "Add power",
-		"list": "Available power devices: "
+		"list": "Available power devices:"
 	},{
 		"id": "rocket",
 		"short": "Rocket",
@@ -908,7 +908,7 @@
 			},
 			"missions": [{
 				"title": "Satellite telephone system",
-				"description": "Lets people talk over the phone using satellites.",
+				"description": "Lets people talk over the phone from remote regions of the world using satellites.",
 				"image": {
 					"file": "images/icon-phone.png",
 					"alt": "Satellite telephone system",
@@ -963,7 +963,7 @@
 				}]
 			},{
 				"title": "Satellite internet",
-				"description": "Connect to the internet using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.",
+				"description": "Connect to the internet from remote regions of the world using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.",
 				"image": {
 					"file": "images/icon-internet.png",
 					"alt": "Satellite internet",
@@ -1003,7 +1003,7 @@
 			},
 			"missions": [{
 				"title": "Weather forecasting",
-				"description": "Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean. ",
+				"description": "Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean.",
 				"image": {
 					"file": "images/icon-cloud.png",
 					"alt": "Weather forecasting",
@@ -1088,7 +1088,7 @@
 				}]
 			},{
 				"title": "Surface mapping",
-				"description": "Measure the varying height of land and oceans over the Earth's surface. ",
+				"description": "Measure the varying height of land and oceans over the Earth's surface.",
 				"image": {
 					"file": "images/icon-surface.png",
 					"alt": "Surface mapping",

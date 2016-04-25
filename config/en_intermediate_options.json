@@ -22,12 +22,12 @@
 		"id": "instrument",
 		"short": "Instruments",
 		"title": "Select the instruments for your satellite",
-		"list": "Available instruments: "
+		"list": "Available instruments:"
 	},{
 		"id": "power",
 		"short": "Power",
 		"title": "Add power",
-		"list": "Available power devices: "
+		"list": "Available power devices:"
 	},{
 		"id": "rocket",
 		"short": "Rocket",
@@ -38,16 +38,6 @@
 		"title": "Ready to launch?"
 	}],
 	"bus": {
-		"cube": {
-			"slots": { "0x2": 1, "1x1": 2, "1x2": 1, "3x3": 1 },
-			"cost": { "value": 0.5, "units": "credits", "dimension": "currency" },
-			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
-			"structure": { "value": 0.3, "units": "kg", "dimension": "mass" },
-			"width": { "value": 0.1, "units": "m", "dimension": "length" },
-			"height": { "value": 0.1, "units": "m", "dimension": "length" },
-			"depth": { "value": 0.1, "units": "m", "dimension": "length" },
-			"area": { "value": 0.1, "units": "m^2", "dimension": "area" }
-		},
 		"small": {
 			"slots": { "2x2": 2, "2x4": 1, "3x3": 1, "4x4": 4 },
 			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
@@ -909,7 +899,7 @@
 			},
 			"missions": [{
 				"title": "Satellite telephone system",
-				"description": "Lets people talk over the phone using satellites.",
+				"description": "Lets people talk over the phone from remote regions of the world using satellites.",
 				"image": {
 					"file": "images/icon-phone.png",
 					"alt": "Satellite telephone system",
@@ -964,7 +954,7 @@
 				}]
 			},{
 				"title": "Satellite internet",
-				"description": "Connect to the internet using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.",
+				"description": "Connect to the internet from remote regions of the world using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.",
 				"image": {
 					"file": "images/icon-internet.png",
 					"alt": "Satellite internet",
@@ -1004,7 +994,7 @@
 			},
 			"missions": [{
 				"title": "Weather forecasting",
-				"description": "Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean. ",
+				"description": "Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean.",
 				"image": {
 					"file": "images/icon-cloud.png",
 					"alt": "Weather forecasting",
@@ -1089,7 +1079,7 @@
 				}]
 			},{
 				"title": "Surface mapping",
-				"description": "Measure the varying height of land and oceans over the Earth's surface. ",
+				"description": "Measure the varying height of land and oceans over the Earth's surface.",
 				"image": {
 					"file": "images/icon-surface.png",
 					"alt": "Surface mapping",
