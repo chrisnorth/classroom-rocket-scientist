@@ -33,6 +33,7 @@ function Convertable(v,u,d){
 			"m^2": { "unit": "&thinsp;m&sup2;", "dimension": "area", "conv": 1 },
 			"N": { "unit": "&thinsp;N", "dimension": "force", "conv": 1 },
 			"kN": { "unit": "&thinsp;kN", "dimension": "force", "conv": 1000 },
+			"poundal": { "unit": "&thinsp;poundal", "dimension": "force", "conv": 0.138254954376 },
 			"K": { "unit": "&thinsp;K", "dimension": "temperature" },
 			"C": { "unit": "&deg;C", "dimension": "temperature" },
 			"F": { "unit": "&deg;F", "dimension": "temperature" },
