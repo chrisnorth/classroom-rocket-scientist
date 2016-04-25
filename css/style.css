@@ -1104,6 +1104,26 @@ section.fullpage .container {
   display: block;
   background: none; }
 
+.rocket-builder .payload-holder {
+  bottom: 0;
+  left: 20%;
+  position: absolute;
+  right: 20%;
+  top: 0;
+  vertical-align: middle;
+  display: table-cell; }
+
+.rocket-builder .payload-dummy {
+  height: 40%;
+  top: 60%;
+  border: 2px dashed #000000;
+  border-bottom: 0px;
+  background-color: #808080;
+  margin: auto;
+  opacity: 0.3;
+  position: relative;
+  text-align: center; }
+
 .rocket-builder .payloadbay .part {
   top: 20%; }
 

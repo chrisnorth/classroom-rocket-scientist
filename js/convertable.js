@@ -17,6 +17,7 @@ function Convertable(v,u,d){
 			"currency": "GBP",
 			"force": "kN",
 			"power": "watts",
+			"velocity": "m/s",
 			"powerdensity": "watts/m^2"
 		},
 		"units": {
@@ -47,10 +48,13 @@ function Convertable(v,u,d){
 			"hours": { "unit": "&thinsp;hours", "dimension": "time", "conv": 3600 },
 			"minutes": { "unit": "&thinsp;minutes", "dimension": "time", "conv": 60 },
 			"seconds": { "unit": "&thinsp;seconds", "dimension": "time", "conv": 1 },
+			"s": { "unit": "&thinsp;seconds", "dimension": "time", "conv": 1 },
 			"%": { "unit": "%", "dimension": "percent" },
 			"degrees": { "unit": "&deg;", "dimension": "angle", "conv": 1 },
 			"arcmin": { "unit": "'", "dimension": "angle", "conv": 1/60 },
-			"arcsec": { "unit": "\"", "dimension": "angle", "conv": 1/3600 }
+			"arcsec": { "unit": "\"", "dimension": "angle", "conv": 1/3600 },
+			"m/s": { "unit": "&thinsp;m/s", "dimension": "velocity", "conv": 1 },
+			"kg/s": { "unit": "&thinsp;kg/s", "dimension": "massflowrate", "conv": 1 }
 		},
 		"currency": {
 			"GBP": { "symbol": "&pound;", "conv": 1 },
