@@ -1,5 +1,5 @@
 Stage Name,Size,Type,Fuselage Diameter/width (m),Height/length (m),Dry Mass (kg),Thrust (kN),Fuel Mass (kg),Specific Impulse (s),Notes
 None,None,None,0,0,0,0,0,0,No stage
-3rd Stage,Small,Solid-fuel rocket,2,2,1300,260,10000,315,Based on Vega 3rd stage (https://en.wikipedia.org/wiki/Vega_(rocket))
-3rd Stage,Medium,Solid-fuel rocket,3,7,2400,300,22000,360,Based on Inertial Upper Stage (https://en.wikipedia.org/wiki/Inertial_Upper_Stage)
-3rd Stage,Large,Liquid-fuel rocket,7,19,13500,1000,110000,420,Based on Saturn V 3rd stage (https://en.wikipedia.org/wiki/Saturn_V(
+3rd Stage,2m,Solid-fuel rocket,2,2,1300,260,10000,315,Based on Vega 3rd stage (https://en.wikipedia.org/wiki/Vega_(rocket))
+3rd Stage,3m,Solid-fuel rocket,3,7,2400,300,22000,360,Based on Inertial Upper Stage (https://en.wikipedia.org/wiki/Inertial_Upper_Stage)
+3rd Stage,7m,Liquid-fuel rocket,7,19,13500,1000,110000,420,Based on Saturn V 3rd stage (https://en.wikipedia.org/wiki/Saturn_V(
