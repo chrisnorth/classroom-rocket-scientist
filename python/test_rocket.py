@@ -1,17 +1,17 @@
 from astropy.table import Table,Column
-from numpy import log,sum,zeros,sqrt,nan
+from numpy import log,sum,zeros,sqrt,nan,pi
 from scipy import where
 from matplotlib import pyplot as plot
 
 ###########################
 ## Select rocket stages and orbit
 ###########################
-stage1='Large'
-stage2='Large'
-stage3='None'
-payload='Large'
+stage1='8m'
+stage2='8m'
+stage3='7m'
+payload='8m'
 
-n_boosters=2
+n_boosters=0
 
 orbit_name = 'GEO'
 
@@ -23,6 +23,7 @@ rocketdata={'1':Table.read('../data/stage1.csv',format='ascii.csv'),\
             '3':Table.read('../data/stage3.csv',format='ascii.csv'),\
             'P':Table.read('../data/payload.csv',format='ascii.csv'),\
             'B':Table.read('../data/boosters.csv',format='ascii.csv')}
+rocketdata['P'].remove_column('Max payload mass (kg)')
 
 sizes={'1':stage1,\
         '2':stage2,\
@@ -49,8 +50,10 @@ orbit={'Final':{'Name':orbit_name}}
 #calculate whether Hohmann transfer required
 if orbit['Final']['Name']!='LEO':
     orbit['Initial']={'Name':'LEO'}
+    LEOname='Initial'
     dotransfer=True
 else:
+    LEOname='Final'
     dotransfer=False
 
 for orb in orbit:
@@ -59,6 +62,10 @@ for orb in orbit:
             orbit[orb]['Altitude (m)']=orbitdata['Altitude (km)'][row]*1e3
             orbit[orb]['Radius (m)']=orbit[orb]['Altitude (m)'] + Rearth
             orbit[orb]['Orbital Speed (m/s)']=orbitdata['Orbital Speed (m/s)'][row]
+            orbit[orb]['Orbital Period (h)']=(2*pi/3600.)*orbit[orb]['Radius (m)']/orbit[orb]['Orbital Speed (m/s)']
+
+orbit['Drag']={'Name':'Atmospheric Drag',\
+    'Delta V (m/s)':1300}
 
 if dotransfer:
     #define Hohmann tranfer orbit (from https://en.wikipedia.org/wiki/Hohmann_transfer_orbit)
@@ -69,12 +76,12 @@ if dotransfer:
     r2=orbit['Final']['Radius (m)']
     dv1 = sqrt(GM/r1)*(sqrt(2*r2/(r1+r2))-1)
     dv2 = sqrt(GM/r2)*(1-sqrt(2*r1/(r1+r2)))
-    orbit['Transfer']['Delta V (m/s)']=dv1
-    orbit['Final']['Delta V (m/s)']=dv2
-    orbitnames=['Initial','Transfer','Final']
+    orbit['Transfer']['Delta V (m/s)']=dv1 + dv2
+    orbit['Final']['Delta V (m/s)']=0
+    orbitnames=['Initial','Drag','Transfer','Final']
 else:
     orbit['Final']['Delta V (m/s)']=orbit['Final']['Orbital Speed (m/s)']
-    orbitnames=['Final']
+    orbitnames=['Final','Drag']
 
 totorbitdv=0.
 for orb in orbit:
@@ -129,7 +136,7 @@ specim[where(specim==0)]=-1
 #fuel mass flow (thrust specific impulse)
 rocket.add_column(Column(thrust/(9.81*specim),name='Mass Flow (kg/s)'))
 massflow=rocket['Mass Flow (kg/s)']
-massflow[where(massflow==0)]=-1
+# massflow[where(massflow==0)]=-1
 #fuel burn time (thrust specific impulse)
 rocket.add_column(Column(fuelmass/massflow,name='Burn Time (s)'))
 burntime=rocket['Burn Time (s)']
@@ -169,14 +176,35 @@ else:
 
 print 'Rocket:'
 for s in range(nstage-1):
-    if rocket['Stage Name'][s]=='None':
-        continue
-    print '%s (%s): %.2f km/s (%.2f s)'%(rocket['Stage Name'][s],rocket['Size'][s],rocket['Final V (m/s)'][s]/1.e3,rocket['Burn Time (s)'][s])
+    # if rocket['Stage Name'][s]=='None':
+    #     continue
+    print '%s (%sm):'%(rocket['Stage Name'][s],rocket['Fuselage Diameter/width (m)'][s])
+    print '  Impulse: %g s'%(rocket['Specific Impulse (s)'][s])
+    print '  Thrust: %g kN'%(rocket['Thrust (kN)'][s])
+    print '  Fuel: %g kg'%(rocket['Fuel Mass (kg)'][s])
+    print '  Dry mass: %g kg'%(rocket['Dry Mass (kg)'][s])
+    print '  Diameter: %g m'%(rocket['Fuselage Diameter/width (m)'][s])
+    print '  Height: %g m'%(rocket['Height/length (m)'][s])
+    print '  V_eff: %g m/s'%(rocket['V_eff (m/s)'][s])
+    print '  Mass flow rate: %g km/s'%(rocket['Mass Flow (kg/s)'][s])
+    print '  Burn time: %g s'%(rocket['Burn Time (s)'][s])
+    print '  Mass (initial): %g kg'%(rocket['Initial Mass (kg)'][s])
+    print '  Mass (final): %g kg'%(rocket['Final Mass (kg)'][s])
+    print '  V (initial): %g m/s'%(rocket['Initial V (m/s)'][s])
+    print '  Delta-V: %g m/s'%(rocket['Delta V (m/s)'][s])
+    print '  V (final): %g m/s'%(rocket['Final V (m/s)'][s])
+    # print '%s (%sm): %.2f km/s (%.2f s)'%(rocket['Stage Name'][s],rocket['Fuselage Diameter/width (m)'][s],rocket['Final V (m/s)'][s]/1.e3,rocket['Burn Time (s)'][s])
 print '---'
 print 'Orbit delta-V:'
 for orb in orbitnames:
-    print '%s: %.2f km/s'%(orbit[orb]['Name'],orbit[orb]['Delta V (m/s)']/1.e3)
-print 'Total: %.2f km/s'%(orbit['Total']['Delta V (m/s)']/1.e3)
+    print '%s'%(orbit[orb]['Name'])
+    if orbit[orb].has_key('Orbital Speed (m/s)'):
+        print '  Altitude: %g km'%(orbit[orb]['Altitude (m)']/1.e3)
+        print '  Orbital period: %g h'%(orbit[orb]['Orbital Period (h)'])
+        print '  Orbital speed: %g m/s'%(orbit[orb]['Orbital Speed (m/s)'])
+    print '  Delta-V: %g m/s:'%(orbit[orb]['Delta V (m/s)'])
+    # print '%s: %.2f km/s'%(orbit[orb]['Name'],orbit[orb]['Delta V (m/s)']/1.e3)
+print 'Total for %s: %.2f km/s'%(orbit['Final']['Name'],orbit['Total']['Delta V (m/s)']/1.e3)
 print '---'
 if achievedorbit:
     print 'Orbit Achieved'
