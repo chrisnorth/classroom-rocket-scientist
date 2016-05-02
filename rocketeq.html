@@ -8,14 +8,13 @@
 	<link rel="stylesheet" media="all" href="css/style.css"  type="text/css" />
 	<!--[if !IE]> --><link href="tests/satellite/style-nonie.css" rel="stylesheet" type="text/css" media="screen" /><!-- <![endif]-->
 	<script type="text/javascript" src="js/convertable.js"></script>
+	<script type="text/javascript" src="js/rocketequation.js"></script>
 	<script type="text/javascript" src="js/stuquery.js"></script>
 	<script type="text/javascript">
-	var data;
-	var g = 9.81;
-	var keys = ['firststage','secondstage','thirdstage','payloadbay'];
 	S(document).ready(function(){
 		function processData(d){
-			data = d;
+			var keys = ['firststage','secondstage','thirdstage','payloadbay'];
+			var data = d;
 			var stages = new Array();
 			var form = '<h2>Choices</h2><div class="stages">';
 			for(var k = 0; k < keys.length; k++){
@@ -32,107 +31,68 @@
 			form += '<div class="stage orbit"><h3><label for="orbit">Orbit</label></h3>'+select+'<div class="bar bg-orbit"></div><ul></ul></div></div>';
 			S('#input').html(form);
 			S('#input select').on('change',function(){
-				updateEquation();
+				updateEquation(data,keys);
 			});
+			// Set default choices
 			S('#firststage').e[0].value = 1;
 			S('#secondstage').e[0].value = 3;
 			S('#thirdstage').e[0].value = 0;
 			S('#payloadbay').e[0].value = 3;
 			S('#orbit').e[0].value = "MEO";
-			updateEquation();
+
+			updateEquation(data,keys);
 		}
-		function updateEquation(){
+		function updateEquation(data,keys){
 			var stages = new Array();
-			var fields = [{'k':'impulse','label':'Impulse'},{'k':'thrust','label':'Thrust'},{'k':'fuel','label':'Fuel'},{'k':'drymass','label':'Dry mass'},{'k':'diameter','label':'Diameter'},{'k':'height','label':'Height'},{'k':'veff','label':'V<sub>eff</sub>'},{'k':'mfr','label':'Mass flow rate'},{'k':'burn','label':'Burn time'},{'k':'massinitial','label':'Mass (initial)'},{'k':'massfinal','label':'Mass (final)'},{'k':'deltav','label':'&Delta;V'}];
 			for(var k = 0; k < keys.length; k++) stages.push(data[keys[k]][S('#'+keys[k]).e[0].value]);
-			var dv = 0;
-			for(var s = 0; s < stages.length; s++){
-				// Calculated values
-				if(!stages[s]['thrust']) stages[s]['thrust'] = 0;
-				stages[s].veff = (stages[s]['impulse']) ? {'value':g*stages[s]['impulse'].value,'units':'m/s','dimension':'velocity'} : 0;
-				stages[s].mfr = (stages[s]['thrust'] && stages[s]['veff'].value > 0) ? {'value':(stages[s]['thrust'].value*1000)/stages[s]['veff'].value,'units':'kg/s','dimension':'massflowrate'} : 0;
-				stages[s].burn = (stages[s]['mfr'] && stages[s]['fuel']) ? {'value':(stages[s]['fuel'].value/stages[s]['mfr'].value),'units':'s','dimension':'time'} : 0;
+			var eq = rocketEquation(S('#orbit').e[0].value,data,stages);
+			displayResults(eq);
+		}
+		function displayResults(r){
 
-				if(stages[s].fuel){
-					massinitial = 0;
-                    massfuel = 0;
-					if(stages[s].fuel) massfuel += stages[s].fuel.value;
-					for(var st = s; st < stages.length; st++){
-						if(stages[st].fuel) massinitial += stages[st].fuel.value;
-						if(stages[st].drymass) massinitial += stages[st].drymass.value;
-					}
-					stages[s].massinitial = {'value':massinitial,'units':'kg','dimension':'mass'};
-					stages[s].massfinal = {'value':massinitial-massfuel,'units':'kg','dimension':'mass'};
-
-					// delta-V (per stage) [m/s] = V_eff [m/s] * ln(Mass_init/Mass_final)
-					// remembering to include the masses of all the stages and fuel above]
-					stages[s].deltav = (stages[s].veff.value > 0) ? {'value': stages[s].veff.value * Math.log(stages[s].massinitial.value/stages[s].massfinal.value),'units':'m/s','dimension':'velocity'} : 0;
-				}
-				if(stages[s].deltav) dv += stages[s].deltav.value;
-			}
-			dv = new Convertable({'value':dv,'units':'m/s','dimension':'velocity'});
-
-			for(var s = 0; s < stages.length; s++){
-				var output = '';
-
+			var fields = [{'k':'impulse','label':'Impulse'},{'k':'thrust','label':'Thrust'},{'k':'fuel','label':'Fuel'},{'k':'drymass','label':'Dry mass'},{'k':'diameter','label':'Diameter'},{'k':'height','label':'Height'},{'k':'veff','label':'V<sub>eff</sub>'},{'k':'mfr','label':'Mass flow rate'},{'k':'burn','label':'Burn time'},{'k':'massinitial','label':'Mass (initial)'},{'k':'massfinal','label':'Mass (final)'},{'k':'deltav','label':'&Delta;V'}];
+			var output = '';
+			
+			for(var s = 0; s < r.stages.length; s++){
+				output = '';
 				// Display values
 				for(var f = 0; f < fields.length; f++){
-					if(stages[s][fields[f].k]){
-						c = new Convertable(stages[s][fields[f].k]);
+					if(r.stages[s][fields[f].k]){
+						c = new Convertable(r.stages[s][fields[f].k]);
 						output += '<li>'+fields[f].label+': '+c.formatSpan()+'</li>';
 					}
 				}
 				S('.stages .stage:eq('+s+')').find('ul').html(output)
 			}
 
-			// Process orbit
-			orb = S('#orbit').e[0].value;
-			var mu = (6.673e-11 * 5.98e24);
-			var r_E = 6378100;
-			// 4π²R³ = T²GM
-			// V²R = GM
-			// We have R, G, M
-			var v = Math.sqrt(mu/(r_E + 1000*data.orbit[orb].altitude.value));
-			v = new Convertable({'value':v,'units':'m/s','dimension':'velocity'});
-			data.orbit[orb].v = v;
-			ofields = [{'k':'altitude','label':'Altitude'},{'k':'period','label':'Orbital period'},{'k':'v','label':'Orbital velocity'}];
+			var ofields = [{'k':'altitude','label':'Altitude'},{'k':'period','label':'Orbital period'},{'k':'v','label':'Orbital velocity'}];
 			output = '';
 			for(var f = 0; f < ofields.length; f++){
-				if(data.orbit[orb][ofields[f].k]){
-					c = new Convertable(data.orbit[orb][ofields[f].k]);
+				if(r.orbit.data[ofields[f].k]){
+					c = new Convertable(r.orbit.data[ofields[f].k]);
 					output += '<li>'+ofields[f].label+': '+c.formatSpan()+'</li>';
 				}
 			}
-			S('.stages .orbit').attr('class','stage orbit orbit-'+orb);
+			S('.stages .orbit').attr('class','stage orbit orbit-'+r.orbit.key);
 			S('.stages .orbit').find('ul').html(output);
 
-			var v_leo = new Convertable({'value':Math.sqrt(mu/(r_E + 1000*data.orbit['LEO'].altitude.value)),'units':'m/s','dimension':'velocity'});
-			var r1 = r_E + data.orbit['LEO'].altitude.value*1000;
-			var r2 = r_E + data.orbit[orb].altitude.value*1000;
-			var dv1 = Math.sqrt(mu/r1)*( Math.sqrt((2*r2) / (r1 + r2)) - 1 );
-			var dv2 = Math.sqrt(mu/r2)*( 1 - Math.sqrt((2*r1) / (r1 + r2)));
-			var deltav = new Convertable({'value':(dv1 + dv2),'units':'m/s','dimension':'velocity'});
-			var drag = new Convertable({'value':1300,'units':'m/s','dimension':'velocity'});	// Extra due to atmospheric/gravity drag https://en.wikipedia.org/wiki/Low_Earth_orbit
-			data.orbit[orb].dv = v_leo.copy();
-			data.orbit[orb].dv.value += drag.value;
-			data.orbit[orb].dv.value += deltav.value;
-
 			output = '<table>';
-			output += '<tr><td>Total &Delta;V from stages:</td><td>'+dv.formatSpan()+'</td></tr>';
-
-			output += '<tr><td>Velocity at LEO:</td><td>'+v_leo.formatSpan()+'</td></tr>';
-			output += '<tr><td>Additional &Delta;V due to atmospheric drag:</td><td>'+drag.formatSpan()+'</td></tr>';
-
-			if(orb != "LEO"){
-				output += '<tr><td>Additional &Delta;V for Hohmann transfer to '+orb+':</td><td>'+deltav.formatSpan()+'</td></tr>';
+			output += '<tr><td>Total &Delta;V from stages:</td><td>'+r.deltav.total.formatSpan()+'</td></tr>';
+			output += '<tr><td>Velocity at LEO:</td><td>'+r.v.LEO.formatSpan()+'</td></tr>';
+			output += '<tr><td>Additional &Delta;V due to atmospheric drag:</td><td>'+r.deltav.drag.formatSpan()+'</td></tr>';
+			if(r.orbit.key != "LEO"){
+				output += '<tr><td>Additional &Delta;V for Hohmann transfer to '+r.orbit.key+':</td><td>'+r.deltav.hofmann.formatSpan()+'</td></tr>';
 			}
-			output += '<tr><td>Required &Delta;V for '+orb+':</td><td>'+data.orbit[orb].dv.formatSpan()+'</td></tr>';
+			output += '<tr><td>Required &Delta;V for '+r.orbit.key+':</td><td>'+r.deltav.required.formatSpan()+'</td></tr>';
 			output += '</table>';
-			output += (dv.value > data.orbit[orb].dv.value) ? '<span>Can reach '+orb+'</span><br />' : "<span class='error'>Can't reach "+orb+'</span><br />';
-			S('#output').html('<h2>Results</h2>'+output)
-
-
-
+			output += r.orbit.ok ? '<span>Can reach '+r.orbit.key+'</span><br />' : "<span class='error'>Can't reach "+r.orbit.key+'</span><br />';
+			pc = (100*r.deltav.total.value/r.deltav.required.value);
+			bw = (pc > 100) ? 100 : pc;
+			S('#output').html('<h2>Results</h2>'+output);
+			S('#deltavbar .progressbar').attr('class','progressbar').addClass('orbit-'+r.orbit.key);
+			S('#deltavbar .bar').css({'width':bw.toFixed(3)+'%'});
+			S('#deltavbar .value').html(pc.toFixed(1)+'%');
+			return this;
 		}
 		S().loadJSON('config/en_advanced_options.json',processData);
 	});
@@ -146,6 +106,18 @@
 	.bar { height: 4px; width: 100%; margin-top: 0.5em; }
 	table td:first-child { padding-right: 0.5em; }
 	.stage { display: table-cell; min-height: 8em; margin: 0; background-color: #efefef; padding: 1em; }
+	.progressbar { position: relative; display: block; width: 600px; height: 1.5em; line-height: 1.5em; overflow: hidden; background-color: #efefef; }
+	.progressbar .bar, .progressbar .value { height: 1.5em; color: white; position: absolute; left: 0px; top: 0px; text-align: center; width: 100%; }
+	.progressbar .bar {
+		height: 1.5em;
+		margin-top: 0;
+		color: white;
+		text-align: center;
+		-moz-transition: width 0.5s ease-in-out;
+		-o-transition: width 0.5s ease-in-out;
+		-webkit-transition: width 0.5s ease-in-out;
+		transition: width 0.5s ease-in-out;
+	}
 	</style>
 </head>
 <body class="front">
@@ -156,6 +128,7 @@
 		<div id="output">
 			<p>Test</p>
 		</div>
+		<div id="deltavbar"><div class="progressbar"><div class="bar bg-orbit"></div><div class="value"></div></div></div>
 	</div>
 
 
