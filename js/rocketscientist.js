@@ -227,6 +227,7 @@ var rs;
 		// Add events to buttons in orbit section
 		S('#orbit_list button').on('click',{me:'test'},function(e){ _obj.setOrbit(S(e.currentTarget).attr('data-orbit')); });
 
+
 		// Add button events for instrument list
 		S('#instrument_list button').on('click',{me:'test'},function(e){ _obj.addPackage(e,'instrument'); });
 	
@@ -240,18 +241,6 @@ var rs;
 			//S('#instrument button.remove').prop('disabled',true);
 		})
 
-		// Add a load event to the rocket section
-		S('#rocket').on('load',{me:this},function(e){
-			e.data.me.log('Loading rocket builder');
-			// Create a dummy element
-			var wrap = document.createElement('div');
-			// Clone the satellite
-			wrap.appendChild(S('#satellite .satellite').e[0].cloneNode(true));
-			console.log('load rocket',e,S('#satellite .satellite'),'<div class="payload-holder">'+wrap.innerHTML+'</div>')
-			//S('#rocket .payload-holder').html('Test '+e.data.me.choices['bus'].width.value*10/1.5,'%');//wrap.innerHTML)
-			S('#rocket .payload-dummy').css({'width':(e.data.me.choices['bus'].width.value*10/1.5)+'%'});			console.log(e.data.me.choices['bus'])
-		});
-
 		// Update rocket stages
 		this.sliders = new Array();
 		this.stages = ['firststage','secondstage','thirdstage','payloadbay'];
@@ -260,7 +249,7 @@ var rs;
 			this.stageslookup[this.stages[s]] = s;
 			var l = this.stages[s];
 			this.sliders.push(new Slider(S('.rocket-builder .'+l),{stage:l},function(e){ _obj.setStage(e.data.stage,e.i); }));
-			for(var i = 0; i < this.data[l].length; i++) S('.rocket-builder .'+l+' .stage-'+this.data[l][i].key).find('.part').css({'width':(this.data[l][i].diameter.value*10/1.5).toFixed(1)+'%'});
+			for(var i = 0; i < this.data[l].length; i++) S('.rocket-builder .'+l+' .stage-'+this.data[l][i].key).find('.part').css({'width':(this.data[l][i].diameter.value*10).toFixed(1)+'%'});
 		}
 
 		// Reset button states
@@ -399,6 +388,17 @@ var rs;
 		p.children('.level').css({'width':Math.min(pc,100)+'%'});
 		p.children('.value').html((pc >= 100 ? '&#9889;':'')+Math.round(pc)+'%');
 	
+		if(this.choices.orbit){
+			var stages = new Array();
+			for(var k = 0; k < this.stages.length; k++) stages.push(this.choices[this.stages[k]] ? this.choices[this.stages[k]] : this.data[this.stages[k]][0]);
+			var eq = rocketEquation(this.choices.orbit,this.data,stages,this.totals.mass);
+			pc = (this.choices.payloadbay && this.choices.payloadbay.drymass.value > 0) ? (100*eq.deltav.total.value/eq.deltav.required.value) : 0;
+			var dv = S('#deltav_indicator');
+			dv.attr('class','meter').addClass('orbit-'+this.choices.orbit);
+			dv.find('.level').css({'width':(pc > 100 ? 100 : pc).toFixed(3)+'%'});
+			dv.find('.value').html(pc.toFixed(1)+'%');
+		}
+
 		return this;
 	}
 	RocketScientist.prototype.setType = function(t){
@@ -644,7 +644,6 @@ var rs;
 		e.originalEvent.preventDefault();
 		var href = S(e.currentTarget).attr('href');
 		var section = href.substr(1);
-
 		if(this.navigable[section]){
 			var found = -1;
 			var progress = 0;
@@ -654,6 +653,7 @@ var rs;
 					found = i;
 				}
 			}
+			S('#'+section).trigger('load');
 
 			// We know which section we want (found) and we know which we are on (this.currentsection)
 			// Remove existing hidden slide classes
@@ -679,10 +679,6 @@ var rs;
 			}
 			// Update the progress bar
 			S('#progressbar .progress-inner').css({'width':progress.toFixed(1)+'%'});
-
-			// Trigger the load event for this section
-			S('#'+section).trigger('load');
-
 		}
 		this.currentsection = found;
 		//S('#'+this.currentsection).focus()

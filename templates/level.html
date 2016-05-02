@@ -8,6 +8,7 @@
 	<link rel="stylesheet" media="all" href="css/style.css"  type="text/css" />
 	<!--[if !IE]> --><link href="tests/satellite/style-nonie.css" rel="stylesheet" type="text/css" media="screen" /><!-- <![endif]-->
 	<script type="text/javascript" src="js/convertable.js"></script>
+	<script type="text/javascript" src="js/rocketequation.js"></script>
 	<script type="text/javascript" src="js/stuquery.js"></script>
 	<script>
 		<!--#if expr="${LEVEL} = /beginner/"-->
@@ -423,6 +424,12 @@
 											<div class="controls zoomcontrol">
 												<button class="fancy zoomin"><!--#echo var="ui.button.zoomin" --></button>
 												<button class="fancy zoomout"><!--#echo var="ui.button.zoomout" --></button>
+											</div>
+											<div class="controls deltavcontrol">
+												<div id="deltav_indicator" class="meter">
+													<div class="level bg-orbit"></div>
+													<div class="value">0%</div>
+												</div>
 											</div>
 											<div class="stage payloadbay"><div class="part"></div></div><div class="stage thirdstage"><div class="part"></div></div><div class="stage secondstage"><div class="part"></div></div><div class="stage firststage"><div class="part"></div></div>
 										</div>

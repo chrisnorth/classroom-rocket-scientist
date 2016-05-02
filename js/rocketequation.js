@@ -4,8 +4,17 @@
 	* d - the JSON data structure
 	* stages - an array holding the appropriate data for each stage
 */
-function rocketEquation(orb,d,stages){
+function rocketEquation(orb,d,stages,payloadmass){
 	var dv = 0;
+	var none = new Convertable({'value':0,'units':'m/s','dimension':'velocity'});
+	var rtn = {
+		'ok': false,
+		'orbit': { 'key': orb, 'data': (d.orbit[orb] || {}) },
+		'v': { 'LEO': '', 'orbit': '' },
+		'deltav': { 'required': none, 'hofmann': none, 'drag': none, 'total': none },
+		'stages': stages
+	}
+	if(!orb) return rtn;
 	for(var s = 0; s < stages.length; s++){
 		// Calculated values
 		if(!stages[s]['thrust']) stages[s]['thrust'] = 0;
@@ -22,6 +31,7 @@ function rocketEquation(orb,d,stages){
 				if(stages[st].fuel) massfinal += stages[st].fuel.value;
 				if(stages[st].drymass) massfinal += stages[st].drymass.value;
 			}
+			if(payloadmass) massfinal += payloadmass.value;
 			stages[s].massinitial = {'value':massinitial+massfinal,'units':'kg','dimension':'mass'};
 			stages[s].massfinal = {'value':massfinal,'units':'kg','dimension':'mass'};
 
@@ -52,10 +62,13 @@ function rocketEquation(orb,d,stages){
 	d.orbit[orb].dv.value += deltav.value;
 	d.orbit[orb].v = v.copy();
 
-	return {
-		'orbit': { 'key': orb, 'data': d.orbit[orb], 'ok': (dv.value >= d.orbit[orb].dv.value) },
-		'v': { 'LEO': v_leo, 'orbit': v },
-		'deltav': { 'required': d.orbit[orb].dv, 'hofmann':deltav, 'drag':drag, 'total': dv },
-		'stages': stages
-	}
+	rtn.ok = (dv.value >= d.orbit[orb].dv.value);
+	rtn.v.LEO = v_leo;
+	rtn.v.orbit = v;
+	rtn.deltav.required = d.orbit[orb].dv;
+	rtn.deltav.hofmann = deltav;
+	rtn.deltav.drag = drag;
+	rtn.deltav.total = dv;
+	
+	return rtn;
 }

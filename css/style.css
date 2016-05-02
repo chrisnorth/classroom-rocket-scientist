@@ -1357,7 +1357,7 @@ button.selected:hover, button.selected:focus {
 .zoomcontrol button {
   line-height: 1em; }
 
-.batterycontrol {
+.batterycontrol, .deltavcontrol {
   right: 0px; }
 
 .meter {
@@ -1422,6 +1422,23 @@ button.selected:hover, button.selected:focus {
   background-color: #ffcb06; }
 
 #power_indicator .value {
+  color: black;
+  text-shadow: none; }
+
+.deltavcontrol {
+  width: 40%; }
+
+#deltav_indicator {
+  margin-right: 0.35em;
+  padding: 0.2em;
+  width: 100%;
+  border: 0px;
+  background: #cccccc; }
+
+#deltav_indicator {
+  border-radius: 0.2em; }
+
+#deltav_indicator .value {
   color: black;
   text-shadow: none; }
 

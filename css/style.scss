@@ -638,7 +638,7 @@ button.selected:hover, button.selected:focus {
 .controls { position: absolute; padding: $padding; top: 0px; font-size: 16px; z-index: $topz - 1; }
 .zoomcontrol { left: 0px; }
 .zoomcontrol button { line-height: 1em; }
-.batterycontrol { right: 0px; }
+.batterycontrol, .deltavcontrol { right: 0px; }
 .meter {
 	position: relative;
 	height: 2em;
@@ -697,6 +697,18 @@ button.selected:hover, button.selected:focus {
 	background-color: $yellow-1;
 }
 #power_indicator .value { color: black; text-shadow: none; }
+.deltavcontrol { width: 40%; }
+#deltav_indicator {
+	margin-right: 0.35em;
+	padding: 0.2em;
+	width: 100%;
+	border: 0px;
+	background: $grey-4;
+}
+#deltav_indicator {
+	border-radius: 0.2em;
+}
+#deltav_indicator .value { color: black; text-shadow: none; }
 
 
 table.data, table.data td { border: 0px; padding: $s*0.125; }
