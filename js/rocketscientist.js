@@ -249,7 +249,7 @@ var rs;
 			this.stageslookup[this.stages[s]] = s;
 			var l = this.stages[s];
 			this.sliders.push(new Slider(S('.rocket-builder .'+l),{stage:l},function(e){ _obj.setStage(e.data.stage,e.i); }));
-			for(var i = 0; i < this.data[l].length; i++) S('.rocket-builder .'+l+' .stage-'+this.data[l][i].key).find('.part').css({'width':(this.data[l][i].diameter.value*10).toFixed(1)+'%'});
+			for(var i = 0; i < this.data[l].length; i++) S('.rocket-builder .'+l+' .stage-'+this.data[l][i].key).find('.part').css({'width':(this.data[l][i].diameter.value*10*0.8).toFixed(1)+'%'});
 		}
 
 		// Reset button states
@@ -320,7 +320,6 @@ var rs;
 		return this;
 	}
 	RocketScientist.prototype.updateBudgets = function(p,sign){
-
 		var total = { 'cost': new Convertable(0,this.defaults.currency), 'power': new Convertable(0,this.defaults.power), 'mass':new Convertable(0,this.defaults.mass) };
 		var power = new Convertable(0,this.defaults.power);
 
@@ -378,6 +377,7 @@ var rs;
 		this.updateTotals();
 	}
 	RocketScientist.prototype.updateTotals = function(){
+		this.log('updateTotals');
 		S('#bar .togglecost .cost').html(this.totals.cost.toString({'units':this.defaults.currency}));
 		S('#bar .togglemass .mass').html(this.totals.mass.toString({'units':this.defaults.mass}));
 		S('#bar .togglepower .power').html(this.totals.power.toString({'units':this.defaults.power}));
@@ -574,6 +574,8 @@ var rs;
 		S('.slot-unavailable').removeClass('slot-unavailable');
 
 
+		if(this.choices && this.choices.bus) S('#rocket .payload-dummy').css({'width':(this.choices.bus.width.value*10*0.8).toFixed(1)+'%'});
+
 		var _obj = this;
 		function scaleConvertableByArea(el){
 			var props = ['cost','mass','power'];
@@ -637,6 +639,7 @@ var rs;
 		// Update the navigation
 		this.updateNavigation();
 
+		this.updateTotals();
 		return this;
 	}
 

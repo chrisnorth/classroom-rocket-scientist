@@ -705,10 +705,8 @@ button.selected:hover, button.selected:focus {
 	border: 0px;
 	background: $grey-4;
 }
-#deltav_indicator {
-	border-radius: 0.2em;
-}
-#deltav_indicator .value { color: black; text-shadow: none; }
+#deltav_indicator { border-radius: 0.2em; }
+#deltav_indicator .value { color: white; text-shadow: none; }
 
 
 table.data, table.data td { border: 0px; padding: $s*0.125; }

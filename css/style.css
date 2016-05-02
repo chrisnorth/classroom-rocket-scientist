@@ -1439,7 +1439,7 @@ button.selected:hover, button.selected:focus {
   border-radius: 0.2em; }
 
 #deltav_indicator .value {
-  color: black;
+  color: white;
   text-shadow: none; }
 
 table.data, table.data td {
