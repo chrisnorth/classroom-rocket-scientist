@@ -1483,7 +1483,9 @@ table.data td:last-child {
 
 .list li .list-bar {
   width: 3.255em;
-  vertical-align: top;
+  vertical-align: top; }
+
+.list li .list-bar, .list li .overlay {
   -webkit-border-radius: 0.375em 0 0 0.375em;
   -moz-border-radius: 0.375em 0 0 0.375em;
   -ms-border-radius: 0.375em 0 0 0.375em;
@@ -1601,6 +1603,19 @@ table.data td:last-child {
 
 #orbit_list li.selected .list-bar button.add {
   display: none; }
+
+.list li.slot-unavailable {
+  position: relative; }
+
+.list li.slot-unavailable .overlay {
+  background-color: #efefef;
+  opacity: 0.8;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 1000; }
 
 .holder {
   display: table-cell;

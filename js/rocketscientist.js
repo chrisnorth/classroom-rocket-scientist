@@ -227,12 +227,11 @@ var rs;
 		// Add events to buttons in orbit section
 		S('#orbit_list button').on('click',{me:'test'},function(e){ _obj.setOrbit(S(e.currentTarget).attr('data-orbit')); });
 
-
-		// Add button events for instrument list
-		S('#instrument_list button').on('click',{me:'test'},function(e){ _obj.addPackage(e,'instrument'); });
+		// Add button events for instrument list to the list itself so we can reorder the contents later without losing the events
+		S('#instrument_list ul').on('click',{me:'test'},function(e){ _obj.addPackage({'currentTarget':e.originalEvent.target,'data':e.data,'originalEvent':e.originalEvent,'type':e.type},'instrument') });
 	
-		// Add button events for power list
-		S('#power_list button').on('click',{me:'test'},function(e){ _obj.addPackage(e,'power'); });
+		// Add button events for power list to the list itself so we can reorder the contents later without losing the events
+		S('#power_list ul').on('click',{me:'test'},function(e){ _obj.addPackage({'currentTarget':e.originalEvent.target,'data':e.data,'originalEvent':e.originalEvent,'type':e.type},'power'); });
 
 		S('#instrument').on('load',{me:this},function(e){
 			e.data.me.log('Loading instrument panel')
@@ -365,7 +364,7 @@ var rs;
 			power.value += pow.value;
 		}
 
-		// Add costs from rocket stages BLAH
+		// Add costs from rocket stages
 		for(var s = 0; s < this.stages.length ; s++){
 			if(this.choices[this.stages[s]]) total = add(total,this.choices[this.stages[s]],{'cost':1,'mass':0,'power':0});	// We don't include mass or energy
 		}
@@ -515,7 +514,7 @@ var rs;
 		for(var i = 0; i < this.requirements.length; i++){
 			if(this.requirements[i].met) ok++;
 		}
-		this.log('Met ',ok,' of ',this.requirements.length,' requirements')
+		this.log('Met '+ok+' of '+this.requirements.length+' requirements')
 		return this;
 	}
 	// Update each of the requirements with a flag to say if it is met or not
@@ -587,7 +586,7 @@ var rs;
 		var li = S('.list li');
 		var s,el;
 		// Re-enable all list items
-		S('.slot-unavailable').removeClass('slot-unavailable');
+		S('.slot-unavailable').removeClass('slot-unavailable').find('.overlay').remove();
 
 
 		if(this.choices && this.choices.bus) S('#rocket .payload-dummy').css({'width':(this.choices.bus.width.value*10*0.8).toFixed(1)+'%'});
@@ -617,7 +616,7 @@ var rs;
 					if(this.data.bus[size].slots[j] > 0 && j==s) available = true;
 				}
 				// Hide list items that have a specified slot size that doesn't fit
-				if(!available) el.addClass('slot-unavailable');
+				if(!available) el.addClass('slot-unavailable').append('<div class="overlay"></div>');
 
 				// Update values for solar-panel-surface given the surface area
 				if(el.attr('data-package') == "solar-panel-surface"){
@@ -625,6 +624,9 @@ var rs;
 				}
 			}
 		}
+
+		this.reorderLists()
+
 		// Update any changed convertables
 		this.updateConvertables();
 
@@ -634,6 +636,25 @@ var rs;
 		this.updateBudgets();
 		this.updateNavigation();
 		this.updateRequirements();
+		return this;
+	}
+	RocketScientist.prototype.reorderLists = function(){
+		this.log('reorderLists')
+		var uls = S('.list ul');
+		var ul,u,i,li,l_top,l_bot;
+		for(u = 0; u < uls.length; u++){
+			l_top = "";
+			l_bot = "";
+			ul = S(uls.e[u]);
+			li = ul.find('li');
+			// For each list item we check if the slot is available or not
+			// If it isn't it goes at the bottom of the list
+			for(i = 0; i < li.length; i++){
+				if(S(li.e[i]).hasClass('slot-unavailable')) l_bot += li.e[i].outerHTML;
+				else l_top += li.e[i].outerHTML;
+			}
+			ul.html(l_top+l_bot);
+		}
 		return this;
 	}
 	RocketScientist.prototype.setOrbit = function(orbit){
