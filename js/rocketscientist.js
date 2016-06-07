@@ -515,7 +515,7 @@ var rs;
 		for(var i = 0; i < this.requirements.length; i++){
 			if(this.requirements[i].met) ok++;
 		}
-		console.log('Met ',ok,' of ',this.requirements.length,' requirements')
+		this.log('Met ',ok,' of ',this.requirements.length,' requirements')
 		return this;
 	}
 	// Update each of the requirements with a flag to say if it is met or not
@@ -532,9 +532,25 @@ var rs;
 		var ok;
 		for(var i = 0; i < this.requirements.length; i++){
 			ok = false;
-			for(var o = 0; o < this.requirements[i].oneof.length; o++){
-				for(var c = 0; c < ch.length; c++){
-					if(ch[c] == this.requirements[i].oneof[o]) ok = true;
+			if(this.requirements[i].oneof.length > 0){
+				for(var o = 0; o < this.requirements[i].oneof.length; o++){
+					for(var c = 0; c < ch.length; c++){
+						if(ch[c] == this.requirements[i].oneof[o]) ok = true;
+					}
+				}
+			}
+			// If we failed the oneof requirement, don't bother checking the allof requirement
+			if(ok && this.requirements[i].allof){
+				for(var o = 0; o < this.requirements[i].allof.length; o++){
+					var ok2 = false;
+					for(var c = 0; c < ch.length; c++){
+						if(ch[c] == this.requirements[i].allof[o]) ok2 = true;	// We've matched the requirement
+					}
+					if(!ok2){
+						// We didn't find this requirement so fail
+						ok = false;
+						continue;
+					}
 				}
 			}
 			this.requirements[i].met = ok;
