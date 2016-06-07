@@ -308,7 +308,7 @@
 .solar-panels:nth-child(1) ol li:last-child { margin-right: $s * 1.5; }
 .solar-panels:nth-child(2) ol li:last-child { margin-left: $s * 1.5; }
 
-.radio .face { display: none; }
+.radio .face, .radar .face { display: none; }
 .threeD .row .radio {
 	@include transform-style( preserve-3d );
 }

@@ -870,7 +870,7 @@ var rs;
 						goodboth.html(good.html().replace(html,''));
 					}
 					this.log('Adding slot-empty from ',goodboth)
-					goodboth.removeClass('texture').removeClass(type).addClass('slot-empty');
+					goodboth.removeClass('texture').removeClass(type).addClass('slot-empty').find('.hemisphere').remove();
 
 					var n = this.choices['slots'][p.slot].length;
 					if(n > 0){

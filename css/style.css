@@ -2446,7 +2446,7 @@ table.data td:last-child {
 .solar-panels:nth-child(2) ol li:last-child {
   margin-left: 2.25em; }
 
-.radio .face {
+.radio .face, .radar .face {
   display: none; }
 
 .threeD .row .radio {
