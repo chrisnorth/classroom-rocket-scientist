@@ -1,8 +1,8 @@
 ---
 ui.level:                                   (advanced)
-ui.level.beginner:                          Beginner (ages 7-11)
-ui.level.intermediate:                      Intermediate (ages 9-11)
-ui.level.advanced:                          Advanced (ages 11-14)
+ui.level.beginner:                          Beginner
+ui.level.intermediate:                      Intermediate
+ui.level.advanced:                          Advanced
 ui.nojs:                                    Oops! The interactive parts of <em>Classroom rocket scientist</em> need Javascript to be enabled. Sorry about that.
 ui.title:                                   Classroom rocket scientist
 ui.introduction:                            This is an intro.
@@ -87,19 +87,19 @@ bus.large.button:                           Select large satellite
 
 package.camera-opt.title:                   Camera    # The title of the optical camera instrument
 package.camera-opt.description:             Takes pictures of the ground. Can be used to create maps or for tracking natural disasters, such as floods or volcanic eruptions. Can also be used to track clouds. The amount of detail depends how high above the ground your satellite is orbiting.
-package.camera-opt-hires.title:             Powerful camera
+package.camera-opt-hires.title:            High-resolution camera
 package.camera-opt-hires.description:       Takes very detailed pictures of the ground. Can be used for tracking natural disasters, such as floods or volcanic eruptions, but only when your satellite is in low-Earth orbit.
-package.camera-nir.title:                   Plant Life camera
+package.camera-nir.title:                   Vegetation camera
 package.camera-nir.description:             Takes images of plants and farmland on the ground. Only works in during the day, as it captures sunlight reflecting off the ground.
-package.camera-fir.title:                   Atmosphere camera
+package.camera-fir.title:                   Atmospheric camera
 package.camera-fir.description:             Provides infrared images of the clouds and weather systems in the Earth's atmosphere, useful for weather forecasting and climate monitoring, even during darkness.
-package.spect-opt.title:                    Light Prism
+package.spect-opt.title:                    Optical Spectrometer
 package.spect-opt.description:              Studies changes on the Earth's surface, such as shrinking forests and lakes.
-package.spect-nir.title:                    Plant Life Prism
+package.spect-nir.title:                    Vegetation Spectrometer
 package.spect-nir.description:              Studies plant life on the ground, measuring the different types of plant life and how healthy it is.
-package.spect-fir.title:                    Atmosphere Prism
+package.spect-fir.title:                    Atmospheric Spectrometer
 package.spect-fir.description:              Uses light to study Earth's atmosphere, even during nighttime. Used to look at the clouds, ground temperature and air temperature.
-package.radar-alt.title:                    Terrain Mapper
+package.radar-alt.title:                    Radar altimeter
 package.radar-alt.description:              Uses radio waves to measure the shape of the ground in great detail. Can be used to map the mountains and valleys on the Earth's surface. Also provides information about the effect of earthquakes. Requires a radio dish to work.
 package.radar-alt.requires.dish.label:      Requires a radio dish
 package.radar-alt.requires.dish.error:      You need to include a radio dish for the terrain mapper to work.
@@ -141,9 +141,9 @@ package.rtg.title:                          RTG
 package.rtg.description:                    An RTG uses radioactive material to provide power. It can be very dangerous for humans and animals, so it can't be used in low-Earth orbit.
 package.rtg.requires.orbit.label:           Not for low-Earth orbit
 package.rtg.requires.orbit.error:           Can't use an RTG in low-Earth orbit
-package.solar-panel-surface.title:          Solar panels
+package.solar-panel-surface.title:          Body-mounted solar panels
 package.solar-panel-surface.description:    Solar panels fixed to the satellite. Collect sunlight to provide power. Can power instruments or charge up batteries.
-package.solar-panel.title:                  Solar panel wings
+package.solar-panel.title:                  Deployable solar panels
 package.solar-panel.description:            Solar panels unfolded from the edge of the satellite. Collect sunlight to provide power. Can power instruments or charge up batteries.
 
 orbit.LEO.title:                            Low orbit
@@ -156,8 +156,9 @@ orbit.GEO.title:                            Geo-stationary orbit
 orbit.GEO.description:                      Satellites in geostationary (pronounced jee-oh-stay-shon-ary) orbits stay above the same part of Earth and move with the planet as it rotates. They are much higher above the Earth's surface than other orbits, so can see huge areas but not in much detail.
 
 scenarios.NAV.title:                        Navigation
-scenarios.NAV.description:                  GPS is made up of 24 satellites that orbit <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. It is possible to work out the exact location of a GPS reciever on Earth (e.g. in a mobile phone) by timing exactly how long it takes for four of these satellites to communicate with the reciever.
-scenarios.NAV.sat-nav.description:          Uses signals from four navigation satellites so sat nav users can find their location on Earth. Need to be able to see huge area of Earth at a time, measure time accurately and send information about the location.
+scenarios.NAV.description:                  These satellites are used to help people find their whereabouts on the Earth.
+scenarios.NAV.map.title: 					Satellite navigation system 
+scenarios.NAV.sat-nav.description:          Uses signals from four separate satellites so sat nav users can find their location on Earth. Need to be able to see huge area of Earth at a time, measure time accurately and send information about the location.
 scenarios.NAV.sat-nav.req.bus.label: 		A satellite that is small, medium or large.
 scenarios.NAV.sat-nav.req.bus.error: 		Your satellite must be big enough for your mission.
 scenarios.NAV.sat-nav.req.atomic.label:     Needs to be able to measure time very accurately.
@@ -173,9 +174,9 @@ scenarios.NAV.map.req.opt-hires.error: 		The instrument you have chosen does not
 scenarios.NAV.map.req.orbit.label: 			See detail of planet surface.
 scenarios.NAV.map.req.orbit.error: 			The orbit you have chosen does not allow your satellite to see the planet surface in enough detail.
 scenarios.COMMS.title:                      Communication
-scenarios.COMMS.description:                These satellites are used for television, phone or internet transmissions. For example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.
+scenarios.COMMS.description:                These satellites are used for television, phone or internet broadcasts.
 scenarios.COMMS.phone.title: 				Satellite telephone system
-scenarios.COMMS.phone.description: 			Lets people talk over the phone from remote regions of the world using satellites.
+scenarios.COMMS.phone.description: 			Allows people to talk over the phone from remote regions of the world. These satellites receive signals from the ground and transmit them to other areas on Earth.
 scenarios.COMMS.phone.req.radio-tx.label: 	A way to send signals.
 scenarios.COMMS.phone.req.radio-tx.error: 	Your satellite does not have a way to send signals to the ground.
 scenarios.COMMS.phone.req.radio-rx.label: 	A way to receive signals.
@@ -183,7 +184,7 @@ scenarios.COMMS.phone.req.radio-rx.error: 	Your satellite does not have a way to
 scenarios.COMMS.phone.req.orbit.label: 		Satellite is continuously above one area of Earth
 scenarios.COMMS.phone.req.orbit.error: 		The orbit you have chosen means your satellite is not continuously above one area of Earth.
 scenarios.COMMS.internet.title: 			Satellite internet
-scenarios.COMMS.internet.description: 		Connect to the internet from remote regions of the world using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.
+scenarios.COMMS.internet.description: 		Allows people to connect to the internet from remote regions of the world. These satellites receive signals from the ground and transmit them to other areas on Earth.
 scenarios.COMMS.internet.req.radio-tx.label: A way to send signals.
 scenarios.COMMS.internet.req.radio-tx.error: You do not have a way to send signals to the ground.
 scenarios.COMMS.internet.req.radio-rx.label: A way to receive signals.
@@ -193,7 +194,7 @@ scenarios.COMMS.internet.req.internet-en.error: You do not have a way to encode 
 scenarios.COMMS.internet.req.orbit.label: Satellite is continuously above one area of Earth
 scenarios.COMMS.internet.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
 scenarios.COMMS.tv.title: Satellite TV
-scenarios.COMMS.tv.description: Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.
+scenarios.COMMS.tv.description: Allows people on the ground to enjoy satellite TV. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.
 scenarios.COMMS.tv.req.radio-tx.label: A way to send signals.
 scenarios.COMMS.tv.req.radio-tx.error: You do not have a way to send signals to the ground.
 scenarios.COMMS.tv.req.radio-rx.label: A way to receive signals.
@@ -203,10 +204,10 @@ scenarios.COMMS.tv.req.tv-en.label: A way to encode TV signals.
 scenarios.COMMS.tv.req.tv-en.error: You do not have a way to encode TV signals.
 scenarios.COMMS.tv.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
 scenarios.EO.title:                         Earth Observation
-scenarios.EO.description:                   These satellites are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.
+scenarios.EO.description:                   These satellites are used to image clouds, measure temperature and rainfall, and forecasting the weather.
 scenarios.EO.weather.title: Weather forecasting
-scenarios.EO.weather.description: Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean.
-scenarios.EO.weather.req.camera-fir.label: Infrared light identifies cloud types and temperatures on Earth.
+scenarios.EO.weather.description: Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use invisible, infrared light to measure the temperatures of the ground and ocean.
+scenarios.EO.weather.req.camera-fir.label: Infrared light identifies different types of cloud, as well as the temperature of the Earth.
 scenarios.EO.weather.req.camera-fir.error: You do not have a way to identify cloud types and measure temperatures on Earth.
 scenarios.EO.weather.req.camera-opt.label: To take images of clouds and weather systems on Earth.
 scenarios.EO.weather.req.camera-opt.error: You do not have a way to take images of the weather on Earth.
@@ -219,7 +220,7 @@ scenarios.EO.veg-map.req.radio-tx.error: You do not have a way to transmit signa
 scenarios.EO.veg-map.req.camera.label: To take images of the vegetation on Earth.
 scenarios.EO.veg-map.req.camera.error: You do not have a way to take images of the vegetation on Earth.
 scenarios.EO.disaster.title: Natural disaster monitoring
-scenarios.EO.disaster.description: When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras can show floods and fires. Radio waves can show regions of earth deformation, such as after earthquakes.
+scenarios.EO.disaster.description: When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see details of the damage on Earth, so satellites must orbit close to the ground. Infrared cameras can show floods and fires. Radio waves can show regions where the earth has been warped by earthquakes.
 scenarios.EO.disaster.req.camera.label: To take high resolution images of Earth where disaster has occured.
 scenarios.EO.disaster.req.camera.error: You do not have a way to take high resolution images of Earth where disaster has occured.
 scenarios.EO.disaster.req.radio-tx.label: A way to transmit signals.
