@@ -751,9 +751,9 @@
 					"error": "%scenarios.NAV.map.req.radar-alt.error%"
             			    },{
                 			 "type": "package",
-					"oneof": ["dish-large"],
-					"label": "%scenarios.NAV.map.req.dish-large.label%",
-					"error": "%scenarios.NAV.map.req.dish-large.error%"
+					"oneof": ["radar-dish"],
+					"label": "%scenarios.NAV.map.req.radar-dish.label%",
+					"error": "%scenarios.NAV.map.req.radar-dish.error%"
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],
@@ -907,8 +907,8 @@
                 },{
                     "type": "package",
                     "oneof": ["radar-dish"],
-                    "label": "%scenarios.EO.disaster.req.dish.label%",
-					"error": "%scenarios.EO.disaster.req.dish.error%"
+                    "label": "%scenarios.EO.disaster.req.radar-dish.label%",
+					"error": "%scenarios.EO.disaster.req.radar-dish.error%"
                 },{
                     "type": "package",
                     "oneof": ["camera-fir"],
