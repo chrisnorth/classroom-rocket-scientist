@@ -86,38 +86,6 @@
 			],
 			"power": { "value": 50, "units": "watts", "dimension": "power" }
 		},
-        "camera-opt-hires" : {
-			"slot": "2x4",
-			"title": "%package.camera-opt-hires.title%",
-			"description": "%package.camera-opt-hires.description%",
-			"texture": {
-				"icon": "texture camera-opt-hires"
-			},
-			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 15, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 1.0, "units": "m", "dimension": "length" },
-				{ "value": 1.0, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 50, "units": "watts", "dimension": "power" }
-		},
-		"camera-nir": {
-			"slot":	"2x2",
-			"title": "%package.camera-nir.title%",
-			"description": "%package.camera-nir.description%",
-			"texture": {
-				"icon": "texture camera-nir"
-			},
-			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 20, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 50, "units": "watts", "dimension": "power" }
-		},
 		"camera-fir": {
 			"slot":	"2x4",
 			"title": "%package.camera-fir.title%",
@@ -130,54 +98,6 @@
 			"dimensions": [
 				{ "value": 1.0, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 300, "units": "watts", "dimension": "power" }
-		},
-		"spect-opt": {
-			"slot":	"2x2",
-			"title": "%package.spect-opt.title%",
-			"description": "%package.spect-opt.description%",
-			"texture": {
-				"icon": "texture spect-opt"
-			},
-			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 150, "units": "watts", "dimension": "power" }
-		},
-		"spect-nir": {
-			"slot":	"2x2",
-			"title": "%package.spect-nir.title%",
-			"description": "%package.spect-nir.description%",
-			"texture": {
-				"icon": "texture spect-nir"
-			},
-			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 20, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 150, "units": "watts", "dimension": "power" }
-		},
-		"spect-fir": {
-			"slot":	"2x4",
-			"title": "%package.spect-fir.title%",
-			"description": "%package.spect-fir.description%",
-			"texture": {
-				"icon": "texture spect-fir"
-			},
-			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 30, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 1.0, "units": "m", "dimension": "length" },
-				{ "value": 1.0, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" }
 			],
 			"power": { "value": 300, "units": "watts", "dimension": "power" }
@@ -270,22 +190,6 @@
 			],
 			"power": { "value": 10, "units": "watts", "dimension": "power" }
 		},
-		"atomic-clock-small": {
-			"slot":	"1x2",
-			"title": "%package.atomic-clock-small.title%",
-			"description": "%package.atomic-clock-small.description%",
-			"texture": {
-				"icon": "texture atomic-clock-small"
-			},
-			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.1, "units": "m", "dimension": "length" },
-				{ "value": 0.1, "units": "m", "dimension": "length" },
-				{ "value": 0.05, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 5, "units": "watts", "dimension": "power" }
-		},
 		"gps-rx": {
 			"slot":	"1x1",
 			"title": "%package.gps-rx.title%",
@@ -295,22 +199,6 @@
 			},
 			"mass": { "value": 0.5, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 2, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.05, "units": "m", "dimension": "length" },
-				{ "value": 0.05, "units": "m", "dimension": "length" },
-				{ "value": 0.1, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 5, "units": "watts", "dimension": "power" }
-		},
-		"camera-mini": {
-			"slot":	"1x1",
-			"title": "%package.camera-mini.title%",
-			"description": "%package.camera-mini.description%",
-			"texture": {
-				"icon": "texture camera-mini"
-			},
-			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.05, "units": "m", "dimension": "length" },
 				{ "value": 0.05, "units": "m", "dimension": "length" },
@@ -407,22 +295,6 @@
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
 		},
-		"tv-en" : {
-			"slot": "2x2",
-			"title": "%package.tv-en.title%",
-			"description": "%package.tv-en.description%",
-			"texture": {
-				"icon": ""
-			},
-			"mass": { "value": 0, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0, "units": "m", "dimension": "length" },
-				{ "value": 0, "units": "m", "dimension": "length" },
-				{ "value": 0, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 0, "units": "watts", "dimension": "power" }
-		}
 	},
 	"power": {
 		"solar-panel-surface": {
@@ -450,6 +322,49 @@
 				{ "value": 1.0, "units": "m", "dimension": "length" }
 			],
 			"power": { "value": "inf", "units": "watts", "dimension": "power" }
+			"battery-large": {
+			"slot":	"2x2",
+			"title": "%package.battery-large.title%",
+			"description": "%package.battery-large.description%",
+			"texture": {
+				"icon": "texture battery-large"
+			},
+			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 20, "units": "credits", "dimension": "currency" },
+			"dimensions": [
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" }
+			],
+			"power": { "value": 500, "units": "watts", "dimension": "power" },
+			"requires": [{
+				"type": "power",
+				"oneof": ["solar-panel","solar-panel-surface"],
+				"label": "%package.battery-large.requires.solar.label%",
+				"error": "%package.battery-large.requires.solar.error%"
+			}]
+		},
+		"battery-small": {
+			"slot":	"1x1",
+			"title": "%package.battery-small.title%",
+			"description": "%package.battery-small.description%",
+			"texture": {
+				"icon": "texture battery-small"
+			},
+			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 15, "units": "credits", "dimension": "currency" },
+			"dimensions": [
+				{ "value": 0.05, "units": "m", "dimension": "length" },
+				{ "value": 0.05, "units": "m", "dimension": "length" },
+				{ "value": 0.05, "units": "m", "dimension": "length" }
+			],
+			"power": { "value": 30, "units": "watts", "dimension": "power" },
+			"requires": [{
+				"type": "power",
+				"oneof": ["solar-panel","solar-panel-surface"],
+				"label": "%package.battery-small.requires.solar.label%",
+				"error": "%package.battery-small.requires.solar.error%"
+			}]
 		}
 	},
 	"firststage": [{
@@ -796,15 +711,21 @@
 					"label": "%scenarios.NAV.sat-nav.req.radio-tx.label%",
 					"error": "%scenarios.NAV.sat-nav.req.radio-tx.error%"
 				},{
+					"type": "package",
+					"oneof": ["gps-rx"],
+					"label": "%scenarios.NAV.sat-nav.req.gps-rx.label%",
+					"error": "%scenarios.NAV.sat-nav.req.gps-rx.error%"
+
+				},{
 					"type": "orbit",
 					"oneof": ["HEO","GEO"],
 					"label": "%scenarios.NAV.sat-nav.req.orbit.label%",
 					"error": "%scenarios.NAV.sat-nav.req.orbit.error%"
 				},{
-                    "type": "power",
-                    "oneof": ["battery-small","battery-large"],
-                    "label": ""
-                }]
+                   			"type": "power",
+			                "oneof": ["solar-panel","solar-panel-surface","battery-small","battery-large"],
+                    			"label": ""
+                		}]
 			},{
 				"title": "%scenarios.NAV.map.title%",
 				"description": "%scenarios.NAV.map.description%",
@@ -819,15 +740,29 @@
 					"orbit": "LEO"
 				},
 				"requires": [{
-                    "type": "package",
-                    "oneof": ["camera-opt-hires"],
-                    "label": "%scenarios.NAV.map.req.opt-hires.label%",
-					"error": "%scenarios.NAV.map.req.opt-hires.label%"
-                },{
+					"type": "package",
+                    			"oneof": ["camera-opt"],
+                    			"label": "%scenarios.NAV.map.req.camera-opt.label%",
+					"error": "%scenarios.NAV.map.req.camera-opt.error%"
+                		},{
+               			    	 "type": "package",
+                   			"oneof": ["radar-alt"],
+					"label": "%scenarios.NAV.map.req.radar-alt.label%",
+					"error": "%scenarios.NAV.map.req.radar-alt.error%"
+            			    },{
+                			 "type": "package",
+					"oneof": ["radio_tx"],
+					"label": "%scenarios.NAV.map.req.radio-tx.label%",
+					"error": "%scenarios.NAV.map.req.radio-tx.error%"
+                },
 					"type": "orbit",
 					"oneof": ["LEO"],
 					"label": "%scenarios.NAV.map.req.orbit.label%",
 					"error": "%scenarios.NAV.map.req.orbit.error%"
+				},{
+                   			"type": "power",
+			                "oneof": ["solar-panel","solar-panel-surface","battery-small","battery-large"],
+                    			"label": ""
 				}]
 			}]
 		},
@@ -867,40 +802,6 @@
 					"oneof": ["GEO"],
 					"label": "%scenarios.COMMS.phone.req.orbit.label%",
 					"error": "%scenarios.COMMS.phone.req.orbit.error%"
-				}]
-			},{
-				"title": "%scenarios.COMMS.tv.title%",
-				"description": "%scenarios.COMMS.tv.description%",
-				"image": {
-					"file": "images/icon-tv.png",
-					"alt": "%scenarios.COMMS.tv.title%",
-					"credit": "Hakan Yalcin"
-				},
-				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
-				"choices": {
-					"bus": "medium",
-					"orbit": "LEO"
-				},
-				"requires": [{
-                    "type": "package",
-                    "oneof": ["radio-tx"],
-                    "label": "%scenarios.COMMS.tv.req.radio-tx.label%",
-					"error": "%scenarios.COMMS.tv.req.radio-tx.error%"
-                },{
-                    "type": "package",
-                    "oneof": ["radio-rx"],
-                    "label": "%scenarios.COMMS.tv.req.radio-rx.label%",
-					"error": "%scenarios.COMMS.tv.req.radio-rx.error%"
-                },{
-                    "type": "package",
-                    "oneof": ["tv-en"],
-                    "label": "%scenarios.COMMS.tv.req.tv-en.label%",
-					"error": "%scenarios.COMMS.tv.req.tv-en.error%"
-				},{
-					"type": "orbit",
-					"oneof": ["GEO"],
-					"label": "%scenarios.COMMS.tv.req.orbit.label%",
-					"error": "%scenarios.COMMS.tv.req.orbit.error%"
 				}]
 			},{
 				"title": "%scenarios.COMMS.internet.title%",
@@ -976,30 +877,6 @@
 					"error": "%scenarios.EO.weather.req.orbit.error%"
 				}]
 			},{
-				"title": "%scenarios.EO.veg-map.title%",
-				"description": "%scenarios.EO.veg-map.description%",
-				"image": {
-					"file": "images/icon-plant.png",
-					"alt": "%scenarios.EO.veg-map.title%",
-					"credit": "Clockwise"
-				},
-				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
-				"choices": {
-					"bus": "medium",
-					"orbit": "LEO"
-				},
-				"requires": [{
-                    "type": "package",
-                    "oneof": ["radio-tx"],
-                    "label": "%scenarios.EO.veg-map.req.radio-tx.label%",
-					"error": "%scenarios.EO.veg-map.req.radio-tx.error%"
-                },{
-                    "type": "package",
-                    "oneof": ["camera-nir","spect-nir"],
-                    "label": "%scenarios.EO.veg-map.req.camera.label%",
-					"error": "%scenarios.EO.veg-map.req.camera.error%"
-                }]
-			},{
 				"title": "%scenarios.EO.disaster.title%",
 				"description": "%scenarios.EO.disaster.description%",
 				"image": {
@@ -1014,9 +891,9 @@
 				},
 				"requires": [{
                     "type": "package",
-                    "oneof": ["camera-opt-hires"],
-                    "label": "%scenarios.EO.disaster.req.camera.label%",
-					"error": "%scenarios.EO.disaster.req.camera.error%"
+                    "oneof": ["camera-opt"],
+                    "label": "%scenarios.EO.disaster.req.camera-opt.label%",
+					"error": "%scenarios.EO.disaster.req.camera-opt.error%"
                 },{
                     "type": "package",
                     "oneof": ["radio-tx"],
@@ -1034,56 +911,15 @@
 					"error": "%scenarios.EO.disaster.req.dish.error%"
                 },{
                     "type": "package",
-                    "oneof": ["camera-nir"],
-                    "label": "%scenarios.EO.disaster.req.camera-nir.label%",
-					"error": "%scenarios.EO.disaster.req.camera-nir.error%"
+                    "oneof": ["camera-fir"],
+                    "label": "%scenarios.EO.disaster.req.camera-fir.label%",
+					"error": "%scenarios.EO.disaster.req.camera-fir.error%"
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],
 					"label": "%scenarios.EO.disaster.req.orbit.label%",
 					"error": "%scenarios.EO.disaster.req.orbit.error%"
 				}]
-			},{
-				"title": "%scenarios.EO.surface.title%",
-				"description": "%scenarios.EO.surface.description%",
-				"image": {
-					"file": "images/icon-surface.png",
-					"alt": "%scenarios.EO.surface.title%",
-					"credit": "OCHA Visual Information Unit"
-				},
-				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
-				"choices": {
-					"bus": "medium",
-					"orbit": "LEO"
-				},
-				"requires": [{
-						"type": "package",
-						"oneof": ["radar-alt"],
-						"label": "%scenarios.EO.surface.req.radar-alt.label%",
-						"error": "%scenarios.EO.surface.req.radar-alt.error%"
-					},{
-						"type": "package",
-						"oneof": ["radar-dish"],
-						"label": "%scenarios.EO.surface.req.dish.label%",
-						"error": "%scenarios.EO.surface.req.dish.error%"
-					},{
-						"type": "package",
-						"oneof": ["radio-tx"],
-						"label": "%scenarios.EO.surface.req.radio-tx.label%",
-						"error": "%scenarios.EO.surface.req.radio-tx.error%"
-					},{
-						"type": "package",
-						"oneof": ["sat-tracker"],
-						"label": "%scenarios.EO.surface.req.sat-tracker.label%",
-						"error": "%scenarios.EO.surface.req.sat-tracker.error%"
-					},{
-						"type": "orbit",
-						"oneof": ["LEO"],
-						"label": "%scenarios.EO.surface.req.orbit.label%",
-						"error": "%scenarios.EO.surface.req.orbit.error%"
-					}
-				]
-			}]
 		}
 	}
 }
