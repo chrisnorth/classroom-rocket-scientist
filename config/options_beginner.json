@@ -754,7 +754,7 @@
 					"oneof": ["radio_tx"],
 					"label": "%scenarios.NAV.map.req.radio-tx.label%",
 					"error": "%scenarios.NAV.map.req.radio-tx.error%"
-                },
+                },{
 					"type": "orbit",
 					"oneof": ["LEO"],
 					"label": "%scenarios.NAV.map.req.orbit.label%",
@@ -919,7 +919,7 @@
 					"oneof": ["LEO"],
 					"label": "%scenarios.EO.disaster.req.orbit.label%",
 					"error": "%scenarios.EO.disaster.req.orbit.error%"
-				}]
+				}
 		}
 	}
 }
