@@ -625,7 +625,7 @@
 		"key": "M",
 		"size": 3,
 		"type": "Payload",
-		"diameter": { "value": 3, "units": "m", "dimension": "length" },
+		"diameter": { "value": 4, "units": "m", "dimension": "length" },
 		"height": { "value": 8, "units": "m", "dimension": "length" },
 		"payload": { "value": 3000, "units": "kg", "dimension": "mass" },
 		"drymass": { "value": 5000, "units": "kg", "dimension": "mass" },
@@ -685,12 +685,12 @@
 				"credit": "parkjisun"
 			},
 			"missions": [{
-				"title": "Satellite navigation system ",
+				"title": "Satellite navigation system",
 				"description": "Uses signals from four separate satellites so sat nav users can find their location on Earth. These satellites need to be able to see huge area of Earth at a time, measure time accurately and send information about their location.",
 				"success": "",
 				"image": {
 					"file": "images/icon-mapmarker.png",
-					"alt": "Satellite navigation system ",
+					"alt": "Satellite navigation system",
 					"credit": "Housin Aziz"
 				},
 				"choices": {
@@ -739,7 +739,7 @@
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"choices": {
-					"bus": "medium",
+					"bus": "large",
 					"orbit": "LEO"
 				},
 				"requires": [{
@@ -895,8 +895,8 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-opt"],
-                    "label": "",
-					"error": ""
+                    "label": "To take high resolution images of Earth where disaster has occured.",
+					"error": "You do not have a way to take high resolution images of Earth where disaster has occured."
                 },{
                     "type": "package",
                     "oneof": ["radio-tx"],
@@ -910,19 +910,14 @@
                 },{
                     "type": "package",
                     "oneof": ["radar-dish"],
-                    "label": "",
-					"error": ""
+                    "label": "Radar altimeter requires a radar dish to work.",
+					"error": "Your radar altimeter cannot work as it does not have a radar dish."
                 },{
                     "type": "package",
                     "oneof": ["camera-fir"],
-                    "label": "",
-					"error": ""
-                },{
-					"type": "orbit",
-					"oneof": ["LEO"],
-					"label": "See detail of planet surface.",
-					"error": "The orbit you have chosen does not allow you to see the disaster region in enough detail."
-				}]
+                    "label": "Infrared camera can detect fires, including forest fires.",
+					"error": "You do not have a way to detect fires in disaster regions."
+                }]
     		}]
     	}
     }

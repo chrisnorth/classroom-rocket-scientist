@@ -625,7 +625,7 @@
 		"key": "M",
 		"size": 3,
 		"type": "Payload",
-		"diameter": { "value": 3, "units": "m", "dimension": "length" },
+		"diameter": { "value": 4, "units": "m", "dimension": "length" },
 		"height": { "value": 8, "units": "m", "dimension": "length" },
 		"payload": { "value": 3000, "units": "kg", "dimension": "mass" },
 		"drymass": { "value": 5000, "units": "kg", "dimension": "mass" },
@@ -739,7 +739,7 @@
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"choices": {
-					"bus": "medium",
+					"bus": "large",
 					"orbit": "LEO"
 				},
 				"requires": [{
@@ -895,8 +895,8 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-opt"],
-                    "label": "%scenarios.EO.disaster.req.camera-opt.label%",
-					"error": "%scenarios.EO.disaster.req.camera-opt.error%"
+                    "label": "%scenarios.EO.disaster.req.camera.label%",
+					"error": "%scenarios.EO.disaster.req.camera.error%"
                 },{
                     "type": "package",
                     "oneof": ["radio-tx"],
@@ -917,12 +917,7 @@
                     "oneof": ["camera-fir"],
                     "label": "%scenarios.EO.disaster.req.camera-fir.label%",
 					"error": "%scenarios.EO.disaster.req.camera-fir.error%"
-                },{
-					"type": "orbit",
-					"oneof": ["LEO"],
-					"label": "%scenarios.EO.disaster.req.orbit.label%",
-					"error": "%scenarios.EO.disaster.req.orbit.error%"
-				}]
+                }]
     		}]
     	}
     }

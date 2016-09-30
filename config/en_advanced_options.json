@@ -611,7 +611,7 @@
 	},{
 		"key": "XS",
 		"type": "Solid-fuel rocket",
-		"diameter": { "value": 1.3, "units": "m", "dimension": "length" },
+		"diameter": { "value": 1, "units": "m", "dimension": "length" },
 		"height": { "value": 17, "units": "m", "dimension": "length" },
 		"drymass": { "value": 2000, "units": "kg", "dimension": "mass" },
 		"cost": { "value": 5, "units": "credits", "dimension": "currency" },
