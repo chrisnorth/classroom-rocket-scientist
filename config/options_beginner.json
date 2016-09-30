@@ -922,7 +922,7 @@
 					"oneof": ["LEO"],
 					"label": "%scenarios.EO.disaster.req.orbit.label%",
 					"error": "%scenarios.EO.disaster.req.orbit.error%"
-				}
-		}
+				}]
+		}]
 	}
 }
