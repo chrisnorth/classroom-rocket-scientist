@@ -423,7 +423,7 @@
 			"title": "%package.tv-en.title%",
 			"description": "%package.tv-en.description%",
 			"texture": {
-				"icon": ""
+				"icon": "images/icon-time.png"
 			},
 			"mass": { "value": 2, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
