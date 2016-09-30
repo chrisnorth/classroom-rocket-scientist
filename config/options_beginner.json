@@ -889,7 +889,7 @@
 				},
 				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
 				"choices": {
-					"bus": "medium",
+					"bus": "large",
 					"orbit": "LEO"
 				},
 				"requires": [{
