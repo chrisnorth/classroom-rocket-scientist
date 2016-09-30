@@ -89,7 +89,7 @@ package.camera-opt-hires.title:             High-resolution optical camera
 package.camera-opt-hires.description:       Provides very high-resolution images of the ground, such as for monitoring natural disasters, but only when used in low-Earth orbit.
 package.camera-nir.title:                   Vegetation camera
 package.camera-nir.description:             Provides infrared images of vegetation and land-usage on the ground. Only works in daylight, as it relies on reflected sunlight.
-package.camera-fir.title:                   Atmospheric camera
+package.camera-fir.title:                   Infrared camera
 package.camera-fir.description:             Provides infrared images of the clouds and weather systems in the Earth's atmosphere, useful for weather forecasting and climate monitoring, even during darkness.
 package.spect-opt.title:                    Optical Spectrometer
 package.spect-opt.description:              Measures detailed properties of the Earth's surface, such as deforestation.

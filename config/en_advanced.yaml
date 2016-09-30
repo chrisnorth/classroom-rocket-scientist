@@ -203,31 +203,39 @@ scenarios.EO.title:                         Earth Observation
 scenarios.EO.description:                   These satellites are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.
 scenarios.EO.weather.title: Weather forecasting
 scenarios.EO.weather.description: Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean.
-scenarios.EO.weather.req.camera-fir.label: Infrared light identifies cloud types and temperatures on Earth.
+scenarios.EO.weather.req.camera-fir.label: To measure cloud types and temperatures on Earth.
 scenarios.EO.weather.req.camera-fir.error: You do not have a way to identify cloud types and measure temperatures on Earth.
 scenarios.EO.weather.req.camera-opt.label: To take images of clouds and weather systems on Earth.
 scenarios.EO.weather.req.camera-opt.error: You do not have a way to take images of the weather on Earth.
+scenarios.EO.veg-map.req.radio-tx.label: To transmit signals to the ground.
+scenarios.EO.veg-map.req.radio-tx.error: You do not have a way to transmit signals to the ground.
+scenarios.EO.veg-map.req.radio-rx.label: To receive instructions from the ground.
+scenarios.EO.veg-map.req.radio-rx.error: You do not have a way to receive instructions from the ground.
 scenarios.EO.weather.req.orbit.label: See detail of Earth's weather systems.
 scenarios.EO.weather.req.orbit.error: The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail.
 scenarios.EO.veg-map.title: Vegetation mapping
 scenarios.EO.veg-map.description: Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmit the images back to the ground.
-scenarios.EO.veg-map.req.radio-tx.label: A way to transmit signals.
+scenarios.EO.veg-map.req.radio-tx.label: To transmit signals to the ground.
 scenarios.EO.veg-map.req.radio-tx.error: You do not have a way to transmit signals to the ground.
+scenarios.EO.veg-map.req.radio-rx.label: To receive instructions from the ground.
+scenarios.EO.veg-map.req.radio-rx.error: You do not have a way to receive instructions from the ground.
 scenarios.EO.veg-map.req.camera.label: To take images of the vegetation on Earth.
 scenarios.EO.veg-map.req.camera.error: You do not have a way to take images of the vegetation on Earth.
 scenarios.EO.disaster.title: Natural disaster monitoring
 scenarios.EO.disaster.description: When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras can show floods and fires. Radio waves can show regions of earth deformation, such as after earthquakes.
 scenarios.EO.disaster.req.camera.label: To take high resolution images of Earth where disaster has occured.
 scenarios.EO.disaster.req.camera.error: You do not have a way to take high resolution images of Earth where disaster has occured.
-scenarios.EO.disaster.req.radio-tx.label: A way to transmit signals.
+scenarios.EO.disaster.req.radio-tx.label: To transmit signals to the ground.
 scenarios.EO.disaster.req.radio-tx.error: You do not have a way to transmit signals to the ground.
-scenarios.EO.disaster.req.radar-alt.label: Uses radio waves to measure the height of the surface.
+scenarios.EO.disaster.req.radio-rx.label: To receive instructions from the ground.
+scenarios.EO.disaster.req.radio-rx.error: You do not have a way to receive instructions from the ground.
+scenarios.EO.disaster.req.radar-alt.label: To measure the height and deformation of the ground in very high resolution.
 scenarios.EO.disaster.req.radar-alt.error: You do not have a way to measure the height of the surface, such as for earthquakes.
 scenarios.EO.disaster.req.dish.label: Radar altimeter requires a radar dish to work.
 scenarios.EO.disaster.req.dish.error: Your radar altimeter cannot work as it does not have a radar dish.
-scenarios.EO.disaster.req.camera-nir.label: Infrared camera can detect fires, including forest fires.
+scenarios.EO.disaster.req.camera-nir.label: To detect fires, such as forest fires.
 scenarios.EO.disaster.req.camera-nir.error: You do not have a way to detect fires in disaster regions.
-scenarios.EO.disaster.req.orbit.label: See detail of planet surface.
+scenarios.EO.disaster.req.orbit.label: To see fine detail of planet surface.
 scenarios.EO.disaster.req.orbit.error: The orbit you have chosen does not allow you to see the disaster region in enough detail.
 scenarios.EO.surface.title: Surface mapping
 scenarios.EO.surface.description: Measure the varying height of land and oceans over the Earth's surface.
@@ -235,10 +243,12 @@ scenarios.EO.surface.req.radar-alt.label: To measure the height of the ground in
 scenarios.EO.surface.req.radar-alt.error: You do not have a way to measure the height of the ground in very high resolution.
 scenarios.EO.surface.req.dish.label: Radar altimeter requires a radar dish to work.
 scenarios.EO.surface.req.dish.error: Your radar altimeter cannot work as it does not have a radar dish.
-scenarios.EO.surface.req.radio-tx.label: A way to transmit signals.
+scenarios.EO.surface.req.radio-tx.label: To transmit signals to the ground.
 scenarios.EO.surface.req.radio-tx.error: You do not have a way to transmit signals to the ground.
-scenarios.EO.surface.req.sat-tracker.label: Enables high level precision of the satellite location.
+scenarios.EO.surface.req.radio-tx.label: To receive instructions from ground control.
+scenarios.EO.surface.req.radio-tx.error: You do not have a way to receive instructions from the ground.
+scenarios.EO.surface.req.sat-tracker.label: Know the satellite position to high precision
 scenarios.EO.surface.req.sat-tracker.error: You do not have a way to locate the position of the satellite accurately. #If this is staying as a new instrument, need to add as a package option.
-scenarios.EO.surface.req.orbit.label: See detail of planet surface.
+scenarios.EO.surface.req.orbit.label: To see fine detail on the planet surface.
 scenarios.EO.surface.req.orbit.error: The orbit you have chosen does not allow you to see the planet surface in enough detail.
 ---
