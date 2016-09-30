@@ -46,7 +46,8 @@
 			"width": { "value": 1, "units": "m", "dimension": "length" },
 			"height": { "value": 1, "units": "m", "dimension": "length" },
 			"depth": { "value": 1, "units": "m", "dimension": "length" },
-			"area": { "value": 1, "units": "m^2", "dimension": "area" }
+			"area": { "value": 1, "units": "m^2", "dimension": "area" },
+            "power": { "value": 500, "units": "watts", "dimension": "power"}
 		},
 		"medium":{
 			"slots": { "2x2": 4, "2x4": 2, "3x3": 1, "4x4": 4 },
@@ -56,7 +57,8 @@
 			"width": { "value": 5, "units": "m", "dimension": "length" },
 			"height": { "value": 2.5, "units": "m", "dimension": "length" },
 			"depth": { "value": 2.5, "units": "m", "dimension": "length" },
-			"area": { "value": 3, "units": "m^2", "dimension": "area" }
+			"area": { "value": 3, "units": "m^2", "dimension": "area" },
+            "power": { "value": 1000, "units": "watts", "dimension": "power"}
 		},
 		"large":{
 			"slots": { "2x2": 8, "2x4": 3, "4x8": 1, "3x3": 1, "4x4": 4 },
@@ -66,7 +68,8 @@
 			"width": { "value": 10, "units": "m", "dimension": "length" },
 			"height": { "value": 2.5, "units": "m", "dimension": "length" },
 			"depth": { "value": 2.5, "units": "m", "dimension": "length" },
-			"area": { "value": 10, "units": "m^2", "dimension": "area" }
+			"area": { "value": 10, "units": "m^2", "dimension": "area" },
+            "power": { "value": 1500, "units": "watts", "dimension": "power"}
 		}
 	},
 	"package": {
@@ -439,7 +442,7 @@
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" }
 			],
-			"power": { "value": 500, "units": "watts", "dimension": "power" },
+			"power": { "value": 0, "units": "watts", "dimension": "power" },
 			"requires": [{
 				"type": "power",
 				"oneof": ["solar-panel","solar-panel-surface"],
@@ -461,7 +464,7 @@
 				{ "value": 0.05, "units": "m", "dimension": "length" },
 				{ "value": 0.05, "units": "m", "dimension": "length" }
 			],
-			"power": { "value": 30, "units": "watts", "dimension": "power" },
+			"power": { "value": 0, "units": "watts", "dimension": "power" },
 			"requires": [{
 				"type": "power",
 				"oneof": ["solar-panel","solar-panel-surface"],
