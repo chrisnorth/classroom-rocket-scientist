@@ -120,7 +120,7 @@
 		},
 		"camera-fir": {
 			"slot":	"2x4",
-			"title": "Atmospheric camera",
+			"title": "Infrared camera",
 			"description": "Provides infrared images of the clouds and weather systems in the Earth's atmosphere, useful for weather forecasting and climate monitoring, even during darkness.",
 			"texture": {
 				"icon": "texture camera-fir"
