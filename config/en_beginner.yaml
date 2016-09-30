@@ -113,7 +113,7 @@ package.atomic-clock.title:                 Atomic clock
 package.atomic-clock.description:           A very accurate clock used by navigation satellites to measure the time very precisely and help people find their locations on Earth.
 package.atomic-clock-small.title:           Atomic clock (small)
 package.atomic-clock-small.description:     Very accurate clock. Navigation satellites need these to measure the time very precisely.
-package.gps-rx.title:                       GPS receiver (miniature)
+package.gps-rx.title:                       GPS receiver
 package.gps-rx.description:                 Used to monitor the satellite's position very accurately
 package.camera-mini.title:                  Camera (miniature)
 package.camera-mini.description:            Takes pictures of the ground
