@@ -544,7 +544,7 @@
 	},{
 		"key": "S",
 		"type": "Solid-fuel rocket",
-		"diameter": { "value": 3.0, "units": "m", "dimension": "length" },
+		"diameter": { "value": 1, "units": "m", "dimension": "length" },
 		"height": { "value": 12.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 10500, "units": "kg", "dimension": "mass" },
 		"cost": { "value": 23, "units": "credits", "dimension": "currency" },
@@ -555,7 +555,7 @@
 	},{
 		"key": "M",
 		"type": "Liquid-fuel rocket",
-		"diameter": { "value": 3.0, "units": "m", "dimension": "length" },
+		"diameter": { "value": 2, "units": "m", "dimension": "length" },
 		"height": { "value": 30.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 9000, "units": "kg", "dimension": "mass" },
 		"cost": { "value": 12, "units": "credits", "dimension": "currency" },
@@ -566,7 +566,7 @@
 	},{
 		"key": "L",
 		"type": "Liquid-fuel rocket",
-		"diameter": { "value": 3.5, "units": "m", "dimension": "length" },
+		"diameter": { "value": 4.5, "units": "m", "dimension": "length" },
 		"height": { "value": 40.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 24000, "units": "kg", "dimension": "mass" },
 		"cost": { "value": 60, "units": "credits", "dimension": "currency" },
@@ -644,7 +644,7 @@
 	},{
 		"key": "L",
 		"type": "Liquid-fuel rocket",
-		"diameter": { "value": 3.5, "units": "m", "dimension": "length" },
+		"diameter": { "value": 4.5, "units": "m", "dimension": "length" },
 		"height": { "value": 15, "units": "m", "dimension": "length" },
 		"drymass": { "value": 4000, "units": "kg", "dimension": "mass" },
 		"cost": { "value": 20, "units": "credits", "dimension": "currency" },
@@ -711,7 +711,18 @@
 	},{
 		"key": "L",
 		"type": "Liquid-fuel rocket",
-		"diameter": { "value": 7, "units": "m", "dimension": "length" },
+		"diameter": { "value": 8, "units": "m", "dimension": "length" },
+		"height": { "value": 19, "units": "m", "dimension": "length" },
+		"drymass": { "value": 13500, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 8, "units": "credits", "dimension": "currency" },
+		"thrust": { "value": 1000, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 110000, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 420, "units": "s", "dimension": "time" },
+		"notes": "Based on Saturn V 3rd stage (https://en.wikipedia.org/wiki/Saturn_V)"
+	},{
+		"key": "XL",
+		"type": "Liquid-fuel rocket",
+		"diameter": { "value": 10, "units": "m", "dimension": "length" },
 		"height": { "value": 19, "units": "m", "dimension": "length" },
 		"drymass": { "value": 13500, "units": "kg", "dimension": "mass" },
 		"cost": { "value": 8, "units": "credits", "dimension": "currency" },
@@ -763,7 +774,7 @@
 		"key": "M",
 		"size": 3,
 		"type": "Payload",
-		"diameter": { "value": 3, "units": "m", "dimension": "length" },
+		"diameter": { "value": 4, "units": "m", "dimension": "length" },
 		"height": { "value": 8, "units": "m", "dimension": "length" },
 		"payload": { "value": 3000, "units": "kg", "dimension": "mass" },
 		"drymass": { "value": 5000, "units": "kg", "dimension": "mass" },
