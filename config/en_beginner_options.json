@@ -297,7 +297,7 @@
 				{ "value": 0, "units": "m", "dimension": "length" }
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
-		},
+		}
 	},
 	"power": {
 		"solar-panel-surface": {
@@ -923,6 +923,7 @@
 					"label": "See detail of planet surface.",
 					"error": "The orbit you have chosen does not allow you to see the disaster region in enough detail."
 				}]
-		}]
-	}
+    		}]
+    	}
+    }
 }

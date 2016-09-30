@@ -297,7 +297,7 @@
 				{ "value": 0, "units": "m", "dimension": "length" }
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
-		},
+		}
 	},
 	"power": {
 		"solar-panel-surface": {
@@ -923,6 +923,7 @@
 					"label": "%scenarios.EO.disaster.req.orbit.label%",
 					"error": "%scenarios.EO.disaster.req.orbit.error%"
 				}]
-		}]
-	}
+    		}]
+    	}
+    }
 }
