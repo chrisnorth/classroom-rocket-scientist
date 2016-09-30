@@ -325,7 +325,8 @@
 				{ "value": 1.0, "units": "m", "dimension": "length" }
 			],
 			"power": { "value": "inf", "units": "watts", "dimension": "power" }
-			"battery-large": {
+        },
+		"battery-large": {
 			"slot":	"2x2",
 			"title": "%package.battery-large.title%",
 			"description": "%package.battery-large.description%",
@@ -339,7 +340,6 @@
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" }
 			],
-			"power": { "value": 500, "units": "watts", "dimension": "power" },
 			"requires": [{
 				"type": "power",
 				"oneof": ["solar-panel","solar-panel-surface"],

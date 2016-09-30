@@ -285,7 +285,7 @@
 		"internet-en" : {
 			"slot": "2x2",
 			"title": "Internet encoder",
-			"description": "Used to broadcast the internet to people around the world. ",
+			"description": "Used to broadcast the internet to people around the world.",
 			"texture": {
 				"icon": ""
 			},
@@ -325,7 +325,8 @@
 				{ "value": 1.0, "units": "m", "dimension": "length" }
 			],
 			"power": { "value": "inf", "units": "watts", "dimension": "power" }
-			"battery-large": {
+        },
+		"battery-large": {
 			"slot":	"2x2",
 			"title": "Large battery",
 			"description": "Stores power from solar panels that can be used to power satellite instruments during hours of darkness.",
@@ -339,7 +340,6 @@
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" }
 			],
-			"power": { "value": 500, "units": "watts", "dimension": "power" },
 			"requires": [{
 				"type": "power",
 				"oneof": ["solar-panel","solar-panel-surface"],
@@ -685,12 +685,12 @@
 				"credit": "parkjisun"
 			},
 			"missions": [{
-				"title": "",
+				"title": "Satellite navigation system ",
 				"description": "Uses signals from four separate satellites so sat nav users can find their location on Earth. These satellites need to be able to see huge area of Earth at a time, measure time accurately and send information about their location.",
 				"success": "",
 				"image": {
 					"file": "images/icon-mapmarker.png",
-					"alt": "",
+					"alt": "Satellite navigation system ",
 					"credit": "Housin Aziz"
 				},
 				"choices": {
