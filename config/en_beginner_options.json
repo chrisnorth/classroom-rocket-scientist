@@ -194,8 +194,8 @@
 			"power": { "value": 10, "units": "watts", "dimension": "power" }
 		},
 		"gps-rx": {
-			"slot":	"1x1",
-			"title": "GPS receiver (miniature)",
+			"slot":	"2x2",
+			"title": "GPS receiver",
 			"description": "Used to monitor the satellite's position very accurately",
 			"texture": {
 				"icon": "texture gps-rx"
@@ -244,43 +244,6 @@
 				{ "value": 0.5, "units": "m", "dimension": "length" }
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
-		},
-		"dish-small": {
-			"slot":	"1x2",
-			"title": "Radio antenna (small)",
-			"description": "Can be used to control up to 2 instruments, and send images & data from these instruments to Earth.",
-			"texture": {
-				"icon": "",
-				"class": "-bg radio",
-				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
-			},
-			"mass": { "value": 0.5, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0.5, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.1, "units": "m", "dimension": "length" },
-				{ "value": 0.05, "units": "m", "dimension": "length" },
-				{ "value": 0.05, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 0, "units": "watts", "dimension": "power" }
-		},
-		"radio-antenna-cube": {
-			"slot":	"0x2",
-			"title": "Radio antenna (unfolded)",
-			"description": "Can be used to control up to 2 instruments, and send images & data from these instruments to Earth.",
-			"texture": {
-				"icon": "texture radio-antenna-cube",
-				"class": "-bg",
-				"html": "<div class=\"aerials\"><div class=\"aerial1 aerial\"></div><div class=\"aerial2 aerial\"></div></div>"
-			},
-			"mass": { "value": 0.1, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0.5, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.98, "units": "m", "dimension": "length" },
-				{ "value": 0.98, "units": "m", "dimension": "length" },
-				{ "value": 0.07, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 2, "units": "watts", "dimension": "power" },
-			"ref": "http://cubesatshop.com/index.php?page=shop.product.details&category.id=6&flypage=flypage.tpl&product.id=66&option=com.virtuemart&Itemid=70&vmcchk=1&Itemid=70"
 		},
 		"internet-en" : {
 			"slot": "2x2",
