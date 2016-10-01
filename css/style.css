@@ -2824,6 +2824,22 @@ table.data td:last-child {
   background: url("../images/icon-time.png");
   background-size: 100% 100%; }
 
+.texture.camera-fir .face.front {
+  background: url("../images/icon-camera-red-wide.png");
+  background-size: 100% 100%; }
+
+.texture.camera-fir.up .face.front, .texture.camera-fir.down .face.front {
+  background: url("../images/icon-camera-red-tall.png");
+  background-size: 100% 100%; }
+
+.texture.camera-nir .face.front {
+  background: url("../images/icon-camera-green.png");
+  background-size: 100% 100%; }
+
+.texture.camera-opt .face.front {
+  background: url("../images/icon-camera-blue.png");
+  background-size: 100% 100%; }
+
 .satellite.solar-fixed .row:first-child .solar-right .face.top {
   border-right: 4px solid #00a2d3; }
 

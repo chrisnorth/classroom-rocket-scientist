@@ -270,8 +270,7 @@
 			"title": "Atomic clock",
 			"description": "Very accurate clock, required by navigation satellites to measure the time to very high precision.",
 			"texture": {
-				"icon": "texture atomic-clock",
-                "class": "icon"
+				"icon": "texture atomic-clock"
 			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
