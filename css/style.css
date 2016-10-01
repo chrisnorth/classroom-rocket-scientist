@@ -20,7 +20,7 @@
 .bg1x1 {
   background-color: #ffcb06; }
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -2819,6 +2819,10 @@ table.data td:last-child {
 
 .texture .face.front {
   background: url("../images/foil_2x2.png"); }
+
+.texture.atomic-clock .face.front {
+  background: url("../images/icon-time.png");
+  background-size: 100% 100%; }
 
 .satellite.solar-fixed .row:first-child .solar-right .face.top {
   border-right: 4px solid #00a2d3; }

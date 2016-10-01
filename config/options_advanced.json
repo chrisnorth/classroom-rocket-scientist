@@ -270,7 +270,8 @@
 			"title": "%package.atomic-clock.title%",
 			"description": "%package.atomic-clock.description%",
 			"texture": {
-				"icon": "texture atomic-clock"
+				"icon": "texture atomic-clock",
+                "class": "icon"
 			},
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
