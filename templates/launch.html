@@ -32,26 +32,33 @@
 
 		<div id="main">
 			<section id="launch" class="view">
-				<div class="padded">
-					<div class="page">
-						<div class="row-top">
-							<div class="msg noscriptmsg">Oops! The interactive parts of <em>Classroom rocket scientist</em> need Javascript to be enabled. Sorry about that.</div>
-							<p>Preparing launch...</p>
-							<div id="update"></div>
-							
-							<div id="satellite" class="satellite-holder threeD">
-								<!--#for each="bus" name="satellites_a" -->
-								<div class="holder" data-size="<!--#json name="this" -->">
-									<!--#include file="satellites/<!--#json name="this" -->.html" -->
-								</div>
-								<!--#endfor name="satellites_a" -->
-							</div>
+				<div class="page">
+					<div class="msg noscriptmsg">Oops! The interactive parts of <em>Classroom rocket scientist</em> need Javascript to be enabled. Sorry about that.</div>
+					<p>Preparing launch...</p>
+					<div id="update"></div>
+					
+					<div id="satellite" class="satellite-holder threeD not-at-start">
+						<!--#for each="bus" name="satellites_a" -->
+						<div class="holder" data-size="<!--#json name="this" -->">
+							<!--#include file="satellites/<!--#json name="this" -->.html" -->
+						</div>
+						<!--#endfor name="satellites_a" -->
+					</div>
 
+					<div id="terminal">
+					</div>
+
+					<div id="launchpad">
+						<div id="launchpad-bg" class="scenery">
+						</div>
+						<div id="launchpad-mg" class="scenery">
 							<div class="rocket-holder rocket" id="vehicle">
 								<div class="holder">
 									<div class="stage payloadbay"><div class="part"></div></div><div class="stage thirdstage"><div class="part"></div></div><div class="stage secondstage"><div class="part"></div></div><div class="stage firststage"><div class="part"></div></div>
 								</div>
 							</div>
+						</div>
+						<div id="launchpad-fg" class="scenery">
 						</div>
 					</div>
 				</div>

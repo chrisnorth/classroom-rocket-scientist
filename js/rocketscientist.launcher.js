@@ -37,6 +37,9 @@
 			if(S(s.e[i]).attr('data-size') != this.choices['bussize']) S(s.e[i]).remove();
 		}
 
+		// Show the satellite
+		//S('#satellite.not-at-start').removeClass('not-at-start')
+
 		// Loop over the packages
 		for(var i = 0; i < this.query.slots.length; i++){
 

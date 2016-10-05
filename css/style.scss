@@ -818,6 +818,26 @@ table.data td:last-child { text-align: left; }
 @import "../tests/orbits/css/style.scss";
 @import "../tests/rocket/css/style.scss";
 
+body.launch .rocket-holder .stage { opacity: 1; }
+body.launch .page { width: 100%; height: 100%; position: relative; }
+#launchpad { position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; }
+#launchpad .scenery { position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; width: 100%; height: 100%; }
+#launchpad #launchpad-bg { z-index: 0; background-image: url("../images/launchpad_CSG_bg.png"); background-position: center bottom; background-repeat: no-repeat; background-size: cover; }
+#launchpad #launchpad-mg { z-index: 1; bottom: 10%; }
+#launchpad .rocket-holder {
+	position: absolute;
+	bottom: 7em;
+    display: block;
+    height: auto;
+    max-height: auto;
+    max-width: auto;
+    overflow: show;
+}
+body.launch .holder { display: block!important; }
+#launchpad .rocket-holder .holder { background-image: none; font-size: 0.5em; display: block!important; padding: 0px; }
+#launchpad #launchpad-fg { z-index: 2; background-image: url("../images/launchpad_CSG_fg.png"); background-position: center bottom; background-repeat: no-repeat; background-size: cover; }
+body.launch #terminal { position: absolute; right: 1em; top: 1em; width: 35%; height: 50%; background-color: rgba(0,0,0,0.6); z-index: 100; padding: 1em; }
+
 .not-at-start { display: none!important; }
 
 @media only screen and (max-width: 800px){
