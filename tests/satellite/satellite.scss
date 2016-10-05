@@ -133,6 +133,29 @@
 .photo .face.front, .photo .face.top, .photo .face.left, .photo .face.right, .photo .face.back { background-image: url('foil.jpg'); background-size: 100% 100%; background-repeat: none; border: 0px; }
 .video .face.front, .video .face.top, .video .face.left, .video .face.right, .video .face.back { background-image: url('foil.jpg'); background-size: 100% 100%; background-repeat: none; border: 0px; }
 
+.texture.slot2x4.down .face.front {
+	background: white;
+	overflow: hidden;
+}
+.texture.slot2x4.down .face.front:before, .texture.slot2x4.up .face.front:before {
+	content: "";
+	position: absolute;
+	width: 200%;
+	height: 50%;
+	z-index: -1;
+	top: 100%;
+	left: 0%;
+	background-size: 100%;
+	transform-origin: 0 0 0;
+}
+.texture.slot2x4.down .face.front:before, .texture.slot2x4.up .face.front:before {
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+}
+
 
 .threeD .satellite {
 	@include transform-style( preserve-3d );

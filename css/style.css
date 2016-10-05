@@ -1930,6 +1930,28 @@ table.data td:last-child {
   background-repeat: none;
   border: 0px; }
 
+.texture.slot2x4.down .face.front {
+  background: white;
+  overflow: hidden; }
+
+.texture.slot2x4.down .face.front:before, .texture.slot2x4.up .face.front:before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 50%;
+  z-index: -1;
+  top: 100%;
+  left: 0%;
+  background-size: 100%;
+  transform-origin: 0 0 0; }
+
+.texture.slot2x4.down .face.front:before, .texture.slot2x4.up .face.front:before {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg); }
+
 .threeD .satellite {
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
@@ -2830,19 +2852,15 @@ table.data td:last-child {
   background: url("../images/icon-time.png");
   background-size: 100% 100%; }
 
-.texture.camera-fir .face.front {
+.texture.camera-fir .face.front, .texture.camera-fir .face.front:before {
   background: url("../images/icon-camera-red-wide.png");
   background-size: 100% 100%; }
 
-.texture.camera-fir.up .face.front, .texture.camera-fir.down .face.front {
-  background: url("../images/icon-camera-red-tall.png");
-  background-size: 100% 100%; }
-
-.texture.camera-nir .face.front {
+.texture.camera-nir .face.front, .texture.camera-nir .face.front:before {
   background: url("../images/icon-camera-green.png");
   background-size: 100% 100%; }
 
-.texture.camera-opt .face.front {
+.texture.camera-opt .face.front, .texture.camera-opt .face.front:before {
   background: url("../images/icon-camera-blue.png");
   background-size: 100% 100%; }
 

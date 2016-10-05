@@ -809,10 +809,9 @@ table.data td:last-child { text-align: left; }
 
 .texture.atomic-clock .face.front { background: url('../images/icon-time.png'); background-size:100% 100%; }
 
-.texture.camera-fir .face.front { background: url('../images/icon-camera-red-wide.png'); background-size:100% 100%; }
-.texture.camera-fir.up .face.front, .texture.camera-fir.down .face.front { background: url('../images/icon-camera-red-tall.png'); background-size:100% 100%;}
-.texture.camera-nir .face.front { background: url('../images/icon-camera-green.png'); background-size:100% 100%; }
-.texture.camera-opt .face.front { background: url('../images/icon-camera-blue.png'); background-size:100% 100%; }
+.texture.camera-fir .face.front, .texture.camera-fir .face.front:before { background: url('../images/icon-camera-red-wide.png'); background-size:100% 100%; }
+.texture.camera-nir .face.front, .texture.camera-nir .face.front:before { background: url('../images/icon-camera-green.png'); background-size:100% 100%; }
+.texture.camera-opt .face.front, .texture.camera-opt .face.front:before { background: url('../images/icon-camera-blue.png'); background-size:100% 100%; }
 
 @import "../tests/satellite/solar.scss";
 @import "../tests/orbits/css/style.scss";
