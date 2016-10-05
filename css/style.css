@@ -1206,6 +1206,12 @@ section.fullpage .container {
 .rocket-holder.wobble .stage:nth-child(3n) {
   animation-delay: -0.4s; }
 
+body.launch .rocket-holder .holder {
+  background-image: none; }
+
+body.launch .rocket-holder .stage {
+  opacity: 1; }
+
 @-webkit-keyframes wobble {
   0% {
     transform: rotate(-1.75deg); }

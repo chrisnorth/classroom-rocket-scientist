@@ -15,6 +15,9 @@ perl config/template.pl --overwrite --mode intermediate templates/level.html int
 echo "Creating advanced HTML"
 perl config/template.pl --overwrite --mode advanced templates/level.html advanced.html
 
+echo "Creating launch HTML"
+perl config/template.pl --overwrite --mode advanced templates/launch.html launch.html
+
 # Create the CSS
 echo "Creating CSS"
 sass css/style.scss css/style.css

@@ -61,24 +61,19 @@ var rs;
 		this.defaults = {'currency':'credits', 'length':'m', 'area': 'mxm', 'mass': 'kg', 'power':'watts', 'powerdensity':'watts/m^2' };
 		this.z = {};
 		this.totals = { 'cost': new Convertable(0,this.defaults.currency), 'power': new Convertable(0,this.defaults.power), 'mass':new Convertable(0,this.defaults.mass) };
-		this.choices = { 'type':'', 'goal':'', 'mission':'', 'orbit':'', 'bus':'', 'slots':{}, 'solar-panel':0, 'solar-panel-surface':false };
+		this.choices = { 'type':'', 'goal':'', 'mission':'', 'orbit':'', 'bus':'', 'slots':{}, 'solar-panel':0, 'solar-panel-surface':false, 'bussize':'' };
 		this.requirements = new Array();
+		this.stages = ['firststage','secondstage','thirdstage','payloadbay'];
 
 		this.getSections();
-		this.parseQueryString();
-		if(data){
-			this.data = data;
-			this.init();
-		}else S().loadJSON('config/en_advanced_options.json',this.init,{'this':this});
 
-		S(document).on('keyup',{me:this},function(e){
-			var rs = e.data.me;
-			var sec = S('#'+rs.sections[rs.currentsection]);
-			// Left=37
-			if(e.originalEvent.keyCode==37) sec.find('.prev a').trigger('click');
-			// Right=39
-			if(e.originalEvent.keyCode==39) sec.find('.next a').trigger('click');
-		});
+		this.query = this.parseQueryString();
+
+		// If we have a function to run before init(), call it now
+		if(typeof this.init_before === "function") this.init_before();
+
+		if(data) this.init(data);
+		else S().loadJSON('config/en_'+(this.level || "advanced")+'_options.json',this.init,{'this':this});
 
 		return this;
 	}
@@ -93,6 +88,7 @@ var rs;
 				var key = qs[i].split('=')[0];
 				var val = qs[i].split('=')[1];
 				if(/^[0-9\.]+$/.test(val)) val = parseFloat(val);	// convert floats
+				if(/^(true|false)$/.test(val)) val = (val == "true" ? true : false);
 				r[key] = val;
 			}
 		}
@@ -104,27 +100,8 @@ var rs;
 		}
 		return r;
 	}
-	RocketScientist.prototype.getSections = function(){
-		var sec = S('section');
-		this.sections = [];
-		this.navigable = {};
-		for(var i = 0 ;i < sec.length; i++){
-			var el = S(sec.e[i]);
-			if(el.hasClass('view')){
-				var id = el.attr('id');
-				this.sections.push(id);
-				this.navigable[id] = true;
-			}
-		}
-		this.has = {};
-		this.has['vw'] = (S('#progressbar').css({'width':'100vw'}).e[0].offsetWidth==this.wide);
-
-		return this;
-	}
 	// Initiate the Rocket Scientist
 	RocketScientist.prototype.init = function(data){
-
-		var _obj = this;
 
 		// Remove classes from script only elements
 		S('.scriptonly').toggleClass('scriptonly');
@@ -133,7 +110,7 @@ var rs;
 		S('.noscriptmsg').remove();
 
 		// For testing - we add it here before attaching events otherwise they don't fire
-		if(this.testmode && !S('body').hasClass('front')){
+		if(this.testmode && !S('body').hasClass('front') && this.mode=="build"){
 			S('#menu').append('<li class="baritem"><button id="speedy"><img class="icon options" alt="" src="images/cleardot.gif" /><span>Test</span></button></li>');
 			S('#speedy').on('click',function(e){ test(); S('#speedy').parent().remove(); });
 		}
@@ -146,6 +123,7 @@ var rs;
 		S('#menu .about').on('click',{me:this},function(e){ S('#about').removeClass('not-at-start'); S('body').addClass('nooverflow'); });
 		S('#units .close').on('click',{me:this},function(e){ S('#units').addClass('not-at-start'); S('body').removeClass('nooverflow'); });
 		S('#about .close').on('click',{me:this},function(e){ S('#about').addClass('not-at-start'); S('body').removeClass('nooverflow'); });
+
 		// Deal with changes to the unit selectors
 		S('#units select').on('change',{me:this},function(e){
 			// Get the unit type
@@ -192,73 +170,10 @@ var rs;
 
 		this.currentsection = 0;
 
-		// We hide elements that shouldn't be visible (but we are leaving visible
-		// in the plain HTML so there is something if Javascript doesn't work.
-		for(var s = 0; s < this.sections.length; s++) S('#'+this.sections[s]).addClass('js').addClass('slide').css((s > 0 ? {'visibility':'hidden','left':'-100%'} : {}));
-
-		// Deal with button presses in the type section
-		S('#type button').on('click',{me:this},function(e){ _obj.setType(S(e.currentTarget).attr('data-type')); });
-
-		// Deal with button presses in the goal section
-		S('#goal button').on('click',{me:this},function(e){ _obj.setGoal(S(e.currentTarget).attr('data-goal')); });
-
-		// Add events to size selection buttons
-		S('#bus .satellite').on('click',{me:this},function(e){
-			S(e.currentTarget).parent().find('button').trigger('click');
-		});
-		S('#bus button').on('click',{me:this},function(e){
-			e.data.me.setBus(S(e.currentTarget).attr('data-size'));
-		});
-
-		// Replace the default behaviour of the navigation links
-		S('nav .prev a').on('click',{me:this},function(e){ if(!S(e.currentTarget).hasClass('disabled')) e.data.me.navigate(e); });
-		S('nav .next a').on('click',{me:this},function(e){ if(!S(e.currentTarget).hasClass('disabled')) e.data.me.navigate(e); }).addClass('disabled');
-
 		// Update all the convertable values
 		this.updateConvertables();
-
-		// Add events to add/remove buttons
-		var _obj;
-
-		this.makeSatelliteControls('#satellite');
-		this.makeSatelliteControls('#satellite-power');
-		this.makeSatelliteControls('#vehicle');
-
-		// Add events to buttons in orbit section
-		S('#orbit_list button').on('click',{me:'test'},function(e){ _obj.setOrbit(S(e.currentTarget).attr('data-orbit')); });
-
-		// Add button events for instrument list to the list itself so we can reorder the contents later without losing the events
-		S('#instrument_list ul').on('click',{me:'test'},function(e){ _obj.addPackage({'currentTarget':e.originalEvent.target,'data':e.data,'originalEvent':e.originalEvent,'type':e.type},'instrument') });
-
-		// Add button events for power list to the list itself so we can reorder the contents later without losing the events
-		S('#power_list ul').on('click',{me:'test'},function(e){ _obj.addPackage({'currentTarget':e.originalEvent.target,'data':e.data,'originalEvent':e.originalEvent,'type':e.type},'power'); });
-
-		S('#instrument').on('load',{me:this},function(e){
-			e.data.me.log('Loading instrument panel')
-			// Reset button states
-			//S('#instrument button.add').prop('disabled',false);
-			//S('#instrument button.remove').prop('disabled',true);
-		})
-
-		// Update rocket stages
-		this.sliders = new Array();
-		this.stages = ['firststage','secondstage','thirdstage','payloadbay'];
-		this.stageslookup = {};
-		for(var s = 0; s < this.stages.length; s++){
-			this.stageslookup[this.stages[s]] = s;
-			var l = this.stages[s];
-			this.sliders.push(new Slider(S('.rocket-builder .'+l),{stage:l},function(e){ _obj.setStage(e.data.stage,e.i); }));
-			for(var i = 0; i < this.data[l].length; i++) S('.rocket-builder .'+l+' .stage-'+this.data[l][i].key).find('.part').css({'width':(this.data[l][i].diameter.value*10*0.8).toFixed(1)+'%'});
-		}
-
-		// Reset button states
-		this.updateButtons();
-
-		// Quickly set and unset the type to reset the vertical scroll
-		this.setType('EO').setType('');
-
-		// Deal with orbit selection
-		for(var i in this.data.orbit) S('.orrery .'+i).on('click',{'me':this,'orbit':i},function(e){ e.data.me.setOrbit(e.data.orbit); });
+	
+		var _obj = this;
 
 		// We'll need to change the sizes when the window changes size
 		window.addEventListener('resize', function(event){ _obj.resize(); });
@@ -267,6 +182,8 @@ var rs;
 		// Remove the overlay we've added inline
 		S('#overlay').remove();
 
+		if(typeof this.init_after === "function") this.init_after();
+		
 		return this;
 	}
 	RocketScientist.prototype.updateConvertables = function(){
@@ -372,8 +289,7 @@ var rs;
 		this.totals = total;
 		this.power = power;
 
-		this.log('updateBudgets',this.data,this.choices,total,power)
-		this.updateTotals();
+		this.log('updateBudgets',this.data,this.choices,total,power);
 	}
 	RocketScientist.prototype.updateTotals = function(){
 		this.log('updateTotals');
@@ -558,13 +474,14 @@ var rs;
 	// Choose the bus size
 	RocketScientist.prototype.setBus = function(size){
 		this.log('setBus',size);
+		this.choices['bussize'] = size;
 		this.choices['bus'] = this.data.bus[size];
 
 		// Reset any previous choices regarding instruments, power options, or rockets
 		this.choices['solar-panel'] = 0;
 		this.choices['solar-panel-surface'] = false;
 		this.choices['slots'] = "";
-		this.updateButtons();
+		if(typeof this.updateButtons==="function") this.updateButtons();
 		this.choices['slots'] = {};
 		// Construct a dictionary for filling slots
 		for(var i in this.choices['bus'].slots) this.choices['slots'][i] = [];
@@ -607,6 +524,7 @@ var rs;
 			}
 			return;
 		}
+
 		for(var i = 0; i < li.length; i++){
 			el = S(li.e[i]);
 			s = el.find('.add').attr('data-size');
@@ -639,21 +557,24 @@ var rs;
 		return this;
 	}
 	RocketScientist.prototype.reorderLists = function(){
-		this.log('reorderLists')
-		var uls = S('.list ul');
+		this.log('reorderLists');
+		var sections = ['instrument','power'];
 		var ul,u,i,li,l_top,l_bot;
-		for(u = 0; u < uls.length; u++){
-			l_top = "";
-			l_bot = "";
-			ul = S(uls.e[u]);
-			li = ul.find('li');
-			// For each list item we check if the slot is available or not
-			// If it isn't it goes at the bottom of the list
-			for(i = 0; i < li.length; i++){
-				if(S(li.e[i]).hasClass('slot-unavailable')) l_bot += li.e[i].outerHTML;
-				else l_top += li.e[i].outerHTML;
+		for(s = 0; s < sections.length; s++){
+			var uls = S('#'+sections[s]+' .list ul');
+			for(u = 0; u < uls.length; u++){
+				l_top = "";
+				l_bot = "";
+				ul = S(uls.e[u]);
+				li = ul.find('li');
+				// For each list item we check if the slot is available or not
+				// If it isn't it goes at the bottom of the list
+				for(i = 0; i < li.length; i++){
+					if(S(li.e[i]).hasClass('slot-unavailable')) l_bot += li.e[i].outerHTML;
+					else l_top += li.e[i].outerHTML;
+				}
+				ul.html(l_top+l_bot);
 			}
-			ul.html(l_top+l_bot);
 		}
 		return this;
 	}
@@ -680,95 +601,6 @@ var rs;
 		return this;
 	}
 
-	RocketScientist.prototype.navigate = function(e){
-		e.originalEvent.preventDefault();
-		var href = S(e.currentTarget).attr('href');
-		var section = href.substr(1);
-		if(this.navigable[section]){
-			var found = -1;
-			var progress = 0;
-			for(var i = 0 ; i < this.sections.length; i++){
-				if(section==this.sections[i]){
-					progress = 100*i/(this.sections.length-1);
-					found = i;
-				}
-			}
-			S('#'+section).trigger('load');
-
-			// We know which section we want (found) and we know which we are on (this.currentsection)
-			// Remove existing hidden slide classes
-			S('.slide-hide').removeClass('slide-hide');
-			S('.slide').removeClass('slideOutLeft').removeClass('slideOutRight').removeClass('slideInLeft').removeClass('slideInRight');
-			// Although we are using CSS3 animations we also have to manually set properties in CSS as a fallback
-			if(found > this.currentsection){
-				// Go right
-				// Hide all the previous sections if they aren't already
-				for(var i = 0; i < this.currentsection;i++) S('#'+this.sections[i]).css({'left':'-100%','margin-left':0});
-				// Move the current section off
-				S('#'+this.sections[this.currentsection]).addClass('slideOutLeft').css({'left':'-100%','margin-left':0});
-				// Move the new section in
-				S('#'+this.sections[this.currentsection+1]).addClass('slideInRight').css({'left':'0%','margin-left':0,'visibility':''});
-			}else{
-				// Go left
-				// Move the current section off
-				S('#'+this.sections[this.currentsection]).addClass('slideOutRight').css({'left':'-100%','margin-left':'','visibility':''});
-				// Bring the new section in
-				S('#'+this.sections[found]).focus().addClass('slideInLeft').css({'left':'0%','margin-left':0,'visibility':''});
-				// Hide all the following sections if they aren't already
-				for(var i = found+2; i < this.sections.length; i++) S('#'+this.sections[i]).css({'margin-left':'0%','left':'-100%','visibility':'hidden'});
-			}
-			// Update the progress bar
-			S('#progressbar .progress-inner').css({'width':progress.toFixed(1)+'%'});
-		}
-		this.currentsection = found;
-		//S('#'+this.currentsection).focus()
-
-		function findNextTabStop(el) {
-			var universe = document.querySelectorAll('input, button, select, textarea, a[href]');
-			var list = Array.prototype.filter.call(universe, function(item) {return item.tabIndex >= "0"});
-			for(var i = list.indexOf(el)+1; i < list.length; i++){
-				if(isVisible(list[i])) return list[i];
-			}
-			return list[0];
-		}
-
-		// Check if an element is really visible
-		function isVisible(el) {
-			if(!el) return false;
-			var visible = true;
-			visible = visible && el.offsetWidth > 0 && el.offsetHeight > 0;
-			if(visible) {
-				while('BODY' != el.tagName && visible) {
-					visible = visible && 'hidden' != window.getComputedStyle(el).visibility;
-					el = el.parentElement;
-				}
-			}
-			return visible;
-		}
-
-		// Focus on the first focusable element in the new section
-		findNextTabStop(S('#'+section).find('.row-top .next a').e[0]).focus();
-
-		return false;
-	}
-	RocketScientist.prototype.makeSatelliteControls = function(selector){
-
-		this.z[selector] = {'z':1,'el':S(selector)};
-
-		// Create controls for satellite power view
-		var zc = this.z[selector].el.find('.zoomcontrol');
-		zc.children('.zoomin').on('click',{me:this,by:1.1,z:selector},function(e){ e.data.me.zoom(e.data.z,e.data.by); });
-		zc.children('.zoomout').on('click',{me:this,by:1/1.1,z:selector},function(e){ e.data.me.zoom(e.data.z,e.data.by); });
-		zc.children('.make3D').on('click',{me:this,z:selector},function(e){ e.data.me.toggle3D(e.data.z); });
-		zc.children('.animate').on('click',{me:this,z:selector},function(e){ e.data.me.toggleAnimation(e.data.z); });
-
-		return this;
-	}
-	RocketScientist.prototype.zoom = function(selector,factor){
-		if(this.z[selector].z * factor < 2 && this.z[selector].z * factor > 0.5) this.z[selector].z *= factor;
-		this.z[selector].el.css({'font-size':this.z[selector].z.toFixed(3)+'em'});
-		return this;
-	}
 	// Add the CSS class for displaying pseudo-3D CSS
 	RocketScientist.prototype.toggle3D = function(element){
 		S(element).toggleClass('threeD');
@@ -777,18 +609,6 @@ var rs;
 	// Toggle the spinning animation class
 	RocketScientist.prototype.toggleAnimation = function(element){
 		S(element+' .satellite').toggleClass('spin');
-		return this;
-	}
-	RocketScientist.prototype.addPackage = function(e,to){
-		var a = S(e.currentTarget);
-		var add = a.hasClass('add') ? true : false;
-		var type = a.parent().parent().attr('data-package');
-		this.log('addPackage',e,to,type);
-		if(to == "instrument") this.processPackage(type,a,"instrument");
-		else if(to == "power") this.processPowerPackage(type,a);
-
-		this.updateBudgets();
-		this.updateButtons();
 		return this;
 	}
 	// Input is the type of slot e.g. dish-large and the event
@@ -914,47 +734,6 @@ var rs;
 		return this;
 	}
 
-	RocketScientist.prototype.updateButtons = function(){
-		// If we've filled up this slot type we can't add any more
-		// of this type so lose the add buttons otherwise show them
-		var add = S('.list .add');
-		var rem = S('.list .remove');
-		this.log('updateButtons',this.choices['slots']);
-		if(this.choices['slots']){
-			btn = add.e.concat(rem.e);
-			for(var i = 0; i < btn.length; i++){
-				var a = S(btn[i]);
-				var s = a.attr('data-size');
-				var p = a.attr('data-package');
-				if(s && p){
-					var disable = false;
-					if(a.hasClass('add')){
-						if(this.choices['slots'][s]) disable = (this.choices['slots'][s].length == this.choices['bus'].slots[s]);
-						if(p=="solar-panel") disable = (this.choices['solar-panel'] < this.maxpanels) ? false : true;
-						if(p=="solar-panel-surface") disable = (this.choices['solar-panel-surface']);
-					}else if(a.hasClass('remove')){
-						var n = 0;
-						for(var j in this.choices['slots'][s]) if(this.choices['slots'][s][j] == p) n++;
-						if(this.choices['slots'][s]) disable = (this.choices['slots'][s].length == 0 || n==0);
-						if(p=="solar-panel") disable = (this.choices['solar-panel'] <= 0);
-						if(p=="solar-panel-surface") disable = (!this.choices['solar-panel-surface']);
-					}
-					a.prop('disabled',disable);
-				}
-			}
-		}else{
-			add.prop('disabled',false);
-			rem.prop('disabled',true);
-			S('#instrument_list .list-bar .value').html('');
-			S('#instrument_list .selected').removeClass('selected')
-			S('#power_list .list-bar .value').html('');
-			S('#power_list .selected').removeClass('selected')
-		}
-
-		//this.log('updateButtons',add,rem)
-		return this;
-	}
-
 	RocketScientist.prototype.processPowerPackage = function(type,el){
 		this.log('processPowerPackage',type,el)
 		var add = el.hasClass('add') ? true : false;
@@ -967,31 +746,6 @@ var rs;
 
 		this.updateValue(type,el,"power");
 		this.updateNavigation();
-		return this;
-	}
-	// Add or remove deployable solar panels up to a maximum
-	RocketScientist.prototype.solarPanel = function(add,el){
-		this.log('solarPanel',add,el)
-		var ps;
-		var parent = el.parent();
-		var a = parent.children('.add');
-		var m = parent.children('.remove');
-		var max = this.maxpanels*2;
-		if(add){
-			var panels = S('#sat-power .solar-panels');
-			for(var i = 0; i < panels.length; i++){
-				ps = panels.e[i].getElementsByTagName('li');
-				if(ps.length < this.maxpanels){
-					panels.e[i].getElementsByTagName('ol')[0].innerHTML += '<li class="solar-panel"><\/li>';
-				}
-			}
-		}else{
-			S('#sat-power .solar-panels li:eq(0)').remove();
-		}
-		// Find out how many panels we have
-		ps = S('#sat-power .solar-panels li');
-		this.choices['solar-panel'] = ps.length/2;
-
 		return this;
 	}
 	// Toggle the fixed solar panels
@@ -1081,11 +835,13 @@ var rs;
 			else return parseInt(el.currentStyle.paddingTop);
 		}
 		var s = S('section');
-		var padd = verticalPadding(s.e[0]) + verticalPadding(s.children('.padded').e[0])+2;
+		var padd = (s.children('.padded').length > 0) ? verticalPadding(s.e[0]) + verticalPadding(s.children('.padded').e[0])+2 : 0;
 		for(var i = 0; i < this.sections.length; i++){
 			var page = S('#'+this.sections[i]+' .page');
 			if(page.length > 0){
-				var top = height(page.children('.row-top').e[0]);
+				var eltop = page.children('.row-top');
+			//console.log(page,eltop)
+				var top = (eltop.length > 0) ? height(eltop.e[0]) : 0;
 				page.css({'height':(scaleH ? (this.tall-padd)+'px' : 'auto')});
 				var versions = page.children('.row-main');
 				for(var j = 0; j < versions.length; j++){
@@ -1103,6 +859,25 @@ var rs;
 
 		return this;
 	}
+
+	RocketScientist.prototype.getSections = function(){
+		var sec = S('section');
+		this.sections = [];
+		this.navigable = {};
+		for(var i = 0 ;i < sec.length; i++){
+			var el = S(sec.e[i]);
+			if(el.hasClass('view')){
+				var id = el.attr('id');
+				this.sections.push(id);
+				this.navigable[id] = true;
+			}
+		}
+		this.has = {};
+		this.has['vw'] = (S('#progressbar').css({'width':'100vw'}).e[0].offsetWidth==this.wide);
+
+		return this;
+	}
+
 	RocketScientist.prototype.toggleFullScreen = function(){
 		// Get the container
 		var elem = S("#application").e[0];
@@ -1126,80 +901,12 @@ var rs;
 		return this;
 	}
 
-	function Slider(s,data,callback){
-		this.el = s;
-		this.data = data;
-		this.callback = callback;
-		this.n = 1.6;	// How many to show
-		this.ul = s.find('ul:eq(0)');	// Get the ul
-		this.li = this.ul.find('li');	// Get the li
-		// Update the property
-		if(!this.ul.attr('data-select')) this.ul.attr('data-select','0');	// Set the property if it doesn't exist
-		this.setSelected(parseInt(this.ul.attr('data-select')));
-		var _obj = this;
-		// We'll need to change the sizes when the window changes size
-		window.addEventListener('resize',function(e){ _obj.resize(); });
-		// Add events to buttons
-		this.el.find('button').on('click',{me:this},function(e){ e.data.me.navigate(e); });
-		// Set the size
-		this.resize();
-		return this;
-	}
-	Slider.prototype.setSelected = function(s){
-		var n = this.li.length;
-		this.selected = ((s+n)%n);
-		this.ul.attr('data-select',this.selected);
-		this.ul.find('.selected').removeClass('selected');
-		S(this.li.e[this.selected]).addClass('selected');
-		return this;
-	}
-	Slider.prototype.navigate = function(e){
-		var f = S(e.currentTarget).hasClass('next');
-		this.setSelected(this.selected + (f ? 1 : -1));
-		this.resize();
-		if(typeof this.callback==="function") this.callback.call(this,{i:this.selected,data:this.data});
-		return this;
-	}
-	Slider.prototype.resize = function(){
-		function width(el){
-			if('getComputedStyle' in window) return parseInt(window.getComputedStyle(el, null).getPropertyValue('width'));
-			else return parseInt(el.currentStyle.width);
-		}
-		var w = width(this.el.e[0]);
-		this.el.find('.stage').css({'width':(w/this.n).toFixed(1)+'px'});	// Set the widths
-		this.el.find('button').css({'width':(w/5).toFixed(1)+'px'});	// Change widths of buttons
-		this.ul.css({'margin-left':'-'+((this.selected+0.5)*(w/this.n)).toFixed(1)+'px'});	// Update the offset for the list
-
-		return this;
-	}
-
-	S.rocketscientist = function(input){
-		return new RocketScientist(input);
-	};
+	// Add RocketScientist as a global variable
+	window.RocketScientist = RocketScientist;
 
 })(S);	// Self-closing function
 
-// On load
+// On load we create an instance of RocketScientist
 S(document).ready(function(){
-	rs = S.rocketscientist(typeof data==="object" ? data : {});
+	rs = new RocketScientist(typeof data==="object" ? data : "");
 });
-
-function test(){
-	// Quick start
-	// Trigger selection
-	S('#type .NAV button').trigger('click');
-	S('#type nav a').trigger('click');
-	S('#goal .NAV button:eq(1)').trigger('click');
-	S('#goal nav a:eq(1)').trigger('click');
-	S('#bus .satellite-l').trigger('click');
-	S('#bus nav a:eq(1)').trigger('click');
-	S('#orbit_list .orbit-GEO button').trigger('click');
-
-	S('#orbit nav a:eq(1)').trigger('click');
-	S('#instrument_list .bg4x8:eq(0) .add').trigger('click');
-	S('#instrument_list .bg2x4:eq(1) .add').trigger('click');
-	S('#instrument_list .bg2x4:eq(2) .add').trigger('click');
-	S('#instrument_list .bg2x2:eq(1) .add').trigger('click');
-	S('#instrument nav a:eq(1)').trigger('click');
-	S('#power nav a:eq(1)').trigger('click');
-}

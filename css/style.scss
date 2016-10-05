@@ -574,6 +574,8 @@ $nozzle: $s*0.25;
 .rocket-holder.wobble .stage:nth-child(3n){
 	animation-delay: -$wobble*0.2;
 }
+body.launch .rocket-holder .holder { background-image: none; }
+body.launch .rocket-holder .stage { opacity: 1; }
 @-webkit-keyframes wobble { 0% { transform: rotate(-1.75deg); } 50% { transform: rotate(2.5deg); } 100% { transform: rotate(-1.75deg); } }
 @-moz-keyframes wobble { 0% { transform: rotate(-1.75deg); } 50% { transform: rotate(2.5deg); } 100% { transform: rotate(-1.75deg); } }
 @-o-keyframes wobble { 0% { transform: rotate(-1.75deg); } 50% { transform: rotate(2.5deg); } 100% { transform: rotate(-1.75deg); } }

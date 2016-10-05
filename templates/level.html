@@ -13,13 +13,17 @@
 	<script>
 		<!--#if expr="${LEVEL} = /beginner/"-->
 		var data = <!--#include file="../config/en_beginner_options.json" -->;
+		var level = "beginner";
 		<!--#elif expr="${LEVEL} = /intermediate/"-->
 		var data = <!--#include file="../config/en_intermediate_options.json" -->;
+		var level = "intermediate";
 		<!--#elif expr="${LEVEL} = /advanced/"-->
 		var data = <!--#include file="../config/en_advanced_options.json" -->;
+		var level = "advanced";
 		<!--#else--><!--#endif-->
 	</script>
 	<script type="text/javascript" src="js/rocketscientist.js"></script>
+	<script type="text/javascript" src="js/rocketscientist.builder.js"></script>
 </head>
 <body>
 	<script type="text/javascript">
