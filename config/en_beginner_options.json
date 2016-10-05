@@ -298,6 +298,7 @@
 			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 20, "units": "credits", "dimension": "currency" },
+            "power": { "value": 0, "units": "watts", "dimension": "power" },
 			"dimensions": [
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" },
