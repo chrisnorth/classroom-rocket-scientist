@@ -209,7 +209,7 @@ scenarios.COMMS.tv.req.orbit.label: Satellite is continuously above one area of 
 scenarios.COMMS.tv.req.tv-en.label: A way to encode TV signals.
 scenarios.COMMS.tv.req.tv-en.error: You do not have a way to encode TV signals.
 scenarios.COMMS.tv.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
-scenarios.EO.title:Earth Observation
+scenarios.EO.title: Earth Observation
 scenarios.EO.description: These satellites are used to forecasting the weather, study clouds and assess the damage caused by natural disasters.
 scenarios.EO.weather.title: Weather forecasting
 scenarios.EO.weather.description: Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use thermal cameras to measure the temperature of the ground and oceans.
