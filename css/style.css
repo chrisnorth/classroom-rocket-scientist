@@ -1436,11 +1436,13 @@ button.selected:hover, button.selected:focus {
   width: 40%; }
 
 #deltav_indicator {
+  position: absolute;
   margin-right: 0.35em;
   padding: 0.2em;
   width: 100%;
   border: 0px;
-  background: #cccccc; }
+  background: #cccccc;
+  right: 2.5em; }
 
 #deltav_indicator {
   border-radius: 0.2em; }
@@ -1448,6 +1450,44 @@ button.selected:hover, button.selected:focus {
 #deltav_indicator .value {
   color: white;
   text-shadow: none; }
+
+#deltav_indicator_light {
+  position: absolute;
+  border-radius: 100%;
+  border: 0.2em solid #cccccc;
+  height: 2em;
+  width: 2em;
+  right: 0.5em;
+  background: #dbdbdb;
+  /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover, #dbdbdb 0%, #898989 64%, #565656 76%, #002400 100%);
+  /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover, #dbdbdb 0%, #898989 64%, #565656 76%, #002400 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, #dbdbdb 0%, #898989 64%, #565656 76%, #002400 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbdbdb', endColorstr='#002400',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */ }
+
+#deltav_indicator_light.on {
+  background: #b4ddb4;
+  /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover, #b4ddb4 0%, #008a00 64%, #005700 76%, #002400 100%);
+  /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover, #b4ddb4 0%, #008a00 64%, #005700 76%, #002400 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, #b4ddb4 0%, #008a00 64%, #005700 76%, #002400 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4ddb4', endColorstr='#002400',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */ }
+
+#deltav_indicator_light:before {
+  content: "✕";
+  font-size: 1em;
+  color: white; }
+
+#deltav_indicator_light.on:before {
+  content: "✓"; }
 
 table.data, table.data td {
   border: 0px;

@@ -312,6 +312,8 @@ var rs;
 			dv.attr('class','meter').addClass('orbit-'+this.choices.orbit);
 			dv.find('.level').css({'width':(pc > 100 ? 100 : pc).toFixed(3)+'%'});
 			dv.find('.value').html(pc.toFixed(1)+'%');
+			if(pc >= 100) S('#deltav_indicator_light').addClass('on');
+			else S('#deltav_indicator_light').removeClass('on');
 		}
 
 		return this;

@@ -76,7 +76,7 @@
 		"camera-opt" : {
 			"slot": "2x2",
 			"title": "Camera",
-			"description": "Takes pictures of the Earth that can be used to create maps, or for tracking natural disasters, such as floods or volcanic eruptions. Cameras are also used to look at clouds. The amount of detail captured on camera depends on how far from the ground your satellite is orbiting.",
+			"description": "Takes pictures of the Earth that can be used to create maps or track natural disasters, such as floods or volcanic eruptions. This camera can also be used to take pictures of clouds.",
 			"texture": {
 				"icon": "texture camera-opt"
 			},
@@ -91,8 +91,8 @@
 		},
 		"camera-fir": {
 			"slot":	"2x4",
-			"title": "Atmospheric camera",
-			"description": "Provides infrared images of the clouds and weather systems in the Earth's atmosphere, useful for weather forecasting and climate monitoring, even during darkness.",
+			"title": "Thermal camera",
+			"description": "Provides thermal images of Earth's atmosphere. This camera is useful for forecasting the weather, even during hours of darkness.",
 			"texture": {
 				"icon": "texture camera-fir"
 			},
@@ -108,7 +108,7 @@
 		"radar-alt": {
 			"slot":	"2x4",
 			"title": "Radar altimeter",
-			"description": "Pronounced 'ray-dar al-ti-met-er'. Used to measure the shape of the ground, including the mountains and valleys on the Earth's surface. Also provides information about the effect of earthquakes. Requires a radar dish to work.",
+			"description": "Used to measure the shape of the ground, including mountains and valleys on Earth's surface. This instrument also provides information about the effect of earthquakes. It requires a radar dish to work.",
 			"texture": {
 				"icon": "texture radar-alt"
 			},
@@ -123,8 +123,8 @@
 			"requires": [{
 				"type": "package",
 				"oneof": ["radar-dish"],
-				"label": "Requires a radar dish",
-				"error": "You need to include a radar dish for the radar altimeter to work."
+				"label": "You need a radar dish for the radar altimeter to work.",
+				"error": "You need to include a radar dish."
 			}]
 		},
 		"radar-dish": {
@@ -148,7 +148,7 @@
 		"radio-rx": {
 			"slot":	"2x2",
 			"title": "Radio receiver",
-			"description": "Receives instructions for the satellite, from the ground control team.",
+			"description": "Receives instructions from the ground control team.",
 			"texture": {
 				"icon": "texture radio-rx"
 			},
@@ -180,7 +180,7 @@
 		"atomic-clock": {
 			"slot":	"2x2",
 			"title": "Atomic clock",
-			"description": "A very accurate clock used by navigation satellites to measure the time very precisely and help people find their locations on Earth.",
+			"description": "A very accurate clock used by navigation satellites to measure the time very precisely. They are used to help people find their locations on Earth.",
 			"texture": {
 				"icon": "texture atomic-clock"
 			},
@@ -196,7 +196,7 @@
 		"gps-rx": {
 			"slot":	"2x2",
 			"title": "GPS receiver",
-			"description": "Used to monitor the satellite's position very accurately",
+			"description": "Used to communicate with other GPS satellites.",
 			"texture": {
 				"icon": "texture gps-rx"
 			},
@@ -209,28 +209,10 @@
 			],
 			"power": { "value": 5, "units": "watts", "dimension": "power" }
 		},
-		"dish-large": {
-			"slot":	"4x8",
-			"title": "Radio dish (large)",
-			"description": "Can be used to control up to 8 instruments, and send images & data from these instruments to Earth.",
-			"texture": {
-				"icon": "",
-				"class": "-bg radio",
-				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
-			},
-			"mass": { "value": 30, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 2, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 2.0, "units": "m", "dimension": "length" },
-				{ "value": 2.0, "units": "m", "dimension": "length" },
-				{ "value": 1.0, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 0, "units": "watts", "dimension": "power" }
-		},
 		"dish-medium": {
 			"slot":	"2x4",
 			"title": "Radio dish",
-			"description": "Can be used to control up to 4 instruments, and send images & data from these instruments to Earth.",
+			"description": "Can be used to control up to 4 instruments. It can send images and data from these 4 instruments back to Earth.",
 			"texture": {
 				"icon": "",
 				"class": "-bg radio",
@@ -290,9 +272,9 @@
 			"power": { "value": "inf", "units": "watts", "dimension": "power" }
         },
 		"battery-large": {
-			"slot":	"2x2",
+			"slot":	"2x4",
 			"title": "Large battery",
-			"description": "Stores power from solar panels that can be used to power satellite instruments during hours of darkness.",
+			"description": "Stores power from solar panels that can be used to power your instruments during hours of darkness.",
 			"texture": {
 				"icon": "texture battery-large"
 			},
@@ -307,14 +289,14 @@
 			"requires": [{
 				"type": "power",
 				"oneof": ["solar-panel","solar-panel-surface"],
-				"label": "Requires solar panels to charge up",
-				"error": "Requires solar panels"
+				"label": "The battery requires solar panels to charge up",
+				"error": "Your satellite requires solar panels"
 			}]
 		},
 		"battery-small": {
-			"slot":	"1x1",
+			"slot":	"2x2",
 			"title": "Small battery",
-			"description": "Stores power from solar panels that can be used to power satellite instruments during hours of darkness.",
+			"description": "Stores power from solar panels that can be used to power your instruments during hours of darkness.",
 			"texture": {
 				"icon": "texture battery-small"
 			},
@@ -329,8 +311,8 @@
 			"requires": [{
 				"type": "power",
 				"oneof": ["solar-panel","solar-panel-surface"],
-				"label": "Requires solar panels to charge up",
-				"error": "Requires solar panels"
+				"label": "The battery requires solar panels to charge up",
+				"error": "Your satellite requires solar panels"
 			}]
 		}
 	},
@@ -670,19 +652,18 @@
 				},{
 					"type": "package",
 					"oneof": ["atomicclock"],
-					"label": "Needs to be able to measure time very accurately.",
-					"error": "You are not able to measure the time accurately enough."
+					"label": "",
+					"error": ""
 				},{
 					"type": "package",
 					"oneof": ["radio_tx"],
-					"label": "A way to send signals.",
-					"error": "Your satellite does not have any way to send signals to people on the ground."
+					"label": "You need a way to send signals back to Earth.",
+					"error": "Your satellite does not have any way to send signals to the ground control team."
 				},{
 					"type": "package",
 					"oneof": ["gps-rx"],
-					"label": "",
-					"error": ""
-
+					"label": "You need a way to recieve signals from other GPS satellites.",
+					"error": "Your satellite does not have any way to recieve signals from other GPS satellites."
 				},{
 					"type": "orbit",
 					"oneof": ["HEO","GEO"],
@@ -709,18 +690,17 @@
 				"requires": [{
 					"type": "package",
                     			"oneof": ["camera-opt"],
-                    			"label": "",
-					"error": ""
+                    			"label": "You need an instrument capable of collecting very detailed images.",
+					"error": "Your satellite does not allow you to see the planet's surface in enough detail."
                 		},{
                			    	 "type": "package",
                    			"oneof": ["radar-alt"],
-					"label": "",
-					"error": ""
+					"label": "You need a way to measure the height of the Earth's surface.",
+					"error": "You do not have a way to measure the height of the Earth's surface (e.g. mountains and valleys)."
             			    },{
                 			 "type": "package",
 					"oneof": ["radar-dish"],
-					"label": "",
-					"error": ""
+					"error": "Your radar altimeter cannot work as you do not have a radar dish."
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],
@@ -743,7 +723,7 @@
 			},
 			"missions": [{
 				"title": "Satellite telephone system",
-				"description": "Allows people to talk over the phone, even from remote regions of the world. These satellites receive signals from the ground and transmit them to other areas on Earth.",
+				"description": "Allows people to talk over the phone, even from remote regions of the world. The satellite receives signals from the ground and transmits them to other areas on Earth.",
 				"image": {
 					"file": "images/icon-phone.png",
 					"alt": "Satellite telephone system",
@@ -751,18 +731,18 @@
 				},
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
 				"choices": {
-					"bus": "medium",
+					"bus": "small",
 					"orbit": "LEO"
 				},
 				"requires": [{
                     "type": "package",
                     "oneof": ["radio-tx"],
-                    "label": "A way to send signals.",
+                    "label": "You need a way to send signals.",
 					"error": "Your satellite does not have a way to send signals to the ground."
                 },{
                     "type": "package",
                     "oneof": ["radio-rx"],
-                    "label": "A way to receive signals.",
+                    "label": "You need away to receive signals.",
 					"error": "Your satellite does not have a way to receive signals from the ground."
                 },{
 					"type": "orbit",
@@ -772,7 +752,7 @@
 				}]
 			},{
 				"title": "Satellite internet",
-				"description": "Allows people to connect to the internet, even from remote regions of the world. These satellites receive signals from the ground and transmit them to other areas on Earth.",
+				"description": "Allows people to connect to the internet, even from remote regions of the world. The satellite receives signals from the ground and transmits them to other areas on Earth.",
 				"image": {
 					"file": "images/icon-internet.png",
 					"alt": "Satellite internet",
@@ -786,18 +766,18 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["radio-tx"],
-                    "label": "A way to send signals.",
-					"error": "You do not have a way to send signals to the ground."
+                    "label": "You need a way to send signals.",
+					"error": "Your satellite does not have a way to send signals to the ground."
                 },{
                     "type": "package",
                     "oneof": ["radio-rx"],
-                    "label": "A way to receive signals.",
-					"error": "You do not have a way to receive signals from the ground."
+                    "label": "You need a way to receive signals.",
+					"error": "Your satellite does not have a way to receive signals from the ground."
                 },{
                     "type": "package",
                     "oneof": ["internet-en"],
-                    "label": "A way to encode internet signals.",
-					"error": "You do not have a way to encode internet signals."
+                    "label": "You need a way to broadcast internet signals.",
+					"error": "You do not have a way to broadcast internet signals."
 				},{
 					"type": "orbit",
 					"oneof": ["GEO"],
@@ -808,7 +788,7 @@
 		},
 		"EO": {
 			"title": "Earth Observation",
-			"description": "These satellites are used to image clouds, measure temperature and rainfall, and forecasting the weather.",
+			"description": "These satellites are used to forecasting the weather, study clouds and assess the damage caused by natural disasters.",
 			"image": {
 				"file": "images/icon-eo.png",
 				"alt": "Earth Observation",
@@ -816,7 +796,7 @@
 			},
 			"missions": [{
 				"title": "Weather forecasting",
-				"description": "Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use invisible, infrared light to measure the temperatures of the ground and ocean.",
+				"description": "Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use thermal cameras to measure the temperature of the ground and oceans.",
 				"image": {
 					"file": "images/icon-cloud.png",
 					"alt": "Weather forecasting",
@@ -824,19 +804,19 @@
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"choices": {
-					"bus": "medium",
+					"bus": "small",
 					"orbit": "LEO"
 				},
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-fir"],
-                    "label": "Infrared light identifies different types of cloud, as well as the temperature of the Earth.",
-					"error": "You do not have a way to identify cloud types and measure temperatures on Earth."
+                    "label": "You need a way to identify different types of cloud.",
+					"error": "You do not have a way to identify cloud types."
                 },{
                     "type": "package",
                     "oneof": ["camera-opt"],
-                    "label": "To take images of clouds and weather systems on Earth.",
-					"error": "You do not have a way to take images of the weather on Earth."
+                    "label": "You need an instrument capable of collecting very detailed images of the clouds and weather systems.",
+					"error": "Your satellite does not allow you to see the clouds or weather systems in enough detail."
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],
@@ -859,27 +839,26 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-opt"],
-                    "label": "To take high resolution images of Earth where disaster has occured.",
-					"error": "You do not have a way to take high resolution images of Earth where disaster has occured."
+                    "label": "You need an instrument capable of collecting very detailed images.",
+					"error": "Your satellite does not allow you to see the planet's surface in enough detail."
                 },{
                     "type": "package",
                     "oneof": ["radio-tx"],
-                    "label": "A way to transmit signals.",
+                    "label": "You need a way to send signals.",
 					"error": "You do not have a way to transmit signals to the ground."
                 },{
                     "type": "package",
                     "oneof": ["radar-alt"],
-                    "label": "Uses radio waves to measure the height of the surface.",
-					"error": "You do not have a way to measure the height of the surface, such as for earthquakes."
+                    "label": "You need a way to measure the height of the Earth's surface.",
+					"error": "You do not have a way to measure the height of the surface for monitoring earthquakes."
                 },{
                     "type": "package",
                     "oneof": ["radar-dish"],
-                    "label": "Radar altimeter requires a radar dish to work.",
-					"error": "Your radar altimeter cannot work as it does not have a radar dish."
+					"error": "Your radar altimeter cannot work as you does not have a radar dish."
                 },{
                     "type": "package",
                     "oneof": ["camera-fir"],
-                    "label": "Infrared camera can detect fires, including forest fires.",
+                    "label": "You need a way to measure heat so you can monitor fires, such as forest fires.",
 					"error": "You do not have a way to detect fires in disaster regions."
                 }]
     		}]
