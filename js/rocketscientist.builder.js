@@ -13,7 +13,7 @@
 			if(e.originalEvent.keyCode==39) sec.find('.next a').trigger('click');
 		});
 
-		this.level = (level || "advanced");
+		this.level = (typeof level !== 'undefined') ? level : "advanced";
 
 		return this;
 	}
