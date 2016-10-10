@@ -54,11 +54,11 @@ ui.sections.instrument.intro:               To complete your mission you will ne
 ui.sections.instrument.list:                Available instruments:
 ui.sections.power.short:                    Power
 ui.sections.power.title:                    Add power
-ui.sections.power.intro:                    Your satellite needs power. There are different ways get power. You can use solar panels on the sides of the satellite, solar panel wings, and batteries.
+ui.sections.power.intro:                    Your satellite needs power. There are different ways get power. You can use solar panels mounted on the sides of the satellite, deployed solar panels or batteries.
 ui.sections.power.list:                     Available power sources:
 ui.sections.rocket.short:                   Rocket
 ui.sections.rocket.title:                   Build your rocket
-ui.sections.rocket.intro:                   Now you have a satellite you need to build a rocket to launch it into space! The top of the rocket will hold your satellite so it needs to be big enough. The lower parts need to be big enough to support those above.
+ui.sections.rocket.intro:                   Now you have a satellite you need to build a rocket to launch it into space! The top of the rocket will hold your satellite, so it needs to be big enough. The lower parts need to be big enough to support those above.
 ui.sections.rocket.size:                    Size:
 ui.sections.rocket.drymass:                 Weight:
 ui.sections.rocket.fuel:                    Fuel:
@@ -66,7 +66,7 @@ ui.sections.rocket.cost:                    Cost:
 ui.sections.launch.short:                   Launch
 ui.sections.launch.title:                   Ready to launch?
 ui.sections.launch.checklist:               We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail.
-ui.sections.launch.goforlaunch:             Final checks have shown that your mission is read for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.
+ui.sections.launch.goforlaunch:             Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.
 ui.sections.launch.button:                  Go for launch!
 ui.sections.units.title:                    Change units:
 ui.sections.units.currency:                 Currency units:
@@ -74,7 +74,7 @@ ui.sections.units.length:                   Length units:
 ui.sections.units.mass:                     Weight units:
 ui.sections.units.power:                    Power units:
 ui.sections.about.title:                    About:
-ui.sections.about.intro:                    Classroom rocket scientist is...</p><p>Developed by Chris North, Sarah Roberts, and <a href="http://www.strudel.org.uk/">Stuart Lowe</a>.</p><p>Supported by...</p><p>Icons by parkjisun, Housin Aziz, Creative Stall, Plainicon, Hakan Yalcin, Rflor, Megan Mitchell, Clockwise, Leadway Global LLC, and OCHA Visual Information Unit</p>
+ui.sections.about.intro:                    Classroom rocket scientist is...</p><p>Developed by Chris North, Sarah Eve Roberts, and <a href="http://www.strudel.org.uk/">Stuart Lowe</a>.</p><p>Supported by...</p><p>Icons by parkjisun, Housin Aziz, Creative Stall, Plainicon, Hakan Yalcin, Rflor, Megan Mitchell, Clockwise, Leadway Global LLC, and OCHA Visual Information Unit</p>
 
 us.cube.title:                              Cube sat
 bus.cube.button:                            Select cube sat
@@ -130,13 +130,13 @@ package.internet-en.description:            Used to broadcast the internet to pe
 package.tv-en.title: 						TV encoder
 package.tv-en.description:
 package.battery-large.title:                Large battery
-package.battery-large.description:          Stores power from solar panels that can be used to power satellite instruments during hours of darkness.
-package.battery-large.requires.solar.label: Requires solar panels to charge up
-package.battery-large.requires.solar.error: Requires solar panels
+package.battery-large.description:          Stores power from solar panels that can be used to power your instruments during hours of darkness.
+package.battery-large.requires.solar.label: The battery requires solar panels to charge up
+package.battery-large.requires.solar.error: Your satellite requires solar panels
 package.battery-small.title:                Small battery
-package.battery-small.description:          Stores power from solar panels that can be used to power satellite instruments during hours of darkness.
-package.battery-small.requires.solar.label: Requires solar panels to charge up
-package.battery-small.requires.solar.error: Requires solar panels
+package.battery-small.description:          Stores power from solar panels that can be used to power your instruments during hours of darkness.
+package.battery-small.requires.solar.label: The battery requires solar panels to charge up
+package.battery-small.requires.solar.error: Your satellite requires solar panels
 package.rtg.title:                          RTG
 package.rtg.description:                    An RTG uses radioactive material to provide power. It can be very dangerous for humans and animals, so it can't be used in low-Earth orbit.
 package.rtg.requires.orbit.label:           Not for low-Earth orbit
