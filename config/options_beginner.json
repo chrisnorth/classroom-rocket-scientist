@@ -209,24 +209,6 @@
 			],
 			"power": { "value": 5, "units": "watts", "dimension": "power" }
 		},
-		"dish-large": {
-			"slot":	"4x8",
-			"title": "%package.dish-large.title%",
-			"description": "%package.dish-large.description%",
-			"texture": {
-				"icon": "",
-				"class": "-bg radio",
-				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
-			},
-			"mass": { "value": 30, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 2, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 2.0, "units": "m", "dimension": "length" },
-				{ "value": 2.0, "units": "m", "dimension": "length" },
-				{ "value": 1.0, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 0, "units": "watts", "dimension": "power" }
-		},
 		"dish-medium": {
 			"slot":	"2x4",
 			"title": "%package.dish-medium.title%",
@@ -858,8 +840,8 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-opt"],
-                    "label": "%scenarios.EO.disaster.req.camera.label%",
-					"error": "%scenarios.EO.disaster.req.camera.error%"
+                    "label": "%scenarios.EO.disaster.req.camera-opt.label%",
+					"error": "%scenarios.EO.disaster.req.camera-opt.error%"
                 },{
                     "type": "package",
                     "oneof": ["radio-tx"],
