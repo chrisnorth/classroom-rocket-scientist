@@ -700,7 +700,6 @@
             			    },{
                 			 "type": "package",
 					"oneof": ["radar-dish"],
-					"label": "%scenarios.NAV.map.req.radar-dish.label%",
 					"error": "%scenarios.NAV.map.req.radar-dish.error%"
                 },{
 					"type": "orbit",
@@ -855,7 +854,6 @@
                 },{
                     "type": "package",
                     "oneof": ["radar-dish"],
-                    "label": "%scenarios.EO.disaster.req.radar-dish.label%",
 					"error": "%scenarios.EO.disaster.req.radar-dish.error%"
                 },{
                     "type": "package",
