@@ -670,8 +670,8 @@
 				},{
 					"type": "package",
 					"oneof": ["atomicclock"],
-					"label": "%scenarios.NAV.sat-nav.req.atomic.label%",
-					"error": "%scenarios.NAV.sat-nav.req.atomic.error%"
+					"label": "%scenarios.NAV.sat-nav.req.atomic-clock.label%",
+					"error": "%scenarios.NAV.sat-nav.req.atomic-clock.error%"
 				},{
 					"type": "package",
 					"oneof": ["radio_tx"],
@@ -682,7 +682,6 @@
 					"oneof": ["gps-rx"],
 					"label": "%scenarios.NAV.sat-nav.req.gps-rx.label%",
 					"error": "%scenarios.NAV.sat-nav.req.gps-rx.error%"
-
 				},{
 					"type": "orbit",
 					"oneof": ["HEO","GEO"],
@@ -751,7 +750,7 @@
 				},
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
 				"choices": {
-					"bus": "medium",
+					"bus": "small",
 					"orbit": "LEO"
 				},
 				"requires": [{
@@ -824,7 +823,7 @@
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"choices": {
-					"bus": "medium",
+					"bus": "small",
 					"orbit": "LEO"
 				},
 				"requires": [{
