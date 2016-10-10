@@ -412,15 +412,26 @@ var rs;
 
 		// The keys are the HTML <section> IDs and the values are the JSON data keys
 		var sections = {'orbit':'orbit','instrument':'package','power':'power'};
-		var ul,li,i;
+		var ul,li,i,l,notlisted,j;
 		for(var s in sections){
 			// Remove existing requirements
 			S('#'+s+' .requirements ul').remove();
 			S('#'+s+' .requirements ol').remove();
 			ul = S('#'+s+' .requirements h3');
 			li = "";
+			var listed = new Array();
 			for(var i = 0; i < this.requirements.length; i++){
-				if((this.requirements[i]['showin'] == sections[s] || this.requirements[i]['type'] == sections[s]) && this.requirements[i]['label'] != "") li += "<li"+((this.data.options && this.data.options['require-hint']) ? (this.requirements[i]['met'] ? ' class="met"' : ' class="notmet"') : "")+">"+this.requirements[i]['label']+"</li>";
+				if((this.requirements[i]['showin'] == sections[s] || this.requirements[i]['type'] == sections[s]) && this.requirements[i]['label'] != ""){
+					l = "<li"+((this.data.options && this.data.options['require-hint']) ? (this.requirements[i]['met'] ? ' class="met"' : ' class="notmet"') : "")+">"+this.requirements[i]['label']+"</li>";
+					notlisted = true;
+					for(j = 0; j < listed.length; j++){
+						if(listed[j] == l) notlisted = false;
+					}
+					if(notlisted){
+						listed.push(l);
+						li += l;
+					}
+				}
 			}
 			this.log('List of requirements',li);
 			if(li) ul.after("<ol>"+li+"</ol>");
