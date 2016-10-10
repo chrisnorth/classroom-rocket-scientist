@@ -86,12 +86,12 @@ bus.large.title:                            Large satellite
 bus.large.button:                           Select large satellite
 
 package.camera-opt.title:                   Camera    # The title of the optical camera instrument
-package.camera-opt.description:            Takes pictures of the Earth that can be used to create maps, or for tracking natural disasters, such as floods or volcanic eruptions. Cameras are also used to look at clouds. The amount of detail captured on camera depends on how far from the ground your satellite is orbiting.
-package.camera-opt-hires.title:            High-resolution camera
+package.camera-opt.description:             Takes pictures of the Earth that can be used to create maps, or for tracking natural disasters, such as floods or volcanic eruptions. Cameras are also used to look at clouds. The amount of detail captured on camera depends on how far from the ground your satellite is orbiting.
+package.camera-opt-hires.title:             High-resolution camera
 package.camera-opt-hires.description:       Takes very detailed pictures of the ground. Can be used for tracking natural disasters, such as floods or volcanic eruptions, but only when your satellite is in low-Earth orbit.
 package.camera-nir.title:                   Vegetation camera
 package.camera-nir.description:             Takes images of plants and farmland on the ground. Only works in during the day, as it captures sunlight reflecting off the ground.
-package.camera-fir.title:                   Atmospheric camera
+package.camera-fir.title:                   Thermal camera
 package.camera-fir.description:             Provides infrared images of the clouds and weather systems in the Earth's atmosphere, useful for weather forecasting and climate monitoring, even during darkness.
 package.spect-opt.title:                    Optical Spectrometer
 package.spect-opt.description:              Studies changes on the Earth's surface, such as shrinking forests and lakes.
@@ -117,7 +117,7 @@ package.gps-rx.title:                       GPS receiver
 package.gps-rx.description:                 Used to monitor the satellite's position very accurately
 package.camera-mini.title:                  Camera (miniature)
 package.camera-mini.description:            Takes pictures of the ground
-package.dish-large.title:                   Radio dish (large)
+package.dish-large.title:                   Radio dish
 package.dish-large.description:             Can be used to control up to 8 instruments, and send images & data from these instruments to Earth.
 package.dish-medium.title:                  Radio dish
 package.dish-medium.description:            Can be used to control up to 4 instruments, and send images & data from these instruments to Earth.
