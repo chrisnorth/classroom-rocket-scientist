@@ -101,8 +101,8 @@ package.spect-fir.title:                    Atmospheric Spectrometer
 package.spect-fir.description:              Uses light to study Earth's atmosphere, even during nighttime. Used to look at the clouds, ground temperature and air temperature.
 package.radar-alt.title:                    Radar altimeter
 package.radar-alt.description:              Used to measure the shape of the ground, including mountains and valleys on Earth's surface. This instrument also provides information about the effect of earthquakes. It requires a radar dish to work.
-package.radar-alt.requires.dish.label:      Requires a radar dish
-package.radar-alt.requires.dish.error:      You need to include a radar dish for the radar altimeter to work.
+package.radar-alt.requires.dish.label:      You need a radar dish for the radar altimeter to work.
+package.radar-alt.requires.dish.error:      You need to include a radar dish.
 package.radar-dish.title:                   Radar dish
 package.radar-dish.description:             Sends and receives signals from the satellite to Earth.
 package.radio-rx.title:                     Radio receiver
