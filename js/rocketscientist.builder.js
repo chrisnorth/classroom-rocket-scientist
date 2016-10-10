@@ -13,7 +13,11 @@
 			if(e.originalEvent.keyCode==39) sec.find('.next a').trigger('click');
 		});
 
-		this.level = (typeof level !== 'undefined') ? level : "advanced";
+		this.level = "advanced";
+		if(typeof level !== 'undefined'){
+			window.onbeforeunload = function(){ return 'Leave?'; };
+			this.level = level;
+		}
 
 		return this;
 	}

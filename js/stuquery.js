@@ -1,5 +1,5 @@
 /*!
- * stuQuery version 1.0.1
+ * stuQuery version 1.0.2
  */
 // I don't like to pollute the global namespace 
 // but I can't get this to work any other way.
@@ -161,7 +161,12 @@ function S(e){
 		if(this.e.length > 0){
 			var _obj = this;
 			var a = function(b){
-				var e = getEvent({'currentTarget':this,'type':event,'data':data,'originalEvent':b});
+				var e = getEvent({'currentTarget':this,'type':event,'data':data,'originalEvent':b,'stopPropagation':function(){
+					if(b.preventDefault) b.preventDefault();
+					if(b.stopImmediatePropagation) b.stopImmediatePropagation();
+					if(b.stopPropagation) b.stopPropagation();
+					if(b.cancelBubble!=null) b.cancelBubble = true;
+				}});
 				if(typeof e.fn === "function") return e.fn.call(_obj,e.data);
 			}
 		
