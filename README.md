@@ -7,7 +7,9 @@ Become a classroom rocket scientist.
 
 On [previous projects](http://chrisnorth.github.io/design-a-space-telescope/#) we'd allowed for different languages and levels. To make it work off-line, we'd rather lazily used AJAX to load much of the content that changed. It is better to have the content in the page so this time we've taken a different approach. The configuration is still in `json` but language is stored in `yaml` which should make is easier to read for those who end up translating. Some `perl scripts` build the final `json` and use HTML templates containing pseudo SSI code to re-build the pages.
 
-To update everything, run the shell script:
+To change numerical values (masses, costs etc.), edit 'config/options_beginner.json' (and similar for intermediate and advanced). Those files contain links to text contained within %%. To change the text, edit config/en_beginner.yaml etc. **Note that The config/en_beginner_options.json files are overwritten by the perl script, so any edits you make will be lost.** 
+
+To update everything (json, html etc.), run the shell script:
 
     ./regenerate.sh
 
