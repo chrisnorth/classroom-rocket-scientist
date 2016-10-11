@@ -1119,9 +1119,10 @@ section.fullpage .container {
   top: 60%;
   border: 2px dashed #000000;
   border-bottom: 0px;
-  background-color: #808080;
+  background: url("../images/foil_4x4.png");
+  background-size: cover;
   margin: auto;
-  opacity: 0.3;
+  opacity: 0.6;
   position: relative;
   text-align: center; }
 
