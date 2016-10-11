@@ -299,6 +299,9 @@
 	width: $s * 10.5;
 	margin-top: $s * 2;
 }
+.satellite-s .solar-panels {
+	margin-top: $s;
+}
 .solar-panels:nth-child(1) li:last-child:before {
 	position:absolute;
 	content: "";

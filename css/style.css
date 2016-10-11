@@ -2444,6 +2444,9 @@ table.data td:last-child {
   width: 15.75em;
   margin-top: 3em; }
 
+.satellite-s .solar-panels {
+  margin-top: 1.5em; }
+
 .solar-panels:nth-child(1) li:last-child:before {
   position: absolute;
   content: "";
