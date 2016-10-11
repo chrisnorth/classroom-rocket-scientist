@@ -16,15 +16,15 @@
 		document.getElementById('content').setAttribute('style','font-size:'+z.toFixed(3)+'em');
 	}
 	function toggleSolar(){
-		var ids = ['sat-l','sat-m','sat-s','sat-c'];
+		var ids = ['sat-l','sat-l2','sat-m','sat-s','sat-c'];
 		for(var j = 0; j < ids.length; j++) toggleClass(document.getElementById(ids[j]),'solar-fixed');
 	}
 	function toggleAnimation(){
-		var ids = ['sat-l','sat-m','sat-s','sat-c'];
+		var ids = ['sat-l','sat-l2','sat-m','sat-s','sat-c'];
 		for(var j = 0; j < ids.length; j++) toggleClass(document.getElementById(ids[j]),'spin');
 	}
 	function setSolar(n){
-		var ids = ['sat-l','sat-m'];
+		var ids = ['sat-l','sat-l2','sat-m','sat-s'];
 		var ul = "<ul>";
 		for(var i = 0; i < n; i++) ul += "<li class=\"solar-panel\"><\/li>";
 		ul += '<\/ul>';
@@ -37,7 +37,7 @@
 		}
 	}
 	function addSolar(){
-		var ids = ['sat-l','sat-m'];
+		var ids = ['sat-l','sat-l2','sat-m','sat-s'];
 		for(var j = 0; j < ids.length; j++){
 			el = document.getElementById(ids[j]);
 			panels = el.getElementsByClassName('solar-panels');
@@ -48,7 +48,7 @@
 		}
 	}
 	function removeSolar(){
-		var ids = ['sat-l','sat-m'];
+		var ids = ['sat-l','sat-l2','sat-m','sat-s'];
 		for(var j = 0; j < ids.length; j++){
 			el = document.getElementById(ids[j]);
 			panels = el.getElementsByClassName('solar-panels');
@@ -59,31 +59,31 @@
 		}
 	}
 	function toggleComms(){
-		var slots = [{'el':'sat-l','cls':'slot4x8','type':'north'},{'el':'sat-l','cls':'slot2x4','type':'south'},{'el':'sat-m','cls':'slot2x4','type':'south'},{'el':'sat-s','cls':'slot2x4','type':'south'}];
-		var el,radio,cls,i,i2;
-		for(var s = 0; s < slots.length; s++){
-			el = document.getElementById(slots[s].el)
-			els = el.getElementsByClassName(slots[s].cls);
-			if(hasClass(els[0],'radio')) removeEl(el.getElementsByClassName('hemisphere')[0]);
-			else els[0].innerHTML = '<div class="hemisphere '+slots[s].type+'"><div class="inner"><\/div><div class="dome"><\/div><\/div>'+els[0].innerHTML;
-			toggleClass(els[0],'radio');
-			toggleClass(els[0],'slot-empty');
-		}
-		var slots = [{'el':'sat-c','cls':'slot0x2'}];
-		var el,aerial,top,cls,i,i2,ant;
-		for(var s = 0; s < slots.length; s++){
-			el = document.getElementById(slots[s].el)
-			els = el.getElementsByClassName(slots[s].cls);
-			if(hasClass(els[0],'antenna')){
-				aerial = el.getElementsByClassName('aerial');
-				for(var i = aerial.length-1; i >= 0; i--) removeEl(aerial[i]);
+		var cls = ['radio','antenna','radar'];
+		for(var j = 0; j < cls.length; j++){
+			el = document.getElementsByClassName(cls[j]);
+			if(el.length > 0){
+				// Remove
+				for(var l = 0; l < el.length; l++){
+					els = el[l].getElementsByClassName('hemisphere');
+					if(els.length <= 0) els = el[l].getElementsByClassName('aerials');
+					for(var k = 0; k < els.length; k++){
+						els[k].parentElement.setAttribute('data-removed',els[k].parentElement.innerHTML);
+						toggleClass(els[k].parentElement,'removed-'+cls[j])
+						els[k].parentElement.removeChild(els[k]);
+					}
+				}
+				for(var l = el.length-1; l >= 0; l--) toggleClass(el[l],cls[j]);
 			}else{
-				//top = els[0].getElementsByClassName('top');
-				//top[0].innerHTML = "<div class=\"aerial1 aerial\"><\/div><div class=\"aerial2 aerial\"><\/div>";
-				els[0].innerHTML = "<div class=\"aerial1 aerial\"><\/div><div class=\"aerial2 aerial\"><\/div>"+els[0].innerHTML;
+				el = document.getElementsByClassName('removed-'+cls[j]);
+				for(var l = el.length-1; l >= 0; l--){
+					html = el[l].getAttribute('data-removed');
+					el[l].setAttribute('data-removed','')
+					el[l].innerHTML = html;
+					toggleClass(el[l],cls[j]);
+					toggleClass(el[l],'removed-'+cls[j]);
+				}
 			}
-			toggleClass(els[0],'antenna');
-			toggleClass(els[0],'slot-empty');
 		}
 	}
 	// Remove a DOM element
@@ -135,7 +135,7 @@
 				<div class="row rowbig"><div class="slot slot1 slot4x8 solar-top radio"><div class="hemisphere north"><div class="inner"></div><div class="dome"></div></div><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 			</div>
 		</div><div class="holder">
-			<div class="satellite satellite-l solar-fixed" id="sat-l">
+			<div class="satellite satellite-l solar-fixed" id="sat-l2">
 				<div class="solar-panels"><span class="label">Solar panels (left):</span><ol><li class="solar-panel"></li></ol></div>
 				<div class="solar-panels"><span class="label">Solar panels (right):</span><ol><li class="solar-panel"></li></ol></div>
 				<div class="row"><div class="slot slot2 slot2x4 solar-left solar-right radio"><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>

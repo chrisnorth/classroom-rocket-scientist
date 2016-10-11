@@ -510,19 +510,19 @@ img.close {
 #goal .COMMS, #goal .EO, #goal .NAV {
   background-color: transparent; }
 
-.COMMS .padded {
+.COMMS .padded, .COMMS .holder-inner {
   background-color: #f9aa8f; }
 
 .COMMS .image {
   background-color: #f04031; }
 
-.EO .padded {
+.EO .padded, .EO .holder-inner {
   background-color: #9bd4ae; }
 
 .EO .image {
   background-color: #02a24b; }
 
-.NAV .padded {
+.NAV .padded, .NAV .holder-inner {
   background-color: #8fd7ed; }
 
 .NAV .image {
@@ -864,7 +864,12 @@ section#launch p {
 
 section#goal .holder, section#type .holder {
   padding: 0 0.5em 0.5em 0.5em;
-  vertical-align: top; }
+  vertical-align: top;
+  height: 100%; }
+
+section#goal .holder .holder-inner {
+  width: 100%;
+  height: 100%; }
 
 section#type .holder {
   width: 33%;

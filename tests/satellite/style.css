@@ -407,29 +407,27 @@ p {
   background-repeat: none;
   border: 0px; }
 
-.texture.camera-fir .face.front:before {
-  background: url("../../images/icon-camera-red-wide.png"); }
-
 .texture.slot2x4.down .face.front {
   background: white;
   overflow: hidden; }
 
-.texture.slot2x4.down .face.front:before {
+.texture.slot2x4.down .face.front:before, .texture.slot2x4.up .face.front:before {
   content: "";
   position: absolute;
-  width: 205%;
+  width: 200%;
   height: 50%;
   z-index: -1;
   top: 100%;
   left: 0%;
   background-size: 100%;
-  transform-origin: 50% 50%;
+  transform-origin: 0 0 0; }
+
+.texture.slot2x4.down .face.front:before, .texture.slot2x4.up .face.front:before {
   -webkit-transform: rotate(-90deg);
   -moz-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
   -o-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-  transform-origin: 0 0 0; }
+  transform: rotate(-90deg); }
 
 .threeD .satellite {
   -webkit-transform-style: preserve-3d;
@@ -881,6 +879,9 @@ p {
   display: block;
   width: 15.75em;
   margin-top: 3em; }
+
+.satellite-s .solar-panels {
+  margin-top: 1.5em; }
 
 .solar-panels:nth-child(1) li:last-child:before {
   position: absolute;
