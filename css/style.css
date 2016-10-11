@@ -1439,7 +1439,7 @@ button.selected:hover, button.selected:focus {
   position: absolute;
   margin-right: 0.35em;
   padding: 0.2em;
-  width: 100%;
+  width: 80%;
   border: 0px;
   background: #cccccc;
   right: 2.5em; }

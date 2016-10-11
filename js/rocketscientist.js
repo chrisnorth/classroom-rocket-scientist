@@ -424,6 +424,7 @@ var rs;
 			var listed = new Array();
 			for(var i = 0; i < this.requirements.length; i++){
 				if((this.requirements[i]['showin'] == sections[s] || this.requirements[i]['type'] == sections[s]) && this.requirements[i]['label'] != ""){
+					if(typeof this.requirements[i]['label'] === "undefined") this.requirements[i]['label'] = "";
 					l = "<li"+((this.data.options && this.data.options['require-hint']) ? (this.requirements[i]['met'] ? ' class="met"' : ' class="notmet"') : "")+">"+this.requirements[i]['label']+"</li>";
 					notlisted = true;
 					for(j = 0; j < listed.length; j++){
