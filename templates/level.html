@@ -465,7 +465,7 @@
 													</li><!--#endfor name="payloadbayloop" -->
 												</ul>
 												<button class="next"><span>&#x276F;</span></button>
-												<div class="payload-holder"><div class="payload-dummy"></div></div>
+												<div class="payload-holder"><div class="payload-dummy"><span><!--#echo var="ui.sections.rocket.payload" --></span></div></div>
 											</div>
 										</div>
 										<div class="slider-container thirdstage">
@@ -478,7 +478,7 @@
 														</div>
 														<div class="stage-holder">
 															<div class="stage-about <!--#if expr="<!--#json name="diameter.value" --> = 0"-->centre<!--#else--><!--#endif-->">
-																<!--#if expr="<!--#json name="diameter.value" --> = 0"-->None<!--#else-->
+																<!--#if expr="<!--#json name="diameter.value" --> = 0"--><!--#echo var="ui.sections.rocket.emptystage" --><!--#else-->
 																<table>
 																	<tr><td><!--#echo var="ui.sections.rocket.size" --></td><td><span data-dimension="<!--#json name="diameter.dimension" -->" data-units="<!--#json name="diameter.units" -->" data-value="<!--#json name="diameter.value" -->" class="value convertable"><!--#json name="diameter.value" --><!--#json name="diameter.units" --></span>
 																	<tr><td><!--#echo var="ui.sections.rocket.cost" --></td><td><span class="coin-icon"></span><span data-dimension="<!--#json name="cost.dimension" -->" data-units="<!--#json name="cost.units" -->" data-value="<!--#json name="cost.value" -->" class="value convertable"><!--#json name="cost.value" --> <!--#json name="cost.units" --></span>

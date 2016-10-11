@@ -145,10 +145,10 @@
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
 		},
-		"radio-rx": {
+		"phone-en": {
 			"slot":	"2x2",
-			"title": "Radio receiver",
-			"description": "Receives instructions from the ground control team.",
+			"title": "Phone encoder",
+			"description": "Broadcasts signals between telephones across the world.",
 			"texture": {
 				"icon": "texture radio-rx"
 			},

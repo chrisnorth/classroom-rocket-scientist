@@ -63,6 +63,8 @@ ui.sections.rocket.size:                    Size:
 ui.sections.rocket.drymass:                 Weight:
 ui.sections.rocket.fuel:                    Fuel:
 ui.sections.rocket.cost:                    Cost:
+ui.sections.rocket.payload:                 Your payload
+ui.sections.rocket.emptystage:              None
 ui.sections.launch.short:                   Launch
 ui.sections.launch.title:                   Ready to launch?
 ui.sections.launch.checklist:               We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail.
@@ -76,7 +78,7 @@ ui.sections.units.power:                    Power units:
 ui.sections.about.title:                    About:
 ui.sections.about.intro:                    Classroom rocket scientist is...</p><p>Developed by Chris North, Sarah Eve Roberts, and <a href="http://www.strudel.org.uk/">Stuart Lowe</a>.</p><p>Supported by...</p><p>Icons by parkjisun, Housin Aziz, Creative Stall, Plainicon, Hakan Yalcin, Rflor, Megan Mitchell, Clockwise, Leadway Global LLC, and OCHA Visual Information Unit</p>
 
-us.cube.title:                              Cube sat
+bus.cube.title:                             Cube sat
 bus.cube.button:                            Select cube sat
 bus.small.title:                            Small satellite
 bus.small.button:                           Select small satellite

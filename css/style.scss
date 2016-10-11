@@ -529,6 +529,13 @@ $nozzle: $s*0.25;
 	position: relative;
 	text-align: center;
 }
+.rocket-builder .payload-dummy span {
+	display: block;
+	position: absolute;
+	left: -100px;
+	right: -100px;
+	text-align: center;
+}
 .rocket-builder .payloadbay .part {
 	top: 20%;
 }
