@@ -145,10 +145,10 @@
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
 		},
-		"radio-rx": {
+		"phone-en": {
 			"slot":	"2x2",
-			"title": "%package.radio-rx.title%",
-			"description": "%package.radio-rx.description%",
+			"title": "%package.phone-en.title%",
+			"description": "%package.phone-en.description%",
 			"texture": {
 				"icon": "texture radio-rx"
 			},
