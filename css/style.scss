@@ -788,7 +788,7 @@ table.data td:last-child { text-align: left; }
 .package_power, .package_mass, .package_cost { display: inline-block; }
 .bg-orbit { background-color: $grey-2; }
 .slot-unavailable button { display: none!important; }
-.orbit-LEO .bg-orbit, .list li.selected.orbit-LEO .list-right { background-color: $grey-3; }
+.orbit-LEO .bg-orbit, .list li.selected.orbit-LEO .list-right { background-color: $purple-3; }
 .orbit-MEO .bg-orbit, .list li.selected.orbit-MEO .list-right { background-color: $green-3; }
 .orbit-HEO .bg-orbit, .list li.selected.orbit-HEO .list-right { background-color: $red-1; }
 .orbit-GEO .bg-orbit, .list li.selected.orbit-GEO .list-right { background-color: $blue-2; }
