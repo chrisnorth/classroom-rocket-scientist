@@ -130,7 +130,7 @@ var rs;
 			var u = this.attr('data-units');
 			if(typeof u==="string"){
 				// Set to the selected value
-				e.data.me.defaults[u] = this.e[0].value;
+				e.data.me.defaults[u] = this[0].value;
 				// Update all the convertables
 				e.data.me.updateConvertables();
 			}
@@ -142,7 +142,7 @@ var rs;
 		if(S('body').hasClass('front')){
 			if(location.protocol==="file:"){
 				var el = S('#start a');
-				for(var i = 0; i < el.length; i++) el.e[i].href = el.e[i].href+".html";
+				for(var i = 0; i < el.length; i++) el[i].href = el[i].href+".html";
 			}
 			return this;
 		}
@@ -190,8 +190,8 @@ var rs;
 		var el,c,i;
 		el = S('.convertable');
 		for(i = 0; i < el.length; i++){
-			c = new Convertable(el.e[i]);
-			if(this.defaults[c.dimension]) el.e[i].innerHTML = c.toString({'units':this.defaults[c.dimension],'unitdisplayed':(el.e[i].getAttribute('nounits')=="true" ? false : true)});
+			c = new Convertable(el[i]);
+			if(this.defaults[c.dimension]) el[i].innerHTML = c.toString({'units':this.defaults[c.dimension],'unitdisplayed':(el[i].getAttribute('nounits')=="true" ? false : true)});
 		};
 		return this;
 	}
@@ -210,7 +210,7 @@ var rs;
 			var navs = S('section nav li a');
 			if(navs && navs.length > 0){
 				this.navs = new Array(navs.length);
-				for(var i = 0; i < navs.length; i++) this.navs[i] = S(navs.e[i]);
+				for(var i = 0; i < navs.length; i++) this.navs[i] = S(navs[i]);
 			}
 		}
 		for(var i = 0; i < this.navs.length; i++){
@@ -350,7 +350,7 @@ var rs;
 		S('#goal button').removeClass('selected');
 
 		// Select this button
-		S(S('#goal .'+this.choices.type+' button').e[this.choices.goal]).addClass('selected');
+		S(S('#goal .'+this.choices.type+' button')[this.choices.goal]).addClass('selected');
 
 		// Update the budget
 		this.setBudget();
@@ -540,7 +540,7 @@ var rs;
 		}
 
 		for(var i = 0; i < li.length; i++){
-			el = S(li.e[i]);
+			el = S(li[i]);
 			s = el.find('.add').attr('data-size');
 			if(s){
 				var available = false;
@@ -579,13 +579,13 @@ var rs;
 			for(u = 0; u < uls.length; u++){
 				l_top = "";
 				l_bot = "";
-				ul = S(uls.e[u]);
+				ul = S(uls[u]);
 				li = ul.find('li');
 				// For each list item we check if the slot is available or not
 				// If it isn't it goes at the bottom of the list
 				for(i = 0; i < li.length; i++){
-					if(S(li.e[i]).hasClass('slot-unavailable')) l_bot += li.e[i].outerHTML;
-					else l_top += li.e[i].outerHTML;
+					if(S(li[i]).hasClass('slot-unavailable')) l_bot += li[i].outerHTML;
+					else l_top += li[i].outerHTML;
 				}
 				ul.html(l_top+l_bot);
 			}
@@ -638,8 +638,8 @@ var rs;
 			slotsp = S('#satellite-power .slot');
 			good = new Array();
 			for(var i = 0; i < slots.length; i++){
-				var s = S(slots.e[i]);
-				if(s.hasClass('slot-empty') && s.hasClass('slot'+p.slot)) good.push([slots.e[i],slotsp.e[i]]);
+				var s = S(slots[i]);
+				if(s.hasClass('slot-empty') && s.hasClass('slot'+p.slot)) good.push([slots[i],slotsp[i]]);
 			}
 
 			// Do we have an available slot?
@@ -670,7 +670,7 @@ var rs;
                     }
 					this.log('Removing slot-empty from ',goodboth)
 					goodboth.addClass('texture').addClass(type).removeClass('slot-empty');
-					this.log('Removing slot-empty from ',goodboth.e[1])
+					this.log('Removing slot-empty from ',goodboth[1])
 
 					// Add this slot
 					this.choices['slots'][p.slot].push(type);
@@ -688,8 +688,8 @@ var rs;
 			if(slots.length > 0){
 				// Remove last one first
 				// Put it in the first available slot
-				var goodboth = S([slots.e[slots.length-1],slotsp.e[slots.length-1]]);
-				good = S(slots.e[slots.length-1]);
+				var goodboth = S([slots[slots.length-1],slotsp[slots.length-1]]);
+				good = S(slots[slots.length-1]);
 				if(p.texture){
 					// Put it in the first available slot
 					if(p.texture.class) goodboth.removeClass(p.texture.class);
@@ -838,7 +838,7 @@ var rs;
 
 		this.wide = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 		this.tall = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-		var scaleH = !(window.getComputedStyle(S('#bar .left').e[0], null).getPropertyValue('display')==="none");
+		var scaleH = !(window.getComputedStyle(S('#bar .left')[0], null).getPropertyValue('display')==="none");
 
 		function height(el){
 			if('getComputedStyle' in window) return parseInt(window.getComputedStyle(el, null).getPropertyValue('height'));
@@ -849,23 +849,23 @@ var rs;
 			else return parseInt(el.currentStyle.paddingTop);
 		}
 		var s = S('section');
-		var padd = (s.children('.padded').length > 0) ? verticalPadding(s.e[0]) + verticalPadding(s.children('.padded').e[0])+2 : 0;
+		var padd = (s.children('.padded').length > 0) ? verticalPadding(s[0]) + verticalPadding(s.children('.padded')[0])+2 : 0;
 		for(var i = 0; i < this.sections.length; i++){
 			var page = S('#'+this.sections[i]+' .page');
 			if(page.length > 0){
 				var eltop = page.children('.row-top');
 			//console.log(page,eltop)
-				var top = (eltop.length > 0) ? height(eltop.e[0]) : 0;
+				var top = (eltop.length > 0) ? height(eltop[0]) : 0;
 				page.css({'height':(scaleH ? (this.tall-padd)+'px' : 'auto')});
 				var versions = page.children('.row-main');
 				for(var j = 0; j < versions.length; j++){
-					var el = S(page.children('.row-main').e[j]);
+					var el = S(page.children('.row-main')[j]);
 					// Clear any existing height that has been set
 					el.css({'height':'auto'});
 					// Find the minimum height needed. It is either enough to fill
 					// the screen height or the element's natural height whichever
 					// is largest
-					var h = Math.max(((el) ? (height(page.children('.row-main').e[j]) || 0) : 0),(this.tall-padd-top));
+					var h = Math.max(((el) ? (height(page.children('.row-main')[j]) || 0) : 0),(this.tall-padd-top));
 					el.css({'height':((scaleH) ? h+'px' : 'auto')})
 				}
 			}
@@ -879,7 +879,7 @@ var rs;
 		this.sections = [];
 		this.navigable = {};
 		for(var i = 0 ;i < sec.length; i++){
-			var el = S(sec.e[i]);
+			var el = S(sec[i]);
 			if(el.hasClass('view')){
 				var id = el.attr('id');
 				this.sections.push(id);
@@ -887,14 +887,14 @@ var rs;
 			}
 		}
 		this.has = {};
-		this.has['vw'] = (S('#progressbar').css({'width':'100vw'}).e[0].offsetWidth==this.wide);
+		this.has['vw'] = (S('#progressbar').css({'width':'100vw'})[0].offsetWidth==this.wide);
 
 		return this;
 	}
 
 	RocketScientist.prototype.toggleFullScreen = function(){
 		// Get the container
-		var elem = S("#application").e[0];
+		var elem = S("#application")[0];
 
 		if(fullScreenApi.isFullScreen()){
 			fullScreenApi.cancelFullScreen(elem);

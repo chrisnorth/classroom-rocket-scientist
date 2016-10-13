@@ -15,7 +15,12 @@
 
 		this.level = "advanced";
 		if(typeof level !== 'undefined'){
-			window.onbeforeunload = function(){ return 'Leave?'; };
+			var _obj = this;
+			window.onbeforeunload = function(e){
+				var ok = S(e.originalTarget.activeElement).attr('safetoleave');
+				if(ok) return undefined;
+				else return 'Are you sure you want to leave?';
+			};
 			this.level = level;
 		}
 
@@ -161,7 +166,8 @@
 	}
 
 	RocketScientist.prototype.navigate = function(e){
-		e.originalEvent.preventDefault();
+		console.log('navigate')
+		e.preventDefault();
 		var href = S(e.currentTarget).attr('href');
 		var section = href.substr(1);
 		if(this.navigable[section]){
@@ -227,7 +233,7 @@
 		}
 
 		// Focus on the first focusable element in the new section
-		findNextTabStop(S('#'+section).find('.row-top .next a').e[0]).focus();
+		findNextTabStop(S('#'+section).find('.row-top .next a')[0]).focus();
 
 		return false;
 	}
@@ -256,9 +262,9 @@
 		if(add){
 			var panels = S('#sat-power .solar-panels');
 			for(var i = 0; i < panels.length; i++){
-				ps = panels.e[i].getElementsByTagName('li');
+				ps = panels[i].getElementsByTagName('li');
 				if(ps.length < this.maxpanels){
-					panels.e[i].getElementsByTagName('ol')[0].innerHTML += '<li class="solar-panel"><\/li>';
+					panels[i].getElementsByTagName('ol')[0].innerHTML += '<li class="solar-panel"><\/li>';
 				}
 			}
 		}else{
@@ -315,7 +321,7 @@
 		this.selected = ((s+n)%n);
 		this.ul.attr('data-select',this.selected);
 		this.ul.find('.selected').removeClass('selected');
-		S(this.li.e[this.selected]).addClass('selected');
+		S(this.li[this.selected]).addClass('selected');
 		return this;
 	}
 	Slider.prototype.navigate = function(e){
@@ -330,7 +336,7 @@
 			if('getComputedStyle' in window) return parseInt(window.getComputedStyle(el, null).getPropertyValue('width'));
 			else return parseInt(el.currentStyle.width);	
 		}
-		var w = width(this.el.e[0]);
+		var w = width(this.el[0]);
 		this.el.find('.stage').css({'width':(w/this.n).toFixed(1)+'px'});	// Set the widths
 		this.el.find('button').css({'width':(w/5).toFixed(1)+'px'});	// Change widths of buttons
 		this.ul.css({'margin-left':'-'+((this.selected+0.5)*(w/this.n)).toFixed(1)+'px'});	// Update the offset for the list
