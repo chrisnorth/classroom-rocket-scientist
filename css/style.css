@@ -2920,6 +2920,10 @@ table.data td:last-child {
   background: url("../images/icon-camera-blue.png");
   background-size: 100% 100%; }
 
+.texture.gps-rx .face.front, .texture.gps-rx .face.front:before {
+  background: url("../images/icon-GPS.svg");
+  background-size: 100% 100%; }
+
 .satellite.solar-fixed .row:first-child .solar-right .face.top {
   border-right: 4px solid #00a2d3; }
 
