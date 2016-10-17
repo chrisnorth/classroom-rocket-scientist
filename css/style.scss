@@ -853,6 +853,9 @@ table.data td:last-child { text-align: left; }
 .texture.camera-opt .face.front, .texture.camera-opt .face.front:before { background: url('../images/icon-camera-blue.png'); background-size:100% 100%; }
 
 .texture.gps-rx .face.front, .texture.gps-rx .face.front:before { background: url('../images/icon-GPS.png'); background-size:100% 100%; }
+.texture.radio-rx .face.front, .texture.radio-rx .face.front:before { background: url('../images/icon-radio-rx.png'); background-size:100% 100%; }
+.texture.radio-tx .face.front, .texture.radio-tx .face.front:before { background: 
+url('../images/icon-radio-tx.png'); background-size:100% 100%; }
 
 @import "../tests/satellite/solar.scss";
 @import "../tests/orbits/css/style.scss";
