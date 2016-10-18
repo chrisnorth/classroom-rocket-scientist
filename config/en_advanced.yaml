@@ -54,16 +54,16 @@ ui.sections.instrument.intro:               To complete your mission you will ne
 ui.sections.instrument.list:                Available instruments:
 ui.sections.power.short:                    Power
 ui.sections.power.title:                    Add power
-ui.sections.power.intro:                    Your satellite needs power. There are different ways to do that. You can use solar panels on the sides of the satellite, deployable solar panels, and batteries.
+ui.sections.power.intro:                    Your satellite needs power. There are different ways to do that. You can use solar panels on the sides of the satellite, deployable solar panels, and an RTG. Batteries can store energy in order to power the satellite when it's not in direct sunlight.
 ui.sections.power.list:                     Available power devices:
 ui.sections.rocket.short:                   Rocket
 ui.sections.rocket.title:                   Build your rocket
-ui.sections.rocket.intro:                   Now you have a satellite you need to build a multi-stage rocket. The top of the rocket will hold your satellite so needs to be big enough. The lower stages need to be big enough to support those above.
+ui.sections.rocket.intro:                   Now you have a satellite you need to build a multi-stage rocket. The top of the rocket will hold your satellite, so needs to be big enough. You can have up to three rocket stages, which need to be big enough to support those above - and provide enough thrust to reach your chosen orbit.
 ui.sections.rocket.size:                    Diameter:
 ui.sections.rocket.drymass:                 Dry mass:
 ui.sections.rocket.fuel:                    Fuel:
 ui.sections.rocket.cost:                    Cost:
-ui.sections.rocket.payload:                 Your payload
+ui.sections.rocket.payload:                 Your satellite
 ui.sections.rocket.emptystage:              None
 ui.sections.launch.short:                   Launch
 ui.sections.launch.title:                   Ready to launch?
