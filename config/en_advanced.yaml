@@ -101,7 +101,7 @@ package.spect-fir.title:                    Atmospheric Spectrometer
 package.spect-fir.description:              Uses infrared light to measure properties of the Earth's atmosphere, such as clouds, moisture level, surface temperature and air temperature, even during darkness.
 package.radar-alt.title:                    Radar altimeter
 package.radar-alt.description:              Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earthquakes. Requires a radar dish to work.
-package.radar-alt.requires.dish.label:      Requires a radar dish
+package.radar-alt.requires.dish.label:      The radar altimeter requires a radar dish
 package.radar-alt.requires.dish.error:      You need to include a radar dish for the altimeter to work.
 package.radar-dish.title:                   Radar dish
 package.radar-dish.description:             Transmits and receives radio waves for the radar altimeter
