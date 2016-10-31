@@ -105,10 +105,12 @@ package.radar-alt.requires.dish.label:      The radar altimeter requires a radar
 package.radar-alt.requires.dish.error:      You need to include a radar dish for the altimeter to work.
 package.radar-dish.title:                   Radar dish
 package.radar-dish.description:             Transmits and receives radio waves for the radar altimeter
-package.radio-rx.title:                     Radio receiver
-package.radio-rx.description:               Receives instructions from the ground control team
 package.radio-tx.title:                     Radio transmitter
-package.radio-tx.description:               Transmits information collected by the satellite to the ground
+package.radio-tx.description:               Receives and transmits information between the satellite and the ground
+package.radio-tx-mini.title:                Miniature radio transmitter
+package.radio-tx-mini.description:          Receives and transmits information between the satellite and the ground
+package.phone-en-mini.title:                Miniature phone encoder
+package.phone-en-mini.description:          Broadcasts signals between telephones across the world.
 package.atomic-clock.title:                 Atomic clock
 package.atomic-clock.description:           Very accurate clock, required by navigation satellites to measure the time to very high precision.
 package.atomic-clock-small.title:           Atomic clock (compact)

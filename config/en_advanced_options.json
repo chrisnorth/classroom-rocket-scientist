@@ -233,26 +233,10 @@
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
 		},
-		"radio-rx": {
-			"slot":	"2x2",
-			"title": "Radio receiver",
-			"description": "Receives instructions from the ground control team",
-			"texture": {
-				"icon": "texture radio-rx"
-			},
-			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 20, "units": "watts", "dimension": "power" }
-		},
 		"radio-tx": {
 			"slot":	"2x2",
 			"title": "Radio transmitter",
-			"description": "Transmits information collected by the satellite to the ground",
+			"description": "Receives and transmits information between the satellite and the ground",
 			"texture": {
 				"icon": "texture radio-tx"
 			},
@@ -264,6 +248,38 @@
 				{ "value": 0.5, "units": "m", "dimension": "length" }
 			],
 			"power": { "value": 20, "units": "watts", "dimension": "power" }
+		},
+		"radio-tx-mini": {
+			"slot":	"1x1",
+			"title": "Miniature radio transmitter",
+			"description": "Receives and transmits information between the satellite and the ground",
+			"texture": {
+				"icon": "texture radio-tx"
+			},
+			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
+			"dimensions": [
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" }
+			],
+			"power": { "value": 2, "units": "watts", "dimension": "power" }
+		},
+        "phone-en-mini": {
+			"slot":	"1x1",
+			"title": "Miniature phone encoder",
+			"description": "Broadcasts signals between telephones across the world.",
+			"texture": {
+				"icon": "texture phone-en"
+			},
+			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
+			"dimensions": [
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" }
+			],
+			"power": { "value": 2, "units": "watts", "dimension": "power" }
 		},
 		"atomic-clock": {
 			"slot":	"2x2",
