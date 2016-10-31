@@ -926,14 +926,14 @@
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
-                    "oneof": ["radio-tx"],
+                    "oneof": ["radio-tx","radio-tx-mini"],
                     "label": "%scenarios.COMMS.phone.req.radio-tx.label%",
 					"error": "%scenarios.COMMS.phone.req.radio-tx.error%"
                 },{
                     "type": "package",
-                    "oneof": ["radio-rx"],
-                    "label": "%scenarios.COMMS.phone.req.radio-rx.label%",
-					"error": "%scenarios.COMMS.phone.req.radio-rx.error%"
+                    "oneof": ["phone-en","phone-en-mini"],
+                    "label": "%scenarios.COMMS.phone.req.phone-en.label%",
+					"error": "%scenarios.COMMS.phone.req.phone-en.error%"
                 },{
 					"type": "orbit",
 					"oneof": ["GEO"],

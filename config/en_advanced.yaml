@@ -110,7 +110,7 @@ package.radio-tx.description:               Receives and transmits information b
 package.radio-tx-mini.title:                Miniature radio transmitter
 package.radio-tx-mini.description:          Receives and transmits information between the satellite and the ground
 package.phone-en-mini.title:                Miniature phone encoder
-package.phone-en-mini.description:          Broadcasts signals between telephones across the world.
+package.phone-en-mini.description:          Broadcasts signals to and from telephones across the world.
 package.atomic-clock.title:                 Atomic clock
 package.atomic-clock.description:           Very accurate clock, required by navigation satellites to measure the time to very high precision.
 package.atomic-clock-small.title:           Atomic clock (compact)
@@ -179,16 +179,14 @@ scenarios.COMMS.phone.title: Satellite telephone system
 scenarios.COMMS.phone.description: Lets people talk over the phone from remote regions of the world using satellites.
 scenarios.COMMS.phone.req.radio-tx.label: A way to send signals.
 scenarios.COMMS.phone.req.radio-tx.error: Your satellite does not have a way to send signals to the ground.
-scenarios.COMMS.phone.req.radio-rx.label: A way to receive signals.
-scenarios.COMMS.phone.req.radio-rx.error: Your satellite does not have a way to receive signals from the ground.
+scenarios.COMMS.phone.req.phone-en.label: A way to broadcase phone signals.
+scenarios.COMMS.phone.req.phone-en.error: Your satellite does not have a way to broadcast phone signals
 scenarios.COMMS.phone.req.orbit.label: Satellite is continuously above one area of Earth
 scenarios.COMMS.phone.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
 scenarios.COMMS.internet.title: Satellite internet
 scenarios.COMMS.internet.description: Connect to the internet from remote regions of the world using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.
 scenarios.COMMS.internet.req.radio-tx.label: A way to send signals.
 scenarios.COMMS.internet.req.radio-tx.error: You do not have a way to send signals to the ground.
-scenarios.COMMS.internet.req.radio-rx.label: A way to receive signals.
-scenarios.COMMS.internet.req.radio-rx.error: You do not have a way to receive signals from the ground.
 scenarios.COMMS.internet.req.internet-en.label: A way to encode internet signals.
 scenarios.COMMS.internet.req.internet-en.error: You do not have a way to encode internet signals.
 scenarios.COMMS.internet.req.orbit.label: Satellite is continuously above one area of Earth
@@ -197,8 +195,6 @@ scenarios.COMMS.tv.title: Satellite TV
 scenarios.COMMS.tv.description: Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.
 scenarios.COMMS.tv.req.radio-tx.label: A way to send signals.
 scenarios.COMMS.tv.req.radio-tx.error: You do not have a way to send signals to the ground.
-scenarios.COMMS.tv.req.radio-rx.label: A way to receive signals.
-scenarios.COMMS.tv.req.radio-rx.error: You do not have a way to receive signals from the ground.
 scenarios.COMMS.tv.req.orbit.label: Satellite is continuously above one area of Earth.
 scenarios.COMMS.tv.req.tv-en.label: A way to encode TV signals.
 scenarios.COMMS.tv.req.tv-en.error: You do not have a way to encode TV signals.
