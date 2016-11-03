@@ -814,7 +814,8 @@ var rs;
 		for(var s = 0; s < this.stages.length; s++){
 			if(this.choices[this.stages[s]]){
 				st = this.stages[s];
-				d.push({'w':this.choices[this.stages[s]].diameter.value*0.5,'h':this.choices[this.stages[s]].height.value*0.5,'s':st});
+				// Only store stages if the width is non-zero
+				if(this.choices[this.stages[s]].diameter.value > 0) d.push({'w':this.choices[this.stages[s]].diameter.value*0.5,'h':this.choices[this.stages[s]].height.value*0.5,'s':st});
 			}
 		}
 		// Loop over all but the final stage (which doesn't need a fairing) adding fairings

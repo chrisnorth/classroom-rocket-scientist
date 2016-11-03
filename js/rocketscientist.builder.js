@@ -119,7 +119,7 @@
 		}
 		var stages = '';
 		for(var s = 0; s < this.stages.length; s++){
-			stages += '&'+this.stages[s]+'='+this.choices[this.stages[s]].key;
+			if(this.choices[this.stages[s]]) stages += '&'+this.stages[s]+'='+this.choices[this.stages[s]].key;
 		}
 		location.href = 'launch.html?type='+this.choices.type+'&solar-panel='+this.choices['solar-panel']+'&solar-panel-surface='+this.choices['solar-panel-surface']+'&orbit='+this.choices.orbit+'&goal='+this.choices.goal+'&bus='+this.choices.bussize+'&slots='+slots+'&level='+this.level+stages;
 	}
