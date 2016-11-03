@@ -270,7 +270,7 @@
 			"title": "%package.phone-en-mini.title%",
 			"description": "%package.phone-en-mini.description%",
 			"texture": {
-				"icon": "texture phone-en"
+				"icon": "texture phone-en-mini"
 			},
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 1, "units": "credits", "dimension": "currency" },

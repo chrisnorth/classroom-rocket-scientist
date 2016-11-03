@@ -2921,15 +2921,23 @@ table.data td:last-child {
   background-size: 100% 100%; }
 
 .texture.gps-rx .face.front, .texture.gps-rx .face.front:before {
-  background: url("../images/icon-GPS.png");
+  background: url("../images/png/icon-gps.png");
   background-size: 100% 100%; }
 
 .texture.radio-rx .face.front, .texture.radio-rx .face.front:before {
-  background: url("../images/icon-radio-rx.png");
+  background: url("../images/png/icon-radio-rx.png");
   background-size: 100% 100%; }
 
 .texture.radio-tx .face.front, .texture.radio-tx .face.front:before {
-  background: url("../images/icon-radio-tx.png");
+  background: url("../images/png/icon-radio-tx.png");
+  background-size: 100% 100%; }
+
+.texture.phone-en .face.front, .texture.phone-en .face.front:before {
+  background: url("../images/png/icon-phone.png");
+  background-size: 100% 100%; }
+
+.texture.phone-en-mini .face.front, .texture.phone-en-mini .face.front:before {
+  background: url("../images/png/icon-phone.png");
   background-size: 100% 100%; }
 
 .satellite.solar-fixed .row:first-child .solar-right .face.top {

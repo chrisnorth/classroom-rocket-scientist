@@ -150,7 +150,7 @@
 			"title": "Phone encoder",
 			"description": "Broadcasts signals between telephones across the world.",
 			"texture": {
-				"icon": "texture radio-rx"
+				"icon": "texture phone-en"
 			},
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 1, "units": "credits", "dimension": "currency" },

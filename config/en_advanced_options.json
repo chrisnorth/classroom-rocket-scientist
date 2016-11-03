@@ -268,9 +268,9 @@
         "phone-en-mini": {
 			"slot":	"1x1",
 			"title": "Miniature phone encoder",
-			"description": "Broadcasts signals between telephones across the world.",
+			"description": "Broadcasts signals to and from telephones across the world.",
 			"texture": {
-				"icon": "texture phone-en"
+				"icon": "texture phone-en-mini"
 			},
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
@@ -926,14 +926,14 @@
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
-                    "oneof": ["radio-tx"],
+                    "oneof": ["radio-tx","radio-tx-mini"],
                     "label": "A way to send signals.",
 					"error": "Your satellite does not have a way to send signals to the ground."
                 },{
                     "type": "package",
-                    "oneof": ["radio-rx"],
-                    "label": "A way to receive signals.",
-					"error": "Your satellite does not have a way to receive signals from the ground."
+                    "oneof": ["phone-en","phone-en-mini"],
+                    "label": "A way to broadcase phone signals.",
+					"error": "Your satellite does not have a way to broadcast phone signals"
                 },{
 					"type": "orbit",
 					"oneof": ["GEO"],
@@ -957,8 +957,8 @@
                 },{
                     "type": "package",
                     "oneof": ["radio-rx"],
-                    "label": "A way to receive signals.",
-					"error": "You do not have a way to receive signals from the ground."
+                    "label": "",
+					"error": ""
                 },{
                     "type": "package",
                     "oneof": ["tv-en"],
@@ -987,8 +987,8 @@
                 },{
                     "type": "package",
                     "oneof": ["radio-rx"],
-                    "label": "A way to receive signals.",
-					"error": "You do not have a way to receive signals from the ground."
+                    "label": "",
+					"error": ""
                 },{
                     "type": "package",
                     "oneof": ["internet-en"],
