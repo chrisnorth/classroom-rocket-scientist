@@ -809,12 +809,14 @@ var rs;
 
 		css = "";
 		var w,h,st;
+		// Make an array to hold the valid stages
 		var d = new Array();
 		// Loop over the stages storing the width, height and ID for stages which exist
 		for(var s = 0; s < this.stages.length; s++){
 			if(this.choices[this.stages[s]]){
 				st = this.stages[s];
-				// Only store stages if the width is non-zero
+				// Only make a copy of the stage if the width is non-zero
+				// That way the fairings will be applied correctly below
 				if(this.choices[this.stages[s]].diameter.value > 0) d.push({'w':this.choices[this.stages[s]].diameter.value*0.5,'h':this.choices[this.stages[s]].height.value*0.5,'s':st});
 			}
 		}

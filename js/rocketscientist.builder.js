@@ -31,7 +31,7 @@
 
 		// Add events to add/remove buttons
 		var _obj = this;
-	
+
 		// We hide elements that shouldn't be visible (but we are leaving visible
 		// in the plain HTML so there is something if Javascript doesn't work.
 		for(var s = 0; s < this.sections.length; s++) S('#'+this.sections[s]).addClass('js').addClass('slide').css((s > 0 ? {'visibility':'hidden','left':'-100%'} : {}));
@@ -107,9 +107,9 @@
 		this.updateTotals();
 		return this;
 	}
-	
+
 	RocketScientist.prototype.moveToLaunchPad = function(){
-	
+
 		var slots = '';
 		for(var s in this.choices.slots){
 			for(var i = 0 ; i < this.choices.slots[s].length; i++){
@@ -126,7 +126,7 @@
 
 	RocketScientist.prototype.updateButtons = function(){
 
-		// If we've filled up this slot type we can't add any more 
+		// If we've filled up this slot type we can't add any more
 		// of this type so lose the add buttons otherwise show them
 		var add = S('.list .add');
 		var rem = S('.list .remove');
@@ -208,7 +208,7 @@
 		}
 		this.currentsection = found;
 		//S('#'+this.currentsection).focus()
-		
+
 		function findNextTabStop(el) {
 			var universe = document.querySelectorAll('input, button, select, textarea, a[href]');
 			var list = Array.prototype.filter.call(universe, function(item) {return item.tabIndex >= "0"});
@@ -217,7 +217,7 @@
 			}
 			return list[0];
 		}
-		
+
 		// Check if an element is really visible
 		function isVisible(el) {
 			if(!el) return false;
@@ -280,7 +280,7 @@
 	RocketScientist.prototype.makeSatelliteControls = function(selector){
 
 		this.z[selector] = {'z':1,'el':S(selector)};
-	
+
 		// Create controls for satellite power view
 		var zc = this.z[selector].el.find('.zoomcontrol');
 		zc.children('.zoomin').on('click',{me:this,by:1.1,z:selector},function(e){ e.data.me.zoom(e.data.z,e.data.by); });
@@ -334,13 +334,13 @@
 	Slider.prototype.resize = function(){
 		function width(el){
 			if('getComputedStyle' in window) return parseInt(window.getComputedStyle(el, null).getPropertyValue('width'));
-			else return parseInt(el.currentStyle.width);	
+			else return parseInt(el.currentStyle.width);
 		}
 		var w = width(this.el[0]);
 		this.el.find('.stage').css({'width':(w/this.n).toFixed(1)+'px'});	// Set the widths
 		this.el.find('button').css({'width':(w/5).toFixed(1)+'px'});	// Change widths of buttons
 		this.ul.css({'margin-left':'-'+((this.selected+0.5)*(w/this.n)).toFixed(1)+'px'});	// Update the offset for the list
-		
+
 		return this;
 	}
 
@@ -357,7 +357,7 @@ function test(){
 	S('#bus .satellite-l').trigger('click');
 	S('#bus nav a:eq(1)').trigger('click');
 	S('#orbit_list .orbit-GEO button').trigger('click');
-	
+
 	S('#orbit nav a:eq(1)').trigger('click');
 	S('#instrument_list .bg4x8:eq(0) .add').trigger('click');
 	S('#instrument_list .bg2x4:eq(1) .add').trigger('click');
@@ -365,4 +365,4 @@ function test(){
 	S('#instrument_list .bg2x2:eq(1) .add').trigger('click');
 	S('#instrument nav a:eq(1)').trigger('click');
 	S('#power nav a:eq(1)').trigger('click');
-}	
+}
