@@ -110,7 +110,7 @@ package.radar-dish.description:             Sends and receives signals from the 
 package.phone-en.title:                     Phone encoder
 package.phone-en.description:               Broadcasts signals between telephones across the world.
 package.radio-tx.title:                     Radio transmitter
-package.radio-tx.description:               Sends information collected by the satellite to Earth.
+package.radio-tx.description:               Sends information collected by the satellite to Earth and recieves signals from the ground control team.
 package.atomic-clock.title:                 Atomic clock
 package.atomic-clock.description:           A very accurate clock used by navigation satellites to measure the time very precisely. They are used to help people find their locations on Earth.
 package.atomic-clock-small.title:           Atomic clock (small)

@@ -740,11 +740,6 @@
                     "label": "You need a way to send signals.",
 					"error": "Your satellite does not have a way to send signals to the ground."
                 },{
-                    "type": "package",
-                    "oneof": ["radio-rx"],
-                    "label": "You need away to receive signals.",
-					"error": "Your satellite does not have a way to receive signals from the ground."
-                },{
 					"type": "orbit",
 					"oneof": ["GEO"],
 					"label": "Satellite is continuously above one area of Earth",
