@@ -770,11 +770,6 @@
 					"error": "%scenarios.COMMS.internet.req.radio-tx.error%"
                 },{
                     "type": "package",
-                    "oneof": ["radio-rx"],
-                    "label": "%scenarios.COMMS.internet.req.radio-rx.label%",
-					"error": "%scenarios.COMMS.internet.req.radio-rx.error%"
-                },{
-                    "type": "package",
                     "oneof": ["internet-en"],
                     "label": "%scenarios.COMMS.internet.req.internet-en.label%",
 					"error": "%scenarios.COMMS.internet.req.internet-en.error%"
