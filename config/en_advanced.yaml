@@ -251,4 +251,20 @@ scenarios.EO.surface.req.sat-tracker.label: Know the satellite position to high 
 scenarios.EO.surface.req.sat-tracker.error: You do not have a way to locate the position of the satellite accurately. #If this is staying as a new instrument, need to add as a package option.
 scenarios.EO.surface.req.orbit.label: To see fine detail on the planet surface.
 scenarios.EO.surface.req.orbit.error: The orbit you have chosen does not allow you to see the planet surface in enough detail.
+scenarios.EO.surface.launch:  Welcome to the launch of the UK Space Agency's latest earth observation satellite t REPLACE
+scenarios.EO.surface.success: Congratulations, your earth observation satellite is now REPLACE THIS TEXT on behalf of the UK Space Agency
+
+launch.countdown: Count down
+launch.liftoff: Lift off!
+launch.stage.ignition:  Stage %stage% ignition
+launch.stage.fuel-exhausted:  Stage %stage% fuel exhausted
+launch.stage.separation:  Stage %stage% separation
+launch.elapsed-time: T%value%
+launch.current-speed:  Current speed: %value%
+launch.orbit-achieved:  %orbit% achieved
+launch.payload-bay-open:  Payload bay opened
+launch.deployed:  Satellite deployed
+launch.solar-panels-deploying: Deploying solar panels
+launch.solar-panels-deployed: Solar panels deployed
+launch.operational: Satellite operational
 ---

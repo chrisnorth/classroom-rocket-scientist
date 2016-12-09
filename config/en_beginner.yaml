@@ -58,14 +58,14 @@ ui.sections.power.intro:                    Your satellite needs power. There ar
 ui.sections.power.list:                     Available power sources:
 ui.sections.rocket.short:                   Rocket
 ui.sections.rocket.title:                   Build your rocket
-ui.sections.rocket.intro:                   Now you have a satellite you need to build a rocket to launch it into space! The top of the rocket will hold your satellite, so it needs to be big enough. The lower parts need to be big enough to support those above.
+ui.sections.rocket.intro:                   Now you have a satellite you need to build a rocket to launch it into space! Choose the top of the rocket, this will hold your satellite, so it needs to be big enough. Then select up to three lower parts, these need to be big enough to support those above.
 ui.sections.rocket.size:                    Size:
 ui.sections.rocket.drymass:                 Weight:
 ui.sections.rocket.fuel:                    Fuel:
 ui.sections.rocket.cost:                    Cost:
 ui.sections.rocket.payload:                 Your payload
 ui.sections.rocket.emptystage:              None
-ui.sections.launch.short:                   Launch
+ui.sections..short:                   Launch
 ui.sections.launch.title:                   Ready to launch?
 ui.sections.launch.checklist:               We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail.
 ui.sections.launch.goforlaunch:             Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.
@@ -187,8 +187,8 @@ scenarios.COMMS.phone.title: 				Satellite telephone system
 scenarios.COMMS.phone.description: 			Allows people to talk over the phone, even from remote regions of the world. The satellite receives signals from the ground and transmits them to other areas on Earth.
 scenarios.COMMS.phone.req.radio-tx.label: 	You need a way to send signals.
 scenarios.COMMS.phone.req.radio-tx.error: 	Your satellite does not have a way to send signals to the ground.
-scenarios.COMMS.phone.req.radio-rx.label: 	You need away to receive signals.
-scenarios.COMMS.phone.req.radio-rx.error: 	Your satellite does not have a way to receive signals from the ground.
+scenarios.COMMS.phone.req.phone-en.label: 	You need away to broadcast phone signals.
+scenarios.COMMS.phone.req.phone-en.error: 	Your satellite does not have a way to broadcast signals to phones on the ground.
 scenarios.COMMS.phone.req.orbit.label: 		Satellite is continuously above one area of Earth
 scenarios.COMMS.phone.req.orbit.error: 		The orbit you have chosen means your satellite is not continuously above one area of Earth.
 scenarios.COMMS.internet.title: 			Satellite internet
@@ -251,4 +251,20 @@ scenarios.EO.surface.req.sat-tracker.label: Enables high level precision of the 
 scenarios.EO.surface.req.sat-tracker.error: You do not have a way to locate the position of the satellite accurately. #If this is staying as a new instrument, need to add as a package option.
 scenarios.EO.surface.req.orbit.label: See detail of planet surface.
 scenarios.EO.surface.req.orbit.error: The orbit you have chosen does not allow you to see the planet surface in enough detail.
+scenarios.EO.surface.launch:  Welcome to the launch of the UK Space Agency's latest earth observation satellite t REPLACE
+scenarios.EO.surface.success: Congratulations, your earth observation satellite is now REPLACE THIS TEXT on behalf of the UK Space Agency
+
+launch.countdown: Count down
+launch.liftoff: Lift off!
+launch.stage.ignition:  Stage %stage% ignition
+launch.stage.fuel-exhausted:  Stage %stage% fuel exhausted
+launch.stage.separation:  Stage %stage% separation
+launch.elapsed-time: T%value%
+launch.current-speed:  Current speed: %value%
+launch.orbit-achieved:  %orbit% achieved
+launch.payload-bay-open:  Payload bay opened
+launch.deployed:  Satellite deployed
+launch.solar-panels-deploying: Deploying solar panels
+launch.solar-panels-deployed: Solar panels deployed
+launch.operational: Satellite operational
 ---

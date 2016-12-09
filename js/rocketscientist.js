@@ -142,7 +142,15 @@ var rs;
 		if(S('body').hasClass('front')){
 			if(location.protocol==="file:"){
 				var el = S('#start a');
-				for(var i = 0; i < el.length; i++) el[i].href = el[i].href+".html";
+				for(var i = 0; i < el.length; i++){
+					el[i].href = el[i].href+".html";
+				}
+			}else{
+				var el = S('#start a');
+				for(var i = 0; i < el.length; i++){
+					if (el[i].href.substring(el[i].href.length-4)==="html"){el[i].href=el[i].href;}
+					else{el[i].href = el[i].href+".html";}
+				}
 			}
 			return this;
 		}
@@ -172,7 +180,7 @@ var rs;
 
 		// Update all the convertable values
 		this.updateConvertables();
-	
+
 		var _obj = this;
 
 		// We'll need to change the sizes when the window changes size
@@ -183,7 +191,7 @@ var rs;
 		S('#overlay').remove();
 
 		if(typeof this.init_after === "function") this.init_after();
-		
+
 		return this;
 	}
 	RocketScientist.prototype.updateConvertables = function(){
@@ -809,12 +817,14 @@ var rs;
 
 		css = "";
 		var w,h,st;
+		// Make an array to hold the valid stages
 		var d = new Array();
 		// Loop over the stages storing the width, height and ID for stages which exist
 		for(var s = 0; s < this.stages.length; s++){
 			if(this.choices[this.stages[s]]){
 				st = this.stages[s];
-				// Only store stages if the width is non-zero
+				// Only make a copy of the stage if the width is non-zero
+				// That way the fairings will be applied correctly below
 				if(this.choices[this.stages[s]].diameter.value > 0) d.push({'w':this.choices[this.stages[s]].diameter.value*0.5,'h':this.choices[this.stages[s]].height.value*0.5,'s':st});
 			}
 		}
