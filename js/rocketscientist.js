@@ -143,9 +143,7 @@ var rs;
 			if(location.protocol==="file:"){
 				var el = S('#start a');
 				for(var i = 0; i < el.length; i++){
-					if (el[i].href.substring(el[i].href.length-4)==="html"){el[i].href=el[i].href;}
-					else{el[i].href = el[i].href+".html";}
-					// el[i].href = el[i].href +  (el[i].href.substring((el[i].href.length)-4)==="html") ? "" : ".html";
+					el[i].href = el[i].href+".html";
 				}
 			}else{
 				var el = S('#start a');
