@@ -108,7 +108,7 @@ package.radar-alt.requires.dish.error:      You need to include a radar dish.
 package.radar-dish.title:                   Radar dish
 package.radar-dish.description:             Sends and receives signals from the satellite to Earth.
 package.phone-en.title:                     Phone encoder
-package.phone-en.description:               Broadcasts signals between telephones across the world.
+package.phone-en.description:               Broadcasts signals to telephones across the world.
 package.radio-tx.title:                     Radio transmitter
 package.radio-tx.description:               Sends information collected by the satellite to Earth and recieves signals from the ground control team.
 package.atomic-clock.title:                 Atomic clock
@@ -173,7 +173,7 @@ scenarios.NAV.sat-nav.req.orbit.label: 		See the whole planet.
 scenarios.NAV.sat-nav.req.orbit.error: 		The orbit you have chosen does not allow you to see the whole planet.
 scenarios.NAV.map.title: 					Map-making
 scenarios.NAV.map.description: 				Map the surface of the Earth. Your satellite needs to be able to take images of small areas of the Earth's surface and measure the height of the ground in detail.
-scenarios.NAV.map.req.camera-opt.label: 		You need an instrument capable of collecting very detailed images.
+scenarios.NAV.map.req.camera-opt.label: 		You need an instrument capable of collecting detailed images.
 scenarios.NAV.map.req.camera-opt.error: 		Your satellite does not allow you to see the planet's surface in enough detail.
 scenarios.NAV.map.req.radar-alt.label:  You need a way to measure the height of the Earth's surface.
 scenarios.NAV.map.req.radar-alt.error: You do not have a way to measure the height of the Earth's surface (e.g. mountains and valleys).
@@ -187,7 +187,7 @@ scenarios.COMMS.phone.title: 				Satellite telephone system
 scenarios.COMMS.phone.description: 			Allows people to talk over the phone, even from remote regions of the world. The satellite receives signals from the ground and transmits them to other areas on Earth.
 scenarios.COMMS.phone.req.radio-tx.label: 	You need a way to send signals.
 scenarios.COMMS.phone.req.radio-tx.error: 	Your satellite does not have a way to send signals to the ground.
-scenarios.COMMS.phone.req.phone-en.label: 	You need away to broadcast phone signals.
+scenarios.COMMS.phone.req.phone-en.label: 	You need away to broadcast signals between phones.
 scenarios.COMMS.phone.req.phone-en.error: 	Your satellite does not have a way to broadcast signals to phones on the ground.
 scenarios.COMMS.phone.req.orbit.label: 		Satellite is continuously above one area of Earth
 scenarios.COMMS.phone.req.orbit.error: 		The orbit you have chosen means your satellite is not continuously above one area of Earth.

@@ -164,7 +164,7 @@
 		"radio-tx": {
 			"slot":	"2x2",
 			"title": "Radio transmitter",
-			"description": "Sends information collected by the satellite to Earth.",
+			"description": "Sends information collected by the satellite to Earth and recieves signals from the ground control team.",
 			"texture": {
 				"icon": "texture radio-tx"
 			},
@@ -656,7 +656,7 @@
 					"error": ""
 				},{
 					"type": "package",
-					"oneof": ["radio_tx"],
+					"oneof": ["radio-tx"],
 					"label": "You need a way to send signals back to Earth.",
 					"error": "Your satellite does not have any way to send signals to the ground control team."
 				},{
@@ -740,11 +740,11 @@
                     "label": "You need a way to send signals.",
 					"error": "Your satellite does not have a way to send signals to the ground."
                 },{
-									"type": "package",
-									"oneof": ["phone-en"],
-									"label": "You need to send signals to phones around the world.",
-				"error": "Your satellite does not have a way to send signals to phones on the ground."
-							},{
+                    "type": "package",
+                    "oneof": ["phone-en"],
+                    "label": "You need away to broadcast phone signals.",
+					"error": "Your satellite does not have a way to broadcast signals to phones on the ground."
+                },{
 					"type": "orbit",
 					"oneof": ["GEO"],
 					"label": "Satellite is continuously above one area of Earth",
@@ -768,11 +768,6 @@
                     "oneof": ["radio-tx"],
                     "label": "You need a way to send signals.",
 					"error": "Your satellite does not have a way to send signals to the ground."
-                },{
-                    "type": "package",
-                    "oneof": ["radio-rx"],
-                    "label": "You need a way to receive signals.",
-					"error": "Your satellite does not have a way to receive signals from the ground."
                 },{
                     "type": "package",
                     "oneof": ["internet-en"],
