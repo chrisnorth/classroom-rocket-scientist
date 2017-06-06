@@ -171,6 +171,8 @@ scenarios.NAV.sat-nav.req.gps-rx.label: 	You need a way to recieve signals from 
 scenarios.NAV.sat-nav.req.gps-rx.error: 	Your satellite does not have any way to recieve signals from other GPS satellites.
 scenarios.NAV.sat-nav.req.orbit.label: 		See the whole planet.
 scenarios.NAV.sat-nav.req.orbit.error: 		The orbit you have chosen does not allow you to see the whole planet.
+scenarios.NAV.sat-nav.launch:				Welcome to the launch of the UK Space Agency's latest navigation satellite that will allow people to accurately determine their position on Earth.
+scenarios.NAV.sat-nav.success: 				Congratulations, your navigation satellite is now sending people accurate information about their position on Earth on behalf of the UK Space Agency.
 scenarios.NAV.map.title: 					Map-making
 scenarios.NAV.map.description: 				Map the surface of the Earth. Your satellite needs to be able to take images of small areas of the Earth's surface and measure the height of the ground in detail.
 scenarios.NAV.map.req.camera-opt.label: 		You need an instrument capable of collecting detailed images.
@@ -181,16 +183,20 @@ scenarios.NAV.map.req.radar-dish.label: The Radar altimeter requires a radar dis
 scenarios.NAV.map.req.radar-dish.error: Your radar altimeter cannot work as you do not have a radar dish.
 scenarios.NAV.map.req.orbit.label: 			See detail of planet surface.
 scenarios.NAV.map.req.orbit.error: 			The orbit you have chosen does not allow your satellite to see the planet surface in enough detail.
+scenarios.NAV.map.launch:				Welcome to the launch of the UK Space Agency's latest navigation satellite that will accurately map the surface of the Earth.
+scenarios.NAV.map.success: 				Congratulations, your navigation satellite is now accurately mapping the surface of the Earth on behalf of the UK Space Agency.
 scenarios.COMMS.title:                      Communication
 scenarios.COMMS.description:                These satellites are used for television, phone or internet broadcasts.
 scenarios.COMMS.phone.title: 				Satellite telephone system
-scenarios.COMMS.phone.description: 			Allows people to talk over the phone, even from remote regions of the world. The satellite receives signals from the ground and transmits them to other areas on Earth.
+scenarios.COMMS.phone.description: 			Allows people to talk over the phone, even from remote regions of the world.
 scenarios.COMMS.phone.req.radio-tx.label: 	You need a way to send signals.
 scenarios.COMMS.phone.req.radio-tx.error: 	Your satellite does not have a way to send signals to the ground.
 scenarios.COMMS.phone.req.phone-en.label: 	You need away to broadcast signals between phones.
 scenarios.COMMS.phone.req.phone-en.error: 	Your satellite does not have a way to broadcast signals to phones on the ground.
 scenarios.COMMS.phone.req.orbit.label: 		Satellite is continuously above one area of Earth
 scenarios.COMMS.phone.req.orbit.error: 		The orbit you have chosen means your satellite is not continuously above one area of Earth.
+scenarios.COMMS.phone.launch:				Welcome to the launch of the UK Space Agency's latest communication satellite that will allow people from regions all over the world to communicate by telephone.
+scenarios.COMMS.phone.success: 				Congratulations, your communication satellite is now receiving signals from the ground and broadcasting them to phones around the Earth on behalf of the UK Space Agency.
 scenarios.COMMS.internet.title: 			Satellite internet
 scenarios.COMMS.internet.description: 		Allows people to connect to the internet, even from remote regions of the world. The satellite receives signals from the ground and transmits them to other areas on Earth.
 scenarios.COMMS.internet.req.radio-tx.label: You need a way to send signals.
@@ -201,6 +207,8 @@ scenarios.COMMS.internet.req.internet-en.label: You need a way to broadcast inte
 scenarios.COMMS.internet.req.internet-en.error: You do not have a way to broadcast internet signals.
 scenarios.COMMS.internet.req.orbit.label: Satellite is continuously above one area of Earth
 scenarios.COMMS.internet.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
+scenarios.COMMS.internet.launch:				Welcome to the launch of the UK Space Agency's latest communication satellite that will help people from all over the world connect to the internet.
+scenarios.COMMS.internet.success: 				Congratulations, your communication satellite is now helping people connect to the internet from regions all over the world on behalf of the UK Space Agency.
 scenarios.COMMS.tv.title: Satellite TV
 scenarios.COMMS.tv.description: Allows people on the ground to enjoy satellite TV. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.
 scenarios.COMMS.tv.req.radio-tx.label: A way to send signals.
@@ -211,6 +219,8 @@ scenarios.COMMS.tv.req.orbit.label: Satellite is continuously above one area of 
 scenarios.COMMS.tv.req.tv-en.label: A way to encode TV signals.
 scenarios.COMMS.tv.req.tv-en.error: You do not have a way to encode TV signals.
 scenarios.COMMS.tv.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
+scenarios.COMMS.tv.launch:				Welcome to the launch of the UK Space Agency's latest communication satellite that will provide satellite TV to people all over the world. 
+scenarios.COMMS.tv.success: 				Congratulations, your communication satellite is now providing satellite TV to people all over the world. 
 scenarios.EO.title: Earth Observation
 scenarios.EO.description: These satellites are used to forecasting the weather, study clouds and assess the damage caused by natural disasters.
 scenarios.EO.weather.title: Weather forecasting
@@ -221,12 +231,16 @@ scenarios.EO.weather.req.camera-opt.label: You need an instrument capable of col
 scenarios.EO.weather.req.camera-opt.error: Your satellite does not allow you to see the clouds or weather systems in enough detail.
 scenarios.EO.weather.req.orbit.label: See detail of Earth's weather systems.
 scenarios.EO.weather.req.orbit.error: The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail.
+scenarios.EO.weather.launch:				Welcome to the launch of the UK Space Agency's latest earth observation satellite that will allow forecasters around the world to predict future weather.
+scenarios.EO.weather.success: 				Congratulations, your earth observation satellite is now helping forecasters around the world to predict future weather.
 scenarios.EO.veg-map.title: Vegetation mapping
 scenarios.EO.veg-map.description: Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmit the images back to the ground.
 scenarios.EO.veg-map.req.radio-tx.label: A way to transmit signals.
 scenarios.EO.veg-map.req.radio-tx.error: You do not have a way to transmit signals to the ground.
 scenarios.EO.veg-map.req.camera.label: To take images of the vegetation on Earth.
 scenarios.EO.veg-map.req.camera.error: You do not have a way to take images of the vegetation on Earth.
+scenarios.EO.veg-map.launch:				Welcome to the launch of the UK Space Agency's latest earth observation satellite that will map the plants over the surface of the Earth using infrared images.
+scenarios.EO.veg-map.success: 				Congratulations, your earth observation satellite is now mapping the plants across the surface of the Earth using infrared images.
 scenarios.EO.disaster.title: Natural disaster monitoring
 scenarios.EO.disaster.description: When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see details of the damage on Earth, so satellites must orbit close to the ground. Infrared cameras can show floods and fires. Radio waves can show regions where the earth has been warped by earthquakes.
 scenarios.EO.disaster.req.camera-opt.label: You need an instrument capable of collecting very detailed images.
@@ -239,6 +253,8 @@ scenarios.EO.disaster.req.radar-dish.label: The Radar altimeter requires a radar
 scenarios.EO.disaster.req.radar-dish.error: Your radar altimeter cannot work as you does not have a radar dish.
 scenarios.EO.disaster.req.camera-fir.label: You need a way to measure heat so you can monitor fires, such as forest fires.
 scenarios.EO.disaster.req.camera-fir.error: You do not have a way to detect fires in disaster regions.
+scenarios.EO.disaster.launch:				Welcome to the launch of the UK Space Agency's latest earth observation satellite that will help to assess the damage caused by natural disasters including forest fires, floods and eathquakes.
+scenarios.EO.disaster.success: 				Congratulations, your earth observation satellite is now helping to assess the damage caused by natural disasters including forest fires, floods and eathquakes.
 scenarios.EO.surface.title: Surface mapping
 scenarios.EO.surface.description: Measure the varying height of land and oceans over the Earth's surface.
 scenarios.EO.surface.req.radar-alt.label: To measure the height of the ground in very high resolution.
@@ -251,8 +267,8 @@ scenarios.EO.surface.req.sat-tracker.label: Enables high level precision of the 
 scenarios.EO.surface.req.sat-tracker.error: You do not have a way to locate the position of the satellite accurately. #If this is staying as a new instrument, need to add as a package option.
 scenarios.EO.surface.req.orbit.label: See detail of planet surface.
 scenarios.EO.surface.req.orbit.error: The orbit you have chosen does not allow you to see the planet surface in enough detail.
-scenarios.EO.surface.launch:  Welcome to the launch of the UK Space Agency's latest earth observation satellite t REPLACE
-scenarios.EO.surface.success: Congratulations, your earth observation satellite is now REPLACE THIS TEXT on behalf of the UK Space Agency
+scenarios.EO.surface.launch:  Welcome to the launch of the UK Space Agency's latest earth observation satellite that will measure the varying height of land and oceans over the Earth's surface.
+scenarios.EO.surface.success: Congratulations, your earth observation satellite is now measuring the varying height of land and oceans over the Earth's surface.
 
 launch.countdown: Count down
 launch.liftoff: Lift off!
