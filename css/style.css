@@ -1665,7 +1665,8 @@ table.data td:last-child {
   display: none; }
 
 .list li.slot-unavailable {
-  position: relative; }
+  position: relative;
+  opacity: 0.3; }
 
 .list li.slot-unavailable .overlay {
   background-color: #efefef;
@@ -2008,18 +2009,18 @@ table.data td:last-child {
 .texture.slot2x4.down .face.left,
 .texture.slot2x4.up .face.right,
 .texture.slot2x4.upwards .face.top {
-  background: url("images/png/foil_4x4.png");
+  background: url("../images/png/foil_4x4.png");
   background-size: 100% 100%; }
 
 .texture.slot2x4.down .face.top,
 .texture.slot2x4.up .face.top,
 .texture.slot2x2 .face.top {
-  background: url("images/png/foil_4x2.png");
+  background: url("../images/png/foil_4x2.png");
   background-size: 100% 100%; }
 
 .texture.slot2x2 .face.right,
 .texture.slot2x2 .face.back {
-  background: url("images/png/foil_2x2.png");
+  background: url("../images/png/foil_2x2.png");
   background-size: 100% 100%; }
 
 .texture.slot2x2 .face.left,
@@ -2030,7 +2031,7 @@ table.data td:last-child {
 .texture.slot2x4.down .face.back,
 .texture.slot2x4.up .face.back,
 .texture.slot2x4 .face.back {
-  background: url("images/png/foil_2x4.png");
+  background: url("../images/png/foil_2x4.png");
   background-size: 100% 100%; }
 
 .threeD .satellite {

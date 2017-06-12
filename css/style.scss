@@ -804,7 +804,7 @@ table.data td:last-child { text-align: left; }
 .list li.selected .list-left, .list li.selected .list-right { background-color: $black-4; color: white; }
 #orbit_list li.selected .list-bar { width: $s*0.25; }
 #orbit_list li.selected .list-bar button.add { display: none; }
-.list li.slot-unavailable { position: relative; }
+.list li.slot-unavailable { position: relative; opacity: 0.3; }
 .list li.slot-unavailable .overlay { background-color: #efefef; opacity: 0.8; width: 100%; height: 100%; position: absolute; left: 0px; top: 0px; z-index: $topz - 2; }
 
 

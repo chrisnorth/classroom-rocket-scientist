@@ -525,7 +525,7 @@ var rs;
 		var li = S('.list li');
 		var s,el;
 		// Re-enable all list items
-		S('.slot-unavailable').removeClass('slot-unavailable').find('.overlay').remove();
+		S('.slot-unavailable').removeClass('slot-unavailable');//.find('.overlay').remove();
 
 
 		if(this.choices && this.choices.bus) S('#rocket .payload-dummy').css({'width':(this.choices.bus.width.value*10*0.8).toFixed(1)+'%'});
@@ -556,7 +556,7 @@ var rs;
 					if(this.data.bus[size].slots[j] > 0 && j==s) available = true;
 				}
 				// Hide list items that have a specified slot size that doesn't fit
-				if(!available) el.addClass('slot-unavailable').append('<div class="overlay"></div>');
+				if(!available) el.addClass('slot-unavailable');//.append('<div class="overlay"></div>');
 
 				// Update values for solar-panel-surface given the surface area
 				if(el.attr('data-package') == "solar-panel-surface"){
