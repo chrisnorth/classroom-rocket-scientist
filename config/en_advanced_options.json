@@ -439,7 +439,7 @@
 			"title": "TV encoder",
 			"description": "",
 			"texture": {
-				"icon": "images/icon-time.png"
+				"icon": "images/png/icon-time.png"
 			},
 			"mass": { "value": 2, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
@@ -845,7 +845,7 @@
 			"title": "Navigation",
 			"description": "The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension=\"length\" data-units=\"km\" data-value=\"20000\" class=\"value convertable\">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.",
 			"image": {
-				"file": "images/icon-nav.png",
+				"file": "images/png/icon-nav.png",
 				"alt": "Navigation",
 				"credit": "parkjisun"
 			},
@@ -854,7 +854,7 @@
 				"description": "Uses signals from four navigation satellites so satnav users can find their location on Earth. Need to be able to see half a hemisphere at a time, measure time accurately and transmit signals of the location.",
 				"success": "",
 				"image": {
-					"file": "images/icon-mapmarker.png",
+					"file": "images/png/icon-mapmarker.png",
 					"alt": "Satellite Navigation System",
 					"credit": "Housin Aziz"
 				},
@@ -889,7 +889,7 @@
 				"title": "Map-making",
 				"description": "Map the surface of the Earth. Need to be able to take images of small areas of the Earth's surface and measure the height of the ground in high detail.",
 				"image": {
-					"file": "images/icon-topography.png",
+					"file": "images/png/icon-topography.png",
 					"alt": "Map-making",
 					"credit": "parkjisun"
 				},
@@ -911,7 +911,7 @@
 			"title": "Communication",
 			"description": "These satellites are used for television, phone or internet transmissions. For example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.",
 			"image": {
-				"file": "images/icon-comms.png",
+				"file": "images/png/icon-comms.png",
 				"alt": "Communication",
 				"credit": "Creative Stall"
 			},
@@ -919,7 +919,7 @@
 				"title": "Satellite telephone system",
 				"description": "Lets people talk over the phone from remote regions of the world using satellites.",
 				"image": {
-					"file": "images/icon-phone.png",
+					"file": "images/png/icon-phone.png",
 					"alt": "Satellite telephone system",
 					"credit": "Plainicon"
 				},
@@ -944,7 +944,7 @@
 				"title": "Satellite TV",
 				"description": "Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.",
 				"image": {
-					"file": "images/icon-tv.png",
+					"file": "images/png/icon-tv.png",
 					"alt": "Satellite TV",
 					"credit": "Hakan Yalcin"
 				},
@@ -974,7 +974,7 @@
 				"title": "Satellite internet",
 				"description": "Connect to the internet from remote regions of the world using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.",
 				"image": {
-					"file": "images/icon-internet.png",
+					"file": "images/png/icon-internet.png",
 					"alt": "Satellite internet",
 					"credit": "parkjisun"
 				},
@@ -1006,7 +1006,7 @@
 			"title": "Earth Observation",
 			"description": "These satellites are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.",
 			"image": {
-				"file": "images/icon-eo.png",
+				"file": "images/png/icon-eo.png",
 				"alt": "Earth Observation",
 				"credit": "Rflor"
 			},
@@ -1014,7 +1014,7 @@
 				"title": "Weather forecasting",
 				"description": "Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean.",
 				"image": {
-					"file": "images/icon-cloud.png",
+					"file": "images/png/icon-cloud.png",
 					"alt": "Weather forecasting",
 					"credit": "Megan Mitchell"
 				},
@@ -1039,7 +1039,7 @@
 				"title": "Vegetation mapping",
 				"description": "Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmit the images back to the ground.",
 				"image": {
-					"file": "images/icon-plant.png",
+					"file": "images/png/icon-plant.png",
 					"alt": "Vegetation mapping",
 					"credit": "Clockwise"
 				},
@@ -1059,7 +1059,7 @@
 				"title": "Natural disaster monitoring",
 				"description": "When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras can show floods and fires. Radio waves can show regions of earth deformation, such as after earthquakes.",
 				"image": {
-					"file": "images/icon-disaster.png",
+					"file": "images/png/icon-disaster.png",
 					"alt": "Natural disaster monitoring",
 					"credit": "Leadway Global LLC"
 				},
@@ -1099,7 +1099,7 @@
 				"title": "Surface mapping",
 				"description": "Measure the varying height of land and oceans over the Earth's surface.",
 				"image": {
-					"file": "images/icon-surface.png",
+					"file": "images/png/icon-surface.png",
 					"alt": "Surface mapping",
 					"credit": "OCHA Visual Information Unit"
 				},

@@ -821,7 +821,7 @@
 			"title": "%scenarios.NAV.title%",
 			"description": "%scenarios.NAV.description%",
 			"image": {
-				"file": "images/icon-nav.png",
+				"file": "images/png/icon-nav.png",
 				"alt": "%scenarios.NAV.title%",
 				"credit": "parkjisun"
 			},
@@ -830,7 +830,7 @@
 				"description": "%scenarios.NAV.sat-nav.description%",
 				"success": "",
 				"image": {
-					"file": "images/icon-mapmarker.png",
+					"file": "images/png/icon-mapmarker.png",
 					"alt": "%scenarios.NAV.sat-nav.title%",
 					"credit": "Housin Aziz"
 				},
@@ -864,7 +864,7 @@
 				"title": "%scenarios.NAV.map.title%",
 				"description": "%scenarios.NAV.map.description%",
 				"image": {
-					"file": "images/icon-topography.png",
+					"file": "images/png/icon-topography.png",
 					"alt": "%scenarios.NAV.map.title%",
 					"credit": "parkjisun"
 				},
@@ -885,7 +885,7 @@
 			"title": "%scenarios.COMMS.title%",
 			"description": "%scenarios.COMMS.description%",
 			"image": {
-				"file": "images/icon-comms.png",
+				"file": "images/png/icon-comms.png",
 				"alt": "%scenarios.COMMS.title%",
 				"credit": "Creative Stall"
 			},
@@ -893,7 +893,7 @@
 				"title": "%scenarios.COMMS.phone.title%",
 				"description": "%scenarios.COMMS.phone.description%",
 				"image": {
-					"file": "images/icon-phone.png",
+					"file": "images/png/icon-phone.png",
 					"alt": "%scenarios.COMMS.phone.title%",
 					"credit": "Plainicon"
 				},
@@ -918,7 +918,7 @@
 				"title": "%scenarios.COMMS.tv.title%",
 				"description": "%scenarios.COMMS.tv.description%",
 				"image": {
-					"file": "images/icon-tv.png",
+					"file": "images/png/icon-tv.png",
 					"alt": "%scenarios.COMMS.tv.title%",
 					"credit": "Hakan Yalcin"
 				},
@@ -948,7 +948,7 @@
 				"title": "%scenarios.COMMS.internet.title%",
 				"description": "%scenarios.COMMS.internet.description%",
 				"image": {
-					"file": "images/icon-internet.png",
+					"file": "images/png/icon-internet.png",
 					"alt": "%scenarios.COMMS.internet.title%",
 					"credit": "parkjisun"
 				},
@@ -980,7 +980,7 @@
 			"title": "%scenarios.EO.title%",
 			"description": "%scenarios.EO.description%",
 			"image": {
-				"file": "images/icon-eo.png",
+				"file": "images/png/icon-eo.png",
 				"alt": "%scenarios.EO.title%",
 				"credit": "Rflor"
 			},
@@ -988,7 +988,7 @@
 				"title": "%scenarios.EO.weather.title%",
 				"description": "%scenarios.EO.weather.description%",
 				"image": {
-					"file": "images/icon-cloud.png",
+					"file": "images/png/icon-cloud.png",
 					"alt": "%scenarios.EO.weather.title%",
 					"credit": "Megan Mitchell"
 				},
@@ -1013,7 +1013,7 @@
 				"title": "%scenarios.EO.veg-map.title%",
 				"description": "%scenarios.EO.veg-map.description%",
 				"image": {
-					"file": "images/icon-plant.png",
+					"file": "images/png/icon-plant.png",
 					"alt": "%scenarios.EO.veg-map.title%",
 					"credit": "Clockwise"
 				},
@@ -1033,7 +1033,7 @@
 				"title": "%scenarios.EO.disaster.title%",
 				"description": "%scenarios.EO.disaster.description%",
 				"image": {
-					"file": "images/icon-disaster.png",
+					"file": "images/png/icon-disaster.png",
 					"alt": "%scenarios.EO.disaster.title%",
 					"credit": "Leadway Global LLC"
 				},
@@ -1073,7 +1073,7 @@
 				"title": "%scenarios.EO.surface.title%",
 				"description": "%scenarios.EO.surface.description%",
 				"image": {
-					"file": "images/icon-surface.png",
+					"file": "images/png/icon-surface.png",
 					"alt": "%scenarios.EO.surface.title%",
 					"credit": "OCHA Visual Information Unit"
 				},

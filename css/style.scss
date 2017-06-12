@@ -225,15 +225,15 @@ li select, li input, li .toggleinput { float: right; font-size: 1em; font-family
 
 /* Sprites */
 .coin-icon {
-	background: url("../images/coin.png");
+	background: url("../images/png/coin.png");
 	background-size: 100% 100%;
 }
 .weight-icon {
-	background: url("../images/mass.png");
+	background: url("../images/png/mass.png");
 	background-size: 100% 100%;
 }
 .power-icon {
-	background: url("../images/power.png");
+	background: url("../images/png/power.png");
 	background-size: 100% 100%;
 }
 .coin-icon, .weight-icon, .power-icon {
@@ -555,7 +555,7 @@ $nozzle: $s*0.25;
 .rocket .part, .rocket .payloadbay .part:before {
 	@include cylinder($grey-4,1,$grey-5,1,$grey-3,1,25%);
 }
-.rocket-holder .holder { vertical-align: bottom; padding: $s*0.5 0; background-image: url('../images/silhouette.png'); background-position: 5% bottom; background-repeat: no-repeat; background-size: auto 10em; }
+.rocket-holder .holder { vertical-align: bottom; padding: $s*0.5 0; background-image: url('../images/png/silhouette.png'); background-position: 5% bottom; background-repeat: no-repeat; background-size: auto 10em; }
 .rocket-holder .stage { margin: auto; width: 0px; position: relative; border-bottom: 1px solid $grey-2; opacity:0.5; }
 .rocket-holder .part { height: 100%; }
 .rocket-holder .payloadbay .part { width: 100%; }
@@ -805,7 +805,7 @@ table.data td:last-child { text-align: left; }
 #orbit_list li.selected .list-bar { width: $s*0.25; }
 #orbit_list li.selected .list-bar button.add { display: none; }
 .list li.slot-unavailable { position: relative; }
-.list li.slot-unavailable .overlay { background-color: #efefef; opacity: 0.8; width: 100%; height: 100%; position: absolute; left: 0px; top: 0px; z-index: 1000; }
+.list li.slot-unavailable .overlay { background-color: #efefef; opacity: 0.8; width: 100%; height: 100%; position: absolute; left: 0px; top: 0px; z-index: $topz - 2; }
 
 
 .holder {
@@ -826,14 +826,14 @@ table.data td:last-child { text-align: left; }
 
 .slot2x4.texture.down .face.left,
 .slot2x4.texture.up .face.right,
-.slot2x4.texture.upwards .face.top { background: url('../images/foil_4x4.png'); background-size: 100% 100%; }
+.slot2x4.texture.upwards .face.top { background: url('../images/png/foil_4x4.png'); background-size: 100% 100%; }
 
 .slot2x4.texture.down .face.top,
 .slot2x4.texture.up .face.top,
-.slot2x2.texture .face.top { background: url('../images/foil_4x2.png'); background-size: 100% 100%; }
+.slot2x2.texture .face.top { background: url('../images/png/foil_4x2.png'); background-size: 100% 100%; }
 
 .slot2x2.texture .face.right,
-.slot2x2.texture .face.back { background: url('../images/foil_2x2.png'); background-size: 100% 100%; }
+.slot2x2.texture .face.back { background: url('../images/png/foil_2x2.png'); background-size: 100% 100%; }
 
 .slot2x2.texture .face.left,
 .slot2x4.texture.upwards .face.left,
@@ -846,11 +846,11 @@ table.data td:last-child { text-align: left; }
 
 .texture .face.front { background: url('../images/foil_2x2.png'); }
 
-.texture.atomic-clock .face.front { background: url('../images/icon-time.png'); background-size:100% 100%; }
+.texture.atomic-clock .face.front { background: url('../images/png/icon-time.png'); background-size:100% 100%; }
 
-.texture.camera-fir .face.front, .texture.camera-fir .face.front:before { background: url('../images/icon-camera-red-wide.png'); background-size:100% 100%; }
-.texture.camera-nir .face.front, .texture.camera-nir .face.front:before { background: url('../images/icon-camera-green.png'); background-size:100% 100%; }
-.texture.camera-opt .face.front, .texture.camera-opt .face.front:before { background: url('../images/icon-camera-blue.png'); background-size:100% 100%; }
+.texture.camera-fir .face.front, .texture.camera-fir .face.front:before { background: url('../images/png/icon-camera-red-wide.png'); background-size:100% 100%; }
+.texture.camera-nir .face.front, .texture.camera-nir .face.front:before { background: url('../images/png/icon-camera-green.png'); background-size:100% 100%; }
+.texture.camera-opt .face.front, .texture.camera-opt .face.front:before { background: url('../images/png/icon-camera-blue.png'); background-size:100% 100%; }
 
 .texture.gps-rx .face.front, .texture.gps-rx .face.front:before { background: url('../images/png/icon-gps.png'); background-size:100% 100%; }
 .texture.radio-rx .face.front, .texture.radio-rx .face.front:before { background: url('../images/png/icon-radio-rx.png'); background-size:100% 100%; }
