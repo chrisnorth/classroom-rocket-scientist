@@ -871,7 +871,7 @@
 					"error": "You are not able to measure the time accurately enough."
 				},{
 					"type": "package",
-					"oneof": ["radio_tx"],
+					"oneof": ["radio-tx"],
 					"label": "A way to send signals.",
 					"error": "Your satellite does not have any way to transmit timing signals to people on the ground."
 				},{

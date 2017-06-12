@@ -871,7 +871,7 @@
 					"error": "%scenarios.NAV.sat-nav.req.atomic.error%"
 				},{
 					"type": "package",
-					"oneof": ["radio_tx"],
+					"oneof": ["radio-tx"],
 					"label": "%scenarios.NAV.sat-nav.req.radio-tx.label%",
 					"error": "%scenarios.NAV.sat-nav.req.radio-tx.error%"
 				},{

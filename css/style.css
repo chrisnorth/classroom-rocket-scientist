@@ -2005,6 +2005,34 @@ table.data td:last-child {
   -o-transform: rotate(-90deg);
   transform: rotate(-90deg); }
 
+.texture.slot2x4.down .face.left,
+.texture.slot2x4.up .face.right,
+.texture.slot2x4.upwards .face.top {
+  background: url("images/png/foil_4x4.png");
+  background-size: 100% 100%; }
+
+.texture.slot2x4.down .face.top,
+.texture.slot2x4.up .face.top,
+.texture.slot2x2 .face.top {
+  background: url("images/png/foil_4x2.png");
+  background-size: 100% 100%; }
+
+.texture.slot2x2 .face.right,
+.texture.slot2x2 .face.back {
+  background: url("images/png/foil_2x2.png");
+  background-size: 100% 100%; }
+
+.texture.slot2x2 .face.left,
+.texture.slot2x4.upwards .face.left,
+.texture.slot2x4.upwards .face.right,
+.texture.slot2x4.downwards .face.left,
+.texture.slot2x4.downwards .face.right,
+.texture.slot2x4.down .face.back,
+.texture.slot2x4.up .face.back,
+.texture.slot2x4 .face.back {
+  background: url("images/png/foil_2x4.png");
+  background-size: 100% 100%; }
+
 .threeD .satellite {
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
@@ -2548,6 +2576,9 @@ table.data td:last-child {
 .slot1x2 .hemisphere .inner, .slot1x2 .hemisphere .dome {
   font-size: 3em; }
 
+.slot0x2 .hemisphere .inner, .slot0x2 .hemisphere .dome {
+  font-size: 1.5em; }
+
 .hemisphere {
   width: 100%;
   height: 200%;
@@ -2566,7 +2597,7 @@ table.data td:last-child {
 .hemisphere.east, .hemisphere.west {
   height: 100%; }
 
-.slot4x8 .hemisphere {
+.slot4x8 .hemisphere, .slot1x2 .hemisphere {
   top: 0%; }
 
 .hemisphere, .dome, .inner {
@@ -2756,6 +2787,13 @@ table.data td:last-child {
   -moz-box-shadow: inset 0.25em 0.2em 0.2em -0.05em rgba(0, 0, 0, 0.2);
   box-shadow: inset 0.25em 0.2em 0.2em -0.05em rgba(0, 0, 0, 0.2); }
 
+.threeD .slot1x2 .hemisphere.north, .threeD .slot1x2 .hemisphere.south {
+  -webkit-transform: translateZ(-0.75em) rotateY(-45deg) rotateX(35.264deg);
+  -moz-transform: translateZ(-0.75em) rotateY(-45deg) rotateX(35.264deg);
+  -ms-transform: translateZ(-0.75em) rotateY(-45deg) rotateX(35.264deg);
+  -o-transform: translateZ(-0.75em) rotateY(-45deg) rotateX(35.264deg);
+  transform: translateZ(-0.75em) rotateY(-45deg) rotateX(35.264deg); }
+
 .threeD .slot2x4 .hemisphere.north, .threeD .slot2x4 .hemisphere.south {
   -webkit-transform: translateZ(-1.5em) rotateY(-45deg) rotateX(35.264deg);
   -moz-transform: translateZ(-1.5em) rotateY(-45deg) rotateX(35.264deg);
@@ -2840,6 +2878,13 @@ table.data td:last-child {
   -o-transform: translateX(0.75em) translateY(-0.75em);
   transform: translateX(0.75em) translateY(-0.75em); }
 
+.threeD .satellite.spin .slot1x2 .hemisphere.north, .threeD .satellite.spin .slot1x2 .hemisphere.south {
+  -webkit-animation-name: antispin;
+  -moz-animation-name: antispin;
+  animation-name: antispin;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d; }
+
 .threeD .satellite.spin .slot2x4 .hemisphere.north, .threeD .satellite.spin .slot2x4 .hemisphere.south {
   -webkit-animation-name: antispin;
   -moz-animation-name: antispin;
@@ -2873,73 +2918,6 @@ table.data td:last-child {
   100% {
     transform: translateZ(-3em) rotateY(-405deg) rotateX(35.264deg); } }
 /* End of Hemisphere CSS */
-.slot2x4.texture.down .face.left,
-.slot2x4.texture.up .face.right,
-.slot2x4.texture.upwards .face.top {
-  background: url("../images/png/foil_4x4.png");
-  background-size: 100% 100%; }
-
-.slot2x4.texture.down .face.top,
-.slot2x4.texture.up .face.top,
-.slot2x2.texture .face.top {
-  background: url("../images/png/foil_4x2.png");
-  background-size: 100% 100%; }
-
-.slot2x2.texture .face.right,
-.slot2x2.texture .face.back {
-  background: url("../images/png/foil_2x2.png");
-  background-size: 100% 100%; }
-
-.slot2x2.texture .face.left,
-.slot2x4.texture.upwards .face.left,
-.slot2x4.texture.upwards .face.right,
-.slot2x4.texture.downwards .face.left,
-.slot2x4.texture.downwards .face.right,
-.slot2x4.texture.down .face.back,
-.slot2x4.texture.up .face.back,
-.slot2x4.texture .face.back {
-  background: url("../images/png/foil_2x4.png");
-  background-size: 100% 100%; }
-
-.texture .face.front {
-  background: url("../images/png/foil_2x2.png"); }
-
-.texture.atomic-clock .face.front {
-  background: url("../images/png/icon-time.png");
-  background-size: 100% 100%; }
-
-.texture.camera-fir .face.front, .texture.camera-fir .face.front:before {
-  background: url("../images/png/icon-camera-red-wide.png");
-  background-size: 100% 100%; }
-
-.texture.camera-nir .face.front, .texture.camera-nir .face.front:before {
-  background: url("../images/png/icon-camera-green.png");
-  background-size: 100% 100%; }
-
-.texture.camera-opt .face.front, .texture.camera-opt .face.front:before {
-  background: url("../images/png/icon-camera-blue.png");
-  background-size: 100% 100%; }
-
-.texture.gps-rx .face.front, .texture.gps-rx .face.front:before {
-  background: url("../images/png/icon-gps.png");
-  background-size: 100% 100%; }
-
-.texture.radio-rx .face.front, .texture.radio-rx .face.front:before {
-  background: url("../images/png/icon-radio-rx.png");
-  background-size: 100% 100%; }
-
-.texture.radio-tx .face.front, .texture.radio-tx .face.front:before {
-  background: url("../images/png/icon-radio-tx.png");
-  background-size: 100% 100%; }
-
-.texture.phone-en .face.front, .texture.phone-en .face.front:before {
-  background: url("../images/png/icon-phone.png");
-  background-size: 100% 100%; }
-
-.texture.phone-en-mini .face.front, .texture.phone-en-mini .face.front:before {
-  background: url("../images/png/icon-phone.png");
-  background-size: 100% 100%; }
-
 .satellite.solar-fixed .row:first-child .solar-right .face.top {
   border-right: 4px solid #00a2d3; }
 
@@ -3331,6 +3309,46 @@ ul.orrery li.GEO {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$ie-hex-str1, endColorstr=$ie-hex-str2,GradientType=1 );
   /* IE6-9 */
   right: 0px; }
+
+/* Define textures */
+.texture .face.front {
+  background: url("../images/png/foil_2x2.png"); }
+
+.texture.atomic-clock .face.front {
+  background: url("../images/png/icon-time.png");
+  background-size: 100% 100%; }
+
+.texture.camera-fir .face.front, .texture.camera-fir .face.front:before {
+  background: url("../images/png/icon-camera-red-wide.png");
+  background-size: 100% 100%; }
+
+.texture.camera-nir .face.front, .texture.camera-nir .face.front:before {
+  background: url("../images/png/icon-camera-green.png");
+  background-size: 100% 100%; }
+
+.texture.camera-opt .face.front, .texture.camera-opt .face.front:before {
+  background: url("../images/png/icon-camera-blue.png");
+  background-size: 100% 100%; }
+
+.texture.gps-rx .face.front, .texture.gps-rx .face.front:before {
+  background: url("../images/png/icon-gps.png");
+  background-size: 100% 100%; }
+
+.texture.radio-rx .face.front, .texture.radio-rx .face.front:before {
+  background: url("../images/png/icon-radio-rx.png");
+  background-size: 100% 100%; }
+
+.texture.radio-tx .face.front, .texture.radio-tx .face.front:before {
+  background: url("../images/png/icon-radio-tx.png");
+  background-size: 100% 100%; }
+
+.texture.phone-en .face.front, .texture.phone-en .face.front:before {
+  background: url("../images/png/icon-phone.png");
+  background-size: 100% 100%; }
+
+.texture.phone-en-mini .face.front, .texture.phone-en-mini .face.front:before {
+  background: url("../images/png/icon-phone.png");
+  background-size: 100% 100%; }
 
 body.launch .rocket-holder .stage {
   opacity: 1; }

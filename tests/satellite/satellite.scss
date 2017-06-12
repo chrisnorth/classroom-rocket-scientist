@@ -133,6 +133,7 @@
 .photo .face.front, .photo .face.top, .photo .face.left, .photo .face.right, .photo .face.back { background-image: url('images/foil.jpg'); background-size: 100% 100%; background-repeat: none; border: 0px; }
 .video .face.front, .video .face.top, .video .face.left, .video .face.right, .video .face.back { background-image: url('images/foil.jpg'); background-size: 100% 100%; background-repeat: none; border: 0px; }
 
+
 .texture.slot2x4.down .face.front {
 	background: white;
 	overflow: hidden;
@@ -156,6 +157,25 @@
 	transform: rotate(-90deg);
 }
 
+.texture.slot2x4.down .face.left,
+.texture.slot2x4.up .face.right,
+.texture.slot2x4.upwards .face.top { background: url('images/png/foil_4x4.png'); background-size: 100% 100%; }
+
+.texture.slot2x4.down .face.top,
+.texture.slot2x4.up .face.top,
+.texture.slot2x2 .face.top { background: url('images/png/foil_4x2.png'); background-size: 100% 100%; }
+
+.texture.slot2x2 .face.right,
+.texture.slot2x2 .face.back { background: url('images/png/foil_2x2.png'); background-size: 100% 100%; }
+
+.texture.slot2x2 .face.left,
+.texture.slot2x4.upwards .face.left,
+.texture.slot2x4.upwards .face.right,
+.texture.slot2x4.downwards .face.left,
+.texture.slot2x4.downwards .face.right,
+.texture.slot2x4.down .face.back,
+.texture.slot2x4.up .face.back,
+.texture.slot2x4 .face.back { background: url('images/png/foil_2x4.png'); background-size: 100% 100%; }
 
 .threeD .satellite {
 	@include transform-style( preserve-3d );
@@ -345,6 +365,7 @@
 .slot4x8 .hemisphere .inner,.slot4x8 .hemisphere .dome { font-size: $s * 4; }
 .slot2x4 .hemisphere .inner,.slot2x4 .hemisphere .dome { font-size: $s * 2; }
 .slot1x2 .hemisphere .inner,.slot1x2 .hemisphere .dome { font-size: $s * 2; }
+.slot0x2 .hemisphere .inner,.slot0x2 .hemisphere .dome { font-size: $s * 1; }
 .hemisphere {
 	width: 100%;
 	height: 200%;
@@ -359,7 +380,7 @@
 .hemisphere.east, .hemisphere.west {
 	height: 100%;
 }
-.slot4x8 .hemisphere { top: 0%; }
+.slot4x8 .hemisphere,.slot1x2 .hemisphere { top: 0%; }
 .hemisphere, .dome, .inner { display: inline-block; }
 .dome, .inner { width: 100%; }
 .dome, .inner { background-color: #ffffff; }
@@ -448,6 +469,9 @@ $dometrans: height $trans ease, width $trans ease, border-radius $trans ease;
 .north .inner { @include box-shadow( inset 0.3em 0.1em 0.2em -0.05em rgba(0,0,0,0.2) ); }
 .east .inner { @include box-shadow( inset 0.15em 0.1em 0.2em -0.1em rgba(0,0,0,0.2) ); }
 .west .inner { @include box-shadow( inset 0.25em 0.2em 0.2em -0.05em rgba(0,0,0,0.2) ); }
+.threeD .slot1x2 .hemisphere.north, .threeD .slot1x2 .hemisphere.south {
+	@include transform( $transform_z_neg_m $transform_rot_y_neg_45 $transform_rot_x_pos_iso );
+}
 .threeD .slot2x4 .hemisphere.north, .threeD .slot2x4 .hemisphere.south {
 	@include transform( $transform_z_neg_l $transform_rot_y_neg_45 $transform_rot_x_pos_iso );
 }
@@ -480,6 +504,10 @@ $aerial2: translateX($s*0.5) translateY(-$s * 0.5);
 }
 .threeD .aerial2 {
 	@include transform( $aerial2 );
+}
+.threeD .satellite.spin .slot1x2 .hemisphere.north, .threeD .satellite.spin .slot1x2 .hemisphere.south {
+	@include animation-name( antispin );
+	@include transform-style( preserve-3d );
 }
 .threeD .satellite.spin .slot2x4 .hemisphere.north, .threeD .satellite.spin .slot2x4 .hemisphere.south {
 	@include animation-name( antispin );

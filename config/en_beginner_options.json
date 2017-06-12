@@ -148,7 +148,7 @@
 		"phone-en": {
 			"slot":	"2x2",
 			"title": "Phone encoder",
-			"description": "Broadcasts signals between telephones across the world.",
+			"description": "Broadcasts signals to telephones across the world.",
 			"texture": {
 				"icon": "texture phone-en"
 			},
@@ -626,7 +626,7 @@
 			"title": "Navigation",
 			"description": "These satellites are used to help people find their whereabouts on the Earth.",
 			"image": {
-				"file": "images/icon-nav.png",
+				"file": "images/png/icon-nav.png",
 				"alt": "Navigation",
 				"credit": "parkjisun"
 			},
@@ -635,7 +635,7 @@
 				"description": "Uses signals from four separate satellites so sat nav users can find their location on Earth. These satellites need to be able to see huge area of Earth at a time, measure time accurately and send information about their location.",
 				"success": "",
 				"image": {
-					"file": "images/icon-mapmarker.png",
+					"file": "images/png/icon-mapmarker.png",
 					"alt": "Satellite navigation system",
 					"credit": "Housin Aziz"
 				},
@@ -678,7 +678,7 @@
 				"title": "Map-making",
 				"description": "Map the surface of the Earth. Your satellite needs to be able to take images of small areas of the Earth's surface and measure the height of the ground in detail.",
 				"image": {
-					"file": "images/icon-topography.png",
+					"file": "images/png/icon-topography.png",
 					"alt": "Map-making",
 					"credit": "parkjisun"
 				},
@@ -690,7 +690,7 @@
 				"requires": [{
 					"type": "package",
                     			"oneof": ["camera-opt"],
-                    			"label": "You need an instrument capable of collecting very detailed images.",
+                    			"label": "You need an instrument capable of collecting detailed images.",
 					"error": "Your satellite does not allow you to see the planet's surface in enough detail."
                 		},{
                			    	 "type": "package",
@@ -717,7 +717,7 @@
 			"title": "Communication",
 			"description": "These satellites are used for television, phone or internet broadcasts.",
 			"image": {
-				"file": "images/icon-comms.png",
+				"file": "images/png/icon-comms.png",
 				"alt": "Communication",
 				"credit": "Creative Stall"
 			},
@@ -725,7 +725,7 @@
 				"title": "Satellite telephone system",
 				"description": "Allows people to talk over the phone, even from remote regions of the world. The satellite receives signals from the ground and transmits them to other areas on Earth.",
 				"image": {
-					"file": "images/icon-phone.png",
+					"file": "images/png/icon-phone.png",
 					"alt": "Satellite telephone system",
 					"credit": "Plainicon"
 				},
@@ -742,7 +742,7 @@
                 },{
                     "type": "package",
                     "oneof": ["phone-en"],
-                    "label": "You need away to broadcast phone signals.",
+                    "label": "You need away to broadcast signals between phones.",
 					"error": "Your satellite does not have a way to broadcast signals to phones on the ground."
                 },{
 					"type": "orbit",
@@ -754,7 +754,7 @@
 				"title": "Satellite internet",
 				"description": "Allows people to connect to the internet, even from remote regions of the world. The satellite receives signals from the ground and transmits them to other areas on Earth.",
 				"image": {
-					"file": "images/icon-internet.png",
+					"file": "images/png/icon-internet.png",
 					"alt": "Satellite internet",
 					"credit": "parkjisun"
 				},
@@ -785,7 +785,7 @@
 			"title": "Earth Observation",
 			"description": "These satellites are used to forecasting the weather, study clouds and assess the damage caused by natural disasters.",
 			"image": {
-				"file": "images/icon-eo.png",
+				"file": "images/png/icon-eo.png",
 				"alt": "Earth Observation",
 				"credit": "Rflor"
 			},
@@ -793,7 +793,7 @@
 				"title": "Weather forecasting",
 				"description": "Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use thermal cameras to measure the temperature of the ground and oceans.",
 				"image": {
-					"file": "images/icon-cloud.png",
+					"file": "images/png/icon-cloud.png",
 					"alt": "Weather forecasting",
 					"credit": "Megan Mitchell"
 				},
@@ -822,7 +822,7 @@
 				"title": "Natural disaster monitoring",
 				"description": "When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see details of the damage on Earth, so satellites must orbit close to the ground. Infrared cameras can show floods and fires. Radio waves can show regions where the earth has been warped by earthquakes.",
 				"image": {
-					"file": "images/icon-disaster.png",
+					"file": "images/png/icon-disaster.png",
 					"alt": "Natural disaster monitoring",
 					"credit": "Leadway Global LLC"
 				},

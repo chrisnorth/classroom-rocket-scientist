@@ -65,7 +65,7 @@ ui.sections.rocket.fuel:                    Fuel:
 ui.sections.rocket.cost:                    Cost:
 ui.sections.rocket.payload:                 Your payload
 ui.sections.rocket.emptystage:              None
-ui.sections..short:                   Launch
+ui.sections.launch.short:                   Launch
 ui.sections.launch.title:                   Ready to launch?
 ui.sections.launch.checklist:               We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail.
 ui.sections.launch.goforlaunch:             Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.
@@ -188,7 +188,7 @@ scenarios.NAV.map.success: 				Congratulations, your navigation satellite is now
 scenarios.COMMS.title:                      Communication
 scenarios.COMMS.description:                These satellites are used for television, phone or internet broadcasts.
 scenarios.COMMS.phone.title: 				Satellite telephone system
-scenarios.COMMS.phone.description: 			Allows people to talk over the phone, even from remote regions of the world.
+scenarios.COMMS.phone.description: 			Allows people to talk over the phone, even from remote regions of the world. The satellite receives signals from the ground and transmits them to other areas on Earth.
 scenarios.COMMS.phone.req.radio-tx.label: 	You need a way to send signals.
 scenarios.COMMS.phone.req.radio-tx.error: 	Your satellite does not have a way to send signals to the ground.
 scenarios.COMMS.phone.req.phone-en.label: 	You need away to broadcast signals between phones.
