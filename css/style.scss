@@ -523,7 +523,7 @@ $nozzle: $s*0.25;
 	top: 60%;
 	border: 2px dashed $black-1;
 	border-bottom: 0px;
-	background: url('../images/foil_4x4.png'); background-size: cover;
+	background: url('../images/png/foil_4x4.png'); background-size: cover;
 	margin: auto;
 	opacity: 0.6;
 	position: relative;
@@ -842,9 +842,9 @@ table.data td:last-child { text-align: left; }
 .slot2x4.texture.downwards .face.right,
 .slot2x4.texture.down .face.back,
 .slot2x4.texture.up .face.back,
-.slot2x4.texture .face.back { background: url('../images/foil_2x4.png'); background-size: 100% 100%; }
+.slot2x4.texture .face.back { background: url('../images/png/foil_2x4.png'); background-size: 100% 100%; }
 
-.texture .face.front { background: url('../images/foil_2x2.png'); }
+.texture .face.front { background: url('../images/png/foil_2x2.png'); }
 
 .texture.atomic-clock .face.front { background: url('../images/png/icon-time.png'); background-size:100% 100%; }
 

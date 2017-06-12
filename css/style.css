@@ -1124,7 +1124,7 @@ section.fullpage .container {
   top: 60%;
   border: 2px dashed #000000;
   border-bottom: 0px;
-  background: url("../images/foil_4x4.png");
+  background: url("../images/png/foil_4x4.png");
   background-size: cover;
   margin: auto;
   opacity: 0.6;
@@ -1972,13 +1972,13 @@ table.data td:last-child {
   height: 100%; }
 
 .photo .face.front, .photo .face.top, .photo .face.left, .photo .face.right, .photo .face.back {
-  background-image: url("foil.jpg");
+  background-image: url("images/foil.jpg");
   background-size: 100% 100%;
   background-repeat: none;
   border: 0px; }
 
 .video .face.front, .video .face.top, .video .face.left, .video .face.right, .video .face.back {
-  background-image: url("foil.jpg");
+  background-image: url("images/foil.jpg");
   background-size: 100% 100%;
   background-repeat: none;
   border: 0px; }
@@ -2898,11 +2898,11 @@ table.data td:last-child {
 .slot2x4.texture.down .face.back,
 .slot2x4.texture.up .face.back,
 .slot2x4.texture .face.back {
-  background: url("../images/foil_2x4.png");
+  background: url("../images/png/foil_2x4.png");
   background-size: 100% 100%; }
 
 .texture .face.front {
-  background: url("../images/foil_2x2.png"); }
+  background: url("../images/png/foil_2x2.png"); }
 
 .texture.atomic-clock .face.front {
   background: url("../images/png/icon-time.png");
@@ -3073,7 +3073,8 @@ ul.orrery li.body {
   background: #02a24b;
   background-image: url("../images/png/earth-northern.png");
   background-size: 100% 100%;
-  z-index: 100; }
+  z-index: 100;
+  border: 2px solid white; }
 
 ul.orrery li.LEO {
   width: 3em;

@@ -21,3 +21,7 @@ perl config/template.pl --overwrite --mode advanced templates/launch.html launch
 # Create the CSS
 echo "Creating CSS"
 sass css/style.scss css/style.css
+
+# Create the images
+echo "Updating images"
+perl config/textures.pl

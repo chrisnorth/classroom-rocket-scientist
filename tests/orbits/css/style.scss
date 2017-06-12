@@ -79,6 +79,7 @@ ul.orrery li.body {
 	background-image: url('../images/png/earth-northern.png');
 	background-size: 100% 100%;
 	z-index: 100;
+	border: 2px solid white;
 }
 ul.orrery li.LEO {
 	width: $leo;

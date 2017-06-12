@@ -5,11 +5,11 @@
       <cc:Work rdf:about="">
         <dc:format>image/svg+xml</dc:format>
         <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
-  <sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1201" inkscape:window-height="745" id="namedview5661" showgrid="false" inkscape:zoom="4.8283" inkscape:cx="27.709" inkscape:cy="22.756" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="0" inkscape:current-layer="svg4196" />
+  <sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1201" inkscape:window-height="745" id="namedview5661" showgrid="false" inkscape:zoom="4.8283" inkscape:cx="-6.0268" inkscape:cy="22.756" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="0" inkscape:current-layer="svg4196" />
   <!-- Created using David Eccles' (gringer) perlshaper.pl script, version 1.77, http://en.wikipedia.org/wiki/User:Gringer/perlshaper -->
   <!-- Command line: -v ned/ne_50m_admin_0_countries.shp ned/ne_50m_admin_0_tiny_countries.shp -type orthographic -res 0.125 -psize 0.25 -colour location -round 4 -centre 0,90 -->
   <style id="mapStyle" type="text/css"><![CDATA[
