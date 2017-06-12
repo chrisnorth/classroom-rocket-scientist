@@ -130,12 +130,11 @@
 }
 
 .face img { width: 100%; height: 100%; }
-.photo .face.front, .photo .face.top, .photo .face.left, .photo .face.right, .photo .face.back { background-image: url('images/foil.jpg'); background-size: 100% 100%; background-repeat: none; border: 0px; }
-.video .face.front, .video .face.top, .video .face.left, .video .face.right, .video .face.back { background-image: url('images/foil.jpg'); background-size: 100% 100%; background-repeat: none; border: 0px; }
+.photo .face.front, .photo .face.top, .photo .face.left, .photo .face.right, .photo .face.back { background-image: url('../images/foil.jpg'); background-size: 100% 100%; background-repeat: none; border: 0px; }
+.video .face.front, .video .face.top, .video .face.left, .video .face.right, .video .face.back { background-image: url('../images/foil.jpg'); background-size: 100% 100%; background-repeat: none; border: 0px; }
 
 
 .texture.slot2x4.down .face.front {
-	background: white;
 	overflow: hidden;
 }
 .texture.slot2x4.down .face.front:before, .texture.slot2x4.up .face.front:before {
