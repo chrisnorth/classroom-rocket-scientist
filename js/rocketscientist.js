@@ -142,7 +142,15 @@ var rs;
 		if(S('body').hasClass('front')){
 			if(location.protocol==="file:"){
 				var el = S('#start a');
-				for(var i = 0; i < el.length; i++) el[i].href = el[i].href+".html";
+				for(var i = 0; i < el.length; i++){
+					el[i].href = el[i].href+".html";
+				}
+			}else{
+				var el = S('#start a');
+				for(var i = 0; i < el.length; i++){
+					if (el[i].href.substring(el[i].href.length-4)==="html"){el[i].href=el[i].href;}
+					else{el[i].href = el[i].href+".html";}
+				}
 			}
 			return this;
 		}
@@ -172,7 +180,7 @@ var rs;
 
 		// Update all the convertable values
 		this.updateConvertables();
-	
+
 		var _obj = this;
 
 		// We'll need to change the sizes when the window changes size
@@ -183,7 +191,7 @@ var rs;
 		S('#overlay').remove();
 
 		if(typeof this.init_after === "function") this.init_after();
-		
+
 		return this;
 	}
 	RocketScientist.prototype.updateConvertables = function(){

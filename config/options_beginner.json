@@ -741,9 +741,9 @@
 					"error": "%scenarios.COMMS.phone.req.radio-tx.error%"
                 },{
                     "type": "package",
-                    "oneof": ["radio-rx"],
-                    "label": "%scenarios.COMMS.phone.req.radio-rx.label%",
-					"error": "%scenarios.COMMS.phone.req.radio-rx.error%"
+                    "oneof": ["phone-en"],
+                    "label": "%scenarios.COMMS.phone.req.phone-en.label%",
+					"error": "%scenarios.COMMS.phone.req.phone-en.error%"
                 },{
 					"type": "orbit",
 					"oneof": ["GEO"],
@@ -768,11 +768,6 @@
                     "oneof": ["radio-tx"],
                     "label": "%scenarios.COMMS.internet.req.radio-tx.label%",
 					"error": "%scenarios.COMMS.internet.req.radio-tx.error%"
-                },{
-                    "type": "package",
-                    "oneof": ["radio-rx"],
-                    "label": "%scenarios.COMMS.internet.req.radio-rx.label%",
-					"error": "%scenarios.COMMS.internet.req.radio-rx.error%"
                 },{
                     "type": "package",
                     "oneof": ["internet-en"],
