@@ -1,5 +1,5 @@
 /*!
- * stuQuery v1.0.3
+ * stuQuery v1.0.10
  */
 // I don't like to pollute the global namespace 
 // but I can't get this to work any other way.
@@ -60,9 +60,8 @@ function S(e){
 		}
 		return false;
 	}
-
-	// Make our own fake, tiny, version of jQuery simulating the parts we need
 	function stuQuery(els){
+		// Make our own fake, tiny, version of jQuery simulating the parts we need
 		var elements;
 		if(typeof els==="string") this.e = querySelector(document,els);
 		else if(typeof els==="object") this.e = (typeof els.length=="number") ? els : [els];
@@ -71,8 +70,8 @@ function S(e){
 		return this;
 	}
 	stuQuery.prototype.ready = function(f){ /in/.test(document.readyState)?setTimeout('S(document).ready('+f+')',9):f() }
-	// Return HTML or set the HTML
 	stuQuery.prototype.html = function(html){
+		// Return HTML or set the HTML
 		if(typeof html==="number") html = ''+html;
 		if(typeof html!=="string" && this.length == 1) return this[0].innerHTML;
 		if(typeof html==="string") for(var i = 0; i < this.length; i++) this[i].innerHTML = html;
@@ -80,7 +79,15 @@ function S(e){
 	}
 	stuQuery.prototype.append = function(html){
 		if(!html && this.length == 1) return this[0].innerHTML;
-		if(html) for(var i = 0; i < this.length; i++) this[i].innerHTML += html;
+		if(html){
+			for(var i = 0; i < this.length; i++){
+				var d = document.createElement('template');
+				d.innerHTML = html;
+				var c = (typeof d.content==="undefined" ? d : d.content);
+				if(c.childNodes.length > 0) while(c.childNodes.length > 0) this[i].appendChild(c.childNodes[0]);
+				else this[i].append(html);
+			}
+		}
 		return this;	
 	}
 	stuQuery.prototype.prepend = function(j){
@@ -89,15 +96,16 @@ function S(e){
 		return this;
 	}
 	stuQuery.prototype.before=function(t){
-		var d = document.createElement('div');
-		d.innerHTML = t;
-		var e = d.childNodes;
-		for(var i = 0 ; i < el.length ; i++){
-			for(var j = 0; j < e.length; j++) el[i].parentNode.insertBefore(e[j], el[i]);
+		var i,d,e,j
+		for(i = 0 ; i < this.length ; i++){
+			d = document.createElement('div');
+			d.innerHTML = t;
+			e = d.childNodes;
+			for(j = 0; j < e.length; j++) this[i].parentNode.insertBefore(e[j], this[i]);
 		}
 		return this;
 	}
-	stuQuery.prototype.after=function(t){
+	stuQuery.prototype.after = function(t){
 		for(var i = 0 ; i < this.length ; i++) this[i].insertAdjacentHTML('afterend', t);
 		return this;
 	}
@@ -123,8 +131,8 @@ function S(e){
 		}
 		return function(){ return {'fn':''}; }
 	}
-	// Try to remove an event with attached data and supplied function, fn.
 	stuQuery.prototype.off = function(event){
+		// Try to remove an event with attached data and supplied function, fn.
 
 		// If the remove function doesn't exist, we make it
 		if(typeof Element.prototype.removeEventListener !== "function"){
@@ -149,8 +157,8 @@ function S(e){
 		}
 		return this;
 	}
-	// Add events
 	stuQuery.prototype.on = function(event,data,fn){
+		// Add events
 		event = event || window.event; // For IE
 		this.cache = [4,5,6];
 		if(typeof data==="function" && !fn){
@@ -198,18 +206,18 @@ function S(e){
 
 		return this;
 	}
-	// If there is only one element, we trigger the focus event
 	stuQuery.prototype.focus = function(){
+		// If there is only one element, we trigger the focus event
 		if(this.length == 1) this[0].focus();
 		return this;
 	}
-	// If there is only one element, we trigger the blur event
 	stuQuery.prototype.blur = function(){
+		// If there is only one element, we trigger the blur event
 		if(this.length == 1) this[0].blur();
 		return this;
 	}
-	// Remove DOM elements
 	stuQuery.prototype.remove = function(){
+		// Remove DOM elements
 		if(this.length < 1) return this;
 		for(var i = this.length-1; i >= 0; i--){
 			if(!this[i]) return;
@@ -218,34 +226,31 @@ function S(e){
 		}
 		return this;
 	}
-	// Check if a DOM element has the specified class
 	stuQuery.prototype.hasClass = function(cls){
+		// Check if a DOM element has the specified class
 		var result = true;
 		for(var i = 0; i < this.length; i++){
 			if(!this[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) result = false;
 		}
 		return result;
 	}
-	// Toggle a class on a DOM element
 	stuQuery.prototype.toggleClass = function(cls){
-		// Remove/add it
+		// Toggle a class on a DOM element
 		for(var i = 0; i < this.length; i++){
 			if(this[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) this[i].className = this[i].className.replace(new RegExp("(\\s|^)" + cls + "(\\s|$)", "g")," ").replace(/ $/,'');
 			else this[i].className = (this[i].className+' '+cls).replace(/^ /,'');
 		}
 		return this;
 	}
-	// Toggle a class on a DOM element
 	stuQuery.prototype.addClass = function(cls){
-		// Remove/add it
+		// Add a class on a DOM element
 		for(var i = 0; i < this.length; i++){
 			if(!this[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) this[i].className = (this[i].className+' '+cls).replace(/^ /,'');
 		}
 		return this;
 	}
-	// Remove a class on a DOM element
 	stuQuery.prototype.removeClass = function(cls){
-		// Remove/add it
+		// Remove a class on a DOM element
 		for(var i = 0; i < this.length; i++){
 			while(this[i].className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))) this[i].className = this[i].className.replace(new RegExp("(\\s|^)" + cls + "(\\s|$)", "g")," ").replace(/ $/,'').replace(/^ /,'');
 		}
@@ -285,8 +290,8 @@ function S(e){
 		for(var i = 0; i < this.length; i++) tmp.push(this[i].parentElement);
 		return S(tmp);
 	}
-	// Only look one level down
 	stuQuery.prototype.children = function(c){
+		// Only look one level down
 		if(typeof c==="string"){
 			// We are using a selector
 			var result = [];
@@ -342,25 +347,54 @@ function S(e){
 		for(var i = 0; i < this.length; i++) clone[0].parentNode.replaceChild(span, clone[0]);
   		return clone;
 	}
-	//=========================================================
-	// ajax(url,{'complete':function,'error':function,'dataType':'json'})
-	// complete: function - a function executed on completion
-	// error: function - a function executed on an error
-	// dataType: json - will convert the text to JSON
+	stuQuery.prototype.outerWidth = function(){
+		if(this.length > 1) return;
+		var s = getComputedStyle(this[0]);
+		return this[0].offsetWidth + parseInt(s.marginLeft) + parseInt(s.marginRight);
+	}
+	stuQuery.prototype.offset = function(){
+		return this[0].getBoundingClientRect();
+	}
+	stuQuery.prototype.position = function(){
+		if(this.length > 1) return;
+		return {left: this[0].offsetLeft, top: this[0].offsetTop};
+	}
 	stuQuery.prototype.ajax = function(url,attrs){
+		//=========================================================
+		// ajax(url,{'complete':function,'error':function,'dataType':'json'})
+		// complete: function - a function executed on completion
+		// error: function - a function executed on an error
+		// cache: break the cache
+		// dataType: json - will convert the text to JSON
+		//           jsonp - will add a callback function and convert the results to JSON
+
 		if(typeof url!=="string") return false;
 		if(!attrs) attrs = {};
-		attrs['url'] = url+(typeof attrs.cache==="boolean" && !attrs.cache ? '?'+(new Date()).valueOf():'');
+		var cb = "",qs = "";
+		if(attrs['dataType']=="jsonp"){
+			cb = 'fn_'+(new Date()).getTime();
+			window[cb] = function(evt){ complete(evt); };
+		}
+		if(typeof attrs.cache==="boolean" && !attrs.cache) qs += (qs ? '&':'')+(new Date()).valueOf();
+		if(cb) qs += (qs ? '&':'')+'callback='+cb;
+		if(attrs.data) qs += (qs ? '&':'')+attrs.data;
 
+		// Build the URL to query
+		attrs['url'] = url+(qs ? '?'+qs:'');
+		
 		// code for IE7+/Firefox/Chrome/Opera/Safari or for IE6/IE5
 		var oReq = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
-		oReq.addEventListener("load", complete);
+		oReq.addEventListener("load", window[cb] || complete);
 		oReq.addEventListener("error", error);
 
 		function complete(evt) {
 			if(oReq.status === 200) {
 				attrs.header = oReq.getAllResponseHeaders();
-				if(typeof attrs.complete==="function") attrs.complete.call((attrs['this'] ? attrs['this'] : this), (attrs['dataType']=="json") ? JSON.parse(oReq.responseText) : oReq.responseText, attrs);
+				var rsp = oReq.responseText;
+				// Parse out content in the appropriate callback
+				if(attrs['dataType']=="jsonp") rsp = rsp.replace(/[\n\r]/g,"\\n").replace(/^([^\(]+)\((.*)\)([^\)]*)$/,function(e,a,b,c){ return (a==cb) ? b:''; }).replace(/\\n/g,"\n");
+				if(attrs['dataType']=="json" || attrs['dataType']=="jsonp") rsp = JSON.parse(rsp);
+				if(typeof attrs.complete==="function") attrs.complete.call((attrs['this'] ? attrs['this'] : this), rsp, attrs);
 			}else error(evt);
 		}
 
@@ -368,7 +402,7 @@ function S(e){
 			if(typeof attrs.error==="function") attrs.error.call((attrs['this'] ? attrs['this'] : this),evt,attrs);
 		}
 
-		try{ oReq.open('GET', url); }
+		try{ oReq.open('GET', attrs['url']); }
 		catch(err){ error(err); }
 
 		try{ oReq.send(); }

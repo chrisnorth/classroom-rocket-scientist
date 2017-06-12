@@ -858,5 +858,37 @@
                 }]
     		}]
     	}
+    },
+	"rocket": {
+		"requires": [{
+			"type": "rocket",
+			"is": "fueled",
+			"label": "%rocket.requires.power.label%",
+			"error": "%rocket.requires.power.error%"
+		}]
+	},
+    "launch": {
+    	"prep": {
+    		"checklist": "%launch.prep.checklist%",
+			"goforlaunch": "%launch.prep.goforlaunch%",
+			"button": "%launch.prep.button%"
+    	},
+		"countdown": "%launch.countdown%",
+		"liftoff":	"%launch.liftoff%",
+		"stage": {
+			"ignition": "%launch.stage.ignition%",
+			"fuel-exhausted": "%launch.stage.fuel-exhausted%",
+			"separation": "%launch.stage.separation%"
+		},
+		"elapsed-time": "%launch.elapsed-time%",
+		"current-speed": "%launch.current-speed%",
+		"orbit-achieved": "%launch.orbit-achieved%",
+		"payload-bay-open": "%launch.payload-bay-open%",
+		"deployed": "%launch.deployed%",
+		"solar-panels": {
+			"deploying": "%launch.solar-panels-deploying%",
+			"deployed": "%launch.solar-panels-deployed%"
+		},
+		"operational": "%launch.operational%"
     }
 }

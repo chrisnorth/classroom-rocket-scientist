@@ -67,9 +67,6 @@ ui.sections.rocket.payload:                 Your payload
 ui.sections.rocket.emptystage:              None
 ui.sections.launch.short:                   Launch
 ui.sections.launch.title:                   Ready to launch?
-ui.sections.launch.checklist:               We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail.
-ui.sections.launch.goforlaunch:             Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.
-ui.sections.launch.button:                  Go for launch!
 ui.sections.units.title:                    Change units:
 ui.sections.units.currency:                 Currency units:
 ui.sections.units.length:                   Length units:
@@ -156,6 +153,11 @@ orbit.HEO.title:                            Elliptical orbit
 orbit.HEO.description:                      Elliptical orbits are much closer to the Earth at one point in their orbit than another. They travel along an elliptical path, shaped like a rugby ball, rather than circular one. They are useful for covering areas such as the North and South Poles.
 orbit.GEO.title:                            Geo-stationary orbit
 orbit.GEO.description:                      Satellites in geostationary (pronounced jee-oh-stay-shon-ary) orbits stay above the same part of Earth and move with the planet as it rotates. They are much higher above the Earth's surface than other orbits, so can see huge areas but not in much detail.
+
+rocket.requires.stable.label:               Your rocket mustn't be wobbly.
+rocket.requires.stable.error:               Your rocket is wobbly. It might tip over during launch. Try to make sure it is sturdy.
+rocket.requires.power.label:                You must have an engine and somewhere to hold your satellite.
+rocket.requires.power.error:                Your rocket needs to be built.
 
 scenarios.NAV.title:                        Navigation
 scenarios.NAV.description:                  These satellites are used to help people find their whereabouts on the Earth.
@@ -270,17 +272,20 @@ scenarios.EO.surface.req.orbit.error: The orbit you have chosen does not allow y
 scenarios.EO.surface.launch:  Welcome to the launch of the UK Space Agency's latest earth observation satellite that will measure the varying height of land and oceans over the Earth's surface.
 scenarios.EO.surface.success: Congratulations, your earth observation satellite is now measuring the varying height of land and oceans over the Earth's surface.
 
+launch.prep.checklist:               <p>We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail. You haven't met these requirements:</p>$requirementslist$
+launch.prep.goforlaunch:             Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.
+launch.prep.button:                  Launch?
 launch.countdown: Count down
 launch.liftoff: Lift off!
-launch.stage.ignition:  Stage %stage% ignition
-launch.stage.fuel-exhausted:  Stage %stage% fuel exhausted
-launch.stage.separation:  Stage %stage% separation
-launch.elapsed-time: T%value%
-launch.current-speed:  Current speed: %value%
-launch.orbit-achieved:  %orbit% achieved
+launch.stage.ignition:  Stage $stage$ ignition
+launch.stage.fuel-exhausted:  Stage $stage$ fuel exhausted
+launch.stage.separation:  Stage $stage$ separation
+launch.elapsed-time: T$value$
+launch.current-speed:  Current speed: $value$
+launch.orbit-achieved:  $orbit$ achieved
 launch.payload-bay-open:  Payload bay opened
 launch.deployed:  Satellite deployed
-launch.solar-panels-deploying: Deploying solar panels
-launch.solar-panels-deployed: Solar panels deployed
+launch.solar-panels.deploying: Deploying solar panels
+launch.solar-panels.deployed: Solar panels deployed
 launch.operational: Satellite operational
 ---

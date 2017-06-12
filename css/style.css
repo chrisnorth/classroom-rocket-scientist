@@ -858,9 +858,10 @@ section#launch {
   background-color: #000000;
   color: #efefef; }
 
-section#launch p {
-  max-width: 500px;
-  margin: auto; }
+section#launch p, #launch-text {
+  max-width: 640px;
+  margin: auto;
+  margin-bottom: 1em; }
 
 section#goal .holder, section#type .holder {
   padding: 0 0.5em 0.5em 0.5em;

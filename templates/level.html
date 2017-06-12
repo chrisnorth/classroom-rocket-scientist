@@ -424,21 +424,28 @@
 						</div>
 						<div class="row-main">
 							<div class="col">
-								<div class="holder-holder">
-									<div class="isogrid rocket-holder rocket" id="vehicle">
-										<div class="holder">
-											<div class="controls zoomcontrol">
-												<button class="fancy zoomin"><!--#echo var="ui.button.zoomin" --></button>
-												<button class="fancy zoomout"><!--#echo var="ui.button.zoomout" --></button>
-											</div>
-											<div class="controls deltavcontrol">
-												<div id="deltav_indicator" class="meter">
-													<div class="level bg-orbit"></div>
-													<div class="value">0%</div>
+								<div class="rows">
+									<div class="requirements">
+										<div class="padder">
+											<h3><!--#echo var="ui.requirements.title" --></h3>
+										</div>
+									</div>
+									<div class="holder-holder">
+										<div class="isogrid rocket-holder rocket" id="vehicle">
+											<div class="holder">
+												<div class="controls zoomcontrol">
+													<button class="fancy zoomin"><!--#echo var="ui.button.zoomin" --></button>
+													<button class="fancy zoomout"><!--#echo var="ui.button.zoomout" --></button>
 												</div>
-												<div id="deltav_indicator_light"></div>
+												<div class="controls deltavcontrol">
+													<div id="deltav_indicator" class="meter">
+														<div class="level bg-orbit"></div>
+														<div class="value">0%</div>
+													</div>
+													<div id="deltav_indicator_light"></div>
+												</div>
+												<div class="stage payloadbay"><div class="part"></div></div><div class="stage thirdstage"><div class="part"></div></div><div class="stage secondstage"><div class="part"></div></div><div class="stage firststage"><div class="part"></div></div>
 											</div>
-											<div class="stage payloadbay"><div class="part"></div></div><div class="stage thirdstage"><div class="part"></div></div><div class="stage secondstage"><div class="part"></div></div><div class="stage firststage"><div class="part"></div></div>
 										</div>
 									</div>
 								</div>
@@ -558,9 +565,8 @@
 								</ol>
 							</nav>
 							<h2><!--#echo var="ui.sections.launch.title" --></h2>
-							<p class="errors"><!--#echo var="ui.sections.launch.checklist" --></p>
-							<p class="ok"><!--#echo var="ui.sections.launch.goforlaunch" --></p>
-							<p><button class="fancy" safetoleave="true"><!--#echo var="ui.sections.launch.button" --></button></p>
+							<div id="launch-text"></div>
+							<p><button class="fancy" safetoleave="true"><!--#echo var="launch.prep.button" --></button></p>
 						</div>
 					</div>
 				</div>

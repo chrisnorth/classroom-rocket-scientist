@@ -17,9 +17,7 @@
 		if(typeof level !== 'undefined'){
 			var _obj = this;
 			window.onbeforeunload = function(e){
-				var ok = S(e.originalTarget.activeElement).attr('safetoleave');
-				if(ok) return undefined;
-				else return 'Are you sure you want to leave?';
+				return 'Are you sure you want to leave?';
 			};
 			this.level = level;
 		}
@@ -122,6 +120,7 @@
 			if(this.choices[this.stages[s]]) stages += '&'+this.stages[s]+'='+this.choices[this.stages[s]].key;
 		}
 		location.href = 'launch.html?type='+this.choices.type+'&solar-panel='+this.choices['solar-panel']+'&solar-panel-surface='+this.choices['solar-panel-surface']+'&orbit='+this.choices.orbit+'&goal='+this.choices.goal+'&bus='+this.choices.bussize+'&slots='+slots+'&level='+this.level+stages;
+		return this;
 	}
 
 	RocketScientist.prototype.updateButtons = function(){
@@ -166,7 +165,7 @@
 	}
 
 	RocketScientist.prototype.navigate = function(e){
-		console.log('navigate')
+		this.log('NAVIGATE',e)
 		e.preventDefault();
 		var href = S(e.currentTarget).attr('href');
 		var section = href.substr(1);

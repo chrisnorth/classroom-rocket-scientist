@@ -375,7 +375,7 @@ section.view.slideInLeft {
 
 
 section#launch { background-color: $black-1; color: $grey-5; }
-section#launch p { max-width: 500px; margin: auto; }
+section#launch p, #launch-text { max-width: 640px; margin: auto; margin-bottom: 1em; }
 section#goal .holder,section#type .holder {
 	padding: 0 $padded*0.25 $padded*0.25 $padded*0.25;
 	vertical-align: top;

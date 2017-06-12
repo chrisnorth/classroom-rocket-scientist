@@ -155,6 +155,12 @@ orbit.HEO.title:                            Highly-elliptical orbit
 orbit.HEO.description:                      Highly-elliptical orbits are much closer to the Earth at one point in their orbit than another, giving an elongated (elliptical) rather than circular orbit. They are useful for covering areas including polar regions. More than one satellite can be used for continuous coverage of an area.
 orbit.GEO.title:                            Geo-stationary orbit
 orbit.GEO.description:                      Satellites in geostationary orbits stay above the same location on Earth near the equator and complete a full orbit in 24 hours. They are much higher above the Earth's surface than other orbits, so can see the entire hemisphere in less detail.
+
+rocket.requires.stable.label:               Your rocket must be stable
+rocket.requires.stable.error:               Your rocket is top heavy. Try to make sure it is stable before launching
+rocket.requires.power.label:                Your rocket needs enough power to reach orbit.
+rocket.requires.power.error:                Your rocket is not powerful enough to launch.
+
 scenarios.NAV.title:                        Navigation
 scenarios.NAV.description:                  The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.
 scenarios.NAV.sat-nav.title:                Satellite Navigation System
@@ -255,21 +261,20 @@ scenarios.EO.surface.req.orbit.error: The orbit you have chosen does not allow y
 scenarios.EO.surface.launch:  Welcome to the launch of the UK Space Agency's latest earth observation satellite that will measure the varying height of land and oceans over the Earth's surface.
 scenarios.EO.surface.success: Congratulations, your earth observation satellite is now measuring the varying height of land and oceans over the Earth's surface.
 
+launch.prep.checklist:               <p>We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail.</p>
+launch.prep.goforlaunch:             Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.
+launch.prep.button:                  Launch?
 launch.countdown: Count down
 launch.liftoff: Lift off!
-launch.stage.ignition:  Stage %stage% ignition
-
-launch.countdown: Count down
-launch.liftoff: Lift off!
-launch.stage.ignition:  Stage %stage% ignition
-launch.stage.fuel-exhausted:  Stage %stage% fuel exhausted
-launch.stage.separation:  Stage %stage% separation
-launch.elapsed-time: T%value%
-launch.current-speed:  Current speed: %value%
-launch.orbit-achieved:  %orbit% achieved
+launch.stage.ignition:  Stage $stage$ ignition
+launch.stage.fuel-exhausted:  Stage $stage$ fuel exhausted
+launch.stage.separation:  Stage $stage$ separation
+launch.elapsed-time: T$value$
+launch.current-speed:  Current speed: $value$
+launch.orbit-achieved:  $orbit$ achieved
 launch.payload-bay-open:  Payload bay opened
 launch.deployed:  Satellite deployed
-launch.solar-panels-deploying: Deploying solar panels
-launch.solar-panels-deployed: Solar panels deployed
+launch.solar-panels.deploying: Deploying solar panels
+launch.solar-panels.deployed: Solar panels deployed
 launch.operational: Satellite operational
 ---

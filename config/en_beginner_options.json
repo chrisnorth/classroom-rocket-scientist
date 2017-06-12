@@ -858,5 +858,37 @@
                 }]
     		}]
     	}
+    },
+	"rocket": {
+		"requires": [{
+			"type": "rocket",
+			"is": "fueled",
+			"label": "You must have an engine and somewhere to hold your satellite.",
+			"error": "Your rocket needs to be built."
+		}]
+	},
+    "launch": {
+    	"prep": {
+    		"checklist": "<p>We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail. You haven't met these requirements:</p>$requirementslist$",
+			"goforlaunch": "Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.",
+			"button": "Launch?"
+    	},
+		"countdown": "Count down",
+		"liftoff":	"Lift off!",
+		"stage": {
+			"ignition": "Stage $stage$ ignition",
+			"fuel-exhausted": "Stage $stage$ fuel exhausted",
+			"separation": "Stage $stage$ separation"
+		},
+		"elapsed-time": "T$value$",
+		"current-speed": "Current speed: $value$",
+		"orbit-achieved": "$orbit$ achieved",
+		"payload-bay-open": "Payload bay opened",
+		"deployed": "Satellite deployed",
+		"solar-panels": {
+			"deploying": "",
+			"deployed": ""
+		},
+		"operational": "Satellite operational"
     }
 }

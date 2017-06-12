@@ -61,7 +61,7 @@ var rs;
 		this.defaults = {'currency':'credits', 'length':'m', 'area': 'mxm', 'mass': 'kg', 'power':'watts', 'powerdensity':'watts/m^2' };
 		this.z = {};
 		this.totals = { 'cost': new Convertable(0,this.defaults.currency), 'power': new Convertable(0,this.defaults.power), 'mass':new Convertable(0,this.defaults.mass) };
-		this.choices = { 'type':'', 'goal':'', 'mission':'', 'orbit':'', 'bus':'', 'slots':{}, 'solar-panel':0, 'solar-panel-surface':false, 'bussize':'' };
+		this.choices = { 'type':'', 'goal':'', 'mission':'', 'orbit':'', 'bus':'', 'slots':{}, 'solar-panel':0, 'solar-panel-surface':false, 'bussize':'', 'stable': false, 'fueled': false };
 		this.requirements = new Array();
 		this.stages = ['firststage','secondstage','thirdstage','payloadbay'];
 
@@ -320,8 +320,13 @@ var rs;
 			dv.attr('class','meter').addClass('orbit-'+this.choices.orbit);
 			dv.find('.level').css({'width':(pc > 100 ? 100 : pc).toFixed(3)+'%'});
 			dv.find('.value').html(pc.toFixed(1)+'%');
-			if(pc >= 100) S('#deltav_indicator_light').addClass('on');
-			else S('#deltav_indicator_light').removeClass('on');
+			if(pc >= 100){
+				S('#deltav_indicator_light').addClass('on');
+				this.choices['fueled'] = true;
+			}else{
+				S('#deltav_indicator_light').removeClass('on');
+				this.choices['fueled'] = false;
+			}
 		}
 
 		return this;
@@ -416,13 +421,20 @@ var rs;
 				}
 			}
 		}
+		
+		if(this.data['rocket'] && this.data['rocket'].requires){
+			for(var i = 0; i < this.data['rocket'].requires.length; i++) this.requirements = this.requirements.concat(this.data['rocket'].requires[i]);
+		}
 
 		// See which requirements are met
 		this.checkRequirements();
 
 		// The keys are the HTML <section> IDs and the values are the JSON data keys
-		var sections = {'orbit':'orbit','instrument':'package','power':'power'};
-		var ul,li,i,l,notlisted,j;
+		var sections = {'orbit':'orbit','instrument':'package','power':'power','rocket':'rocket'};
+		var ul,li,i,l,notlisted,j,e;
+		var requirementslist = "";
+		var requirementssectionlist = "";
+		var sectionexists;
 		for(var s in sections){
 			// Remove existing requirements
 			S('#'+s+' .requirements ul').remove();
@@ -430,10 +442,12 @@ var rs;
 			ul = S('#'+s+' .requirements h3');
 			li = "";
 			var listed = new Array();
+			sectionexists = (S('#'+s).length > 0);
 			for(var i = 0; i < this.requirements.length; i++){
 				if((this.requirements[i]['showin'] == sections[s] || this.requirements[i]['type'] == sections[s]) && this.requirements[i]['label'] != ""){
 					if(typeof this.requirements[i]['label'] === "undefined") this.requirements[i]['label'] = "";
 					l = "<li"+((this.data.options && this.data.options['require-hint']) ? (this.requirements[i]['met'] ? ' class="met"' : ' class="notmet"') : "")+">"+this.requirements[i]['label']+"</li>";
+					e = "<li"+((this.data.options && this.data.options['require-hint']) ? (this.requirements[i]['met'] ? ' class="met"' : ' class="notmet"') : "")+">"+this.requirements[i]['error']+"</li>";
 					notlisted = true;
 					for(j = 0; j < listed.length; j++){
 						if(listed[j] == l) notlisted = false;
@@ -441,17 +455,41 @@ var rs;
 					if(notlisted){
 						listed.push(l);
 						li += l;
+						if(!this.requirements[i]['met'] && sectionexists) requirementslist += e;
 					}
 				}
 			}
-			this.log('List of requirements',li);
-			if(li) ul.after("<ol>"+li+"</ol>");
+			this.log('List of requirements for '+s,li);
+			if(li && sectionexists){
+				ul.after("<ol>"+li+"</ol>");
+				// Find which section this is and add it to the section list for the launch screen
+				for(var i = 0 ; i < this.data['sections'].length; i++){
+					if(this.data['sections'][i]['id'] == s) requirementssectionlist += '<li><a href="#'+s+'">'+this.data['sections'][i]['short']+"</a></li>";
+				}
+			}
 			S('#'+s+' .requirements').css({'display':(li ? '':'none')});
 		}
+		this.log('Requirement sections',requirementssectionlist);
 		var ok = 0;
 		for(var i = 0; i < this.requirements.length; i++){
 			if(this.requirements[i].met) ok++;
 		}
+
+		var ltxt = "";
+		
+		if(ok < this.requirements.length){
+			ltxt = '<div class="requirements">'+this.data.launch.prep.checklist+'</div>';
+			ltxt = ltxt.replace("$requirementslist$",(requirementslist ? '<ol class="errors">'+requirementslist+"</ol>":""));
+			ltxt = ltxt.replace("$requirementssectionlist$",(requirementssectionlist ? '<ol class="errors">'+requirementssectionlist+"</ol>":""));
+		}else{
+			ltxt = this.data.launch.prep.goforlaunch;
+		}
+
+		// Update launch text
+		S('#launch-text').html(ltxt);
+		// Add event to links we've just added
+		S('#launch-text a').on('click',{me:this},function(e){ e.data.me.navigate(e); });
+
 		this.log('Met '+ok+' of '+this.requirements.length+' requirements')
 		return this;
 	}
@@ -461,6 +499,8 @@ var rs;
 		// Build array of choice keys that we will check against
 		var ch = [];
 		if(this.choices['orbit']) ch.push(this.choices['orbit']);
+		if(this.choices['fueled']) ch.push(this.choices['fueled']);
+		if(this.choices['stable']) ch.push(this.choices['stable']);
 		if(this.choices['solar-panel-surface']) ch.push('solar-panel-surface');
 		if(this.choices['solar-panel'] > 0) ch.push('solar-panel');
 		for(var j in this.choices.slots){
@@ -469,7 +509,8 @@ var rs;
 		var ok;
 		for(var i = 0; i < this.requirements.length; i++){
 			ok = false;
-			if(this.requirements[i].oneof.length > 0){
+			if(this.requirements[i].oneof){
+				ok = false;
 				for(var o = 0; o < this.requirements[i].oneof.length; o++){
 					for(var c = 0; c < ch.length; c++){
 						if(ch[c] == this.requirements[i].oneof[o]) ok = true;
@@ -477,7 +518,7 @@ var rs;
 				}
 			}
 			// If we failed the oneof requirement, don't bother checking the allof requirement
-			if(ok && this.requirements[i].allof){
+			if(this.requirements[i].allof){
 				for(var o = 0; o < this.requirements[i].allof.length; o++){
 					var ok2 = false;
 					for(var c = 0; c < ch.length; c++){
@@ -490,9 +531,13 @@ var rs;
 					}
 				}
 			}
+			if(this.requirements[i].is){
+				if(typeof this.choices[this.requirements[i].is]==="boolean") ok = this.choices[this.requirements[i].is];
+			}
 			this.requirements[i].met = ok;
 		}
 	}
+
 	// Choose the bus size
 	RocketScientist.prototype.setBus = function(size){
 		this.log('setBus',size);
@@ -538,7 +583,6 @@ var rs;
 				if(_obj.data.power['solar-panel-surface'][props[j]].typeof=="convertable"){
 					v = el.find('.package_'+props[j]).find('.value');
 					if(v.attr('data-dimension')!="powerdensity"){
-						//console.log('scaleConvertableByArea',_obj.data.power['solar-panel-surface'][props[j]],v.attr('data-dimension'))
 						nv = _obj.data.power['solar-panel-surface'][props[j]].convertTo(v.attr('data-dimension'));
 						v.attr('data-value',nv.value*_obj.data.bus[size].area.value);
 					}
@@ -746,8 +790,10 @@ var rs;
 		if(type == "solar-panel") n = this.choices['solar-panel'];
 		else if(type == "solar-panel-surface") n = (this.choices['solar-panel-surface'] ? 1 : 0);
 		else{
-			for(var i = 0; i < this.choices['slots'][p.slot].length; i++){
-				if(this.choices['slots'][p.slot][i]==type) n++;
+			if(p){
+				for(var i = 0; i < this.choices['slots'][p.slot].length; i++){
+					if(this.choices['slots'][p.slot][i]==type) n++;
+				}
 			}
 		}
 		el.parent().find('.value').html(n > 0 ? '&times;'+n : '');
@@ -813,7 +859,7 @@ var rs;
 		if(ok) S('.rocket-holder').removeClass('wobble');
 		else S('.rocket-holder').addClass('wobble');
 		// Save the state for use at launch
-		this.choices['rocket-stable'] = ok;
+		this.choices['stable'] = ok;
 
 		css = "";
 		var w,h,st;
@@ -841,6 +887,7 @@ var rs;
 		S('#customstylesheet').html(css);
 
 		this.updateBudgets();
+		this.updateRequirements();
 
 		return this;
 	}
@@ -865,7 +912,6 @@ var rs;
 			var page = S('#'+this.sections[i]+' .page');
 			if(page.length > 0){
 				var eltop = page.children('.row-top');
-			//console.log(page,eltop)
 				var top = (eltop.length > 0) ? height(eltop[0]) : 0;
 				page.css({'height':(scaleH ? (this.tall-padd)+'px' : 'auto')});
 				var versions = page.children('.row-main');
