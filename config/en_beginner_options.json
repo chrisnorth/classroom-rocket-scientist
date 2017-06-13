@@ -670,10 +670,11 @@
 					"label": "See the whole planet.",
 					"error": "The orbit you have chosen does not allow you to see the whole planet."
 				},{
-                   			"type": "power",
-			                "oneof": ["solar-panel","solar-panel-surface","battery-small","battery-large"],
-                    			"label": ""
-                		}]
+					"type": "power",
+					"oneof": ["solar-panel","solar-panel-surface","battery-small","battery-large"],
+					"label": "",
+					"error": ""
+				}]
 			},{
 				"title": "Map-making",
 				"description": "Map the surface of the Earth. Your satellite needs to be able to take images of small areas of the Earth's surface and measure the height of the ground in detail.",
@@ -689,16 +690,16 @@
 				},
 				"requires": [{
 					"type": "package",
-                    			"oneof": ["camera-opt"],
-                    			"label": "You need an instrument capable of collecting detailed images.",
+					"oneof": ["camera-opt"],
+					"label": "You need an instrument capable of collecting detailed images.",
 					"error": "Your satellite does not allow you to see the planet's surface in enough detail."
-                		},{
-               			    	 "type": "package",
-                   			"oneof": ["radar-alt"],
+                },{
+					"type": "package",
+					"oneof": ["radar-alt"],
 					"label": "You need a way to measure the height of the Earth's surface.",
 					"error": "You do not have a way to measure the height of the Earth's surface (e.g. mountains and valleys)."
-            			    },{
-                			 "type": "package",
+            	},{
+                	"type": "package",
 					"oneof": ["radar-dish"],
 					"error": "Your radar altimeter cannot work as you do not have a radar dish."
                 },{
@@ -707,9 +708,9 @@
 					"label": "See detail of planet surface.",
 					"error": "The orbit you have chosen does not allow your satellite to see the planet surface in enough detail."
 				},{
-                   			"type": "power",
-			                "oneof": ["solar-panel","solar-panel-surface","battery-small","battery-large"],
-                    			"label": ""
+					"type": "power",
+					"oneof": ["solar-panel","solar-panel-surface","battery-small","battery-large"],
+					"label": ""
 				}]
 			}]
 		},

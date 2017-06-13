@@ -302,6 +302,10 @@ var rs;
 	RocketScientist.prototype.updateTotals = function(){
 		this.log('updateTotals');
 		S('#bar .togglecost .cost').html(this.totals.cost.toString({'units':this.defaults.currency}));
+		if(this.choices.mission.budget){
+			if(this.totals.cost.value <= this.choices.mission.budget.value) S('#bar .togglecost').removeClass('overbudget');
+			else S('#bar .togglecost').addClass('overbudget');
+		}
 		S('#bar .togglemass .mass').html(this.totals.mass.toString({'units':this.defaults.mass}));
 		S('#bar .togglepower .power').html(this.totals.power.toString({'units':this.defaults.power}));
 

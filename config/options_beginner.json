@@ -670,10 +670,11 @@
 					"label": "%scenarios.NAV.sat-nav.req.orbit.label%",
 					"error": "%scenarios.NAV.sat-nav.req.orbit.error%"
 				},{
-                   			"type": "power",
-			                "oneof": ["solar-panel","solar-panel-surface","battery-small","battery-large"],
-                    			"label": ""
-                		}]
+					"type": "power",
+					"oneof": ["solar-panel","solar-panel-surface","battery-small","battery-large"],
+					"label": "",
+					"error": ""
+				}]
 			},{
 				"title": "%scenarios.NAV.map.title%",
 				"description": "%scenarios.NAV.map.description%",
@@ -689,16 +690,16 @@
 				},
 				"requires": [{
 					"type": "package",
-                    			"oneof": ["camera-opt"],
-                    			"label": "%scenarios.NAV.map.req.camera-opt.label%",
+					"oneof": ["camera-opt"],
+					"label": "%scenarios.NAV.map.req.camera-opt.label%",
 					"error": "%scenarios.NAV.map.req.camera-opt.error%"
-                		},{
-               			    	 "type": "package",
-                   			"oneof": ["radar-alt"],
+                },{
+					"type": "package",
+					"oneof": ["radar-alt"],
 					"label": "%scenarios.NAV.map.req.radar-alt.label%",
 					"error": "%scenarios.NAV.map.req.radar-alt.error%"
-            			    },{
-                			 "type": "package",
+            	},{
+                	"type": "package",
 					"oneof": ["radar-dish"],
 					"error": "%scenarios.NAV.map.req.radar-dish.error%"
                 },{
@@ -707,9 +708,9 @@
 					"label": "%scenarios.NAV.map.req.orbit.label%",
 					"error": "%scenarios.NAV.map.req.orbit.error%"
 				},{
-                   			"type": "power",
-			                "oneof": ["solar-panel","solar-panel-surface","battery-small","battery-large"],
-                    			"label": ""
+					"type": "power",
+					"oneof": ["solar-panel","solar-panel-surface","battery-small","battery-large"],
+					"label": ""
 				}]
 			}]
 		},

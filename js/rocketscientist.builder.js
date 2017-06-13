@@ -119,7 +119,7 @@
 		for(var s = 0; s < this.stages.length; s++){
 			if(this.choices[this.stages[s]]) stages += '&'+this.stages[s]+'='+this.choices[this.stages[s]].key;
 		}
-		location.href = 'launch.html?type='+this.choices.type+'&solar-panel='+this.choices['solar-panel']+'&solar-panel-surface='+this.choices['solar-panel-surface']+'&orbit='+this.choices.orbit+'&goal='+this.choices.goal+'&bus='+this.choices.bussize+'&slots='+slots+'&level='+this.level+stages;
+		location.href = 'launch.html?level='+this.level+stages+'&type='+this.choices.type+'&solar-panel='+this.choices['solar-panel']+'&solar-panel-surface='+this.choices['solar-panel-surface']+'&orbit='+this.choices.orbit+'&goal='+this.choices.goal+'&bus='+this.choices.bussize+'&slots='+slots;
 		return this;
 	}
 
