@@ -105,12 +105,96 @@
 			this.eq = rocketEquation(this.choices.orbit,this.data,stages,this.totals.mass);
 		}
 
-		setTimeout(function(me){
-			me.exhaust = new Exhaust();
-			setTimeout(function(){ S('#vehicle').css({'bottom':(S('#launchpad-bg')[0].offsetHeight*1.5)+'px'}); },2000);
-		},2000,this);
-		
+		console.log(this.eq)
+
+		l = new Launch(this);
 		return this;
+	}
+
+	function Launch(rocket){
+
+		this.rs = rocket;
+		this.terminal = Terminal('#terminal');
+		this.step = 1;
+
+		/* Here we need to step through the elements of the launch process */
+
+		// First step is to display the introduction
+		this.terminal.append(rocket.data.scenarios[rocket.choices.type].missions[rocket.choices.goal].launch || "");
+
+		//S('#barmenu').append('<div class="baritem"><button id="speedy"><img class="icon options" alt="" src="images/cleardot.gif" /><span>Test</span></button></div>');
+		//this.rs.eq.stages[1].cost.toString({'units':this.rs.defaults.currency});
+
+		this.countdown = function(i){
+
+			this.rs.log('countdown');
+
+			var _obj = this;
+			if(i > 0){
+				this.terminal.append(i.toFixed(0));
+				i--;
+				// Have we got a spurious timeout set? If so, cancel it.
+				if(this.outtatime) clearTimeout(this.outtatime);
+				// Create a timeout for the next second of the launch countdown
+				this.outtatime = setTimeout(function(){ _obj.countdown(i); },1000);
+			}else{
+				this.terminal.append(this.rs.data.launch["liftoff"]);
+				if(this.outtatime) clearTimeout(this.outtatime);
+				this.nextStep();
+			}
+		}
+
+		this.nextStep = function(){
+			console.log(this.step)
+
+			var delay = 1;
+			var fn;
+
+			if(this.step==1){
+
+				this.countdown(10);
+
+			}else if(this.step == 2){
+
+				delay = 1;
+				fn = function(){
+					this.exhaust = new Exhaust();
+					var dur = 12;
+					var h = S('#launchpad-bg')[0].offsetHeight*1.5;
+					S('#vehicle').css({'bottom':h+'px','transition':'bottom '+dur+'s linear'});
+					this.nextStep();
+				}
+
+			}else if(this.step == 3){
+			
+				// Stage separation
+			
+			}
+			this.step++;
+
+			if(typeof fn==="function") setTimeout(function(me){ fn.call(me); },delay*1000,this);
+			return this;
+		}
+
+		this.nextStep();
+		return this;
+	}
+
+	function Terminal(selector){
+		var el = S(selector);
+
+		function updateScroll(){
+			el[0].scrollTop = el[0].scrollHeight;
+		}
+
+		this.append = function(txt){
+			if(txt){
+				el.append(txt+'<br />');
+				updateScroll();
+			}
+			return this;
+		}
+		return this;	
 	}
 
 	// Make an animated exhaust for a rocket.
@@ -121,31 +205,45 @@
 	function Exhaust(){
 
 		var rocket = S('#vehicle');
-		var pad = S('#launchpad-bg');
+		var pad = S('#launchpad-mg');
 		if(S('#rocketexhaust').length==0) rocket.before('<canvas id="rocketexhaust"><\/canvas>');
+		var exhaust = S('#rocketexhaust').css({'bottom':'0px','position':'absolute','left':'0px','width':'100%'});
+
 		var canvas = document.getElementById("rocketexhaust");
 		var ctx = canvas.getContext("2d");
+		ctx.globalCompositeOperation = "copy";
 		this.active = true;
 		var c;
 		
 		// Make the canvas occupy the same space 
-		var w = pad[0].offsetWidth, h = pad[0].offsetHeight;
+		var w = pad[0].offsetWidth;
+		var h = pad[0].offsetHeight*4;
 		canvas.width = w;
 		canvas.height = h;
 		var particles = [];
 		var mouse = {};
+		var ground = h;
+		var tstep = 0;
+
+		// Make an off-screen canvas to draw a single frame to
+		// It needs to be the same size as our visible canvas
+		var off_canvas = document.createElement('canvas');
+		off_canvas.width = w;
+		off_canvas.height = h;
+		var off_ctx = off_canvas.getContext('2d');
 		
 		// Create some particles
-		var particle_count = 80;
+		var particle_count = 60;
 		for(var i = 0; i < particle_count; i++) particles.push(new particle());
-		
-		console.log(w,h);
+
 		// Particle class
 		function particle(){
 			// The speed in both the horizontal and vertical directions
 			this.speed = {x: -1+Math.random()*2, y: -5+Math.random()*3};
 			// Set the source location to the bottom of the rocket
-			this.loc = { x: rocket[0].offsetLeft+(rocket[0].offsetWidth/2)-pad[0].offsetLeft, y: rocket[0].offsetTop + rocket[0].offsetHeight - pad[0].offsetTop - 30 };
+			var bottomofrocket_screen = (rocket[0].offsetTop + rocket[0].offsetHeight);
+			var ground_screen = exhaust[0].offsetTop + exhaust[0].offsetHeight;
+			this.loc = { x: rocket[0].offsetLeft+(rocket[0].offsetWidth/2), y: exhaust[0].offsetHeight - (ground_screen - bottomofrocket_screen) - 30 };
 			// Size of particle
 			this.radius = 5+Math.random()*2;
 			// How long it lasts
@@ -162,39 +260,45 @@
 		function draw(){
 
 			// Set the canvas properties
-			ctx.globalCompositeOperation = "source-over";
-			ctx.fillStyle = "transparent";
-			ctx.fillRect(0, 0, w, h);
-			
+			// Make it transparent
+			off_ctx.clearRect(0, 0, w, h);
+			off_ctx.globalCompositeOperation = "source-over";
+
 			// Draw all the particles
 			for(var i = 0; i < particles.length; i++){
 				var p = particles[i];
-				ctx.beginPath();
+				off_ctx.beginPath();
 				// Changing opacity according to the life
 				// i.e. opacity goes to 0 at the end of life
-				p.opacity = Math.round(p.remaining_life/p.life*100)/100
+				p.opacity = Math.round(p.remaining_life/p.life*100)/100;
 				// Apply a gradient to make it darker around the edge
-				var grad = ctx.createRadialGradient(p.loc.x, p.loc.y, 0, p.loc.x, p.loc.y, p.radius);
+				var grad = off_ctx.createRadialGradient(p.loc.x, p.loc.y, 0, p.loc.x, p.loc.y, p.radius);
 				c = "rgba("+p.r+", "+p.g+", "+p.b+", "+p.opacity+")";
 				grad.addColorStop(0, c);
 				grad.addColorStop(0.5, c);
 				grad.addColorStop(1, "rgba("+Math.round(p.r*0.9)+", "+Math.round(p.g*0.9)+", "+Math.round(p.b*0.9)+", 0)");
-				ctx.fillStyle = grad;
+				off_ctx.fillStyle = grad;
 				// Draw particle
-				ctx.arc(p.loc.x, p.loc.y, p.radius, Math.PI*2, false);
-				ctx.fill();
+				off_ctx.arc(p.loc.x, p.loc.y, p.radius, Math.PI*2, false);
+				off_ctx.fill();
 				
 				// Move the particles
 				p.remaining_life -= 0.5;
 				p.radius += 0.5;
 				p.loc.x += p.speed.x;
 				p.loc.y -= p.speed.y;
+				if(p.loc.y > h - Math.random()*60) p.loc.x += (Math.random()-0.5)*100*Math.min(1,tstep/120);
 				
 				// Regenerate the particles
 				if(p.remaining_life < 0 || p.radius < 0) particles[i] = new particle();
 			}
+			tstep++;
+
+			// Draw this frame to the visible canvas
+			ctx.drawImage(off_canvas, 0, 0);
+
 			// Request a new animation frame if we are still active
-			if(_obj.active) requestAnimationFrame(draw);	
+			if(_obj.active) requestAnimationFrame(draw);
 		}
 
 		// Start the animation

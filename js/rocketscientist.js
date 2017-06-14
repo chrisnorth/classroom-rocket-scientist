@@ -103,6 +103,7 @@ var rs;
 	// Initiate the Rocket Scientist
 	RocketScientist.prototype.init = function(data){
 
+console.log(data)
 		// Remove classes from script only elements
 		S('.scriptonly').toggleClass('scriptonly');
 

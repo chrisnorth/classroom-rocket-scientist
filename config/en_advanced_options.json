@@ -852,6 +852,7 @@
 			"missions": [{
 				"title": "Satellite Navigation System",
 				"description": "Uses signals from four navigation satellites so satnav users can find their location on Earth. Need to be able to see half a hemisphere at a time, measure time accurately and transmit signals of the location.",
+				"launch": "",
 				"success": "",
 				"image": {
 					"file": "images/png/icon-mapmarker.png",
@@ -888,6 +889,8 @@
 			},{
 				"title": "Map-making",
 				"description": "Map the surface of the Earth. Need to be able to take images of small areas of the Earth's surface and measure the height of the ground in high detail.",
+				"launch": "",
+				"success": "",
 				"image": {
 					"file": "images/png/icon-topography.png",
 					"alt": "Map-making",
@@ -918,6 +921,8 @@
 			"missions": [{
 				"title": "Satellite telephone system",
 				"description": "Lets people talk over the phone from remote regions of the world using satellites.",
+				"launch": "",
+				"success": "",
 				"image": {
 					"file": "images/png/icon-phone.png",
 					"alt": "Satellite telephone system",
@@ -943,6 +948,8 @@
 			},{
 				"title": "Satellite TV",
 				"description": "Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.",
+				"launch": "",
+				"success": "",
 				"image": {
 					"file": "images/png/icon-tv.png",
 					"alt": "Satellite TV",
@@ -973,6 +980,8 @@
 			},{
 				"title": "Satellite internet",
 				"description": "Connect to the internet from remote regions of the world using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.",
+				"launch": "",
+				"success": "",
 				"image": {
 					"file": "images/png/icon-internet.png",
 					"alt": "Satellite internet",
@@ -1013,6 +1022,8 @@
 			"missions": [{
 				"title": "Weather forecasting",
 				"description": "Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean.",
+				"launch": "",
+				"success": "",
 				"image": {
 					"file": "images/png/icon-cloud.png",
 					"alt": "Weather forecasting",
@@ -1038,6 +1049,8 @@
 			},{
 				"title": "Vegetation mapping",
 				"description": "Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmit the images back to the ground.",
+				"launch": "",
+				"success": "",
 				"image": {
 					"file": "images/png/icon-plant.png",
 					"alt": "Vegetation mapping",
@@ -1058,6 +1071,8 @@
 			},{
 				"title": "Natural disaster monitoring",
 				"description": "When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras can show floods and fires. Radio waves can show regions of earth deformation, such as after earthquakes.",
+				"launch": "",
+				"success": "",
 				"image": {
 					"file": "images/png/icon-disaster.png",
 					"alt": "Natural disaster monitoring",
@@ -1098,6 +1113,8 @@
 			},{
 				"title": "Surface mapping",
 				"description": "Measure the varying height of land and oceans over the Earth's surface.",
+				"launch": "Welcome to the launch of the UK Space Agency's latest earth observation satellite that will measure the varying height of land and oceans over the Earth's surface.",
+				"success": "Congratulations, your earth observation satellite is now measuring the varying height of land and oceans over the Earth's surface.",
 				"image": {
 					"file": "images/png/icon-surface.png",
 					"alt": "Surface mapping",

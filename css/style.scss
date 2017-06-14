@@ -843,13 +843,40 @@ table.data td:last-child { text-align: left; }
 
 body.launch .rocket-holder .stage { opacity: 1; }
 body.launch .page { width: 100%; height: 100%; position: relative; }
-#launchpad { position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; }
+#sky {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 0;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#326d95+0,7f8f9e+100 */
+	background: #326d95; /* Old browsers */
+	background: -moz-linear-gradient(top, #326d95 0%, #7f8f9e 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #326d95 0%,#7f8f9e 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #326d95 0%,#7f8f9e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+#launchpad {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 1;
+}
 #launchpad .scenery { position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; width: 100%; height: 100%; }
 #launchpad #launchpad-bg { z-index: 0; background-image: url("../images/launchpad_CSG_bg.png"); background-position: center bottom; background-repeat: no-repeat; background-size: cover; }
-#launchpad #launchpad-mg { z-index: 1; }
+#launchpad #launchpad-mg { z-index: 1;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	width: 100%;
+	bottom: 150px;
+}
 #launchpad .rocket-holder {
 	position: absolute;
-	bottom: 160px;
+	bottom: 0px;
     display: block;
     height: auto;
     max-height: auto;
@@ -859,8 +886,7 @@ body.launch .page { width: 100%; height: 100%; position: relative; }
 body.launch .holder { display: block!important; }
 #launchpad .rocket-holder .holder { background-image: none; font-size: 0.5em; display: block!important; padding: 0px; }
 #launchpad #launchpad-fg { z-index: 2; background-image: url("../images/launchpad_CSG_fg.png"); background-position: center bottom; background-repeat: no-repeat; background-size: cover; }
-body.launch #terminal { position: absolute; right: 1em; top: 1em; width: 35%; height: 50%; background-color: rgba(0,0,0,0.6); z-index: 100; padding: 1em; }
-#launchpad #vehicle { transition: bottom 10s ease-in-out; }
+body.launch #terminal { position: absolute; right: 1em; top: 1em; width: 35%; height: 50%; background-color: rgba(0,0,0,0.6); z-index: 100; padding: 1em; font-family: monospace; color: white; overflow-y: auto;}
 
 .not-at-start { display: none!important; }
 

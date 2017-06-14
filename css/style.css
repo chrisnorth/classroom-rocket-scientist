@@ -3362,12 +3362,30 @@ body.launch .page {
   height: 100%;
   position: relative; }
 
+#sky {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 0;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#326d95+0,7f8f9e+100 */
+  background: #326d95;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #326d95 0%, #7f8f9e 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #326d95 0%, #7f8f9e 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #326d95 0%, #7f8f9e 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ }
+
 #launchpad {
   position: absolute;
   left: 0px;
   top: 0px;
   right: 0px;
-  bottom: 0px; }
+  bottom: 0px;
+  z-index: 1; }
 
 #launchpad .scenery {
   position: absolute;
@@ -3386,11 +3404,17 @@ body.launch .page {
   background-size: cover; }
 
 #launchpad #launchpad-mg {
-  z-index: 1; }
+  z-index: 1;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  bottom: 150px; }
 
 #launchpad .rocket-holder {
   position: absolute;
-  bottom: 160px;
+  bottom: 0px;
   display: block;
   height: auto;
   max-height: auto;
@@ -3421,10 +3445,10 @@ body.launch #terminal {
   height: 50%;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 100;
-  padding: 1em; }
-
-#launchpad #vehicle {
-  transition: bottom 10s ease-in-out; }
+  padding: 1em;
+  font-family: monospace;
+  color: white;
+  overflow-y: auto; }
 
 .not-at-start {
   display: none !important; }
