@@ -173,12 +173,16 @@ scenarios.NAV.sat-nav.req.radio-tx.label: A way to send signals to the groud.
 scenarios.NAV.sat-nav.req.radio-tx.error: Your satellite does not have any way to transmit timing signals to people on the ground.
 scenarios.NAV.sat-nav.req.orbit.label: See the whole planet.
 scenarios.NAV.sat-nav.req.orbit.error: The orbit you have chosen does not allow you to see the whole planet.
+scenarios.NAV.sat-nav.launch:				Welcome to the launch of the UK Space Agency's latest navigation satellite that will allow people to accurately determine their position on Earth.
+scenarios.NAV.sat-nav.success: 				Congratulations, your navigation satellite is now sending people accurate information about their position on Earth on behalf of the UK Space Agency.
 scenarios.NAV.map.title: Map-making
 scenarios.NAV.map.description: Map the surface of the Earth. Need to be able to take images of small areas of the Earth's surface and measure the height of the ground in high detail.
 scenarios.NAV.map.req.opt-hires.label: An instrument capable of high resolution images.
 scenarios.NAV.map.req.opt-hires.error: The instrument you have chosen does not allow you to see the planet surface in enough detail.
 scenarios.NAV.map.req.orbit.label: See detail of planet surface.
 scenarios.NAV.map.req.orbit.error: The orbit you have chosen does not allow your satellite to see the planet surface in enough detail.
+scenarios.NAV.map.launch:				Welcome to the launch of the UK Space Agency's latest navigation satellite that will accurately map the surface of the Earth.
+scenarios.NAV.map.success: 				Congratulations, your navigation satellite is now accurately mapping the surface of the Earth on behalf of the UK Space Agency.
 scenarios.COMMS.title:                      Communication
 scenarios.COMMS.description:                These satellites are used for television, phone or internet transmissions. For example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.
 scenarios.COMMS.phone.title: Satellite telephone system
@@ -189,6 +193,8 @@ scenarios.COMMS.phone.req.phone-en.label: A way to broadcast phone signals.
 scenarios.COMMS.phone.req.phone-en.error: Your satellite does not have a way to broadcast phone signals
 scenarios.COMMS.phone.req.orbit.label: Satellite is continuously above one area of Earth
 scenarios.COMMS.phone.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
+scenarios.COMMS.phone.launch:				Welcome to the launch of the UK Space Agency's latest communication satellite that will allow people from regions all over the world to communicate by telephone.
+scenarios.COMMS.phone.success: 				Congratulations, your communication satellite is now receiving signals from the ground and broadcasting them to phones around the Earth on behalf of the UK Space Agency.
 scenarios.COMMS.internet.title: Satellite internet
 scenarios.COMMS.internet.description: Connect to the internet from remote regions of the world using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.
 scenarios.COMMS.internet.req.radio-tx.label: A way to send signals.
@@ -197,6 +203,8 @@ scenarios.COMMS.internet.req.internet-en.label: A way to encode internet signals
 scenarios.COMMS.internet.req.internet-en.error: You do not have a way to encode internet signals.
 scenarios.COMMS.internet.req.orbit.label: Satellite is continuously above one area of Earth
 scenarios.COMMS.internet.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
+scenarios.COMMS.internet.launch:				Welcome to the launch of the UK Space Agency's latest communication satellite that will help people from all over the world connect to the internet.
+scenarios.COMMS.internet.success: 				Congratulations, your communication satellite is now helping people connect to the internet from regions all over the world on behalf of the UK Space Agency.
 scenarios.COMMS.tv.title: Satellite TV
 scenarios.COMMS.tv.description: Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.
 scenarios.COMMS.tv.req.radio-tx.label: A way to send signals.
