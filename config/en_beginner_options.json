@@ -232,7 +232,7 @@
 			"title": "Internet encoder",
 			"description": "Used to broadcast the internet to people around the world.",
 			"texture": {
-				"icon": ""
+				"icon": "texture internet-en"
 			},
 			"mass": { "value": 0, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "credits", "dimension": "currency" },

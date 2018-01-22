@@ -423,7 +423,7 @@
 			"title": "%package.internet-en.title%",
 			"description": "%package.internet-en.description%",
 			"texture": {
-				"icon": ""
+				"icon": "texture internet-en"
 			},
 			"mass": { "value": 2, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 10, "units": "credits", "dimension": "currency" },

@@ -3338,6 +3338,10 @@ ul.orrery li.GEO {
   background: url("../images/png/icon-gps.png");
   background-size: 100% 100%; }
 
+.texture.internet-en .face.front, .texture.internet-en .face.front:before {
+  background: url("../images/png/icon-internet.png");
+  background-size: 100% 100%; }
+
 .texture.radio-rx .face.front, .texture.radio-rx .face.front:before {
   background: url("../images/png/icon-radio-rx.png");
   background-size: 100% 100%; }

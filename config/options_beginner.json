@@ -232,7 +232,7 @@
 			"title": "%package.internet-en.title%",
 			"description": "%package.internet-en.description%",
 			"texture": {
-				"icon": ""
+				"icon": "texture internet-en"
 			},
 			"mass": { "value": 0, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "credits", "dimension": "currency" },

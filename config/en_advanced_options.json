@@ -423,7 +423,7 @@
 			"title": "Internet encoder",
 			"description": "",
 			"texture": {
-				"icon": ""
+				"icon": "images/png/icon-internet.png"
 			},
 			"mass": { "value": 2, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
