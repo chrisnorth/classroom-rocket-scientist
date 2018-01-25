@@ -5,12 +5,13 @@
 #foreach $my (keys(%{$scalar->{'package'}})){
 #	print "$my: ".$scalar->{'package'}{$my}{'title'}."\n";
 #}
-			
-# We need to temporarily include the base directory 
+
+# We need to temporarily include the base directory
 # of this perl script on the include path
 BEGIN{ if($0 =~ /^(.*\/)[^\/]+/){ unshift @INC, $1 } }
 
 # Require the common file
+use lib './';
 require('common.pl');
 
 # Update the base directory
@@ -39,7 +40,7 @@ sub processLanguage {
 	$lang = $_[0];
 
 	($code,$level) = split(/_/,$lang);
-	
+
 	%keys = loadLanguage($basedir.$lang.".yaml");
 
 	foreach $v (@versions){
@@ -70,5 +71,5 @@ sub processLanguage {
 		}
 	}
 	print "\n";
-	
+
 }
