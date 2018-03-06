@@ -843,12 +843,12 @@
 					"error": "%scenarios.NAV.sat-nav.req.bus.error%"
 				},{
 					"type": "package",
-					"oneof": ["atomicclock"],
+					"oneof": ["atomic-clock"],
 					"label": "%scenarios.NAV.sat-nav.req.atomic.label%",
 					"error": "%scenarios.NAV.sat-nav.req.atomic.error%"
 				},{
 					"type": "package",
-					"oneof": ["radio_tx"],
+					"oneof": ["radio-tx"],
 					"label": "%scenarios.NAV.sat-nav.req.radio-tx.label%",
 					"error": "%scenarios.NAV.sat-nav.req.radio-tx.error%"
 				},{
@@ -961,7 +961,7 @@
 					"alt": "%scenarios.COMMS.internet.title%",
 					"credit": "parkjisun"
 				},
-				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 300, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["radio-tx"],
@@ -1052,7 +1052,7 @@
 					"alt": "%scenarios.EO.disaster.title%",
 					"credit": "Leadway Global LLC"
 				},
-				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 1000, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-opt-hires"],
@@ -1094,7 +1094,7 @@
 					"alt": "%scenarios.EO.surface.title%",
 					"credit": "OCHA Visual Information Unit"
 				},
-				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 1000, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["radar-alt"],
@@ -1112,7 +1112,7 @@
 					"error": "%scenarios.EO.surface.req.radio-tx.error%"
                 },{
                     "type": "package",
-                    "oneof": ["sat-tracker"],
+                    "oneof": ["gps-rx"],
                     "label": "%scenarios.EO.surface.req.sat-tracker.label%",
 					"error": "%scenarios.EO.surface.req.sat-tracker.error%"
                 },{

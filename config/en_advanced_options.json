@@ -423,7 +423,7 @@
 			"title": "Internet encoder",
 			"description": "",
 			"texture": {
-				"icon": "images/png/icon-internet.png"
+				"icon": "texture internet-en"
 			},
 			"mass": { "value": 2, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
@@ -1029,7 +1029,7 @@
 					"alt": "Weather forecasting",
 					"credit": "Megan Mitchell"
 				},
-				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 250, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-fir"],
@@ -1120,7 +1120,7 @@
 					"alt": "Surface mapping",
 					"credit": "OCHA Visual Information Unit"
 				},
-				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 1000, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["radar-alt"],

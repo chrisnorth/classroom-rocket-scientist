@@ -1,9 +1,9 @@
-# Create config JSON
+:: Create config JSON
 
 echo "Creating JSON"
 perl config/config.pl
 
-# Create the HTML
+:: Create the HTML
 echo "Creating front page HTML"
 perl config/template.pl --overwrite --mode advanced templates/index.html index.html
 
@@ -19,10 +19,10 @@ perl config/template.pl --overwrite --mode advanced templates/level.html advance
 echo "Creating launch HTML"
 perl config/template.pl --overwrite --mode advanced templates/launch.html launch.html
 
-# Create the CSS
+:: Create the CSS
 echo "Creating CSS"
 sass css/style.scss css/style.css
 
-# Create the images
-echo "Updating images"
-perl config/textures.pl
+:: Create the images
+:: echo "Updating images"
+:: perl config/textures.pl

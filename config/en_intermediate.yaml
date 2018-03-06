@@ -213,8 +213,8 @@ scenarios.COMMS.tv.req.orbit.label: Satellite is continuously above one area of 
 scenarios.COMMS.tv.req.tv-en.label: A way to encode TV signals.
 scenarios.COMMS.tv.req.tv-en.error: You do not have a way to encode TV signals.
 scenarios.COMMS.tv.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
-scenarios.COMMS.tv.launch:				Welcome to the launch of the UK Space Agency's latest communication satellite that will provide satellite TV to people all over the world. 
-scenarios.COMMS.tv.success: 				Congratulations, your communication satellite is now providing satellite TV to people all over the world. 
+scenarios.COMMS.tv.launch:				Welcome to the launch of the UK Space Agency's latest communication satellite that will provide satellite TV to people all over the world.
+scenarios.COMMS.tv.success: 				Congratulations, your communication satellite is now providing satellite TV to people all over the world.
 scenarios.EO.title:                         Earth Observation
 scenarios.EO.description:                   These satellites are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.
 scenarios.EO.weather.title: Weather forecasting
@@ -267,7 +267,7 @@ scenarios.EO.surface.req.orbit.error: The orbit you have chosen does not allow y
 scenarios.EO.surface.launch:  Welcome to the launch of the UK Space Agency's latest earth observation satellite that will measure the varying height of land and oceans over the Earth's surface.
 scenarios.EO.surface.success: Congratulations, your earth observation satellite is now measuring the varying height of land and oceans over the Earth's surface.
 
-launch.prep.checklist:               <p>We've detected problems. These should be fixed before trying to launch or your mission will fail. Please check the following sections:</p>$requirementssectionlist$ 
+launch.prep.checklist:               <p>We've detected problems. These should be fixed before trying to launch or your mission will fail. Please check the following sections:</p>$requirementssectionlist$
 launch.prep.goforlaunch:             Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.
 launch.prep.button:                  Launch?
 launch.countdown: Count down

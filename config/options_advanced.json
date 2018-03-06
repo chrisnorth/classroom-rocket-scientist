@@ -1029,7 +1029,7 @@
 					"alt": "%scenarios.EO.weather.title%",
 					"credit": "Megan Mitchell"
 				},
-				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 250, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-fir"],
@@ -1120,7 +1120,7 @@
 					"alt": "%scenarios.EO.surface.title%",
 					"credit": "OCHA Visual Information Unit"
 				},
-				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 1000, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["radar-alt"],

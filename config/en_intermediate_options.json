@@ -399,7 +399,7 @@
 			"title": "Internet encoder",
 			"description": "",
 			"texture": {
-				"icon": "images/png/icon-internet.png"
+				"icon": "texture internet-en"
 			},
 			"mass": { "value": 0, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "credits", "dimension": "currency" },
@@ -843,12 +843,12 @@
 					"error": "Your satellite must be big enough for your mission."
 				},{
 					"type": "package",
-					"oneof": ["atomicclock"],
+					"oneof": ["atomic-clock"],
 					"label": "Needs to be able to measure time very accurately",
 					"error": "You are not able to measure the time accurately enough."
 				},{
 					"type": "package",
-					"oneof": ["radio_tx"],
+					"oneof": ["radio-tx"],
 					"label": "A way to send signals.",
 					"error": "Your satellite does not have any way to transmit timing signals to people on the ground."
 				},{
@@ -922,8 +922,8 @@
 			},{
 				"title": "Satellite TV",
 				"description": "Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.",
-				"launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will provide satellite TV to people all over the world. ",
-				"success": "Congratulations, your communication satellite is now providing satellite TV to people all over the world. ",
+				"launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will provide satellite TV to people all over the world.",
+				"success": "Congratulations, your communication satellite is now providing satellite TV to people all over the world.",
 				"image": {
 					"file": "images/png/icon-tv.png",
 					"alt": "Satellite TV",
@@ -961,7 +961,7 @@
 					"alt": "Satellite internet",
 					"credit": "parkjisun"
 				},
-				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 300, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["radio-tx"],
@@ -1052,7 +1052,7 @@
 					"alt": "Natural disaster monitoring",
 					"credit": "Leadway Global LLC"
 				},
-				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 1000, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-opt-hires"],
@@ -1094,7 +1094,7 @@
 					"alt": "Surface mapping",
 					"credit": "OCHA Visual Information Unit"
 				},
-				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 1000, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["radar-alt"],
@@ -1112,7 +1112,7 @@
 					"error": "You do not have a way to transmit signals to the ground."
                 },{
                     "type": "package",
-                    "oneof": ["sat-tracker"],
+                    "oneof": ["gps-rx"],
                     "label": "Enables high level precision of the satellite location.",
 					"error": "You do not have a way to locate the position of the satellite accurately."
                 },{
@@ -1139,7 +1139,7 @@
 	},
     "launch": {
     	"prep": {
-    		"checklist": "<p>We've detected problems. These should be fixed before trying to launch or your mission will fail. Please check the following sections:</p>$requirementssectionlist$ ",
+    		"checklist": "<p>We've detected problems. These should be fixed before trying to launch or your mission will fail. Please check the following sections:</p>$requirementssectionlist$",
 			"goforlaunch": "Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.",
 			"button": "Launch?"
     	},
