@@ -105,18 +105,14 @@ package.radar-alt.requires.dish.label:      The radar altimeter requires a radar
 package.radar-alt.requires.dish.error:      You need to include a radar dish for the altimeter to work.
 package.radar-dish.title:                   Radar dish
 package.radar-dish.description:             Transmits and receives radio waves for the radar altimeter
-package.radio-tx.title:                     Radio transmitter
-package.radio-tx.description:               Receives and transmits information between the satellite and the ground
-package.radio-tx-mini.title:                Miniature radio transmitter
-package.radio-tx-mini.description:          Receives and transmits information between the satellite and the ground
-package.phone-en-mini.title:                Miniature phone encoder
-package.phone-en-mini.description:          Broadcasts signals to and from telephones across the world.
 package.atomic-clock.title:                 Atomic clock
 package.atomic-clock.description:           Very accurate clock, required by navigation satellites to measure the time to very high precision.
 package.atomic-clock-small.title:           Atomic clock (compact)
 package.atomic-clock-small.description:     Very accurate clock, required by navigation satellites to measure the time to very high precision.
-package.gps-rx.title:                       GPS receiver (miniature)
+package.gps-rx.title:                       GPS receiver
 package.gps-rx.description:                 Used to monitor the satellite's position to very high accuracy
+package.gps-rx-mini.title:                  GPS receiver (miniature)
+package.gps-rx-mini.description:            Used to monitor the satellite's position to very high accuracy
 package.camera-mini.title:                  Camera (miniature)
 package.camera-mini.description:            Takes images of the ground
 package.dish-large.title:                   Radio dish (large)
@@ -127,10 +123,12 @@ package.dish-small.title:                   Radio antenna (compact)
 package.dish-small.description:             Radio dish capable of controlling and transmitting images & data from up to 2 instruments
 package.radio-antenna-cube.title:           Radio antenna (deployable)
 package.radio-antenna-cube.description:     Deployable radio antenna capable of controlling and transmitting images & data from up to 2 instruments.
-package.internet-en.title: Internet encoder
-package.internet-en.description:
-package.tv-en.title: TV encoder
-package.tv-en.description:
+package.phone-en-mini.title:                Miniature phone encoder
+package.phone-en-mini.description:          Broadcasts signals to and from telephones across the world.
+package.internet-en.title:                  Internet encoder
+package.internet-en.description:            Used to broadcast the internet to people around the world.
+package.tv-en.title:                        TV encoder
+package.tv-en.description:                  Used to broadcast the TV to people around the world.
 package.battery-large.title:                Large battery
 package.battery-large.description:          Stores power from solar panels to allow operation when not in sunlight
 package.battery-large.requires.solar.label: Requires solar panels to charge up
@@ -169,7 +167,7 @@ scenarios.NAV.sat-nav.req.bus.label: A satellite that is small, medium or large.
 scenarios.NAV.sat-nav.req.bus.error: Your satellite must be big enough for your mission.
 scenarios.NAV.sat-nav.req.atomic.label:     Needs to be able to measure time very accurately
 scenarios.NAV.sat-nav.req.atomic.error:     You are not able to measure the time accurately enough.
-scenarios.NAV.sat-nav.req.radio-tx.label: A way to send signals.
+scenarios.NAV.sat-nav.req.radio-tx.label: A way to send signals to the groud.
 scenarios.NAV.sat-nav.req.radio-tx.error: Your satellite does not have any way to transmit timing signals to people on the ground.
 scenarios.NAV.sat-nav.req.orbit.label: See the whole planet.
 scenarios.NAV.sat-nav.req.orbit.error: The orbit you have chosen does not allow you to see the whole planet.

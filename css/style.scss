@@ -830,16 +830,25 @@ table.data td:last-child { text-align: left; }
 
 /* Define textures */
 .texture .face.front { background: url('../images/png/foil_2x2.png'); }
-.texture.atomic-clock .face.front { background: url('../images/png/icon-time.png'); background-size:100% 100%; }
-.texture.camera-fir .face.front, .texture.camera-fir .face.front:before { background: url('../images/png/icon-camera-red-wide.png'); background-size:100% 100%; }
-.texture.camera-nir .face.front, .texture.camera-nir .face.front:before { background: url('../images/png/icon-camera-green.png'); background-size:100% 100%; }
-.texture.camera-opt .face.front, .texture.camera-opt .face.front:before { background: url('../images/png/icon-camera-blue.png'); background-size:100% 100%; }
+.texture.atomic-clock .face.front, .texture.atomic-clock .face.front { background: url('../images/png/icon-clock.png'); background-size:100% 100%; }
+.texture.atomic-clock-small .face.front, .texture.atomic-clock-small .face.front { background: url('../images/png/icon-clock-mini.png'); background-size:100% 100%; }
+.texture.camera-fir .face.front, .texture.camera-fir .face.front:before { background: url('../images/png/camera-thermal.png'); background-size:100% 100%; }
+.texture.camera-nir .face.front, .texture.camera-nir .face.front:before { background: url('../images/png/camera-veg.png'); background-size:100% 100%; }
+.texture.camera-opt .face.front, .texture.camera-opt .face.front:before { background: url('../images/png/camera-opt.png'); background-size:100% 100%; }
+.texture.camera-opt-hires .face.front, .texture.camera-opt .face.front:before { background: url('../images/png/camera-opt-hires.png'); background-size:100% 100%; }
+.texture.spect-opt .face.front, .texture.spect-opt .face.front:before { background: url('../images/png/spectro-opt.png'); background-size:100% 100%; }
+.texture.spect-nir .face.front, .texture.spect-nir .face.front:before { background: url('../images/png/spectro-veg.png'); background-size:100% 100%; }
+.texture.spect-fir .face.front, .texture.spect-fir .face.front:before { background: url('../images/png/spectro-thermal.png'); background-size:100% 100%; }
 .texture.gps-rx .face.front, .texture.gps-rx .face.front:before { background: url('../images/png/icon-gps.png'); background-size:100% 100%; }
-.texture.internet-en .face.front, .texture.internet-en .face.front:before { background: url('../images/png/icon-internet.png'); background-size:100% 100%; }
+.texture.radar-alt .face.front, .texture.radar-alt .face.front:before { background: url('../images/png/icon-altimeter.png'); background-size:100% 100%; }
+.texture.internet-en .face.front, .texture.internet-en .face.front:before { background: url('../images/png/icon-wifi.png'); background-size:100% 100%; }
+.texture.tv-en .face.front, .texture.tv-en .face.front:before { background: url('../images/png/icon-tv.png'); background-size:100% 100%; }
 .texture.radio-rx .face.front, .texture.radio-rx .face.front:before { background: url('../images/png/icon-radio-rx.png'); background-size:100% 100%; }
 .texture.radio-tx .face.front, .texture.radio-tx .face.front:before { background: url('../images/png/icon-radio-tx.png'); background-size:100% 100%; }
 .texture.phone-en .face.front, .texture.phone-en .face.front:before { background: url('../images/png/icon-phone.png'); background-size:100% 100%; }
-.texture.phone-en-mini .face.front, .texture.phone-en-mini .face.front:before { background: url('../images/png/icon-phone.png'); background-size:100% 100%; }
+.texture.phone-en .face.front, .texture.phone-en-mini .face.front:before { background: url('../images/png/icon-phone.png'); background-size:100% 100%; }
+.texture.battery-large .face.front, .texture.battery-large .face.front:before { background: url('../images/png/icon-battery-large.png'); background-size:100% 100%; }
+.texture.battery-small .face.front, .texture.battery-small .face.front:before { background: url('../images/png/icon-battery.png'); background-size:100% 100%; }
 
 
 body.launch .rocket-holder .stage { opacity: 1; }

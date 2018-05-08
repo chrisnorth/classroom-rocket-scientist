@@ -161,22 +161,6 @@
 			],
 			"power": { "value": 20, "units": "watts", "dimension": "power" }
 		},
-		"radio-tx": {
-			"slot":	"2x2",
-			"title": "%package.radio-tx.title%",
-			"description": "%package.radio-tx.description%",
-			"texture": {
-				"icon": "texture radio-tx"
-			},
-			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 20, "units": "watts", "dimension": "power" }
-		},
 		"atomic-clock": {
 			"slot":	"2x2",
 			"title": "%package.atomic-clock.title%",
@@ -657,7 +641,7 @@
 					"error": "%scenarios.NAV.sat-nav.req.atomic-clock.error%"
 				},{
 					"type": "package",
-					"oneof": ["radio-tx"],
+					"oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
 					"label": "%scenarios.NAV.sat-nav.req.radio-tx.label%",
 					"error": "%scenarios.NAV.sat-nav.req.radio-tx.error%"
 				},{
@@ -742,7 +726,7 @@
 				},
 				"requires": [{
                     "type": "package",
-                    "oneof": ["radio-tx"],
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
                     "label": "%scenarios.COMMS.phone.req.radio-tx.label%",
 					"error": "%scenarios.COMMS.phone.req.radio-tx.error%"
                 },{
@@ -773,7 +757,7 @@
 				},
 				"requires": [{
                     "type": "package",
-                    "oneof": ["radio-tx"],
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
                     "label": "%scenarios.COMMS.internet.req.radio-tx.label%",
 					"error": "%scenarios.COMMS.internet.req.radio-tx.error%"
                 },{
@@ -809,7 +793,7 @@
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"choices": {
-					"bus": "small",
+					"bus": "medium",
 					"orbit": "LEO"
 				},
 				"requires": [{
@@ -850,7 +834,7 @@
 					"error": "%scenarios.EO.disaster.req.camera-opt.error%"
                 },{
                     "type": "package",
-                    "oneof": ["radio-tx"],
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
                     "label": "%scenarios.EO.disaster.req.radio-tx.label%",
 					"error": "%scenarios.EO.disaster.req.radio-tx.error%"
                 },{

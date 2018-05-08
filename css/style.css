@@ -1267,7 +1267,7 @@ body.launch .rocket-holder .stage {
 .isogrid.threeD {
   background-image: -webkit-linear-gradient(60deg, transparent 49%, white 49.4%, white 50.6%, transparent 51%, transparent), -webkit-linear-gradient(-60deg, transparent 49%, white 49.4%, white 50.6%, transparent 51%, transparent);
   background-image: linear-gradient(30deg, transparent 49%, white 49.4%, white 50.6%, transparent 51%, transparent), linear-gradient(-30deg, transparent 49%, white 49.4%, white 50.6%, transparent 51%, transparent);
-  background-size: 5.2896em 3.0294981818em;
+  background-size: 5.2896em 3.0295em;
   background-position: 0 0, 0 0; }
 
 section {
@@ -3318,28 +3318,56 @@ ul.orrery li.GEO {
 .texture .face.front {
   background: url("../images/png/foil_2x2.png"); }
 
-.texture.atomic-clock .face.front {
-  background: url("../images/png/icon-time.png");
+.texture.atomic-clock .face.front, .texture.atomic-clock .face.front {
+  background: url("../images/png/icon-clock.png");
+  background-size: 100% 100%; }
+
+.texture.atomic-clock-small .face.front, .texture.atomic-clock-small .face.front {
+  background: url("../images/png/icon-clock-mini.png");
   background-size: 100% 100%; }
 
 .texture.camera-fir .face.front, .texture.camera-fir .face.front:before {
-  background: url("../images/png/icon-camera-red-wide.png");
+  background: url("../images/png/camera-thermal.png");
   background-size: 100% 100%; }
 
 .texture.camera-nir .face.front, .texture.camera-nir .face.front:before {
-  background: url("../images/png/icon-camera-green.png");
+  background: url("../images/png/camera-veg.png");
   background-size: 100% 100%; }
 
 .texture.camera-opt .face.front, .texture.camera-opt .face.front:before {
-  background: url("../images/png/icon-camera-blue.png");
+  background: url("../images/png/camera-opt.png");
+  background-size: 100% 100%; }
+
+.texture.camera-opt-hires .face.front, .texture.camera-opt .face.front:before {
+  background: url("../images/png/camera-opt-hires.png");
+  background-size: 100% 100%; }
+
+.texture.spect-opt .face.front, .texture.spect-opt .face.front:before {
+  background: url("../images/png/spectro-opt.png");
+  background-size: 100% 100%; }
+
+.texture.spect-nir .face.front, .texture.spect-nir .face.front:before {
+  background: url("../images/png/spectro-veg.png");
+  background-size: 100% 100%; }
+
+.texture.spect-fir .face.front, .texture.spect-fir .face.front:before {
+  background: url("../images/png/spectro-thermal.png");
   background-size: 100% 100%; }
 
 .texture.gps-rx .face.front, .texture.gps-rx .face.front:before {
   background: url("../images/png/icon-gps.png");
   background-size: 100% 100%; }
 
+.texture.radar-alt .face.front, .texture.radar-alt .face.front:before {
+  background: url("../images/png/icon-altimeter.png");
+  background-size: 100% 100%; }
+
 .texture.internet-en .face.front, .texture.internet-en .face.front:before {
-  background: url("../images/png/icon-internet.png");
+  background: url("../images/png/icon-wifi.png");
+  background-size: 100% 100%; }
+
+.texture.tv-en .face.front, .texture.tv-en .face.front:before {
+  background: url("../images/png/icon-tv.png");
   background-size: 100% 100%; }
 
 .texture.radio-rx .face.front, .texture.radio-rx .face.front:before {
@@ -3354,8 +3382,16 @@ ul.orrery li.GEO {
   background: url("../images/png/icon-phone.png");
   background-size: 100% 100%; }
 
-.texture.phone-en-mini .face.front, .texture.phone-en-mini .face.front:before {
+.texture.phone-en .face.front, .texture.phone-en-mini .face.front:before {
   background: url("../images/png/icon-phone.png");
+  background-size: 100% 100%; }
+
+.texture.battery-large .face.front, .texture.battery-large .face.front:before {
+  background: url("../images/png/icon-battery.png");
+  background-size: 100% 100%; }
+
+.texture.battery-small .face.front, .texture.battery-small .face.front:before {
+  background: url("../images/png/icon-battery.png");
   background-size: 100% 100%; }
 
 body.launch .rocket-holder .stage {

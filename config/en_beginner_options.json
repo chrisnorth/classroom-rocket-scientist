@@ -161,22 +161,6 @@
 			],
 			"power": { "value": 20, "units": "watts", "dimension": "power" }
 		},
-		"radio-tx": {
-			"slot":	"2x2",
-			"title": "Radio transmitter",
-			"description": "Sends information collected by the satellite to Earth and recieves signals from the ground control team.",
-			"texture": {
-				"icon": "texture radio-tx"
-			},
-			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 20, "units": "watts", "dimension": "power" }
-		},
 		"atomic-clock": {
 			"slot":	"2x2",
 			"title": "Atomic clock",
@@ -657,7 +641,7 @@
 					"error": ""
 				},{
 					"type": "package",
-					"oneof": ["radio-tx"],
+					"oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
 					"label": "You need a way to send signals back to Earth.",
 					"error": "Your satellite does not have any way to send signals to the ground control team."
 				},{
@@ -742,7 +726,7 @@
 				},
 				"requires": [{
                     "type": "package",
-                    "oneof": ["radio-tx"],
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
                     "label": "You need a way to send signals.",
 					"error": "Your satellite does not have a way to send signals to the ground."
                 },{
@@ -773,7 +757,7 @@
 				},
 				"requires": [{
                     "type": "package",
-                    "oneof": ["radio-tx"],
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
                     "label": "You need a way to send signals.",
 					"error": "Your satellite does not have a way to send signals to the ground."
                 },{
@@ -809,7 +793,7 @@
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"choices": {
-					"bus": "small",
+					"bus": "medium",
 					"orbit": "LEO"
 				},
 				"requires": [{
@@ -850,7 +834,7 @@
 					"error": "Your satellite does not allow you to see the planet's surface in enough detail."
                 },{
                     "type": "package",
-                    "oneof": ["radio-tx"],
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
                     "label": "You need a way to send signals.",
 					"error": "You do not have a way to transmit signals to the ground."
                 },{

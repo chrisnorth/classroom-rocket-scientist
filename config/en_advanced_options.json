@@ -113,6 +113,22 @@
 			],
 			"power": { "value": 50, "units": "watts", "dimension": "power" }
 		},
+		"camera-mini": {
+			"slot":	"1x1",
+			"title": "Camera (miniature)",
+			"description": "Takes images of the ground",
+			"texture": {
+				"icon": "texture camera-opt"
+			},
+			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
+			"dimensions": [
+				{ "value": 0.05, "units": "m", "dimension": "length" },
+				{ "value": 0.05, "units": "m", "dimension": "length" },
+				{ "value": 0.1, "units": "m", "dimension": "length" }
+			],
+			"power": { "value": 10, "units": "watts", "dimension": "power" }
+		},
 		"camera-nir": {
 			"slot":	"2x2",
 			"title": "Vegetation camera",
@@ -233,28 +249,12 @@
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
 		},
-		"radio-tx": {
+		"phone-en": {
 			"slot":	"2x2",
-			"title": "Radio transmitter",
-			"description": "Receives and transmits information between the satellite and the ground",
+			"title": "",
+			"description": "Broadcasts signals to and from telephones across the world.",
 			"texture": {
-				"icon": "texture radio-tx"
-			},
-			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 20, "units": "watts", "dimension": "power" }
-		},
-		"radio-tx-mini": {
-			"slot":	"1x1",
-			"title": "Miniature radio transmitter",
-			"description": "Receives and transmits information between the satellite and the ground",
-			"texture": {
-				"icon": "texture radio-tx"
+				"icon": "texture phone-en"
 			},
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
@@ -265,12 +265,12 @@
 			],
 			"power": { "value": 2, "units": "watts", "dimension": "power" }
 		},
-        "phone-en-mini": {
+		"phone-en-mini": {
 			"slot":	"1x1",
 			"title": "Miniature phone encoder",
 			"description": "Broadcasts signals to and from telephones across the world.",
 			"texture": {
-				"icon": "texture phone-en-mini"
+				"icon": "texture phone-en"
 			},
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
@@ -314,6 +314,22 @@
 			"power": { "value": 5, "units": "watts", "dimension": "power" }
 		},
 		"gps-rx": {
+			"slot":	"2x2",
+			"title": "GPS receiver",
+			"description": "Used to monitor the satellite's position to very high accuracy",
+			"texture": {
+				"icon": "texture gps-rx"
+			},
+			"mass": { "value": 0.5, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 2, "units": "credits", "dimension": "currency" },
+			"dimensions": [
+				{ "value": 0.05, "units": "m", "dimension": "length" },
+				{ "value": 0.05, "units": "m", "dimension": "length" },
+				{ "value": 0.1, "units": "m", "dimension": "length" }
+			],
+			"power": { "value": 5, "units": "watts", "dimension": "power" }
+		},
+		"gps-rx-mini": {
 			"slot":	"1x1",
 			"title": "GPS receiver (miniature)",
 			"description": "Used to monitor the satellite's position to very high accuracy",
@@ -328,22 +344,6 @@
 				{ "value": 0.1, "units": "m", "dimension": "length" }
 			],
 			"power": { "value": 5, "units": "watts", "dimension": "power" }
-		},
-		"camera-mini": {
-			"slot":	"1x1",
-			"title": "Camera (miniature)",
-			"description": "Takes images of the ground",
-			"texture": {
-				"icon": "texture camera-mini"
-			},
-			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.05, "units": "m", "dimension": "length" },
-				{ "value": 0.05, "units": "m", "dimension": "length" },
-				{ "value": 0.1, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 10, "units": "watts", "dimension": "power" }
 		},
 		"dish-large": {
 			"slot":	"4x8",
@@ -421,7 +421,7 @@
 		"internet-en" : {
 			"slot": "2x2",
 			"title": "Internet encoder",
-			"description": "",
+			"description": "Used to broadcast the internet to people around the world.",
 			"texture": {
 				"icon": "texture internet-en"
 			},
@@ -437,9 +437,9 @@
 		"tv-en" : {
 			"slot": "2x2",
 			"title": "TV encoder",
-			"description": "",
+			"description": "Used to broadcast the TV to people around the world.",
 			"texture": {
-				"icon": "images/png/icon-time.png"
+				"icon": "texture tv-en"
 			},
 			"mass": { "value": 2, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
@@ -872,8 +872,8 @@
 					"error": "You are not able to measure the time accurately enough."
 				},{
 					"type": "package",
-					"oneof": ["radio-tx"],
-					"label": "A way to send signals.",
+					"oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
+					"label": "A way to send signals to the groud.",
 					"error": "Your satellite does not have any way to transmit timing signals to people on the ground."
 				},{
 					"type": "orbit",
@@ -931,7 +931,7 @@
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
-                    "oneof": ["radio-tx","radio-tx-mini"],
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
                     "label": "A way to send signals.",
 					"error": "Your satellite does not have a way to send signals to the ground."
                 },{
@@ -958,14 +958,9 @@
 				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
-                    "oneof": ["radio-tx"],
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
                     "label": "A way to send signals.",
 					"error": "You do not have a way to send signals to the ground."
-                },{
-                    "type": "package",
-                    "oneof": ["radio-rx"],
-                    "label": "",
-					"error": ""
                 },{
                     "type": "package",
                     "oneof": ["tv-en"],
@@ -990,7 +985,7 @@
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
-                    "oneof": ["radio-tx"],
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
                     "label": "A way to send signals.",
 					"error": "You do not have a way to send signals to the ground."
                 },{
@@ -1059,7 +1054,7 @@
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
-                    "oneof": ["radio-tx"],
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
                     "label": "To transmit signals to the ground.",
 					"error": "You do not have a way to transmit signals to the ground."
                 },{
@@ -1086,7 +1081,7 @@
 					"error": "You do not have a way to take high resolution images of Earth where disaster has occured."
                 },{
                     "type": "package",
-                    "oneof": ["radio-tx"],
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
                     "label": "To transmit signals to the ground.",
 					"error": "You do not have a way to transmit signals to the ground."
                 },{
@@ -1133,7 +1128,7 @@
 					"error": "Your radar altimeter cannot work as it does not have a radar dish."
                 },{
                     "type": "package",
-                    "oneof": ["radio-tx"],
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
                     "label": "To receive instructions from ground control.",
 					"error": "You do not have a way to receive instructions from the ground."
                 },{
