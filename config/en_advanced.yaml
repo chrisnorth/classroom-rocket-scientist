@@ -138,8 +138,8 @@ package.battery-small.description:          Stores power from solar panels to al
 package.battery-small.requires.solar.label: Requires solar panels
 package.battery-small.requires.solar.error: Requires solar panels
 package.rtg.title:                          RTG
-package.rtg.description:                    A "Radioisotope Thermal Generator" uses nuclear technology to provide power. Due to safety concerns, it can't be used in low-Earth orbit.
-package.rtg.requires.orbit.label:           Not for low-Earth orbit
+package.rtg.description:                    A "Radioisotope Thermal Generator" (RTG) uses nuclear technology to provide power. Due to safety concerns, it can't be used in low-Earth orbit.
+package.rtg.requires.orbit.label:           RTG cannot be used in low-Earth orbit
 package.rtg.requires.orbit.error:           Can't use an RTG in low-Earth orbit
 package.solar-panel-surface.title:          Body-mounted solar panel
 package.solar-panel-surface.description:    Solar panels mounted onto surface of satellite, collecting sunlight to provide power. Can power instruments, or charge up batteries.
@@ -259,7 +259,7 @@ scenarios.EO.surface.req.orbit.error: The orbit you have chosen does not allow y
 scenarios.EO.surface.launch:  Welcome to the launch of the UK Space Agency's latest earth observation satellite that will measure the varying height of land and oceans over the Earth's surface.
 scenarios.EO.surface.success: Congratulations, your earth observation satellite is now measuring the varying height of land and oceans over the Earth's surface.
 
-launch.prep.checklist:               <p>We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail.</p>
+launch.prep.checklist:               <p>We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail. You haven't met these requirements:</p>$requirementslist$
 launch.prep.goforlaunch:             Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.
 launch.prep.button:                  Launch?
 launch.countdown: Count down

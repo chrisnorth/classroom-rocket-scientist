@@ -3326,7 +3326,7 @@ ul.orrery li.GEO {
   background: url("../images/png/icon-clock-mini.png");
   background-size: 100% 100%; }
 
-.texture.camera-thermal .face.front, .texture.camera-thermal .face.front:before {
+.texture.camera-fir .face.front, .texture.camera-fir .face.front:before {
   background: url("../images/png/camera-thermal.png");
   background-size: 100% 100%; }
 
@@ -3392,6 +3392,10 @@ ul.orrery li.GEO {
 
 .texture.battery-small .face.front, .texture.battery-small .face.front:before {
   background: url("../images/png/icon-battery.png");
+  background-size: 100% 100%; }
+
+.texture.rtg .face.front, .texture.rtg .face.front:before {
+  background: url("../images/png/icon-nuclear.png");
   background-size: 100% 100%; }
 
 body.launch .rocket-holder .stage {

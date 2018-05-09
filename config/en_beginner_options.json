@@ -94,7 +94,7 @@
 			"title": "Thermal camera",
 			"description": "Provides thermal images of Earth's atmosphere. This camera is useful for forecasting the weather, even during hours of darkness.",
 			"texture": {
-				"icon": "texture camera-thermal"
+				"icon": "texture camera-fir"
 			},
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 30, "units": "credits", "dimension": "currency" },

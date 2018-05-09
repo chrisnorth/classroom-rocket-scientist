@@ -1,4 +1,7 @@
 {
+	"options": {
+		"require-hint": true
+	},
 	"sections": [{
 		"id": "type",
 		"short": "Type",
@@ -150,7 +153,7 @@
 			"title": "Atmospheric camera",
 			"description": "Provides infrared images of the clouds and weather systems in the Earth's atmosphere, useful for weather forecasting and climate monitoring, even during darkness.",
 			"texture": {
-				"icon": "texture camera-thermal"
+				"icon": "texture camera-fir"
 			},
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 30, "units": "credits", "dimension": "currency" },
@@ -499,7 +502,7 @@
 		"rtg": {
 			"slot":	"2x4",
 			"title": "RTG",
-			"description": "A \"Radioisotope Thermal Generator\" uses nuclear technology to provide power. Due to safety concerns, it can't be used in low-Earth orbit.",
+			"description": "A \"Radioisotope Thermal Generator\" (RTG) uses nuclear technology to provide power. Due to safety concerns, it can't be used in low-Earth orbit.",
 			"texture": {
 				"icon": "texture rtg"
 			},
@@ -515,7 +518,7 @@
 				"type": "orbit",
 				"showin": "power",
 				"oneof": ["MEO","HEO","GEO"],
-				"label": "Not for low-Earth orbit",
+				"label": "RTG cannot be used in low-Earth orbit",
 				"error": "Can't use an RTG in low-Earth orbit"
 			}]
 		},
@@ -1160,7 +1163,7 @@
 	},
     "launch": {
     	"prep": {
-    		"checklist": "<p>We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail.</p>",
+    		"checklist": "<p>We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail. You haven't met these requirements:</p>$requirementslist$",
 			"goforlaunch": "Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.",
 			"button": "Launch?"
     	},
