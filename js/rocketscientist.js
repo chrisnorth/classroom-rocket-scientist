@@ -426,7 +426,7 @@ console.log(data)
 				}
 			}
 		}
-		
+
 		if(this.data['rocket'] && this.data['rocket'].requires){
 			for(var i = 0; i < this.data['rocket'].requires.length; i++) this.requirements = this.requirements.concat(this.data['rocket'].requires[i]);
 		}
@@ -438,8 +438,10 @@ console.log(data)
 		var sections = {'orbit':'orbit','instrument':'package','power':'power','rocket':'rocket'};
 		var ul,li,i,l,notlisted,j,e;
 		var requirementslist = "";
+		var requirementslistlaunch = "";
 		var requirementssectionlist = "";
 		var sectionexists;
+		var listedLaunch = new Array();
 		for(var s in sections){
 			// Remove existing requirements
 			S('#'+s+' .requirements ul').remove();
@@ -450,21 +452,30 @@ console.log(data)
 			sectionexists = (S('#'+s).length > 0);
 			for(var i = 0; i < this.requirements.length; i++){
 				if((this.requirements[i]['showin'] == sections[s] || this.requirements[i]['type'] == sections[s]) && this.requirements[i]['label'] != ""){
+				// if((this.requirements[i]['type'] == sections[s]) && this.requirements[i]['label'] != ""){
 					if(typeof this.requirements[i]['label'] === "undefined") this.requirements[i]['label'] = "";
 					l = "<li"+((this.data.options && this.data.options['require-hint']) ? (this.requirements[i]['met'] ? ' class="met"' : ' class="notmet"') : "")+">"+this.requirements[i]['label']+"</li>";
 					e = "<li"+((this.data.options && this.data.options['require-hint']) ? (this.requirements[i]['met'] ? ' class="met"' : ' class="notmet"') : "")+">"+this.requirements[i]['error']+"</li>";
 					notlisted = true;
+					notlistedLaunch = true;
 					for(j = 0; j < listed.length; j++){
 						if(listed[j] == l) notlisted = false;
+					}
+					for(k = 0; k < listedLaunch.length; k++){
+						if(listedLaunch[k] == l) notlistedLaunch = false;
 					}
 					if(notlisted){
 						listed.push(l);
 						li += l;
 						if(!this.requirements[i]['met'] && sectionexists) requirementslist += e;
 					}
+					if(notlistedLaunch){
+						listedLaunch.push(l);
+						if(!this.requirements[i]['met'] && sectionexists) requirementslistlaunch += e;
+					}
 				}
 			}
-			this.log('List of requirements for '+s,li);
+			this.log('List of requirements for '+s,li,listed);
 			if(li && sectionexists){
 				ul.after("<ol>"+li+"</ol>");
 				// Find which section this is and add it to the section list for the launch screen
@@ -481,10 +492,10 @@ console.log(data)
 		}
 
 		var ltxt = "";
-		
+
 		if(ok < this.requirements.length){
 			ltxt = '<div class="requirements">'+this.data.launch.prep.checklist+'</div>';
-			ltxt = ltxt.replace("$requirementslist$",(requirementslist ? '<ol class="errors">'+requirementslist+"</ol>":""));
+			ltxt = ltxt.replace("$requirementslist$",(requirementslistlaunch ? '<ol class="errors">'+requirementslistlaunch+"</ol>":""));
 			ltxt = ltxt.replace("$requirementssectionlist$",(requirementssectionlist ? '<ol class="errors">'+requirementssectionlist+"</ol>":""));
 		}else{
 			ltxt = this.data.launch.prep.goforlaunch;
@@ -706,6 +717,10 @@ console.log(data)
 				good = S(good[0][0]);
 				if(p.texture){
 					if(p.texture.class) goodboth.addClass(p.texture.class);
+					if(p.texture.icon) {
+						goodboth.addClass(p.texture.icon);
+						this.log('package texture',p,p.texture.icon)
+					}
 					if(p.texture.html){
 						html = p.texture.html;
 						// Deal with directions of hemispheres
@@ -725,7 +740,7 @@ console.log(data)
                         goodboth.html(html+good.html())
                         this.log('adding file to slot',p.texture.file)
                     }
-					this.log('Removing slot-empty from ',goodboth)
+					this.log('Removing slot-empty from ',goodboth,type)
 					goodboth.addClass('texture').addClass(type).removeClass('slot-empty');
 					this.log('Removing slot-empty from ',goodboth[1])
 
