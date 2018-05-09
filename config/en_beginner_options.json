@@ -94,7 +94,7 @@
 			"title": "Thermal camera",
 			"description": "Provides thermal images of Earth's atmosphere. This camera is useful for forecasting the weather, even during hours of darkness.",
 			"texture": {
-				"icon": "texture camera-fir"
+				"icon": "texture camera-thermal"
 			},
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 30, "units": "credits", "dimension": "currency" },
@@ -314,7 +314,7 @@
 	},{
 		"key": "S",
 		"type": "Solid-fuel rocket",
-		"diameter": { "value": 3.0, "units": "m", "dimension": "length" },
+		"diameter": { "value": 1, "units": "m", "dimension": "length" },
 		"height": { "value": 12.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 10500, "units": "kg", "dimension": "mass" },
 		"cost": { "value": 23, "units": "credits", "dimension": "currency" },
@@ -325,7 +325,7 @@
 	},{
 		"key": "M",
 		"type": "Liquid-fuel rocket",
-		"diameter": { "value": 3.0, "units": "m", "dimension": "length" },
+		"diameter": { "value": 2, "units": "m", "dimension": "length" },
 		"height": { "value": 30.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 9000, "units": "kg", "dimension": "mass" },
 		"cost": { "value": 12, "units": "credits", "dimension": "currency" },
@@ -336,7 +336,7 @@
 	},{
 		"key": "L",
 		"type": "Liquid-fuel rocket",
-		"diameter": { "value": 3.5, "units": "m", "dimension": "length" },
+		"diameter": { "value": 4.5, "units": "m", "dimension": "length" },
 		"height": { "value": 40.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 24000, "units": "kg", "dimension": "mass" },
 		"cost": { "value": 60, "units": "credits", "dimension": "currency" },
@@ -366,28 +366,6 @@
 		"fuel": { "value": 2000000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 263, "units": "s", "dimension": "time" },
 		"notes": "Based on Saturn V 1st stage (https://en.wikipedia.org/wiki/Saturn_V)"
-	},{
-		"key": "Plane",
-		"type": "Air-breathing rocket",
-		"diameter": { "value": 6, "units": "m", "dimension": "length" },
-		"height": { "value": 82.0, "units": "m", "dimension": "length" },
-		"drymass": { "value": 310000, "units": "kg", "dimension": "mass" },
-		"cost": { "value": 190, "units": "credits", "dimension": "currency" },
-		"thrust": { "value": 2000, "units": "kN", "dimension": "force" },
-		"fuel": { "value": 15000, "units": "kg", "dimension": "mass" },
-		"impulse": { "value": 3600, "units": "s", "dimension": "time" },
-		"notes": "Based on SABRE (https://en.wikipedia.org/wiki/SABRE_(rocket_engine))"
-	},{
-		"key": "RocketPlane",
-		"type": "Liquid-fuel rocket",
-		"diameter": { "value": 6, "units": "m", "dimension": "length" },
-		"height": { "value": 82.0, "units": "m", "dimension": "length" },
-		"drymass": { "value": 53000, "units": "kg", "dimension": "mass" },
-		"cost": { "value": 450, "units": "credits", "dimension": "currency" },
-		"thrust": { "value": 3000, "units": "kN", "dimension": "force" },
-		"fuel": { "value": 260000, "units": "kg", "dimension": "mass" },
-		"impulse": { "value": 460, "units": "s", "dimension": "time" },
-		"notes": "Based on SABRE (https://en.wikipedia.org/wiki/SABRE_(rocket_engine))"
 	}],
 	"secondstage": [{
 		"key": "None",
@@ -403,7 +381,7 @@
 	},{
 		"key": "XS",
 		"type": "Solid-fuel rocket",
-		"diameter": { "value": 1.3, "units": "m", "dimension": "length" },
+		"diameter": { "value": 1, "units": "m", "dimension": "length" },
 		"height": { "value": 17, "units": "m", "dimension": "length" },
 		"drymass": { "value": 2000, "units": "kg", "dimension": "mass" },
 		"cost": { "value": 5, "units": "credits", "dimension": "currency" },
@@ -436,7 +414,7 @@
 	},{
 		"key": "L",
 		"type": "Liquid-fuel rocket",
-		"diameter": { "value": 3.5, "units": "m", "dimension": "length" },
+		"diameter": { "value": 4.5, "units": "m", "dimension": "length" },
 		"height": { "value": 15, "units": "m", "dimension": "length" },
 		"drymass": { "value": 4000, "units": "kg", "dimension": "mass" },
 		"cost": { "value": 20, "units": "credits", "dimension": "currency" },
@@ -503,7 +481,18 @@
 	},{
 		"key": "L",
 		"type": "Liquid-fuel rocket",
-		"diameter": { "value": 7, "units": "m", "dimension": "length" },
+		"diameter": { "value": 8, "units": "m", "dimension": "length" },
+		"height": { "value": 19, "units": "m", "dimension": "length" },
+		"drymass": { "value": 13500, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 8, "units": "credits", "dimension": "currency" },
+		"thrust": { "value": 1000, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 110000, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 420, "units": "s", "dimension": "time" },
+		"notes": "Based on Saturn V 3rd stage (https://en.wikipedia.org/wiki/Saturn_V)"
+	},{
+		"key": "XL",
+		"type": "Liquid-fuel rocket",
+		"diameter": { "value": 10, "units": "m", "dimension": "length" },
 		"height": { "value": 19, "units": "m", "dimension": "length" },
 		"drymass": { "value": 13500, "units": "kg", "dimension": "mass" },
 		"cost": { "value": 8, "units": "credits", "dimension": "currency" },
