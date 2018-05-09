@@ -150,7 +150,7 @@
 			"title": "Atmospheric camera",
 			"description": "Provides infrared images of the clouds and weather systems in the Earth's atmosphere, useful for weather forecasting and climate monitoring, even during darkness.",
 			"texture": {
-				"icon": "texture camera-fir"
+				"icon": "texture camera-thermal"
 			},
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 30, "units": "credits", "dimension": "currency" },
