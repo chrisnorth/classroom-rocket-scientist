@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="64"
+   viewBox="0 0 64 64"
+   width="64"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="icon-gps.svg"
+   style="fill:#000000"
+   inkscape:export-filename="/Users/chrisnorth/Github/classroom-rocket-scientist/images/icon-GPS.png"
+   inkscape:export-xdpi="305.26999"
+   inkscape:export-ydpi="305.26999">
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1116"
+     inkscape:window-height="724"
+     id="namedview8"
+     showgrid="false"
+     inkscape:zoom="2.4583333"
+     inkscape:cx="-15.854486"
+     inkscape:cy="39.12064"
+     inkscape:window-x="376"
+     inkscape:window-y="79"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <path
+     d="m 0,0.13559326 63.864407,0 L 63.864407,64 0,64 Z"
+     id="path4"
+     inkscape:connector-curvature="0"
+     style="fill:none" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="BG">
+    <rect
+       style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4143"
+       width="64"
+       height="64"
+       x="0"
+       y="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Icon">
+    <path
+       style="fill:#000000"
+       d="m 31.932203,21.423729 c -5.880847,0 -10.644067,4.76322 -10.644067,10.644068 0,5.880847 4.76322,10.644067 10.644067,10.644067 5.880848,0 10.644068,-4.76322 10.644068,-10.644067 0,-5.880848 -4.76322,-10.644068 -10.644068,-10.644068 z M 55.721695,29.40678 C 54.497627,18.310339 45.689661,9.5023729 34.59322,8.2783051 l 0,-5.4816949 -5.322034,0 0,5.4816949 C 18.174746,9.5023729 9.3667797,18.310339 8.1427119,29.40678 l -5.481695,0 0,5.322034 5.481695,0 C 9.3667797,45.825254 18.174746,54.63322 29.271186,55.857288 l 0,5.481695 5.322034,0 0,-5.481695 C 45.689661,54.63322 54.497627,45.825254 55.721695,34.728814 l 5.481695,0 0,-5.322034 -5.481695,0 z M 31.932203,50.694915 c -10.298135,0 -18.627118,-8.328983 -18.627118,-18.627118 0,-10.298136 8.328983,-18.627119 18.627118,-18.627119 10.298136,0 18.627119,8.328983 18.627119,18.627119 0,10.298135 -8.328983,18.627118 -18.627119,18.627118 z"
+       id="path6"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

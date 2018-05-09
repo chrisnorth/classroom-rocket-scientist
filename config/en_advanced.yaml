@@ -54,15 +54,17 @@ ui.sections.instrument.intro:               To complete your mission you will ne
 ui.sections.instrument.list:                Available instruments:
 ui.sections.power.short:                    Power
 ui.sections.power.title:                    Add power
-ui.sections.power.intro:                    Your satellite needs power. There are different ways to do that. You can use solar panels on the sides of the satellite, deployable solar panels, and batteries.
+ui.sections.power.intro:                    Your satellite needs power. There are different ways to do that. You can use solar panels on the sides of the satellite, deployable solar panels, and an RTG. Batteries can store energy in order to power the satellite when it's not in direct sunlight.
 ui.sections.power.list:                     Available power devices:
 ui.sections.rocket.short:                   Rocket
 ui.sections.rocket.title:                   Build your rocket
-ui.sections.rocket.intro:                   Now you have a satellite you need to build a multi-stage rocket. The top of the rocket will hold your satellite so needs to be big enough. The lower stages need to be big enough to support those above.
+ui.sections.rocket.intro:                   Now you have a satellite you need to build a multi-stage rocket. The top of the rocket will hold your satellite, so needs to be big enough. You can have up to three rocket stages, which need to be big enough to support those above - and provide enough thrust to reach your chosen orbit.
 ui.sections.rocket.size:                    Diameter:
 ui.sections.rocket.drymass:                 Dry mass:
 ui.sections.rocket.fuel:                    Fuel:
 ui.sections.rocket.cost:                    Cost:
+ui.sections.rocket.payload:                 Your satellite
+ui.sections.rocket.emptystage:              None
 ui.sections.launch.short:                   Launch
 ui.sections.launch.title:                   Ready to launch?
 ui.sections.launch.checklist:               We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail.
@@ -99,20 +101,18 @@ package.spect-fir.title:                    Atmospheric Spectrometer
 package.spect-fir.description:              Uses infrared light to measure properties of the Earth's atmosphere, such as clouds, moisture level, surface temperature and air temperature, even during darkness.
 package.radar-alt.title:                    Radar altimeter
 package.radar-alt.description:              Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earthquakes. Requires a radar dish to work.
-package.radar-alt.requires.dish.label:      Requires a radar dish
+package.radar-alt.requires.dish.label:      The radar altimeter requires a radar dish
 package.radar-alt.requires.dish.error:      You need to include a radar dish for the altimeter to work.
 package.radar-dish.title:                   Radar dish
 package.radar-dish.description:             Transmits and receives radio waves for the radar altimeter
-package.radio-rx.title:                     Radio receiver
-package.radio-rx.description:               Receives instructions from the ground control team
-package.radio-tx.title:                     Radio transmitter
-package.radio-tx.description:               Transmits information collected by the satellite to the ground
 package.atomic-clock.title:                 Atomic clock
 package.atomic-clock.description:           Very accurate clock, required by navigation satellites to measure the time to very high precision.
 package.atomic-clock-small.title:           Atomic clock (compact)
 package.atomic-clock-small.description:     Very accurate clock, required by navigation satellites to measure the time to very high precision.
-package.gps-rx.title:                       GPS receiver (miniature)
+package.gps-rx.title:                       GPS receiver
 package.gps-rx.description:                 Used to monitor the satellite's position to very high accuracy
+package.gps-rx-mini.title:                  GPS receiver (miniature)
+package.gps-rx-mini.description:            Used to monitor the satellite's position to very high accuracy
 package.camera-mini.title:                  Camera (miniature)
 package.camera-mini.description:            Takes images of the ground
 package.dish-large.title:                   Radio dish (large)
@@ -123,10 +123,12 @@ package.dish-small.title:                   Radio antenna (compact)
 package.dish-small.description:             Radio dish capable of controlling and transmitting images & data from up to 2 instruments
 package.radio-antenna-cube.title:           Radio antenna (deployable)
 package.radio-antenna-cube.description:     Deployable radio antenna capable of controlling and transmitting images & data from up to 2 instruments.
-package.internet-en.title: Internet encoder
-package.internet-en.description:
-package.tv-en.title: TV encoder
-package.tv-en.description:
+package.phone-en-mini.title:                Miniature phone encoder
+package.phone-en-mini.description:          Broadcasts signals to and from telephones across the world.
+package.internet-en.title:                  Internet encoder
+package.internet-en.description:            Used to broadcast the internet to people around the world.
+package.tv-en.title:                        TV encoder
+package.tv-en.description:                  Used to broadcast the TV to people around the world.
 package.battery-large.title:                Large battery
 package.battery-large.description:          Stores power from solar panels to allow operation when not in sunlight
 package.battery-large.requires.solar.label: Requires solar panels to charge up
@@ -136,8 +138,8 @@ package.battery-small.description:          Stores power from solar panels to al
 package.battery-small.requires.solar.label: Requires solar panels
 package.battery-small.requires.solar.error: Requires solar panels
 package.rtg.title:                          RTG
-package.rtg.description:                    A "Radioisotope Thermal Generator" uses nuclear technology to provide power. Due to safety concerns, it can't be used in low-Earth orbit.
-package.rtg.requires.orbit.label:           Not for low-Earth orbit
+package.rtg.description:                    A "Radioisotope Thermal Generator" (RTG) uses nuclear technology to provide power. Due to safety concerns, it can't be used in low-Earth orbit.
+package.rtg.requires.orbit.label:           RTG cannot be used in low-Earth orbit
 package.rtg.requires.orbit.error:           Can't use an RTG in low-Earth orbit
 package.solar-panel-surface.title:          Body-mounted solar panel
 package.solar-panel-surface.description:    Solar panels mounted onto surface of satellite, collecting sunlight to provide power. Can power instruments, or charge up batteries.
@@ -151,6 +153,12 @@ orbit.HEO.title:                            Highly-elliptical orbit
 orbit.HEO.description:                      Highly-elliptical orbits are much closer to the Earth at one point in their orbit than another, giving an elongated (elliptical) rather than circular orbit. They are useful for covering areas including polar regions. More than one satellite can be used for continuous coverage of an area.
 orbit.GEO.title:                            Geo-stationary orbit
 orbit.GEO.description:                      Satellites in geostationary orbits stay above the same location on Earth near the equator and complete a full orbit in 24 hours. They are much higher above the Earth's surface than other orbits, so can see the entire hemisphere in less detail.
+
+rocket.requires.stable.label:               Your rocket must be stable
+rocket.requires.stable.error:               Your rocket is top heavy. Try to make sure it is stable before launching
+rocket.requires.power.label:                Your rocket needs enough power to reach orbit.
+rocket.requires.power.error:                Your rocket is not powerful enough to launch.
+
 scenarios.NAV.title:                        Navigation
 scenarios.NAV.description:                  The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.
 scenarios.NAV.sat-nav.title:                Satellite Navigation System
@@ -159,7 +167,7 @@ scenarios.NAV.sat-nav.req.bus.label: A satellite that is small, medium or large.
 scenarios.NAV.sat-nav.req.bus.error: Your satellite must be big enough for your mission.
 scenarios.NAV.sat-nav.req.atomic.label:     Needs to be able to measure time very accurately
 scenarios.NAV.sat-nav.req.atomic.error:     You are not able to measure the time accurately enough.
-scenarios.NAV.sat-nav.req.radio-tx.label: A way to send signals.
+scenarios.NAV.sat-nav.req.radio-tx.label: A way to send signals to the groud.
 scenarios.NAV.sat-nav.req.radio-tx.error: Your satellite does not have any way to transmit timing signals to people on the ground.
 scenarios.NAV.sat-nav.req.orbit.label: See the whole planet.
 scenarios.NAV.sat-nav.req.orbit.error: The orbit you have chosen does not allow you to see the whole planet.
@@ -175,16 +183,14 @@ scenarios.COMMS.phone.title: Satellite telephone system
 scenarios.COMMS.phone.description: Lets people talk over the phone from remote regions of the world using satellites.
 scenarios.COMMS.phone.req.radio-tx.label: A way to send signals.
 scenarios.COMMS.phone.req.radio-tx.error: Your satellite does not have a way to send signals to the ground.
-scenarios.COMMS.phone.req.radio-rx.label: A way to receive signals.
-scenarios.COMMS.phone.req.radio-rx.error: Your satellite does not have a way to receive signals from the ground.
+scenarios.COMMS.phone.req.phone-en.label: A way to broadcase phone signals.
+scenarios.COMMS.phone.req.phone-en.error: Your satellite does not have a way to broadcast phone signals
 scenarios.COMMS.phone.req.orbit.label: Satellite is continuously above one area of Earth
 scenarios.COMMS.phone.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
 scenarios.COMMS.internet.title: Satellite internet
 scenarios.COMMS.internet.description: Connect to the internet from remote regions of the world using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.
 scenarios.COMMS.internet.req.radio-tx.label: A way to send signals.
 scenarios.COMMS.internet.req.radio-tx.error: You do not have a way to send signals to the ground.
-scenarios.COMMS.internet.req.radio-rx.label: A way to receive signals.
-scenarios.COMMS.internet.req.radio-rx.error: You do not have a way to receive signals from the ground.
 scenarios.COMMS.internet.req.internet-en.label: A way to encode internet signals.
 scenarios.COMMS.internet.req.internet-en.error: You do not have a way to encode internet signals.
 scenarios.COMMS.internet.req.orbit.label: Satellite is continuously above one area of Earth
@@ -193,8 +199,6 @@ scenarios.COMMS.tv.title: Satellite TV
 scenarios.COMMS.tv.description: Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.
 scenarios.COMMS.tv.req.radio-tx.label: A way to send signals.
 scenarios.COMMS.tv.req.radio-tx.error: You do not have a way to send signals to the ground.
-scenarios.COMMS.tv.req.radio-rx.label: A way to receive signals.
-scenarios.COMMS.tv.req.radio-rx.error: You do not have a way to receive signals from the ground.
 scenarios.COMMS.tv.req.orbit.label: Satellite is continuously above one area of Earth.
 scenarios.COMMS.tv.req.tv-en.label: A way to encode TV signals.
 scenarios.COMMS.tv.req.tv-en.error: You do not have a way to encode TV signals.
@@ -237,6 +241,7 @@ scenarios.EO.disaster.req.camera-nir.label: To detect fires, such as forest fire
 scenarios.EO.disaster.req.camera-nir.error: You do not have a way to detect fires in disaster regions.
 scenarios.EO.disaster.req.orbit.label: To see fine detail of planet surface.
 scenarios.EO.disaster.req.orbit.error: The orbit you have chosen does not allow you to see the disaster region in enough detail.
+
 scenarios.EO.surface.title: Surface mapping
 scenarios.EO.surface.description: Measure the varying height of land and oceans over the Earth's surface.
 scenarios.EO.surface.req.radar-alt.label: To measure the height of the ground in very high resolution.
@@ -251,4 +256,23 @@ scenarios.EO.surface.req.sat-tracker.label: Know the satellite position to high 
 scenarios.EO.surface.req.sat-tracker.error: You do not have a way to locate the position of the satellite accurately. #If this is staying as a new instrument, need to add as a package option.
 scenarios.EO.surface.req.orbit.label: To see fine detail on the planet surface.
 scenarios.EO.surface.req.orbit.error: The orbit you have chosen does not allow you to see the planet surface in enough detail.
+scenarios.EO.surface.launch:  Welcome to the launch of the UK Space Agency's latest earth observation satellite that will measure the varying height of land and oceans over the Earth's surface.
+scenarios.EO.surface.success: Congratulations, your earth observation satellite is now measuring the varying height of land and oceans over the Earth's surface.
+
+launch.prep.checklist:               <p>We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail. You haven't met these requirements:</p>$requirementslist$
+launch.prep.goforlaunch:             Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.
+launch.prep.button:                  Launch?
+launch.countdown: Count down
+launch.liftoff: Lift off!
+launch.stage.ignition:  Stage $stage$ ignition
+launch.stage.fuel-exhausted:  Stage $stage$ fuel exhausted
+launch.stage.separation:  Stage $stage$ separation
+launch.elapsed-time: T$value$
+launch.current-speed:  Current speed: $value$
+launch.orbit-achieved:  $orbit$ achieved
+launch.payload-bay-open:  Payload bay opened
+launch.deployed:  Satellite deployed
+launch.solar-panels.deploying: Deploying solar panels
+launch.solar-panels.deployed: Solar panels deployed
+launch.operational: Satellite operational
 ---

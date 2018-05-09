@@ -61,24 +61,19 @@ var rs;
 		this.defaults = {'currency':'credits', 'length':'m', 'area': 'mxm', 'mass': 'kg', 'power':'watts', 'powerdensity':'watts/m^2' };
 		this.z = {};
 		this.totals = { 'cost': new Convertable(0,this.defaults.currency), 'power': new Convertable(0,this.defaults.power), 'mass':new Convertable(0,this.defaults.mass) };
-		this.choices = { 'type':'', 'goal':'', 'mission':'', 'orbit':'', 'bus':'', 'slots':{}, 'solar-panel':0, 'solar-panel-surface':false };
+		this.choices = { 'type':'', 'goal':'', 'mission':'', 'orbit':'', 'bus':'', 'slots':{}, 'solar-panel':0, 'solar-panel-surface':false, 'bussize':'', 'stable': false, 'fueled': false };
 		this.requirements = new Array();
+		this.stages = ['firststage','secondstage','thirdstage','payloadbay'];
 
 		this.getSections();
-		this.parseQueryString();
-		if(data){
-			this.data = data;
-			this.init();
-		}else S().loadJSON('config/en_advanced_options.json',this.init,{'this':this});
 
-		S(document).on('keyup',{me:this},function(e){
-			var rs = e.data.me;
-			var sec = S('#'+rs.sections[rs.currentsection]);
-			// Left=37
-			if(e.originalEvent.keyCode==37) sec.find('.prev a').trigger('click');
-			// Right=39
-			if(e.originalEvent.keyCode==39) sec.find('.next a').trigger('click');
-		});
+		this.query = this.parseQueryString();
+
+		// If we have a function to run before init(), call it now
+		if(typeof this.init_before === "function") this.init_before();
+
+		if(data) this.init(data);
+		else S().loadJSON('config/en_'+(this.level || "advanced")+'_options.json',this.init,{'this':this});
 
 		return this;
 	}
@@ -93,6 +88,7 @@ var rs;
 				var key = qs[i].split('=')[0];
 				var val = qs[i].split('=')[1];
 				if(/^[0-9\.]+$/.test(val)) val = parseFloat(val);	// convert floats
+				if(/^(true|false)$/.test(val)) val = (val == "true" ? true : false);
 				r[key] = val;
 			}
 		}
@@ -104,28 +100,10 @@ var rs;
 		}
 		return r;
 	}
-	RocketScientist.prototype.getSections = function(){
-		var sec = S('section');
-		this.sections = [];
-		this.navigable = {};
-		for(var i = 0 ;i < sec.length; i++){
-			var el = S(sec.e[i]);
-			if(el.hasClass('view')){
-				var id = el.attr('id');
-				this.sections.push(id);
-				this.navigable[id] = true;
-			}
-		}
-		this.has = {};
-		this.has['vw'] = (S('#progressbar').css({'width':'100vw'}).e[0].offsetWidth==this.wide);
-
-		return this;
-	}
 	// Initiate the Rocket Scientist
 	RocketScientist.prototype.init = function(data){
 
-		var _obj = this;
-
+console.log(data)
 		// Remove classes from script only elements
 		S('.scriptonly').toggleClass('scriptonly');
 
@@ -133,7 +111,7 @@ var rs;
 		S('.noscriptmsg').remove();
 
 		// For testing - we add it here before attaching events otherwise they don't fire
-		if(this.testmode && !S('body').hasClass('front')){
+		if(this.testmode && !S('body').hasClass('front') && this.mode=="build"){
 			S('#menu').append('<li class="baritem"><button id="speedy"><img class="icon options" alt="" src="images/cleardot.gif" /><span>Test</span></button></li>');
 			S('#speedy').on('click',function(e){ test(); S('#speedy').parent().remove(); });
 		}
@@ -146,13 +124,14 @@ var rs;
 		S('#menu .about').on('click',{me:this},function(e){ S('#about').removeClass('not-at-start'); S('body').addClass('nooverflow'); });
 		S('#units .close').on('click',{me:this},function(e){ S('#units').addClass('not-at-start'); S('body').removeClass('nooverflow'); });
 		S('#about .close').on('click',{me:this},function(e){ S('#about').addClass('not-at-start'); S('body').removeClass('nooverflow'); });
+
 		// Deal with changes to the unit selectors
 		S('#units select').on('change',{me:this},function(e){
 			// Get the unit type
 			var u = this.attr('data-units');
 			if(typeof u==="string"){
 				// Set to the selected value
-				e.data.me.defaults[u] = this.e[0].value;
+				e.data.me.defaults[u] = this[0].value;
 				// Update all the convertables
 				e.data.me.updateConvertables();
 			}
@@ -164,7 +143,15 @@ var rs;
 		if(S('body').hasClass('front')){
 			if(location.protocol==="file:"){
 				var el = S('#start a');
-				for(var i = 0; i < el.length; i++) el.e[i].href = el.e[i].href+".html";
+				for(var i = 0; i < el.length; i++){
+					el[i].href = el[i].href+".html";
+				}
+			}else{
+				var el = S('#start a');
+				for(var i = 0; i < el.length; i++){
+					if (el[i].href.substring(el[i].href.length-4)==="html"){el[i].href=el[i].href;}
+					else{el[i].href = el[i].href+".html";}
+				}
 			}
 			return this;
 		}
@@ -192,73 +179,10 @@ var rs;
 
 		this.currentsection = 0;
 
-		// We hide elements that shouldn't be visible (but we are leaving visible
-		// in the plain HTML so there is something if Javascript doesn't work.
-		for(var s = 0; s < this.sections.length; s++) S('#'+this.sections[s]).addClass('js').addClass('slide').css((s > 0 ? {'visibility':'hidden','left':'-100%'} : {}));
-
-		// Deal with button presses in the type section
-		S('#type button').on('click',{me:this},function(e){ _obj.setType(S(e.currentTarget).attr('data-type')); });
-
-		// Deal with button presses in the goal section
-		S('#goal button').on('click',{me:this},function(e){ _obj.setGoal(S(e.currentTarget).attr('data-goal')); });
-
-		// Add events to size selection buttons
-		S('#bus .satellite').on('click',{me:this},function(e){
-			S(e.currentTarget).parent().find('button').trigger('click');
-		});
-		S('#bus button').on('click',{me:this},function(e){
-			e.data.me.setBus(S(e.currentTarget).attr('data-size'));
-		});
-
-		// Replace the default behaviour of the navigation links
-		S('nav .prev a').on('click',{me:this},function(e){ if(!S(e.currentTarget).hasClass('disabled')) e.data.me.navigate(e); });
-		S('nav .next a').on('click',{me:this},function(e){ if(!S(e.currentTarget).hasClass('disabled')) e.data.me.navigate(e); }).addClass('disabled');
-
 		// Update all the convertable values
 		this.updateConvertables();
 
-		// Add events to add/remove buttons
-		var _obj;
-
-		this.makeSatelliteControls('#satellite');
-		this.makeSatelliteControls('#satellite-power');
-		this.makeSatelliteControls('#vehicle');
-
-		// Add events to buttons in orbit section
-		S('#orbit_list button').on('click',{me:'test'},function(e){ _obj.setOrbit(S(e.currentTarget).attr('data-orbit')); });
-
-		// Add button events for instrument list to the list itself so we can reorder the contents later without losing the events
-		S('#instrument_list ul').on('click',{me:'test'},function(e){ _obj.addPackage({'currentTarget':e.originalEvent.target,'data':e.data,'originalEvent':e.originalEvent,'type':e.type},'instrument') });
-
-		// Add button events for power list to the list itself so we can reorder the contents later without losing the events
-		S('#power_list ul').on('click',{me:'test'},function(e){ _obj.addPackage({'currentTarget':e.originalEvent.target,'data':e.data,'originalEvent':e.originalEvent,'type':e.type},'power'); });
-
-		S('#instrument').on('load',{me:this},function(e){
-			e.data.me.log('Loading instrument panel')
-			// Reset button states
-			//S('#instrument button.add').prop('disabled',false);
-			//S('#instrument button.remove').prop('disabled',true);
-		})
-
-		// Update rocket stages
-		this.sliders = new Array();
-		this.stages = ['firststage','secondstage','thirdstage','payloadbay'];
-		this.stageslookup = {};
-		for(var s = 0; s < this.stages.length; s++){
-			this.stageslookup[this.stages[s]] = s;
-			var l = this.stages[s];
-			this.sliders.push(new Slider(S('.rocket-builder .'+l),{stage:l},function(e){ _obj.setStage(e.data.stage,e.i); }));
-			for(var i = 0; i < this.data[l].length; i++) S('.rocket-builder .'+l+' .stage-'+this.data[l][i].key).find('.part').css({'width':(this.data[l][i].diameter.value*10*0.8).toFixed(1)+'%'});
-		}
-
-		// Reset button states
-		this.updateButtons();
-
-		// Quickly set and unset the type to reset the vertical scroll
-		this.setType('EO').setType('');
-
-		// Deal with orbit selection
-		for(var i in this.data.orbit) S('.orrery .'+i).on('click',{'me':this,'orbit':i},function(e){ e.data.me.setOrbit(e.data.orbit); });
+		var _obj = this;
 
 		// We'll need to change the sizes when the window changes size
 		window.addEventListener('resize', function(event){ _obj.resize(); });
@@ -267,14 +191,16 @@ var rs;
 		// Remove the overlay we've added inline
 		S('#overlay').remove();
 
+		if(typeof this.init_after === "function") this.init_after();
+
 		return this;
 	}
 	RocketScientist.prototype.updateConvertables = function(){
 		var el,c,i;
 		el = S('.convertable');
 		for(i = 0; i < el.length; i++){
-			c = new Convertable(el.e[i]);
-			if(this.defaults[c.dimension]) el.e[i].innerHTML = c.toString({'units':this.defaults[c.dimension],'unitdisplayed':(el.e[i].getAttribute('nounits')=="true" ? false : true)});
+			c = new Convertable(el[i]);
+			if(this.defaults[c.dimension]) el[i].innerHTML = c.toString({'units':this.defaults[c.dimension],'unitdisplayed':(el[i].getAttribute('nounits')=="true" ? false : true)});
 		};
 		return this;
 	}
@@ -293,7 +219,7 @@ var rs;
 			var navs = S('section nav li a');
 			if(navs && navs.length > 0){
 				this.navs = new Array(navs.length);
-				for(var i = 0; i < navs.length; i++) this.navs[i] = S(navs.e[i]);
+				for(var i = 0; i < navs.length; i++) this.navs[i] = S(navs[i]);
 			}
 		}
 		for(var i = 0; i < this.navs.length; i++){
@@ -372,12 +298,15 @@ var rs;
 		this.totals = total;
 		this.power = power;
 
-		this.log('updateBudgets',this.data,this.choices,total,power)
-		this.updateTotals();
+		this.log('updateBudgets',this.data,this.choices,total,power);
 	}
 	RocketScientist.prototype.updateTotals = function(){
 		this.log('updateTotals');
 		S('#bar .togglecost .cost').html(this.totals.cost.toString({'units':this.defaults.currency}));
+		if(this.choices.mission.budget){
+			if(this.totals.cost.value <= this.choices.mission.budget.value) S('#bar .togglecost').removeClass('overbudget');
+			else S('#bar .togglecost').addClass('overbudget');
+		}
 		S('#bar .togglemass .mass').html(this.totals.mass.toString({'units':this.defaults.mass}));
 		S('#bar .togglepower .power').html(this.totals.power.toString({'units':this.defaults.power}));
 
@@ -396,6 +325,13 @@ var rs;
 			dv.attr('class','meter').addClass('orbit-'+this.choices.orbit);
 			dv.find('.level').css({'width':(pc > 100 ? 100 : pc).toFixed(3)+'%'});
 			dv.find('.value').html(pc.toFixed(1)+'%');
+			if(pc >= 100){
+				S('#deltav_indicator_light').addClass('on');
+				this.choices['fueled'] = true;
+			}else{
+				S('#deltav_indicator_light').removeClass('on');
+				this.choices['fueled'] = false;
+			}
 		}
 
 		return this;
@@ -432,7 +368,7 @@ var rs;
 		S('#goal button').removeClass('selected');
 
 		// Select this button
-		S(S('#goal .'+this.choices.type+' button').e[this.choices.goal]).addClass('selected');
+		S(S('#goal .'+this.choices.type+' button')[this.choices.goal]).addClass('selected');
 
 		// Update the budget
 		this.setBudget();
@@ -491,29 +427,85 @@ var rs;
 			}
 		}
 
+		if(this.data['rocket'] && this.data['rocket'].requires){
+			for(var i = 0; i < this.data['rocket'].requires.length; i++) this.requirements = this.requirements.concat(this.data['rocket'].requires[i]);
+		}
+
 		// See which requirements are met
 		this.checkRequirements();
 
 		// The keys are the HTML <section> IDs and the values are the JSON data keys
-		var sections = {'orbit':'orbit','instrument':'package','power':'power'};
-		var ul,li,i;
+		var sections = {'orbit':'orbit','instrument':'package','power':'power','rocket':'rocket'};
+		var ul,li,i,l,notlisted,j,e;
+		var requirementslist = "";
+		var requirementslistlaunch = "";
+		var requirementssectionlist = "";
+		var sectionexists;
+		var listedLaunch = new Array();
 		for(var s in sections){
 			// Remove existing requirements
 			S('#'+s+' .requirements ul').remove();
 			S('#'+s+' .requirements ol').remove();
 			ul = S('#'+s+' .requirements h3');
 			li = "";
+			var listed = new Array();
+			sectionexists = (S('#'+s).length > 0);
 			for(var i = 0; i < this.requirements.length; i++){
-				if((this.requirements[i]['showin'] == sections[s] || this.requirements[i]['type'] == sections[s]) && this.requirements[i]['label'] != "") li += "<li"+((this.data.options && this.data.options['require-hint']) ? (this.requirements[i]['met'] ? ' class="met"' : ' class="notmet"') : "")+">"+this.requirements[i]['label']+"</li>";
+				if((this.requirements[i]['showin'] == sections[s] || this.requirements[i]['type'] == sections[s]) && this.requirements[i]['label'] != ""){
+				// if((this.requirements[i]['type'] == sections[s]) && this.requirements[i]['label'] != ""){
+					if(typeof this.requirements[i]['label'] === "undefined") this.requirements[i]['label'] = "";
+					l = "<li"+((this.data.options && this.data.options['require-hint']) ? (this.requirements[i]['met'] ? ' class="met"' : ' class="notmet"') : "")+">"+this.requirements[i]['label']+"</li>";
+					e = "<li"+((this.data.options && this.data.options['require-hint']) ? (this.requirements[i]['met'] ? ' class="met"' : ' class="notmet"') : "")+">"+this.requirements[i]['error']+"</li>";
+					notlisted = true;
+					notlistedLaunch = true;
+					for(j = 0; j < listed.length; j++){
+						if(listed[j] == l) notlisted = false;
+					}
+					for(k = 0; k < listedLaunch.length; k++){
+						if(listedLaunch[k] == l) notlistedLaunch = false;
+					}
+					if(notlisted){
+						listed.push(l);
+						li += l;
+						if(!this.requirements[i]['met'] && sectionexists) requirementslist += e;
+					}
+					if(notlistedLaunch){
+						listedLaunch.push(l);
+						if(!this.requirements[i]['met'] && sectionexists) requirementslistlaunch += e;
+					}
+				}
 			}
-			this.log('List of requirements',li);
-			if(li) ul.after("<ol>"+li+"</ol>");
+			this.log('List of requirements for '+s,li,listed);
+			if(li && sectionexists){
+				ul.after("<ol>"+li+"</ol>");
+				// Find which section this is and add it to the section list for the launch screen
+				for(var i = 0 ; i < this.data['sections'].length; i++){
+					if(this.data['sections'][i]['id'] == s) requirementssectionlist += '<li><a href="#'+s+'">'+this.data['sections'][i]['short']+"</a></li>";
+				}
+			}
 			S('#'+s+' .requirements').css({'display':(li ? '':'none')});
 		}
+		this.log('Requirement sections',requirementssectionlist);
 		var ok = 0;
 		for(var i = 0; i < this.requirements.length; i++){
 			if(this.requirements[i].met) ok++;
 		}
+
+		var ltxt = "";
+
+		if(ok < this.requirements.length){
+			ltxt = '<div class="requirements">'+this.data.launch.prep.checklist+'</div>';
+			ltxt = ltxt.replace("$requirementslist$",(requirementslistlaunch ? '<ol class="errors">'+requirementslistlaunch+"</ol>":""));
+			ltxt = ltxt.replace("$requirementssectionlist$",(requirementssectionlist ? '<ol class="errors">'+requirementssectionlist+"</ol>":""));
+		}else{
+			ltxt = this.data.launch.prep.goforlaunch;
+		}
+
+		// Update launch text
+		S('#launch-text').html(ltxt);
+		// Add event to links we've just added
+		S('#launch-text a').on('click',{me:this},function(e){ e.data.me.navigate(e); });
+
 		this.log('Met '+ok+' of '+this.requirements.length+' requirements')
 		return this;
 	}
@@ -523,6 +515,8 @@ var rs;
 		// Build array of choice keys that we will check against
 		var ch = [];
 		if(this.choices['orbit']) ch.push(this.choices['orbit']);
+		if(this.choices['fueled']) ch.push(this.choices['fueled']);
+		if(this.choices['stable']) ch.push(this.choices['stable']);
 		if(this.choices['solar-panel-surface']) ch.push('solar-panel-surface');
 		if(this.choices['solar-panel'] > 0) ch.push('solar-panel');
 		for(var j in this.choices.slots){
@@ -531,7 +525,8 @@ var rs;
 		var ok;
 		for(var i = 0; i < this.requirements.length; i++){
 			ok = false;
-			if(this.requirements[i].oneof.length > 0){
+			if(this.requirements[i].oneof){
+				ok = false;
 				for(var o = 0; o < this.requirements[i].oneof.length; o++){
 					for(var c = 0; c < ch.length; c++){
 						if(ch[c] == this.requirements[i].oneof[o]) ok = true;
@@ -539,7 +534,7 @@ var rs;
 				}
 			}
 			// If we failed the oneof requirement, don't bother checking the allof requirement
-			if(ok && this.requirements[i].allof){
+			if(this.requirements[i].allof){
 				for(var o = 0; o < this.requirements[i].allof.length; o++){
 					var ok2 = false;
 					for(var c = 0; c < ch.length; c++){
@@ -552,19 +547,24 @@ var rs;
 					}
 				}
 			}
+			if(this.requirements[i].is){
+				if(typeof this.choices[this.requirements[i].is]==="boolean") ok = this.choices[this.requirements[i].is];
+			}
 			this.requirements[i].met = ok;
 		}
 	}
+
 	// Choose the bus size
 	RocketScientist.prototype.setBus = function(size){
 		this.log('setBus',size);
+		this.choices['bussize'] = size;
 		this.choices['bus'] = this.data.bus[size];
 
 		// Reset any previous choices regarding instruments, power options, or rockets
 		this.choices['solar-panel'] = 0;
 		this.choices['solar-panel-surface'] = false;
 		this.choices['slots'] = "";
-		this.updateButtons();
+		if(typeof this.updateButtons==="function") this.updateButtons();
 		this.choices['slots'] = {};
 		// Construct a dictionary for filling slots
 		for(var i in this.choices['bus'].slots) this.choices['slots'][i] = [];
@@ -586,7 +586,7 @@ var rs;
 		var li = S('.list li');
 		var s,el;
 		// Re-enable all list items
-		S('.slot-unavailable').removeClass('slot-unavailable').find('.overlay').remove();
+		S('.slot-unavailable').removeClass('slot-unavailable');//.find('.overlay').remove();
 
 
 		if(this.choices && this.choices.bus) S('#rocket .payload-dummy').css({'width':(this.choices.bus.width.value*10*0.8).toFixed(1)+'%'});
@@ -599,7 +599,6 @@ var rs;
 				if(_obj.data.power['solar-panel-surface'][props[j]].typeof=="convertable"){
 					v = el.find('.package_'+props[j]).find('.value');
 					if(v.attr('data-dimension')!="powerdensity"){
-						//console.log('scaleConvertableByArea',_obj.data.power['solar-panel-surface'][props[j]],v.attr('data-dimension'))
 						nv = _obj.data.power['solar-panel-surface'][props[j]].convertTo(v.attr('data-dimension'));
 						v.attr('data-value',nv.value*_obj.data.bus[size].area.value);
 					}
@@ -607,8 +606,9 @@ var rs;
 			}
 			return;
 		}
+
 		for(var i = 0; i < li.length; i++){
-			el = S(li.e[i]);
+			el = S(li[i]);
 			s = el.find('.add').attr('data-size');
 			if(s){
 				var available = false;
@@ -616,7 +616,7 @@ var rs;
 					if(this.data.bus[size].slots[j] > 0 && j==s) available = true;
 				}
 				// Hide list items that have a specified slot size that doesn't fit
-				if(!available) el.addClass('slot-unavailable').append('<div class="overlay"></div>');
+				if(!available) el.addClass('slot-unavailable');//.append('<div class="overlay"></div>');
 
 				// Update values for solar-panel-surface given the surface area
 				if(el.attr('data-package') == "solar-panel-surface"){
@@ -639,21 +639,24 @@ var rs;
 		return this;
 	}
 	RocketScientist.prototype.reorderLists = function(){
-		this.log('reorderLists')
-		var uls = S('.list ul');
+		this.log('reorderLists');
+		var sections = ['instrument','power'];
 		var ul,u,i,li,l_top,l_bot;
-		for(u = 0; u < uls.length; u++){
-			l_top = "";
-			l_bot = "";
-			ul = S(uls.e[u]);
-			li = ul.find('li');
-			// For each list item we check if the slot is available or not
-			// If it isn't it goes at the bottom of the list
-			for(i = 0; i < li.length; i++){
-				if(S(li.e[i]).hasClass('slot-unavailable')) l_bot += li.e[i].outerHTML;
-				else l_top += li.e[i].outerHTML;
+		for(s = 0; s < sections.length; s++){
+			var uls = S('#'+sections[s]+' .list ul');
+			for(u = 0; u < uls.length; u++){
+				l_top = "";
+				l_bot = "";
+				ul = S(uls[u]);
+				li = ul.find('li');
+				// For each list item we check if the slot is available or not
+				// If it isn't it goes at the bottom of the list
+				for(i = 0; i < li.length; i++){
+					if(S(li[i]).hasClass('slot-unavailable')) l_bot += li[i].outerHTML;
+					else l_top += li[i].outerHTML;
+				}
+				ul.html(l_top+l_bot);
 			}
-			ul.html(l_top+l_bot);
 		}
 		return this;
 	}
@@ -680,95 +683,6 @@ var rs;
 		return this;
 	}
 
-	RocketScientist.prototype.navigate = function(e){
-		e.originalEvent.preventDefault();
-		var href = S(e.currentTarget).attr('href');
-		var section = href.substr(1);
-		if(this.navigable[section]){
-			var found = -1;
-			var progress = 0;
-			for(var i = 0 ; i < this.sections.length; i++){
-				if(section==this.sections[i]){
-					progress = 100*i/(this.sections.length-1);
-					found = i;
-				}
-			}
-			S('#'+section).trigger('load');
-
-			// We know which section we want (found) and we know which we are on (this.currentsection)
-			// Remove existing hidden slide classes
-			S('.slide-hide').removeClass('slide-hide');
-			S('.slide').removeClass('slideOutLeft').removeClass('slideOutRight').removeClass('slideInLeft').removeClass('slideInRight');
-			// Although we are using CSS3 animations we also have to manually set properties in CSS as a fallback
-			if(found > this.currentsection){
-				// Go right
-				// Hide all the previous sections if they aren't already
-				for(var i = 0; i < this.currentsection;i++) S('#'+this.sections[i]).css({'left':'-100%','margin-left':0});
-				// Move the current section off
-				S('#'+this.sections[this.currentsection]).addClass('slideOutLeft').css({'left':'-100%','margin-left':0});
-				// Move the new section in
-				S('#'+this.sections[this.currentsection+1]).addClass('slideInRight').css({'left':'0%','margin-left':0,'visibility':''});
-			}else{
-				// Go left
-				// Move the current section off
-				S('#'+this.sections[this.currentsection]).addClass('slideOutRight').css({'left':'-100%','margin-left':'','visibility':''});
-				// Bring the new section in
-				S('#'+this.sections[found]).focus().addClass('slideInLeft').css({'left':'0%','margin-left':0,'visibility':''});
-				// Hide all the following sections if they aren't already
-				for(var i = found+2; i < this.sections.length; i++) S('#'+this.sections[i]).css({'margin-left':'0%','left':'-100%','visibility':'hidden'});
-			}
-			// Update the progress bar
-			S('#progressbar .progress-inner').css({'width':progress.toFixed(1)+'%'});
-		}
-		this.currentsection = found;
-		//S('#'+this.currentsection).focus()
-
-		function findNextTabStop(el) {
-			var universe = document.querySelectorAll('input, button, select, textarea, a[href]');
-			var list = Array.prototype.filter.call(universe, function(item) {return item.tabIndex >= "0"});
-			for(var i = list.indexOf(el)+1; i < list.length; i++){
-				if(isVisible(list[i])) return list[i];
-			}
-			return list[0];
-		}
-
-		// Check if an element is really visible
-		function isVisible(el) {
-			if(!el) return false;
-			var visible = true;
-			visible = visible && el.offsetWidth > 0 && el.offsetHeight > 0;
-			if(visible) {
-				while('BODY' != el.tagName && visible) {
-					visible = visible && 'hidden' != window.getComputedStyle(el).visibility;
-					el = el.parentElement;
-				}
-			}
-			return visible;
-		}
-
-		// Focus on the first focusable element in the new section
-		findNextTabStop(S('#'+section).find('.row-top .next a').e[0]).focus();
-
-		return false;
-	}
-	RocketScientist.prototype.makeSatelliteControls = function(selector){
-
-		this.z[selector] = {'z':1,'el':S(selector)};
-
-		// Create controls for satellite power view
-		var zc = this.z[selector].el.find('.zoomcontrol');
-		zc.children('.zoomin').on('click',{me:this,by:1.1,z:selector},function(e){ e.data.me.zoom(e.data.z,e.data.by); });
-		zc.children('.zoomout').on('click',{me:this,by:1/1.1,z:selector},function(e){ e.data.me.zoom(e.data.z,e.data.by); });
-		zc.children('.make3D').on('click',{me:this,z:selector},function(e){ e.data.me.toggle3D(e.data.z); });
-		zc.children('.animate').on('click',{me:this,z:selector},function(e){ e.data.me.toggleAnimation(e.data.z); });
-
-		return this;
-	}
-	RocketScientist.prototype.zoom = function(selector,factor){
-		if(this.z[selector].z * factor < 2 && this.z[selector].z * factor > 0.5) this.z[selector].z *= factor;
-		this.z[selector].el.css({'font-size':this.z[selector].z.toFixed(3)+'em'});
-		return this;
-	}
 	// Add the CSS class for displaying pseudo-3D CSS
 	RocketScientist.prototype.toggle3D = function(element){
 		S(element).toggleClass('threeD');
@@ -777,18 +691,6 @@ var rs;
 	// Toggle the spinning animation class
 	RocketScientist.prototype.toggleAnimation = function(element){
 		S(element+' .satellite').toggleClass('spin');
-		return this;
-	}
-	RocketScientist.prototype.addPackage = function(e,to){
-		var a = S(e.currentTarget);
-		var add = a.hasClass('add') ? true : false;
-		var type = a.parent().parent().attr('data-package');
-		this.log('addPackage',e,to,type);
-		if(to == "instrument") this.processPackage(type,a,"instrument");
-		else if(to == "power") this.processPowerPackage(type,a);
-
-		this.updateBudgets();
-		this.updateButtons();
 		return this;
 	}
 	// Input is the type of slot e.g. dish-large and the event
@@ -804,8 +706,8 @@ var rs;
 			slotsp = S('#satellite-power .slot');
 			good = new Array();
 			for(var i = 0; i < slots.length; i++){
-				var s = S(slots.e[i]);
-				if(s.hasClass('slot-empty') && s.hasClass('slot'+p.slot)) good.push([slots.e[i],slotsp.e[i]]);
+				var s = S(slots[i]);
+				if(s.hasClass('slot-empty') && s.hasClass('slot'+p.slot)) good.push([slots[i],slotsp[i]]);
 			}
 
 			// Do we have an available slot?
@@ -815,6 +717,10 @@ var rs;
 				good = S(good[0][0]);
 				if(p.texture){
 					if(p.texture.class) goodboth.addClass(p.texture.class);
+					if(p.texture.icon) {
+						goodboth.addClass(p.texture.icon);
+						this.log('package texture',p,p.texture.icon)
+					}
 					if(p.texture.html){
 						html = p.texture.html;
 						// Deal with directions of hemispheres
@@ -834,9 +740,9 @@ var rs;
                         goodboth.html(html+good.html())
                         this.log('adding file to slot',p.texture.file)
                     }
-					this.log('Removing slot-empty from ',goodboth)
+					this.log('Removing slot-empty from ',goodboth,type)
 					goodboth.addClass('texture').addClass(type).removeClass('slot-empty');
-					this.log('Removing slot-empty from ',goodboth.e[1])
+					this.log('Removing slot-empty from ',goodboth[1])
 
 					// Add this slot
 					this.choices['slots'][p.slot].push(type);
@@ -854,8 +760,8 @@ var rs;
 			if(slots.length > 0){
 				// Remove last one first
 				// Put it in the first available slot
-				var goodboth = S([slots.e[slots.length-1],slotsp.e[slots.length-1]]);
-				good = S(slots.e[slots.length-1]);
+				var goodboth = S([slots[slots.length-1],slotsp[slots.length-1]]);
+				good = S(slots[slots.length-1]);
 				if(p.texture){
 					// Put it in the first available slot
 					if(p.texture.class) goodboth.removeClass(p.texture.class);
@@ -904,54 +810,15 @@ var rs;
 		if(type == "solar-panel") n = this.choices['solar-panel'];
 		else if(type == "solar-panel-surface") n = (this.choices['solar-panel-surface'] ? 1 : 0);
 		else{
-			for(var i = 0; i < this.choices['slots'][p.slot].length; i++){
-				if(this.choices['slots'][p.slot][i]==type) n++;
+			if(p){
+				for(var i = 0; i < this.choices['slots'][p.slot].length; i++){
+					if(this.choices['slots'][p.slot][i]==type) n++;
+				}
 			}
 		}
 		el.parent().find('.value').html(n > 0 ? '&times;'+n : '');
 		if(n > 0) el.parent().parent().addClass('selected')
 		else el.parent().parent().removeClass('selected')
-		return this;
-	}
-
-	RocketScientist.prototype.updateButtons = function(){
-		// If we've filled up this slot type we can't add any more
-		// of this type so lose the add buttons otherwise show them
-		var add = S('.list .add');
-		var rem = S('.list .remove');
-		this.log('updateButtons',this.choices['slots']);
-		if(this.choices['slots']){
-			btn = add.e.concat(rem.e);
-			for(var i = 0; i < btn.length; i++){
-				var a = S(btn[i]);
-				var s = a.attr('data-size');
-				var p = a.attr('data-package');
-				if(s && p){
-					var disable = false;
-					if(a.hasClass('add')){
-						if(this.choices['slots'][s]) disable = (this.choices['slots'][s].length == this.choices['bus'].slots[s]);
-						if(p=="solar-panel") disable = (this.choices['solar-panel'] < this.maxpanels) ? false : true;
-						if(p=="solar-panel-surface") disable = (this.choices['solar-panel-surface']);
-					}else if(a.hasClass('remove')){
-						var n = 0;
-						for(var j in this.choices['slots'][s]) if(this.choices['slots'][s][j] == p) n++;
-						if(this.choices['slots'][s]) disable = (this.choices['slots'][s].length == 0 || n==0);
-						if(p=="solar-panel") disable = (this.choices['solar-panel'] <= 0);
-						if(p=="solar-panel-surface") disable = (!this.choices['solar-panel-surface']);
-					}
-					a.prop('disabled',disable);
-				}
-			}
-		}else{
-			add.prop('disabled',false);
-			rem.prop('disabled',true);
-			S('#instrument_list .list-bar .value').html('');
-			S('#instrument_list .selected').removeClass('selected')
-			S('#power_list .list-bar .value').html('');
-			S('#power_list .selected').removeClass('selected')
-		}
-
-		//this.log('updateButtons',add,rem)
 		return this;
 	}
 
@@ -967,31 +834,6 @@ var rs;
 
 		this.updateValue(type,el,"power");
 		this.updateNavigation();
-		return this;
-	}
-	// Add or remove deployable solar panels up to a maximum
-	RocketScientist.prototype.solarPanel = function(add,el){
-		this.log('solarPanel',add,el)
-		var ps;
-		var parent = el.parent();
-		var a = parent.children('.add');
-		var m = parent.children('.remove');
-		var max = this.maxpanels*2;
-		if(add){
-			var panels = S('#sat-power .solar-panels');
-			for(var i = 0; i < panels.length; i++){
-				ps = panels.e[i].getElementsByTagName('li');
-				if(ps.length < this.maxpanels){
-					panels.e[i].getElementsByTagName('ol')[0].innerHTML += '<li class="solar-panel"><\/li>';
-				}
-			}
-		}else{
-			S('#sat-power .solar-panels li:eq(0)').remove();
-		}
-		// Find out how many panels we have
-		ps = S('#sat-power .solar-panels li');
-		this.choices['solar-panel'] = ps.length/2;
-
 		return this;
 	}
 	// Toggle the fixed solar panels
@@ -1037,16 +879,19 @@ var rs;
 		if(ok) S('.rocket-holder').removeClass('wobble');
 		else S('.rocket-holder').addClass('wobble');
 		// Save the state for use at launch
-		this.choices['rocket-stable'] = ok;
+		this.choices['stable'] = ok;
 
 		css = "";
 		var w,h,st;
+		// Make an array to hold the valid stages
 		var d = new Array();
 		// Loop over the stages storing the width, height and ID for stages which exist
 		for(var s = 0; s < this.stages.length; s++){
 			if(this.choices[this.stages[s]]){
 				st = this.stages[s];
-				d.push({'w':this.choices[this.stages[s]].diameter.value*0.5,'h':this.choices[this.stages[s]].height.value*0.5,'s':st});
+				// Only make a copy of the stage if the width is non-zero
+				// That way the fairings will be applied correctly below
+				if(this.choices[this.stages[s]].diameter.value > 0) d.push({'w':this.choices[this.stages[s]].diameter.value*0.5,'h':this.choices[this.stages[s]].height.value*0.5,'s':st});
 			}
 		}
 		// Loop over all but the final stage (which doesn't need a fairing) adding fairings
@@ -1062,6 +907,7 @@ var rs;
 		S('#customstylesheet').html(css);
 
 		this.updateBudgets();
+		this.updateRequirements();
 
 		return this;
 	}
@@ -1070,7 +916,7 @@ var rs;
 
 		this.wide = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 		this.tall = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-		var scaleH = !(window.getComputedStyle(S('#bar .left').e[0], null).getPropertyValue('display')==="none");
+		var scaleH = !(window.getComputedStyle(S('#bar .left')[0], null).getPropertyValue('display')==="none");
 
 		function height(el){
 			if('getComputedStyle' in window) return parseInt(window.getComputedStyle(el, null).getPropertyValue('height'));
@@ -1081,21 +927,22 @@ var rs;
 			else return parseInt(el.currentStyle.paddingTop);
 		}
 		var s = S('section');
-		var padd = verticalPadding(s.e[0]) + verticalPadding(s.children('.padded').e[0])+2;
+		var padd = (s.children('.padded').length > 0) ? verticalPadding(s[0]) + verticalPadding(s.children('.padded')[0])+2 : 0;
 		for(var i = 0; i < this.sections.length; i++){
 			var page = S('#'+this.sections[i]+' .page');
 			if(page.length > 0){
-				var top = height(page.children('.row-top').e[0]);
+				var eltop = page.children('.row-top');
+				var top = (eltop.length > 0) ? height(eltop[0]) : 0;
 				page.css({'height':(scaleH ? (this.tall-padd)+'px' : 'auto')});
 				var versions = page.children('.row-main');
 				for(var j = 0; j < versions.length; j++){
-					var el = S(page.children('.row-main').e[j]);
+					var el = S(page.children('.row-main')[j]);
 					// Clear any existing height that has been set
 					el.css({'height':'auto'});
 					// Find the minimum height needed. It is either enough to fill
 					// the screen height or the element's natural height whichever
 					// is largest
-					var h = Math.max(((el) ? (height(page.children('.row-main').e[j]) || 0) : 0),(this.tall-padd-top));
+					var h = Math.max(((el) ? (height(page.children('.row-main')[j]) || 0) : 0),(this.tall-padd-top));
 					el.css({'height':((scaleH) ? h+'px' : 'auto')})
 				}
 			}
@@ -1103,9 +950,28 @@ var rs;
 
 		return this;
 	}
+
+	RocketScientist.prototype.getSections = function(){
+		var sec = S('section');
+		this.sections = [];
+		this.navigable = {};
+		for(var i = 0 ;i < sec.length; i++){
+			var el = S(sec[i]);
+			if(el.hasClass('view')){
+				var id = el.attr('id');
+				this.sections.push(id);
+				this.navigable[id] = true;
+			}
+		}
+		this.has = {};
+		this.has['vw'] = (S('#progressbar').css({'width':'100vw'})[0].offsetWidth==this.wide);
+
+		return this;
+	}
+
 	RocketScientist.prototype.toggleFullScreen = function(){
 		// Get the container
-		var elem = S("#application").e[0];
+		var elem = S("#application")[0];
 
 		if(fullScreenApi.isFullScreen()){
 			fullScreenApi.cancelFullScreen(elem);
@@ -1126,80 +992,12 @@ var rs;
 		return this;
 	}
 
-	function Slider(s,data,callback){
-		this.el = s;
-		this.data = data;
-		this.callback = callback;
-		this.n = 1.6;	// How many to show
-		this.ul = s.find('ul:eq(0)');	// Get the ul
-		this.li = this.ul.find('li');	// Get the li
-		// Update the property
-		if(!this.ul.attr('data-select')) this.ul.attr('data-select','0');	// Set the property if it doesn't exist
-		this.setSelected(parseInt(this.ul.attr('data-select')));
-		var _obj = this;
-		// We'll need to change the sizes when the window changes size
-		window.addEventListener('resize',function(e){ _obj.resize(); });
-		// Add events to buttons
-		this.el.find('button').on('click',{me:this},function(e){ e.data.me.navigate(e); });
-		// Set the size
-		this.resize();
-		return this;
-	}
-	Slider.prototype.setSelected = function(s){
-		var n = this.li.length;
-		this.selected = ((s+n)%n);
-		this.ul.attr('data-select',this.selected);
-		this.ul.find('.selected').removeClass('selected');
-		S(this.li.e[this.selected]).addClass('selected');
-		return this;
-	}
-	Slider.prototype.navigate = function(e){
-		var f = S(e.currentTarget).hasClass('next');
-		this.setSelected(this.selected + (f ? 1 : -1));
-		this.resize();
-		if(typeof this.callback==="function") this.callback.call(this,{i:this.selected,data:this.data});
-		return this;
-	}
-	Slider.prototype.resize = function(){
-		function width(el){
-			if('getComputedStyle' in window) return parseInt(window.getComputedStyle(el, null).getPropertyValue('width'));
-			else return parseInt(el.currentStyle.width);
-		}
-		var w = width(this.el.e[0]);
-		this.el.find('.stage').css({'width':(w/this.n).toFixed(1)+'px'});	// Set the widths
-		this.el.find('button').css({'width':(w/5).toFixed(1)+'px'});	// Change widths of buttons
-		this.ul.css({'margin-left':'-'+((this.selected+0.5)*(w/this.n)).toFixed(1)+'px'});	// Update the offset for the list
-
-		return this;
-	}
-
-	S.rocketscientist = function(input){
-		return new RocketScientist(input);
-	};
+	// Add RocketScientist as a global variable
+	window.RocketScientist = RocketScientist;
 
 })(S);	// Self-closing function
 
-// On load
+// On load we create an instance of RocketScientist
 S(document).ready(function(){
-	rs = S.rocketscientist(typeof data==="object" ? data : {});
+	rs = new RocketScientist(typeof data==="object" ? data : "");
 });
-
-function test(){
-	// Quick start
-	// Trigger selection
-	S('#type .NAV button').trigger('click');
-	S('#type nav a').trigger('click');
-	S('#goal .NAV button:eq(1)').trigger('click');
-	S('#goal nav a:eq(1)').trigger('click');
-	S('#bus .satellite-l').trigger('click');
-	S('#bus nav a:eq(1)').trigger('click');
-	S('#orbit_list .orbit-GEO button').trigger('click');
-
-	S('#orbit nav a:eq(1)').trigger('click');
-	S('#instrument_list .bg4x8:eq(0) .add').trigger('click');
-	S('#instrument_list .bg2x4:eq(1) .add').trigger('click');
-	S('#instrument_list .bg2x4:eq(2) .add').trigger('click');
-	S('#instrument_list .bg2x2:eq(1) .add').trigger('click');
-	S('#instrument nav a:eq(1)').trigger('click');
-	S('#power nav a:eq(1)').trigger('click');
-}

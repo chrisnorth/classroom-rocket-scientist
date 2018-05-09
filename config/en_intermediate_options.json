@@ -399,7 +399,7 @@
 			"title": "Internet encoder",
 			"description": "",
 			"texture": {
-				"icon": ""
+				"icon": "texture internet-en"
 			},
 			"mass": { "value": 0, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "credits", "dimension": "currency" },
@@ -821,16 +821,17 @@
 			"title": "Navigation",
 			"description": "The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension=\"length\" data-units=\"km\" data-value=\"20000\" class=\"value convertable\">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.",
 			"image": {
-				"file": "images/icon-nav.png",
+				"file": "images/png/icon-nav.png",
 				"alt": "Navigation",
 				"credit": "parkjisun"
 			},
 			"missions": [{
 				"title": "Satellite Navigation System",
 				"description": "Uses signals from four navigation satellites so satnav users can find their location on Earth. Need to be able to see half a hemisphere at a time, measure time accurately and transmit signals of the location.",
-				"success": "",
+				"launch": "Welcome to the launch of the UK Space Agency's latest navigation satellite that will allow people to accurately determine their position on Earth.",
+				"success": "Congratulations, your navigation satellite is now sending people accurate information about their position on Earth on behalf of the UK Space Agency.",
 				"image": {
-					"file": "images/icon-mapmarker.png",
+					"file": "images/png/icon-mapmarker.png",
 					"alt": "Satellite Navigation System",
 					"credit": "Housin Aziz"
 				},
@@ -842,12 +843,12 @@
 					"error": "Your satellite must be big enough for your mission."
 				},{
 					"type": "package",
-					"oneof": ["atomicclock"],
+					"oneof": ["atomic-clock"],
 					"label": "Needs to be able to measure time very accurately",
 					"error": "You are not able to measure the time accurately enough."
 				},{
 					"type": "package",
-					"oneof": ["radio_tx"],
+					"oneof": ["radio-tx"],
 					"label": "A way to send signals.",
 					"error": "Your satellite does not have any way to transmit timing signals to people on the ground."
 				},{
@@ -863,8 +864,10 @@
 			},{
 				"title": "Map-making",
 				"description": "Map the surface of the Earth. Need to be able to take images of small areas of the Earth's surface and measure the height of the ground in high detail.",
+				"launch": "Welcome to the launch of the UK Space Agency's latest navigation satellite that will accurately map the surface of the Earth.",
+				"success": "Congratulations, your navigation satellite is now accurately mapping the surface of the Earth on behalf of the UK Space Agency.",
 				"image": {
-					"file": "images/icon-topography.png",
+					"file": "images/png/icon-topography.png",
 					"alt": "Map-making",
 					"credit": "parkjisun"
 				},
@@ -885,15 +888,17 @@
 			"title": "Communication",
 			"description": "These satellites are used for television, phone or internet transmissions. For example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.",
 			"image": {
-				"file": "images/icon-comms.png",
+				"file": "images/png/icon-comms.png",
 				"alt": "Communication",
 				"credit": "Creative Stall"
 			},
 			"missions": [{
 				"title": "Satellite telephone system",
 				"description": "Lets people talk over the phone from remote regions of the world using satellites.",
+				"launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will allow people from regions all over the world to communicate by telephone.",
+				"success": "Congratulations, your communication satellite is now receiving signals from the ground and broadcasting them to phones around the Earth on behalf of the UK Space Agency.",
 				"image": {
-					"file": "images/icon-phone.png",
+					"file": "images/png/icon-phone.png",
 					"alt": "Satellite telephone system",
 					"credit": "Plainicon"
 				},
@@ -917,8 +922,10 @@
 			},{
 				"title": "Satellite TV",
 				"description": "Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.",
+				"launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will provide satellite TV to people all over the world.",
+				"success": "Congratulations, your communication satellite is now providing satellite TV to people all over the world.",
 				"image": {
-					"file": "images/icon-tv.png",
+					"file": "images/png/icon-tv.png",
 					"alt": "Satellite TV",
 					"credit": "Hakan Yalcin"
 				},
@@ -947,12 +954,14 @@
 			},{
 				"title": "Satellite internet",
 				"description": "Connect to the internet from remote regions of the world using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.",
+				"launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will help people from all over the world connect to the internet.",
+				"success": "Congratulations, your communication satellite is now helping people connect to the internet from regions all over the world on behalf of the UK Space Agency.",
 				"image": {
-					"file": "images/icon-internet.png",
+					"file": "images/png/icon-internet.png",
 					"alt": "Satellite internet",
 					"credit": "parkjisun"
 				},
-				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 300, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["radio-tx"],
@@ -980,15 +989,17 @@
 			"title": "Earth Observation",
 			"description": "These satellites are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.",
 			"image": {
-				"file": "images/icon-eo.png",
+				"file": "images/png/icon-eo.png",
 				"alt": "Earth Observation",
 				"credit": "Rflor"
 			},
 			"missions": [{
 				"title": "Weather forecasting",
 				"description": "Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean.",
+				"launch": "Welcome to the launch of the UK Space Agency's latest earth observation satellite that will allow forecasters around the world to predict future weather.",
+				"success": "Congratulations, your earth observation satellite is now helping forecasters around the world to predict future weather.",
 				"image": {
-					"file": "images/icon-cloud.png",
+					"file": "images/png/icon-cloud.png",
 					"alt": "Weather forecasting",
 					"credit": "Megan Mitchell"
 				},
@@ -1012,8 +1023,10 @@
 			},{
 				"title": "Vegetation mapping",
 				"description": "Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmit the images back to the ground.",
+				"launch": "Welcome to the launch of the UK Space Agency's latest earth observation satellite that will map the plants over the surface of the Earth using infrared images.",
+				"success": "Congratulations, your earth observation satellite is now mapping the plants across the surface of the Earth using infrared images.",
 				"image": {
-					"file": "images/icon-plant.png",
+					"file": "images/png/icon-plant.png",
 					"alt": "Vegetation mapping",
 					"credit": "Clockwise"
 				},
@@ -1032,12 +1045,14 @@
 			},{
 				"title": "Natural disaster monitoring",
 				"description": "When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras can show floods and fires. Radio waves can show regions of earth deformation, such as after earthquakes.",
+				"launch": "Welcome to the launch of the UK Space Agency's latest earth observation satellite that will help to assess the damage caused by natural disasters including forest fires, floods and eathquakes.",
+				"success": "Congratulations, your earth observation satellite is now helping to assess the damage caused by natural disasters including forest fires, floods and eathquakes.",
 				"image": {
-					"file": "images/icon-disaster.png",
+					"file": "images/png/icon-disaster.png",
 					"alt": "Natural disaster monitoring",
 					"credit": "Leadway Global LLC"
 				},
-				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 1000, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-opt-hires"],
@@ -1072,12 +1087,14 @@
 			},{
 				"title": "Surface mapping",
 				"description": "Measure the varying height of land and oceans over the Earth's surface.",
+				"launch": "Welcome to the launch of the UK Space Agency's latest earth observation satellite that will measure the varying height of land and oceans over the Earth's surface.",
+				"success": "Congratulations, your earth observation satellite is now measuring the varying height of land and oceans over the Earth's surface.",
 				"image": {
-					"file": "images/icon-surface.png",
+					"file": "images/png/icon-surface.png",
 					"alt": "Surface mapping",
 					"credit": "OCHA Visual Information Unit"
 				},
-				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 1000, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["radar-alt"],
@@ -1095,7 +1112,7 @@
 					"error": "You do not have a way to transmit signals to the ground."
                 },{
                     "type": "package",
-                    "oneof": ["sat-tracker"],
+                    "oneof": ["gps-rx"],
                     "label": "Enables high level precision of the satellite location.",
 					"error": "You do not have a way to locate the position of the satellite accurately."
                 },{
@@ -1106,5 +1123,42 @@
 				}]
 			}]
 		}
-	}
+	},
+	"rocket": {
+		"requires": [{
+			"type": "rocket",
+			"is": "stable",
+			"label": "Your rocket must be stable",
+			"error": "Your rocket is top heavy. Try to make sure it is stable before launching"
+		},{
+			"type": "rocket",
+			"is": "fueled",
+			"label": "Your rocket needs enough power to reach orbit.",
+			"error": "Your rocket is not powerful enough to launch."
+		}]
+	},
+    "launch": {
+    	"prep": {
+    		"checklist": "<p>We've detected problems. These should be fixed before trying to launch or your mission will fail. Please check the following sections:</p>$requirementssectionlist$",
+			"goforlaunch": "Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.",
+			"button": "Launch?"
+    	},
+		"countdown": "Count down",
+		"liftoff":	"Lift off!",
+		"stage": {
+			"ignition": "Stage $stage$ ignition",
+			"fuel-exhausted": "Stage $stage$ fuel exhausted",
+			"separation": "Stage $stage$ separation"
+		},
+		"elapsed-time": "T$value$",
+		"current-speed": "Current speed: $value$",
+		"orbit-achieved": "$orbit$ achieved",
+		"payload-bay-open": "Payload bay opened",
+		"deployed": "Satellite deployed",
+		"solar-panels": {
+			"deploying": "",
+			"deployed": ""
+		},
+		"operational": "Satellite operational"
+    }
 }

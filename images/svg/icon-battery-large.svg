@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="64"
+   height="32"
+   viewBox="0 0 64.000001 32"
+   id="svg4378"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="icon-battery-large.svg"
+   inkscape:export-filename="/Users/chrisnorth/Github/classroom-rocket-scientist/images/png/icon-phone.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4380" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="8.2864076"
+     inkscape:cx="12.25049"
+     inkscape:cy="21.502572"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer3"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1680"
+     inkscape:window-height="952"
+     inkscape:window-x="0"
+     inkscape:window-y="1"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata4383">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="New"
+     transform="translate(0,-32)">
+    <g
+       id="g4156"
+       transform="translate(1.3980577,0)">
+      <g
+         transform="matrix(0.95416758,0,0,0.95135572,0.13701163,2.7342034)"
+         id="g4148">
+        <g
+           id="g4138"
+           transform="translate(-1.3274751,0)">
+          <rect
+             y="40.294514"
+             x="4.6097722"
+             height="15.620713"
+             width="24.850386"
+             id="rect4233"
+             style="opacity:0.98999999;fill:none;fill-opacity:1;stroke:#000000;stroke-width:2.09916329;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+          <rect
+             transform="matrix(0,1,1,0,0,0)"
+             y="29.347734"
+             x="44.441101"
+             height="3.6750572"
+             width="7.3275347"
+             id="rect4235"
+             style="opacity:0.98999999;fill:#000000;fill-opacity:1;stroke:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.0999999;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+        </g>
+        <g
+           id="g4142"
+           transform="translate(28.601055,0)">
+          <rect
+             style="opacity:0.98999999;fill:none;fill-opacity:1;stroke:#000000;stroke-width:2.09916329;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="rect4144"
+             width="24.850386"
+             height="15.620713"
+             x="4.6097722"
+             y="40.294514" />
+          <rect
+             style="opacity:0.98999999;fill:#000000;fill-opacity:1;stroke:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.0999999;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="rect4146"
+             width="7.3275347"
+             height="3.6750572"
+             x="44.441101"
+             y="29.347734"
+             transform="matrix(0,1,1,0,0,0)" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

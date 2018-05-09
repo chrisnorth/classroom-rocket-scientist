@@ -17,29 +17,31 @@ function rocketEquation(orb,d,stages,payloadmass){
 	if(!orb) return rtn;
 	for(var s = 0; s < stages.length; s++){
 		// Calculated values
-		if(!stages[s]['thrust']) stages[s]['thrust'] = 0;
-		stages[s].veff = (stages[s]['impulse']) ? {'value':9.81*stages[s]['impulse'].value,'units':'m/s','dimension':'velocity'} : 0;
-		stages[s].mfr = (stages[s]['thrust'] && stages[s]['veff'].value > 0) ? {'value':(stages[s]['thrust'].value*1000)/stages[s]['veff'].value,'units':'kg/s','dimension':'massflowrate'} : 0;
-		stages[s].burn = (stages[s]['mfr'] && stages[s]['fuel']) ? {'value':(stages[s]['fuel'].value/stages[s]['mfr'].value),'units':'s','dimension':'time'} : 0;
+		if(stages[s]){
+			if(!stages[s]['thrust']) stages[s]['thrust'] = 0;
+			stages[s].veff = (stages[s]['impulse']) ? {'value':9.81*stages[s]['impulse'].value,'units':'m/s','dimension':'velocity'} : 0;
+			stages[s].mfr = (stages[s]['thrust'] && stages[s]['veff'].value > 0) ? {'value':(stages[s]['thrust'].value*1000)/stages[s]['veff'].value,'units':'kg/s','dimension':'massflowrate'} : 0;
+			stages[s].burn = (stages[s]['mfr'] && stages[s]['fuel']) ? {'value':(stages[s]['fuel'].value/stages[s]['mfr'].value),'units':'s','dimension':'time'} : 0;
 
-		if(stages[s].fuel){
-			massinitial = 0;
-			if(stages[s].fuel) massinitial += stages[s].fuel.value;
-			if(stages[s].drymass) massinitial += stages[s].drymass.value;
-			massfinal = 0;
-			for(var st = s+1; st < stages.length; st++){
-				if(stages[st].fuel) massfinal += stages[st].fuel.value;
-				if(stages[st].drymass) massfinal += stages[st].drymass.value;
+			if(stages[s].fuel){
+				massinitial = 0;
+				if(stages[s].fuel) massinitial += stages[s].fuel.value;
+				if(stages[s].drymass) massinitial += stages[s].drymass.value;
+				massfinal = 0;
+				for(var st = s+1; st < stages.length; st++){
+					if(stages[st].fuel) massfinal += stages[st].fuel.value;
+					if(stages[st].drymass) massfinal += stages[st].drymass.value;
+				}
+				if(payloadmass) massfinal += payloadmass.value;
+				stages[s].massinitial = {'value':massinitial+massfinal,'units':'kg','dimension':'mass'};
+				stages[s].massfinal = {'value':massfinal,'units':'kg','dimension':'mass'};
+
+				// delta-V (per stage) [m/s] = V_eff [m/s] * ln(Mass_init/Mass_final)
+				// remembering to include the masses of all the stages and fuel above]
+				stages[s].deltav = (stages[s].veff.value > 0) ? {'value': stages[s].veff.value * Math.log(stages[s].massinitial.value/stages[s].massfinal.value),'units':'m/s','dimension':'velocity'} : 0;
 			}
-			if(payloadmass) massfinal += payloadmass.value;
-			stages[s].massinitial = {'value':massinitial+massfinal,'units':'kg','dimension':'mass'};
-			stages[s].massfinal = {'value':massfinal,'units':'kg','dimension':'mass'};
-
-			// delta-V (per stage) [m/s] = V_eff [m/s] * ln(Mass_init/Mass_final)
-			// remembering to include the masses of all the stages and fuel above]
-			stages[s].deltav = (stages[s].veff.value > 0) ? {'value': stages[s].veff.value * Math.log(stages[s].massinitial.value/stages[s].massfinal.value),'units':'m/s','dimension':'velocity'} : 0;
+			if(stages[s].deltav) dv += stages[s].deltav.value;
 		}
-		if(stages[s].deltav) dv += stages[s].deltav.value;
 	}
 	dv = new Convertable({'value':dv,'units':'m/s','dimension':'velocity'});
 

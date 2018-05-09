@@ -47,7 +47,7 @@
 			"height": { "value": 1, "units": "m", "dimension": "length" },
 			"depth": { "value": 1, "units": "m", "dimension": "length" },
 			"area": { "value": 1, "units": "m^2", "dimension": "area" },
-            "power": { "value": 500, "units": "watts", "dimension": "power"}
+            "power": { "value": 100, "units": "watts", "dimension": "power"}
 		},
 		"medium":{
 			"slots": { "2x2": 4, "2x4": 2, "3x3": 1, "4x4": 4 },
@@ -58,7 +58,7 @@
 			"height": { "value": 2.5, "units": "m", "dimension": "length" },
 			"depth": { "value": 2.5, "units": "m", "dimension": "length" },
 			"area": { "value": 3, "units": "m^2", "dimension": "area" },
-            "power": { "value": 1000, "units": "watts", "dimension": "power"}
+            "power": { "value": 300, "units": "watts", "dimension": "power"}
 		},
 		"large":{
 			"slots": { "2x2": 8, "2x4": 3, "4x8": 1, "3x3": 1, "4x4": 4 },
@@ -69,14 +69,14 @@
 			"height": { "value": 2.5, "units": "m", "dimension": "length" },
 			"depth": { "value": 2.5, "units": "m", "dimension": "length" },
 			"area": { "value": 10, "units": "m^2", "dimension": "area" },
-            "power": { "value": 1500, "units": "watts", "dimension": "power"}
+            "power": { "value": 500, "units": "watts", "dimension": "power"}
 		}
 	},
 	"package": {
 		"camera-opt" : {
 			"slot": "2x2",
 			"title": "Camera",
-			"description": "Takes pictures of the Earth that can be used to create maps, or for tracking natural disasters, such as floods or volcanic eruptions. Cameras are also used to look at clouds. The amount of detail captured on camera depends on how far from the ground your satellite is orbiting.",
+			"description": "Takes pictures of the Earth that can be used to create maps or track natural disasters, such as floods or volcanic eruptions. This camera can also be used to take pictures of clouds.",
 			"texture": {
 				"icon": "texture camera-opt"
 			},
@@ -91,8 +91,8 @@
 		},
 		"camera-fir": {
 			"slot":	"2x4",
-			"title": "Atmospheric camera",
-			"description": "Provides infrared images of the clouds and weather systems in the Earth's atmosphere, useful for weather forecasting and climate monitoring, even during darkness.",
+			"title": "Thermal camera",
+			"description": "Provides thermal images of Earth's atmosphere. This camera is useful for forecasting the weather, even during hours of darkness.",
 			"texture": {
 				"icon": "texture camera-fir"
 			},
@@ -108,7 +108,7 @@
 		"radar-alt": {
 			"slot":	"2x4",
 			"title": "Radar altimeter",
-			"description": "Pronounced 'ray-dar al-ti-met-er'. Used to measure the shape of the ground, including the mountains and valleys on the Earth's surface. Also provides information about the effect of earthquakes. Requires a radar dish to work.",
+			"description": "Used to measure the shape of the ground, including mountains and valleys on Earth's surface. This instrument also provides information about the effect of earthquakes. It requires a radar dish to work.",
 			"texture": {
 				"icon": "texture radar-alt"
 			},
@@ -123,8 +123,8 @@
 			"requires": [{
 				"type": "package",
 				"oneof": ["radar-dish"],
-				"label": "Requires a radar dish",
-				"error": "You need to include a radar dish for the radar altimeter to work."
+				"label": "You need a radar dish for the radar altimeter to work.",
+				"error": "You need to include a radar dish."
 			}]
 		},
 		"radar-dish": {
@@ -145,28 +145,12 @@
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
 		},
-		"radio-rx": {
+		"phone-en": {
 			"slot":	"2x2",
-			"title": "Radio receiver",
-			"description": "Receives instructions for the satellite, from the ground control team.",
+			"title": "Phone encoder",
+			"description": "Broadcasts signals to telephones across the world.",
 			"texture": {
-				"icon": "texture radio-rx"
-			},
-			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 20, "units": "watts", "dimension": "power" }
-		},
-		"radio-tx": {
-			"slot":	"2x2",
-			"title": "Radio transmitter",
-			"description": "Sends information collected by the satellite to Earth.",
-			"texture": {
-				"icon": "texture radio-tx"
+				"icon": "texture phone-en"
 			},
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
@@ -180,7 +164,7 @@
 		"atomic-clock": {
 			"slot":	"2x2",
 			"title": "Atomic clock",
-			"description": "A very accurate clock used by navigation satellites to measure the time very precisely and help people find their locations on Earth.",
+			"description": "A very accurate clock used by navigation satellites to measure the time very precisely. They are used to help people find their locations on Earth.",
 			"texture": {
 				"icon": "texture atomic-clock"
 			},
@@ -196,7 +180,7 @@
 		"gps-rx": {
 			"slot":	"2x2",
 			"title": "GPS receiver",
-			"description": "Used to monitor the satellite's position very accurately",
+			"description": "Used to communicate with other GPS satellites.",
 			"texture": {
 				"icon": "texture gps-rx"
 			},
@@ -209,28 +193,10 @@
 			],
 			"power": { "value": 5, "units": "watts", "dimension": "power" }
 		},
-		"dish-large": {
-			"slot":	"4x8",
-			"title": "Radio dish (large)",
-			"description": "Can be used to control up to 8 instruments, and send images & data from these instruments to Earth.",
-			"texture": {
-				"icon": "",
-				"class": "-bg radio",
-				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
-			},
-			"mass": { "value": 30, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 2, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 2.0, "units": "m", "dimension": "length" },
-				{ "value": 2.0, "units": "m", "dimension": "length" },
-				{ "value": 1.0, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 0, "units": "watts", "dimension": "power" }
-		},
 		"dish-medium": {
 			"slot":	"2x4",
 			"title": "Radio dish",
-			"description": "Can be used to control up to 4 instruments, and send images & data from these instruments to Earth.",
+			"description": "Can be used to control up to 4 instruments. It can send images and data from these 4 instruments back to Earth.",
 			"texture": {
 				"icon": "",
 				"class": "-bg radio",
@@ -250,7 +216,7 @@
 			"title": "Internet encoder",
 			"description": "Used to broadcast the internet to people around the world.",
 			"texture": {
-				"icon": ""
+				"icon": "texture internet-en"
 			},
 			"mass": { "value": 0, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 0, "units": "credits", "dimension": "currency" },
@@ -290,14 +256,15 @@
 			"power": { "value": "inf", "units": "watts", "dimension": "power" }
         },
 		"battery-large": {
-			"slot":	"2x2",
+			"slot":	"2x4",
 			"title": "Large battery",
-			"description": "Stores power from solar panels that can be used to power satellite instruments during hours of darkness.",
+			"description": "Stores power from solar panels that can be used to power your instruments during hours of darkness.",
 			"texture": {
 				"icon": "texture battery-large"
 			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 20, "units": "credits", "dimension": "currency" },
+            "power": { "value": 0, "units": "watts", "dimension": "power" },
 			"dimensions": [
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" },
@@ -306,14 +273,14 @@
 			"requires": [{
 				"type": "power",
 				"oneof": ["solar-panel","solar-panel-surface"],
-				"label": "Requires solar panels to charge up",
-				"error": "Requires solar panels"
+				"label": "The battery requires solar panels to charge up",
+				"error": "Your satellite requires solar panels"
 			}]
 		},
 		"battery-small": {
-			"slot":	"1x1",
+			"slot":	"2x2",
 			"title": "Small battery",
-			"description": "Stores power from solar panels that can be used to power satellite instruments during hours of darkness.",
+			"description": "Stores power from solar panels that can be used to power your instruments during hours of darkness.",
 			"texture": {
 				"icon": "texture battery-small"
 			},
@@ -328,8 +295,8 @@
 			"requires": [{
 				"type": "power",
 				"oneof": ["solar-panel","solar-panel-surface"],
-				"label": "Requires solar panels to charge up",
-				"error": "Requires solar panels"
+				"label": "The battery requires solar panels to charge up",
+				"error": "Your satellite requires solar panels"
 			}]
 		}
 	},
@@ -347,7 +314,7 @@
 	},{
 		"key": "S",
 		"type": "Solid-fuel rocket",
-		"diameter": { "value": 3.0, "units": "m", "dimension": "length" },
+		"diameter": { "value": 1, "units": "m", "dimension": "length" },
 		"height": { "value": 12.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 10500, "units": "kg", "dimension": "mass" },
 		"cost": { "value": 23, "units": "credits", "dimension": "currency" },
@@ -358,7 +325,7 @@
 	},{
 		"key": "M",
 		"type": "Liquid-fuel rocket",
-		"diameter": { "value": 3.0, "units": "m", "dimension": "length" },
+		"diameter": { "value": 2, "units": "m", "dimension": "length" },
 		"height": { "value": 30.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 9000, "units": "kg", "dimension": "mass" },
 		"cost": { "value": 12, "units": "credits", "dimension": "currency" },
@@ -369,7 +336,7 @@
 	},{
 		"key": "L",
 		"type": "Liquid-fuel rocket",
-		"diameter": { "value": 3.5, "units": "m", "dimension": "length" },
+		"diameter": { "value": 4.5, "units": "m", "dimension": "length" },
 		"height": { "value": 40.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 24000, "units": "kg", "dimension": "mass" },
 		"cost": { "value": 60, "units": "credits", "dimension": "currency" },
@@ -399,28 +366,6 @@
 		"fuel": { "value": 2000000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 263, "units": "s", "dimension": "time" },
 		"notes": "Based on Saturn V 1st stage (https://en.wikipedia.org/wiki/Saturn_V)"
-	},{
-		"key": "Plane",
-		"type": "Air-breathing rocket",
-		"diameter": { "value": 6, "units": "m", "dimension": "length" },
-		"height": { "value": 82.0, "units": "m", "dimension": "length" },
-		"drymass": { "value": 310000, "units": "kg", "dimension": "mass" },
-		"cost": { "value": 190, "units": "credits", "dimension": "currency" },
-		"thrust": { "value": 2000, "units": "kN", "dimension": "force" },
-		"fuel": { "value": 15000, "units": "kg", "dimension": "mass" },
-		"impulse": { "value": 3600, "units": "s", "dimension": "time" },
-		"notes": "Based on SABRE (https://en.wikipedia.org/wiki/SABRE_(rocket_engine))"
-	},{
-		"key": "RocketPlane",
-		"type": "Liquid-fuel rocket",
-		"diameter": { "value": 6, "units": "m", "dimension": "length" },
-		"height": { "value": 82.0, "units": "m", "dimension": "length" },
-		"drymass": { "value": 53000, "units": "kg", "dimension": "mass" },
-		"cost": { "value": 450, "units": "credits", "dimension": "currency" },
-		"thrust": { "value": 3000, "units": "kN", "dimension": "force" },
-		"fuel": { "value": 260000, "units": "kg", "dimension": "mass" },
-		"impulse": { "value": 460, "units": "s", "dimension": "time" },
-		"notes": "Based on SABRE (https://en.wikipedia.org/wiki/SABRE_(rocket_engine))"
 	}],
 	"secondstage": [{
 		"key": "None",
@@ -436,7 +381,7 @@
 	},{
 		"key": "XS",
 		"type": "Solid-fuel rocket",
-		"diameter": { "value": 1.3, "units": "m", "dimension": "length" },
+		"diameter": { "value": 1, "units": "m", "dimension": "length" },
 		"height": { "value": 17, "units": "m", "dimension": "length" },
 		"drymass": { "value": 2000, "units": "kg", "dimension": "mass" },
 		"cost": { "value": 5, "units": "credits", "dimension": "currency" },
@@ -469,7 +414,7 @@
 	},{
 		"key": "L",
 		"type": "Liquid-fuel rocket",
-		"diameter": { "value": 3.5, "units": "m", "dimension": "length" },
+		"diameter": { "value": 4.5, "units": "m", "dimension": "length" },
 		"height": { "value": 15, "units": "m", "dimension": "length" },
 		"drymass": { "value": 4000, "units": "kg", "dimension": "mass" },
 		"cost": { "value": 20, "units": "credits", "dimension": "currency" },
@@ -536,7 +481,18 @@
 	},{
 		"key": "L",
 		"type": "Liquid-fuel rocket",
-		"diameter": { "value": 7, "units": "m", "dimension": "length" },
+		"diameter": { "value": 8, "units": "m", "dimension": "length" },
+		"height": { "value": 19, "units": "m", "dimension": "length" },
+		"drymass": { "value": 13500, "units": "kg", "dimension": "mass" },
+		"cost": { "value": 8, "units": "credits", "dimension": "currency" },
+		"thrust": { "value": 1000, "units": "kN", "dimension": "force" },
+		"fuel": { "value": 110000, "units": "kg", "dimension": "mass" },
+		"impulse": { "value": 420, "units": "s", "dimension": "time" },
+		"notes": "Based on Saturn V 3rd stage (https://en.wikipedia.org/wiki/Saturn_V)"
+	},{
+		"key": "XL",
+		"type": "Liquid-fuel rocket",
+		"diameter": { "value": 10, "units": "m", "dimension": "length" },
 		"height": { "value": 19, "units": "m", "dimension": "length" },
 		"drymass": { "value": 13500, "units": "kg", "dimension": "mass" },
 		"cost": { "value": 8, "units": "credits", "dimension": "currency" },
@@ -643,16 +599,17 @@
 			"title": "Navigation",
 			"description": "These satellites are used to help people find their whereabouts on the Earth.",
 			"image": {
-				"file": "images/icon-nav.png",
+				"file": "images/png/icon-nav.png",
 				"alt": "Navigation",
 				"credit": "parkjisun"
 			},
 			"missions": [{
 				"title": "Satellite navigation system",
 				"description": "Uses signals from four separate satellites so sat nav users can find their location on Earth. These satellites need to be able to see huge area of Earth at a time, measure time accurately and send information about their location.",
-				"success": "",
+				"launch": "Welcome to the launch of the UK Space Agency's latest navigation satellite that will allow people to accurately determine their position on Earth.",
+				"success": "Congratulations, your navigation satellite is now sending people accurate information about their position on Earth on behalf of the UK Space Agency.",
 				"image": {
-					"file": "images/icon-mapmarker.png",
+					"file": "images/png/icon-mapmarker.png",
 					"alt": "Satellite navigation system",
 					"credit": "Housin Aziz"
 				},
@@ -669,34 +626,36 @@
 				},{
 					"type": "package",
 					"oneof": ["atomicclock"],
-					"label": "Needs to be able to measure time very accurately.",
-					"error": "You are not able to measure the time accurately enough."
+					"label": "",
+					"error": ""
 				},{
 					"type": "package",
-					"oneof": ["radio_tx"],
-					"label": "A way to send signals.",
-					"error": "Your satellite does not have any way to send signals to people on the ground."
+					"oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
+					"label": "You need a way to send signals back to Earth.",
+					"error": "Your satellite does not have any way to send signals to the ground control team."
 				},{
 					"type": "package",
 					"oneof": ["gps-rx"],
-					"label": "",
-					"error": ""
-
+					"label": "You need a way to recieve signals from other GPS satellites.",
+					"error": "Your satellite does not have any way to recieve signals from other GPS satellites."
 				},{
 					"type": "orbit",
 					"oneof": ["HEO","GEO"],
 					"label": "See the whole planet.",
 					"error": "The orbit you have chosen does not allow you to see the whole planet."
 				},{
-                   			"type": "power",
-			                "oneof": ["solar-panel","solar-panel-surface","battery-small","battery-large"],
-                    			"label": ""
-                		}]
+					"type": "power",
+					"oneof": ["solar-panel","solar-panel-surface","battery-small","battery-large"],
+					"label": "",
+					"error": ""
+				}]
 			},{
 				"title": "Map-making",
 				"description": "Map the surface of the Earth. Your satellite needs to be able to take images of small areas of the Earth's surface and measure the height of the ground in detail.",
+				"launch": "Welcome to the launch of the UK Space Agency's latest navigation satellite that will accurately map the surface of the Earth.",
+				"success": "Congratulations, your navigation satellite is now accurately mapping the surface of the Earth on behalf of the UK Space Agency.",
 				"image": {
-					"file": "images/icon-topography.png",
+					"file": "images/png/icon-topography.png",
 					"alt": "Map-making",
 					"credit": "parkjisun"
 				},
@@ -707,28 +666,27 @@
 				},
 				"requires": [{
 					"type": "package",
-                    			"oneof": ["camera-opt"],
-                    			"label": "",
-					"error": ""
-                		},{
-               			    	 "type": "package",
-                   			"oneof": ["radar-alt"],
-					"label": "",
-					"error": ""
-            			    },{
-                			 "type": "package",
+					"oneof": ["camera-opt"],
+					"label": "You need an instrument capable of collecting detailed images.",
+					"error": "Your satellite does not allow you to see the planet's surface in enough detail."
+                },{
+					"type": "package",
+					"oneof": ["radar-alt"],
+					"label": "You need a way to measure the height of the Earth's surface.",
+					"error": "You do not have a way to measure the height of the Earth's surface (e.g. mountains and valleys)."
+            	},{
+                	"type": "package",
 					"oneof": ["radar-dish"],
-					"label": "",
-					"error": ""
+					"error": "Your radar altimeter cannot work as you do not have a radar dish."
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],
 					"label": "See detail of planet surface.",
 					"error": "The orbit you have chosen does not allow your satellite to see the planet surface in enough detail."
 				},{
-                   			"type": "power",
-			                "oneof": ["solar-panel","solar-panel-surface","battery-small","battery-large"],
-                    			"label": ""
+					"type": "power",
+					"oneof": ["solar-panel","solar-panel-surface","battery-small","battery-large"],
+					"label": ""
 				}]
 			}]
 		},
@@ -736,33 +694,35 @@
 			"title": "Communication",
 			"description": "These satellites are used for television, phone or internet broadcasts.",
 			"image": {
-				"file": "images/icon-comms.png",
+				"file": "images/png/icon-comms.png",
 				"alt": "Communication",
 				"credit": "Creative Stall"
 			},
 			"missions": [{
 				"title": "Satellite telephone system",
-				"description": "Allows people to talk over the phone, even from remote regions of the world. These satellites receive signals from the ground and transmit them to other areas on Earth.",
+				"description": "Allows people to talk over the phone, even from remote regions of the world. The satellite receives signals from the ground and transmits them to other areas on Earth.",
+				"launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will allow people from regions all over the world to communicate by telephone.",
+				"success": "Congratulations, your communication satellite is now receiving signals from the ground and broadcasting them to phones around the Earth on behalf of the UK Space Agency.",
 				"image": {
-					"file": "images/icon-phone.png",
+					"file": "images/png/icon-phone.png",
 					"alt": "Satellite telephone system",
 					"credit": "Plainicon"
 				},
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
 				"choices": {
-					"bus": "medium",
+					"bus": "small",
 					"orbit": "LEO"
 				},
 				"requires": [{
                     "type": "package",
-                    "oneof": ["radio-tx"],
-                    "label": "A way to send signals.",
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
+                    "label": "You need a way to send signals.",
 					"error": "Your satellite does not have a way to send signals to the ground."
                 },{
                     "type": "package",
-                    "oneof": ["radio-rx"],
-                    "label": "A way to receive signals.",
-					"error": "Your satellite does not have a way to receive signals from the ground."
+                    "oneof": ["phone-en"],
+                    "label": "You need away to broadcast signals between phones.",
+					"error": "Your satellite does not have a way to broadcast signals to phones on the ground."
                 },{
 					"type": "orbit",
 					"oneof": ["GEO"],
@@ -771,9 +731,11 @@
 				}]
 			},{
 				"title": "Satellite internet",
-				"description": "Allows people to connect to the internet, even from remote regions of the world. These satellites receive signals from the ground and transmit them to other areas on Earth.",
+				"description": "Allows people to connect to the internet, even from remote regions of the world. The satellite receives signals from the ground and transmits them to other areas on Earth.",
+				"launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will help people from all over the world connect to the internet.",
+				"success": "Congratulations, your communication satellite is now helping people connect to the internet from regions all over the world on behalf of the UK Space Agency.",
 				"image": {
-					"file": "images/icon-internet.png",
+					"file": "images/png/icon-internet.png",
 					"alt": "Satellite internet",
 					"credit": "parkjisun"
 				},
@@ -784,19 +746,14 @@
 				},
 				"requires": [{
                     "type": "package",
-                    "oneof": ["radio-tx"],
-                    "label": "A way to send signals.",
-					"error": "You do not have a way to send signals to the ground."
-                },{
-                    "type": "package",
-                    "oneof": ["radio-rx"],
-                    "label": "A way to receive signals.",
-					"error": "You do not have a way to receive signals from the ground."
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
+                    "label": "You need a way to send signals.",
+					"error": "Your satellite does not have a way to send signals to the ground."
                 },{
                     "type": "package",
                     "oneof": ["internet-en"],
-                    "label": "A way to encode internet signals.",
-					"error": "You do not have a way to encode internet signals."
+                    "label": "You need a way to broadcast internet signals.",
+					"error": "You do not have a way to broadcast internet signals."
 				},{
 					"type": "orbit",
 					"oneof": ["GEO"],
@@ -807,17 +764,19 @@
 		},
 		"EO": {
 			"title": "Earth Observation",
-			"description": "These satellites are used to image clouds, measure temperature and rainfall, and forecasting the weather.",
+			"description": "These satellites are used to forecasting the weather, study clouds and assess the damage caused by natural disasters.",
 			"image": {
-				"file": "images/icon-eo.png",
+				"file": "images/png/icon-eo.png",
 				"alt": "Earth Observation",
 				"credit": "Rflor"
 			},
 			"missions": [{
 				"title": "Weather forecasting",
-				"description": "Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use invisible, infrared light to measure the temperatures of the ground and ocean.",
+				"description": "Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use thermal cameras to measure the temperature of the ground and oceans.",
+				"launch": "Welcome to the launch of the UK Space Agency's latest earth observation satellite that will allow forecasters around the world to predict future weather.",
+				"success": "Congratulations, your earth observation satellite is now helping forecasters around the world to predict future weather.",
 				"image": {
-					"file": "images/icon-cloud.png",
+					"file": "images/png/icon-cloud.png",
 					"alt": "Weather forecasting",
 					"credit": "Megan Mitchell"
 				},
@@ -829,13 +788,13 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-fir"],
-                    "label": "Infrared light identifies different types of cloud, as well as the temperature of the Earth.",
-					"error": "You do not have a way to identify cloud types and measure temperatures on Earth."
+                    "label": "You need a way to identify different types of cloud.",
+					"error": "You do not have a way to identify cloud types."
                 },{
                     "type": "package",
                     "oneof": ["camera-opt"],
-                    "label": "To take images of clouds and weather systems on Earth.",
-					"error": "You do not have a way to take images of the weather on Earth."
+                    "label": "You need an instrument capable of collecting very detailed images of the clouds and weather systems.",
+					"error": "Your satellite does not allow you to see the clouds or weather systems in enough detail."
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],
@@ -845,8 +804,10 @@
 			},{
 				"title": "Natural disaster monitoring",
 				"description": "When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see details of the damage on Earth, so satellites must orbit close to the ground. Infrared cameras can show floods and fires. Radio waves can show regions where the earth has been warped by earthquakes.",
+				"launch": "Welcome to the launch of the UK Space Agency's latest earth observation satellite that will help to assess the damage caused by natural disasters including forest fires, floods and eathquakes.",
+				"success": "Congratulations, your earth observation satellite is now helping to assess the damage caused by natural disasters including forest fires, floods and eathquakes.",
 				"image": {
-					"file": "images/icon-disaster.png",
+					"file": "images/png/icon-disaster.png",
 					"alt": "Natural disaster monitoring",
 					"credit": "Leadway Global LLC"
 				},
@@ -858,30 +819,61 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-opt"],
-                    "label": "To take high resolution images of Earth where disaster has occured.",
-					"error": "You do not have a way to take high resolution images of Earth where disaster has occured."
+                    "label": "You need an instrument capable of collecting very detailed images.",
+					"error": "Your satellite does not allow you to see the planet's surface in enough detail."
                 },{
                     "type": "package",
-                    "oneof": ["radio-tx"],
-                    "label": "A way to transmit signals.",
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
+                    "label": "You need a way to send signals.",
 					"error": "You do not have a way to transmit signals to the ground."
                 },{
                     "type": "package",
                     "oneof": ["radar-alt"],
-                    "label": "Uses radio waves to measure the height of the surface.",
-					"error": "You do not have a way to measure the height of the surface, such as for earthquakes."
+                    "label": "You need a way to measure the height of the Earth's surface.",
+					"error": "You do not have a way to measure the height of the surface for monitoring earthquakes."
                 },{
                     "type": "package",
                     "oneof": ["radar-dish"],
-                    "label": "Radar altimeter requires a radar dish to work.",
-					"error": "Your radar altimeter cannot work as it does not have a radar dish."
+					"error": "Your radar altimeter cannot work as you does not have a radar dish."
                 },{
                     "type": "package",
                     "oneof": ["camera-fir"],
-                    "label": "Infrared camera can detect fires, including forest fires.",
+                    "label": "You need a way to measure heat so you can monitor fires, such as forest fires.",
 					"error": "You do not have a way to detect fires in disaster regions."
                 }]
     		}]
     	}
+    },
+	"rocket": {
+		"requires": [{
+			"type": "rocket",
+			"is": "fueled",
+			"label": "You must have an engine and somewhere to hold your satellite.",
+			"error": "Your rocket needs to be built."
+		}]
+	},
+    "launch": {
+    	"prep": {
+    		"checklist": "<p>We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail. You haven't met these requirements:</p>$requirementslist$",
+			"goforlaunch": "Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.",
+			"button": "Launch?"
+    	},
+		"countdown": "Count down",
+		"liftoff":	"Lift off!",
+		"stage": {
+			"ignition": "Stage $stage$ ignition",
+			"fuel-exhausted": "Stage $stage$ fuel exhausted",
+			"separation": "Stage $stage$ separation"
+		},
+		"elapsed-time": "T$value$",
+		"current-speed": "Current speed: $value$",
+		"orbit-achieved": "$orbit$ achieved",
+		"payload-bay-open": "Payload bay opened",
+		"deployed": "Satellite deployed",
+		"solar-panels": {
+			"deploying": "",
+			"deployed": ""
+		},
+		"operational": "Satellite operational"
     }
 }

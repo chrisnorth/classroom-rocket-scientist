@@ -33,7 +33,7 @@ ui.sections.type.title:                     Select your type of satellite
 ui.sections.type.intro:                     Satellites have different purposes. Which type do you want to build?
 ui.sections.goal.short:                     Mission
 ui.sections.goal.title:                     Select the purpose of your satellite
-ui.sections.goal.intro:                     Make sure to take a note of the budget you have. You will need to make sure you don't overspend.
+ui.sections.goal.intro:                     What is the purpose of your satellite?
 ui.sections.bus.short:                      Size
 ui.sections.bus.title:                      Choose the size of your satellite
 ui.sections.bus.intro:                      The size of your satellite is important. It needs to be big enough to hold all the instruments you need.
@@ -54,29 +54,28 @@ ui.sections.instrument.intro:               To complete your mission you will ne
 ui.sections.instrument.list:                Available instruments:
 ui.sections.power.short:                    Power
 ui.sections.power.title:                    Add power
-ui.sections.power.intro:                    Your satellite needs power. There are different ways get power. You can use solar panels on the sides of the satellite, solar panel wings, and batteries.
+ui.sections.power.intro:                    Your satellite needs power. There are different ways get power. You can use solar panels mounted on the sides of the satellite, deployed solar panels or batteries.
 ui.sections.power.list:                     Available power sources:
 ui.sections.rocket.short:                   Rocket
 ui.sections.rocket.title:                   Build your rocket
-ui.sections.rocket.intro:                   Now you have a satellite you need to build a rocket to launch it into space! The top of the rocket will hold your satellite so it needs to be big enough. The lower parts need to be big enough to support those above.
+ui.sections.rocket.intro:                   Now you have a satellite you need to build a rocket to launch it into space! Choose the top of the rocket, this will hold your satellite, so it needs to be big enough. Then select up to three lower parts, these need to be big enough to support those above.
 ui.sections.rocket.size:                    Size:
 ui.sections.rocket.drymass:                 Weight:
 ui.sections.rocket.fuel:                    Fuel:
 ui.sections.rocket.cost:                    Cost:
+ui.sections.rocket.payload:                 Your payload
+ui.sections.rocket.emptystage:              None
 ui.sections.launch.short:                   Launch
 ui.sections.launch.title:                   Ready to launch?
-ui.sections.launch.checklist:               We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail.
-ui.sections.launch.goforlaunch:             Final checks have shown that your mission is read for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.
-ui.sections.launch.button:                  Go for launch!
 ui.sections.units.title:                    Change units:
 ui.sections.units.currency:                 Currency units:
 ui.sections.units.length:                   Length units:
 ui.sections.units.mass:                     Weight units:
 ui.sections.units.power:                    Power units:
 ui.sections.about.title:                    About:
-ui.sections.about.intro:                    Classroom rocket scientist is...</p><p>Developed by Chris North, Sarah Roberts, and <a href="http://www.strudel.org.uk/">Stuart Lowe</a>.</p><p>Supported by...</p><p>Icons by parkjisun, Housin Aziz, Creative Stall, Plainicon, Hakan Yalcin, Rflor, Megan Mitchell, Clockwise, Leadway Global LLC, and OCHA Visual Information Unit</p>
+ui.sections.about.intro:                    Classroom rocket scientist is...</p><p>Developed by Chris North, Sarah Eve Roberts, and <a href="http://www.strudel.org.uk/">Stuart Lowe</a>.</p><p>Supported by...</p><p>Icons by parkjisun, Housin Aziz, Creative Stall, Plainicon, Hakan Yalcin, Rflor, Megan Mitchell, Clockwise, Leadway Global LLC, and OCHA Visual Information Unit</p>
 
-us.cube.title:                              Cube sat
+bus.cube.title:                             Cube sat
 bus.cube.button:                            Select cube sat
 bus.small.title:                            Small satellite
 bus.small.button:                           Select small satellite
@@ -86,13 +85,13 @@ bus.large.title:                            Large satellite
 bus.large.button:                           Select large satellite
 
 package.camera-opt.title:                   Camera    # The title of the optical camera instrument
-package.camera-opt.description:            Takes pictures of the Earth that can be used to create maps, or for tracking natural disasters, such as floods or volcanic eruptions. Cameras are also used to look at clouds. The amount of detail captured on camera depends on how far from the ground your satellite is orbiting.
-package.camera-opt-hires.title:            High-resolution camera
+package.camera-opt.description:             Takes pictures of the Earth that can be used to create maps or track natural disasters, such as floods or volcanic eruptions. This camera can also be used to take pictures of clouds.
+package.camera-opt-hires.title:             High-resolution camera
 package.camera-opt-hires.description:       Takes very detailed pictures of the ground. Can be used for tracking natural disasters, such as floods or volcanic eruptions, but only when your satellite is in low-Earth orbit.
 package.camera-nir.title:                   Vegetation camera
 package.camera-nir.description:             Takes images of plants and farmland on the ground. Only works in during the day, as it captures sunlight reflecting off the ground.
-package.camera-fir.title:                   Atmospheric camera
-package.camera-fir.description:             Provides infrared images of the clouds and weather systems in the Earth's atmosphere, useful for weather forecasting and climate monitoring, even during darkness.
+package.camera-fir.title:                   Thermal camera
+package.camera-fir.description:             Provides thermal images of Earth's atmosphere. This camera is useful for forecasting the weather, even during hours of darkness.
 package.spect-opt.title:                    Optical Spectrometer
 package.spect-opt.description:              Studies changes on the Earth's surface, such as shrinking forests and lakes.
 package.spect-nir.title:                    Vegetation Spectrometer
@@ -100,43 +99,41 @@ package.spect-nir.description:              Studies plant life on the ground, me
 package.spect-fir.title:                    Atmospheric Spectrometer
 package.spect-fir.description:              Uses light to study Earth's atmosphere, even during nighttime. Used to look at the clouds, ground temperature and air temperature.
 package.radar-alt.title:                    Radar altimeter
-package.radar-alt.description:              Pronounced 'ray-dar al-ti-met-er'. Used to measure the shape of the ground, including the mountains and valleys on the Earth's surface. Also provides information about the effect of earthquakes. Requires a radar dish to work.
-package.radar-alt.requires.dish.label:      Requires a radar dish
-package.radar-alt.requires.dish.error:      You need to include a radar dish for the radar altimeter to work.
+package.radar-alt.description:              Used to measure the shape of the ground, including mountains and valleys on Earth's surface. This instrument also provides information about the effect of earthquakes. It requires a radar dish to work.
+package.radar-alt.requires.dish.label:      You need a radar dish for the radar altimeter to work.
+package.radar-alt.requires.dish.error:      You need to include a radar dish.
 package.radar-dish.title:                   Radar dish
 package.radar-dish.description:             Sends and receives signals from the satellite to Earth.
-package.radio-rx.title:                     Radio receiver
-package.radio-rx.description:               Receives instructions for the satellite, from the ground control team.
-package.radio-tx.title:                     Radio transmitter
-package.radio-tx.description:               Sends information collected by the satellite to Earth.
+package.phone-en.title:                     Phone encoder
+package.phone-en.description:               Broadcasts signals to telephones across the world.
 package.atomic-clock.title:                 Atomic clock
-package.atomic-clock.description:           A very accurate clock used by navigation satellites to measure the time very precisely and help people find their locations on Earth.
+package.atomic-clock.description:           A very accurate clock used by navigation satellites to measure the time very precisely. They are used to help people find their locations on Earth.
 package.atomic-clock-small.title:           Atomic clock (small)
-package.atomic-clock-small.description:     Very accurate clock. Navigation satellites need these to measure the time very precisely.
+package.atomic-clock-small.description:     A very accurate clock used by navigation satellites to measure the time very precisely. They are used to help people find their locations on Earth.
 package.gps-rx.title:                       GPS receiver
-package.gps-rx.description:                 Used to monitor the satellite's position very accurately
+package.gps-rx.description:                 Used to communicate with other GPS satellites.
 package.camera-mini.title:                  Camera (miniature)
 package.camera-mini.description:            Takes pictures of the ground
-package.dish-large.title:                   Radio dish (large)
+package.dish-large.title:                   Radio dish
 package.dish-large.description:             Can be used to control up to 8 instruments, and send images & data from these instruments to Earth.
 package.dish-medium.title:                  Radio dish
-package.dish-medium.description:            Can be used to control up to 4 instruments, and send images & data from these instruments to Earth.
+package.dish-medium.description:            Can be used to control up to 4 instruments. It can send images and data from these 4 instruments back to Earth.
 package.dish-small.title:                   Radio antenna (small)
 package.dish-small.description:             Can be used to control up to 2 instruments, and send images & data from these instruments to Earth.
 package.radio-antenna-cube.title:           Radio antenna (unfolded)
 package.radio-antenna-cube.description:     Can be used to control up to 2 instruments, and send images & data from these instruments to Earth.
-package.internet-en.title: 					        Internet encoder
+package.internet-en.title:                     Internet encoder
 package.internet-en.description:            Used to broadcast the internet to people around the world.
-package.tv-en.title: 						TV encoder
-package.tv-en.description:
+package.tv-en.title:                         TV encoder
+package.tv-en.description:                  Used to broadcast TV to people around the world.
 package.battery-large.title:                Large battery
-package.battery-large.description:          Stores power from solar panels that can be used to power satellite instruments during hours of darkness.
-package.battery-large.requires.solar.label: Requires solar panels to charge up
-package.battery-large.requires.solar.error: Requires solar panels
+package.battery-large.description:          Stores power from solar panels that can be used to power your instruments during hours of darkness.
+package.battery-large.requires.solar.label: The battery requires solar panels to charge up
+package.battery-large.requires.solar.error: Your satellite requires solar panels
 package.battery-small.title:                Small battery
-package.battery-small.description:          Stores power from solar panels that can be used to power satellite instruments during hours of darkness.
-package.battery-small.requires.solar.label: Requires solar panels to charge up
-package.battery-small.requires.solar.error: Requires solar panels
+package.battery-small.description:          Stores power from solar panels that can be used to power your instruments during hours of darkness.
+package.battery-small.requires.solar.label: The battery requires solar panels to charge up
+package.battery-small.requires.solar.error: Your satellite requires solar panels
 package.rtg.title:                          RTG
 package.rtg.description:                    An RTG uses radioactive material to provide power. It can be very dangerous for humans and animals, so it can't be used in low-Earth orbit.
 package.rtg.requires.orbit.label:           Not for low-Earth orbit
@@ -155,44 +152,63 @@ orbit.HEO.description:                      Elliptical orbits are much closer to
 orbit.GEO.title:                            Geo-stationary orbit
 orbit.GEO.description:                      Satellites in geostationary (pronounced jee-oh-stay-shon-ary) orbits stay above the same part of Earth and move with the planet as it rotates. They are much higher above the Earth's surface than other orbits, so can see huge areas but not in much detail.
 
+rocket.requires.stable.label:               Your rocket mustn't be wobbly.
+rocket.requires.stable.error:               Your rocket is wobbly. It might tip over during launch. Try to make sure it is sturdy.
+rocket.requires.power.label:                You must have an engine and somewhere to hold your satellite.
+rocket.requires.power.error:                Your rocket needs to be built.
+
 scenarios.NAV.title:                        Navigation
 scenarios.NAV.description:                  These satellites are used to help people find their whereabouts on the Earth.
-scenarios.NAV.sat-nav.title: 					          Satellite navigation system
+scenarios.NAV.sat-nav.title:                Satellite navigation system
 scenarios.NAV.sat-nav.description:          Uses signals from four separate satellites so sat nav users can find their location on Earth. These satellites need to be able to see huge area of Earth at a time, measure time accurately and send information about their location.
-scenarios.NAV.sat-nav.req.bus.label: 		A satellite that is small, medium or large.
-scenarios.NAV.sat-nav.req.bus.error:    Must be big enough for your mission.
-scenarios.NAV.sat-nav.req.atomic.label:     Needs to be able to measure time very accurately.
-scenarios.NAV.sat-nav.req.atomic.error:     You are not able to measure the time accurately enough.
-scenarios.NAV.sat-nav.req.radio-tx.label: 	A way to send signals.
-scenarios.NAV.sat-nav.req.radio-tx.error: 	Your satellite does not have any way to send signals to people on the ground.
-scenarios.NAV.sat-nav.req.orbit.label: 		See the whole planet.
-scenarios.NAV.sat-nav.req.orbit.error: 		The orbit you have chosen does not allow you to see the whole planet.
-scenarios.NAV.map.title: 					Map-making
-scenarios.NAV.map.description: 				Map the surface of the Earth. Your satellite needs to be able to take images of small areas of the Earth's surface and measure the height of the ground in detail.
-scenarios.NAV.map.req.opt-hires.label: 		An instrument capable of collecting detailed images.
-scenarios.NAV.map.req.opt-hires.error: 		The instrument you have chosen does not allow you to see the planet surface in detail.
-scenarios.NAV.map.req.orbit.label: 			See detail of planet surface.
-scenarios.NAV.map.req.orbit.error: 			The orbit you have chosen does not allow your satellite to see the planet surface in enough detail.
+scenarios.NAV.sat-nav.req.bus.label:        A satellite that is small, medium or large.
+scenarios.NAV.sat-nav.req.bus.error:        Must be big enough for your mission.
+scenarios.NAV.sat-nav.req.atomic.label:     You need a way to measure time very accurately.
+scenarios.NAV.sat-nav.req.atomic.error:     You satellite is not able to measure the time accurately enough.
+scenarios.NAV.sat-nav.req.radio-tx.label:     You need a way to send signals back to Earth.
+scenarios.NAV.sat-nav.req.radio-tx.error:     Your satellite does not have any way to send signals to the ground control team.
+scenarios.NAV.sat-nav.req.gps-rx.label:     You need a way to recieve signals from other GPS satellites.
+scenarios.NAV.sat-nav.req.gps-rx.error:     Your satellite does not have any way to recieve signals from other GPS satellites.
+scenarios.NAV.sat-nav.req.orbit.label:         See the whole planet.
+scenarios.NAV.sat-nav.req.orbit.error:         The orbit you have chosen does not allow you to see the whole planet.
+scenarios.NAV.sat-nav.launch:                Welcome to the launch of the UK Space Agency's latest navigation satellite that will allow people to accurately determine their position on Earth.
+scenarios.NAV.sat-nav.success:                 Congratulations, your navigation satellite is now sending people accurate information about their position on Earth on behalf of the UK Space Agency.
+scenarios.NAV.map.title:                     Map-making
+scenarios.NAV.map.description:                 Map the surface of the Earth. Your satellite needs to be able to take images of small areas of the Earth's surface and measure the height of the ground in detail.
+scenarios.NAV.map.req.camera-opt.label:         You need an instrument capable of collecting detailed images.
+scenarios.NAV.map.req.camera-opt.error:         Your satellite does not allow you to see the planet's surface in enough detail.
+scenarios.NAV.map.req.radar-alt.label:  You need a way to measure the height of the Earth's surface.
+scenarios.NAV.map.req.radar-alt.error: You do not have a way to measure the height of the Earth's surface (e.g. mountains and valleys).
+scenarios.NAV.map.req.radar-dish.label: The Radar altimeter requires a radar dish to work.
+scenarios.NAV.map.req.radar-dish.error: Your radar altimeter cannot work as you do not have a radar dish.
+scenarios.NAV.map.req.orbit.label:             See detail of planet surface.
+scenarios.NAV.map.req.orbit.error:             The orbit you have chosen does not allow your satellite to see the planet surface in enough detail.
+scenarios.NAV.map.launch:                Welcome to the launch of the UK Space Agency's latest navigation satellite that will accurately map the surface of the Earth.
+scenarios.NAV.map.success:                 Congratulations, your navigation satellite is now accurately mapping the surface of the Earth on behalf of the UK Space Agency.
 scenarios.COMMS.title:                      Communication
 scenarios.COMMS.description:                These satellites are used for television, phone or internet broadcasts.
-scenarios.COMMS.phone.title: 				Satellite telephone system
-scenarios.COMMS.phone.description: 			Allows people to talk over the phone, even from remote regions of the world. These satellites receive signals from the ground and transmit them to other areas on Earth.
-scenarios.COMMS.phone.req.radio-tx.label: 	A way to send signals.
-scenarios.COMMS.phone.req.radio-tx.error: 	Your satellite does not have a way to send signals to the ground.
-scenarios.COMMS.phone.req.radio-rx.label: 	A way to receive signals.
-scenarios.COMMS.phone.req.radio-rx.error: 	Your satellite does not have a way to receive signals from the ground.
-scenarios.COMMS.phone.req.orbit.label: 		Satellite is continuously above one area of Earth
-scenarios.COMMS.phone.req.orbit.error: 		The orbit you have chosen means your satellite is not continuously above one area of Earth.
-scenarios.COMMS.internet.title: 			Satellite internet
-scenarios.COMMS.internet.description: 		Allows people to connect to the internet, even from remote regions of the world. These satellites receive signals from the ground and transmit them to other areas on Earth.
-scenarios.COMMS.internet.req.radio-tx.label: A way to send signals.
-scenarios.COMMS.internet.req.radio-tx.error: You do not have a way to send signals to the ground.
-scenarios.COMMS.internet.req.radio-rx.label: A way to receive signals.
-scenarios.COMMS.internet.req.radio-rx.error: You do not have a way to receive signals from the ground.
-scenarios.COMMS.internet.req.internet-en.label: A way to encode internet signals.
-scenarios.COMMS.internet.req.internet-en.error: You do not have a way to encode internet signals.
+scenarios.COMMS.phone.title:                 Satellite telephone system
+scenarios.COMMS.phone.description:             Allows people to talk over the phone, even from remote regions of the world. The satellite receives signals from the ground and transmits them to other areas on Earth.
+scenarios.COMMS.phone.req.radio-tx.label:     You need a way to send signals.
+scenarios.COMMS.phone.req.radio-tx.error:     Your satellite does not have a way to send signals to the ground.
+scenarios.COMMS.phone.req.phone-en.label:     You need away to broadcast signals between phones.
+scenarios.COMMS.phone.req.phone-en.error:     Your satellite does not have a way to broadcast signals to phones on the ground.
+scenarios.COMMS.phone.req.orbit.label:         Satellite is continuously above one area of Earth
+scenarios.COMMS.phone.req.orbit.error:         The orbit you have chosen means your satellite is not continuously above one area of Earth.
+scenarios.COMMS.phone.launch:                Welcome to the launch of the UK Space Agency's latest communication satellite that will allow people from regions all over the world to communicate by telephone.
+scenarios.COMMS.phone.success:                 Congratulations, your communication satellite is now receiving signals from the ground and broadcasting them to phones around the Earth on behalf of the UK Space Agency.
+scenarios.COMMS.internet.title:             Satellite internet
+scenarios.COMMS.internet.description:         Allows people to connect to the internet, even from remote regions of the world. The satellite receives signals from the ground and transmits them to other areas on Earth.
+scenarios.COMMS.internet.req.radio-tx.label: You need a way to send signals.
+scenarios.COMMS.internet.req.radio-tx.error: Your satellite does not have a way to send signals to the ground.
+scenarios.COMMS.internet.req.radio-rx.label: You need a way to receive signals.
+scenarios.COMMS.internet.req.radio-rx.error: Your satellite does not have a way to receive signals from the ground.
+scenarios.COMMS.internet.req.internet-en.label: You need a way to broadcast internet signals.
+scenarios.COMMS.internet.req.internet-en.error: You do not have a way to broadcast internet signals.
 scenarios.COMMS.internet.req.orbit.label: Satellite is continuously above one area of Earth
 scenarios.COMMS.internet.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
+scenarios.COMMS.internet.launch:                Welcome to the launch of the UK Space Agency's latest communication satellite that will help people from all over the world connect to the internet.
+scenarios.COMMS.internet.success:                 Congratulations, your communication satellite is now helping people connect to the internet from regions all over the world on behalf of the UK Space Agency.
 scenarios.COMMS.tv.title: Satellite TV
 scenarios.COMMS.tv.description: Allows people on the ground to enjoy satellite TV. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.
 scenarios.COMMS.tv.req.radio-tx.label: A way to send signals.
@@ -203,39 +219,47 @@ scenarios.COMMS.tv.req.orbit.label: Satellite is continuously above one area of 
 scenarios.COMMS.tv.req.tv-en.label: A way to encode TV signals.
 scenarios.COMMS.tv.req.tv-en.error: You do not have a way to encode TV signals.
 scenarios.COMMS.tv.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
-scenarios.EO.title:                         Earth Observation
-scenarios.EO.description:                   These satellites are used to image clouds, measure temperature and rainfall, and forecasting the weather.
+scenarios.COMMS.tv.launch:                Welcome to the launch of the UK Space Agency's latest communication satellite that will provide satellite TV to people all over the world.
+scenarios.COMMS.tv.success:                 Congratulations, your communication satellite is now providing satellite TV to people all over the world.
+scenarios.EO.title: Earth Observation
+scenarios.EO.description: These satellites are used to forecasting the weather, study clouds and assess the damage caused by natural disasters.
 scenarios.EO.weather.title: Weather forecasting
-scenarios.EO.weather.description: Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use invisible, infrared light to measure the temperatures of the ground and ocean.
-scenarios.EO.weather.req.camera-fir.label: Infrared light identifies different types of cloud, as well as the temperature of the Earth.
-scenarios.EO.weather.req.camera-fir.error: You do not have a way to identify cloud types and measure temperatures on Earth.
-scenarios.EO.weather.req.camera-opt.label: To take images of clouds and weather systems on Earth.
-scenarios.EO.weather.req.camera-opt.error: You do not have a way to take images of the weather on Earth.
+scenarios.EO.weather.description: Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use thermal cameras to measure the temperature of the ground and oceans.
+scenarios.EO.weather.req.camera-fir.label: You need a way to identify different types of cloud.
+scenarios.EO.weather.req.camera-fir.error: You do not have a way to identify cloud types.
+scenarios.EO.weather.req.camera-opt.label: You need an instrument capable of collecting very detailed images of the clouds and weather systems.
+scenarios.EO.weather.req.camera-opt.error: Your satellite does not allow you to see the clouds or weather systems in enough detail.
 scenarios.EO.weather.req.orbit.label: See detail of Earth's weather systems.
 scenarios.EO.weather.req.orbit.error: The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail.
+scenarios.EO.weather.launch:                Welcome to the launch of the UK Space Agency's latest earth observation satellite that will allow forecasters around the world to predict future weather.
+scenarios.EO.weather.success:                 Congratulations, your earth observation satellite is now helping forecasters around the world to predict future weather.
 scenarios.EO.veg-map.title: Vegetation mapping
 scenarios.EO.veg-map.description: Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmit the images back to the ground.
 scenarios.EO.veg-map.req.radio-tx.label: A way to transmit signals.
 scenarios.EO.veg-map.req.radio-tx.error: You do not have a way to transmit signals to the ground.
 scenarios.EO.veg-map.req.camera.label: To take images of the vegetation on Earth.
 scenarios.EO.veg-map.req.camera.error: You do not have a way to take images of the vegetation on Earth.
+scenarios.EO.veg-map.launch:                Welcome to the launch of the UK Space Agency's latest earth observation satellite that will map the plants over the surface of the Earth using infrared images.
+scenarios.EO.veg-map.success:                 Congratulations, your earth observation satellite is now mapping the plants across the surface of the Earth using infrared images.
 scenarios.EO.disaster.title: Natural disaster monitoring
 scenarios.EO.disaster.description: When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see details of the damage on Earth, so satellites must orbit close to the ground. Infrared cameras can show floods and fires. Radio waves can show regions where the earth has been warped by earthquakes.
-scenarios.EO.disaster.req.camera.label: To take high resolution images of Earth where disaster has occured.
-scenarios.EO.disaster.req.camera.error: You do not have a way to take high resolution images of Earth where disaster has occured.
-scenarios.EO.disaster.req.radio-tx.label: A way to transmit signals.
+scenarios.EO.disaster.req.camera-opt.label: You need an instrument capable of collecting very detailed images.
+scenarios.EO.disaster.req.camera-opt.error:         Your satellite does not allow you to see the planet's surface in enough detail.
+scenarios.EO.disaster.req.radio-tx.label: You need a way to send signals.
 scenarios.EO.disaster.req.radio-tx.error: You do not have a way to transmit signals to the ground.
-scenarios.EO.disaster.req.radar-alt.label: Uses radio waves to measure the height of the surface.
-scenarios.EO.disaster.req.radar-alt.error: You do not have a way to measure the height of the surface, such as for earthquakes.
-scenarios.EO.disaster.req.radar-dish.label: Radar altimeter requires a radar dish to work.
-scenarios.EO.disaster.req.radar-dish.error: Your radar altimeter cannot work as it does not have a radar dish.
-scenarios.EO.disaster.req.camera-fir.label: Infrared camera can detect fires, including forest fires.
+scenarios.EO.disaster.req.radar-alt.label: You need a way to measure the height of the Earth's surface.
+scenarios.EO.disaster.req.radar-alt.error: You do not have a way to measure the height of the surface for monitoring earthquakes.
+scenarios.EO.disaster.req.radar-dish.label: The Radar altimeter requires a radar dish to work.
+scenarios.EO.disaster.req.radar-dish.error: Your radar altimeter cannot work as you does not have a radar dish.
+scenarios.EO.disaster.req.camera-fir.label: You need a way to measure heat so you can monitor fires, such as forest fires.
 scenarios.EO.disaster.req.camera-fir.error: You do not have a way to detect fires in disaster regions.
+scenarios.EO.disaster.launch:                Welcome to the launch of the UK Space Agency's latest earth observation satellite that will help to assess the damage caused by natural disasters including forest fires, floods and eathquakes.
+scenarios.EO.disaster.success:                 Congratulations, your earth observation satellite is now helping to assess the damage caused by natural disasters including forest fires, floods and eathquakes.
 scenarios.EO.surface.title: Surface mapping
 scenarios.EO.surface.description: Measure the varying height of land and oceans over the Earth's surface.
 scenarios.EO.surface.req.radar-alt.label: To measure the height of the ground in very high resolution.
 scenarios.EO.surface.req.radar-alt.error: You do not have a way to measure the height of the ground in very high resolution.
-scenarios.EO.surface.req.dish.label: Radar altimeter requires a radar dish to work.
+scenarios.EO.surface.req.dish.label: The Radar altimeter requires a radar dish to work.
 scenarios.EO.surface.req.dish.error: Your radar altimeter cannot work as it does not have a radar dish.
 scenarios.EO.surface.req.radio-tx.label: A way to transmit signals.
 scenarios.EO.surface.req.radio-tx.error: You do not have a way to transmit signals to the ground.
@@ -243,4 +267,23 @@ scenarios.EO.surface.req.sat-tracker.label: Enables high level precision of the 
 scenarios.EO.surface.req.sat-tracker.error: You do not have a way to locate the position of the satellite accurately. #If this is staying as a new instrument, need to add as a package option.
 scenarios.EO.surface.req.orbit.label: See detail of planet surface.
 scenarios.EO.surface.req.orbit.error: The orbit you have chosen does not allow you to see the planet surface in enough detail.
+scenarios.EO.surface.launch:  Welcome to the launch of the UK Space Agency's latest earth observation satellite that will measure the varying height of land and oceans over the Earth's surface.
+scenarios.EO.surface.success: Congratulations, your earth observation satellite is now measuring the varying height of land and oceans over the Earth's surface.
+
+launch.prep.checklist:               <p>We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail. You haven't met these requirements:</p>$requirementslist$
+launch.prep.goforlaunch:             Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.
+launch.prep.button:                  Launch?
+launch.countdown: Count down
+launch.liftoff: Lift off!
+launch.stage.ignition:  Stage $stage$ ignition
+launch.stage.fuel-exhausted:  Stage $stage$ fuel exhausted
+launch.stage.separation:  Stage $stage$ separation
+launch.elapsed-time: T$value$
+launch.current-speed:  Current speed: $value$
+launch.orbit-achieved:  $orbit$ achieved
+launch.payload-bay-open:  Payload bay opened
+launch.deployed:  Satellite deployed
+launch.solar-panels.deploying: Deploying solar panels
+launch.solar-panels.deployed: Solar panels deployed
+launch.operational: Satellite operational
 ---

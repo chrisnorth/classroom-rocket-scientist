@@ -4,7 +4,7 @@
 .bg2x4 {
   background-color: #f04031; }
 
-.bg4x4 {
+.bg3x3, .bg4x4 {
   background-color: #00a2d3; }
 
 .bg4x8 {
@@ -236,6 +236,10 @@ p {
 .slot4x2 .face.top {
   height: 50%; }
 
+.slot3x3 {
+  height: 3em;
+  width: 3em; }
+
 .slot4x4 {
   height: 3em;
   width: 3em; }
@@ -392,16 +396,66 @@ p {
   height: 100%; }
 
 .photo .face.front, .photo .face.top, .photo .face.left, .photo .face.right, .photo .face.back {
-  background-image: url("foil.jpg");
+  background-image: url("images/foil.jpg");
   background-size: 100% 100%;
   background-repeat: none;
   border: 0px; }
 
 .video .face.front, .video .face.top, .video .face.left, .video .face.right, .video .face.back {
-  background-image: url("foil.jpg");
+  background-image: url("images/foil.jpg");
   background-size: 100% 100%;
   background-repeat: none;
   border: 0px; }
+
+.texture.slot2x4.down .face.front {
+  background: white;
+  overflow: hidden; }
+
+.texture.slot2x4.down .face.front:before, .texture.slot2x4.up .face.front:before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 50%;
+  z-index: -1;
+  top: 100%;
+  left: 0%;
+  background-size: 100%;
+  transform-origin: 0 0 0; }
+
+.texture.slot2x4.down .face.front:before, .texture.slot2x4.up .face.front:before {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg); }
+
+.texture.slot2x4.down .face.left,
+.texture.slot2x4.up .face.right,
+.texture.slot2x4.upwards .face.top {
+  background: url("images/png/foil_4x4.png");
+  background-size: 100% 100%; }
+
+.texture.slot2x4.down .face.top,
+.texture.slot2x4.up .face.top,
+.texture.slot2x2 .face.top {
+  background: url("images/png/foil_4x2.png");
+  background-size: 100% 100%; }
+
+.texture.slot2x2 .face.right,
+.texture.slot2x2 .face.back {
+  background: url("images/png/foil_2x2.png");
+  background-size: 100% 100%; }
+
+.texture.slot2x2 .face.left,
+.texture.slot2x4.upwards .face.left,
+.texture.slot2x4.upwards .face.right,
+.texture.slot2x4.downwards .face.left,
+.texture.slot2x4.downwards .face.right,
+.texture.slot2x4.down .face.back,
+.texture.slot2x4.up .face.back,
+.texture.slot2x4 .face.back {
+  background: url("images/png/foil_2x4.png");
+  background-size: 100% 100%; }
 
 .threeD .satellite {
   -webkit-transform-style: preserve-3d;
@@ -854,6 +908,9 @@ p {
   width: 15.75em;
   margin-top: 3em; }
 
+.satellite-s .solar-panels {
+  margin-top: 1.5em; }
+
 .solar-panels:nth-child(1) li:last-child:before {
   position: absolute;
   content: "";
@@ -926,7 +983,7 @@ p {
 .solar-panels:nth-child(2) ol li:last-child {
   margin-left: 2.25em; }
 
-.radio .face {
+.radio .face, .radar .face {
   display: none; }
 
 .threeD .row .radio {
@@ -942,6 +999,9 @@ p {
 
 .slot1x2 .hemisphere .inner, .slot1x2 .hemisphere .dome {
   font-size: 3em; }
+
+.slot0x2 .hemisphere .inner, .slot0x2 .hemisphere .dome {
+  font-size: 1.5em; }
 
 .hemisphere {
   width: 100%;
@@ -961,7 +1021,7 @@ p {
 .hemisphere.east, .hemisphere.west {
   height: 100%; }
 
-.slot4x8 .hemisphere {
+.slot4x8 .hemisphere, .slot1x2 .hemisphere {
   top: 0%; }
 
 .hemisphere, .dome, .inner {
@@ -1151,6 +1211,13 @@ p {
   -moz-box-shadow: inset 0.25em 0.2em 0.2em -0.05em rgba(0, 0, 0, 0.2);
   box-shadow: inset 0.25em 0.2em 0.2em -0.05em rgba(0, 0, 0, 0.2); }
 
+.threeD .slot1x2 .hemisphere.north, .threeD .slot1x2 .hemisphere.south {
+  -webkit-transform: translateZ(-0.75em) rotateY(-45deg) rotateX(35.264deg);
+  -moz-transform: translateZ(-0.75em) rotateY(-45deg) rotateX(35.264deg);
+  -ms-transform: translateZ(-0.75em) rotateY(-45deg) rotateX(35.264deg);
+  -o-transform: translateZ(-0.75em) rotateY(-45deg) rotateX(35.264deg);
+  transform: translateZ(-0.75em) rotateY(-45deg) rotateX(35.264deg); }
+
 .threeD .slot2x4 .hemisphere.north, .threeD .slot2x4 .hemisphere.south {
   -webkit-transform: translateZ(-1.5em) rotateY(-45deg) rotateX(35.264deg);
   -moz-transform: translateZ(-1.5em) rotateY(-45deg) rotateX(35.264deg);
@@ -1235,6 +1302,13 @@ p {
   -o-transform: translateX(0.75em) translateY(-0.75em);
   transform: translateX(0.75em) translateY(-0.75em); }
 
+.threeD .satellite.spin .slot1x2 .hemisphere.north, .threeD .satellite.spin .slot1x2 .hemisphere.south {
+  -webkit-animation-name: antispin;
+  -moz-animation-name: antispin;
+  animation-name: antispin;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d; }
+
 .threeD .satellite.spin .slot2x4 .hemisphere.north, .threeD .satellite.spin .slot2x4 .hemisphere.south {
   -webkit-animation-name: antispin;
   -moz-animation-name: antispin;
@@ -1277,10 +1351,10 @@ p {
 .satellite.solar-fixed .solar-top .face.front {
   border-top: 4px solid #00a2d3; }
 
-.satellite .solar-panel, .slot4x4, .satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-right .face.right, .satellite.solar-fixed .solar-top .face.top, .satellite.solar-fixed .solar-back .face.back, .slot4x4 {
+.satellite .solar-panel, .satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-right .face.right, .satellite.solar-fixed .solar-top .face.top, .satellite.solar-fixed .solar-back .face.back, .slot4x4, .slot3x3 {
   background-color: #00a2d3; }
 
-.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .satellite.solar-fixed .solar-back .face.back, .satellite.solar-fixed .solar-right .face.right, .satellite .solar-panel, .slot4x4 {
+.satellite.solar-fixed .solar-left .face.left, .satellite.solar-fixed .solar-top .face.top, .satellite.solar-fixed .solar-back .face.back, .satellite.solar-fixed .solar-right .face.right, .satellite .solar-panel, .slot4x4, .slot3x3 {
   background-image: -webkit-linear-gradient(#e1f4fe 1px, transparent 1px), -webkit-linear-gradient(0deg, #e1f4fe 1px, transparent 1px), -webkit-linear-gradient(#48c7e9 1px, transparent 1px), -webkit-linear-gradient(0deg, #48c7e9 1px, transparent 1px);
   background-image: linear-gradient(#e1f4fe 1px, transparent 1px), linear-gradient(90deg, #e1f4fe 1px, transparent 1px), linear-gradient(#48c7e9 1px, transparent 1px), linear-gradient(90deg, #48c7e9 1px, transparent 1px);
   background-size: 1.5em 1.5em, 1.5em 1.5em, 0.375em 0.375em, 0.375em 0.375em;

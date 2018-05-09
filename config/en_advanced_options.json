@@ -1,4 +1,7 @@
 {
+	"options": {
+		"require-hint": true
+	},
 	"sections": [{
 		"id": "type",
 		"short": "Type",
@@ -44,7 +47,7 @@
 			"height": { "value": 0.1, "units": "m", "dimension": "length" },
 			"depth": { "value": 0.1, "units": "m", "dimension": "length" },
 			"area": { "value": 0.1, "units": "m^2", "dimension": "area" },
-            "power": { "value": 100, "units": "watts", "dimension": "power"}
+            "power": { "value": 5, "units": "watts", "dimension": "power"}
 		},
 		"small": {
 			"slots": { "2x2": 2, "2x4": 1, "3x3": 1, "4x4": 4 },
@@ -55,7 +58,7 @@
 			"height": { "value": 1, "units": "m", "dimension": "length" },
 			"depth": { "value": 1, "units": "m", "dimension": "length" },
 			"area": { "value": 1, "units": "m^2", "dimension": "area" },
-            "power": { "value": 500, "units": "watts", "dimension": "power"}
+            "power": { "value": 100, "units": "watts", "dimension": "power"}
 		},
 		"medium":{
 			"slots": { "2x2": 4, "2x4": 2, "3x3": 1, "4x4": 4 },
@@ -66,7 +69,7 @@
 			"height": { "value": 2.5, "units": "m", "dimension": "length" },
 			"depth": { "value": 2.5, "units": "m", "dimension": "length" },
 			"area": { "value": 3, "units": "m^2", "dimension": "area" },
-            "power": { "value": 1000, "units": "watts", "dimension": "power"}
+            "power": { "value": 300, "units": "watts", "dimension": "power"}
 		},
 		"large":{
 			"slots": { "2x2": 8, "2x4": 3, "4x8": 1, "3x3": 1, "4x4": 4 },
@@ -77,7 +80,7 @@
 			"height": { "value": 2.5, "units": "m", "dimension": "length" },
 			"depth": { "value": 2.5, "units": "m", "dimension": "length" },
 			"area": { "value": 10, "units": "m^2", "dimension": "area" },
-            "power": { "value": 1500, "units": "watts", "dimension": "power"}
+            "power": { "value": 500, "units": "watts", "dimension": "power"}
 		}
 	},
 	"package": {
@@ -112,6 +115,22 @@
 				{ "value": 0.5, "units": "m", "dimension": "length" }
 			],
 			"power": { "value": 50, "units": "watts", "dimension": "power" }
+		},
+		"camera-mini": {
+			"slot":	"1x1",
+			"title": "Camera (miniature)",
+			"description": "Takes images of the ground",
+			"texture": {
+				"icon": "texture camera-opt"
+			},
+			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
+			"dimensions": [
+				{ "value": 0.05, "units": "m", "dimension": "length" },
+				{ "value": 0.05, "units": "m", "dimension": "length" },
+				{ "value": 0.1, "units": "m", "dimension": "length" }
+			],
+			"power": { "value": 10, "units": "watts", "dimension": "power" }
 		},
 		"camera-nir": {
 			"slot":	"2x2",
@@ -211,7 +230,7 @@
 			"requires": [{
 				"type": "package",
 				"oneof": ["radar-dish"],
-				"label": "Requires a radar dish",
+				"label": "The radar altimeter requires a radar dish",
 				"error": "You need to include a radar dish for the altimeter to work."
 			}]
 		},
@@ -233,12 +252,12 @@
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
 		},
-		"radio-rx": {
+		"phone-en": {
 			"slot":	"2x2",
-			"title": "Radio receiver",
-			"description": "Receives instructions from the ground control team",
+			"title": "",
+			"description": "Broadcasts signals to and from telephones across the world.",
 			"texture": {
-				"icon": "texture radio-rx"
+				"icon": "texture phone-en"
 			},
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
@@ -247,14 +266,14 @@
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" }
 			],
-			"power": { "value": 20, "units": "watts", "dimension": "power" }
+			"power": { "value": 2, "units": "watts", "dimension": "power" }
 		},
-		"radio-tx": {
-			"slot":	"2x2",
-			"title": "Radio transmitter",
-			"description": "Transmits information collected by the satellite to the ground",
+		"phone-en-mini": {
+			"slot":	"1x1",
+			"title": "Miniature phone encoder",
+			"description": "Broadcasts signals to and from telephones across the world.",
 			"texture": {
-				"icon": "texture radio-tx"
+				"icon": "texture phone-en"
 			},
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
@@ -263,7 +282,7 @@
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" }
 			],
-			"power": { "value": 20, "units": "watts", "dimension": "power" }
+			"power": { "value": 2, "units": "watts", "dimension": "power" }
 		},
 		"atomic-clock": {
 			"slot":	"2x2",
@@ -298,6 +317,22 @@
 			"power": { "value": 5, "units": "watts", "dimension": "power" }
 		},
 		"gps-rx": {
+			"slot":	"2x2",
+			"title": "GPS receiver",
+			"description": "Used to monitor the satellite's position to very high accuracy",
+			"texture": {
+				"icon": "texture gps-rx"
+			},
+			"mass": { "value": 0.5, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 2, "units": "credits", "dimension": "currency" },
+			"dimensions": [
+				{ "value": 0.05, "units": "m", "dimension": "length" },
+				{ "value": 0.05, "units": "m", "dimension": "length" },
+				{ "value": 0.1, "units": "m", "dimension": "length" }
+			],
+			"power": { "value": 5, "units": "watts", "dimension": "power" }
+		},
+		"gps-rx-mini": {
 			"slot":	"1x1",
 			"title": "GPS receiver (miniature)",
 			"description": "Used to monitor the satellite's position to very high accuracy",
@@ -312,22 +347,6 @@
 				{ "value": 0.1, "units": "m", "dimension": "length" }
 			],
 			"power": { "value": 5, "units": "watts", "dimension": "power" }
-		},
-		"camera-mini": {
-			"slot":	"1x1",
-			"title": "Camera (miniature)",
-			"description": "Takes images of the ground",
-			"texture": {
-				"icon": "texture camera-mini"
-			},
-			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.05, "units": "m", "dimension": "length" },
-				{ "value": 0.05, "units": "m", "dimension": "length" },
-				{ "value": 0.1, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 10, "units": "watts", "dimension": "power" }
 		},
 		"dish-large": {
 			"slot":	"4x8",
@@ -405,9 +424,9 @@
 		"internet-en" : {
 			"slot": "2x2",
 			"title": "Internet encoder",
-			"description": "",
+			"description": "Used to broadcast the internet to people around the world.",
 			"texture": {
-				"icon": ""
+				"icon": "texture internet-en"
 			},
 			"mass": { "value": 2, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
@@ -421,9 +440,9 @@
 		"tv-en" : {
 			"slot": "2x2",
 			"title": "TV encoder",
-			"description": "",
+			"description": "Used to broadcast the TV to people around the world.",
 			"texture": {
-				"icon": "images/icon-time.png"
+				"icon": "texture tv-en"
 			},
 			"mass": { "value": 2, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
@@ -483,7 +502,7 @@
 		"rtg": {
 			"slot":	"2x4",
 			"title": "RTG",
-			"description": "A \"Radioisotope Thermal Generator\" uses nuclear technology to provide power. Due to safety concerns, it can't be used in low-Earth orbit.",
+			"description": "A \"Radioisotope Thermal Generator\" (RTG) uses nuclear technology to provide power. Due to safety concerns, it can't be used in low-Earth orbit.",
 			"texture": {
 				"icon": "texture rtg"
 			},
@@ -499,7 +518,7 @@
 				"type": "orbit",
 				"showin": "power",
 				"oneof": ["MEO","HEO","GEO"],
-				"label": "Not for low-Earth orbit",
+				"label": "RTG cannot be used in low-Earth orbit",
 				"error": "Can't use an RTG in low-Earth orbit"
 			}]
 		},
@@ -829,16 +848,17 @@
 			"title": "Navigation",
 			"description": "The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension=\"length\" data-units=\"km\" data-value=\"20000\" class=\"value convertable\">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.",
 			"image": {
-				"file": "images/icon-nav.png",
+				"file": "images/png/icon-nav.png",
 				"alt": "Navigation",
 				"credit": "parkjisun"
 			},
 			"missions": [{
 				"title": "Satellite Navigation System",
 				"description": "Uses signals from four navigation satellites so satnav users can find their location on Earth. Need to be able to see half a hemisphere at a time, measure time accurately and transmit signals of the location.",
+				"launch": "",
 				"success": "",
 				"image": {
-					"file": "images/icon-mapmarker.png",
+					"file": "images/png/icon-mapmarker.png",
 					"alt": "Satellite Navigation System",
 					"credit": "Housin Aziz"
 				},
@@ -855,8 +875,8 @@
 					"error": "You are not able to measure the time accurately enough."
 				},{
 					"type": "package",
-					"oneof": ["radio_tx"],
-					"label": "A way to send signals.",
+					"oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
+					"label": "A way to send signals to the groud.",
 					"error": "Your satellite does not have any way to transmit timing signals to people on the ground."
 				},{
 					"type": "orbit",
@@ -872,8 +892,10 @@
 			},{
 				"title": "Map-making",
 				"description": "Map the surface of the Earth. Need to be able to take images of small areas of the Earth's surface and measure the height of the ground in high detail.",
+				"launch": "",
+				"success": "",
 				"image": {
-					"file": "images/icon-topography.png",
+					"file": "images/png/icon-topography.png",
 					"alt": "Map-making",
 					"credit": "parkjisun"
 				},
@@ -895,29 +917,31 @@
 			"title": "Communication",
 			"description": "These satellites are used for television, phone or internet transmissions. For example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.",
 			"image": {
-				"file": "images/icon-comms.png",
+				"file": "images/png/icon-comms.png",
 				"alt": "Communication",
 				"credit": "Creative Stall"
 			},
 			"missions": [{
 				"title": "Satellite telephone system",
 				"description": "Lets people talk over the phone from remote regions of the world using satellites.",
+				"launch": "",
+				"success": "",
 				"image": {
-					"file": "images/icon-phone.png",
+					"file": "images/png/icon-phone.png",
 					"alt": "Satellite telephone system",
 					"credit": "Plainicon"
 				},
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
-                    "oneof": ["radio-tx"],
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
                     "label": "A way to send signals.",
 					"error": "Your satellite does not have a way to send signals to the ground."
                 },{
                     "type": "package",
-                    "oneof": ["radio-rx"],
-                    "label": "A way to receive signals.",
-					"error": "Your satellite does not have a way to receive signals from the ground."
+                    "oneof": ["phone-en","phone-en-mini"],
+                    "label": "A way to broadcase phone signals.",
+					"error": "Your satellite does not have a way to broadcast phone signals"
                 },{
 					"type": "orbit",
 					"oneof": ["GEO"],
@@ -927,22 +951,19 @@
 			},{
 				"title": "Satellite TV",
 				"description": "Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.",
+				"launch": "",
+				"success": "",
 				"image": {
-					"file": "images/icon-tv.png",
+					"file": "images/png/icon-tv.png",
 					"alt": "Satellite TV",
 					"credit": "Hakan Yalcin"
 				},
 				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
-                    "oneof": ["radio-tx"],
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
                     "label": "A way to send signals.",
 					"error": "You do not have a way to send signals to the ground."
-                },{
-                    "type": "package",
-                    "oneof": ["radio-rx"],
-                    "label": "A way to receive signals.",
-					"error": "You do not have a way to receive signals from the ground."
                 },{
                     "type": "package",
                     "oneof": ["tv-en"],
@@ -957,22 +978,24 @@
 			},{
 				"title": "Satellite internet",
 				"description": "Connect to the internet from remote regions of the world using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.",
+				"launch": "",
+				"success": "",
 				"image": {
-					"file": "images/icon-internet.png",
+					"file": "images/png/icon-internet.png",
 					"alt": "Satellite internet",
 					"credit": "parkjisun"
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
-                    "oneof": ["radio-tx"],
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
                     "label": "A way to send signals.",
 					"error": "You do not have a way to send signals to the ground."
                 },{
                     "type": "package",
                     "oneof": ["radio-rx"],
-                    "label": "A way to receive signals.",
-					"error": "You do not have a way to receive signals from the ground."
+                    "label": "",
+					"error": ""
                 },{
                     "type": "package",
                     "oneof": ["internet-en"],
@@ -990,19 +1013,21 @@
 			"title": "Earth Observation",
 			"description": "These satellites are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.",
 			"image": {
-				"file": "images/icon-eo.png",
+				"file": "images/png/icon-eo.png",
 				"alt": "Earth Observation",
 				"credit": "Rflor"
 			},
 			"missions": [{
 				"title": "Weather forecasting",
 				"description": "Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean.",
+				"launch": "",
+				"success": "",
 				"image": {
-					"file": "images/icon-cloud.png",
+					"file": "images/png/icon-cloud.png",
 					"alt": "Weather forecasting",
 					"credit": "Megan Mitchell"
 				},
-				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 250, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-fir"],
@@ -1022,15 +1047,17 @@
 			},{
 				"title": "Vegetation mapping",
 				"description": "Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmit the images back to the ground.",
+				"launch": "",
+				"success": "",
 				"image": {
-					"file": "images/icon-plant.png",
+					"file": "images/png/icon-plant.png",
 					"alt": "Vegetation mapping",
 					"credit": "Clockwise"
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
-                    "oneof": ["radio-tx"],
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
                     "label": "To transmit signals to the ground.",
 					"error": "You do not have a way to transmit signals to the ground."
                 },{
@@ -1042,8 +1069,10 @@
 			},{
 				"title": "Natural disaster monitoring",
 				"description": "When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras can show floods and fires. Radio waves can show regions of earth deformation, such as after earthquakes.",
+				"launch": "",
+				"success": "",
 				"image": {
-					"file": "images/icon-disaster.png",
+					"file": "images/png/icon-disaster.png",
 					"alt": "Natural disaster monitoring",
 					"credit": "Leadway Global LLC"
 				},
@@ -1055,7 +1084,7 @@
 					"error": "You do not have a way to take high resolution images of Earth where disaster has occured."
                 },{
                     "type": "package",
-                    "oneof": ["radio-tx"],
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
                     "label": "To transmit signals to the ground.",
 					"error": "You do not have a way to transmit signals to the ground."
                 },{
@@ -1082,12 +1111,14 @@
 			},{
 				"title": "Surface mapping",
 				"description": "Measure the varying height of land and oceans over the Earth's surface.",
+				"launch": "Welcome to the launch of the UK Space Agency's latest earth observation satellite that will measure the varying height of land and oceans over the Earth's surface.",
+				"success": "Congratulations, your earth observation satellite is now measuring the varying height of land and oceans over the Earth's surface.",
 				"image": {
-					"file": "images/icon-surface.png",
+					"file": "images/png/icon-surface.png",
 					"alt": "Surface mapping",
 					"credit": "OCHA Visual Information Unit"
 				},
-				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 1000, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["radar-alt"],
@@ -1100,7 +1131,7 @@
 					"error": "Your radar altimeter cannot work as it does not have a radar dish."
                 },{
                     "type": "package",
-                    "oneof": ["radio-tx"],
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
                     "label": "To receive instructions from ground control.",
 					"error": "You do not have a way to receive instructions from the ground."
                 },{
@@ -1116,5 +1147,42 @@
 				}]
 			}]
 		}
-	}
+	},
+	"rocket": {
+		"requires": [{
+			"type": "rocket",
+			"is": "stable",
+			"label": "Your rocket must be stable",
+			"error": "Your rocket is top heavy. Try to make sure it is stable before launching"
+		},{
+			"type": "rocket",
+			"is": "fueled",
+			"label": "Your rocket needs enough power to reach orbit.",
+			"error": "Your rocket is not powerful enough to launch."
+		}]
+	},
+    "launch": {
+    	"prep": {
+    		"checklist": "<p>We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail. You haven't met these requirements:</p>$requirementslist$",
+			"goforlaunch": "Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.",
+			"button": "Launch?"
+    	},
+		"countdown": "Count down",
+		"liftoff":	"Lift off!",
+		"stage": {
+			"ignition": "Stage $stage$ ignition",
+			"fuel-exhausted": "Stage $stage$ fuel exhausted",
+			"separation": "Stage $stage$ separation"
+		},
+		"elapsed-time": "T$value$",
+		"current-speed": "Current speed: $value$",
+		"orbit-achieved": "$orbit$ achieved",
+		"payload-bay-open": "Payload bay opened",
+		"deployed": "Satellite deployed",
+		"solar-panels": {
+			"deploying": "",
+			"deployed": ""
+		},
+		"operational": "Satellite operational"
+    }
 }

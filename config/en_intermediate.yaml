@@ -63,11 +63,10 @@ ui.sections.rocket.size:                    Diameter:
 ui.sections.rocket.drymass:                 Dry mass:
 ui.sections.rocket.fuel:                    Fuel:
 ui.sections.rocket.cost:                    Cost:
+ui.sections.rocket.payload:                 Your payload
+ui.sections.rocket.emptystage:              None
 ui.sections.launch.short:                   Launch
 ui.sections.launch.title:                   Ready to launch?
-ui.sections.launch.checklist:               We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail.
-ui.sections.launch.goforlaunch:             Final checks have shown that your mission is within budget, you have a suitable rocket, and you have a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.
-ui.sections.launch.button:                  Go for launch!
 ui.sections.units.title:                    Change units:
 ui.sections.units.currency:                 Currency units:
 ui.sections.units.length:                   Length units:
@@ -151,6 +150,12 @@ orbit.HEO.title:                            Highly-elliptical orbit
 orbit.HEO.description:                      Highly-elliptical orbits are much closer to the Earth at one point in their orbit than another, giving an elongated (elliptical) rather than circular orbit. They are useful for covering areas including polar regions. More than one satellite can be used for continuous coverage of an area.
 orbit.GEO.title:                            Geo-stationary orbit
 orbit.GEO.description:                      Satellites in geostationary orbits stay above the same location on Earth near the equator and complete a full orbit in 24 hours. They are much higher above the Earth's surface than other orbits, so can see the entire hemisphere in less detail.
+
+rocket.requires.stable.label:               Your rocket must be stable
+rocket.requires.stable.error:               Your rocket is top heavy. Try to make sure it is stable before launching
+rocket.requires.power.label:                Your rocket needs enough power to reach orbit.
+rocket.requires.power.error:                Your rocket is not powerful enough to launch.
+
 scenarios.NAV.title:                        Navigation
 scenarios.NAV.description:                  The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.
 scenarios.NAV.sat-nav.title:                Satellite Navigation System
@@ -163,12 +168,16 @@ scenarios.NAV.sat-nav.req.radio-tx.label: A way to send signals.
 scenarios.NAV.sat-nav.req.radio-tx.error: Your satellite does not have any way to transmit timing signals to people on the ground.
 scenarios.NAV.sat-nav.req.orbit.label: See the whole planet.
 scenarios.NAV.sat-nav.req.orbit.error: The orbit you have chosen does not allow you to see the whole planet.
+scenarios.NAV.sat-nav.launch:				Welcome to the launch of the UK Space Agency's latest navigation satellite that will allow people to accurately determine their position on Earth.
+scenarios.NAV.sat-nav.success: 				Congratulations, your navigation satellite is now sending people accurate information about their position on Earth on behalf of the UK Space Agency.
 scenarios.NAV.map.title: Map-making
 scenarios.NAV.map.description: Map the surface of the Earth. Need to be able to take images of small areas of the Earth's surface and measure the height of the ground in high detail.
 scenarios.NAV.map.req.opt-hires.label: An instrument capable of high resolution images.
 scenarios.NAV.map.req.opt-hires.error: The instrument you have chosen does not allow you to see the planet surface in enough detail.
 scenarios.NAV.map.req.orbit.label: See detail of planet surface.
 scenarios.NAV.map.req.orbit.error: The orbit you have chosen does not allow your satellite to see the planet surface in enough detail.
+scenarios.NAV.map.launch:				Welcome to the launch of the UK Space Agency's latest navigation satellite that will accurately map the surface of the Earth.
+scenarios.NAV.map.success: 				Congratulations, your navigation satellite is now accurately mapping the surface of the Earth on behalf of the UK Space Agency.
 scenarios.COMMS.title:                      Communication
 scenarios.COMMS.description:                These satellites are used for television, phone or internet transmissions. For example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.
 scenarios.COMMS.phone.title: Satellite telephone system
@@ -179,6 +188,9 @@ scenarios.COMMS.phone.req.radio-rx.label: A way to receive signals.
 scenarios.COMMS.phone.req.radio-rx.error: Your satellite does not have a way to receive signals from the ground.
 scenarios.COMMS.phone.req.orbit.label: Satellite is continuously above one area of Earth
 scenarios.COMMS.phone.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
+scenarios.COMMS.phone.launch:				Welcome to the launch of the UK Space Agency's latest communication satellite that will allow people from regions all over the world to communicate by telephone.
+scenarios.COMMS.phone.success: 				Congratulations, your communication satellite is now receiving signals from the ground and broadcasting them to phones around the Earth on behalf of the UK Space Agency.
+scenarios.COMMS.internet.title: 			Satellite internet
 scenarios.COMMS.internet.title: Satellite internet
 scenarios.COMMS.internet.description: Connect to the internet from remote regions of the world using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.
 scenarios.COMMS.internet.req.radio-tx.label: A way to send signals.
@@ -189,6 +201,8 @@ scenarios.COMMS.internet.req.internet-en.label: A way to encode internet signals
 scenarios.COMMS.internet.req.internet-en.error: You do not have a way to encode internet signals.
 scenarios.COMMS.internet.req.orbit.label: Satellite is continuously above one area of Earth
 scenarios.COMMS.internet.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
+scenarios.COMMS.internet.launch:				Welcome to the launch of the UK Space Agency's latest communication satellite that will help people from all over the world connect to the internet.
+scenarios.COMMS.internet.success: 				Congratulations, your communication satellite is now helping people connect to the internet from regions all over the world on behalf of the UK Space Agency.
 scenarios.COMMS.tv.title: Satellite TV
 scenarios.COMMS.tv.description: Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.
 scenarios.COMMS.tv.req.radio-tx.label: A way to send signals.
@@ -199,6 +213,8 @@ scenarios.COMMS.tv.req.orbit.label: Satellite is continuously above one area of 
 scenarios.COMMS.tv.req.tv-en.label: A way to encode TV signals.
 scenarios.COMMS.tv.req.tv-en.error: You do not have a way to encode TV signals.
 scenarios.COMMS.tv.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
+scenarios.COMMS.tv.launch:				Welcome to the launch of the UK Space Agency's latest communication satellite that will provide satellite TV to people all over the world.
+scenarios.COMMS.tv.success: 				Congratulations, your communication satellite is now providing satellite TV to people all over the world.
 scenarios.EO.title:                         Earth Observation
 scenarios.EO.description:                   These satellites are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.
 scenarios.EO.weather.title: Weather forecasting
@@ -209,12 +225,16 @@ scenarios.EO.weather.req.camera-opt.label: To take images of clouds and weather 
 scenarios.EO.weather.req.camera-opt.error: You do not have a way to take images of the weather on Earth.
 scenarios.EO.weather.req.orbit.label: See detail of Earth's weather systems.
 scenarios.EO.weather.req.orbit.error: The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail.
+scenarios.EO.weather.launch:				Welcome to the launch of the UK Space Agency's latest earth observation satellite that will allow forecasters around the world to predict future weather.
+scenarios.EO.weather.success: 				Congratulations, your earth observation satellite is now helping forecasters around the world to predict future weather.
 scenarios.EO.veg-map.title: Vegetation mapping
 scenarios.EO.veg-map.description: Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmit the images back to the ground.
 scenarios.EO.veg-map.req.radio-tx.label: A way to transmit signals.
 scenarios.EO.veg-map.req.radio-tx.error: You do not have a way to transmit signals to the ground.
 scenarios.EO.veg-map.req.camera.label: To take images of the vegetation on Earth.
 scenarios.EO.veg-map.req.camera.error: You do not have a way to take images of the vegetation on Earth.
+scenarios.EO.veg-map.launch:				Welcome to the launch of the UK Space Agency's latest earth observation satellite that will map the plants over the surface of the Earth using infrared images.
+scenarios.EO.veg-map.success: 				Congratulations, your earth observation satellite is now mapping the plants across the surface of the Earth using infrared images.
 scenarios.EO.disaster.title: Natural disaster monitoring
 scenarios.EO.disaster.description: When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras can show floods and fires. Radio waves can show regions of earth deformation, such as after earthquakes.
 scenarios.EO.disaster.req.camera.label: To take high resolution images of Earth where disaster has occured.
@@ -229,6 +249,9 @@ scenarios.EO.disaster.req.camera-nir.label: Infrared camera can detect fires, in
 scenarios.EO.disaster.req.camera-nir.error: You do not have a way to detect fires in disaster regions.
 scenarios.EO.disaster.req.orbit.label: See detail of planet surface.
 scenarios.EO.disaster.req.orbit.error: The orbit you have chosen does not allow you to see the disaster region in enough detail.
+scenarios.EO.disaster.launch:				Welcome to the launch of the UK Space Agency's latest earth observation satellite that will help to assess the damage caused by natural disasters including forest fires, floods and eathquakes.
+scenarios.EO.disaster.success: 				Congratulations, your earth observation satellite is now helping to assess the damage caused by natural disasters including forest fires, floods and eathquakes.
+scenarios.EO.surface.title: Surface mapping
 scenarios.EO.surface.title: Surface mapping
 scenarios.EO.surface.description: Measure the varying height of land and oceans over the Earth's surface.
 scenarios.EO.surface.req.radar-alt.label: To measure the height of the ground in very high resolution.
@@ -241,4 +264,23 @@ scenarios.EO.surface.req.sat-tracker.label: Enables high level precision of the 
 scenarios.EO.surface.req.sat-tracker.error: You do not have a way to locate the position of the satellite accurately. #If this is staying as a new instrument, need to add as a package option.
 scenarios.EO.surface.req.orbit.label: See detail of planet surface.
 scenarios.EO.surface.req.orbit.error: The orbit you have chosen does not allow you to see the planet surface in enough detail.
+scenarios.EO.surface.launch:  Welcome to the launch of the UK Space Agency's latest earth observation satellite that will measure the varying height of land and oceans over the Earth's surface.
+scenarios.EO.surface.success: Congratulations, your earth observation satellite is now measuring the varying height of land and oceans over the Earth's surface.
+
+launch.prep.checklist:               <p>We've detected problems. These should be fixed before trying to launch or your mission will fail. Please check the following sections:</p>$requirementssectionlist$
+launch.prep.goforlaunch:             Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.
+launch.prep.button:                  Launch?
+launch.countdown: Count down
+launch.liftoff: Lift off!
+launch.stage.ignition:  Stage $stage$ ignition
+launch.stage.fuel-exhausted:  Stage $stage$ fuel exhausted
+launch.stage.separation:  Stage $stage$ separation
+launch.elapsed-time: T$value$
+launch.current-speed:  Current speed: $value$
+launch.orbit-achieved:  $orbit$ achieved
+launch.payload-bay-open:  Payload bay opened
+launch.deployed:  Satellite deployed
+launch.solar-panels.deploying: Deploying solar panels
+launch.solar-panels.deployed: Solar panels deployed
+launch.operational: Satellite operational
 ---

@@ -170,6 +170,7 @@ nav li { float: left; }
 	margin: $barheight*0.5 - $lineh*0.5;
 }
 .baritem .coin-icon,.baritem .weight-icon,.baritem .power-icon { float: left; margin-right: 0px; }
+.baritem button.overbudget { background-color: rgb(230,51,34); }
 .baritem a, .baritem button, nav a {
 	color: inherit;
 	text-decoration: none;
@@ -225,15 +226,15 @@ li select, li input, li .toggleinput { float: right; font-size: 1em; font-family
 
 /* Sprites */
 .coin-icon {
-	background: url("../images/coin.png");
+	background: url("../images/png/coin.png");
 	background-size: 100% 100%;
 }
 .weight-icon {
-	background: url("../images/mass.png");
+	background: url("../images/png/mass.png");
 	background-size: 100% 100%;
 }
 .power-icon {
-	background: url("../images/power.png");
+	background: url("../images/png/power.png");
 	background-size: 100% 100%;
 }
 .coin-icon, .weight-icon, .power-icon {
@@ -276,11 +277,11 @@ img.close { background-position: -4.5em -10.5em; }
 .warning { color: #ffee00; }
 
 #goal .COMMS,#goal .EO,#goal .NAV { background-color: transparent; }
-.COMMS .padded { background-color: $red-4; }
+.COMMS .padded, .COMMS .holder-inner { background-color: $red-4; }
 .COMMS .image { background-color: $red-1; }
-.EO .padded { background-color: $green-4; }
+.EO .padded, .EO .holder-inner { background-color: $green-4; }
 .EO .image { background-color: $green-1; }
-.NAV .padded { background-color: $blue-4; }
+.NAV .padded, .NAV .holder-inner { background-color: $blue-4; }
 .NAV .image { background-color: $blue-1; }
 
 section {
@@ -375,11 +376,13 @@ section.view.slideInLeft {
 
 
 section#launch { background-color: $black-1; color: $grey-5; }
-section#launch p { max-width: 500px; margin: auto; }
+section#launch p, #launch-text { max-width: 640px; margin: auto; margin-bottom: 1em; }
 section#goal .holder,section#type .holder {
 	padding: 0 $padded*0.25 $padded*0.25 $padded*0.25;
 	vertical-align: top;
+	height: 100%;
 }
+section#goal .holder .holder-inner { width: 100%; height: 100%; }
 section#type .holder { width: 33%; vertical-align: middle; }
 section#type .holder p { text-align: left; }
 
@@ -521,10 +524,17 @@ $nozzle: $s*0.25;
 	top: 60%;
 	border: 2px dashed $black-1;
 	border-bottom: 0px;
-	background-color: $black-5;
+	background: url('../images/png/foil_4x4.png'); background-size: cover;
 	margin: auto;
-	opacity: 0.3;
+	opacity: 0.6;
 	position: relative;
+	text-align: center;
+}
+.rocket-builder .payload-dummy span {
+	display: block;
+	position: absolute;
+	left: -100px;
+	right: -100px;
 	text-align: center;
 }
 .rocket-builder .payloadbay .part {
@@ -546,7 +556,7 @@ $nozzle: $s*0.25;
 .rocket .part, .rocket .payloadbay .part:before {
 	@include cylinder($grey-4,1,$grey-5,1,$grey-3,1,25%);
 }
-.rocket-holder .holder { vertical-align: bottom; padding: $s*0.5 0; background-image: url('../images/silhouette.png'); background-position: 5% bottom; background-repeat: no-repeat; background-size: auto 10em; }
+.rocket-holder .holder { vertical-align: bottom; padding: $s*0.5 0; background-image: url('../images/png/silhouette.png'); background-position: 5% bottom; background-repeat: no-repeat; background-size: auto 10em; }
 .rocket-holder .stage { margin: auto; width: 0px; position: relative; border-bottom: 1px solid $grey-2; opacity:0.5; }
 .rocket-holder .part { height: 100%; }
 .rocket-holder .payloadbay .part { width: 100%; }
@@ -574,6 +584,8 @@ $nozzle: $s*0.25;
 .rocket-holder.wobble .stage:nth-child(3n){
 	animation-delay: -$wobble*0.2;
 }
+body.launch .rocket-holder .holder { background-image: none; }
+body.launch .rocket-holder .stage { opacity: 1; }
 @-webkit-keyframes wobble { 0% { transform: rotate(-1.75deg); } 50% { transform: rotate(2.5deg); } 100% { transform: rotate(-1.75deg); } }
 @-moz-keyframes wobble { 0% { transform: rotate(-1.75deg); } 50% { transform: rotate(2.5deg); } 100% { transform: rotate(-1.75deg); } }
 @-o-keyframes wobble { 0% { transform: rotate(-1.75deg); } 50% { transform: rotate(2.5deg); } 100% { transform: rotate(-1.75deg); } }
@@ -699,14 +711,44 @@ button.selected:hover, button.selected:focus {
 #power_indicator .value { color: black; text-shadow: none; }
 .deltavcontrol { width: 40%; }
 #deltav_indicator {
+	position: absolute;
 	margin-right: 0.35em;
 	padding: 0.2em;
-	width: 100%;
+	width: 80%;
 	border: 0px;
 	background: $grey-4;
+	right: 2.5em;
 }
 #deltav_indicator { border-radius: 0.2em; }
 #deltav_indicator .value { color: white; text-shadow: none; }
+#deltav_indicator_light {
+	position: absolute;
+	border-radius: 100%;
+	border: 0.2em solid $grey-4;
+	height: 2em;
+	width: 2em;
+	right: 0.5em;
+	background: #dbdbdb; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover, #dbdbdb 0%, #898989 64%, #565656 76%, #002400 100%); /* FF3.6-15 */
+	background: -webkit-radial-gradient(center, ellipse cover, #dbdbdb 0%,#898989 64%,#565656 76%,#002400 100%); /* Chrome10-25,Safari5.1-6 */
+	background: radial-gradient(ellipse at center, #dbdbdb 0%,#898989 64%,#565656 76%,#002400 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbdbdb', endColorstr='#002400',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+#deltav_indicator_light.on {
+	background: #b4ddb4; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover, #b4ddb4 0%, #008a00 64%, #005700 76%, #002400 100%); /* FF3.6-15 */
+	background: -webkit-radial-gradient(center, ellipse cover, #b4ddb4 0%,#008a00 64%,#005700 76%,#002400 100%); /* Chrome10-25,Safari5.1-6 */
+	background: radial-gradient(ellipse at center, #b4ddb4 0%,#008a00 64%,#005700 76%,#002400 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4ddb4', endColorstr='#002400',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+#deltav_indicator_light:before {
+	content: "✕";
+	font-size: 1em;
+	color: white;
+}
+#deltav_indicator_light.on:before {
+	content: "✓";
+}
 
 
 table.data, table.data td { border: 0px; padding: $s*0.125; }
@@ -756,15 +798,15 @@ table.data td:last-child { text-align: left; }
 .package_power, .package_mass, .package_cost { display: inline-block; }
 .bg-orbit { background-color: $grey-2; }
 .slot-unavailable button { display: none!important; }
-.orbit-LEO .bg-orbit, .list li.selected.orbit-LEO .list-right { background-color: $grey-3; }
+.orbit-LEO .bg-orbit, .list li.selected.orbit-LEO .list-right { background-color: $purple-3; }
 .orbit-MEO .bg-orbit, .list li.selected.orbit-MEO .list-right { background-color: $green-3; }
 .orbit-HEO .bg-orbit, .list li.selected.orbit-HEO .list-right { background-color: $red-1; }
 .orbit-GEO .bg-orbit, .list li.selected.orbit-GEO .list-right { background-color: $blue-2; }
 .list li.selected .list-left, .list li.selected .list-right { background-color: $black-4; color: white; }
 #orbit_list li.selected .list-bar { width: $s*0.25; }
 #orbit_list li.selected .list-bar button.add { display: none; }
-.list li.slot-unavailable { position: relative; }
-.list li.slot-unavailable .overlay { background-color: #efefef; opacity: 0.8; width: 100%; height: 100%; position: absolute; left: 0px; top: 0px; z-index: 1000; }
+.list li.slot-unavailable { position: relative; opacity: 0.3; }
+.list li.slot-unavailable .overlay { background-color: #efefef; opacity: 0.8; width: 100%; height: 100%; position: absolute; left: 0px; top: 0px; z-index: $topz - 2; }
 
 
 .holder {
@@ -782,39 +824,80 @@ table.data td:last-child { text-align: left; }
 	cursor: pointer;
 }
 @import "../tests/satellite/satellite.scss";
-
-.slot2x4.texture.down .face.left,
-.slot2x4.texture.up .face.right,
-.slot2x4.texture.upwards .face.top { background: url('../images/foil_4x4.png'); background-size: 100% 100%; }
-
-.slot2x4.texture.down .face.top,
-.slot2x4.texture.up .face.top,
-.slot2x2.texture .face.top { background: url('../images/foil_4x2.png'); background-size: 100% 100%; }
-
-.slot2x2.texture .face.right,
-.slot2x2.texture .face.back { background: url('../images/foil_2x2.png'); background-size: 100% 100%; }
-
-.slot2x2.texture .face.left,
-.slot2x4.texture.upwards .face.left,
-.slot2x4.texture.upwards .face.right,
-.slot2x4.texture.downwards .face.left,
-.slot2x4.texture.downwards .face.right,
-.slot2x4.texture.down .face.back,
-.slot2x4.texture.up .face.back,
-.slot2x4.texture .face.back { background: url('../images/foil_2x4.png'); background-size: 100% 100%; }
-
-.texture .face.front { background: url('../images/foil_2x2.png'); }
-
-.texture.atomic-clock .face.front { background: url('../images/icon-time.png'); background-size:100% 100%; }
-
-.texture.camera-fir .face.front { background: url('../images/icon-camera-red-wide.png'); background-size:100% 100%; }
-.texture.camera-fir.up .face.front, .texture.camera-fir.down .face.front { background: url('../images/icon-camera-red-tall.png'); background-size:100% 100%;}
-.texture.camera-nir .face.front { background: url('../images/icon-camera-green.png'); background-size:100% 100%; }
-.texture.camera-opt .face.front { background: url('../images/icon-camera-blue.png'); background-size:100% 100%; }
-
 @import "../tests/satellite/solar.scss";
 @import "../tests/orbits/css/style.scss";
 @import "../tests/rocket/css/style.scss";
+
+/* Define textures */
+.texture .face.front { background: url('../images/png/foil_2x2.png'); }
+.texture.atomic-clock .face.front, .texture.atomic-clock .face.front { background: url('../images/png/icon-clock.png'); background-size:100% 100%; }
+.texture.atomic-clock-small .face.front, .texture.atomic-clock-small .face.front { background: url('../images/png/icon-clock-mini.png'); background-size:100% 100%; }
+.texture.camera-fir .face.front, .texture.camera-fir .face.front:before { background: url('../images/png/camera-thermal.png'); background-size:100% 100%; }
+.texture.camera-nir .face.front, .texture.camera-nir .face.front:before { background: url('../images/png/camera-veg.png'); background-size:100% 100%; }
+.texture.camera-opt .face.front, .texture.camera-opt .face.front:before { background: url('../images/png/camera-opt.png'); background-size:100% 100%; }
+.texture.camera-opt-hires .face.front, .texture.camera-opt .face.front:before { background: url('../images/png/camera-opt-hires.png'); background-size:100% 100%; }
+.texture.spect-opt .face.front, .texture.spect-opt .face.front:before { background: url('../images/png/spectro-opt.png'); background-size:100% 100%; }
+.texture.spect-nir .face.front, .texture.spect-nir .face.front:before { background: url('../images/png/spectro-veg.png'); background-size:100% 100%; }
+.texture.spect-fir .face.front, .texture.spect-fir .face.front:before { background: url('../images/png/spectro-thermal.png'); background-size:100% 100%; }
+.texture.gps-rx .face.front, .texture.gps-rx .face.front:before { background: url('../images/png/icon-gps.png'); background-size:100% 100%; }
+.texture.radar-alt .face.front, .texture.radar-alt .face.front:before { background: url('../images/png/icon-altimeter.png'); background-size:100% 100%; }
+.texture.internet-en .face.front, .texture.internet-en .face.front:before { background: url('../images/png/icon-wifi.png'); background-size:100% 100%; }
+.texture.tv-en .face.front, .texture.tv-en .face.front:before { background: url('../images/png/icon-tv.png'); background-size:100% 100%; }
+.texture.radio-rx .face.front, .texture.radio-rx .face.front:before { background: url('../images/png/icon-radio-rx.png'); background-size:100% 100%; }
+.texture.radio-tx .face.front, .texture.radio-tx .face.front:before { background: url('../images/png/icon-radio-tx.png'); background-size:100% 100%; }
+.texture.phone-en .face.front, .texture.phone-en .face.front:before { background: url('../images/png/icon-phone.png'); background-size:100% 100%; }
+.texture.phone-en .face.front, .texture.phone-en-mini .face.front:before { background: url('../images/png/icon-phone.png'); background-size:100% 100%; }
+.texture.battery-large .face.front, .texture.battery-large .face.front:before { background: url('../images/png/icon-battery-large.png'); background-size:100% 100%; }
+.texture.battery-small .face.front, .texture.battery-small .face.front:before { background: url('../images/png/icon-battery.png'); background-size:100% 100%; }
+.texture.rtg .face.front, .texture.rtg .face.front:before { background: url('../images/png/icon-nuclear.png'); background-size:100% 100%; }
+
+
+body.launch .rocket-holder .stage { opacity: 1; }
+body.launch .page { width: 100%; height: 100%; position: relative; }
+#sky {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 0;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#326d95+0,7f8f9e+100 */
+	background: #326d95; /* Old browsers */
+	background: -moz-linear-gradient(top, #326d95 0%, #7f8f9e 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #326d95 0%,#7f8f9e 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #326d95 0%,#7f8f9e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+#launchpad {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 1;
+}
+#launchpad .scenery { position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; width: 100%; height: 100%; }
+#launchpad #launchpad-bg { z-index: 0; background-image: url("../images/launchpad_CSG_bg.png"); background-position: center bottom; background-repeat: no-repeat; background-size: cover; }
+#launchpad #launchpad-mg { z-index: 1;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	width: 100%;
+	bottom: 150px;
+}
+#launchpad .rocket-holder {
+	position: absolute;
+	bottom: 0px;
+    display: block;
+    height: auto;
+    max-height: auto;
+    max-width: auto;
+    overflow: show;
+}
+body.launch .holder { display: block!important; }
+#launchpad .rocket-holder .holder { background-image: none; font-size: 0.5em; display: block!important; padding: 0px; }
+#launchpad #launchpad-fg { z-index: 2; background-image: url("../images/launchpad_CSG_fg.png"); background-position: center bottom; background-repeat: no-repeat; background-size: cover; }
+body.launch #terminal { position: absolute; right: 1em; top: 1em; width: 35%; height: 50%; background-color: rgba(0,0,0,0.6); z-index: 100; padding: 1em; font-family: monospace; color: white; overflow-y: auto;}
 
 .not-at-start { display: none!important; }
 
