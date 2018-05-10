@@ -196,6 +196,7 @@ console.log(data)
 		return this;
 	}
 	RocketScientist.prototype.updateConvertables = function(){
+		this.log('updating Convertables')
 		var el,c,i;
 		el = S('.convertable');
 		for(i = 0; i < el.length; i++){
@@ -798,8 +799,8 @@ console.log(data)
 		// Update the requirements;
 		this.updateRequirements();
 
-		this.updateValue(type,el,mode);
 		this.log('processPackage',type,el,mode,slotsp,el);
+		if(type) this.updateValue(type,el,mode);
 		this.updateNavigation();
 		return this;
 	}
