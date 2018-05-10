@@ -615,7 +615,7 @@
 				},
 				"choices": {
 					"bus": "medium",
-					"orbit": "LEO"
+					"orbit": "MEO"
 				},
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
 				"requires": [{
@@ -640,7 +640,7 @@
 					"error": "%scenarios.NAV.sat-nav.req.gps-rx.error%"
 				},{
 					"type": "orbit",
-					"oneof": ["HEO","GEO"],
+					"oneof": ["LEO","MEO","HEO","GEO"],
 					"label": "%scenarios.NAV.sat-nav.req.orbit.label%",
 					"error": "%scenarios.NAV.sat-nav.req.orbit.error%"
 				},{
@@ -711,7 +711,7 @@
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
 				"choices": {
 					"bus": "small",
-					"orbit": "LEO"
+					"orbit": "GEO"
 				},
 				"requires": [{
                     "type": "package",
@@ -742,7 +742,7 @@
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"choices": {
 					"bus": "medium",
-					"orbit": "LEO"
+					"orbit": "GEO"
 				},
 				"requires": [{
                     "type": "package",

@@ -615,7 +615,7 @@
 				},
 				"choices": {
 					"bus": "medium",
-					"orbit": "LEO"
+					"orbit": "MEO"
 				},
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
 				"requires": [{
@@ -640,7 +640,7 @@
 					"error": "Your satellite does not have any way to recieve signals from other GPS satellites."
 				},{
 					"type": "orbit",
-					"oneof": ["HEO","GEO"],
+					"oneof": ["LEO","MEO","HEO","GEO"],
 					"label": "See the whole planet.",
 					"error": "The orbit you have chosen does not allow you to see the whole planet."
 				},{
@@ -711,7 +711,7 @@
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
 				"choices": {
 					"bus": "small",
-					"orbit": "LEO"
+					"orbit": "GEO"
 				},
 				"requires": [{
                     "type": "package",
@@ -742,7 +742,7 @@
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"choices": {
 					"bus": "medium",
-					"orbit": "LEO"
+					"orbit": "GEO"
 				},
 				"requires": [{
                     "type": "package",
