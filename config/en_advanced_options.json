@@ -254,7 +254,7 @@
 		},
 		"phone-en": {
 			"slot":	"2x2",
-			"title": "",
+			"title": "Phone encoder",
 			"description": "Broadcasts signals to and from telephones across the world.",
 			"texture": {
 				"icon": "texture phone-en"
@@ -862,7 +862,7 @@
 					"alt": "Satellite Navigation System",
 					"credit": "Housin Aziz"
 				},
-				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
 					"type": "bus",
 					"oneof": ["small","medium","large"],
@@ -870,7 +870,7 @@
 					"error": "Your satellite must be big enough for your mission."
 				},{
 					"type": "package",
-					"oneof": ["atomicclock"],
+					"oneof": ["atomic-clock"],
 					"label": "Needs to be able to measure time very accurately",
 					"error": "You are not able to measure the time accurately enough."
 				},{
@@ -940,7 +940,7 @@
                 },{
                     "type": "package",
                     "oneof": ["phone-en","phone-en-mini"],
-                    "label": "A way to broadcase phone signals.",
+                    "label": "A way to broadcast phone signals.",
 					"error": "Your satellite does not have a way to broadcast phone signals"
                 },{
 					"type": "orbit",
@@ -1065,7 +1065,12 @@
                     "oneof": ["camera-nir","spect-nir"],
                     "label": "To take images of the vegetation on Earth.",
 					"error": "You do not have a way to take images of the vegetation on Earth."
-                }]
+                },{
+					"type": "orbit",
+					"oneof": ["LEO"],
+					"label": "See detail of Earth's weather systems.",
+					"error": "The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail."
+				}]
 			},{
 				"title": "Natural disaster monitoring",
 				"description": "When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras can show floods and fires. Radio waves can show regions of earth deformation, such as after earthquakes.",
@@ -1136,9 +1141,9 @@
 					"error": "You do not have a way to receive instructions from the ground."
                 },{
                     "type": "package",
-                    "oneof": ["sat-tracker"],
-                    "label": "Know the satellite position to high precision",
-					"error": "You do not have a way to locate the position of the satellite accurately."
+                    "oneof": ["gps-tracker"],
+                    "label": "",
+					"error": ""
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],

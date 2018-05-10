@@ -1,99 +1,53 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
 	<meta charset="utf-8" />
-
 	<meta name="viewport" content="width=device-width" />
-
 	<title>Launch!</title>
-
 	<link rel="stylesheet" media="all" href="css/fonts.css" type="text/css"/>
-
 	<link rel="stylesheet" media="all" href="css/style.css"  type="text/css" />
-
 	<!--[if !IE]> --><link href="tests/satellite/style-nonie.css" rel="stylesheet" type="text/css" media="screen" /><!-- <![endif]-->
-
 	<script type="text/javascript" src="js/convertable.js"></script>
-
 	<script type="text/javascript" src="js/stuquery.js"></script>
-
 	<script type="text/javascript" src="js/rocketscientist.js"></script>
-
 	<script type="text/javascript" src="js/rocketscientist.launcher.js"></script>
-
 	<script type="text/javascript" src="js/rocketequation.js"></script>
-
 </head>
-
 <body class="launch">
 
-
-
 	<div id="application">
-
 		<header>
-
 			<div id="bar">
-
 				<div class="barmenu">
-
 					<div class="baritem left padded">
-
 						<h1><a href="index.html">Classroom rocket scientist</a></h1>
-
 					</div>
-
 					<div class="baritem">
-
 						<button class="togglebtn togglemenu" title="Menu"><img src="images/cleardot.gif" class="icon menu" alt="" /></button></a>
-
 					</div>
-
 				</div>
-
 			</div>
-
 			<div id="progressbar"><div class="progress-inner"></div></div>
-
 		</header>
 
-
-
 		<div id="main">
-
 			<section id="launch" class="view">
-
 				<div class="page">
-
 					<div class="msg noscriptmsg">Oops! The interactive parts of <em>Classroom rocket scientist</em> need Javascript to be enabled. Sorry about that.</div>
-
 					<p>Preparing launch...</p>
-
 					<div id="update"></div>
-
 					
-
 					<div id="satellite" class="satellite-holder threeD not-at-start">
-
 						
-
-						<div class="holder" data-size="cube">
-							<div class="satellite satellite-c not-level-1 not-level-2">
+						<div class="holder" data-size="cube">							<div class="satellite satellite-c not-level-1 not-level-2">
 	<div class="row rowflat"><div class="slot slot-empty slot1 slot0x2"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 	<div class="row"><div class="slot slot-empty slot1 slot1x1 solar-left"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot1x1 solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 	<div class="row"><div class="slot slot-empty slot1 slot1x2 solar-left solar-right downwards"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 </div>
 
-
 						</div>
-
 						
-
-						<div class="holder" data-size="large">
-							<div class="satellite satellite-l">
+						<div class="holder" data-size="large">							<div class="satellite satellite-l">
 	<div class="solar-panels"><span class="label">Solar panels (left):</span><ol></ol></div>
 	<div class="solar-panels"><span class="label">Solar panels (right):</span><ol></ol></div>
 	<div class="row"><div class="slot slot-empty slot2 slot2x4 solar-left upwards solar-right"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
@@ -104,13 +58,9 @@
 	<div class="row rowbig"><div class="slot slot-empty slot1 slot4x8 solar-top downwards"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 </div>
 
-
 						</div>
-
 						
-
-						<div class="holder" data-size="medium">
-							<div class="satellite satellite-m">
+						<div class="holder" data-size="medium">							<div class="satellite satellite-m">
 	<div class="solar-panels"><span class="label">Solar panels (left):</span><ol></ol></div>
 	<div class="solar-panels"><span class="label">Solar panels (right):</span><ol></ol></div>
 	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-left solar-right upwards"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
@@ -119,125 +69,66 @@
 	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-left solar-right downwards"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 </div>
 
-
 						</div>
-
 						
-
-						<div class="holder" data-size="small">
-							<div class="satellite satellite-s">
+						<div class="holder" data-size="small">							<div class="satellite satellite-s">
 	<div class="solar-panels"><span class="label">Solar panels (left):</span><ol></ol></div>
 	<div class="solar-panels"><span class="label">Solar panels (right):</span><ol></ol></div>
 	<div class="row"><div class="slot slot-empty slot1 slot2x4 solar-left solar-right upwards"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 	<div class="row"><div class="slot slot-empty slot1 slot2x2 solar-left downwards"><div class="faces"><div class="face back"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div><div class="slot slot-empty slot2 slot2x2 solar-right bottom"><div class="faces"><div class="face back"></div><div class="face right"></div><div class="face top"></div><div class="face left"></div><div class="face front"></div></div></div></div>
 </div>
 
-
 						</div>
-
 						
-
 					</div>
-
-
 
 					<div id="terminal">
-
 					</div>
-
 					<div id="sky">
-
 					</div>
-
 					<div id="launchpad">
-
 						<div id="launchpad-bg" class="scenery">
-
 						</div>
-
 						<div id="launchpad-mg">
-
 							<div class="rocket-holder rocket" id="vehicle">
-
 								<div class="holder">
-
 									<div class="stage payloadbay"><div class="part"></div></div><div class="stage thirdstage"><div class="part"></div></div><div class="stage secondstage"><div class="part"></div></div><div class="stage firststage"><div class="part"></div></div>
-
 								</div>
-
 							</div>
-
 						</div>
-
 						<div id="launchpad-fg" class="scenery">
-
 						</div>
-
 					</div>
-
 				</div>
-
 			</section>
-
 		</div>
-
 		<section id="units" class="not-at-start fullpage">
-
 			<div class="container">
-
 				<div class="padded">
-
 					<a class="close" title="Close" href="#">&times;</a>
-
 					<h2>Change units:</h2>
-
 					<form id="optionform">
-
 						<ul>
-
 							<li><label for="changecurrency">Currency units:</label> <select name="changecurrency" id="changecurrency" data-units="currency"><option selected="selected" value="credits">Credits</option><option selected="selected" value="GBP">British Pounds £</option><option value="USD">US Dollars $</option><option value="EUR">Euros €</option><option value="JPY">Japanese Yen ¥</option><option value="CAD">Canadian Dollars C$</option><option value="AUD">Austrialian Dollars $</option><option value="CHF">Swiss Francs Fr.</option><option value="SEK">Swedish Krona kr</option><option value="CNY">Chinese Yuan ¥</option><option value="INR">Indian Rupees ₨</option><option value="RUB">Russian Ruble RUB</option><option value="DBL">Doubloons DBL</option></select></li>
-
 							<li><label for="changelength">Length units:</label> <select name="changelength" id="changelength" data-units="length"><option selected="selected" value="m">Metres</option><option value="ft">Feet</option><option value="cubit">Cubits</option><option value="bluewhale">Blue Whales</option><option value="yard">Yards</option></select></li>
-
 							<li><label for="changemass">Mass units:</label> <select name="changemass" id="changemass" data-units="mass"><option selected="selected" value="kg">Kilograms</option><option value="lb">Pounds</option><option value="elephant">Elephants</option></select></li>
-
 							<li><label for="changeenergy">Power units:</label> <select name="changepower" id="changepower" data-units="power"><option selected="selected" value="watts">watts</option><option value="horsepower">horsepower</option></select></li>
-
 						</ul>
-
 					</form>
-
 				</div>
-
 			</div>
-
 		</section>
-
 		<menu id="menu" class="dropdown not-at-start">
-
 			<li class="baritem restart" data="restart"><button title="Start over"><img src="images/cleardot.gif" class="icon restart" alt="" /><span>Restart</span></button></li>
-
 			<!--li class="baritem" data="level"><button title="Change the difficulty"><img src="images/cleardot.gif" class="icon difficulty" alt="" /><span>Difficulty</span></button></li-->
-
 			<!--<li class="baritem" data="help"><a href="#guide"><img src="images/cleardot.gif" class="icon help" alt="" /><span>Help</span></a></li>-->
-
 			<li class="baritem units" data="units"><button title="Change the units"><img src="images/cleardot.gif" class="icon options" alt="" /><span>Units</span></button></li>
-
 			<li class="baritem about" data="about"><button title="About"><img src="images/cleardot.gif" class="icon help" alt="" /><span>About</span></button></li>
-
 			<li class="baritem fullscreen not-at-start" data="fullscreen"><button title="Switch between viewing fullscreen or in a standard browser window"><img alt="" class="icon fullscreen" src="images/cleardot.gif" /><span>Toggle fullscreen</span></button></li>
-
 		</menu>
-
 	</div>
-
-
 
 	<style id="customstylesheet"></style>
 
-
-
 </body>
-
 </html>
-

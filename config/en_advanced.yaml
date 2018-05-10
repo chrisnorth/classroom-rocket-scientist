@@ -125,6 +125,8 @@ package.radio-antenna-cube.title:           Radio antenna (deployable)
 package.radio-antenna-cube.description:     Deployable radio antenna capable of controlling and transmitting images & data from up to 2 instruments.
 package.phone-en-mini.title:                Miniature phone encoder
 package.phone-en-mini.description:          Broadcasts signals to and from telephones across the world.
+package.phone-en.title:                     Phone encoder
+package.phone-en.description:               Broadcasts signals to and from telephones across the world.
 package.internet-en.title:                  Internet encoder
 package.internet-en.description:            Used to broadcast the internet to people around the world.
 package.tv-en.title:                        TV encoder
@@ -183,7 +185,7 @@ scenarios.COMMS.phone.title: Satellite telephone system
 scenarios.COMMS.phone.description: Lets people talk over the phone from remote regions of the world using satellites.
 scenarios.COMMS.phone.req.radio-tx.label: A way to send signals.
 scenarios.COMMS.phone.req.radio-tx.error: Your satellite does not have a way to send signals to the ground.
-scenarios.COMMS.phone.req.phone-en.label: A way to broadcase phone signals.
+scenarios.COMMS.phone.req.phone-en.label: A way to broadcast phone signals.
 scenarios.COMMS.phone.req.phone-en.error: Your satellite does not have a way to broadcast phone signals
 scenarios.COMMS.phone.req.orbit.label: Satellite is continuously above one area of Earth
 scenarios.COMMS.phone.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
