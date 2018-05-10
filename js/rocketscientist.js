@@ -678,7 +678,7 @@ console.log(data)
 
 		// Update the navigation
 		this.updateNavigation();
-
+		this.updateRequirements();
 		this.updateTotals();
 		return this;
 	}
