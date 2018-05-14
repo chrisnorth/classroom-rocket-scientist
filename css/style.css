@@ -3390,6 +3390,10 @@ ul.orrery li.GEO {
   background: url("../images/png/icon-battery-large.png");
   background-size: 100% 100%; }
 
+.texture.battery-medium .face.front, .texture.battery-medium .face.front:before {
+  background: url("../images/png/icon-battery.png");
+  background-size: 100% 100%; }
+
 .texture.battery-small .face.front, .texture.battery-small .face.front:before {
   background: url("../images/png/icon-battery.png");
   background-size: 100% 100%; }

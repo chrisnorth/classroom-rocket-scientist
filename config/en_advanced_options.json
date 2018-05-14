@@ -254,7 +254,7 @@
 		},
 		"phone-en": {
 			"slot":	"2x2",
-			"title": "",
+			"title": "Phone encoder",
 			"description": "Broadcasts signals to and from telephones across the world.",
 			"texture": {
 				"icon": "texture phone-en"
@@ -456,7 +456,7 @@
 	},
 	"power": {
 		"battery-large": {
-			"slot":	"2x2",
+			"slot":	"2x4",
 			"title": "Large battery",
 			"description": "Stores power from solar panels to allow operation when not in sunlight",
 			"texture": {
@@ -464,6 +464,27 @@
 			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 20, "units": "credits", "dimension": "currency" },
+			"dimensions": [
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" }
+			],
+			"power": { "value": 0, "units": "watts", "dimension": "power" },
+			"requires": [{
+				"type": "power",
+				"oneof": ["solar-panel","solar-panel-surface"],
+				"label": "Requires solar panels to charge up",
+				"error": "Requires solar panels"
+			}]
+		},"battery-medium": {
+			"slot":	"2x2",
+			"title": "Medium battery",
+			"description": "Stores power from solar panels to allow operation when not in sunlight",
+			"texture": {
+				"icon": "texture battery-medium"
+			},
+			"mass": { "value": 25, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" },
@@ -566,7 +587,7 @@
 		"diameter": { "value": 1, "units": "m", "dimension": "length" },
 		"height": { "value": 12.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 10500, "units": "kg", "dimension": "mass" },
-		"cost": { "value": 23, "units": "credits", "dimension": "currency" },
+		"cost": { "value": 12, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 2200, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 88000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 280, "units": "s", "dimension": "time" },
@@ -577,7 +598,7 @@
 		"diameter": { "value": 2, "units": "m", "dimension": "length" },
 		"height": { "value": 30.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 9000, "units": "kg", "dimension": "mass" },
-		"cost": { "value": 12, "units": "credits", "dimension": "currency" },
+		"cost": { "value": 23, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 1500, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 120000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 300, "units": "s", "dimension": "time" },
@@ -855,22 +876,17 @@
 			"missions": [{
 				"title": "Satellite Navigation System",
 				"description": "Uses signals from four navigation satellites so satnav users can find their location on Earth. Need to be able to see half a hemisphere at a time, measure time accurately and transmit signals of the location.",
-				"launch": "",
-				"success": "",
+				"launch": "Welcome to the launch of the UK Space Agency's latest navigation satellite that will allow people to accurately determine their position on Earth.",
+				"success": "Congratulations, your navigation satellite is now sending people accurate information about their position on Earth on behalf of the UK Space Agency.",
 				"image": {
 					"file": "images/png/icon-mapmarker.png",
 					"alt": "Satellite Navigation System",
 					"credit": "Housin Aziz"
 				},
-				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
-					"type": "bus",
-					"oneof": ["small","medium","large"],
-					"label": "A satellite that is small, medium or large.",
-					"error": "Your satellite must be big enough for your mission."
-				},{
 					"type": "package",
-					"oneof": ["atomicclock"],
+					"oneof": ["atomic-clock"],
 					"label": "Needs to be able to measure time very accurately",
 					"error": "You are not able to measure the time accurately enough."
 				},{
@@ -880,20 +896,20 @@
 					"error": "Your satellite does not have any way to transmit timing signals to people on the ground."
 				},{
 					"type": "orbit",
-					"oneof": ["HEO","GEO"],
-					"label": "See the whole planet.",
-					"error": "The orbit you have chosen does not allow you to see the whole planet."
+					"oneof": ["HEO","GEO","MEO"],
+					"label": "See large areas of the planet at one time.",
+					"error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."
 				},{
                     "type": "power",
-                    "oneof": ["battery-small","battery-large"],
-                    "label": "",
-                    "error": "The orbit you have chosen does not allow you to see the whole planet."
+                    "oneof": ["battery-small","battery-medium","battery-large"],
+                    "label": "Provide power even when not in sunlight.",
+                    "error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."
                 }]
 			},{
 				"title": "Map-making",
 				"description": "Map the surface of the Earth. Need to be able to take images of small areas of the Earth's surface and measure the height of the ground in high detail.",
-				"launch": "",
-				"success": "",
+				"launch": "Welcome to the launch of the UK Space Agency's latest navigation satellite that will accurately map the surface of the Earth.",
+				"success": "Congratulations, your navigation satellite is now accurately mapping the surface of the Earth on behalf of the UK Space Agency.",
 				"image": {
 					"file": "images/png/icon-topography.png",
 					"alt": "Map-making",
@@ -924,8 +940,8 @@
 			"missions": [{
 				"title": "Satellite telephone system",
 				"description": "Lets people talk over the phone from remote regions of the world using satellites.",
-				"launch": "",
-				"success": "",
+				"launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will allow people from regions all over the world to communicate by telephone.",
+				"success": "Congratulations, your communication satellite is now receiving signals from the ground and broadcasting them to phones around the Earth on behalf of the UK Space Agency.",
 				"image": {
 					"file": "images/png/icon-phone.png",
 					"alt": "Satellite telephone system",
@@ -940,7 +956,7 @@
                 },{
                     "type": "package",
                     "oneof": ["phone-en","phone-en-mini"],
-                    "label": "A way to broadcase phone signals.",
+                    "label": "A way to broadcast phone signals.",
 					"error": "Your satellite does not have a way to broadcast phone signals"
                 },{
 					"type": "orbit",
@@ -978,8 +994,8 @@
 			},{
 				"title": "Satellite internet",
 				"description": "Connect to the internet from remote regions of the world using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.",
-				"launch": "",
-				"success": "",
+				"launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will help people from all over the world connect to the internet.",
+				"success": "Congratulations, your communication satellite is now helping people connect to the internet from regions all over the world on behalf of the UK Space Agency.",
 				"image": {
 					"file": "images/png/icon-internet.png",
 					"alt": "Satellite internet",
@@ -991,11 +1007,6 @@
                     "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
                     "label": "A way to send signals.",
 					"error": "You do not have a way to send signals to the ground."
-                },{
-                    "type": "package",
-                    "oneof": ["radio-rx"],
-                    "label": "",
-					"error": ""
                 },{
                     "type": "package",
                     "oneof": ["internet-en"],
@@ -1065,7 +1076,12 @@
                     "oneof": ["camera-nir","spect-nir"],
                     "label": "To take images of the vegetation on Earth.",
 					"error": "You do not have a way to take images of the vegetation on Earth."
-                }]
+                },{
+					"type": "orbit",
+					"oneof": ["LEO"],
+					"label": "See detail of Earth's weather systems.",
+					"error": "The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail."
+				}]
 			},{
 				"title": "Natural disaster monitoring",
 				"description": "When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras can show floods and fires. Radio waves can show regions of earth deformation, such as after earthquakes.",
@@ -1136,9 +1152,9 @@
 					"error": "You do not have a way to receive instructions from the ground."
                 },{
                     "type": "package",
-                    "oneof": ["sat-tracker"],
-                    "label": "Know the satellite position to high precision",
-					"error": "You do not have a way to locate the position of the satellite accurately."
+                    "oneof": ["gps-tracker"],
+                    "label": "",
+					"error": ""
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],

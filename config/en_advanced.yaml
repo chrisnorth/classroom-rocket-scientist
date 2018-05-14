@@ -125,6 +125,8 @@ package.radio-antenna-cube.title:           Radio antenna (deployable)
 package.radio-antenna-cube.description:     Deployable radio antenna capable of controlling and transmitting images & data from up to 2 instruments.
 package.phone-en-mini.title:                Miniature phone encoder
 package.phone-en-mini.description:          Broadcasts signals to and from telephones across the world.
+package.phone-en.title:                     Phone encoder
+package.phone-en.description:               Broadcasts signals to and from telephones across the world.
 package.internet-en.title:                  Internet encoder
 package.internet-en.description:            Used to broadcast the internet to people around the world.
 package.tv-en.title:                        TV encoder
@@ -133,6 +135,10 @@ package.battery-large.title:                Large battery
 package.battery-large.description:          Stores power from solar panels to allow operation when not in sunlight
 package.battery-large.requires.solar.label: Requires solar panels to charge up
 package.battery-large.requires.solar.error: Requires solar panels
+package.battery-medium.title:                Medium battery
+package.battery-medium.description:          Stores power from solar panels to allow operation when not in sunlight
+package.battery-medium.requires.solar.label: Requires solar panels to charge up
+package.battery-medium.requires.solar.error: Requires solar panels
 package.battery-small.title:                Small battery
 package.battery-small.description:          Stores power from solar panels to allow operation when not in sunlight
 package.battery-small.requires.solar.label: Requires solar panels
@@ -163,30 +169,36 @@ scenarios.NAV.title:                        Navigation
 scenarios.NAV.description:                  The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.
 scenarios.NAV.sat-nav.title:                Satellite Navigation System
 scenarios.NAV.sat-nav.description:          Uses signals from four navigation satellites so satnav users can find their location on Earth. Need to be able to see half a hemisphere at a time, measure time accurately and transmit signals of the location.
-scenarios.NAV.sat-nav.req.bus.label: A satellite that is small, medium or large.
-scenarios.NAV.sat-nav.req.bus.error: Your satellite must be big enough for your mission.
 scenarios.NAV.sat-nav.req.atomic.label:     Needs to be able to measure time very accurately
 scenarios.NAV.sat-nav.req.atomic.error:     You are not able to measure the time accurately enough.
 scenarios.NAV.sat-nav.req.radio-tx.label: A way to send signals to the groud.
 scenarios.NAV.sat-nav.req.radio-tx.error: Your satellite does not have any way to transmit timing signals to people on the ground.
-scenarios.NAV.sat-nav.req.orbit.label: See the whole planet.
-scenarios.NAV.sat-nav.req.orbit.error: The orbit you have chosen does not allow you to see the whole planet.
+scenarios.NAV.sat-nav.req.orbit.label: See large areas of the planet at one time.
+scenarios.NAV.sat-nav.req.orbit.error: The orbit you have chosen does not allow you to see a large enough area of the the whole planet.
+scenarios.NAV.sat-nav.req.power.label: Provide power even when not in sunlight.
+scenarios.NAV.sat-nav.req.power.error: Your satellite cannot operate without sunlight.
+scenarios.NAV.sat-nav.launch:				Welcome to the launch of the UK Space Agency's latest navigation satellite that will allow people to accurately determine their position on Earth.
+scenarios.NAV.sat-nav.success: 				Congratulations, your navigation satellite is now sending people accurate information about their position on Earth on behalf of the UK Space Agency.
 scenarios.NAV.map.title: Map-making
 scenarios.NAV.map.description: Map the surface of the Earth. Need to be able to take images of small areas of the Earth's surface and measure the height of the ground in high detail.
 scenarios.NAV.map.req.opt-hires.label: An instrument capable of high resolution images.
 scenarios.NAV.map.req.opt-hires.error: The instrument you have chosen does not allow you to see the planet surface in enough detail.
 scenarios.NAV.map.req.orbit.label: See detail of planet surface.
 scenarios.NAV.map.req.orbit.error: The orbit you have chosen does not allow your satellite to see the planet surface in enough detail.
+scenarios.NAV.map.launch:				Welcome to the launch of the UK Space Agency's latest navigation satellite that will accurately map the surface of the Earth.
+scenarios.NAV.map.success: 				Congratulations, your navigation satellite is now accurately mapping the surface of the Earth on behalf of the UK Space Agency.
 scenarios.COMMS.title:                      Communication
 scenarios.COMMS.description:                These satellites are used for television, phone or internet transmissions. For example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.
 scenarios.COMMS.phone.title: Satellite telephone system
 scenarios.COMMS.phone.description: Lets people talk over the phone from remote regions of the world using satellites.
 scenarios.COMMS.phone.req.radio-tx.label: A way to send signals.
 scenarios.COMMS.phone.req.radio-tx.error: Your satellite does not have a way to send signals to the ground.
-scenarios.COMMS.phone.req.phone-en.label: A way to broadcase phone signals.
+scenarios.COMMS.phone.req.phone-en.label: A way to broadcast phone signals.
 scenarios.COMMS.phone.req.phone-en.error: Your satellite does not have a way to broadcast phone signals
 scenarios.COMMS.phone.req.orbit.label: Satellite is continuously above one area of Earth
 scenarios.COMMS.phone.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
+scenarios.COMMS.phone.launch:				Welcome to the launch of the UK Space Agency's latest communication satellite that will allow people from regions all over the world to communicate by telephone.
+scenarios.COMMS.phone.success: 				Congratulations, your communication satellite is now receiving signals from the ground and broadcasting them to phones around the Earth on behalf of the UK Space Agency.
 scenarios.COMMS.internet.title: Satellite internet
 scenarios.COMMS.internet.description: Connect to the internet from remote regions of the world using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.
 scenarios.COMMS.internet.req.radio-tx.label: A way to send signals.
@@ -195,6 +207,8 @@ scenarios.COMMS.internet.req.internet-en.label: A way to encode internet signals
 scenarios.COMMS.internet.req.internet-en.error: You do not have a way to encode internet signals.
 scenarios.COMMS.internet.req.orbit.label: Satellite is continuously above one area of Earth
 scenarios.COMMS.internet.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
+scenarios.COMMS.internet.launch:				Welcome to the launch of the UK Space Agency's latest communication satellite that will help people from all over the world connect to the internet.
+scenarios.COMMS.internet.success: 				Congratulations, your communication satellite is now helping people connect to the internet from regions all over the world on behalf of the UK Space Agency.
 scenarios.COMMS.tv.title: Satellite TV
 scenarios.COMMS.tv.description: Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.
 scenarios.COMMS.tv.req.radio-tx.label: A way to send signals.
