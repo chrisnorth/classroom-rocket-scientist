@@ -456,7 +456,7 @@
 	},
 	"power": {
 		"battery-large": {
-			"slot":	"2x2",
+			"slot":	"2x4",
 			"title": "%package.battery-large.title%",
 			"description": "%package.battery-large.description%",
 			"texture": {
@@ -464,6 +464,27 @@
 			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 20, "units": "credits", "dimension": "currency" },
+			"dimensions": [
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" }
+			],
+			"power": { "value": 0, "units": "watts", "dimension": "power" },
+			"requires": [{
+				"type": "power",
+				"oneof": ["solar-panel","solar-panel-surface"],
+				"label": "%package.battery-large.requires.solar.label%",
+				"error": "%package.battery-large.requires.solar.error%"
+			}]
+		},"battery-medium": {
+			"slot":	"2x2",
+			"title": "%package.battery-medium.title%",
+			"description": "%package.battery-medium.description%",
+			"texture": {
+				"icon": "texture battery-medium"
+			},
+			"mass": { "value": 25, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" },
@@ -566,7 +587,7 @@
 		"diameter": { "value": 1, "units": "m", "dimension": "length" },
 		"height": { "value": 12.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 10500, "units": "kg", "dimension": "mass" },
-		"cost": { "value": 23, "units": "credits", "dimension": "currency" },
+		"cost": { "value": 12, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 2200, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 88000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 280, "units": "s", "dimension": "time" },
@@ -577,7 +598,7 @@
 		"diameter": { "value": 2, "units": "m", "dimension": "length" },
 		"height": { "value": 30.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 9000, "units": "kg", "dimension": "mass" },
-		"cost": { "value": 12, "units": "credits", "dimension": "currency" },
+		"cost": { "value": 23, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 1500, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 120000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 300, "units": "s", "dimension": "time" },
@@ -864,11 +885,6 @@
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
-					"type": "bus",
-					"oneof": ["small","medium","large"],
-					"label": "%scenarios.NAV.sat-nav.req.bus.label%",
-					"error": "%scenarios.NAV.sat-nav.req.bus.error%"
-				},{
 					"type": "package",
 					"oneof": ["atomic-clock"],
 					"label": "%scenarios.NAV.sat-nav.req.atomic.label%",
@@ -880,12 +896,12 @@
 					"error": "%scenarios.NAV.sat-nav.req.radio-tx.error%"
 				},{
 					"type": "orbit",
-					"oneof": ["HEO","GEO"],
+					"oneof": ["HEO","GEO","MEO"],
 					"label": "%scenarios.NAV.sat-nav.req.orbit.label%",
 					"error": "%scenarios.NAV.sat-nav.req.orbit.error%"
 				},{
                     "type": "power",
-                    "oneof": ["battery-small","battery-large"],
+                    "oneof": ["battery-small","battery-medium","battery-large"],
                     "label": "%scenarios.NAV.sat-nav.req.power.label%",
                     "error": "%scenarios.NAV.sat-nav.req.orbit.error%"
                 }]

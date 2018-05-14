@@ -456,7 +456,7 @@
 	},
 	"power": {
 		"battery-large": {
-			"slot":	"2x2",
+			"slot":	"2x4",
 			"title": "Large battery",
 			"description": "Stores power from solar panels to allow operation when not in sunlight",
 			"texture": {
@@ -464,6 +464,27 @@
 			},
 			"mass": { "value": 50, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 20, "units": "credits", "dimension": "currency" },
+			"dimensions": [
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" }
+			],
+			"power": { "value": 0, "units": "watts", "dimension": "power" },
+			"requires": [{
+				"type": "power",
+				"oneof": ["solar-panel","solar-panel-surface"],
+				"label": "Requires solar panels to charge up",
+				"error": "Requires solar panels"
+			}]
+		},"battery-medium": {
+			"slot":	"2x2",
+			"title": "Medium battery",
+			"description": "Stores power from solar panels to allow operation when not in sunlight",
+			"texture": {
+				"icon": "texture battery-medium"
+			},
+			"mass": { "value": 25, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" },
@@ -566,7 +587,7 @@
 		"diameter": { "value": 1, "units": "m", "dimension": "length" },
 		"height": { "value": 12.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 10500, "units": "kg", "dimension": "mass" },
-		"cost": { "value": 23, "units": "credits", "dimension": "currency" },
+		"cost": { "value": 12, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 2200, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 88000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 280, "units": "s", "dimension": "time" },
@@ -577,7 +598,7 @@
 		"diameter": { "value": 2, "units": "m", "dimension": "length" },
 		"height": { "value": 30.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 9000, "units": "kg", "dimension": "mass" },
-		"cost": { "value": 12, "units": "credits", "dimension": "currency" },
+		"cost": { "value": 23, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 1500, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 120000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 300, "units": "s", "dimension": "time" },
@@ -864,11 +885,6 @@
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
-					"type": "bus",
-					"oneof": ["small","medium","large"],
-					"label": "A satellite that is small, medium or large.",
-					"error": "Your satellite must be big enough for your mission."
-				},{
 					"type": "package",
 					"oneof": ["atomic-clock"],
 					"label": "Needs to be able to measure time very accurately",
@@ -880,14 +896,14 @@
 					"error": "Your satellite does not have any way to transmit timing signals to people on the ground."
 				},{
 					"type": "orbit",
-					"oneof": ["HEO","GEO"],
-					"label": "See the whole planet.",
-					"error": "The orbit you have chosen does not allow you to see the whole planet."
+					"oneof": ["HEO","GEO","MEO"],
+					"label": "See large areas of the planet at one time.",
+					"error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."
 				},{
                     "type": "power",
-                    "oneof": ["battery-small","battery-large"],
-                    "label": "",
-                    "error": "The orbit you have chosen does not allow you to see the whole planet."
+                    "oneof": ["battery-small","battery-medium","battery-large"],
+                    "label": "Provide power even when not in sunlight.",
+                    "error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."
                 }]
 			},{
 				"title": "Map-making",

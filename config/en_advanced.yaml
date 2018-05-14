@@ -135,6 +135,10 @@ package.battery-large.title:                Large battery
 package.battery-large.description:          Stores power from solar panels to allow operation when not in sunlight
 package.battery-large.requires.solar.label: Requires solar panels to charge up
 package.battery-large.requires.solar.error: Requires solar panels
+package.battery-medium.title:                Medium battery
+package.battery-medium.description:          Stores power from solar panels to allow operation when not in sunlight
+package.battery-medium.requires.solar.label: Requires solar panels to charge up
+package.battery-medium.requires.solar.error: Requires solar panels
 package.battery-small.title:                Small battery
 package.battery-small.description:          Stores power from solar panels to allow operation when not in sunlight
 package.battery-small.requires.solar.label: Requires solar panels
@@ -165,14 +169,14 @@ scenarios.NAV.title:                        Navigation
 scenarios.NAV.description:                  The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.
 scenarios.NAV.sat-nav.title:                Satellite Navigation System
 scenarios.NAV.sat-nav.description:          Uses signals from four navigation satellites so satnav users can find their location on Earth. Need to be able to see half a hemisphere at a time, measure time accurately and transmit signals of the location.
-scenarios.NAV.sat-nav.req.bus.label: A satellite that is small, medium or large.
-scenarios.NAV.sat-nav.req.bus.error: Your satellite must be big enough for your mission.
 scenarios.NAV.sat-nav.req.atomic.label:     Needs to be able to measure time very accurately
 scenarios.NAV.sat-nav.req.atomic.error:     You are not able to measure the time accurately enough.
 scenarios.NAV.sat-nav.req.radio-tx.label: A way to send signals to the groud.
 scenarios.NAV.sat-nav.req.radio-tx.error: Your satellite does not have any way to transmit timing signals to people on the ground.
-scenarios.NAV.sat-nav.req.orbit.label: See the whole planet.
-scenarios.NAV.sat-nav.req.orbit.error: The orbit you have chosen does not allow you to see the whole planet.
+scenarios.NAV.sat-nav.req.orbit.label: See large areas of the planet at one time.
+scenarios.NAV.sat-nav.req.orbit.error: The orbit you have chosen does not allow you to see a large enough area of the the whole planet.
+scenarios.NAV.sat-nav.req.power.label: Provide power even when not in sunlight.
+scenarios.NAV.sat-nav.req.power.error: Your satellite cannot operate without sunlight.
 scenarios.NAV.sat-nav.launch:				Welcome to the launch of the UK Space Agency's latest navigation satellite that will allow people to accurately determine their position on Earth.
 scenarios.NAV.sat-nav.success: 				Congratulations, your navigation satellite is now sending people accurate information about their position on Earth on behalf of the UK Space Agency.
 scenarios.NAV.map.title: Map-making
