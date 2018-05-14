@@ -855,8 +855,8 @@
 			"missions": [{
 				"title": "Satellite Navigation System",
 				"description": "Uses signals from four navigation satellites so satnav users can find their location on Earth. Need to be able to see half a hemisphere at a time, measure time accurately and transmit signals of the location.",
-				"launch": "",
-				"success": "",
+				"launch": "Welcome to the launch of the UK Space Agency's latest navigation satellite that will allow people to accurately determine their position on Earth.",
+				"success": "Congratulations, your navigation satellite is now sending people accurate information about their position on Earth on behalf of the UK Space Agency.",
 				"image": {
 					"file": "images/png/icon-mapmarker.png",
 					"alt": "Satellite Navigation System",
@@ -892,8 +892,8 @@
 			},{
 				"title": "Map-making",
 				"description": "Map the surface of the Earth. Need to be able to take images of small areas of the Earth's surface and measure the height of the ground in high detail.",
-				"launch": "",
-				"success": "",
+				"launch": "Welcome to the launch of the UK Space Agency's latest navigation satellite that will accurately map the surface of the Earth.",
+				"success": "Congratulations, your navigation satellite is now accurately mapping the surface of the Earth on behalf of the UK Space Agency.",
 				"image": {
 					"file": "images/png/icon-topography.png",
 					"alt": "Map-making",
@@ -924,8 +924,8 @@
 			"missions": [{
 				"title": "Satellite telephone system",
 				"description": "Lets people talk over the phone from remote regions of the world using satellites.",
-				"launch": "",
-				"success": "",
+				"launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will allow people from regions all over the world to communicate by telephone.",
+				"success": "Congratulations, your communication satellite is now receiving signals from the ground and broadcasting them to phones around the Earth on behalf of the UK Space Agency.",
 				"image": {
 					"file": "images/png/icon-phone.png",
 					"alt": "Satellite telephone system",
@@ -978,8 +978,8 @@
 			},{
 				"title": "Satellite internet",
 				"description": "Connect to the internet from remote regions of the world using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.",
-				"launch": "",
-				"success": "",
+				"launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will help people from all over the world connect to the internet.",
+				"success": "Congratulations, your communication satellite is now helping people connect to the internet from regions all over the world on behalf of the UK Space Agency.",
 				"image": {
 					"file": "images/png/icon-internet.png",
 					"alt": "Satellite internet",
@@ -991,11 +991,6 @@
                     "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
                     "label": "A way to send signals.",
 					"error": "You do not have a way to send signals to the ground."
-                },{
-                    "type": "package",
-                    "oneof": ["radio-rx"],
-                    "label": "",
-					"error": ""
                 },{
                     "type": "package",
                     "oneof": ["internet-en"],
