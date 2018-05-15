@@ -117,7 +117,7 @@ package.camera-mini.description:            Takes pictures of the ground
 package.dish-large.title:                   Radio dish
 package.dish-large.description:             Can be used to control up to 8 instruments, and send images & data from these instruments to Earth.
 package.dish-medium.title:                  Radio dish
-package.dish-medium.description:            Can be used to control up to 4 instruments. It can send images and data from these 4 instruments back to Earth.
+package.dish-medium.description:            Can be used to send images and data back to Earth.
 package.dish-small.title:                   Radio antenna (small)
 package.dish-small.description:             Can be used to control up to 2 instruments, and send images & data from these instruments to Earth.
 package.radio-antenna-cube.title:           Radio antenna (unfolded)
