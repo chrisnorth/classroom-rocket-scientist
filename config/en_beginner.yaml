@@ -160,7 +160,7 @@ rocket.requires.power.error:                Your rocket needs to be built.
 scenarios.NAV.title:                        Navigation
 scenarios.NAV.description:                  These satellites are used to help people find their way around the Earth.
 scenarios.NAV.sat-nav.title:                Satellite navigation system
-scenarios.NAV.sat-nav.description:          Uses signals from four separate satellites so sat nav users can find their location on Earth. These satellites need to be able to see huge area of Earth at a time, measure time accurately and send information about their location.
+scenarios.NAV.sat-nav.description:          One of four satellites working together to help people find their location on Earth. These satellites need to be able to see huge area of Earth at a time, measure time accurately and send information to Earth.
 scenarios.NAV.sat-nav.req.bus.label:        A satellite that is small, medium or large.
 scenarios.NAV.sat-nav.req.bus.error:        Must be big enough for your mission.
 scenarios.NAV.sat-nav.req.atomic.label:     You need a way to measure time very accurately.
@@ -174,7 +174,7 @@ scenarios.NAV.sat-nav.req.orbit.error:         The orbit you have chosen does no
 scenarios.NAV.sat-nav.launch:                Welcome to the launch of the UK Space Agency's latest navigation satellite that will allow people to accurately determine their position on Earth.
 scenarios.NAV.sat-nav.success:                 Congratulations, your navigation satellite is now sending people accurate information about their position on Earth on behalf of the UK Space Agency.
 scenarios.NAV.map.title:                     Map-making
-scenarios.NAV.map.description:                 Map the surface of the Earth. Your satellite needs to be able to take images of small areas of the Earth's surface and measure the height of the ground in detail.
+scenarios.NAV.map.description:                 Map the surface of the Earth. Your satellite needs to be able to take images of small areas of the Earth's surface and measure the height of the ground.
 scenarios.NAV.map.req.camera-opt.label:         You need an instrument that can collect detailed images.
 scenarios.NAV.map.req.camera-opt.error:         Your satellite does not allow you to see the planet's surface in enough detail.
 scenarios.NAV.map.req.radar-alt.label:  You need a way to measure the height of the Earth's surface.
