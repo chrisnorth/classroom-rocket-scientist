@@ -5,11 +5,11 @@
 	"sections": [{
 		"id": "type",
 		"short": "Type",
-		"title": "Select your type of satellite"
+		"title": "Select a type of satellite"
 	},{
 		"id": "goal",
 		"short": "Mission",
-		"title": "Select the purpose of your satellite"
+		"title": "Select a type of satellite"
 	},{
 		"id": "bus",
 		"short": "Size",
@@ -92,7 +92,7 @@
 		"camera-fir": {
 			"slot":	"2x4",
 			"title": "Thermal camera",
-			"description": "Provides thermal images of Earth's atmosphere. This camera is useful for forecasting the weather, even during hours of darkness.",
+			"description": "Takes images of Earth's atmosphere. This camera is useful for forecasting the weather, even during hours of darkness.",
 			"texture": {
 				"icon": "texture camera-fir"
 			},
@@ -148,7 +148,7 @@
 		"phone-en": {
 			"slot":	"2x2",
 			"title": "Phone encoder",
-			"description": "Broadcasts signals to telephones across the world.",
+			"description": "Sendss signals to telephones across the world.",
 			"texture": {
 				"icon": "texture phone-en"
 			},
@@ -164,7 +164,7 @@
 		"atomic-clock": {
 			"slot":	"2x2",
 			"title": "Atomic clock",
-			"description": "A very accurate clock used by navigation satellites to measure the time very precisely. They are used to help people find their locations on Earth.",
+			"description": "A very accurate clock used to measure the time very precisely. They are used to help people find their locations on Earth.",
 			"texture": {
 				"icon": "texture atomic-clock"
 			},
@@ -180,7 +180,7 @@
 		"gps-rx": {
 			"slot":	"2x2",
 			"title": "GPS receiver",
-			"description": "Used to communicate with other GPS satellites.",
+			"description": "Used to communicate with other GPS satellites, working together they help people find their location on Earth. ",
 			"texture": {
 				"icon": "texture gps-rx"
 			},
@@ -214,7 +214,7 @@
 		"internet-en" : {
 			"slot": "2x2",
 			"title": "Internet encoder",
-			"description": "Used to broadcast the internet to people around the world.",
+			"description": "Used to send the internet to people around the world.",
 			"texture": {
 				"icon": "texture internet-en"
 			},
@@ -597,7 +597,7 @@
 	"scenarios": {
 		"NAV": {
 			"title": "Navigation",
-			"description": "These satellites are used to help people find their whereabouts on the Earth.",
+			"description": "These satellites are used to help people find their way around the Earth.",
 			"image": {
 				"file": "images/png/icon-nav.png",
 				"alt": "Navigation",
@@ -605,7 +605,7 @@
 			},
 			"missions": [{
 				"title": "Satellite navigation system",
-				"description": "Uses signals from four separate satellites so sat nav users can find their location on Earth. These satellites need to be able to see huge area of Earth at a time, measure time accurately and send information about their location.",
+				"description": "One of four satellites working together to help people find their location on Earth. These satellites need to be able to see huge area of Earth at a time, measure time accurately and send information to Earth.",
 				"launch": "Welcome to the launch of the UK Space Agency's latest navigation satellite that will allow people to accurately determine their position on Earth.",
 				"success": "Congratulations, your navigation satellite is now sending people accurate information about their position on Earth on behalf of the UK Space Agency.",
 				"image": {
@@ -625,7 +625,7 @@
 					"error": "Must be big enough for your mission."
 				},{
 					"type": "package",
-					"oneof": ["atomicclock"],
+					"oneof": ["atomic-lock"],
 					"label": "",
 					"error": ""
 				},{
@@ -651,7 +651,7 @@
 				}]
 			},{
 				"title": "Map-making",
-				"description": "Map the surface of the Earth. Your satellite needs to be able to take images of small areas of the Earth's surface and measure the height of the ground in detail.",
+				"description": "Map the surface of the Earth. Your satellite needs to be able to take images of small areas of the Earth's surface and measure the height of the ground.",
 				"launch": "Welcome to the launch of the UK Space Agency's latest navigation satellite that will accurately map the surface of the Earth.",
 				"success": "Congratulations, your navigation satellite is now accurately mapping the surface of the Earth on behalf of the UK Space Agency.",
 				"image": {
@@ -667,7 +667,7 @@
 				"requires": [{
 					"type": "package",
 					"oneof": ["camera-opt"],
-					"label": "You need an instrument capable of collecting detailed images.",
+					"label": "You need an instrument that can collect detailed images.",
 					"error": "Your satellite does not allow you to see the planet's surface in enough detail."
                 },{
 					"type": "package",
@@ -692,20 +692,20 @@
 		},
 		"COMMS": {
 			"title": "Communication",
-			"description": "These satellites are used for television, phone or internet broadcasts.",
+			"description": "These satellites are allow us to watch television, make phone calls and use the Internet.",
 			"image": {
 				"file": "images/png/icon-comms.png",
 				"alt": "Communication",
 				"credit": "Creative Stall"
 			},
 			"missions": [{
-				"title": "Satellite telephone system",
-				"description": "Allows people to talk over the phone, even from remote regions of the world. The satellite receives signals from the ground and transmits them to other areas on Earth.",
+				"title": "Satellite Telephone System",
+				"description": "Allows people to talk over the phone, even in remote parts of the world. The satellite receives signals from the ground and sends them to other areas on Earth.",
 				"launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will allow people from regions all over the world to communicate by telephone.",
-				"success": "Congratulations, your communication satellite is now receiving signals from the ground and broadcasting them to phones around the Earth on behalf of the UK Space Agency.",
+				"success": "Congratulations, your communication satellite is now receiving signals from the ground and sending them to phones around the Earth on behalf of the UK Space Agency.",
 				"image": {
 					"file": "images/png/icon-phone.png",
-					"alt": "Satellite telephone system",
+					"alt": "Satellite Telephone System",
 					"credit": "Plainicon"
 				},
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
@@ -721,8 +721,8 @@
                 },{
                     "type": "package",
                     "oneof": ["phone-en"],
-                    "label": "You need away to broadcast signals between phones.",
-					"error": "Your satellite does not have a way to broadcast signals to phones on the ground."
+                    "label": "You need a way to send signals between phones.",
+					"error": "Your satellite does not have a way to send signals to phones on the ground."
                 },{
 					"type": "orbit",
 					"oneof": ["GEO"],
@@ -730,13 +730,13 @@
 					"error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."
 				}]
 			},{
-				"title": "Satellite internet",
-				"description": "Allows people to connect to the internet, even from remote regions of the world. The satellite receives signals from the ground and transmits them to other areas on Earth.",
+				"title": "Satellite Internet",
+				"description": "Allows people to connect to the internet, even from remote parts of the world. The satellite receives signals from the ground and sends them to other areas on Earth.",
 				"launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will help people from all over the world connect to the internet.",
 				"success": "Congratulations, your communication satellite is now helping people connect to the internet from regions all over the world on behalf of the UK Space Agency.",
 				"image": {
 					"file": "images/png/icon-internet.png",
-					"alt": "Satellite internet",
+					"alt": "Satellite Internet",
 					"credit": "parkjisun"
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
@@ -752,8 +752,8 @@
                 },{
                     "type": "package",
                     "oneof": ["internet-en"],
-                    "label": "You need a way to broadcast internet signals.",
-					"error": "You do not have a way to broadcast internet signals."
+                    "label": "You need a way to send out internet signals.",
+					"error": "You do not have a way to send out internet signals."
 				},{
 					"type": "orbit",
 					"oneof": ["GEO"],
@@ -764,7 +764,7 @@
 		},
 		"EO": {
 			"title": "Earth Observation",
-			"description": "These satellites are used to forecasting the weather, study clouds and assess the damage caused by natural disasters.",
+			"description": "These satellites are allow us to predict the weather, study clouds and assess the damage caused by natural disasters.",
 			"image": {
 				"file": "images/png/icon-eo.png",
 				"alt": "Earth Observation",
@@ -772,7 +772,7 @@
 			},
 			"missions": [{
 				"title": "Weather forecasting",
-				"description": "Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use thermal cameras to measure the temperature of the ground and oceans.",
+				"description": "Monitor the sky so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use cameras to measure the temperature of the ground and oceans.",
 				"launch": "Welcome to the launch of the UK Space Agency's latest earth observation satellite that will allow forecasters around the world to predict future weather.",
 				"success": "Congratulations, your earth observation satellite is now helping forecasters around the world to predict future weather.",
 				"image": {
@@ -793,17 +793,17 @@
                 },{
                     "type": "package",
                     "oneof": ["camera-opt"],
-                    "label": "You need an instrument capable of collecting very detailed images of the clouds and weather systems.",
-					"error": "Your satellite does not allow you to see the clouds or weather systems in enough detail."
+                    "label": "You need an instrument that can collect detailed images of the clouds and weather.",
+					"error": "Your satellite does not allow you to see the clouds or weather in enough detail."
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],
-					"label": "See detail of Earth's weather systems.",
-					"error": "The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail."
+					"label": "See detail of Earth's weather.",
+					"error": "The orbit you have chosen does not allow you to see the Earth's weather in enough detail."
 				}]
 			},{
 				"title": "Natural disaster monitoring",
-				"description": "When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see details of the damage on Earth, so satellites must orbit close to the ground. Infrared cameras can show floods and fires. Radio waves can show regions where the earth has been warped by earthquakes.",
+				"description": "When natural disasters occur, satellites are used to check the damage. Detailed images are needed to see the damage on Earth such as floods, fires and areas where the earth has been warped by earthquakes, so satellites must orbit close to the ground.",
 				"launch": "Welcome to the launch of the UK Space Agency's latest earth observation satellite that will help to assess the damage caused by natural disasters including forest fires, floods and eathquakes.",
 				"success": "Congratulations, your earth observation satellite is now helping to assess the damage caused by natural disasters including forest fires, floods and eathquakes.",
 				"image": {
@@ -819,7 +819,7 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-opt"],
-                    "label": "You need an instrument capable of collecting very detailed images.",
+                    "label": "You need an instrument that can collect very detailed images.",
 					"error": "Your satellite does not allow you to see the planet's surface in enough detail."
                 },{
                     "type": "package",
