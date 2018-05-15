@@ -23,5 +23,5 @@ echo "Creating CSS"
 sass css/style.scss css/style.css
 
 # Create the images
-echo "Updating images"
-perl config/textures.pl
+# echo "Updating images"
+# perl config/textures.pl

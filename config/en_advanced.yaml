@@ -50,7 +50,7 @@ ui.sections.orbit.altitude:                 Altitude:
 ui.sections.orbit.period:                   Period:
 ui.sections.instrument.short:               Instruments
 ui.sections.instrument.title:               Select the instruments for your satellite
-ui.sections.instrument.intro:               To complete your mission you will need the correct instruments. You only have a limited number of slots and money so choose wisely.
+ui.sections.instrument.intro:               To complete your mission you will need the correct instruments. Instruments are separated by size, make sure the colour of your instrument matches an available slot. You only have a limited number of slots, so choose wisely!
 ui.sections.instrument.list:                Available instruments:
 ui.sections.power.short:                    Power
 ui.sections.power.title:                    Add power
