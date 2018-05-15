@@ -625,7 +625,7 @@
 					"error": "%scenarios.NAV.sat-nav.req.bus.error%"
 				},{
 					"type": "package",
-					"oneof": ["atomic-lock"],
+					"oneof": ["atomic-clock"],
 					"label": "%scenarios.NAV.sat-nav.req.atomic-clock.label%",
 					"error": "%scenarios.NAV.sat-nav.req.atomic-clock.error%"
 				},{
