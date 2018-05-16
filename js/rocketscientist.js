@@ -305,8 +305,13 @@ console.log(data)
 		this.log('updateTotals');
 		S('#bar .togglecost .cost').html(this.totals.cost.toString({'units':this.defaults.currency}));
 		if(this.choices.mission.budget){
-			if(this.totals.cost.value <= this.choices.mission.budget.value) S('#bar .togglecost').removeClass('overbudget');
-			else S('#bar .togglecost').addClass('overbudget');
+			if(this.totals.cost.value <= this.choices.mission.budget.value) {
+				S('#bar .togglecost').removeClass('overbudget');
+				this.choices.inbudget=true;
+			}else {
+				S('#bar .togglecost').addClass('overbudget');
+				this.choices.inbudget=false;
+			}
 		}
 		S('#bar .togglemass .mass').html(this.totals.mass.toString({'units':this.defaults.mass}));
 		S('#bar .togglepower .power').html(this.totals.power.toString({'units':this.defaults.power}));
@@ -316,7 +321,13 @@ console.log(data)
 		var p = S('#power_indicator');
 		p.children('.level').css({'width':Math.min(pc,100)+'%'});
 		p.children('.value').html((pc >= 100 ? '&#9889;':'')+Math.round(pc)+'%');
-
+		if (this.totals.power.value <= this.power.value){
+			S('#bar .togglepower').removeClass('overbudget');
+			this.choices.powered=true
+		}else{
+			S('#bar .togglepower').addClass('overbudget');
+			this.choices.powered=false;
+		}
 		if(this.choices.orbit){
 			var stages = new Array();
 			for(var k = 0; k < this.stages.length; k++) stages.push(this.choices[this.stages[k]] ? this.choices[this.stages[k]] : this.data[this.stages[k]][0]);
@@ -334,7 +345,6 @@ console.log(data)
 				this.choices['fueled'] = false;
 			}
 		}
-
 		return this;
 	}
 	RocketScientist.prototype.setType = function(t){
@@ -432,11 +442,15 @@ console.log(data)
 			for(var i = 0; i < this.data['rocket'].requires.length; i++) this.requirements = this.requirements.concat(this.data['rocket'].requires[i]);
 		}
 
+		if(this.data['missionreq'] && this.data['missionreq'].requires){
+			for(var i = 0; i < this.data['missionreq'].requires.length; i++) this.requirements = this.requirements.concat(this.data['missionreq'].requires[i]);
+		}
+
 		// See which requirements are met
 		this.checkRequirements();
 
 		// The keys are the HTML <section> IDs and the values are the JSON data keys
-		var sections = {'orbit':'orbit','instrument':'package','power':'power','rocket':'rocket'};
+		var sections = {'orbit':'orbit','instrument':'package','power':'power','rocket':'rocket','goal':'goal'};
 		var ul,li,i,l,notlisted,j,e;
 		var requirementslist = "";
 		var requirementslistlaunch = "";
@@ -518,8 +532,12 @@ console.log(data)
 		if(this.choices['orbit']) ch.push(this.choices['orbit']);
 		if(this.choices['fueled']) ch.push(this.choices['fueled']);
 		if(this.choices['stable']) ch.push(this.choices['stable']);
+		if(this.choices['inbudget']) ch.push(this.choices['inbudget']);
+		if(this.choices['powered']) ch.push(this.choices['powered']);
 		if(this.choices['solar-panel-surface']) ch.push('solar-panel-surface');
 		if(this.choices['solar-panel'] > 0) ch.push('solar-panel');
+		this.log('power: total',this.totals.power.value,'choices',this.power.value,'powered',this.choices.powered)
+		this.log('budget: total',this.totals.cost.value,'choices',this.choices.mission.budget.value,'inbudget',this.choices.inbudget)
 		for(var j in this.choices.slots){
 			for(var i = 0; i < this.choices.slots[j].length; i++) ch.push(this.choices.slots[j][i]);
 		}
@@ -646,17 +664,48 @@ console.log(data)
 		for(s = 0; s < sections.length; s++){
 			var uls = S('#'+sections[s]+' .list ul');
 			for(u = 0; u < uls.length; u++){
-				l_top = "";
-				l_bot = "";
 				ul = S(uls[u]);
 				li = ul.find('li');
-				// For each list item we check if the slot is available or not
-				// If it isn't it goes at the bottom of the list
-				for(i = 0; i < li.length; i++){
-					if(S(li[i]).hasClass('slot-unavailable')) l_bot += li[i].outerHTML;
-					else l_top += li[i].outerHTML;
+
+				this.sizeorder=true;
+				if (this.sizeorder){
+					// For each list item we check if the slot is available or not
+					// If it isn't it goes at the bottom of the list
+					// Within the top and bottom, lists are sorted by size
+					sizes=[];
+					l_tops = {};
+					l_bots = {};
+					l_top_all="";
+					l_bot_all="";
+					for (i = 0; i< li.length; i++){
+						lsize=S(li[i]).attr('data-size');
+						if (sizes.indexOf(lsize)<0) sizes.push(lsize);
+						if (S(li[i]).hasClass('slot-unavailable')){
+							// put at bottom of list
+							if (!l_bots.hasOwnProperty(lsize)) l_bots[lsize]="";
+							l_bots[lsize] += li[i].outerHTML;
+						}else{
+							if (!l_tops.hasOwnProperty(lsize)) l_tops[lsize]="";
+							l_tops[lsize] += li[i].outerHTML;
+						}
+					}
+					for (s = 0; s < sizes.length; s++){
+						if (l_tops.hasOwnProperty(sizes[s])) l_top_all += l_tops[sizes[s]];
+						if (l_bots.hasOwnProperty(sizes[s])) l_bot_all += l_bots[sizes[s]];
+					}
+					ul.html(l_top_all + l_bot_all);
+				}else{
+					// For each list item we check if the slot is available or not
+					// If it isn't it goes at the bottom of the list
+					l_top = "";
+					l_bot = "";
+					for(i = 0; i < li.length; i++){
+						if(S(li[i]).hasClass('slot-unavailable')) l_bot += li[i].outerHTML;
+						else l_top += li[i].outerHTML;
+					}
+					ul.html(l_top+l_bot);
 				}
-				ul.html(l_top+l_bot);
+				this.log(sections[s],ul)
 			}
 		}
 		return this;
@@ -698,6 +747,7 @@ console.log(data)
 	RocketScientist.prototype.processPackage = function(type,el,mode){
 
 		var add = el.hasClass('add') ? true : false;
+		var remove = el.hasClass('remove') ? true : false;
 		var p = (mode=="power") ? this.data['power'][type] : this.data.package[type];
 		var slots,slotsp,good;
 
@@ -796,11 +846,13 @@ console.log(data)
 			}
 		}
 
+		this.log('processPackage',type,el,mode,slotsp,el);
+
+		if(add || remove) this.updateValue(type,el,mode);
+		this.updateTotals();
 		// Update the requirements;
 		this.updateRequirements();
 
-		this.log('processPackage',type,el,mode,slotsp,el);
-		if(type) this.updateValue(type,el,mode);
 		this.updateNavigation();
 		return this;
 	}
@@ -830,10 +882,12 @@ console.log(data)
 		else if(type=="solar-panel-surface") this.solarFixed(add,el);
 		else this.processPackage(type,el,"power");
 
+		this.updateBudgets()
+		this.updateValue(type,el,"power");
+
 		// Update the requirements;
 		this.updateRequirements();
 
-		this.updateValue(type,el,"power");
 		this.updateNavigation();
 		return this;
 	}
