@@ -748,7 +748,6 @@ console.log(data)
 	RocketScientist.prototype.processPackage = function(type,el,mode){
 
 		var add = el.hasClass('add') ? true : false;
-		var remove = el.hasClass('remove') ? true : false;
 		var p = (mode=="power") ? this.data['power'][type] : this.data.package[type];
 		var slots,slotsp,good;
 
@@ -849,7 +848,7 @@ console.log(data)
 
 		this.log('processPackage',type,el,mode,slotsp,el);
 
-		if(add || remove) this.updateValue(type,el,mode);
+		this.updateValue(type,el,mode);
 		this.updateTotals();
 		// Update the requirements;
 		this.updateRequirements();
