@@ -632,7 +632,7 @@
 					"type": "package",
 					"oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
 					"label": "You need a way to send signals back to Earth.",
-					"error": "Your satellite does not have any way to send signals to the ground control team."
+					"error": "You do not have a way to send signals to the ground."
 				},{
 					"type": "package",
 					"oneof": ["gps-rx"],
@@ -668,12 +668,12 @@
 					"type": "package",
 					"oneof": ["camera-opt"],
 					"label": "You need an instrument that can collect detailed images.",
-					"error": "Your satellite does not allow you to see the planet's surface in enough detail."
+					"error": "Your satellite cannot take detailed images of the planet's surface."
                 },{
 					"type": "package",
 					"oneof": ["radar-alt"],
 					"label": "You need a way to measure the height of the Earth's surface.",
-					"error": "You do not have a way to measure the height of the Earth's surface (e.g. mountains and valleys)."
+					"error": "You do not have a way to measure the height of the Earth's surface."
             	},{
                 	"type": "package",
 					"oneof": ["radar-dish"],
@@ -716,12 +716,12 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
-                    "label": "You need a way to send signals.",
-					"error": "Your satellite does not have a way to send signals to the ground."
+                    "label": "You need a way to send signals back to Earth.",
+					"error": "You do not have a way to send signals to the ground."
                 },{
                     "type": "package",
                     "oneof": ["phone-en"],
-                    "label": "You need a way to send signals between phones.",
+                    "label": "You need a way to send signals to phones on the ground.",
 					"error": "Your satellite does not have a way to send signals to phones on the ground."
                 },{
 					"type": "orbit",
@@ -748,7 +748,7 @@
                     "type": "package",
                     "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
                     "label": "You need a way to send signals.",
-					"error": "Your satellite does not have a way to send signals to the ground."
+					"error": "You do not have a way to send signals to the ground."
                 },{
                     "type": "package",
                     "oneof": ["internet-en"],
@@ -793,8 +793,8 @@
                 },{
                     "type": "package",
                     "oneof": ["camera-opt"],
-                    "label": "You need an instrument that can collect detailed images of the clouds and weather.",
-					"error": "Your satellite does not allow you to see the clouds or weather in enough detail."
+                    "label": "ou need an instrument that can collect detailed images.",
+					"error": "Your satellite cannot take detailed images of the planet's surface."
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],
@@ -819,18 +819,18 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-opt"],
-                    "label": "You need an instrument that can collect very detailed images.",
-					"error": "Your satellite does not allow you to see the planet's surface in enough detail."
+                    "label": "You need an instrument that can collect detailed images.",
+					"error": "Your satellite cannot take detailed images of the planet's surface."
                 },{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
-                    "label": "You need a way to send signals.",
-					"error": "You do not have a way to transmit signals to the ground."
+                    "label": "You need a way to send signals back to Earth.",
+					"error": "You do not have a way to send signals to the ground."
                 },{
                     "type": "package",
                     "oneof": ["radar-alt"],
                     "label": "You need a way to measure the height of the Earth's surface.",
-					"error": "You do not have a way to measure the height of the surface for monitoring earthquakes."
+					"error": "You do not have a way to measure the height of the Earth's surface."
                 },{
                     "type": "package",
                     "oneof": ["radar-dish"],

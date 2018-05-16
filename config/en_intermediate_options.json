@@ -227,8 +227,8 @@
 		},
 		"radio-rx": {
 			"slot":	"2x2",
-			"title": "Radio receiver",
-			"description": "Receives instructions from the ground control team",
+			"title": "",
+			"description": "",
 			"texture": {
 				"icon": "texture radio-rx"
 			},
@@ -849,8 +849,8 @@
 				},{
 					"type": "package",
 					"oneof": ["radio-tx"],
-					"label": "A way to send signals.",
-					"error": "Your satellite does not have any way to transmit timing signals to people on the ground."
+					"label": "A way to send signals to people on the ground.",
+					"error": "Your satellite does not have any way to send signals to people on the ground."
 				},{
 					"type": "orbit",
 					"oneof": ["HEO","GEO"],
@@ -906,8 +906,8 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["radio-tx"],
-                    "label": "A way to send signals.",
-					"error": "Your satellite does not have a way to send signals to the ground."
+                    "label": "A way to send signals to people on the ground.",
+					"error": "Your satellite does not have any way to send signals to people on the ground."
                 },{
                     "type": "package",
                     "oneof": ["radio-rx"],
@@ -933,7 +933,7 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["radio-tx"],
-                    "label": "A way to send signals.",
+                    "label": "A way to send signals to people on the ground.",
 					"error": "You do not have a way to send signals to the ground."
                 },{
                     "type": "package",
@@ -965,8 +965,8 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["radio-tx"],
-                    "label": "A way to send signals.",
-					"error": "You do not have a way to send signals to the ground."
+                    "label": "A way to send signals to people on the ground.",
+					"error": "Your satellite does not have any way to send signals to people on the ground."
                 },{
                     "type": "package",
                     "oneof": ["radio-rx"],
@@ -1034,7 +1034,7 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["radio-tx"],
-                    "label": "A way to transmit signals.",
+                    "label": "A way to send signals to people on the ground.",
 					"error": "You do not have a way to transmit signals to the ground."
                 },{
                     "type": "package",
@@ -1061,7 +1061,7 @@
                 },{
                     "type": "package",
                     "oneof": ["radio-tx"],
-                    "label": "A way to transmit signals.",
+                    "label": "A way to send signals to people on the ground.",
 					"error": "You do not have a way to transmit signals to the ground."
                 },{
                     "type": "package",
@@ -1108,7 +1108,7 @@
                 },{
                     "type": "package",
                     "oneof": ["radio-tx"],
-                    "label": "A way to transmit signals.",
+                    "label": "A way to send signals to people on the ground.",
 					"error": "You do not have a way to transmit signals to the ground."
                 },{
                     "type": "package",
