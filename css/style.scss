@@ -835,7 +835,7 @@ table.data td:last-child { text-align: left; }
 .texture.camera-fir .face.front, .texture.camera-fir .face.front:before { background: url('../images/png/camera-thermal.png'); background-size:100% 100%; }
 .texture.camera-nir .face.front, .texture.camera-nir .face.front:before { background: url('../images/png/camera-veg.png'); background-size:100% 100%; }
 .texture.camera-opt .face.front, .texture.camera-opt .face.front:before { background: url('../images/png/camera-opt.png'); background-size:100% 100%; }
-.texture.camera-opt-hires .face.front, .texture.camera-opt .face.front:before { background: url('../images/png/camera-opt-hires.png'); background-size:100% 100%; }
+.texture.camera-opt-hires .face.front, .texture.camera-opt-hires .face.front:before { background: url('../images/png/camera-opt-hires.png'); background-size:100% 100%; }
 .texture.spect-opt .face.front, .texture.spect-opt .face.front:before { background: url('../images/png/spectro-opt.png'); background-size:100% 100%; }
 .texture.spect-nir .face.front, .texture.spect-nir .face.front:before { background: url('../images/png/spectro-veg.png'); background-size:100% 100%; }
 .texture.spect-fir .face.front, .texture.spect-fir .face.front:before { background: url('../images/png/spectro-thermal.png'); background-size:100% 100%; }
@@ -902,6 +902,8 @@ body.launch #terminal { position: absolute; right: 1em; top: 1em; width: 35%; he
 
 .not-at-start { display: none!important; }
 
+body #about .icons {text-align:center}
+body #about .icons img {height:50px; margin:10px;}
 @media only screen and (max-width: 800px){
 	.list li .list-bar, .list li .list-left,.list li .list-right { display: block; width: 100%; max-width: 100%; }
 	.list li .list-bar { @include border-radius($s*0.25 $s*0.25 0 0); }
