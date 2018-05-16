@@ -162,6 +162,9 @@ nav li { float: left; }
 	line-height: $lineh;
 	margin: $barheight*0.5 - $lineh*0.5;
 }
+.baritem span.label-right {
+	float:right;
+}
 .baritem.left a { height: auto; }
 .baritem.left a:hover { background: transparent; }
 .baritem.padded, nav li.padded { padding: $barheight*0.5 - $lineh*0.5; }
@@ -204,7 +207,7 @@ nav li { float: left; }
 .dropdown .baritem, .rtl .dropdown .baritem { float: none; display: block; }
 /*.dropdown .baritem a { padding: 0.75em 1em; }*/
 .dropdown.fullwidth { width: 100%; left: 0px; border-left: 0px; }
-#menu { z-index: $topz+1; }
+#menu, #menu-cost, #menu-power, #menu-mass { z-index: $topz+1; }
 
 
 /* Navigation menus */

@@ -28,6 +28,15 @@ ui.menu.fullscreen.title:                   Toggle fullscreen
 ui.menu.fullscreen.more:                    Switch between viewing fullscreen or in a standard browser window
 ui.menu.language.title:                     Language
 ui.menu.language.more:                      Change language
+ui.menu.cost.title:                         Cost
+ui.menu.cost.budget:                        Money in your budget
+ui.menu.cost.cost:                          Cost of your mission
+ui.menu.power.title:                        Power
+ui.menu.power.required:                     Power required
+ui.menu.power.available:                    Power available
+ui.menu.mass.title:                         Mass of satellite
+ui.menu.dv.available:                       Speed provided by rocket
+ui.menu.dv.required:                        Speed needed for orbit
 ui.sections.type.short:                     Type
 ui.sections.type.title:                     Select your type of satellite
 ui.sections.type.intro:                     Satellites have different purposes. Which type do you want to build?

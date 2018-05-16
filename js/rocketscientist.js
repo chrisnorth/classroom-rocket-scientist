@@ -58,7 +58,7 @@ var rs;
 		this.maxpanels = 1;
 		this.wide = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 		this.tall = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-		this.defaults = {'currency':'credits', 'length':'m', 'area': 'mxm', 'mass': 'kg', 'power':'watts', 'powerdensity':'watts/m^2' };
+		this.defaults = {'currency':'credits', 'length':'m', 'area': 'mxm', 'mass': 'kg', 'power':'watts', 'powerdensity':'watts/m^2','velocity':'km/s'};
 		this.z = {};
 		this.totals = { 'cost': new Convertable(0,this.defaults.currency), 'power': new Convertable(0,this.defaults.power), 'mass':new Convertable(0,this.defaults.mass) };
 		this.choices = { 'type':'', 'goal':'', 'mission':'', 'orbit':'', 'bus':'', 'slots':{}, 'solar-panel':0, 'solar-panel-surface':false, 'bussize':'', 'stable': false, 'fueled': false };
@@ -118,7 +118,13 @@ console.log(data)
 
 		// Set up main menu events
 		S('#bar .togglemenu').on('click',{me:this},function(e){ S('#menu').toggleClass('not-at-start'); })
+		S('#bar .togglecost').on('click',{me:this},function(e){ S('#menu-cost').toggleClass('not-at-start'); })
+		S('#bar .togglepower').on('click',{me:this},function(e){ S('#menu-power').toggleClass('not-at-start'); })
+		S('#bar .togglemass').on('click',{me:this},function(e){ S('#menu-mass').toggleClass('not-at-start'); })
 		S('#menu').on('mouseleave',{me:this},function(e){ S('#menu').toggleClass('not-at-start'); })
+		S('#menu-mass').on('mouseleave',{me:this},function(e){ S('#menu-mass').toggleClass('not-at-start'); })
+		S('#menu-power').on('mouseleave',{me:this},function(e){ S('#menu-power').toggleClass('not-at-start'); })
+		S('#menu-cost').on('mouseleave',{me:this},function(e){ S('#menu-cost').toggleClass('not-at-start'); })
 		S('#menu .restart').on('click',{me:this},function(e){ location.href = location.href.replace(/[\/]+$/,'') + (location.protocol==="file:") ? "index.html" : ""; })
 		S('#menu .units').on('click',{me:this},function(e){ S('#units').removeClass('not-at-start'); S('body').addClass('nooverflow'); });
 		S('#menu .about').on('click',{me:this},function(e){ S('#about').removeClass('not-at-start'); S('body').addClass('nooverflow'); });
@@ -304,7 +310,9 @@ console.log(data)
 	RocketScientist.prototype.updateTotals = function(){
 		this.log('updateTotals');
 		S('#bar .togglecost .cost').html(this.totals.cost.toString({'units':this.defaults.currency}));
+		S('#menu-cost .menucost .cost').html(this.totals.cost.toString({'units':this.defaults.currency}));
 		if(this.choices.mission.budget){
+			S('#menu-cost .menubudget .cost').html(this.choices.mission.budget.toString({'units':this.defaults.currency}));
 			if(this.totals.cost.value <= this.choices.mission.budget.value) {
 				S('#bar .togglecost').removeClass('overbudget');
 				this.choices.inbudget=true;
@@ -315,7 +323,8 @@ console.log(data)
 		}
 		S('#bar .togglemass .mass').html(this.totals.mass.toString({'units':this.defaults.mass}));
 		S('#bar .togglepower .power').html(this.totals.power.toString({'units':this.defaults.power}));
-
+		S('#menu-power .menupowerreq .power').html(this.totals.power.toString({'units':this.defaults.power}));
+		S('#menu-power .menupoweravail .power').html(this.power.toString({'units':this.defaults.power}));
 		// Update battery-style indicator
 		var pc = (this.power.value == Infinity) ? 100 : (this.totals.power.value > 0 ? 100*this.power.value/this.totals.power.value : 100);
 		var p = S('#power_indicator');
@@ -344,6 +353,10 @@ console.log(data)
 				S('#deltav_indicator_light').removeClass('on');
 				this.choices['fueled'] = false;
 			}
+			dvavail=new Convertable(eq.deltav.total.value,'m/s','velocity')
+			dvreq=new Convertable(eq.deltav.required.value,'m/s','velocity')
+			S('#menu-mass .menudvreq .deltav').html(dvreq.toString({'units':this.defaults.velocity}));
+			S('#menu-mass .menudvavail .deltav').html(dvavail.toString({'units':this.defaults.velocity}));
 		}
 		return this;
 	}

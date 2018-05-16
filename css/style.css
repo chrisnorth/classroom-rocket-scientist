@@ -266,6 +266,9 @@ nav li {
   line-height: 1.5em;
   margin: 0.75em; }
 
+.baritem span.label-right {
+  float: right; }
+
 .baritem.left a {
   height: auto; }
 
@@ -345,7 +348,7 @@ nav li {
   left: 0px;
   border-left: 0px; }
 
-#menu {
+#menu, #menu-cost, #menu-power, #menu-mass {
   z-index: 1001; }
 
 /* Navigation menus */
