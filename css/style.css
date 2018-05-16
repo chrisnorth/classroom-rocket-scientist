@@ -266,6 +266,9 @@ nav li {
   line-height: 1.5em;
   margin: 0.75em; }
 
+.baritem span.label-right {
+  float: right; }
+
 .baritem.left a {
   height: auto; }
 
@@ -345,7 +348,7 @@ nav li {
   left: 0px;
   border-left: 0px; }
 
-#menu {
+#menu, #menu-cost, #menu-power, #menu-mass {
   z-index: 1001; }
 
 /* Navigation menus */
@@ -3338,7 +3341,7 @@ ul.orrery li.GEO {
   background: url("../images/png/camera-opt.png");
   background-size: 100% 100%; }
 
-.texture.camera-opt-hires .face.front, .texture.camera-opt .face.front:before {
+.texture.camera-opt-hires .face.front, .texture.camera-opt-hires .face.front:before {
   background: url("../images/png/camera-opt-hires.png");
   background-size: 100% 100%; }
 
@@ -3500,6 +3503,13 @@ body.launch #terminal {
 
 .not-at-start {
   display: none !important; }
+
+body #about .icons {
+  text-align: center; }
+
+body #about .icons img {
+  height: 50px;
+  margin: 10px; }
 
 @media only screen and (max-width: 800px) {
   .list li .list-bar, .list li .list-left, .list li .list-right {

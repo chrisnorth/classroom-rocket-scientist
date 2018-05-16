@@ -1177,6 +1177,19 @@
 			"error": "%rocket.requires.power.error%"
 		}]
 	},
+	"missionreq": {
+		"requires": [{
+			"type": "goal",
+			"is": "inbudget",
+			"label": "%launch.prep.budget.label%",
+			"error": "%launch.prep.budget.error%"
+		},{
+			"type": "power",
+			"is": "powered",
+			"label": "%launch.prep.powered.label%",
+			"error": "%launch.prep.powered.error%"
+		}]
+	},
     "launch": {
     	"prep": {
     		"checklist": "%launch.prep.checklist%",

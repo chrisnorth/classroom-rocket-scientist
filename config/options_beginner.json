@@ -625,7 +625,7 @@
 					"error": "%scenarios.NAV.sat-nav.req.bus.error%"
 				},{
 					"type": "package",
-					"oneof": ["atomic-lock"],
+					"oneof": ["atomic-clock"],
 					"label": "%scenarios.NAV.sat-nav.req.atomic-clock.label%",
 					"error": "%scenarios.NAV.sat-nav.req.atomic-clock.error%"
 				},{
@@ -735,7 +735,7 @@
 				"launch": "%scenarios.COMMS.internet.launch%",
 				"success": "%scenarios.COMMS.internet.success%",
 				"image": {
-					"file": "images/png/icon-internet.png",
+					"file": "images/svg/icon-internet-comm.png",
 					"alt": "%scenarios.COMMS.internet.title%",
 					"credit": "parkjisun"
 				},

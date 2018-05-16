@@ -1177,6 +1177,19 @@
 			"error": "Your rocket is not powerful enough to launch."
 		}]
 	},
+	"missionreq": {
+		"requires": [{
+			"type": "goal",
+			"is": "inbudget",
+			"label": "You need sufficient funds.",
+			"error": "You no not have sufficient funds."
+		},{
+			"type": "power",
+			"is": "powered",
+			"label": "You need sufficient power.",
+			"error": "You no not have sufficient power."
+		}]
+	},
     "launch": {
     	"prep": {
     		"checklist": "<p>We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail. You haven't met these requirements:</p>$requirementslist$",

@@ -4,8 +4,8 @@ if(typeof Math.log10!=="function") Math.log10 = function(v) { return Math.log(v)
 function Convertable(v,u,d){
 
 	var ph = {
-		"million": { "full": " million", "compact": "&thinsp;Mn" },
-		"billion": { "full": " billion", "compact": "&thinsp;Bn" },
+		"million": { "full": " million", "compact": "&nbsp;Mn" },
+		"billion": { "full": " billion", "compact": "&nbsp;Bn" },
 		"defaults": {
 			"length": "m",
 			"area": "m^2",
@@ -21,41 +21,42 @@ function Convertable(v,u,d){
 			"powerdensity": "watts/m^2"
 		},
 		"units": {
-			"km": { "unit": "&thinsp;km", "dimension": "length", "conv": 1000 },
-			"m": { "unit": "&thinsp;m", "dimension": "length", "conv": 1 },
-			"mm": { "unit": "&thinsp;mm", "dimension": "length", "conv": 0.001 },
-			"ft": { "unit": "&thinsp;ft", "dimension": "length", "conv": 1/3.281 },
-			"mile": { "unit": "&thinsp;miles", "dimension": "length", "conv": 1609.344 },
-			"cubit": { "unit": "&thinsp;cubits", "dimension": "length", "conv": 0.4572 },
-			"bluewhale": { "unit": "&thinsp;blue whales", "dimension": "length", "conv": 30 },
-			"yard": { "unit": "&thinsp;yd", "dimension": "length", "conv": 1/1.094 },
-			"league": { "unit": "&thinsp;leagues", "dimension": "length", "conv": 4828.032 },
-			"m^2": { "unit": "&thinsp;m&sup2;", "dimension": "area", "conv": 1 },
-			"N": { "unit": "&thinsp;N", "dimension": "force", "conv": 1 },
-			"kN": { "unit": "&thinsp;kN", "dimension": "force", "conv": 1000 },
-			"poundal": { "unit": "&thinsp;poundal", "dimension": "force", "conv": 0.138254954376 },
-			"K": { "unit": "&thinsp;K", "dimension": "temperature" },
+			"km": { "unit": "&nbsp;km", "dimension": "length", "conv": 1000 },
+			"m": { "unit": "&nbsp;m", "dimension": "length", "conv": 1 },
+			"mm": { "unit": "&nbsp;mm", "dimension": "length", "conv": 0.001 },
+			"ft": { "unit": "&nbsp;ft", "dimension": "length", "conv": 1/3.281 },
+			"mile": { "unit": "&nbsp;miles", "dimension": "length", "conv": 1609.344 },
+			"cubit": { "unit": "&nbsp;cubits", "dimension": "length", "conv": 0.4572 },
+			"bluewhale": { "unit": "&nbsp;blue whales", "dimension": "length", "conv": 30 },
+			"yard": { "unit": "&nbsp;yd", "dimension": "length", "conv": 1/1.094 },
+			"league": { "unit": "&nbsp;leagues", "dimension": "length", "conv": 4828.032 },
+			"m^2": { "unit": "&nbsp;m&sup2;", "dimension": "area", "conv": 1 },
+			"N": { "unit": "&nbsp;N", "dimension": "force", "conv": 1 },
+			"kN": { "unit": "&nbsp;kN", "dimension": "force", "conv": 1000 },
+			"poundal": { "unit": "&nbsp;poundal", "dimension": "force", "conv": 0.138254954376 },
+			"K": { "unit": "&nbsp;K", "dimension": "temperature" },
 			"C": { "unit": "&deg;C", "dimension": "temperature" },
 			"F": { "unit": "&deg;F", "dimension": "temperature" },
-			"kg": { "unit": "&thinsp;kg", "dimension": "mass", "conv": 1 },
-			"lb": { "unit": "&thinsp;lb", "dimension": "mass", "conv": 1/2.205 },
-			"elephant": { "unit": "&thinsp;elephants", "dimension": "mass", "conv": 5400 },
-			"watts": { "unit": "&thinsp;W", "dimension": "power", "conv": 1 },
-			"watts/m^2": { "unit": "&thinsp;W/m&sup2;", "dimension": "powerdensity", "conv": 1 },
-			"horsepower": { "unit": "&thinsp;hp", "dimension": "power", "conv": 745.7 },
-			"years": { "unit": "&thinsp;years", "dimension": "time", "conv": 365.25*86400 },
-			"months": { "unit": "&thinsp;months", "dimension": "time", "conv": 30*86400 },
-			"days": { "unit": "&thinsp;days", "dimension": "time", "conv": 86400 },
-			"hours": { "unit": "&thinsp;hours", "dimension": "time", "conv": 3600 },
-			"minutes": { "unit": "&thinsp;minutes", "dimension": "time", "conv": 60 },
-			"seconds": { "unit": "&thinsp;seconds", "dimension": "time", "conv": 1 },
-			"s": { "unit": "&thinsp;seconds", "dimension": "time", "conv": 1 },
+			"kg": { "unit": "&nbsp;kg", "dimension": "mass", "conv": 1 },
+			"lb": { "unit": "&nbsp;lb", "dimension": "mass", "conv": 1/2.205 },
+			"elephant": { "unit": "&nbsp;elephants", "dimension": "mass", "conv": 5400 },
+			"watts": { "unit": "&nbsp;W", "dimension": "power", "conv": 1 },
+			"watts/m^2": { "unit": "&nbsp;W/m&sup2;", "dimension": "powerdensity", "conv": 1 },
+			"horsepower": { "unit": "&nbsp;hp", "dimension": "power", "conv": 745.7 },
+			"years": { "unit": "&nbsp;years", "dimension": "time", "conv": 365.25*86400 },
+			"months": { "unit": "&nbsp;months", "dimension": "time", "conv": 30*86400 },
+			"days": { "unit": "&nbsp;days", "dimension": "time", "conv": 86400 },
+			"hours": { "unit": "&nbsp;hours", "dimension": "time", "conv": 3600 },
+			"minutes": { "unit": "&nbsp;minutes", "dimension": "time", "conv": 60 },
+			"seconds": { "unit": "&nbsp;seconds", "dimension": "time", "conv": 1 },
+			"s": { "unit": "&nbsp;seconds", "dimension": "time", "conv": 1 },
 			"%": { "unit": "%", "dimension": "percent" },
 			"degrees": { "unit": "&deg;", "dimension": "angle", "conv": 1 },
 			"arcmin": { "unit": "'", "dimension": "angle", "conv": 1/60 },
 			"arcsec": { "unit": "\"", "dimension": "angle", "conv": 1/3600 },
-			"m/s": { "unit": "&thinsp;m/s", "dimension": "velocity", "conv": 1 },
-			"kg/s": { "unit": "&thinsp;kg/s", "dimension": "massflowrate", "conv": 1 }
+			"m/s": { "unit": "&nbsp;m/s", "dimension": "velocity", "conv": 1 },
+			"km/s": { "unit": "&nbsp;km/s", "dimension": "velocity", "conv": 1000 },
+			"kg/s": { "unit": "&nbsp;kg/s", "dimension": "massflowrate", "conv": 1 }
 		},
 		"currency": {
 			"GBP": { "symbol": "&pound;", "conv": 1 },
@@ -66,9 +67,9 @@ function Convertable(v,u,d){
 			"AUD": { "symbol": "&dollar;", "conv": 1.8642 },
 			"CHF": { "symbol": "Fr.", "conv": 1.473 },
 			"SEK": { "symbol": "kr", "conv": 10.7654 },
-			"CNY": { "symbol": "&yen;", "conv": 10.327 }, 
-			"INR": { "symbol": "&#8377;", "conv": 100.1 }, 
-			"RUB": { "symbol": "RUB", "conv": 59.136 }, 
+			"CNY": { "symbol": "&yen;", "conv": 10.327 },
+			"INR": { "symbol": "&#8377;", "conv": 100.1 },
+			"RUB": { "symbol": "RUB", "conv": 59.136 },
 			"DBL": { "symbol": "DBL", "conv": 0.07485 },
 			"credits": { "symbol": "", "conv": 0.001 }
 		}
@@ -192,7 +193,7 @@ function Convertable(v,u,d){
 					v.units = to;
 				}
 			}
-		}else{	
+		}else{
 			if(v.units != to && ph.units[v.units] && ph.units[to]){
 				// Step 1: convert to defaults
 				if(ph.units[v.units].conv) v.value *= ph.units[v.units].conv;
@@ -251,15 +252,15 @@ function Convertable(v,u,d){
 		}
 
 		if(dim=="length"){
-		
+
 			v = this.convertTo(to);
 			if(typeof p!=="number") p = (v.units=="km" ? 0 : v.getPrecision());
 			unit = (ph.units[v.units]) ? ph.units[v.units].unit : "";
 			if(v.value > 1e15) return powerOfTen(v.value,v.unit);
 			return tidy(v.value,p,unit);
-		
+
 		}else if(dim=="currency"){
-	
+
 			var append = "";
 			v = this.convertTo(to)
 			if(typeof p!=="number") p = 0;
@@ -284,7 +285,7 @@ function Convertable(v,u,d){
 				if(v.value < 100) p = 1;
 				if(v.value < 10) p = 2;
 			}
-			var val = round(v.value,p).replace(/\.0+$/,'').replace(/(\.[1-9]+)0+$/,"$1").replace(/^ /,"&thinsp;");
+			var val = round(v.value,p).replace(/\.0+$/,'').replace(/(\.[1-9]+)0+$/,"$1").replace(/^ /,"&nbsp;");
 			return sign+s+val+append;
 
 		}else if(dim=="temperature"){
@@ -344,7 +345,7 @@ function Convertable(v,u,d){
 		output.value *= -1;
 		return output;
 	}
-	
+
 	// Add the input values.
 	// Input:
 	//   An convertable

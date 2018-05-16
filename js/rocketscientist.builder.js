@@ -240,11 +240,13 @@
 	RocketScientist.prototype.addPackage = function(e,to){
 		var a = S(e.currentTarget);
 		var add = a.hasClass('add') ? true : false;
+		var remove = a.hasClass('remove') ? true : false;
 		var type = a.parent().parent().attr('data-package');
-		this.log('addPackage',e,to,type);
-		if(to == "instrument") this.processPackage(type,a,"instrument");
-		else if(to == "power") this.processPowerPackage(type,a);
-
+		if (add || remove){
+			this.log('addPackage',e,to,type);
+			if(to == "instrument") this.processPackage(type,a,"instrument");
+			else if(to == "power") this.processPowerPackage(type,a);
+		}
 		this.updateBudgets();
 		this.updateButtons();
 		return this;

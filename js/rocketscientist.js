@@ -58,7 +58,7 @@ var rs;
 		this.maxpanels = 1;
 		this.wide = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 		this.tall = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-		this.defaults = {'currency':'credits', 'length':'m', 'area': 'mxm', 'mass': 'kg', 'power':'watts', 'powerdensity':'watts/m^2' };
+		this.defaults = {'currency':'credits', 'length':'m', 'area': 'mxm', 'mass': 'kg', 'power':'watts', 'powerdensity':'watts/m^2','velocity':'km/s'};
 		this.z = {};
 		this.totals = { 'cost': new Convertable(0,this.defaults.currency), 'power': new Convertable(0,this.defaults.power), 'mass':new Convertable(0,this.defaults.mass) };
 		this.choices = { 'type':'', 'goal':'', 'mission':'', 'orbit':'', 'bus':'', 'slots':{}, 'solar-panel':0, 'solar-panel-surface':false, 'bussize':'', 'stable': false, 'fueled': false };
@@ -118,7 +118,13 @@ console.log(data)
 
 		// Set up main menu events
 		S('#bar .togglemenu').on('click',{me:this},function(e){ S('#menu').toggleClass('not-at-start'); })
+		S('#bar .togglecost').on('click',{me:this},function(e){ S('#menu-cost').toggleClass('not-at-start'); })
+		S('#bar .togglepower').on('click',{me:this},function(e){ S('#menu-power').toggleClass('not-at-start'); })
+		S('#bar .togglemass').on('click',{me:this},function(e){ S('#menu-mass').toggleClass('not-at-start'); })
 		S('#menu').on('mouseleave',{me:this},function(e){ S('#menu').toggleClass('not-at-start'); })
+		S('#menu-mass').on('mouseleave',{me:this},function(e){ S('#menu-mass').toggleClass('not-at-start'); })
+		S('#menu-power').on('mouseleave',{me:this},function(e){ S('#menu-power').toggleClass('not-at-start'); })
+		S('#menu-cost').on('mouseleave',{me:this},function(e){ S('#menu-cost').toggleClass('not-at-start'); })
 		S('#menu .restart').on('click',{me:this},function(e){ location.href = location.href.replace(/[\/]+$/,'') + (location.protocol==="file:") ? "index.html" : ""; })
 		S('#menu .units').on('click',{me:this},function(e){ S('#units').removeClass('not-at-start'); S('body').addClass('nooverflow'); });
 		S('#menu .about').on('click',{me:this},function(e){ S('#about').removeClass('not-at-start'); S('body').addClass('nooverflow'); });
@@ -304,19 +310,33 @@ console.log(data)
 	RocketScientist.prototype.updateTotals = function(){
 		this.log('updateTotals');
 		S('#bar .togglecost .cost').html(this.totals.cost.toString({'units':this.defaults.currency}));
+		S('#menu-cost .menucost .cost').html(this.totals.cost.toString({'units':this.defaults.currency}));
 		if(this.choices.mission.budget){
-			if(this.totals.cost.value <= this.choices.mission.budget.value) S('#bar .togglecost').removeClass('overbudget');
-			else S('#bar .togglecost').addClass('overbudget');
+			S('#menu-cost .menubudget .cost').html(this.choices.mission.budget.toString({'units':this.defaults.currency}));
+			if(this.totals.cost.value <= this.choices.mission.budget.value) {
+				S('#bar .togglecost').removeClass('overbudget');
+				this.choices.inbudget=true;
+			}else {
+				S('#bar .togglecost').addClass('overbudget');
+				this.choices.inbudget=false;
+			}
 		}
 		S('#bar .togglemass .mass').html(this.totals.mass.toString({'units':this.defaults.mass}));
 		S('#bar .togglepower .power').html(this.totals.power.toString({'units':this.defaults.power}));
-
+		S('#menu-power .menupowerreq .power').html(this.totals.power.toString({'units':this.defaults.power}));
+		S('#menu-power .menupoweravail .power').html(this.power.toString({'units':this.defaults.power}));
 		// Update battery-style indicator
 		var pc = (this.power.value == Infinity) ? 100 : (this.totals.power.value > 0 ? 100*this.power.value/this.totals.power.value : 100);
 		var p = S('#power_indicator');
 		p.children('.level').css({'width':Math.min(pc,100)+'%'});
 		p.children('.value').html((pc >= 100 ? '&#9889;':'')+Math.round(pc)+'%');
-
+		if (this.totals.power.value <= this.power.value){
+			S('#bar .togglepower').removeClass('overbudget');
+			this.choices.powered=true
+		}else{
+			S('#bar .togglepower').addClass('overbudget');
+			this.choices.powered=false;
+		}
 		if(this.choices.orbit){
 			var stages = new Array();
 			for(var k = 0; k < this.stages.length; k++) stages.push(this.choices[this.stages[k]] ? this.choices[this.stages[k]] : this.data[this.stages[k]][0]);
@@ -333,8 +353,11 @@ console.log(data)
 				S('#deltav_indicator_light').removeClass('on');
 				this.choices['fueled'] = false;
 			}
+			dvavail=new Convertable(eq.deltav.total.value,'m/s','velocity')
+			dvreq=new Convertable(eq.deltav.required.value,'m/s','velocity')
+			S('#menu-mass .menudvreq .deltav').html(dvreq.toString({'units':this.defaults.velocity}));
+			S('#menu-mass .menudvavail .deltav').html(dvavail.toString({'units':this.defaults.velocity}));
 		}
-
 		return this;
 	}
 	RocketScientist.prototype.setType = function(t){
@@ -432,11 +455,15 @@ console.log(data)
 			for(var i = 0; i < this.data['rocket'].requires.length; i++) this.requirements = this.requirements.concat(this.data['rocket'].requires[i]);
 		}
 
+		if(this.data['missionreq'] && this.data['missionreq'].requires){
+			for(var i = 0; i < this.data['missionreq'].requires.length; i++) this.requirements = this.requirements.concat(this.data['missionreq'].requires[i]);
+		}
+
 		// See which requirements are met
 		this.checkRequirements();
 
 		// The keys are the HTML <section> IDs and the values are the JSON data keys
-		var sections = {'orbit':'orbit','instrument':'package','power':'power','rocket':'rocket'};
+		var sections = {'orbit':'orbit','instrument':'package','power':'power','rocket':'rocket','goal':'goal'};
 		var ul,li,i,l,notlisted,j,e;
 		var requirementslist = "";
 		var requirementslistlaunch = "";
@@ -518,8 +545,12 @@ console.log(data)
 		if(this.choices['orbit']) ch.push(this.choices['orbit']);
 		if(this.choices['fueled']) ch.push(this.choices['fueled']);
 		if(this.choices['stable']) ch.push(this.choices['stable']);
+		if(this.choices['inbudget']) ch.push(this.choices['inbudget']);
+		if(this.choices['powered']) ch.push(this.choices['powered']);
 		if(this.choices['solar-panel-surface']) ch.push('solar-panel-surface');
 		if(this.choices['solar-panel'] > 0) ch.push('solar-panel');
+		this.log('power: total',this.totals.power.value,'choices',this.power.value,'powered',this.choices.powered)
+		this.log('budget: total',this.totals.cost.value,'choices',this.choices.mission.budget.value,'inbudget',this.choices.inbudget)
 		for(var j in this.choices.slots){
 			for(var i = 0; i < this.choices.slots[j].length; i++) ch.push(this.choices.slots[j][i]);
 		}
@@ -640,23 +671,55 @@ console.log(data)
 		return this;
 	}
 	RocketScientist.prototype.reorderLists = function(){
-		this.log('reorderLists');
 		var sections = ['instrument','power'];
+		this.log('reorderLists',sections);
 		var ul,u,i,li,l_top,l_bot;
 		for(s = 0; s < sections.length; s++){
 			var uls = S('#'+sections[s]+' .list ul');
+			this.log('reorderind',s,sections,sections[s]);
 			for(u = 0; u < uls.length; u++){
-				l_top = "";
-				l_bot = "";
 				ul = S(uls[u]);
 				li = ul.find('li');
-				// For each list item we check if the slot is available or not
-				// If it isn't it goes at the bottom of the list
-				for(i = 0; i < li.length; i++){
-					if(S(li[i]).hasClass('slot-unavailable')) l_bot += li[i].outerHTML;
-					else l_top += li[i].outerHTML;
+
+				this.sizeorder=true;
+				if (this.sizeorder){
+					// For each list item we check if the slot is available or not
+					// If it isn't it goes at the bottom of the list
+					// Within the top and bottom, lists are sorted by size
+					sizes=[];
+					l_tops = {};
+					l_bots = {};
+					l_top_all="";
+					l_bot_all="";
+					for (i = 0; i< li.length; i++){
+						lsize=S(li[i]).attr('data-size');
+						if (sizes.indexOf(lsize)<0) sizes.push(lsize);
+						if (S(li[i]).hasClass('slot-unavailable')){
+							// put at bottom of list
+							if (!l_bots.hasOwnProperty(lsize)) l_bots[lsize]="";
+							l_bots[lsize] += li[i].outerHTML;
+						}else{
+							if (!l_tops.hasOwnProperty(lsize)) l_tops[lsize]="";
+							l_tops[lsize] += li[i].outerHTML;
+						}
+					}
+					for (l = 0; l < sizes.length; l++){
+						if (l_tops.hasOwnProperty(sizes[l])) l_top_all += l_tops[sizes[l]];
+						if (l_bots.hasOwnProperty(sizes[l])) l_bot_all += l_bots[sizes[l]];
+					}
+					ul.html(l_top_all + l_bot_all);
+				}else{
+					// For each list item we check if the slot is available or not
+					// If it isn't it goes at the bottom of the list
+					l_top = "";
+					l_bot = "";
+					for(i = 0; i < li.length; i++){
+						if(S(li[i]).hasClass('slot-unavailable')) l_bot += li[i].outerHTML;
+						else l_top += li[i].outerHTML;
+					}
+					ul.html(l_top+l_bot);
 				}
-				ul.html(l_top+l_bot);
+				this.log('reordered',s,sections,sections[s],ul);
 			}
 		}
 		return this;
@@ -796,11 +859,13 @@ console.log(data)
 			}
 		}
 
+		this.log('processPackage',type,el,mode,slotsp,el);
+
+		this.updateValue(type,el,mode);
+		this.updateTotals();
 		// Update the requirements;
 		this.updateRequirements();
 
-		this.log('processPackage',type,el,mode,slotsp,el);
-		if(type) this.updateValue(type,el,mode);
 		this.updateNavigation();
 		return this;
 	}
@@ -830,10 +895,12 @@ console.log(data)
 		else if(type=="solar-panel-surface") this.solarFixed(add,el);
 		else this.processPackage(type,el,"power");
 
+		this.updateBudgets()
+		this.updateValue(type,el,"power");
+
 		// Update the requirements;
 		this.updateRequirements();
 
-		this.updateValue(type,el,"power");
 		this.updateNavigation();
 		return this;
 	}

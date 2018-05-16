@@ -39,13 +39,13 @@
 					<div class="baritem"><button class="togglebtn togglemenu" title="<!--#echo var="ui.menu.title" -->"><img src="images/cleardot.gif" class="icon menu" alt="" /></button></div>
 					<!--#if expr="${LEVEL} = /beginner/"-->
 					<!--#elif expr="${LEVEL} = /intermediate/"-->
-					<div class="baritem"><button class="togglecost"><!--<img src="images/cleardot.gif" class="icon cost" />--><span class="coin-icon"></span><span class="cost cost_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span></button></div>
+					<div class="baritem"><button class="togglecost" title="<!--#echo var="ui.menu.cost.title" -->"><!--<img src="images/cleardot.gif" class="icon cost" />--><span class="coin-icon"></span><span class="cost cost_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span></button></div>
 					<!--#elif expr="${LEVEL} = /advanced/"-->
-					<div class="baritem"><button class="togglecost"><!--<img src="images/cleardot.gif" class="icon cost" />--><span class="coin-icon"></span><span class="cost cost_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span></button></div>
+					<div class="baritem"><button class="togglecost" title="<!--#echo var="ui.menu.cost.title" -->"><!--<img src="images/cleardot.gif" class="icon cost" />--><span class="coin-icon"></span><span class="cost cost_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span></button></div>
 					<!--#else--><!--#endif-->
 					<!--#if expr="${LEVEL} = /advanced/"-->
-					<div class="baritem"><button class="togglemass"><span class="weight-icon"></span><span class="mass mass_total value convertable" data-value="0" data-units="kg" data-dimension="mass">0 kg</span></button></div>
-					<div class="baritem"><button class="togglepower"><span class="power-icon"></span><span class="power power_total value convertable" data-value="0" data-units="watts" data-dimension="power">0 W</span></button></div>
+					<div class="baritem"><button class="togglemass" title="<!--#echo var="ui.menu.mass.title" -->"><span class="weight-icon"></span><span class="mass mass_total value convertable" data-value="0" data-units="kg" data-dimension="mass">0 kg</span></button></div>
+					<div class="baritem"><button class="togglepower" title="<!--#echo var="ui.menu.power.title" -->"><span class="power-icon"></span><span class="power power_total value convertable" data-value="0" data-units="watts" data-dimension="power">0 W</span></button></div>
 					<!--#else--><!--#endif-->
 					<div class="baritem warnings not-at-start">
 						<a class="togglewarning" title="View warnings" href="#messages"><img class="icon warning" title="Warnings" src="images/cleardot.gif"> <span class="warning value">3</span></a>
@@ -587,13 +587,29 @@
 		<!--#include file="units.html" -->
 
 		<!--#include file="menu.html" -->
-		
+
+		<menu id="menu-cost" class="dropdown not-at-start">
+			<li class="baritem" data="cost"><button class="menucost" title="<!--#echo var="ui.menu.cost.cost" -->"><span class="coin-icon"></span><span class="cost cost_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span><span class="label-right"><!--#echo var="ui.menu.cost.cost" --></span></button></li>
+			<li class="baritem" data="budget"><button class="menubudget" title="<!--#echo var="ui.menu.cost.budget" -->"><span class="coin-icon"></span><span class="cost budget_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span><span class="label-right"><!--#echo var="ui.menu.cost.budget" --></span></button></li>
+		</menu>
+		<menu id="menu-power" class="dropdown not-at-start">
+			<li class="baritem" data="powerreq"><button class="menupowerreq" title="<!--#echo var="ui.menu.cost.cost" -->"><span class="power-icon"></span><span class="power power_req value convertable" data-value="0" data-units="W" data-dimension="power">0 W</span><span class="label-right"><!--#echo var="ui.menu.power.required" --></span></button></li>
+			<li class="baritem" data="poweravail"><div class="menupoweravail" title="<!--#echo var="ui.menu.power.available" -->"><span class="power-icon"></span><span class="power power_available value convertable" data-value="0" data-units="W" data-dimension="power">0 W</span><span class="label-right"><!--#echo var="ui.menu.power.available" --></span></div></li>
+		</menu>
+		<menu id="menu-mass" class="dropdown not-at-start">
+			<li class="baritem" data="dvreq"><button class="menudvreq" title="<!--#echo var="ui.menu.cost.cost" -->"><span class="power-icon"></span><span class="deltav dv_req value convertable" data-value="0" data-units="m/s" data-dimension="velocity">0 km/s</span><span class="label-right"><!--#echo var="ui.menu.dv.required" --></span></button></li>
+			<li class="baritem" data="dvavail"><button class="menudvavail" title="<!--#echo var="ui.menu.power.available" -->"><span class="power-icon"></span><span class="deltav dv_available value convertable" data-value="0" data-units="km/s" data-dimension="velocity">0 km/s</span><span class="label-right"><!--#echo var="ui.menu.dv.available" --></span></button></li>
+		</menu>
+
 		<section id="about" class="not-at-start fullpage">
 			<div class="container">
 				<div class="padded">
 					<a class="close" title="<!--#echo var="ui.close" -->" href="#">&times;</a>
 					<h2><!--#echo var="ui.sections.about.title" --></h2>
 					<!--#echo var="ui.sections.about.intro" -->
+					<div class="icons">
+						<img src="images/CardiffPhysics_200px.png"><img src="images/UKSA_logo_RGB_200px.jpg">
+					</div>
 				</div>
 			</div>
 		</section>
