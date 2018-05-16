@@ -658,11 +658,12 @@ console.log(data)
 		return this;
 	}
 	RocketScientist.prototype.reorderLists = function(){
-		this.log('reorderLists');
 		var sections = ['instrument','power'];
+		this.log('reorderLists',sections);
 		var ul,u,i,li,l_top,l_bot;
 		for(s = 0; s < sections.length; s++){
 			var uls = S('#'+sections[s]+' .list ul');
+			this.log('reorderind',s,sections,sections[s]);
 			for(u = 0; u < uls.length; u++){
 				ul = S(uls[u]);
 				li = ul.find('li');
@@ -689,9 +690,9 @@ console.log(data)
 							l_tops[lsize] += li[i].outerHTML;
 						}
 					}
-					for (s = 0; s < sizes.length; s++){
-						if (l_tops.hasOwnProperty(sizes[s])) l_top_all += l_tops[sizes[s]];
-						if (l_bots.hasOwnProperty(sizes[s])) l_bot_all += l_bots[sizes[s]];
+					for (l = 0; l < sizes.length; l++){
+						if (l_tops.hasOwnProperty(sizes[l])) l_top_all += l_tops[sizes[l]];
+						if (l_bots.hasOwnProperty(sizes[l])) l_bot_all += l_bots[sizes[l]];
 					}
 					ul.html(l_top_all + l_bot_all);
 				}else{
@@ -705,7 +706,7 @@ console.log(data)
 					}
 					ul.html(l_top+l_bot);
 				}
-				this.log(sections[s],ul)
+				this.log('reordered',s,sections,sections[s],ul);
 			}
 		}
 		return this;
