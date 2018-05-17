@@ -138,10 +138,16 @@ header { position: fixed; z-index: $topz; left: 0px; top: 0px; width: 100%; righ
 }
 #bar, nav {
 	height: $barheight;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 #bar h1 { font-size: 1em; margin: auto; }
 #bar, .dropdown { background-color: rgba(0,0,0,0.85); }
+.dropdown {
+	top: 3em;
+	display: block;
+	right: 0px;
+	background: #222;
+}
 
 img.icon {
 	width:1.5em;
@@ -163,12 +169,14 @@ nav li { float: left; }
 	margin: $barheight*0.5 - $lineh*0.5;
 }
 .baritem span.label-right {
-	float:right;
+	position: absolute;
+	top: 0px;
+	right: 0px;
 }
 .baritem.left a { height: auto; }
 .baritem.left a:hover { background: transparent; }
 .baritem.padded, nav li.padded { padding: $barheight*0.5 - $lineh*0.5; }
-.baritem button { border: 0px; background: transparent; font-size: 1em; margin: 0px; padding: 0px; width: 100%; text-align: left; }
+.baritem button { border: 0px; background: transparent; font-size: 1em; margin: 0px; padding: 0px; width: 100%; text-align: left; white-space: nowrap; }
 .baritem a img, .baritem button img, nav a img, .coin-icon {
 	margin: $barheight*0.5 - $lineh*0.5;
 }
@@ -187,13 +195,13 @@ nav li { float: left; }
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
-.barmenu .baritem { float: right; }
+.barmenu .baritem { float: right; position: relative; }
 .barmenu .baritem.left { float: left; }
 .rtl .barmenu .baritem { float: left; }
 .dropdown {
-	position: fixed;
+	position: absolute;
 	z-index: $topz - 6;
-	width: auto;
+	width: 350px;
 	line-height: $lineh;
 	right: 0;
 	top: $barheight;
@@ -204,7 +212,7 @@ nav li { float: left; }
 	border-top: 0px;
 }
 .rtl .dropdown { left: 0; border-right: 1px solid rgba(255,255,255,0.8); border-left: 0px; right: auto; }
-.dropdown .baritem, .rtl .dropdown .baritem { float: none; display: block; }
+.dropdown .baritem, .rtl .dropdown .baritem { float: none; display: block; overflow: hidden; }
 /*.dropdown .baritem a { padding: 0.75em 1em; }*/
 .dropdown.fullwidth { width: 100%; left: 0px; border-left: 0px; }
 #menu, #menu-cost, #menu-power, #menu-mass { z-index: $topz+1; }
@@ -774,6 +782,7 @@ table.data td:last-child { text-align: left; }
 	font-size: $s*0.8;
 	font-weight: 700;
 	line-height: $s*0.6;
+	width: 2em;
 }
 .list li .list-bar button:disabled {
 	display: none;
