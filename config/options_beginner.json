@@ -735,7 +735,7 @@
 				"launch": "%scenarios.COMMS.internet.launch%",
 				"success": "%scenarios.COMMS.internet.success%",
 				"image": {
-					"file": "images/svg/icon-internet-comm.png",
+					"file": "images/svg/icon-comm-net.svg",
 					"alt": "%scenarios.COMMS.internet.title%",
 					"credit": "parkjisun"
 				},
