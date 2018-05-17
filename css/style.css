@@ -299,7 +299,7 @@ nav li {
 .baritem a img, .baritem button img, nav a img, .coin-icon {
   margin: 0.75em; }
 
-.baritem .coin-icon, .baritem .weight-icon, .baritem .power-icon {
+.baritem .coin-icon, .baritem .weight-icon, .baritem .power-icon, .baritem .speed-icon {
   float: left;
   margin-right: 0px; }
 
@@ -424,7 +424,11 @@ li select, li input, li .toggleinput {
   background: url("../images/png/power.png");
   background-size: 100% 100%; }
 
-.coin-icon, .weight-icon, .power-icon {
+.speed-icon {
+  background: url("../images/png/speedometer.png");
+  background-size: 100% 100%; }
+
+.coin-icon, .weight-icon, .power-icon, .speed-icon {
   display: inline-block;
   height: 1.5em;
   width: 1.5em;
@@ -3610,7 +3614,7 @@ body #about .icons img {
   .padd-left {
     margin-left: 0px; } }
 @media only screen and (max-width: 600px) {
-  .baritem .coin-icon, .baritem .weight-icon, .baritem .power-icon {
+  .baritem .coin-icon, .baritem .weight-icon, .baritem .power-icon, .baritem .speed-icon {
     margin-left: 0.15em; }
 
   .baritem button img, .baritem span {
