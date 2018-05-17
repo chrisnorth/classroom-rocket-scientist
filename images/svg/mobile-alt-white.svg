@@ -7,11 +7,16 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   viewBox="0 0 320 512"
+   viewBox="0 0 512 512"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="mobile-alt-white.svg">
+   sodipodi:docname="mobile-alt-white.svg"
+   width="512"
+   height="512"
+   inkscape:export-filename="/Users/SarahEve/Documents/classroom-rocket-scientist/images/png/mobile-alt-white.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <metadata
      id="metadata10">
     <rdf:RDF>
@@ -35,19 +40,20 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="981"
-     inkscape:window-height="971"
+     inkscape:window-width="1680"
+     inkscape:window-height="906"
      id="namedview6"
      showgrid="false"
-     inkscape:zoom="0.4609375"
-     inkscape:cx="-156.74576"
-     inkscape:cy="256"
+     inkscape:zoom="1.0582922"
+     inkscape:cx="233.22034"
+     inkscape:cy="288.16936"
      inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0"
+     inkscape:window-y="1"
+     inkscape:window-maximized="1"
      inkscape:current-layer="svg2" />
   <path
-     d="M272 0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h224c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zM160 480c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm112-108c0 6.6-5.4 12-12 12H60c-6.6 0-12-5.4-12-12V60c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v312z"
+     d="M 368,0 144,0 C 117.5,0 96.000005,21.5 96.000005,48.000001 l 0,415.999999 c 0,26.5 21.499995,48 47.999995,48 l 224,0 c 26.5,0 48,-21.5 48,-48 L 416,48.000001 C 416,21.5 394.5,0 368,0 Z M 256,480 c -17.7,0 -32,-14.3 -32,-32 0,-17.7 14.3,-32 32,-32 17.69999,0 32,14.3 32,32 0,17.7 -14.30001,32 -32,32 z M 368,372 c 0,6.6 -5.4,12 -12,12 l -200,0 c -6.6,0 -12,-5.4 -12,-12 l 0,-312 c 0,-6.6 5.4,-11.999999 12,-11.999999 l 200,0 c 6.6,0 12,5.399999 12,11.999999 l 0,312 z"
      id="path4"
-     style="fill:#ffffff;fill-opacity:1" />
+     style="fill:#ffffff;fill-opacity:1"
+     inkscape:connector-curvature="0" />
 </svg>
