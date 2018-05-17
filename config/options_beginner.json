@@ -704,7 +704,7 @@
 				"launch": "%scenarios.COMMS.phone.launch%",
 				"success": "%scenarios.COMMS.phone.success%",
 				"image": {
-					"file": "mobile-alt-white.svg",
+					"file": "images/svg/mobile-alt-white.svg",
 					"alt": "%scenarios.COMMS.phone.title%",
 					"credit": "Plainicon"
 				},
@@ -735,7 +735,7 @@
 				"launch": "%scenarios.COMMS.internet.launch%",
 				"success": "%scenarios.COMMS.internet.success%",
 				"image": {
-					"file": "images/svg/icon-comm-net.svg",
+					"file": "images/png/icon-internet-comm.png",
 					"alt": "%scenarios.COMMS.internet.title%",
 					"credit": "parkjisun"
 				},
