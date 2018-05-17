@@ -765,8 +765,8 @@
 		"diameter": { "value": 10, "units": "m", "dimension": "length" },
 		"height": { "value": 19, "units": "m", "dimension": "length" },
 		"drymass": { "value": 13500, "units": "kg", "dimension": "mass" },
-		"cost": { "value": 8, "units": "credits", "dimension": "currency" },
-		"thrust": { "value": 1000, "units": "kN", "dimension": "force" },
+		"cost": { "value": 10, "units": "credits", "dimension": "currency" },
+		"thrust": { "value": 1500, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 110000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 420, "units": "s", "dimension": "time" },
 		"notes": "Based on Saturn V 3rd stage (https://en.wikipedia.org/wiki/Saturn_V)"

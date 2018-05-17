@@ -72,6 +72,7 @@ ui.sections.rocket.size:                    Diameter:
 ui.sections.rocket.drymass:                 Dry mass:
 ui.sections.rocket.fuel:                    Fuel:
 ui.sections.rocket.cost:                    Cost:
+ui.sections.rocket.thrust:                    Thrust:
 ui.sections.rocket.payload:                 Your satellite
 ui.sections.rocket.emptystage:              None
 ui.sections.launch.short:                   Launch
