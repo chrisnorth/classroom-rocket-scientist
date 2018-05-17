@@ -103,7 +103,6 @@ var rs;
 	// Initiate the Rocket Scientist
 	RocketScientist.prototype.init = function(data){
 
-console.log(data)
 		// Remove classes from script only elements
 		S('.scriptonly').toggleClass('scriptonly');
 
@@ -117,10 +116,10 @@ console.log(data)
 		}
 
 		// Set up main menu events
-		S('#bar .togglemenu').on('click',{me:this},function(e){ S('#menu').toggleClass('not-at-start'); })
-		S('#bar .togglecost').on('click',{me:this},function(e){ S('#menu-cost').toggleClass('not-at-start'); })
-		S('#bar .togglepower').on('click',{me:this},function(e){ S('#menu-power').toggleClass('not-at-start'); })
-		S('#bar .togglemass').on('click',{me:this},function(e){ S('#menu-mass').toggleClass('not-at-start'); })
+		S('#bar .togglemenu').on('click',{me:this},function(e){ S('.dropdown').addClass('not-at-start'); S('#menu').toggleClass('not-at-start'); })
+		S('#bar .togglecost').on('click',{me:this},function(e){ S('.dropdown').addClass('not-at-start'); S('#menu-cost').toggleClass('not-at-start'); })
+		S('#bar .togglepower').on('click',{me:this},function(e){ S('.dropdown').addClass('not-at-start'); S('#menu-power').toggleClass('not-at-start'); })
+		S('#bar .togglemass').on('click',{me:this},function(e){ S('.dropdown').addClass('not-at-start'); S('#menu-mass').toggleClass('not-at-start'); })
 		S('#menu').on('mouseleave',{me:this},function(e){ S('#menu').toggleClass('not-at-start'); })
 		S('#menu-mass').on('mouseleave',{me:this},function(e){ S('#menu-mass').toggleClass('not-at-start'); })
 		S('#menu-power').on('mouseleave',{me:this},function(e){ S('#menu-power').toggleClass('not-at-start'); })
@@ -229,14 +228,16 @@ console.log(data)
 				for(var i = 0; i < navs.length; i++) this.navs[i] = S(navs[i]);
 			}
 		}
-		for(var i = 0; i < this.navs.length; i++){
-			var href = this.navs[i].attr('href').substr(1);
-			if(href=="goal") this.setNavigable(href,i,this.choices.type); // To get to goal we require the type to be set
-			else if(href=="bus") this.setNavigable(href,i,typeof this.choices.goal==="number"); // To get to bus we need the goal to be set
-			else if(href=="instrument") this.setNavigable(href,i,this.choices.bus);	// To get to the instruments section we need a bus
-			else if(href=="power") this.setNavigable(href,i,this.choices.bus);	// To get to the power section we need a bus
-			else if(href=="rocket") this.setNavigable(href,i,this.choices.bus);	// To get to the rocket section we need a bus
-			else this.setNavigable(href,i,true); // We can get to the orbit section regardless
+		if(this.navs){
+			for(var i = 0; i < this.navs.length; i++){
+				var href = this.navs[i].attr('href').substr(1);
+				if(href=="goal") this.setNavigable(href,i,this.choices.type); // To get to goal we require the type to be set
+				else if(href=="bus") this.setNavigable(href,i,typeof this.choices.goal==="number"); // To get to bus we need the goal to be set
+				else if(href=="instrument") this.setNavigable(href,i,this.choices.bus);	// To get to the instruments section we need a bus
+				else if(href=="power") this.setNavigable(href,i,this.choices.bus);	// To get to the power section we need a bus
+				else if(href=="rocket") this.setNavigable(href,i,this.choices.bus);	// To get to the rocket section we need a bus
+				else this.setNavigable(href,i,true); // We can get to the orbit section regardless
+			}
 		}
 		return this;
 	}
@@ -269,7 +270,7 @@ console.log(data)
 			return tot;
 		}
 
-		if(this.choices['bus']) total = add(total,this.choices['bus'],{'cost':1,'mass':0,'power':1});	// We don't include mass
+		if(this.choices['bus']) total = add(total,this.choices['bus'],{'cost':1,'mass':1,'power':1});	// We don't include mass
 		if(this.choices['slots']){
 			for(var i in this.choices['slots']){
 				for(var j = 0; j < this.choices['slots'][i].length; j++){

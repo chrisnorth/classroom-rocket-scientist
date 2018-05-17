@@ -30,9 +30,29 @@
 			<div id="bar" class="scriptonly">
 				<div class="barmenu">
 					<div class="baritem left padded"><h1><a href="index.html">Classroom rocket scientist</a></h1></div>
-					<div class="baritem"><button class="togglebtn togglemenu" title="Menu"><img src="images/cleardot.gif" class="icon menu" alt="" /></button></div>
+					<div class="baritem">
+						<button class="togglebtn togglemenu" title="Menu"><img src="images/cleardot.gif" class="icon menu" alt="" /></button>						
+						<menu id="menu" class="dropdown not-at-start">
+							<li class="baritem restart" data="restart"><button title="Start over"><img src="images/cleardot.gif" class="icon restart" alt="" /><span>Restart</span></button></li>
+							<!--li class="baritem" data="level"><button title="Change the difficulty"><img src="images/cleardot.gif" class="icon difficulty" alt="" /><span>Difficulty</span></button></li-->
+							<!--<li class="baritem" data="help"><a href="#guide"><img src="images/cleardot.gif" class="icon help" alt="" /><span>Help</span></a></li>-->
+							<li class="baritem units" data="units"><button title="Change the units"><img src="images/cleardot.gif" class="icon options" alt="" /><span>Units</span></button></li>
+							<li class="baritem about" data="about"><button title="About"><img src="images/cleardot.gif" class="icon help" alt="" /><span>About</span></button></li>
+							<li class="baritem fullscreen not-at-start" data="fullscreen"><button title="Switch between viewing fullscreen or in a standard browser window"><img alt="" class="icon fullscreen" src="images/cleardot.gif" /><span>Toggle fullscreen</span></button></li>
+						</menu>
+					</div>
 					
-					<div class="baritem"><button class="togglecost" title=""><!--<img src="images/cleardot.gif" class="icon cost" />--><span class="coin-icon"></span><span class="cost cost_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span></button></div>
+					<div class="baritem">
+						<button class="togglecost" title=""><!--<img src="images/cleardot.gif" class="icon cost" />--><span class="coin-icon"></span><span class="cost cost_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span></button>						<menu id="menu-cost" class="dropdown not-at-start">
+
+							<li class="baritem" data="cost"><button class="menucost" title=""><span class="coin-icon"></span><span class="cost cost_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span><span class="label-right"></span></button></li>
+
+							<li class="baritem" data="budget"><button class="menubudget" title=""><span class="coin-icon"></span><span class="cost budget_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span><span class="label-right"></span></button></li>
+
+						</menu>
+
+
+					</div>
 					
 					
 					<div class="baritem warnings not-at-start">
@@ -954,7 +974,8 @@
 																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="2" class="value convertable">2m</span>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="2" class="value convertable">2 credits</span>
 																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="1300" class="value convertable">1300kg</span>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="10000" class="value convertable">10000kg</span>
+																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="10000" class="value convertable">10000kg</span></td></tr>
+																	<tr><td></td><td><span data-dimension="force" data-units="kN" data-value="260" class="value convertable">260kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -969,7 +990,8 @@
 																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="3" class="value convertable">3m</span>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="4" class="value convertable">4 credits</span>
 																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="2400" class="value convertable">2400kg</span>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="22000" class="value convertable">22000kg</span>
+																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="22000" class="value convertable">22000kg</span></td></tr>
+																	<tr><td></td><td><span data-dimension="force" data-units="kN" data-value="300" class="value convertable">300kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -984,7 +1006,8 @@
 																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="8" class="value convertable">8m</span>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="8" class="value convertable">8 credits</span>
 																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="13500" class="value convertable">13500kg</span>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="110000" class="value convertable">110000kg</span>
+																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="110000" class="value convertable">110000kg</span></td></tr>
+																	<tr><td></td><td><span data-dimension="force" data-units="kN" data-value="1000" class="value convertable">1000kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -999,7 +1022,8 @@
 																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="10" class="value convertable">10m</span>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="8" class="value convertable">8 credits</span>
 																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="13500" class="value convertable">13500kg</span>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="110000" class="value convertable">110000kg</span>
+																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="110000" class="value convertable">110000kg</span></td></tr>
+																	<tr><td></td><td><span data-dimension="force" data-units="kN" data-value="1000" class="value convertable">1000kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -1032,7 +1056,8 @@
 																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="1" class="value convertable">1m</span>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="5" class="value convertable">5 credits</span>
 																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="2000" class="value convertable">2000kg</span>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="15000" class="value convertable">15000kg</span>
+																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="15000" class="value convertable">15000kg</span></td></tr>
+																	<tr><td></td><td><span data-dimension="force" data-units="kN" data-value="480" class="value convertable">480kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -1047,7 +1072,8 @@
 																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="2" class="value convertable">2m</span>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="10" class="value convertable">10 credits</span>
 																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="3000" class="value convertable">3000kg</span>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="24000" class="value convertable">24000kg</span>
+																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="24000" class="value convertable">24000kg</span></td></tr>
+																	<tr><td></td><td><span data-dimension="force" data-units="kN" data-value="870" class="value convertable">870kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -1062,7 +1088,8 @@
 																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="3" class="value convertable">3m</span>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="15" class="value convertable">15 credits</span>
 																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="2400" class="value convertable">2400kg</span>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="25000" class="value convertable">25000kg</span>
+																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="25000" class="value convertable">25000kg</span></td></tr>
+																	<tr><td></td><td><span data-dimension="force" data-units="kN" data-value="300" class="value convertable">300kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -1077,7 +1104,8 @@
 																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="4.5" class="value convertable">4.5m</span>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="20" class="value convertable">20 credits</span>
 																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="4000" class="value convertable">4000kg</span>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="90000" class="value convertable">90000kg</span>
+																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="90000" class="value convertable">90000kg</span></td></tr>
+																	<tr><td></td><td><span data-dimension="force" data-units="kN" data-value="800" class="value convertable">800kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -1092,7 +1120,8 @@
 																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="8" class="value convertable">8m</span>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="30" class="value convertable">30 credits</span>
 																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="6000" class="value convertable">6000kg</span>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="129000" class="value convertable">129000kg</span>
+																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="129000" class="value convertable">129000kg</span></td></tr>
+																	<tr><td></td><td><span data-dimension="force" data-units="kN" data-value="400" class="value convertable">400kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -1107,7 +1136,8 @@
 																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="10" class="value convertable">10m</span>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="50" class="value convertable">50 credits</span>
 																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="40000" class="value convertable">40000kg</span>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="450000" class="value convertable">450000kg</span>
+																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="450000" class="value convertable">450000kg</span></td></tr>
+																	<tr><td></td><td><span data-dimension="force" data-units="kN" data-value="4400" class="value convertable">4400kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -1141,6 +1171,7 @@
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="23" class="value convertable">23 credits</span></td></tr>
 																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="10500" class="value convertable">10500kg</span></td></tr>
 																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="88000" class="value convertable">88000kg</span></td></tr>
+																	<tr><td></td><td><span data-dimension="force" data-units="kN" data-value="2200" class="value convertable">2200kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -1156,6 +1187,7 @@
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="12" class="value convertable">12 credits</span></td></tr>
 																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="9000" class="value convertable">9000kg</span></td></tr>
 																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="120000" class="value convertable">120000kg</span></td></tr>
+																	<tr><td></td><td><span data-dimension="force" data-units="kN" data-value="1500" class="value convertable">1500kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -1171,6 +1203,7 @@
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="60" class="value convertable">60 credits</span></td></tr>
 																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="24000" class="value convertable">24000kg</span></td></tr>
 																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="400000" class="value convertable">400000kg</span></td></tr>
+																	<tr><td></td><td><span data-dimension="force" data-units="kN" data-value="6000" class="value convertable">6000kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -1186,6 +1219,7 @@
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="220" class="value convertable">220 credits</span></td></tr>
 																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="85000" class="value convertable">85000kg</span></td></tr>
 																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="900000" class="value convertable">900000kg</span></td></tr>
+																	<tr><td></td><td><span data-dimension="force" data-units="kN" data-value="7400" class="value convertable">7400kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -1201,6 +1235,7 @@
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="370" class="value convertable">370 credits</span></td></tr>
 																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="130000" class="value convertable">130000kg</span></td></tr>
 																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="2000000" class="value convertable">2000000kg</span></td></tr>
+																	<tr><td></td><td><span data-dimension="force" data-units="kN" data-value="34000" class="value convertable">34000kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -1261,27 +1296,6 @@
 		</div>
 	</div>
 </section>
-		<menu id="menu" class="dropdown not-at-start">
-	<li class="baritem restart" data="restart"><button title="Start over"><img src="images/cleardot.gif" class="icon restart" alt="" /><span>Restart</span></button></li>
-	<!--li class="baritem" data="level"><button title="Change the difficulty"><img src="images/cleardot.gif" class="icon difficulty" alt="" /><span>Difficulty</span></button></li-->
-	<!--<li class="baritem" data="help"><a href="#guide"><img src="images/cleardot.gif" class="icon help" alt="" /><span>Help</span></a></li>-->
-	<li class="baritem units" data="units"><button title="Change the units"><img src="images/cleardot.gif" class="icon options" alt="" /><span>Units</span></button></li>
-	<li class="baritem about" data="about"><button title="About"><img src="images/cleardot.gif" class="icon help" alt="" /><span>About</span></button></li>
-	<li class="baritem fullscreen not-at-start" data="fullscreen"><button title="Switch between viewing fullscreen or in a standard browser window"><img alt="" class="icon fullscreen" src="images/cleardot.gif" /><span>Toggle fullscreen</span></button></li>
-</menu>
-
-		<menu id="menu-cost" class="dropdown not-at-start">
-			<li class="baritem" data="cost"><button class="menucost" title=""><span class="coin-icon"></span><span class="cost cost_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span><span class="label-right"></span></button></li>
-			<li class="baritem" data="budget"><button class="menubudget" title=""><span class="coin-icon"></span><span class="cost budget_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span><span class="label-right"></span></button></li>
-		</menu>
-		<menu id="menu-power" class="dropdown not-at-start">
-			<li class="baritem" data="powerreq"><button class="menupowerreq" title=""><span class="power-icon"></span><span class="power power_req value convertable" data-value="0" data-units="W" data-dimension="power">0 W</span><span class="label-right"></span></button></li>
-			<li class="baritem" data="poweravail"><div class="menupoweravail" title=""><span class="power-icon"></span><span class="power power_available value convertable" data-value="0" data-units="W" data-dimension="power">0 W</span><span class="label-right"></span></div></li>
-		</menu>
-		<menu id="menu-mass" class="dropdown not-at-start">
-			<li class="baritem" data="dvreq"><button class="menudvreq" title=""><span class="power-icon"></span><span class="deltav dv_req value convertable" data-value="0" data-units="m/s" data-dimension="velocity">0 km/s</span><span class="label-right"></span></button></li>
-			<li class="baritem" data="dvavail"><button class="menudvavail" title=""><span class="power-icon"></span><span class="deltav dv_available value convertable" data-value="0" data-units="km/s" data-dimension="velocity">0 km/s</span><span class="label-right"></span></button></li>
-		</menu>
 
 		<section id="about" class="not-at-start fullpage">
 			<div class="container">

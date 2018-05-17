@@ -72,6 +72,7 @@ ui.sections.rocket.size:                    Diameter:
 ui.sections.rocket.drymass:                 Dry mass:
 ui.sections.rocket.fuel:                    Fuel:
 ui.sections.rocket.cost:                    Cost:
+ui.sections.rocket.thrust:                    Thrust:
 ui.sections.rocket.payload:                 Your satellite
 ui.sections.rocket.emptystage:              None
 ui.sections.launch.short:                   Launch
@@ -109,11 +110,9 @@ package.spect-nir.description:              Measures the properties of vegetatio
 package.spect-fir.title:                    Atmospheric Spectrometer
 package.spect-fir.description:              Uses infrared light to measure properties of the Earth's atmosphere, such as clouds, moisture level, surface temperature and air temperature, even during darkness.
 package.radar-alt.title:                    Radar altimeter
-package.radar-alt.description:              Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earthquakes. Requires a radar dish to work.
-package.radar-alt.requires.dish.label:      The radar altimeter requires a radar dish
-package.radar-alt.requires.dish.error:      You need to include a radar dish for the altimeter to work.
-package.radar-dish.title:                   Radar dish
-package.radar-dish.description:             Transmits and receives radio waves for the radar altimeter
+package.radar-alt.description:              Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earthquakes. Requires a large radio dish to work.
+package.radar-alt.requires.dish.label:      The radar altimeter requires a large radio dish
+package.radar-alt.requires.dish.error:      You need to include a large radio dish for the radar altimeter to work.
 package.atomic-clock.title:                 Atomic clock
 package.atomic-clock.description:           Very accurate clock, required by navigation satellites to measure the time to very high precision.
 package.atomic-clock-small.title:           Atomic clock (compact)
@@ -125,11 +124,11 @@ package.gps-rx-mini.description:            Used to monitor the satellite's posi
 package.camera-mini.title:                  Camera (miniature)
 package.camera-mini.description:            Takes images of the ground
 package.dish-large.title:                   Radio dish (large)
-package.dish-large.description:             Radio dish capable of controlling and transmitting images & data from up to 8 instruments
+package.dish-large.description:             Radio dish for controlling the satellite and transmitting data to the ground, as well as for the radar altimeter
 package.dish-medium.title:                  Radio dish
-package.dish-medium.description:            Radio dish capable of controlling and transmitting images & data from up to 4 instruments
+package.dish-medium.description:            Radio dish for controlling the satellite and transmitting data to the ground
 package.dish-small.title:                   Radio antenna (compact)
-package.dish-small.description:             Radio dish capable of controlling and transmitting images & data from up to 2 instruments
+package.dish-small.description:             Radio dish for controlling the satellite and transmitting data to the ground
 package.radio-antenna-cube.title:           Radio antenna (deployable)
 package.radio-antenna-cube.description:     Deployable radio antenna capable of controlling and transmitting images & data from up to 2 instruments.
 package.phone-en-mini.title:                Miniature phone encoder
@@ -258,10 +257,8 @@ scenarios.EO.disaster.req.radio-rx.label: To receive instructions from the groun
 scenarios.EO.disaster.req.radio-rx.error: You do not have a way to receive instructions from the ground.
 scenarios.EO.disaster.req.radar-alt.label: To measure the height and deformation of the ground in very high resolution.
 scenarios.EO.disaster.req.radar-alt.error: You do not have a way to measure the height of the surface, such as for earthquakes.
-scenarios.EO.disaster.req.dish.label: Radar altimeter requires a radar dish to work.
-scenarios.EO.disaster.req.dish.error: Your radar altimeter cannot work as it does not have a radar dish.
-scenarios.EO.disaster.req.camera-nir.label: To detect fires, such as forest fires.
-scenarios.EO.disaster.req.camera-nir.error: You do not have a way to detect fires in disaster regions.
+scenarios.EO.disaster.req.camera-nir.label: To monitor vegetation, for example during forest fires.
+scenarios.EO.disaster.req.camera-nir.error: You do not have a way to monitor vegetation in disaster regions.
 scenarios.EO.disaster.req.orbit.label: To see fine detail of planet surface.
 scenarios.EO.disaster.req.orbit.error: The orbit you have chosen does not allow you to see the disaster region in enough detail.
 

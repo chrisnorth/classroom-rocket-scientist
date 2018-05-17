@@ -23,6 +23,7 @@
 		this.choices['type'] = this.query['type'];
 		this.choices['orbit'] = this.query['orbit'];
 		this.choices['goal'] = parseInt(this.query['goal']);
+		this.choices['mission'] = this.data.scenarios[this.choices['type']].missions[this.choices['goal']];
 		this.choices['slots'] = {};
 
 		// Construct a dictionary for filling slots
@@ -105,7 +106,7 @@
 			this.eq = rocketEquation(this.choices.orbit,this.data,stages,this.totals.mass);
 		}
 
-		console.log(this.eq)
+		//console.log(this.eq)
 
 		l = new Launch(this);
 		return this;
@@ -152,16 +153,16 @@
 
 			if(this.step==1){
 
-				this.countdown(10);
+				this.countdown(3);
 
 			}else if(this.step == 2){
 
-				delay = 1;
+				delay = 2.5;
+				this.exhaust = new Exhaust();
 				fn = function(){
-					this.exhaust = new Exhaust();
 					var dur = 12;
 					var h = S('#launchpad-bg')[0].offsetHeight*1.5;
-					S('#vehicle').css({'bottom':h+'px','transition':'bottom '+dur+'s linear'});
+					S('#vehicle').css({'bottom':h+'px','transition':'bottom '+dur+'s ease-in'});
 					this.nextStep();
 				}
 
@@ -287,7 +288,7 @@
 				p.radius += 0.5;
 				p.loc.x += p.speed.x;
 				p.loc.y -= p.speed.y;
-				if(p.loc.y > h - Math.random()*60) p.loc.x += (Math.random()-0.5)*100*Math.min(1,tstep/120);
+				if(p.loc.y > h - Math.random()*80) p.loc.x += (Math.random()-0.5)*100*Math.min(1,tstep/120);
 				
 				// Regenerate the particles
 				if(p.remaining_life < 0 || p.radius < 0) particles[i] = new particle();

@@ -36,16 +36,31 @@
 			<div id="bar" class="scriptonly">
 				<div class="barmenu">
 					<div class="baritem left padded"><h1><a href="index.html"><!--#echo var="ui.title" --></a></h1></div>
-					<div class="baritem"><button class="togglebtn togglemenu" title="<!--#echo var="ui.menu.title" -->"><img src="images/cleardot.gif" class="icon menu" alt="" /></button></div>
+					<div class="baritem">
+						<button class="togglebtn togglemenu" title="<!--#echo var="ui.menu.title" -->"><img src="images/cleardot.gif" class="icon menu" alt="" /></button>
+						<!--#include file="menu.html" -->
+					</div>
 					<!--#if expr="${LEVEL} = /beginner/"-->
 					<!--#elif expr="${LEVEL} = /intermediate/"-->
-					<div class="baritem"><button class="togglecost" title="<!--#echo var="ui.menu.cost.title" -->"><!--<img src="images/cleardot.gif" class="icon cost" />--><span class="coin-icon"></span><span class="cost cost_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span></button></div>
+					<div class="baritem">
+						<button class="togglecost" title="<!--#echo var="ui.menu.cost.title" -->"><!--<img src="images/cleardot.gif" class="icon cost" />--><span class="coin-icon"></span><span class="cost cost_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span></button>
+<!--#include file="menu-cost.html" -->
+					</div>
 					<!--#elif expr="${LEVEL} = /advanced/"-->
-					<div class="baritem"><button class="togglecost" title="<!--#echo var="ui.menu.cost.title" -->"><!--<img src="images/cleardot.gif" class="icon cost" />--><span class="coin-icon"></span><span class="cost cost_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span></button></div>
+					<div class="baritem">
+						<button class="togglecost" title="<!--#echo var="ui.menu.cost.title" -->"><!--<img src="images/cleardot.gif" class="icon cost" />--><span class="coin-icon"></span><span class="cost cost_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span></button>
+<!--#include file="menu-cost.html" -->
+					</div>
 					<!--#else--><!--#endif-->
 					<!--#if expr="${LEVEL} = /advanced/"-->
-					<div class="baritem"><button class="togglemass" title="<!--#echo var="ui.menu.mass.title" -->"><span class="weight-icon"></span><span class="mass mass_total value convertable" data-value="0" data-units="kg" data-dimension="mass">0 kg</span></button></div>
-					<div class="baritem"><button class="togglepower" title="<!--#echo var="ui.menu.power.title" -->"><span class="power-icon"></span><span class="power power_total value convertable" data-value="0" data-units="watts" data-dimension="power">0 W</span></button></div>
+					<div class="baritem">
+						<button class="togglemass" title="<!--#echo var="ui.menu.mass.title" -->"><span class="weight-icon"></span><span class="mass mass_total value convertable" data-value="0" data-units="kg" data-dimension="mass">0 kg</span></button>
+<!--#include file="menu-mass.html" -->
+					</div>
+					<div class="baritem">
+						<button class="togglepower" title="<!--#echo var="ui.menu.power.title" -->"><span class="power-icon"></span><span class="power power_total value convertable" data-value="0" data-units="watts" data-dimension="power">0 W</span></button>
+<!--#include file="menu-power.html" -->
+					</div>
 					<!--#else--><!--#endif-->
 					<div class="baritem warnings not-at-start">
 						<a class="togglewarning" title="View warnings" href="#messages"><img class="icon warning" title="Warnings" src="images/cleardot.gif"> <span class="warning value">3</span></a>
@@ -490,7 +505,8 @@
 																	<tr><td><!--#echo var="ui.sections.rocket.size" --></td><td><span data-dimension="<!--#json name="diameter.dimension" -->" data-units="<!--#json name="diameter.units" -->" data-value="<!--#json name="diameter.value" -->" class="value convertable"><!--#json name="diameter.value" --><!--#json name="diameter.units" --></span>
 																	<tr><td><!--#echo var="ui.sections.rocket.cost" --></td><td><span class="coin-icon"></span><span data-dimension="<!--#json name="cost.dimension" -->" data-units="<!--#json name="cost.units" -->" data-value="<!--#json name="cost.value" -->" class="value convertable"><!--#json name="cost.value" --> <!--#json name="cost.units" --></span>
 																	<tr><td><!--#echo var="ui.sections.rocket.drymass" --></td><td><span data-dimension="<!--#json name="drymass.dimension" -->" data-units="<!--#json name="drymass.units" -->" data-value="<!--#json name="drymass.value" -->" class="value convertable"><!--#json name="drymass.value" --><!--#json name="drymass.units" --></span>
-																	<tr><td><!--#echo var="ui.sections.rocket.fuel" --></td><td><span data-dimension="<!--#json name="fuel.dimension" -->" data-units="<!--#json name="fuel.units" -->" data-value="<!--#json name="fuel.value" -->" class="value convertable"><!--#json name="fuel.value" --><!--#json name="fuel.units" --></span>
+																	<tr><td><!--#echo var="ui.sections.rocket.fuel" --></td><td><span data-dimension="<!--#json name="fuel.dimension" -->" data-units="<!--#json name="fuel.units" -->" data-value="<!--#json name="fuel.value" -->" class="value convertable"><!--#json name="fuel.value" --><!--#json name="fuel.units" --></span></td></tr>
+																	<tr><td><!--#echo var="ui.sections.rocket.thrust" --></td><td><span data-dimension="<!--#json name="thrust.dimension" -->" data-units="<!--#json name="thrust.units" -->" data-value="<!--#json name="thrust.value" -->" class="value convertable"><!--#json name="thrust.value" --><!--#json name="thrust.units" --></span></td></tr>
 																</table><!--#endif-->
 															</div>
 														</div>
@@ -514,7 +530,8 @@
 																	<tr><td><!--#echo var="ui.sections.rocket.size" --></td><td><span data-dimension="<!--#json name="diameter.dimension" -->" data-units="<!--#json name="diameter.units" -->" data-value="<!--#json name="diameter.value" -->" class="value convertable"><!--#json name="diameter.value" --><!--#json name="diameter.units" --></span>
 																	<tr><td><!--#echo var="ui.sections.rocket.cost" --></td><td><span class="coin-icon"></span><span data-dimension="<!--#json name="cost.dimension" -->" data-units="<!--#json name="cost.units" -->" data-value="<!--#json name="cost.value" -->" class="value convertable"><!--#json name="cost.value" --> <!--#json name="cost.units" --></span>
 																	<tr><td><!--#echo var="ui.sections.rocket.drymass" --></td><td><span data-dimension="<!--#json name="drymass.dimension" -->" data-units="<!--#json name="drymass.units" -->" data-value="<!--#json name="drymass.value" -->" class="value convertable"><!--#json name="drymass.value" --><!--#json name="drymass.units" --></span>
-																	<tr><td><!--#echo var="ui.sections.rocket.fuel" --></td><td><span data-dimension="<!--#json name="fuel.dimension" -->" data-units="<!--#json name="fuel.units" -->" data-value="<!--#json name="fuel.value" -->" class="value convertable"><!--#json name="fuel.value" --><!--#json name="fuel.units" --></span>
+																	<tr><td><!--#echo var="ui.sections.rocket.fuel" --></td><td><span data-dimension="<!--#json name="fuel.dimension" -->" data-units="<!--#json name="fuel.units" -->" data-value="<!--#json name="fuel.value" -->" class="value convertable"><!--#json name="fuel.value" --><!--#json name="fuel.units" --></span></td></tr>
+																	<tr><td><!--#echo var="ui.sections.rocket.thrust" --></td><td><span data-dimension="<!--#json name="thrust.dimension" -->" data-units="<!--#json name="thrust.units" -->" data-value="<!--#json name="thrust.value" -->" class="value convertable"><!--#json name="thrust.value" --><!--#json name="thrust.units" --></span></td></tr>
 																</table><!--#endif-->
 															</div>
 														</div>
@@ -539,6 +556,7 @@
 																	<tr><td><!--#echo var="ui.sections.rocket.cost" --></td><td><span class="coin-icon"></span><span data-dimension="<!--#json name="cost.dimension" -->" data-units="<!--#json name="cost.units" -->" data-value="<!--#json name="cost.value" -->" class="value convertable"><!--#json name="cost.value" --> <!--#json name="cost.units" --></span></td></tr>
 																	<tr><td><!--#echo var="ui.sections.rocket.drymass" --></td><td><span data-dimension="<!--#json name="drymass.dimension" -->" data-units="<!--#json name="drymass.units" -->" data-value="<!--#json name="drymass.value" -->" class="value convertable"><!--#json name="drymass.value" --><!--#json name="drymass.units" --></span></td></tr>
 																	<tr><td><!--#echo var="ui.sections.rocket.fuel" --></td><td><span data-dimension="<!--#json name="fuel.dimension" -->" data-units="<!--#json name="fuel.units" -->" data-value="<!--#json name="fuel.value" -->" class="value convertable"><!--#json name="fuel.value" --><!--#json name="fuel.units" --></span></td></tr>
+																	<tr><td><!--#echo var="ui.sections.rocket.thrust" --></td><td><span data-dimension="<!--#json name="thrust.dimension" -->" data-units="<!--#json name="thrust.units" -->" data-value="<!--#json name="thrust.value" -->" class="value convertable"><!--#json name="thrust.value" --><!--#json name="thrust.units" --></span></td></tr>
 																</table><!--#endif-->
 															</div>
 														</div>
@@ -585,21 +603,6 @@
 		</section>
 
 		<!--#include file="units.html" -->
-
-		<!--#include file="menu.html" -->
-
-		<menu id="menu-cost" class="dropdown not-at-start">
-			<li class="baritem" data="cost"><button class="menucost" title="<!--#echo var="ui.menu.cost.cost" -->"><span class="coin-icon"></span><span class="cost cost_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span><span class="label-right"><!--#echo var="ui.menu.cost.cost" --></span></button></li>
-			<li class="baritem" data="budget"><button class="menubudget" title="<!--#echo var="ui.menu.cost.budget" -->"><span class="coin-icon"></span><span class="cost budget_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span><span class="label-right"><!--#echo var="ui.menu.cost.budget" --></span></button></li>
-		</menu>
-		<menu id="menu-power" class="dropdown not-at-start">
-			<li class="baritem" data="powerreq"><button class="menupowerreq" title="<!--#echo var="ui.menu.cost.cost" -->"><span class="power-icon"></span><span class="power power_req value convertable" data-value="0" data-units="W" data-dimension="power">0 W</span><span class="label-right"><!--#echo var="ui.menu.power.required" --></span></button></li>
-			<li class="baritem" data="poweravail"><div class="menupoweravail" title="<!--#echo var="ui.menu.power.available" -->"><span class="power-icon"></span><span class="power power_available value convertable" data-value="0" data-units="W" data-dimension="power">0 W</span><span class="label-right"><!--#echo var="ui.menu.power.available" --></span></div></li>
-		</menu>
-		<menu id="menu-mass" class="dropdown not-at-start">
-			<li class="baritem" data="dvreq"><button class="menudvreq" title="<!--#echo var="ui.menu.cost.cost" -->"><span class="power-icon"></span><span class="deltav dv_req value convertable" data-value="0" data-units="m/s" data-dimension="velocity">0 km/s</span><span class="label-right"><!--#echo var="ui.menu.dv.required" --></span></button></li>
-			<li class="baritem" data="dvavail"><button class="menudvavail" title="<!--#echo var="ui.menu.power.available" -->"><span class="power-icon"></span><span class="deltav dv_available value convertable" data-value="0" data-units="km/s" data-dimension="velocity">0 km/s</span><span class="label-right"><!--#echo var="ui.menu.dv.available" --></span></button></li>
-		</menu>
 
 		<section id="about" class="not-at-start fullpage">
 			<div class="container">

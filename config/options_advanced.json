@@ -229,28 +229,10 @@
 			"power": { "value": 70, "units": "watts", "dimension": "power" },
 			"requires": [{
 				"type": "package",
-				"oneof": ["radar-dish"],
+				"oneof": ["dish-large"],
 				"label": "%package.radar-alt.requires.dish.label%",
 				"error": "%package.radar-alt.requires.dish.error%"
 			}]
-		},
-		"radar-dish": {
-			"slot":	"4x8",
-			"title": "%package.radar-dish.title%",
-			"description": "%package.radar-dish.description%",
-			"texture": {
-				"icon": "",
-				"class": "-bg radar",
-				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
-			},
-			"mass": { "value": 40, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 2.0, "units": "m", "dimension": "length" },
-				{ "value": 2.0, "units": "m", "dimension": "length" },
-				{ "value": 1.0, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 0, "units": "watts", "dimension": "power" }
 		},
 		"phone-en": {
 			"slot":	"2x2",
@@ -354,7 +336,7 @@
 			"description": "%package.dish-large.description%",
 			"texture": {
 				"icon": "",
-				"class": "-bg radio",
+				"class": "-bg radar",
 				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
 			"mass": { "value": 30, "units": "kg", "dimension": "mass" },
@@ -765,8 +747,8 @@
 		"diameter": { "value": 10, "units": "m", "dimension": "length" },
 		"height": { "value": 19, "units": "m", "dimension": "length" },
 		"drymass": { "value": 13500, "units": "kg", "dimension": "mass" },
-		"cost": { "value": 8, "units": "credits", "dimension": "currency" },
-		"thrust": { "value": 1000, "units": "kN", "dimension": "force" },
+		"cost": { "value": 10, "units": "credits", "dimension": "currency" },
+		"thrust": { "value": 1500, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 110000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 420, "units": "s", "dimension": "time" },
 		"notes": "Based on Saturn V 3rd stage (https://en.wikipedia.org/wiki/Saturn_V)"
@@ -1110,11 +1092,6 @@
 					"error": "%scenarios.EO.disaster.req.radar-alt.error%"
                 },{
                     "type": "package",
-                    "oneof": ["radar-dish"],
-                    "label": "%scenarios.EO.disaster.req.dish.label%",
-					"error": "%scenarios.EO.disaster.req.dish.error%"
-                },{
-                    "type": "package",
                     "oneof": ["camera-nir"],
                     "label": "%scenarios.EO.disaster.req.camera-nir.label%",
 					"error": "%scenarios.EO.disaster.req.camera-nir.error%"
@@ -1140,11 +1117,6 @@
                     "oneof": ["radar-alt"],
                     "label": "%scenarios.EO.surface.req.radar-alt.label%",
 					"error": "%scenarios.EO.surface.req.radar-alt.error%"
-                },{
-                    "type": "package",
-                    "oneof": ["radar-dish"],
-                    "label": "%scenarios.EO.surface.req.dish.label%",
-					"error": "%scenarios.EO.surface.req.dish.error%"
                 },{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],

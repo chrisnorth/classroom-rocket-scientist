@@ -29,8 +29,10 @@ function rocketEquation(orb,d,stages,payloadmass){
 				if(stages[s].drymass) massinitial += stages[s].drymass.value;
 				massfinal = 0;
 				for(var st = s+1; st < stages.length; st++){
-					if(stages[st].fuel) massfinal += stages[st].fuel.value;
-					if(stages[st].drymass) massfinal += stages[st].drymass.value;
+					if(stages[st]){
+						if(stages[st].fuel) massfinal += stages[st].fuel.value;
+						if(stages[st].drymass) massfinal += stages[st].drymass.value;
+					}
 				}
 				if(payloadmass) massfinal += payloadmass.value;
 				stages[s].massinitial = {'value':massinitial+massfinal,'units':'kg','dimension':'mass'};

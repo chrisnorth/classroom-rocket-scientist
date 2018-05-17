@@ -228,7 +228,7 @@ header {
 
 #bar, nav {
   height: 3em;
-  overflow: hidden; }
+  /*overflow: hidden;*/ }
 
 #bar h1 {
   font-size: 1em;
@@ -236,6 +236,12 @@ header {
 
 #bar, .dropdown {
   background-color: rgba(0, 0, 0, 0.85); }
+
+.dropdown {
+  top: 3em;
+  display: block;
+  right: 0px;
+  background: #222; }
 
 img.icon {
   width: 1.5em;
@@ -267,7 +273,9 @@ nav li {
   margin: 0.75em; }
 
 .baritem span.label-right {
-  float: right; }
+  position: absolute;
+  top: 0px;
+  right: 0px; }
 
 .baritem.left a {
   height: auto; }
@@ -285,12 +293,13 @@ nav li {
   margin: 0px;
   padding: 0px;
   width: 100%;
-  text-align: left; }
+  text-align: left;
+  white-space: nowrap; }
 
 .baritem a img, .baritem button img, nav a img, .coin-icon {
   margin: 0.75em; }
 
-.baritem .coin-icon, .baritem .weight-icon, .baritem .power-icon {
+.baritem .coin-icon, .baritem .weight-icon, .baritem .power-icon, .baritem .speed-icon {
   float: left;
   margin-right: 0px; }
 
@@ -311,7 +320,8 @@ nav li {
   transition: all 0.2s ease-in-out; }
 
 .barmenu .baritem {
-  float: right; }
+  float: right;
+  position: relative; }
 
 .barmenu .baritem.left {
   float: left; }
@@ -320,9 +330,9 @@ nav li {
   float: left; }
 
 .dropdown {
-  position: fixed;
+  position: absolute;
   z-index: 994;
-  width: auto;
+  width: 350px;
   line-height: 1.5em;
   right: 0;
   top: 3em;
@@ -340,7 +350,8 @@ nav li {
 
 .dropdown .baritem, .rtl .dropdown .baritem {
   float: none;
-  display: block; }
+  display: block;
+  overflow: hidden; }
 
 /*.dropdown .baritem a { padding: 0.75em 1em; }*/
 .dropdown.fullwidth {
@@ -413,7 +424,11 @@ li select, li input, li .toggleinput {
   background: url("../images/png/power.png");
   background-size: 100% 100%; }
 
-.coin-icon, .weight-icon, .power-icon {
+.speed-icon {
+  background: url("../images/png/speedometer.png");
+  background-size: 100% 100%; }
+
+.coin-icon, .weight-icon, .power-icon, .speed-icon {
   display: inline-block;
   height: 1.5em;
   width: 1.5em;
@@ -1561,7 +1576,8 @@ table.data td:last-child {
 .list-bar button {
   font-size: 1.2em;
   font-weight: 700;
-  line-height: 0.9em; }
+  line-height: 0.9em;
+  width: 2em; }
 
 .list li .list-bar button:disabled {
   display: none; }
@@ -3370,7 +3386,7 @@ ul.orrery li.GEO {
   background-size: 100% 100%; }
 
 .texture.tv-en .face.front, .texture.tv-en .face.front:before {
-  background: url("../images/png/icon-tv.png");
+  background: url("../images/png/tv.png");
   background-size: 100% 100%; }
 
 .texture.radio-rx .face.front, .texture.radio-rx .face.front:before {
@@ -3382,11 +3398,11 @@ ul.orrery li.GEO {
   background-size: 100% 100%; }
 
 .texture.phone-en .face.front, .texture.phone-en .face.front:before {
-  background: url("../images/png/icon-phone.png");
+  background: url("../images/png/phone.png");
   background-size: 100% 100%; }
 
 .texture.phone-en .face.front, .texture.phone-en-mini .face.front:before {
-  background: url("../images/png/icon-phone.png");
+  background: url("../images/png/phone.png");
   background-size: 100% 100%; }
 
 .texture.battery-large .face.front, .texture.battery-large .face.front:before {
@@ -3598,7 +3614,7 @@ body #about .icons img {
   .padd-left {
     margin-left: 0px; } }
 @media only screen and (max-width: 600px) {
-  .baritem .coin-icon, .baritem .weight-icon, .baritem .power-icon {
+  .baritem .coin-icon, .baritem .weight-icon, .baritem .power-icon, .baritem .speed-icon {
     margin-left: 0.15em; }
 
   .baritem button img, .baritem span {
