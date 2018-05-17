@@ -270,7 +270,7 @@ var rs;
 			return tot;
 		}
 
-		if(this.choices['bus']) total = add(total,this.choices['bus'],{'cost':1,'mass':0,'power':1});	// We don't include mass
+		if(this.choices['bus']) total = add(total,this.choices['bus'],{'cost':1,'mass':1,'power':1});	// We don't include mass
 		if(this.choices['slots']){
 			for(var i in this.choices['slots']){
 				for(var j = 0; j < this.choices['slots'][i].length; j++){
