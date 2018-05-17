@@ -103,7 +103,6 @@ var rs;
 	// Initiate the Rocket Scientist
 	RocketScientist.prototype.init = function(data){
 
-console.log(data)
 		// Remove classes from script only elements
 		S('.scriptonly').toggleClass('scriptonly');
 
@@ -229,14 +228,16 @@ console.log(data)
 				for(var i = 0; i < navs.length; i++) this.navs[i] = S(navs[i]);
 			}
 		}
-		for(var i = 0; i < this.navs.length; i++){
-			var href = this.navs[i].attr('href').substr(1);
-			if(href=="goal") this.setNavigable(href,i,this.choices.type); // To get to goal we require the type to be set
-			else if(href=="bus") this.setNavigable(href,i,typeof this.choices.goal==="number"); // To get to bus we need the goal to be set
-			else if(href=="instrument") this.setNavigable(href,i,this.choices.bus);	// To get to the instruments section we need a bus
-			else if(href=="power") this.setNavigable(href,i,this.choices.bus);	// To get to the power section we need a bus
-			else if(href=="rocket") this.setNavigable(href,i,this.choices.bus);	// To get to the rocket section we need a bus
-			else this.setNavigable(href,i,true); // We can get to the orbit section regardless
+		if(this.navs){
+			for(var i = 0; i < this.navs.length; i++){
+				var href = this.navs[i].attr('href').substr(1);
+				if(href=="goal") this.setNavigable(href,i,this.choices.type); // To get to goal we require the type to be set
+				else if(href=="bus") this.setNavigable(href,i,typeof this.choices.goal==="number"); // To get to bus we need the goal to be set
+				else if(href=="instrument") this.setNavigable(href,i,this.choices.bus);	// To get to the instruments section we need a bus
+				else if(href=="power") this.setNavigable(href,i,this.choices.bus);	// To get to the power section we need a bus
+				else if(href=="rocket") this.setNavigable(href,i,this.choices.bus);	// To get to the rocket section we need a bus
+				else this.setNavigable(href,i,true); // We can get to the orbit section regardless
+			}
 		}
 		return this;
 	}
