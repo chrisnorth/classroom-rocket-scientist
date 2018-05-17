@@ -180,7 +180,7 @@ nav li { float: left; }
 .baritem a img, .baritem button img, nav a img, .coin-icon {
 	margin: $barheight*0.5 - $lineh*0.5;
 }
-.baritem .coin-icon,.baritem .weight-icon,.baritem .power-icon { float: left; margin-right: 0px; }
+.baritem .coin-icon,.baritem .weight-icon,.baritem .power-icon, .baritem .speed-icon { float: left; margin-right: 0px; }
 .baritem button.overbudget { background-color: rgb(230,51,34); }
 .baritem a, .baritem button, nav a {
 	color: inherit;
@@ -248,7 +248,11 @@ li select, li input, li .toggleinput { float: right; font-size: 1em; font-family
 	background: url("../images/png/power.png");
 	background-size: 100% 100%;
 }
-.coin-icon, .weight-icon, .power-icon {
+.speed-icon {
+	background: url("../images/png/speedometer.png");
+	background-size: 100% 100%;
+}
+.coin-icon, .weight-icon, .power-icon, .speed-icon {
 	display: inline-block;
 	height: $lineh;
 	width: $lineh;
@@ -945,6 +949,6 @@ body #about .icons img {height:50px; margin:10px;}
 }
 
 @media only screen and (max-width: 600px){
-	.baritem .coin-icon, .baritem .weight-icon, .baritem .power-icon { margin-left: $lineh*0.1; }
+	.baritem .coin-icon, .baritem .weight-icon, .baritem .power-icon, .baritem .speed-icon { margin-left: $lineh*0.1; }
 	.baritem button img, .baritem span { margin-left: $lineh*0.1; margin-right: $lineh*0.1; }
 }
