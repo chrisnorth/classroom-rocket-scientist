@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="64"
+   height="64"
+   viewBox="0 0 64.000001 64.000001"
+   id="svg4378"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="icon-comm-net.svg"
+   inkscape:export-filename="/Users/chrisnorth/Github/classroom-rocket-scientist/images/png/icon-phone.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4380" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.8594"
+     inkscape:cx="-14.486784"
+     inkscape:cy="28.088"
+     inkscape:document-units="px"
+     inkscape:current-layer="g4140"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1476"
+     inkscape:window-height="921"
+     inkscape:window-x="0"
+     inkscape:window-y="1"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata4383">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="New">
+    <g
+       id="g4140"
+       transform="translate(-0.59723799,1.3011713)">
+      <ellipse
+         ry="5.4378252"
+         rx="5.3968697"
+         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="circle4999"
+         cx="32.597404"
+         cy="47.048382" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path5003"
+         d="M 10.912906,19.470841 C 21.321155,10.731478 38.860981,7.041524 54.28061,18.888217"
+         style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 17.409253,27.882866 C 24.699255,21.761762 36.98426,19.177294 47.784264,27.474793"
+         id="path5005"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path5009"
+         d="M 23.551683,36.461884 C 27.893318,32.816398 35.20978,31.277191 41.641834,36.218852"
+         style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+  </g>
+</svg>
