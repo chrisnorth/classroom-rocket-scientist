@@ -117,10 +117,10 @@ console.log(data)
 		}
 
 		// Set up main menu events
-		S('#bar .togglemenu').on('click',{me:this},function(e){ S('#menu').toggleClass('not-at-start'); })
-		S('#bar .togglecost').on('click',{me:this},function(e){ S('#menu-cost').toggleClass('not-at-start'); })
-		S('#bar .togglepower').on('click',{me:this},function(e){ S('#menu-power').toggleClass('not-at-start'); })
-		S('#bar .togglemass').on('click',{me:this},function(e){ S('#menu-mass').toggleClass('not-at-start'); })
+		S('#bar .togglemenu').on('click',{me:this},function(e){ S('.dropdown').addClass('not-at-start'); S('#menu').toggleClass('not-at-start'); })
+		S('#bar .togglecost').on('click',{me:this},function(e){ S('.dropdown').addClass('not-at-start'); S('#menu-cost').toggleClass('not-at-start'); })
+		S('#bar .togglepower').on('click',{me:this},function(e){ S('.dropdown').addClass('not-at-start'); S('#menu-power').toggleClass('not-at-start'); })
+		S('#bar .togglemass').on('click',{me:this},function(e){ S('.dropdown').addClass('not-at-start'); S('#menu-mass').toggleClass('not-at-start'); })
 		S('#menu').on('mouseleave',{me:this},function(e){ S('#menu').toggleClass('not-at-start'); })
 		S('#menu-mass').on('mouseleave',{me:this},function(e){ S('#menu-mass').toggleClass('not-at-start'); })
 		S('#menu-power').on('mouseleave',{me:this},function(e){ S('#menu-power').toggleClass('not-at-start'); })
