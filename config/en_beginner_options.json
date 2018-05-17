@@ -704,7 +704,7 @@
 				"launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will allow people from regions all over the world to communicate by telephone.",
 				"success": "Congratulations, your communication satellite is now receiving signals from the ground and sending them to phones around the Earth on behalf of the UK Space Agency.",
 				"image": {
-					"file": "images/png/icon-phone.png",
+					"file": "images/svg/mobile-alt-white.svg",
 					"alt": "Satellite Telephone System",
 					"credit": "Plainicon"
 				},

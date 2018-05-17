@@ -704,7 +704,7 @@
 				"launch": "%scenarios.COMMS.phone.launch%",
 				"success": "%scenarios.COMMS.phone.success%",
 				"image": {
-					"file": "images/png/icon-phone.png",
+					"file": "images/svg/mobile-alt-white.svg",
 					"alt": "%scenarios.COMMS.phone.title%",
 					"credit": "Plainicon"
 				},
