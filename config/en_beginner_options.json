@@ -704,7 +704,7 @@
 				"launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will allow people from regions all over the world to communicate by telephone.",
 				"success": "Congratulations, your communication satellite is now receiving signals from the ground and sending them to phones around the Earth on behalf of the UK Space Agency.",
 				"image": {
-					"file": "images/svg/mobile-alt-white.svg",
+					"file": "images/png/mobile-alt-white.png",
 					"alt": "Satellite Telephone System",
 					"credit": "Plainicon"
 				},
@@ -735,7 +735,7 @@
 				"launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will help people from all over the world connect to the internet.",
 				"success": "Congratulations, your communication satellite is now helping people connect to the internet from regions all over the world on behalf of the UK Space Agency.",
 				"image": {
-					"file": "images/png/icon-internet-comm.png",
+					"file": "images/png/comm-net-icon.png",
 					"alt": "Satellite Internet",
 					"credit": "parkjisun"
 				},
