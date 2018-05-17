@@ -138,10 +138,17 @@ header { position: fixed; z-index: $topz; left: 0px; top: 0px; width: 100%; righ
 }
 #bar, nav {
 	height: $barheight;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 #bar h1 { font-size: 1em; margin: auto; }
 #bar, .dropdown { background-color: rgba(0,0,0,0.85); }
+.dropdown {
+	top: 3em;
+	display: block;
+	right: 0px;
+	width: 300px;
+	background: #222;
+}
 
 img.icon {
 	width:1.5em;
@@ -187,13 +194,13 @@ nav li { float: left; }
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
-.barmenu .baritem { float: right; }
+.barmenu .baritem { float: right; position: relative; }
 .barmenu .baritem.left { float: left; }
 .rtl .barmenu .baritem { float: left; }
 .dropdown {
-	position: fixed;
+	position: absolute;
 	z-index: $topz - 6;
-	width: auto;
+	width: 300px;
 	line-height: $lineh;
 	right: 0;
 	top: $barheight;
@@ -774,6 +781,7 @@ table.data td:last-child { text-align: left; }
 	font-size: $s*0.8;
 	font-weight: 700;
 	line-height: $s*0.6;
+	width: 2em;
 }
 .list li .list-bar button:disabled {
 	display: none;

@@ -228,7 +228,7 @@ header {
 
 #bar, nav {
   height: 3em;
-  overflow: hidden; }
+  /*overflow: hidden;*/ }
 
 #bar h1 {
   font-size: 1em;
@@ -236,6 +236,13 @@ header {
 
 #bar, .dropdown {
   background-color: rgba(0, 0, 0, 0.85); }
+
+.dropdown {
+  top: 3em;
+  display: block;
+  right: 0px;
+  width: 300px;
+  background: #222; }
 
 img.icon {
   width: 1.5em;
@@ -311,7 +318,8 @@ nav li {
   transition: all 0.2s ease-in-out; }
 
 .barmenu .baritem {
-  float: right; }
+  float: right;
+  position: relative; }
 
 .barmenu .baritem.left {
   float: left; }
@@ -320,9 +328,9 @@ nav li {
   float: left; }
 
 .dropdown {
-  position: fixed;
+  position: absolute;
   z-index: 994;
-  width: auto;
+  width: 300px;
   line-height: 1.5em;
   right: 0;
   top: 3em;
@@ -1561,7 +1569,8 @@ table.data td:last-child {
 .list-bar button {
   font-size: 1.2em;
   font-weight: 700;
-  line-height: 0.9em; }
+  line-height: 0.9em;
+  width: 2em; }
 
 .list li .list-bar button:disabled {
   display: none; }
