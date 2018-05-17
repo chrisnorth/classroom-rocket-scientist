@@ -108,7 +108,7 @@
 		"radar-alt": {
 			"slot":	"2x4",
 			"title": "Radar altimeter",
-			"description": "Used to measure the shape of the ground, including mountains and valleys on Earth's surface. This instrument also provides information about the effect of earthquakes. It requires a radar dish to work.",
+			"description": "Used to measure the shape of the ground, including mountains and valleys on Earth's surface. This instrument also provides information about the effect of earthquakes. It requires a large radio dish to work.",
 			"texture": {
 				"icon": "texture radar-alt"
 			},
@@ -122,22 +122,22 @@
 			"power": { "value": 70, "units": "watts", "dimension": "power" },
 			"requires": [{
 				"type": "package",
-				"oneof": ["radar-dish"],
-				"label": "You need a radar dish for the radar altimeter to work.",
-				"error": "You need to include a radar dish."
+				"oneof": ["dish-large"],
+				"label": "You need a large radio dish for the radar altimeter to work.",
+				"error": "You need to include a large radio dish for the radar altimeter to work."
 			}]
 		},
-		"radar-dish": {
+		"dish-large": {
 			"slot":	"4x8",
-			"title": "Radar dish",
-			"description": "Sends and receives signals from the satellite to Earth.",
+			"title": "Radio dish (large)",
+			"description": "Can be used to send images and data back to Earth, and to help the radar altimeter work.",
 			"texture": {
 				"icon": "",
 				"class": "-bg radar",
 				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
-			"mass": { "value": 40, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
+			"mass": { "value": 30, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 2, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 2.0, "units": "m", "dimension": "length" },
 				{ "value": 2.0, "units": "m", "dimension": "length" },
@@ -180,7 +180,7 @@
 		"gps-rx": {
 			"slot":	"2x2",
 			"title": "GPS receiver",
-			"description": "Used to communicate with other GPS satellites, working together they help people find their location on Earth. ",
+			"description": "Used to communicate with other GPS satellites, working together they help people find their location on Earth.",
 			"texture": {
 				"icon": "texture gps-rx"
 			},
@@ -675,10 +675,6 @@
 					"label": "You need a way to measure the height of the Earth's surface.",
 					"error": "You do not have a way to measure the height of the Earth's surface."
             	},{
-                	"type": "package",
-					"oneof": ["radar-dish"],
-					"error": "Your radar altimeter cannot work as you do not have a radar dish."
-                },{
 					"type": "orbit",
 					"oneof": ["LEO"],
 					"label": "See detail of planet surface.",
@@ -831,10 +827,6 @@
                     "oneof": ["radar-alt"],
                     "label": "You need a way to measure the height of the Earth's surface.",
 					"error": "You do not have a way to measure the height of the Earth's surface."
-                },{
-                    "type": "package",
-                    "oneof": ["radar-dish"],
-					"error": "Your radar altimeter cannot work as you does not have a radar dish."
                 },{
                     "type": "package",
                     "oneof": ["camera-fir"],

@@ -122,22 +122,22 @@
 			"power": { "value": 70, "units": "watts", "dimension": "power" },
 			"requires": [{
 				"type": "package",
-				"oneof": ["radar-dish"],
+				"oneof": ["dish-large"],
 				"label": "%package.radar-alt.requires.dish.label%",
 				"error": "%package.radar-alt.requires.dish.error%"
 			}]
 		},
-		"radar-dish": {
+		"dish-large": {
 			"slot":	"4x8",
-			"title": "%package.radar-dish.title%",
-			"description": "%package.radar-dish.description%",
+			"title": "%package.dish-large.title%",
+			"description": "%package.dish-large.description%",
 			"texture": {
 				"icon": "",
 				"class": "-bg radar",
 				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
-			"mass": { "value": 40, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
+			"mass": { "value": 30, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 2, "units": "credits", "dimension": "currency" },
 			"dimensions": [
 				{ "value": 2.0, "units": "m", "dimension": "length" },
 				{ "value": 2.0, "units": "m", "dimension": "length" },
@@ -675,10 +675,6 @@
 					"label": "%scenarios.NAV.map.req.radar-alt.label%",
 					"error": "%scenarios.NAV.map.req.radar-alt.error%"
             	},{
-                	"type": "package",
-					"oneof": ["radar-dish"],
-					"error": "%scenarios.NAV.map.req.radar-dish.error%"
-                },{
 					"type": "orbit",
 					"oneof": ["LEO"],
 					"label": "%scenarios.NAV.map.req.orbit.label%",
@@ -831,10 +827,6 @@
                     "oneof": ["radar-alt"],
                     "label": "%scenarios.EO.disaster.req.radar-alt.label%",
 					"error": "%scenarios.EO.disaster.req.radar-alt.error%"
-                },{
-                    "type": "package",
-                    "oneof": ["radar-dish"],
-					"error": "%scenarios.EO.disaster.req.radar-dish.error%"
                 },{
                     "type": "package",
                     "oneof": ["camera-fir"],

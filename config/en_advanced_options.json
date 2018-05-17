@@ -215,7 +215,7 @@
 		"radar-alt": {
 			"slot":	"2x4",
 			"title": "Radar altimeter",
-			"description": "Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earthquakes. Requires a radar dish to work.",
+			"description": "Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earthquakes. Requires a large radio dish to work.",
 			"texture": {
 				"icon": "texture radar-alt"
 			},
@@ -229,28 +229,10 @@
 			"power": { "value": 70, "units": "watts", "dimension": "power" },
 			"requires": [{
 				"type": "package",
-				"oneof": ["radar-dish"],
-				"label": "The radar altimeter requires a radar dish",
-				"error": "You need to include a radar dish for the altimeter to work."
+				"oneof": ["dish-large"],
+				"label": "The radar altimeter requires a large radio dish",
+				"error": "You need to include a large radio dish for the radar altimeter to work."
 			}]
-		},
-		"radar-dish": {
-			"slot":	"4x8",
-			"title": "Radar dish",
-			"description": "Transmits and receives radio waves for the radar altimeter",
-			"texture": {
-				"icon": "",
-				"class": "-bg radar",
-				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
-			},
-			"mass": { "value": 40, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 2.0, "units": "m", "dimension": "length" },
-				{ "value": 2.0, "units": "m", "dimension": "length" },
-				{ "value": 1.0, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 0, "units": "watts", "dimension": "power" }
 		},
 		"phone-en": {
 			"slot":	"2x2",
@@ -351,10 +333,10 @@
 		"dish-large": {
 			"slot":	"4x8",
 			"title": "Radio dish (large)",
-			"description": "Radio dish capable of controlling and transmitting images & data from up to 8 instruments",
+			"description": "Radio dish for controlling the satellite and transmitting data to the ground, as well as for the radar altimeter",
 			"texture": {
 				"icon": "",
-				"class": "-bg radio",
+				"class": "-bg radar",
 				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
 			"mass": { "value": 30, "units": "kg", "dimension": "mass" },
@@ -369,7 +351,7 @@
 		"dish-medium": {
 			"slot":	"2x4",
 			"title": "Radio dish",
-			"description": "Radio dish capable of controlling and transmitting images & data from up to 4 instruments",
+			"description": "Radio dish for controlling the satellite and transmitting data to the ground",
 			"texture": {
 				"icon": "",
 				"class": "-bg radio",
@@ -387,7 +369,7 @@
 		"dish-small": {
 			"slot":	"1x2",
 			"title": "Radio antenna (compact)",
-			"description": "Radio dish capable of controlling and transmitting images & data from up to 2 instruments",
+			"description": "Radio dish for controlling the satellite and transmitting data to the ground",
 			"texture": {
 				"icon": "",
 				"class": "-bg radio",
@@ -1110,14 +1092,9 @@
 					"error": "You do not have a way to measure the height of the surface, such as for earthquakes."
                 },{
                     "type": "package",
-                    "oneof": ["radar-dish"],
-                    "label": "Radar altimeter requires a radar dish to work.",
-					"error": "Your radar altimeter cannot work as it does not have a radar dish."
-                },{
-                    "type": "package",
                     "oneof": ["camera-nir"],
-                    "label": "To detect fires, such as forest fires.",
-					"error": "You do not have a way to detect fires in disaster regions."
+                    "label": "To monitor vegetation, for example during forest fires.",
+					"error": "You do not have a way to monitor vegetation in disaster regions."
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],
@@ -1140,11 +1117,6 @@
                     "oneof": ["radar-alt"],
                     "label": "To measure the height of the ground in very high resolution.",
 					"error": "You do not have a way to measure the height of the ground in very high resolution."
-                },{
-                    "type": "package",
-                    "oneof": ["radar-dish"],
-                    "label": "Radar altimeter requires a radar dish to work.",
-					"error": "Your radar altimeter cannot work as it does not have a radar dish."
                 },{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
