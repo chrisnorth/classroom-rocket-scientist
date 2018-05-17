@@ -241,7 +241,6 @@ header {
   top: 3em;
   display: block;
   right: 0px;
-  width: 300px;
   background: #222; }
 
 img.icon {
@@ -274,7 +273,9 @@ nav li {
   margin: 0.75em; }
 
 .baritem span.label-right {
-  float: right; }
+  position: absolute;
+  top: 0px;
+  right: 0px; }
 
 .baritem.left a {
   height: auto; }
@@ -292,7 +293,8 @@ nav li {
   margin: 0px;
   padding: 0px;
   width: 100%;
-  text-align: left; }
+  text-align: left;
+  white-space: nowrap; }
 
 .baritem a img, .baritem button img, nav a img, .coin-icon {
   margin: 0.75em; }
@@ -330,7 +332,7 @@ nav li {
 .dropdown {
   position: absolute;
   z-index: 994;
-  width: 300px;
+  width: 350px;
   line-height: 1.5em;
   right: 0;
   top: 3em;
@@ -348,7 +350,8 @@ nav li {
 
 .dropdown .baritem, .rtl .dropdown .baritem {
   float: none;
-  display: block; }
+  display: block;
+  overflow: hidden; }
 
 /*.dropdown .baritem a { padding: 0.75em 1em; }*/
 .dropdown.fullwidth {
