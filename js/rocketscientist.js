@@ -127,8 +127,10 @@ var rs;
 		S('#menu .restart').on('click',{me:this},function(e){ location.href = location.href.replace(/[\/]+$/,'') + (location.protocol==="file:") ? "index.html" : ""; })
 		S('#menu .units').on('click',{me:this},function(e){ S('#units').removeClass('not-at-start'); S('body').addClass('nooverflow'); });
 		S('#menu .about').on('click',{me:this},function(e){ S('#about').removeClass('not-at-start'); S('body').addClass('nooverflow'); });
+		S('#menu .guide').on('click',{me:this},function(e){ S('#guide').removeClass('not-at-start'); S('body').addClass('nooverflow'); });
 		S('#units .close').on('click',{me:this},function(e){ S('#units').addClass('not-at-start'); S('body').removeClass('nooverflow'); });
 		S('#about .close').on('click',{me:this},function(e){ S('#about').addClass('not-at-start'); S('body').removeClass('nooverflow'); });
+		S('#guide .close').on('click',{me:this},function(e){ S('#guide').addClass('not-at-start'); S('body').removeClass('nooverflow'); });
 
 		// Deal with changes to the unit selectors
 		S('#units select').on('change',{me:this},function(e){

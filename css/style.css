@@ -507,6 +507,9 @@ img.fullscreen {
 img.close {
   background-position: -4.5em -10.5em; }
 
+img.guide {
+  background-position: -3em -12em; }
+
 .fullscreen img.fullscreen {
   background-position: -3em -9em; }
 
