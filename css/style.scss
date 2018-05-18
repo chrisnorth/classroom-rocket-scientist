@@ -401,9 +401,17 @@ section#goal .holder .holder-inner { width: 100%; height: 100%; }
 section#type .holder { width: 33%; vertical-align: middle; }
 section#type .holder p { text-align: left; }
 
+section#start .holder {width: 33%; vertical-align:middle; padding:0 0.5em 0.5em 0.5em}
+section#start .level .image img {width:3em}
 section .holder-holder {
 	table-layout: fixed;
 }
+section#start .beginner .padded{ background-color: $red-4; }
+section#start .beginner .image { background-color: $red-1; }
+section#start .intermediate .padded { background-color: $green-4; }
+section#start .intermediate .image { background-color: $green-1; }
+section#start .advanced .padded { background-color: $blue-4; }
+section#start .advanced .image { background-color: $blue-1; }
 
 section#type .image, section#goal .image { line-height: 0; }
 section .image img { width: 3em; height: 3em; margin: $padded*0.5 0; }

@@ -28,15 +28,45 @@
 
 		<div id="main">
 			<section id="start" class="view">
-				<div class="table">
-					<div class="table-row-top">
-						<div class="msg noscriptmsg"><!--#echo var="ui.nojs" --></div>
-					</div>
-					<div class="table-row">
-						<div class="padded">
+				<div class="padded">
+					<div class="page levels">
+						<div class="row-top">
+							<div class="msg noscriptmsg"><!--#echo var="ui.nojs" --></div>
 							<h1><!--#echo var="ui.title" --></h1>
 							<p><!--#echo var="ui.introduction" --></p>
-							<a href="beginner"><!--#echo var="ui.level.beginner" --></a> / <a href="intermediate"><!--#echo var="ui.level.intermediate" --></a> / <a href="advanced"><!--#echo var="ui.level.advanced" --></a>
+							<!-- <a href="beginner"><!--#echo var="ui.level.beginner" --></a> / <a href="intermediate"><!--#echo var="ui.level.intermediate" --></a> / <a href="advanced"><!--#echo var="ui.level.advanced" --></a> -->
+						</div>
+						<div class="row-main">
+							<div class="holder beginner">
+								<div class="image"><img src="images/svg/level-beginner.svg" alt="Beginner" title="Beginner Level"/></div>
+								<div class="padded">
+									<div class="level beginner">
+										<h3><!--#echo var="ui.level.beginner" --></h3>
+										<p><!--#echo var="ui.level.beginner.description" --></p>
+										<button onclick="window.location.href='beginner.html'" class="fancy" data-type="beginner"><!--#echo var="ui.button.level" --></button>
+									</div>
+								</div>
+							</div>
+							<div class="holder intermediate">
+								<div class="image"><img src="images/svg/level-intermediate.svg" alt="Intermediate" title="Beginner Level"/></div>
+								<div class="padded">
+									<div class="level intermediate">
+										<h3><!--#echo var="ui.level.intermediate" --></h3>
+										<p><!--#echo var="ui.level.beginner.description" --></p>
+										<button onclick="window.location.href='intermediate.html'" class="fancy" data-type="intermediate"><!--#echo var="ui.button.level" --></button>
+									</div>
+								</div>
+							</div>
+							<div class="holder advanced">
+								<div class="image"><img src="images/svg/level-advanced.svg" alt="Advanced" title="Advanced Level"/></div>
+								<div class="padded">
+									<div class="level advanced">
+										<h3><!--#echo var="ui.level.advanced" --></h3>
+										<p><!--#echo var="ui.level.beginner.description" --></p>
+										<button onclick="window.location.href='advanced.html'" class="fancy" data-type="advanced"><!--#echo var="ui.button.level" --></button>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
