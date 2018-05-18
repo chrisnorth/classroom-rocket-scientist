@@ -1,14 +1,18 @@
 ---
 ui.level:                                   (advanced)
-ui.level.beginner:                          Beginner (ages 7-11)
-ui.level.intermediate:                      Intermediate (ages 9-11)
-ui.level.advanced:                          Advanced (ages 11-14)
+ui.level.beginner:                          Beginner
+ui.level.intermediate:                      Intermediate
+ui.level.advanced:                          Advanced
+ui.level.beginner.description:              (ages 7-11). This is a long paragraph about the beginner level. No need to add in lots of stuff.
+ui.level.intermediate.description:          (ages 9-11). This is a long paragraph about the intermediate level. Need to care about a bit more
+ui.level.advanced.description:              (ages 11-14). This is a long paragraph about the beginner level. This is where it gets really, really hard!
 ui.nojs:                                    Oops! The interactive parts of <em>Classroom rocket scientist</em> need Javascript to be enabled. Sorry about that.
 ui.title:                                   Classroom rocket scientist
 ui.introduction:                            This is an intro.
 ui.loading:                                 Loading space programme...
 ui.requirements.title:                      Requirements
 ui.close:                                   Close
+ui.button.level:                            Select this level
 ui.button.type:                             Select this type
 ui.button.goal:                             Select this mission
 ui.button.zoomin:                           &plus;

@@ -900,8 +900,34 @@ section#type .holder {
 section#type .holder p {
   text-align: left; }
 
+section#start .holder {
+  width: 33%;
+  vertical-align: middle;
+  padding: 0 0.5em 0.5em 0.5em; }
+
+section#start .level .image img {
+  width: 3em; }
+
 section .holder-holder {
   table-layout: fixed; }
+
+section#start .beginner .padded {
+  background-color: #f9aa8f; }
+
+section#start .beginner .image {
+  background-color: #f04031; }
+
+section#start .intermediate .padded {
+  background-color: #9bd4ae; }
+
+section#start .intermediate .image {
+  background-color: #02a24b; }
+
+section#start .advanced .padded {
+  background-color: #8fd7ed; }
+
+section#start .advanced .image {
+  background-color: #00a2d3; }
 
 section#type .image, section#goal .image {
   line-height: 0; }
