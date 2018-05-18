@@ -1124,6 +1124,17 @@ section.fullpage .container {
   height: 0;
   width: 100%; }
 
+#vehicle .stage:after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-color: #cccccc transparent transparent transparent;
+  border-width: 0 0;
+  bottom: 0%;
+  left: 0%;
+  height: 0;
+  width: 100%; }
+
 .rocket .nozzle {
   position: relative;
   display: block;

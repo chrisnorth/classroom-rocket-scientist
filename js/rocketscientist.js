@@ -942,7 +942,7 @@ var rs;
 			a = this.stages[i];
 			// If the stage has a diameter, check if it is larger than
 			if(this.choices[a] && this.choices[a].diameter.value > 0){
-				if(this.choices[a].diameter.value > d) ok = false;
+				if(this.choices[a].diameter.value > d && a!="payloadbay") ok = false;
 				d = this.choices[a].diameter.value;
 			}
 		}
@@ -972,7 +972,11 @@ var rs;
 			if(w > 0){
 				// The height of the next stage
 				h = Math.min(w*3,d[i+1].h*0.7);
-				css += '#vehicle .stage.'+d[i].s+':before { border-width: 0 '+w+'em '+h+'em; top: -'+(h*0.95)+'em; }';
+				css += '#vehicle .stage.'+d[i].s+':before { border-width: 0 '+Math.abs(w)+'em '+Math.abs(h)+'em; top: -'+Math.abs(h*0.95)+'em; }';
+			}else if(w < 0 & d[i+1].s=="payloadbay"){
+				// allow "inverted fairing" for payload bay
+				h = Math.min(Math.abs(w*3),d[i].h*0.7);
+				css += '#vehicle .stage.'+d[i+1].s+':after { border-width: '+Math.abs(h)+'em '+Math.abs(w)+'em '+' 0; bottom: -'+Math.abs(h*0.97)+'em; }';
 			}
 		}
 		S('#customstylesheet').html(css);
