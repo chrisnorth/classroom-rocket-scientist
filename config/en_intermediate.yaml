@@ -8,7 +8,7 @@ ui.level.intermediate.description:          Give yourself a bit more flexibility
 ui.level.advanced.description:              The most advanced level, with a much greater range of options, and the ability to select which orbit the satellite will be in. But will your rocket be big enough to launch your satellite?
 ui.nojs:                                    Oops! The interactive parts of <em>Classroom rocket scientist</em> need Javascript to be enabled. Sorry about that.
 ui.title:                                   Classroom rocket scientist
-ui.introduction:                            This is an intro.
+ui.introduction:                            The UK Space Agency is planning its next satellite mission. They've asked you to help design it!
 ui.loading:                                 Loading space programme...
 ui.requirements.title:                      Requirements
 ui.close:                                   Close
