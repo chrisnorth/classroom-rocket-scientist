@@ -28,15 +28,45 @@
 
 		<div id="main">
 			<section id="start" class="view">
-				<div class="table">
-					<div class="table-row-top">
-						<div class="msg noscriptmsg">Oops! The interactive parts of <em>Classroom rocket scientist</em> need Javascript to be enabled. Sorry about that.</div>
-					</div>
-					<div class="table-row">
-						<div class="padded">
+				<div class="padded">
+					<div class="page levels">
+						<div class="row-top">
+							<div class="msg noscriptmsg">Oops! The interactive parts of <em>Classroom rocket scientist</em> need Javascript to be enabled. Sorry about that.</div>
 							<h1>Classroom rocket scientist</h1>
 							<p>This is an intro.</p>
-							<a href="beginner">Beginner (ages 7-11)</a> / <a href="intermediate">Intermediate (ages 9-11)</a> / <a href="advanced">Advanced (ages 11-14)</a>
+							<!-- <a href="beginner">Beginner</a> / <a href="intermediate">Intermediate</a> / <a href="advanced">Advanced</a> -->
+						</div>
+						<div class="row-main">
+							<div class="holder beginner">
+								<div class="image"><img src="images/svg/level-beginner.svg" alt="Beginner" title="Beginner Level"/></div>
+								<div class="padded">
+									<div class="level beginner">
+										<h3>Beginner</h3>
+										<p>(ages 7-11). This is a long paragraph about the beginner level. No need to add in lots of stuff.</p>
+										<button onclick="window.location.href='beginner.html'" class="fancy" data-type="beginner">Select this level</button>
+									</div>
+								</div>
+							</div>
+							<div class="holder intermediate">
+								<div class="image"><img src="images/svg/level-intermediate.svg" alt="Intermediate" title="Beginner Level"/></div>
+								<div class="padded">
+									<div class="level intermediate">
+										<h3>Intermediate</h3>
+										<p>(ages 7-11). This is a long paragraph about the beginner level. No need to add in lots of stuff.</p>
+										<button onclick="window.location.href='intermediate.html'" class="fancy" data-type="intermediate">Select this level</button>
+									</div>
+								</div>
+							</div>
+							<div class="holder advanced">
+								<div class="image"><img src="images/svg/level-advanced.svg" alt="Advanced" title="Advanced Level"/></div>
+								<div class="padded">
+									<div class="level advanced">
+										<h3>Advanced</h3>
+										<p>(ages 7-11). This is a long paragraph about the beginner level. No need to add in lots of stuff.</p>
+										<button onclick="window.location.href='advanced.html'" class="fancy" data-type="advanced">Select this level</button>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
