@@ -473,6 +473,7 @@ var rs;
 		var requirementssectionlist = "";
 		var sectionexists;
 		var listedLaunch = new Array();
+		var fixme = S('#fixme')[0].innerHTML
 		for(var s in sections){
 			// Remove existing requirements
 			S('#'+s+' .requirements ul').remove();
@@ -482,11 +483,20 @@ var rs;
 			var listed = new Array();
 			sectionexists = (S('#'+s).length > 0);
 			for(var i = 0; i < this.requirements.length; i++){
+				// for(var is = 0 ; is < this.data['sections'].length; is++){
+				// 	this.log(s,sections[s],is,this.data['sections'][is]['id'],(this.data['sections'][is]['id']==sections[s]))
+				// 	if (this.data['sections'][is]['id']==sections[s]){
+				// 		is==s
+				// 	}
+				// }
+				// this.log(is,this.data['sections'][is])
 				if((this.requirements[i]['showin'] == sections[s] || this.requirements[i]['type'] == sections[s]) && this.requirements[i]['label'] != ""){
 				// if((this.requirements[i]['type'] == sections[s]) && this.requirements[i]['label'] != ""){
 					if(typeof this.requirements[i]['label'] === "undefined") this.requirements[i]['label'] = "";
 					l = "<li"+((this.data.options && this.data.options['require-hint']) ? (this.requirements[i]['met'] ? ' class="met"' : ' class="notmet"') : "")+">"+this.requirements[i]['label']+"</li>";
-					e = "<li"+((this.data.options && this.data.options['require-hint']) ? (this.requirements[i]['met'] ? ' class="met"' : ' class="notmet"') : "")+">"+this.requirements[i]['error']+"</li>";
+					e = "<li"+((this.data.options && this.data.options['require-hint']) ? (this.requirements[i]['met'] ? ' class="met"' : ' class="notmet"') : "")+">"
+					e += this.requirements[i]['error']+
+					((this.data.options && this.data.options['fix-links']) ? '&nbsp;<a href="#'+s+'">'+fixme+'</a>' : "")+'</li>';
 					notlisted = true;
 					notlistedLaunch = true;
 					for(j = 0; j < listed.length; j++){
@@ -515,6 +525,9 @@ var rs;
 				}
 			}
 			S('#'+s+' .requirements').css({'display':(li ? '':'none')});
+			if (this.data.options && this.data.options['fix-links']){
+
+			}
 		}
 		this.log('Requirement sections',requirementssectionlist);
 		var ok = 0;

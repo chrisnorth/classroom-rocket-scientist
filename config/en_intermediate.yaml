@@ -275,6 +275,7 @@ launch.prep.budget.error: You no not have sufficient funds.
 launch.prep.powered.label: You need sufficient power.
 launch.prep.powered.error: You no not have sufficient power.
 launch.prep.checklist:               <p>We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail. You haven't met these requirements:</p>$requirementslist$
+launch.prep.fixme:                   Fix &rangle;
 launch.prep.goforlaunch:             Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.
 launch.prep.button:                  Launch?
 launch.countdown: Count down

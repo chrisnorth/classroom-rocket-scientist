@@ -1,6 +1,7 @@
 {
 	"options": {
-		"require-hint": true
+		"require-hint": true,
+		"fix-links": true
 	},
 	"sections": [{
 		"id": "type",

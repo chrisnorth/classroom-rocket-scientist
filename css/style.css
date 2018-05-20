@@ -887,6 +887,9 @@ section#launch p, #launch-text {
   margin: auto;
   margin-bottom: 1em; }
 
+section#launch #fixme {
+  display: none; }
+
 section#goal .holder, section#type .holder {
   padding: 0 0.5em 0.5em 0.5em;
   vertical-align: top;

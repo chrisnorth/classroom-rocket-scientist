@@ -262,6 +262,7 @@ scenarios.EO.surface.launch:  Welcome to the launch of the UK Space Agency's lat
 scenarios.EO.surface.success: Congratulations, your earth observation satellite is now measuring the varying height of land and oceans over the Earth's surface.
 
 launch.prep.checklist:               <p>We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail. You haven't met these requirements:</p>$requirementslist$
+launch.prep.fixme:                   Fix &rangle;
 launch.prep.goforlaunch:             Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.
 launch.prep.button:                  Launch?
 launch.countdown: Count down
