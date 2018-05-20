@@ -149,16 +149,16 @@ package.tv-en.title:                        TV encoder
 package.tv-en.description:                  Used to broadcast the TV to people around the world.
 package.battery-large.title:                Large battery
 package.battery-large.description:          Stores power from solar panels to allow operation when not in sunlight
-package.battery-large.requires.solar.label: Requires solar panels to charge up
-package.battery-large.requires.solar.error: Requires solar panels
+package.battery-large.requires.solar.label: Battery requires solar panels to charge up
+package.battery-large.requires.solar.error: Battery requires solar panels
 package.battery-medium.title:                Medium battery
 package.battery-medium.description:          Stores power from solar panels to allow operation when not in sunlight
-package.battery-medium.requires.solar.label: Requires solar panels to charge up
-package.battery-medium.requires.solar.error: Requires solar panels
+package.battery-medium.requires.solar.label: Battery requires solar panels to charge up
+package.battery-medium.requires.solar.error: Battery requires solar panels
 package.battery-small.title:                Small battery
 package.battery-small.description:          Stores power from solar panels to allow operation when not in sunlight
-package.battery-small.requires.solar.label: Requires solar panels
-package.battery-small.requires.solar.error: Requires solar panels
+package.battery-small.requires.solar.label: Battery requires solar panels to charge up
+package.battery-small.requires.solar.error: Battery requires solar panels
 package.rtg.title:                          RTG
 package.rtg.description:                    A "Radioisotope Thermal Generator" (RTG) uses nuclear technology to provide power. Due to safety concerns, it can't be used in low-Earth orbit.
 package.rtg.requires.orbit.label:           RTG cannot be used in low-Earth orbit
@@ -187,8 +187,8 @@ scenarios.NAV.sat-nav.title:                Satellite Navigation System
 scenarios.NAV.sat-nav.description:          Uses signals from four navigation satellites so satnav users can find their location on Earth. Need to be able to see half a hemisphere at a time, measure time accurately and transmit signals of the location.
 scenarios.NAV.sat-nav.req.atomic.label:     Needs to be able to measure time very accurately
 scenarios.NAV.sat-nav.req.atomic.error:     You are not able to measure the time accurately enough.
-scenarios.NAV.sat-nav.req.radio-tx.label: A way to send signals to the groud.
-scenarios.NAV.sat-nav.req.radio-tx.error: Your satellite does not have any way to transmit timing signals to people on the ground.
+scenarios.NAV.sat-nav.req.radio-dish.label: A way to send signals to the groud.
+scenarios.NAV.sat-nav.req.radio-dish.error: Your satellite does not have any way to transmit timing signals to people on the ground.
 scenarios.NAV.sat-nav.req.orbit.label: See large areas of the planet at one time.
 scenarios.NAV.sat-nav.req.orbit.error: The orbit you have chosen does not allow you to see a large enough area of the the whole planet.
 scenarios.NAV.sat-nav.req.power.label: Provide power even when not in sunlight.
@@ -207,8 +207,8 @@ scenarios.COMMS.title:                      Communication
 scenarios.COMMS.description:                These satellites are used for television, phone or internet transmissions. For example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.
 scenarios.COMMS.phone.title: Satellite telephone system
 scenarios.COMMS.phone.description: Lets people talk over the phone from remote regions of the world using satellites.
-scenarios.COMMS.phone.req.radio-tx.label: A way to send signals.
-scenarios.COMMS.phone.req.radio-tx.error: Your satellite does not have a way to send signals to the ground.
+scenarios.COMMS.phone.req.radio-dish.label: A way to send signals.
+scenarios.COMMS.phone.req.radio-dish.error: Your satellite does not have a way to send signals to the ground.
 scenarios.COMMS.phone.req.phone-en.label: A way to broadcast phone signals.
 scenarios.COMMS.phone.req.phone-en.error: Your satellite does not have a way to broadcast phone signals
 scenarios.COMMS.phone.req.orbit.label: Satellite is continuously above one area of Earth
@@ -217,8 +217,8 @@ scenarios.COMMS.phone.launch:				Welcome to the launch of the UK Space Agency's 
 scenarios.COMMS.phone.success: 				Congratulations, your communication satellite is now receiving signals from the ground and broadcasting them to phones around the Earth on behalf of the UK Space Agency.
 scenarios.COMMS.internet.title: Satellite internet
 scenarios.COMMS.internet.description: Connect to the internet from remote regions of the world using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.
-scenarios.COMMS.internet.req.radio-tx.label: A way to send signals.
-scenarios.COMMS.internet.req.radio-tx.error: You do not have a way to send signals to the ground.
+scenarios.COMMS.internet.req.radio-dish.label: A way to send signals to the ground.
+scenarios.COMMS.internet.req.radio-dish.error: You do not have a way to send signals to the ground.
 scenarios.COMMS.internet.req.internet-en.label: A way to encode internet signals.
 scenarios.COMMS.internet.req.internet-en.error: You do not have a way to encode internet signals.
 scenarios.COMMS.internet.req.orbit.label: Satellite is continuously above one area of Earth
@@ -227,8 +227,8 @@ scenarios.COMMS.internet.launch:				Welcome to the launch of the UK Space Agency
 scenarios.COMMS.internet.success: 				Congratulations, your communication satellite is now helping people connect to the internet from regions all over the world on behalf of the UK Space Agency.
 scenarios.COMMS.tv.title: Satellite TV
 scenarios.COMMS.tv.description: Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.
-scenarios.COMMS.tv.req.radio-tx.label: A way to send signals.
-scenarios.COMMS.tv.req.radio-tx.error: You do not have a way to send signals to the ground.
+scenarios.COMMS.tv.req.radio-dish.label: A way to send signals to the ground.
+scenarios.COMMS.tv.req.radio-dish.error: You do not have a way to send signals to the ground.
 scenarios.COMMS.tv.req.orbit.label: Satellite is continuously above one area of Earth.
 scenarios.COMMS.tv.req.tv-en.label: A way to encode TV signals.
 scenarios.COMMS.tv.req.tv-en.error: You do not have a way to encode TV signals.
@@ -237,51 +237,50 @@ scenarios.EO.title:                         Earth Observation
 scenarios.EO.description:                   These satellites are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.
 scenarios.EO.weather.title: Weather forecasting
 scenarios.EO.weather.description: Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean.
-scenarios.EO.weather.req.camera-fir.label: To measure cloud types and temperatures on Earth.
+scenarios.EO.weather.req.radio-dish.label: A way to send signals.
+scenarios.EO.weather.req.radio-dish.error: You do not have a way to send signals to the ground.
+scenarios.EO.weather.req.camera-fir.label: This camera can be used to measure cloud types and temperatures on Earth.
 scenarios.EO.weather.req.camera-fir.error: You do not have a way to identify cloud types and measure temperatures on Earth.
 scenarios.EO.weather.req.camera-opt.label: To take images of clouds and weather systems on Earth.
 scenarios.EO.weather.req.camera-opt.error: You do not have a way to take images of the weather on Earth.
-scenarios.EO.veg-map.req.radio-tx.label: To transmit signals to the ground.
-scenarios.EO.veg-map.req.radio-tx.error: You do not have a way to transmit signals to the ground.
-scenarios.EO.veg-map.req.radio-rx.label: To receive instructions from the ground.
-scenarios.EO.veg-map.req.radio-rx.error: You do not have a way to receive instructions from the ground.
 scenarios.EO.weather.req.orbit.label: See detail of Earth's weather systems.
 scenarios.EO.weather.req.orbit.error: The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail.
+scenarios.EO.weather.launch:				Welcome to the launch of the UK Space Agency's latest earth observation satellite that will allow forecasters around the world to predict future weather.
+scenarios.EO.weather.success: 				Congratulations, your earth observation satellite is now helping forecasters around the world to predict future weather.
 scenarios.EO.veg-map.title: Vegetation mapping
 scenarios.EO.veg-map.description: Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmit the images back to the ground.
-scenarios.EO.veg-map.req.radio-tx.label: To transmit signals to the ground.
-scenarios.EO.veg-map.req.radio-tx.error: You do not have a way to transmit signals to the ground.
-scenarios.EO.veg-map.req.radio-rx.label: To receive instructions from the ground.
-scenarios.EO.veg-map.req.radio-rx.error: You do not have a way to receive instructions from the ground.
+scenarios.EO.veg-map.req.radio-dish.label: A way to transmit signals to the ground.
+scenarios.EO.veg-map.req.radio-dish.error: You do not have a way to transmit signals to the ground.
 scenarios.EO.veg-map.req.camera.label: To take images of the vegetation on Earth.
 scenarios.EO.veg-map.req.camera.error: You do not have a way to take images of the vegetation on Earth.
+scenarios.EO.veg-map.req.orbit.label: See detail of Earth's weather systems.
+scenarios.EO.veg-map.req.orbit.error: The orbit you have chosen does not allow you to see the vegetation in enough detail.
+scenarios.EO.veg-map.launch:				Welcome to the launch of the UK Space Agency's latest earth observation satellite that will map the plants over the surface of the Earth using infrared images.
+scenarios.EO.veg-map.success: 				Congratulations, your earth observation satellite is now mapping the plants across the surface of the Earth using infrared images.
 scenarios.EO.disaster.title: Natural disaster monitoring
 scenarios.EO.disaster.description: When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras can show floods and fires. Radio waves can show regions of earth deformation, such as after earthquakes.
 scenarios.EO.disaster.req.camera.label: To take high resolution images of Earth where disaster has occured.
 scenarios.EO.disaster.req.camera.error: You do not have a way to take high resolution images of Earth where disaster has occured.
-scenarios.EO.disaster.req.radio-tx.label: To transmit signals to the ground.
-scenarios.EO.disaster.req.radio-tx.error: You do not have a way to transmit signals to the ground.
-scenarios.EO.disaster.req.radio-rx.label: To receive instructions from the ground.
-scenarios.EO.disaster.req.radio-rx.error: You do not have a way to receive instructions from the ground.
+scenarios.EO.disaster.req.radio-dish.label: A way to transmit signals to the ground.
+scenarios.EO.disaster.req.radio-dish.error: You do not have a way to transmit signals to the ground.
 scenarios.EO.disaster.req.radar-alt.label: To measure the height and deformation of the ground in very high resolution.
 scenarios.EO.disaster.req.radar-alt.error: You do not have a way to measure the height of the surface, such as for earthquakes.
 scenarios.EO.disaster.req.camera-nir.label: To monitor vegetation, for example during forest fires.
 scenarios.EO.disaster.req.camera-nir.error: You do not have a way to monitor vegetation in disaster regions.
 scenarios.EO.disaster.req.orbit.label: To see fine detail of planet surface.
 scenarios.EO.disaster.req.orbit.error: The orbit you have chosen does not allow you to see the disaster region in enough detail.
-
+scenarios.EO.disaster.launch:				Welcome to the launch of the UK Space Agency's latest earth observation satellite that will help to assess the damage caused by natural disasters including forest fires, floods and eathquakes.
+scenarios.EO.disaster.success: 				Congratulations, your earth observation satellite is now helping to assess the damage caused by natural disasters including forest fires, floods and eathquakes.
 scenarios.EO.surface.title: Surface mapping
 scenarios.EO.surface.description: Measure the varying height of land and oceans over the Earth's surface.
 scenarios.EO.surface.req.radar-alt.label: To measure the height of the ground in very high resolution.
 scenarios.EO.surface.req.radar-alt.error: You do not have a way to measure the height of the ground in very high resolution.
 scenarios.EO.surface.req.dish.label: Radar altimeter requires a radar dish to work.
 scenarios.EO.surface.req.dish.error: Your radar altimeter cannot work as it does not have a radar dish.
-scenarios.EO.surface.req.radio-tx.label: To transmit signals to the ground.
-scenarios.EO.surface.req.radio-tx.error: You do not have a way to transmit signals to the ground.
-scenarios.EO.surface.req.radio-tx.label: To receive instructions from ground control.
-scenarios.EO.surface.req.radio-tx.error: You do not have a way to receive instructions from the ground.
-scenarios.EO.surface.req.sat-tracker.label: Know the satellite position to high precision
-scenarios.EO.surface.req.sat-tracker.error: You do not have a way to locate the position of the satellite accurately. #If this is staying as a new instrument, need to add as a package option.
+scenarios.EO.surface.req.radio-dish.label: A way to transmit signals to the ground.
+scenarios.EO.surface.req.radio-dish.error: You do not have a way to transmit signals to the ground.
+scenarios.EO.surface.req.sat-tracker.label: A way to know the satellite position to high precision
+scenarios.EO.surface.req.sat-tracker.error: You do not have a way to locate the position of the satellite accurately.
 scenarios.EO.surface.req.orbit.label: To see fine detail on the planet surface.
 scenarios.EO.surface.req.orbit.error: The orbit you have chosen does not allow you to see the planet surface in enough detail.
 scenarios.EO.surface.launch:  Welcome to the launch of the UK Space Agency's latest earth observation satellite that will measure the varying height of land and oceans over the Earth's surface.
@@ -290,6 +289,7 @@ launch.prep.budget.label: You need sufficient funds.
 launch.prep.budget.error: You no not have sufficient funds.
 launch.prep.powered.label: You need sufficient power.
 launch.prep.powered.error: You no not have sufficient power.
+# launch.prep.checklist:               <p>We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail. You haven't met these requirements:</p>$requirementslist$<p>Check these sections:</p>$requirementssectionlist$
 launch.prep.checklist:               <p>We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail. You haven't met these requirements:</p>$requirementslist$
 launch.prep.goforlaunch:             Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.
 launch.prep.button:                  Launch?

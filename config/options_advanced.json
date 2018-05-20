@@ -874,8 +874,8 @@
 				},{
 					"type": "package",
 					"oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
-					"label": "%scenarios.NAV.sat-nav.req.radio-tx.label%",
-					"error": "%scenarios.NAV.sat-nav.req.radio-tx.error%"
+					"label": "%scenarios.NAV.sat-nav.req.radio-dish.label%",
+					"error": "%scenarios.NAV.sat-nav.req.radio-dish.error%"
 				},{
 					"type": "orbit",
 					"oneof": ["HEO","GEO","MEO"],
@@ -933,8 +933,8 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
-                    "label": "%scenarios.COMMS.phone.req.radio-tx.label%",
-					"error": "%scenarios.COMMS.phone.req.radio-tx.error%"
+                    "label": "%scenarios.COMMS.phone.req.radio-dish.label%",
+					"error": "%scenarios.COMMS.phone.req.radio-dish.error%"
                 },{
                     "type": "package",
                     "oneof": ["phone-en","phone-en-mini"],
@@ -960,8 +960,8 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
-                    "label": "%scenarios.COMMS.tv.req.radio-tx.label%",
-					"error": "%scenarios.COMMS.tv.req.radio-tx.error%"
+                    "label": "%scenarios.COMMS.tv.req.radio-dish.label%",
+					"error": "%scenarios.COMMS.tv.req.radio-dish.error%"
                 },{
                     "type": "package",
                     "oneof": ["tv-en"],
@@ -987,8 +987,8 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
-                    "label": "%scenarios.COMMS.internet.req.radio-tx.label%",
-					"error": "%scenarios.COMMS.internet.req.radio-tx.error%"
+                    "label": "%scenarios.COMMS.internet.req.radio-dish.label%",
+					"error": "%scenarios.COMMS.internet.req.radio-dish.error%"
                 },{
                     "type": "package",
                     "oneof": ["internet-en"],
@@ -1023,6 +1023,11 @@
 				"budget": { "value": 250, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
+                    "label": "%scenarios.EO.weather.req.radio-dish.label%",
+					"error": "%scenarios.EO.weather.req.radio-dish.error%"
+                },{
+                    "type": "package",
                     "oneof": ["camera-fir"],
                     "label": "%scenarios.EO.weather.req.camera-fir.label%",
 					"error": "%scenarios.EO.weather.req.camera-fir.error%"
@@ -1051,8 +1056,8 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
-                    "label": "%scenarios.EO.veg-map.req.radio-tx.label%",
-					"error": "%scenarios.EO.veg-map.req.radio-tx.error%"
+                    "label": "%scenarios.EO.veg-map.req.radio-dish.label%",
+					"error": "%scenarios.EO.veg-map.req.radio-dish.error%"
                 },{
                     "type": "package",
                     "oneof": ["camera-nir","spect-nir"],
@@ -1061,8 +1066,8 @@
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],
-					"label": "%scenarios.EO.weather.req.orbit.label%",
-					"error": "%scenarios.EO.weather.req.orbit.error%"
+					"label": "%scenarios.EO.veg-map.req.orbit.label%",
+					"error": "%scenarios.EO.veg-map.req.orbit.error%"
 				}]
 			},{
 				"title": "%scenarios.EO.disaster.title%",
@@ -1083,8 +1088,8 @@
                 },{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
-                    "label": "%scenarios.EO.disaster.req.radio-tx.label%",
-					"error": "%scenarios.EO.disaster.req.radio-tx.error%"
+                    "label": "%scenarios.EO.disaster.req.radio-dish.label%",
+					"error": "%scenarios.EO.disaster.req.radio-dish.error%"
                 },{
                     "type": "package",
                     "oneof": ["radar-alt"],
@@ -1120,13 +1125,13 @@
                 },{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
-                    "label": "%scenarios.EO.surface.req.radio-tx.label%",
-					"error": "%scenarios.EO.surface.req.radio-tx.error%"
+                    "label": "%scenarios.EO.surface.req.radio-dish.label%",
+					"error": "%scenarios.EO.surface.req.radio-dish.error%"
                 },{
                     "type": "package",
-                    "oneof": ["gps-tracker"],
-                    "label": "%scenarios.EO.surface.req.gps-tracker.label%",
-					"error": "%scenarios.EO.surface.req.gps-tracker.error%"
+                    "oneof": ["gps-rx"],
+                    "label": "%scenarios.EO.surface.req.sat-tracker.label%",
+					"error": "%scenarios.EO.surface.req.sat-tracker.error%"
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],
