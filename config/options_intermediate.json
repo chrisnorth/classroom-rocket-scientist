@@ -47,29 +47,29 @@
 			"height": { "value": 1, "units": "m", "dimension": "length" },
 			"depth": { "value": 1, "units": "m", "dimension": "length" },
 			"area": { "value": 1, "units": "m^2", "dimension": "area" },
-            "power": { "value": 500, "units": "watts", "dimension": "power"}
+            "power": { "value": 100, "units": "watts", "dimension": "power"}
 		},
 		"medium":{
 			"slots": { "2x2": 4, "2x4": 2, "3x3": 1, "4x4": 4 },
 			"cost": { "value": 100, "units": "credits", "dimension": "currency" },
 			"mass": { "value": 500, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 250, "units": "kg", "dimension": "mass" },
-			"width": { "value": 5, "units": "m", "dimension": "length" },
+			"width": { "value": 2, "units": "m", "dimension": "length" },
 			"height": { "value": 2.5, "units": "m", "dimension": "length" },
 			"depth": { "value": 2.5, "units": "m", "dimension": "length" },
 			"area": { "value": 3, "units": "m^2", "dimension": "area" },
-            "power": { "value": 1000, "units": "watts", "dimension": "power"}
+            "power": { "value": 300, "units": "watts", "dimension": "power"}
 		},
 		"large":{
 			"slots": { "2x2": 8, "2x4": 3, "4x8": 1, "3x3": 1, "4x4": 4 },
 			"cost": { "value": 500, "units": "credits", "dimension": "currency" },
 			"mass": { "value": 1000, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 500, "units": "kg", "dimension": "mass" },
-			"width": { "value": 10, "units": "m", "dimension": "length" },
+			"width": { "value": 8, "units": "m", "dimension": "length" },
 			"height": { "value": 2.5, "units": "m", "dimension": "length" },
 			"depth": { "value": 2.5, "units": "m", "dimension": "length" },
 			"area": { "value": 10, "units": "m^2", "dimension": "area" },
-            "power": { "value": 1500, "units": "watts", "dimension": "power"}
+            "power": { "value": 500, "units": "watts", "dimension": "power"}
 		}
 	},
 	"package": {
@@ -119,7 +119,7 @@
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" }
 			],
-			"power": { "value": 50, "units": "watts", "dimension": "power" }
+			"power": { "value": 100, "units": "watts", "dimension": "power" }
 		},
 		"camera-fir": {
 			"slot":	"2x4",
@@ -167,7 +167,7 @@
 				{ "value": 0.5, "units": "m", "dimension": "length" },
 				{ "value": 0.5, "units": "m", "dimension": "length" }
 			],
-			"power": { "value": 150, "units": "watts", "dimension": "power" }
+			"power": { "value": 250, "units": "watts", "dimension": "power" }
 		},
 		"spect-fir": {
 			"slot":	"2x4",
@@ -202,60 +202,10 @@
 			"power": { "value": 70, "units": "watts", "dimension": "power" },
 			"requires": [{
 				"type": "package",
-				"oneof": ["radar-dish"],
+				"oneof": ["dish-large"],
 				"label": "%package.radar-alt.requires.dish.label%",
 				"error": "%package.radar-alt.requires.dish.error%"
 			}]
-		},
-		"radar-dish": {
-			"slot":	"4x8",
-			"title": "%package.radar-dish.title%",
-			"description": "%package.radar-dish.description%",
-			"texture": {
-				"icon": "",
-				"class": "-bg radar",
-				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
-			},
-			"mass": { "value": 40, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 2.0, "units": "m", "dimension": "length" },
-				{ "value": 2.0, "units": "m", "dimension": "length" },
-				{ "value": 1.0, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 0, "units": "watts", "dimension": "power" }
-		},
-		"radio-rx": {
-			"slot":	"2x2",
-			"title": "%package.radio-rx.title%",
-			"description": "%package.radio-rx.description%",
-			"texture": {
-				"icon": "texture radio-rx"
-			},
-			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 20, "units": "watts", "dimension": "power" }
-		},
-		"radio-tx": {
-			"slot":	"2x2",
-			"title": "%package.radio-tx.title%",
-			"description": "%package.radio-tx.description%",
-			"texture": {
-				"icon": "texture radio-tx"
-			},
-			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 20, "units": "watts", "dimension": "power" }
 		},
 		"atomic-clock": {
 			"slot":	"2x2",
@@ -273,24 +223,8 @@
 			],
 			"power": { "value": 10, "units": "watts", "dimension": "power" }
 		},
-		"atomic-clock-small": {
-			"slot":	"1x2",
-			"title": "%package.atomic-clock-small.title%",
-			"description": "%package.atomic-clock-small.description%",
-			"texture": {
-				"icon": "texture atomic-clock-small"
-			},
-			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.1, "units": "m", "dimension": "length" },
-				{ "value": 0.1, "units": "m", "dimension": "length" },
-				{ "value": 0.05, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 5, "units": "watts", "dimension": "power" }
-		},
 		"gps-rx": {
-			"slot":	"1x1",
+			"slot":	"2x2",
 			"title": "%package.gps-rx.title%",
 			"description": "%package.gps-rx.description%",
 			"texture": {
@@ -305,29 +239,13 @@
 			],
 			"power": { "value": 5, "units": "watts", "dimension": "power" }
 		},
-		"camera-mini": {
-			"slot":	"1x1",
-			"title": "%package.camera-mini.title%",
-			"description": "%package.camera-mini.description%",
-			"texture": {
-				"icon": "texture camera-mini"
-			},
-			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.05, "units": "m", "dimension": "length" },
-				{ "value": 0.05, "units": "m", "dimension": "length" },
-				{ "value": 0.1, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 5, "units": "watts", "dimension": "power" }
-		},
 		"dish-large": {
 			"slot":	"4x8",
 			"title": "%package.dish-large.title%",
 			"description": "%package.dish-large.description%",
 			"texture": {
 				"icon": "",
-				"class": "-bg radio",
+				"class": "-bg radar",
 				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
 			},
 			"mass": { "value": 30, "units": "kg", "dimension": "mass" },
@@ -357,43 +275,6 @@
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" }
 		},
-		"dish-small": {
-			"slot":	"1x2",
-			"title": "%package.dish-small.title%",
-			"description": "%package.dish-small.description%",
-			"texture": {
-				"icon": "",
-				"class": "-bg radio",
-				"html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"
-			},
-			"mass": { "value": 0.5, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0.5, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.1, "units": "m", "dimension": "length" },
-				{ "value": 0.05, "units": "m", "dimension": "length" },
-				{ "value": 0.05, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 0, "units": "watts", "dimension": "power" }
-		},
-		"radio-antenna-cube": {
-			"slot":	"0x2",
-			"title": "%package.radio-antenna-cube.title%",
-			"description": "%package.radio-antenna-cube.description%",
-			"texture": {
-				"icon": "texture radio-antenna-cube",
-				"class": "-bg",
-				"html": "<div class=\"aerials\"><div class=\"aerial1 aerial\"></div><div class=\"aerial2 aerial\"></div></div>"
-			},
-			"mass": { "value": 0.1, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0.5, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.98, "units": "m", "dimension": "length" },
-				{ "value": 0.98, "units": "m", "dimension": "length" },
-				{ "value": 0.07, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 2, "units": "watts", "dimension": "power" },
-			"ref": "http://cubesatshop.com/index.php?page=shop.product.details&category.id=6&flypage=flypage.tpl&product.id=66&option=com.virtuemart&Itemid=70&vmcchk=1&Itemid=70"
-		},
 		"internet-en" : {
 			"slot": "2x2",
 			"title": "%package.internet-en.title%",
@@ -401,35 +282,35 @@
 			"texture": {
 				"icon": "texture internet-en"
 			},
-			"mass": { "value": 0, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "credits", "dimension": "currency" },
+			"mass": { "value": 2, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
 			"dimensions": [
-				{ "value": 0, "units": "m", "dimension": "length" },
-				{ "value": 0, "units": "m", "dimension": "length" },
-				{ "value": 0, "units": "m", "dimension": "length" }
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" }
 			],
-			"power": { "value": 0, "units": "watts", "dimension": "power" }
+			"power": { "value": 20, "units": "watts", "dimension": "power" }
 		},
 		"tv-en" : {
 			"slot": "2x2",
 			"title": "%package.tv-en.title%",
 			"description": "%package.tv-en.description%",
 			"texture": {
-				"icon": ""
+				"icon": "texture tv-en"
 			},
-			"mass": { "value": 0, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 0, "units": "credits", "dimension": "currency" },
+			"mass": { "value": 2, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
 			"dimensions": [
-				{ "value": 0, "units": "m", "dimension": "length" },
-				{ "value": 0, "units": "m", "dimension": "length" },
-				{ "value": 0, "units": "m", "dimension": "length" }
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" }
 			],
-			"power": { "value": 0, "units": "watts", "dimension": "power" }
+			"power": { "value": 40, "units": "watts", "dimension": "power" }
 		}
 	},
 	"power": {
 		"battery-large": {
-			"slot":	"2x2",
+			"slot":	"2x4",
 			"title": "%package.battery-large.title%",
 			"description": "%package.battery-large.description%",
 			"texture": {
@@ -449,27 +330,26 @@
 				"label": "%package.battery-large.requires.solar.label%",
 				"error": "%package.battery-large.requires.solar.error%"
 			}]
-		},
-		"battery-small": {
-			"slot":	"1x1",
-			"title": "%package.battery-small.title%",
-			"description": "%package.battery-small.description%",
+		},"battery-medium": {
+			"slot":	"2x2",
+			"title": "%package.battery-medium.title%",
+			"description": "%package.battery-medium.description%",
 			"texture": {
-				"icon": "texture battery-small"
+				"icon": "texture battery-medium"
 			},
-			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 15, "units": "credits", "dimension": "currency" },
+			"mass": { "value": 25, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 10, "units": "credits", "dimension": "currency" },
 			"dimensions": [
-				{ "value": 0.05, "units": "m", "dimension": "length" },
-				{ "value": 0.05, "units": "m", "dimension": "length" },
-				{ "value": 0.05, "units": "m", "dimension": "length" }
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" }
 			],
 			"power": { "value": 0, "units": "watts", "dimension": "power" },
 			"requires": [{
 				"type": "power",
 				"oneof": ["solar-panel","solar-panel-surface"],
-				"label": "%package.battery-small.requires.solar.label%",
-				"error": "%package.battery-small.requires.solar.error%"
+				"label": "%package.battery-large.requires.solar.label%",
+				"error": "%package.battery-large.requires.solar.error%"
 			}]
 		},
 		"rtg": {
@@ -536,10 +416,10 @@
 	},{
 		"key": "S",
 		"type": "Solid-fuel rocket",
-		"diameter": { "value": 1.0, "units": "m", "dimension": "length" },
+		"diameter": { "value": 1, "units": "m", "dimension": "length" },
 		"height": { "value": 12.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 10500, "units": "kg", "dimension": "mass" },
-		"cost": { "value": 23, "units": "credits", "dimension": "currency" },
+		"cost": { "value": 12, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 2200, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 88000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 280, "units": "s", "dimension": "time" },
@@ -547,10 +427,10 @@
 	},{
 		"key": "M",
 		"type": "Liquid-fuel rocket",
-		"diameter": { "value": 2.0, "units": "m", "dimension": "length" },
+		"diameter": { "value": 2, "units": "m", "dimension": "length" },
 		"height": { "value": 30.0, "units": "m", "dimension": "length" },
 		"drymass": { "value": 9000, "units": "kg", "dimension": "mass" },
-		"cost": { "value": 12, "units": "credits", "dimension": "currency" },
+		"cost": { "value": 23, "units": "credits", "dimension": "currency" },
 		"thrust": { "value": 1500, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 120000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 300, "units": "s", "dimension": "time" },
@@ -717,8 +597,8 @@
 		"diameter": { "value": 10, "units": "m", "dimension": "length" },
 		"height": { "value": 19, "units": "m", "dimension": "length" },
 		"drymass": { "value": 13500, "units": "kg", "dimension": "mass" },
-		"cost": { "value": 8, "units": "credits", "dimension": "currency" },
-		"thrust": { "value": 1000, "units": "kN", "dimension": "force" },
+		"cost": { "value": 10, "units": "credits", "dimension": "currency" },
+		"thrust": { "value": 1500, "units": "kN", "dimension": "force" },
 		"fuel": { "value": 110000, "units": "kg", "dimension": "mass" },
 		"impulse": { "value": 420, "units": "s", "dimension": "time" },
 		"notes": "Based on Saturn V 3rd stage (https://en.wikipedia.org/wiki/Saturn_V)"
@@ -835,31 +715,27 @@
 					"alt": "%scenarios.NAV.sat-nav.title%",
 					"credit": "Housin Aziz"
 				},
-				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
-					"type": "bus",
-					"oneof": ["small","medium","large"],
-					"label": "%scenarios.NAV.sat-nav.req.bus.label%",
-					"error": "%scenarios.NAV.sat-nav.req.bus.error%"
-				},{
 					"type": "package",
 					"oneof": ["atomic-clock"],
 					"label": "%scenarios.NAV.sat-nav.req.atomic.label%",
 					"error": "%scenarios.NAV.sat-nav.req.atomic.error%"
 				},{
 					"type": "package",
-					"oneof": ["radio-tx"],
-					"label": "%scenarios.NAV.sat-nav.req.radio-tx.label%",
-					"error": "%scenarios.NAV.sat-nav.req.radio-tx.error%"
+					"oneof": ["dish-large","dish-medium"],
+					"label": "%scenarios.NAV.sat-nav.req.radio-dish.label%",
+					"error": "%scenarios.NAV.sat-nav.req.radio-dish.error%"
 				},{
 					"type": "orbit",
-					"oneof": ["HEO","GEO"],
+					"oneof": ["HEO","GEO","MEO"],
 					"label": "%scenarios.NAV.sat-nav.req.orbit.label%",
 					"error": "%scenarios.NAV.sat-nav.req.orbit.error%"
 				},{
                     "type": "power",
-                    "oneof": ["battery-small","battery-large"],
-                    "label": ""
+                    "oneof": ["battery-medium","battery-large"],
+                    "label": "%scenarios.NAV.sat-nav.req.power.label%",
+                    "error": "%scenarios.NAV.sat-nav.req.orbit.error%"
                 }]
 			},{
 				"title": "%scenarios.NAV.map.title%",
@@ -882,8 +758,9 @@
 					"oneof": ["LEO"],
 					"label": "%scenarios.NAV.map.req.orbit.label%",
 					"error": "%scenarios.NAV.map.req.orbit.error%"
+				}]
 			}]
-		}]},
+		},
 		"COMMS": {
 			"title": "%scenarios.COMMS.title%",
 			"description": "%scenarios.COMMS.description%",
@@ -898,21 +775,21 @@
 				"launch": "%scenarios.COMMS.phone.launch%",
 				"success": "%scenarios.COMMS.phone.success%",
 				"image": {
-					"file": "images/png/icon-phone.png",
+					"file": "images/svg/mobile-alt-white.svg",
 					"alt": "%scenarios.COMMS.phone.title%",
 					"credit": "Plainicon"
 				},
 				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
-                    "oneof": ["radio-tx"],
-                    "label": "%scenarios.COMMS.phone.req.radio-tx.label%",
-					"error": "%scenarios.COMMS.phone.req.radio-tx.error%"
+                    "oneof": ["dish-large","dish-medium"],
+                    "label": "%scenarios.COMMS.phone.req.radio-dish.label%",
+					"error": "%scenarios.COMMS.phone.req.radio-dish.error%"
                 },{
                     "type": "package",
-                    "oneof": ["radio-rx"],
-                    "label": "%scenarios.COMMS.phone.req.radio-rx.label%",
-					"error": "%scenarios.COMMS.phone.req.radio-rx.error%"
+                    "oneof": ["phone-en"],
+                    "label": "%scenarios.COMMS.phone.req.phone-en.label%",
+					"error": "%scenarios.COMMS.phone.req.phone-en.error%"
                 },{
 					"type": "orbit",
 					"oneof": ["GEO"],
@@ -932,14 +809,9 @@
 				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
-                    "oneof": ["radio-tx"],
-                    "label": "%scenarios.COMMS.tv.req.radio-tx.label%",
-					"error": "%scenarios.COMMS.tv.req.radio-tx.error%"
-                },{
-                    "type": "package",
-                    "oneof": ["radio-rx"],
-                    "label": "%scenarios.COMMS.tv.req.radio-rx.label%",
-					"error": "%scenarios.COMMS.tv.req.radio-rx.error%"
+                    "oneof": ["dish-large","dish-medium"],
+                    "label": "%scenarios.COMMS.tv.req.radio-dish.label%",
+					"error": "%scenarios.COMMS.tv.req.radio-dish.error%"
                 },{
                     "type": "package",
                     "oneof": ["tv-en"],
@@ -957,21 +829,16 @@
 				"launch": "%scenarios.COMMS.internet.launch%",
 				"success": "%scenarios.COMMS.internet.success%",
 				"image": {
-					"file": "images/png/icon-internet.png",
+					"file": "images/svg/icon-wifi-white.svg",
 					"alt": "%scenarios.COMMS.internet.title%",
 					"credit": "parkjisun"
 				},
-				"budget": { "value": 300, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
-                    "oneof": ["radio-tx"],
-                    "label": "%scenarios.COMMS.internet.req.radio-tx.label%",
-					"error": "%scenarios.COMMS.internet.req.radio-tx.error%"
-                },{
-                    "type": "package",
-                    "oneof": ["radio-rx"],
-                    "label": "%scenarios.COMMS.internet.req.radio-rx.label%",
-					"error": "%scenarios.COMMS.internet.req.radio-rx.error%"
+                    "oneof": ["dish-large","dish-medium"],
+                    "label": "%scenarios.COMMS.internet.req.radio-dish.label%",
+					"error": "%scenarios.COMMS.internet.req.radio-dish.error%"
                 },{
                     "type": "package",
                     "oneof": ["internet-en"],
@@ -1003,8 +870,13 @@
 					"alt": "%scenarios.EO.weather.title%",
 					"credit": "Megan Mitchell"
 				},
-				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 250, "units": "credits", "dimension": "currency" },
 				"requires": [{
+                    "type": "package",
+                    "oneof": ["dish-large","dish-medium"],
+                    "label": "%scenarios.EO.weather.req.radio-dish.label%",
+					"error": "%scenarios.EO.weather.req.radio-dish.error%"
+                },{
                     "type": "package",
                     "oneof": ["camera-fir"],
                     "label": "%scenarios.EO.weather.req.camera-fir.label%",
@@ -1033,15 +905,20 @@
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
-                    "oneof": ["radio-tx"],
-                    "label": "%scenarios.EO.veg-map.req.radio-tx.label%",
-					"error": "%scenarios.EO.veg-map.req.radio-tx.error%"
+                    "oneof": ["dish-large","dish-medium"],
+                    "label": "%scenarios.EO.veg-map.req.radio-dish.label%",
+					"error": "%scenarios.EO.veg-map.req.radio-dish.error%"
                 },{
                     "type": "package",
                     "oneof": ["camera-nir","spect-nir"],
                     "label": "%scenarios.EO.veg-map.req.camera.label%",
 					"error": "%scenarios.EO.veg-map.req.camera.error%"
-                }]
+                },{
+					"type": "orbit",
+					"oneof": ["LEO"],
+					"label": "%scenarios.EO.veg-map.req.orbit.label%",
+					"error": "%scenarios.EO.veg-map.req.orbit.error%"
+				}]
 			},{
 				"title": "%scenarios.EO.disaster.title%",
 				"description": "%scenarios.EO.disaster.description%",
@@ -1052,7 +929,7 @@
 					"alt": "%scenarios.EO.disaster.title%",
 					"credit": "Leadway Global LLC"
 				},
-				"budget": { "value": 1000, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 800, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-opt-hires"],
@@ -1060,19 +937,14 @@
 					"error": "%scenarios.EO.disaster.req.camera.error%"
                 },{
                     "type": "package",
-                    "oneof": ["radio-tx"],
-                    "label": "%scenarios.EO.disaster.req.radio-tx.label%",
-					"error": "%scenarios.EO.disaster.req.radio-tx.error%"
+                    "oneof": ["dish-large","dish-medium"],
+                    "label": "%scenarios.EO.disaster.req.radio-dish.label%",
+					"error": "%scenarios.EO.disaster.req.radio-dish.error%"
                 },{
                     "type": "package",
                     "oneof": ["radar-alt"],
                     "label": "%scenarios.EO.disaster.req.radar-alt.label%",
 					"error": "%scenarios.EO.disaster.req.radar-alt.error%"
-                },{
-                    "type": "package",
-                    "oneof": ["radar-dish"],
-                    "label": "%scenarios.EO.disaster.req.dish.label%",
-					"error": "%scenarios.EO.disaster.req.dish.error%"
                 },{
                     "type": "package",
                     "oneof": ["camera-nir"],
@@ -1102,14 +974,9 @@
 					"error": "%scenarios.EO.surface.req.radar-alt.error%"
                 },{
                     "type": "package",
-                    "oneof": ["radar-dish"],
-                    "label": "%scenarios.EO.surface.req.dish.label%",
-					"error": "%scenarios.EO.surface.req.dish.error%"
-                },{
-                    "type": "package",
-                    "oneof": ["radio-tx"],
-                    "label": "%scenarios.EO.surface.req.radio-tx.label%",
-					"error": "%scenarios.EO.surface.req.radio-tx.error%"
+                    "oneof": ["dish-large","dish-medium"],
+                    "label": "%scenarios.EO.surface.req.radio-dish.label%",
+					"error": "%scenarios.EO.surface.req.radio-dish.error%"
                 },{
                     "type": "package",
                     "oneof": ["gps-rx"],
@@ -1135,6 +1002,19 @@
 			"is": "fueled",
 			"label": "%rocket.requires.power.label%",
 			"error": "%rocket.requires.power.error%"
+		}]
+	},
+	"missionreq": {
+		"requires": [{
+			"type": "goal",
+			"is": "inbudget",
+			"label": "%launch.prep.budget.label%",
+			"error": "%launch.prep.budget.error%"
+		},{
+			"type": "power",
+			"is": "powered",
+			"label": "%launch.prep.powered.label%",
+			"error": "%launch.prep.powered.error%"
 		}]
 	},
     "launch": {
