@@ -188,7 +188,7 @@
 		"radar-alt": {
 			"slot":	"2x4",
 			"title": "Radar altimeter",
-			"description": "Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earthquakes. Requires a large radio dish to work.",
+			"description": "Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earthquakes. Requires a radar dish to work.",
 			"texture": {
 				"icon": "texture radar-alt"
 			},
@@ -203,8 +203,8 @@
 			"requires": [{
 				"type": "package",
 				"oneof": ["dish-large"],
-				"label": "The radar altimeter requires a large radio dish",
-				"error": "You need to include a large radio dish for the radar altimeter to work."
+				"label": "Requires a radar dish",
+				"error": "You need to include a radar dish for the altimeter to work."
 			}]
 		},
 		"atomic-clock": {
@@ -225,7 +225,7 @@
 		},
 		"gps-rx": {
 			"slot":	"2x2",
-			"title": "GPS receiver",
+			"title": "GPS receiver (miniature)",
 			"description": "Used to monitor the satellite's position to very high accuracy",
 			"texture": {
 				"icon": "texture gps-rx"
@@ -242,7 +242,7 @@
 		"dish-large": {
 			"slot":	"4x8",
 			"title": "Radio dish (large)",
-			"description": "Radio dish for controlling the satellite and transmitting data to the ground, as well as for the radar altimeter",
+			"description": "Radio dish capable of controlling and transmitting images & data from up to 8 instruments",
 			"texture": {
 				"icon": "",
 				"class": "-bg radar",
@@ -260,7 +260,7 @@
 		"dish-medium": {
 			"slot":	"2x4",
 			"title": "Radio dish",
-			"description": "Radio dish for controlling the satellite and transmitting data to the ground",
+			"description": "Radio dish capable of controlling and transmitting images & data from up to 4 instruments",
 			"texture": {
 				"icon": "",
 				"class": "-bg radio",
@@ -278,7 +278,7 @@
 		"internet-en" : {
 			"slot": "2x2",
 			"title": "Internet encoder",
-			"description": "Used to broadcast the internet to people around the world.",
+			"description": "",
 			"texture": {
 				"icon": "texture internet-en"
 			},
@@ -294,7 +294,7 @@
 		"tv-en" : {
 			"slot": "2x2",
 			"title": "TV encoder",
-			"description": "Used to broadcast the TV to people around the world.",
+			"description": "",
 			"texture": {
 				"icon": "texture tv-en"
 			},
@@ -327,13 +327,13 @@
 			"requires": [{
 				"type": "power",
 				"oneof": ["solar-panel","solar-panel-surface"],
-				"label": "Battery requires solar panels to charge up",
-				"error": "Battery requires solar panels"
+				"label": "Requires solar panels to charge up",
+				"error": "Requires solar panels"
 			}]
 		},"battery-medium": {
 			"slot":	"2x2",
-			"title": "Medium battery",
-			"description": "Stores power from solar panels to allow operation when not in sunlight",
+			"title": "",
+			"description": "",
 			"texture": {
 				"icon": "texture battery-medium"
 			},
@@ -348,14 +348,14 @@
 			"requires": [{
 				"type": "power",
 				"oneof": ["solar-panel","solar-panel-surface"],
-				"label": "Battery requires solar panels to charge up",
-				"error": "Battery requires solar panels"
+				"label": "Requires solar panels to charge up",
+				"error": "Requires solar panels"
 			}]
 		},
 		"rtg": {
 			"slot":	"2x4",
-			"title": "",
-			"description": "",
+			"title": "RTG",
+			"description": "A \"Radioisotope Thermal Generator\" uses nuclear technology to provide power. Due to safety concerns, it can't be used in low-Earth orbit.",
 			"texture": {
 				"icon": "texture rtg"
 			},
@@ -371,8 +371,8 @@
 				"type": "orbit",
 				"showin": "power",
 				"oneof": ["MEO","HEO","GEO"],
-				"label": "",
-				"error": ""
+				"label": "Not for low-Earth orbit",
+				"error": "Can't use an RTG in low-Earth orbit"
 			}]
 		},
 		"solar-panel-surface": {
@@ -729,13 +729,13 @@
 				},{
 					"type": "orbit",
 					"oneof": ["HEO","GEO","MEO"],
-					"label": "See large areas of the planet at one time.",
-					"error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."
+					"label": "See the whole planet.",
+					"error": "The orbit you have chosen does not allow you to see the whole planet."
 				},{
                     "type": "power",
                     "oneof": ["battery-medium","battery-large"],
-                    "label": "Provide power even when not in sunlight.",
-                    "error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."
+                    "label": "",
+                    "error": "The orbit you have chosen does not allow you to see the whole planet."
                 }]
 			},{
 				"title": "Map-making",
@@ -838,7 +838,7 @@
                     "type": "package",
                     "oneof": ["dish-large","dish-medium"],
                     "label": "A way to send signals to people on the ground.",
-					"error": "You do not have a way to send signals to people on the ground."
+					"error": "Your satellite does not have any way to send signals to people on the ground."
                 },{
                     "type": "package",
                     "oneof": ["internet-en"],
@@ -943,17 +943,17 @@
                 },{
                     "type": "package",
                     "oneof": ["radar-alt"],
-                    "label": "To measure the height and deformation of the ground in very high resolution.",
+                    "label": "Uses radio waves to measure the height of the surface.",
 					"error": "You do not have a way to measure the height of the surface, such as for earthquakes."
                 },{
                     "type": "package",
                     "oneof": ["camera-nir"],
-                    "label": "To monitor vegetation, for example during forest fires.",
-					"error": "You do not have a way to monitor vegetation in disaster regions."
+                    "label": "Infrared camera can detect fires, including forest fires.",
+					"error": "You do not have a way to detect fires in disaster regions."
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],
-					"label": "To see fine detail of planet surface.",
+					"label": "See detail of planet surface.",
 					"error": "The orbit you have chosen does not allow you to see the disaster region in enough detail."
 				}]
 			},{
@@ -980,12 +980,12 @@
                 },{
                     "type": "package",
                     "oneof": ["gps-rx"],
-                    "label": "A way to know the satellite position to high precision",
+                    "label": "Enables high level precision of the satellite location.",
 					"error": "You do not have a way to locate the position of the satellite accurately."
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],
-					"label": "To see fine detail on the planet surface.",
+					"label": "See detail of planet surface.",
 					"error": "The orbit you have chosen does not allow you to see the planet surface in enough detail."
 				}]
 			}]
@@ -1008,18 +1008,18 @@
 		"requires": [{
 			"type": "goal",
 			"is": "inbudget",
-			"label": "You need sufficient funds.",
-			"error": "You no not have sufficient funds."
+			"label": "",
+			"error": ""
 		},{
 			"type": "power",
 			"is": "powered",
-			"label": "You need sufficient power.",
-			"error": "You no not have sufficient power."
+			"label": "",
+			"error": ""
 		}]
 	},
     "launch": {
     	"prep": {
-    		"checklist": "<p>We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail. You haven't met these requirements:</p>$requirementslist$",
+    		"checklist": "<p>We've detected problems. These should be fixed before trying to launch or your mission will fail. Please check the following sections:</p>$requirementssectionlist$",
 			"goforlaunch": "Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.",
 			"button": "Launch?"
     	},

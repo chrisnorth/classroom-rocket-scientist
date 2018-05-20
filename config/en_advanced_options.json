@@ -455,8 +455,8 @@
 			"requires": [{
 				"type": "power",
 				"oneof": ["solar-panel","solar-panel-surface"],
-				"label": "Requires solar panels to charge up",
-				"error": "Requires solar panels"
+				"label": "Battery requires solar panels to charge up",
+				"error": "Battery requires solar panels"
 			}]
 		},"battery-medium": {
 			"slot":	"2x2",
@@ -476,8 +476,8 @@
 			"requires": [{
 				"type": "power",
 				"oneof": ["solar-panel","solar-panel-surface"],
-				"label": "Requires solar panels to charge up",
-				"error": "Requires solar panels"
+				"label": "Battery requires solar panels to charge up",
+				"error": "Battery requires solar panels"
 			}]
 		},
 		"battery-small": {
@@ -498,8 +498,8 @@
 			"requires": [{
 				"type": "power",
 				"oneof": ["solar-panel","solar-panel-surface"],
-				"label": "Requires solar panels",
-				"error": "Requires solar panels"
+				"label": "Battery requires solar panels to charge up",
+				"error": "Battery requires solar panels"
 			}]
 		},
 		"rtg": {
@@ -960,7 +960,7 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
-                    "label": "A way to send signals.",
+                    "label": "A way to send signals to the ground.",
 					"error": "You do not have a way to send signals to the ground."
                 },{
                     "type": "package",
@@ -987,7 +987,7 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
-                    "label": "A way to send signals.",
+                    "label": "A way to send signals to the ground.",
 					"error": "You do not have a way to send signals to the ground."
                 },{
                     "type": "package",
@@ -1013,8 +1013,8 @@
 			"missions": [{
 				"title": "Weather forecasting",
 				"description": "Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean.",
-				"launch": "",
-				"success": "",
+				"launch": "Welcome to the launch of the UK Space Agency's latest earth observation satellite that will allow forecasters around the world to predict future weather.",
+				"success": "Congratulations, your earth observation satellite is now helping forecasters around the world to predict future weather.",
 				"image": {
 					"file": "images/png/icon-cloud.png",
 					"alt": "Weather forecasting",
@@ -1023,8 +1023,13 @@
 				"budget": { "value": 250, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
+                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
+                    "label": "A way to send signals.",
+					"error": "You do not have a way to send signals to the ground."
+                },{
+                    "type": "package",
                     "oneof": ["camera-fir"],
-                    "label": "To measure cloud types and temperatures on Earth.",
+                    "label": "This camera can be used to measure cloud types and temperatures on Earth.",
 					"error": "You do not have a way to identify cloud types and measure temperatures on Earth."
                 },{
                     "type": "package",
@@ -1040,8 +1045,8 @@
 			},{
 				"title": "Vegetation mapping",
 				"description": "Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmit the images back to the ground.",
-				"launch": "",
-				"success": "",
+				"launch": "Welcome to the launch of the UK Space Agency's latest earth observation satellite that will map the plants over the surface of the Earth using infrared images.",
+				"success": "Congratulations, your earth observation satellite is now mapping the plants across the surface of the Earth using infrared images.",
 				"image": {
 					"file": "images/png/icon-plant.png",
 					"alt": "Vegetation mapping",
@@ -1051,7 +1056,7 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
-                    "label": "To transmit signals to the ground.",
+                    "label": "A way to transmit signals to the ground.",
 					"error": "You do not have a way to transmit signals to the ground."
                 },{
                     "type": "package",
@@ -1062,13 +1067,13 @@
 					"type": "orbit",
 					"oneof": ["LEO"],
 					"label": "See detail of Earth's weather systems.",
-					"error": "The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail."
+					"error": "The orbit you have chosen does not allow you to see the vegetation in enough detail."
 				}]
 			},{
 				"title": "Natural disaster monitoring",
 				"description": "When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras can show floods and fires. Radio waves can show regions of earth deformation, such as after earthquakes.",
-				"launch": "",
-				"success": "",
+				"launch": "Welcome to the launch of the UK Space Agency's latest earth observation satellite that will help to assess the damage caused by natural disasters including forest fires, floods and eathquakes.",
+				"success": "Congratulations, your earth observation satellite is now helping to assess the damage caused by natural disasters including forest fires, floods and eathquakes.",
 				"image": {
 					"file": "images/png/icon-disaster.png",
 					"alt": "Natural disaster monitoring",
@@ -1083,7 +1088,7 @@
                 },{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
-                    "label": "To transmit signals to the ground.",
+                    "label": "A way to transmit signals to the ground.",
 					"error": "You do not have a way to transmit signals to the ground."
                 },{
                     "type": "package",
@@ -1120,13 +1125,13 @@
                 },{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
-                    "label": "To receive instructions from ground control.",
-					"error": "You do not have a way to receive instructions from the ground."
+                    "label": "A way to transmit signals to the ground.",
+					"error": "You do not have a way to transmit signals to the ground."
                 },{
                     "type": "package",
-                    "oneof": ["gps-tracker"],
-                    "label": "",
-					"error": ""
+                    "oneof": ["gps-rx"],
+                    "label": "A way to know the satellite position to high precision",
+					"error": "You do not have a way to locate the position of the satellite accurately."
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],
