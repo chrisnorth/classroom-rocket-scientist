@@ -631,8 +631,8 @@
 				},{
 					"type": "package",
 					"oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
-					"label": "%scenarios.NAV.sat-nav.req.radio-tx.label%",
-					"error": "%scenarios.NAV.sat-nav.req.radio-tx.error%"
+					"label": "%scenarios.NAV.sat-nav.req.radio-dish.label%",
+					"error": "%scenarios.NAV.sat-nav.req.radio-dish.error%"
 				},{
 					"type": "package",
 					"oneof": ["gps-rx"],
@@ -712,8 +712,8 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
-                    "label": "%scenarios.COMMS.phone.req.radio-tx.label%",
-					"error": "%scenarios.COMMS.phone.req.radio-tx.error%"
+                    "label": "%scenarios.COMMS.phone.req.radio-dish.label%",
+					"error": "%scenarios.COMMS.phone.req.radio-dish.error%"
                 },{
                     "type": "package",
                     "oneof": ["phone-en"],
@@ -743,8 +743,8 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
-                    "label": "%scenarios.COMMS.internet.req.radio-tx.label%",
-					"error": "%scenarios.COMMS.internet.req.radio-tx.error%"
+                    "label": "%scenarios.COMMS.internet.req.radio-dish.label%",
+					"error": "%scenarios.COMMS.internet.req.radio-dish.error%"
                 },{
                     "type": "package",
                     "oneof": ["internet-en"],
@@ -820,8 +820,8 @@
                 },{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
-                    "label": "%scenarios.EO.disaster.req.radio-tx.label%",
-					"error": "%scenarios.EO.disaster.req.radio-tx.error%"
+                    "label": "%scenarios.EO.disaster.req.radio-dish.label%",
+					"error": "%scenarios.EO.disaster.req.radio-dish.error%"
                 },{
                     "type": "package",
                     "oneof": ["radar-alt"],
