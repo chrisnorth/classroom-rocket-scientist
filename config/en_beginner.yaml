@@ -8,7 +8,14 @@ ui.level.intermediate.description:          Give yourself a bit more flexibility
 ui.level.advanced.description:              The most advanced level, with a much greater range of options, and the ability to select which orbit the satellite will be in. But will your rocket be big enough to launch your satellite?
 ui.nojs:                                    Oops! The interactive parts of <em>Classroom rocket scientist</em> need Javascript to be enabled. Sorry about that.
 ui.title:                                   Classroom rocket scientist
-ui.introduction:                            The UK Space Agency is planning its next satellite mission. They've asked you to help design it!
+ui.introduction:                            Since the first satellite was launched into orbit in 1957, the technology has been evolving rapidly. Today, thousands of satellites orbit around the Earth and the important role they play in our daily lives cannot be underestimated.
+
+Now the UK Space Agency is planning its next satellite mission. They've asked you to help design it!
+
+This app challenges you to design and launch a satellite that can perform a specific role related to communications, navigation or earth observation. You’ll need to select the size of your satellite along with its instruments and power supply. Once it’s completed, you’ll be challenged to design a rocket capable of launching your satellite into orbit — will you succeed?
+
+If you’re feeling brave, why not try building your satellite on a budget in Intermediate mode, or try Advanced mode for a much greater range of options and the ability to select your satellite’s orbit. 
+
 ui.loading:                                 Loading space programme...
 ui.requirements.title:                      Requirements
 ui.close:                                   Close
@@ -65,7 +72,7 @@ ui.sections.power.intro:                    Your satellite needs power. There ar
 ui.sections.power.list:                     Available power sources:
 ui.sections.rocket.short:                   Rocket
 ui.sections.rocket.title:                   Build your rocket
-ui.sections.rocket.intro:                   Now you have a satellite you need to build a rocket to launch it into space! Choose the top of the rocket, this needs to be big enough to hold your satellite. Then select up to three lower parts, each one needs to be big enough to support the one above.
+ui.sections.rocket.intro:                   Now you have a satellite (also called your 'payload') you need to build a rocket to launch it into space! The top of the rocket needs to be big enough to hold your satellite and each of the lower parts need to be big enough to support the section above.
 ui.sections.rocket.size:                    Size:
 ui.sections.rocket.drymass:                 Weight:
 ui.sections.rocket.fuel:                    Fuel:
@@ -91,13 +98,13 @@ bus.large.title:                            Large satellite
 bus.large.button:                           Select large satellite
 
 package.camera-opt.title:                   Camera    # The title of the optical camera instrument
-package.camera-opt.description:             Takes pictures of the Earth that can be used to create maps or track natural disasters, such as floods or volcanic eruptions. This camera can also be used to take pictures of clouds.
+package.camera-opt.description:             Takes detailed pictures of the Earth that can be used to create maps or track natural disasters, such as floods or volcanic eruptions. This camera can also be used to take pictures of clouds.
 package.camera-opt-hires.title:             High-resolution camera
 package.camera-opt-hires.description:       Takes very detailed pictures of the ground. Can be used for tracking natural disasters, such as floods or volcanic eruptions, but only when your satellite is in low-Earth orbit.
 package.camera-nir.title:                   Vegetation camera
 package.camera-nir.description:             Takes images of plants and farmland on the ground. Only works in during the day, as it captures sunlight reflecting off the ground.
 package.camera-fir.title:                   Thermal camera
-package.camera-fir.description:             Takes images of Earth's atmosphere. This camera is useful for forecasting the weather, even during hours of darkness.
+package.camera-fir.description:             Takes images of Earth's atmosphere, even during hours of darkness. It can look at the clouds and measure the temperature of the ground and air.
 package.spect-opt.title:                    Optical Spectrometer
 package.spect-opt.description:              Studies changes on the Earth's surface, such as shrinking forests and lakes.
 package.spect-nir.title:                    Vegetation Spectrometer
@@ -164,7 +171,7 @@ rocket.requires.power.error:                Your rocket needs to be built.
 scenarios.NAV.title:                        Navigation
 scenarios.NAV.description:                  These satellites are used to help people find their way around the Earth.
 scenarios.NAV.sat-nav.title:                Satellite navigation system
-scenarios.NAV.sat-nav.description:          One of four satellites working together to help people find their location on Earth. These satellites need to be able to see huge area of Earth at a time, measure time accurately and send information to Earth.
+scenarios.NAV.sat-nav.description:          The satellites work in groups of four to help people find their location on Earth. They need to be able to see huge areas of Earth at a time, measure time accurately and send information to Earth.
 scenarios.NAV.sat-nav.req.bus.label:        A satellite that is small, medium or large.
 scenarios.NAV.sat-nav.req.bus.error:        Must be big enough for your mission.
 scenarios.NAV.sat-nav.req.atomic.label:     You need a way to measure time very accurately.
@@ -178,8 +185,8 @@ scenarios.NAV.sat-nav.req.orbit.error:         The orbit you have chosen does no
 scenarios.NAV.sat-nav.launch:                Welcome to the launch of the UK Space Agency's latest navigation satellite that will allow people to accurately determine their position on Earth.
 scenarios.NAV.sat-nav.success:                 Congratulations, your navigation satellite is now sending people accurate information about their position on Earth on behalf of the UK Space Agency.
 scenarios.NAV.map.title:                     Map-making
-scenarios.NAV.map.description:                 Map the surface of the Earth. Your satellite needs to be able to take images of small areas of the Earth's surface and measure the height of the ground.
-scenarios.NAV.map.req.camera-opt.label:         You need an instrument that can collect detailed images.
+scenarios.NAV.map.description:                These satellites are used to map the surface of the Earth. They take detailed images of small areas of the Earth's surface and can measure the height of the ground.
+scenarios.NAV.map.req.camera-opt.label:         You need an instrument that can collect detailed images of the Earth's surface.
 scenarios.NAV.map.req.camera-opt.error:         Your satellite cannot take detailed images of the planet's surface.
 scenarios.NAV.map.req.radar-alt.label:  You need a way to measure the height of the Earth's surface.
 scenarios.NAV.map.req.radar-alt.error: You do not have a way to measure the height of the Earth's surface.
@@ -190,7 +197,7 @@ scenarios.NAV.map.success:                 Congratulations, your navigation sate
 scenarios.COMMS.title:                      Communication
 scenarios.COMMS.description:                These satellites are allow us to watch television, make phone calls and use the Internet.
 scenarios.COMMS.phone.title:                 Satellite Telephone System
-scenarios.COMMS.phone.description:             Allows people to talk over the phone, even in remote parts of the world. The satellite receives signals from the ground and sends them to other areas on Earth.
+scenarios.COMMS.phone.description:             These satellites allow people to talk over the phone, even in remote parts of the world. The satellite receives signals from the ground and sends them to other areas on Earth.
 scenarios.COMMS.phone.req.radio-dish.label:     You need a way to send signals back to Earth.
 scenarios.COMMS.phone.req.radio-dish.error:     You do not have a way to send signals to the ground.
 scenarios.COMMS.phone.req.phone-en.label:     You need a way to send signals to phones on the ground.
@@ -200,7 +207,7 @@ scenarios.COMMS.phone.req.orbit.error:         The orbit you have chosen means y
 scenarios.COMMS.phone.launch:                Welcome to the launch of the UK Space Agency's latest communication satellite that will allow people from regions all over the world to communicate by telephone.
 scenarios.COMMS.phone.success:                 Congratulations, your communication satellite is now receiving signals from the ground and sending them to phones around the Earth on behalf of the UK Space Agency.
 scenarios.COMMS.internet.title:             Satellite Internet
-scenarios.COMMS.internet.description:         Allows people to connect to the internet, even from remote parts of the world. The satellite receives signals from the ground and sends them to other areas on Earth.
+scenarios.COMMS.internet.description:         These satellites allow people to connect to the internet, even from remote parts of the world. The satellite receives signals from the ground and sends them to other areas on Earth.
 scenarios.COMMS.internet.req.radio-dish.label: You need a way to send signals.
 scenarios.COMMS.internet.req.radio-dish.error: You do not have a way to send signals to the ground.
 scenarios.COMMS.internet.req.internet-en.label: You need a way to send out internet signals.
@@ -222,11 +229,11 @@ scenarios.COMMS.tv.success:                 Congratulations, your communication 
 scenarios.EO.title: Earth Observation
 scenarios.EO.description: These satellites are allow us to predict the weather, study clouds and assess the damage caused by natural disasters.
 scenarios.EO.weather.title: Weather forecasting
-scenarios.EO.weather.description: Monitor the sky so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use cameras to measure the temperature of the ground and oceans.
-scenarios.EO.weather.req.camera-fir.label: You need a way to identify different types of cloud.
-scenarios.EO.weather.req.camera-fir.error: You do not have a way to identify cloud types.
-scenarios.EO.weather.req.camera-opt.label: ou need an instrument that can collect detailed images.
-scenarios.EO.weather.req.camera-opt.error: Your satellite cannot take detailed images of the planet's surface.
+scenarios.EO.weather.description: These satellites monitor the sky so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use cameras to measure the temperature of the ground and oceans.
+scenarios.EO.weather.req.camera-fir.label: You need a way to identify different types of cloud and measure temperature.
+scenarios.EO.weather.req.camera-fir.error: You do not have a way to identify cloud types or measure temperature.
+scenarios.EO.weather.req.camera-opt.label: You need an instrument that can collect detailed images of the clouds and the planets surface
+scenarios.EO.weather.req.camera-opt.error: Your satellite cannot take detailed images of the clouds and the planet's surface.
 scenarios.EO.weather.req.orbit.label: See detail of Earth's weather.
 scenarios.EO.weather.req.orbit.error: The orbit you have chosen does not allow you to see the Earth's weather in enough detail.
 scenarios.EO.weather.launch:                Welcome to the launch of the UK Space Agency's latest earth observation satellite that will allow forecasters around the world to predict future weather.
@@ -240,14 +247,14 @@ scenarios.EO.veg-map.req.camera.error: You do not have a way to take images of t
 scenarios.EO.veg-map.launch:                Welcome to the launch of the UK Space Agency's latest earth observation satellite that will map the plants over the surface of the Earth using infrared images.
 scenarios.EO.veg-map.success:                 Congratulations, your earth observation satellite is now mapping the plants across the surface of the Earth using infrared images.
 scenarios.EO.disaster.title: Natural disaster monitoring
-scenarios.EO.disaster.description: When natural disasters occur, satellites are used to check the damage. Detailed images are needed to see the damage on Earth such as floods, fires and areas where the earth has been warped by earthquakes, so satellites must orbit close to the ground.
-scenarios.EO.disaster.req.camera-opt.label: You need an instrument that can collect detailed images.
+scenarios.EO.disaster.description: These satellites are used to assess the damage when natural disasters occur. They take detailed images of Earth's surface to monitor floods, fires and areas where the earth has been warped by earthquakes.
+scenarios.EO.disaster.req.camera-opt.label: You need an instrument that can collect detailed images of the Earth's surface.
 scenarios.EO.disaster.req.camera-opt.error: Your satellite cannot take detailed images of the planet's surface.
 scenarios.EO.disaster.req.radio-dish.label: You need a way to send signals back to Earth.
 scenarios.EO.disaster.req.radio-dish.error: You do not have a way to send signals to the ground.
 scenarios.EO.disaster.req.radar-alt.label: You need a way to measure the height of the Earth's surface.
 scenarios.EO.disaster.req.radar-alt.error: You do not have a way to measure the height of the Earth's surface.
-scenarios.EO.disaster.req.camera-fir.label: You need a way to measure heat so you can monitor fires, such as forest fires.
+scenarios.EO.disaster.req.camera-fir.label: You need a way to measure temperature so you can monitor fires.
 scenarios.EO.disaster.req.camera-fir.error: You do not have a way to detect fires in disaster regions.
 scenarios.EO.disaster.launch:                Welcome to the launch of the UK Space Agency's latest earth observation satellite that will help to assess the damage caused by natural disasters including forest fires, floods and eathquakes.
 scenarios.EO.disaster.success:                 Congratulations, your earth observation satellite is now helping to assess the damage caused by natural disasters including forest fires, floods and eathquakes.
