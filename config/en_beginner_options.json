@@ -627,8 +627,8 @@
 				},{
 					"type": "package",
 					"oneof": ["atomic-clock"],
-					"label": "",
-					"error": ""
+					"label": "You very accurate clock used to measure the time very precisely.",
+					"error": "You do not have an accurate clock to measure the time precisely."
 				},{
 					"type": "package",
 					"oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
@@ -639,6 +639,7 @@
 					"oneof": ["gps-rx"],
 					"label": "You need a way to recieve signals from other GPS satellites.",
 					"error": "Your satellite does not have any way to recieve signals from other GPS satellites."
+
 				},{
 					"type": "orbit",
 					"oneof": ["LEO","MEO","HEO","GEO"],

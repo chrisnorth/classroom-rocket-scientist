@@ -724,6 +724,11 @@
 					"error": "%scenarios.NAV.sat-nav.req.atomic.error%"
 				},{
 					"type": "package",
+					"oneof": ["gps-rx"],
+					"label": "%scenarios.NAV.sat-nav.req.gps-rx.label%",
+					"error": "%scenarios.NAV.sat-nav.req.gps-rx.error%"
+				},{
+					"type": "package",
 					"oneof": ["dish-large","dish-medium"],
 					"label": "%scenarios.NAV.sat-nav.req.radio-dish.label%",
 					"error": "%scenarios.NAV.sat-nav.req.radio-dish.error%"

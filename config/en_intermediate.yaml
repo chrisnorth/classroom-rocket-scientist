@@ -173,6 +173,8 @@ scenarios.NAV.sat-nav.req.atomic.label:     Needs to be able to measure time ver
 scenarios.NAV.sat-nav.req.atomic.error:     You are not able to measure the time accurately enough.
 scenarios.NAV.sat-nav.req.radio-dish.label: A way to send signals to people on the ground.
 scenarios.NAV.sat-nav.req.radio-dish.error: Your satellite does not have any way to send signals to people on the ground.
+scenarios.NAV.sat-nav.req.gps-rx.label:  You need a way to monitor the satellite's position to very high accuracy.
+scenarios.NAV.sat-nav.req.gps-rx.error: You don't have a way to monitor the satellite's position to very high accuracy.
 scenarios.NAV.sat-nav.req.orbit.label: See large areas of the planet at one time.
 scenarios.NAV.sat-nav.req.orbit.error: The orbit you have chosen does not allow you to see a large enough area of the the whole planet.
 scenarios.NAV.sat-nav.launch:				Welcome to the launch of the UK Space Agency's latest navigation satellite that will allow people to accurately determine their position on Earth.
