@@ -77,6 +77,7 @@ ui.sections.rocket.size:                    Size:
 ui.sections.rocket.drymass:                 Weight:
 ui.sections.rocket.fuel:                    Fuel:
 ui.sections.rocket.cost:                    Cost:
+ui.sections.rocket.thrust:                  Thrust:
 ui.sections.rocket.payload:                 Your payload
 ui.sections.rocket.emptystage:              None
 ui.sections.launch.short:                   Launch
@@ -171,7 +172,8 @@ rocket.requires.stable.label:               Your rocket mustn't be wobbly.
 rocket.requires.stable.error:               Your rocket is wobbly. It might tip over during launch. Try to make sure it is sturdy.
 rocket.requires.power.label:                You must have an engine and somewhere to hold your satellite.
 rocket.requires.power.error:                Your rocket needs to be built.
-
+rocket.requires.bigenough.label:            Your rocket needs to be big enough to hold your satellite.
+rocket.requires.bigenough.error:            Your rocket is not big enough to hold your satellite.
 scenarios.NAV.title:                        Navigation
 scenarios.NAV.description:                  These satellites are used to help people find their way around the Earth.
 scenarios.NAV.sat-nav.title:                Satellite navigation system
@@ -277,6 +279,8 @@ scenarios.EO.surface.launch:  Welcome to the launch of the UK Space Agency's lat
 scenarios.EO.surface.success: Congratulations, your earth observation satellite is now measuring the varying height of land and oceans over the Earth's surface.
 
 launch.prep.checklist:               <p>We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail. You haven't met these requirements:</p>$requirementslist$
+launch.prep.powered.label: Your satellite needs power.
+launch.prep.powered.error: Your satellite does not have enough power.
 launch.prep.fixme:                   Fix &rangle;
 launch.prep.goforlaunch:             Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.
 launch.prep.button:                  Launch?

@@ -1460,7 +1460,7 @@ button.selected:hover, button.selected:focus {
   width: 0%;
   height: 100%;
   padding: 0px;
-  background-color: blue;
+  background-color: #00a2d3;
   -webkit-transition: all 0.5s linear;
   -moz-transition: all 0.5s linear;
   -ms-transition: all 0.5s linear;

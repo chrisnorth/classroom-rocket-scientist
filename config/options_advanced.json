@@ -41,7 +41,7 @@
 	"bus": {
 		"cube": {
 			"slots": { "0x2": 1, "1x1": 2, "1x2": 1, "3x3": 1 },
-			"cost": { "value": 0.5, "units": "credits", "dimension": "currency" },
+			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 0.3, "units": "kg", "dimension": "mass" },
 			"width": { "value": 0.1, "units": "m", "dimension": "length" },
@@ -52,7 +52,7 @@
 		},
 		"small": {
 			"slots": { "2x2": 2, "2x4": 1, "3x3": 1, "4x4": 4 },
-			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
+			"cost": { "value": 20, "units": "credits", "dimension": "currency" },
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 150, "units": "kg", "dimension": "mass" },
 			"width": { "value": 1, "units": "m", "dimension": "length" },
@@ -238,7 +238,7 @@
 		"phone-en": {
 			"slot":	"2x2",
 			"title": "%package.phone-en.title%",
-			"description": "%package.phone-en-mini.description%",
+			"description": "%package.phone-en.description%",
 			"texture": {
 				"icon": "texture phone-en"
 			},
@@ -884,7 +884,7 @@
 					"error": "%scenarios.NAV.sat-nav.req.orbit.error%"
 				},{
                     "type": "power",
-                    "oneof": ["battery-small","battery-medium","battery-large"],
+                    "oneof": ["battery-small","battery-small","battery-medium","battery-large","rtg"],
                     "label": "%scenarios.NAV.sat-nav.req.power.label%",
                     "error": "%scenarios.NAV.sat-nav.req.orbit.error%"
                 }]
@@ -905,11 +905,31 @@
                     "label": "%scenarios.NAV.map.req.opt-hires.label%",
 					"error": "%scenarios.NAV.map.req.opt-hires.label%"
                 },{
+					"type": "package",
+					"oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
+					"label": "%scenarios.NAV.sat-nav.req.radio-dish.label%",
+					"error": "%scenarios.NAV.sat-nav.req.radio-dish.error%"
+				},{
+					"type": "package",
+					"oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
+					"label": "%scenarios.NAV.map.req.radio-dish.label%",
+					"error": "%scenarios.NAV.map.req.radio-dish.error%"
+				},{
+					"type": "package",
+					"oneof": ["radar-alt"],
+					"label": "%scenarios.NAV.map.req.radar-alt.label%",
+					"error": "%scenarios.NAV.map.req.radar-alt.error%"
+            	},{
 					"type": "orbit",
 					"oneof": ["LEO"],
-					"label": "%scenarios.NAV.map.req.orbit.label%",
-					"error": "%scenarios.NAV.map.req.orbit.error%"
-				}]
+					"label": "%scenarios.NAV.sat-nav.req.orbit.label%",
+					"error": "%scenarios.NAV.sat-nav.req.orbit.error%"
+				},{
+                    "type": "power",
+                    "oneof": ["battery-small","battery-small","battery-medium","battery-large","rtg"],
+                    "label": "%scenarios.NAV.map.req.power.label%",
+                    "error": "%scenarios.NAV.map.req.orbit.error%"
+                }]
 			}]
 		},
 		"COMMS": {
@@ -946,7 +966,12 @@
 					"oneof": ["GEO"],
 					"label": "%scenarios.COMMS.phone.req.orbit.label%",
 					"error": "%scenarios.COMMS.phone.req.orbit.error%"
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-small","battery-medium","battery-large","rtg"],
+                    "label": "%scenarios.COMMS.phone.req.power.label%",
+                    "error": "%scenarios.COMMS.phone.req.orbit.error%"
+                }]
 			},{
 				"title": "%scenarios.COMMS.tv.title%",
 				"description": "%scenarios.COMMS.tv.description%",
@@ -973,7 +998,12 @@
 					"oneof": ["GEO"],
 					"label": "%scenarios.COMMS.tv.req.orbit.label%",
 					"error": "%scenarios.COMMS.tv.req.orbit.error%"
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-small","battery-medium","battery-large","rtg"],
+                    "label": "%scenarios.COMMS.tv.req.power.label%",
+                    "error": "%scenarios.COMMS.tv.req.orbit.error%"
+                }]
 			},{
 				"title": "%scenarios.COMMS.internet.title%",
 				"description": "%scenarios.COMMS.internet.description%",
@@ -1000,7 +1030,12 @@
 					"oneof": ["GEO"],
 					"label": "%scenarios.COMMS.internet.req.orbit.label%",
 					"error": "%scenarios.COMMS.internet.req.orbit.error%"
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-small","battery-medium","battery-large","rtg"],
+                    "label": "%scenarios.COMMS.internet.req.power.label%",
+                    "error": "%scenarios.COMMS.internet.req.orbit.error%"
+                }]
 			}]
 		},
 		"EO": {
@@ -1042,7 +1077,12 @@
 					"oneof": ["LEO"],
 					"label": "%scenarios.EO.weather.req.orbit.label%",
 					"error": "%scenarios.EO.weather.req.orbit.error%"
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-small","battery-medium","battery-large","rtg"],
+                    "label": "%scenarios.EO.weather.req.power.label%",
+                    "error": "%scenarios.EO.weather.req.orbit.error%"
+                }]
 			},{
 				"title": "%scenarios.EO.veg-map.title%",
 				"description": "%scenarios.EO.veg-map.description%",
@@ -1069,7 +1109,12 @@
 					"oneof": ["LEO"],
 					"label": "%scenarios.EO.veg-map.req.orbit.label%",
 					"error": "%scenarios.EO.veg-map.req.orbit.error%"
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-small","battery-medium","battery-large","rtg"],
+                    "label": "%scenarios.EO.veg-map.req.power.label%",
+                    "error": "%scenarios.EO.veg-map.req.orbit.error%"
+                }]
 			},{
 				"title": "%scenarios.EO.disaster.title%",
 				"description": "%scenarios.EO.disaster.description%",
@@ -1106,7 +1151,12 @@
 					"oneof": ["LEO"],
 					"label": "%scenarios.EO.disaster.req.orbit.label%",
 					"error": "%scenarios.EO.disaster.req.orbit.error%"
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-small","battery-medium","battery-large","rtg"],
+                    "label": "%scenarios.EO.disaster.req.power.label%",
+                    "error": "%scenarios.EO.disaster.req.orbit.error%"
+                }]
 			},{
 				"title": "%scenarios.EO.surface.title%",
 				"description": "%scenarios.EO.surface.description%",
@@ -1138,7 +1188,12 @@
 					"oneof": ["LEO"],
 					"label": "%scenarios.EO.surface.req.orbit.label%",
 					"error": "%scenarios.EO.surface.req.orbit.error%"
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-small","battery-medium","battery-large","rtg"],
+                    "label": "%scenarios.EO.surface.req.power.label%",
+                    "error": "%scenarios.EO.surface.req.orbit.error%"
+                }]
 			}]
 		}
 	},
@@ -1153,6 +1208,11 @@
 			"is": "fueled",
 			"label": "%rocket.requires.power.label%",
 			"error": "%rocket.requires.power.error%"
+		},{
+			"type": "rocket",
+			"is": "bigenough",
+			"label": "%rocket.requires.bigenough.label%",
+			"error": "%rocket.requires.bigenough.error%"
 		}]
 	},
 	"missionreq": {
@@ -1187,8 +1247,8 @@
 		"payload-bay-open": "%launch.payload-bay-open%",
 		"deployed": "%launch.deployed%",
 		"solar-panels": {
-			"deploying": "%launch.solar-panels-deploying%",
-			"deployed": "%launch.solar-panels-deployed%"
+			"deploying": "%launch.solar-panels.deploying%",
+			"deployed": "%launch.solar-panels.deployed%"
 		},
 		"operational": "%launch.operational%"
     }

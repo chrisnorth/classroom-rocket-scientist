@@ -700,7 +700,7 @@ button.selected:hover, button.selected:focus {
 	width: 0%;
 	height: 100%;
 	padding: 0px;
-	background-color: blue;
+	background-color: $blue-1;
 	@include transition( all 0.5s linear );
 }
 .meter .value {

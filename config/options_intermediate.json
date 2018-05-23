@@ -41,7 +41,7 @@
 	"bus": {
 		"small": {
 			"slots": { "2x2": 2, "2x4": 1, "3x3": 1, "4x4": 4 },
-			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
+			"cost": { "value": 20, "units": "credits", "dimension": "currency" },
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 150, "units": "kg", "dimension": "mass" },
 			"width": { "value": 1, "units": "m", "dimension": "length" },
@@ -307,6 +307,22 @@
 				{ "value": 0.5, "units": "m", "dimension": "length" }
 			],
 			"power": { "value": 40, "units": "watts", "dimension": "power" }
+		},
+		"phone-en": {
+			"slot":	"2x2",
+			"title": "%package.phone-en.title%",
+			"description": "%package.phone-en.description%",
+			"texture": {
+				"icon": "texture phone-en"
+			},
+			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
+			"dimensions": [
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" }
+			],
+			"power": { "value": 2, "units": "watts", "dimension": "power" }
 		}
 	},
 	"power": {
@@ -351,29 +367,6 @@
 				"oneof": ["solar-panel","solar-panel-surface"],
 				"label": "%package.battery-large.requires.solar.label%",
 				"error": "%package.battery-large.requires.solar.error%"
-			}]
-		},
-		"rtg": {
-			"slot":	"2x4",
-			"title": "%package.rtg.title%",
-			"description": "%package.rtg.description%",
-			"texture": {
-				"icon": "texture rtg"
-			},
-			"mass": { "value": 60, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 30, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 1.0, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 300, "units": "watts", "dimension": "power" },
-			"requires": [{
-				"type": "orbit",
-				"showin": "power",
-				"oneof": ["MEO","HEO","GEO"],
-				"label": "%package.rtg.requires.orbit.label%",
-				"error": "%package.rtg.requires.orbit.error%"
 			}]
 		},
 		"solar-panel-surface": {
@@ -716,6 +709,9 @@
 					"alt": "%scenarios.NAV.sat-nav.title%",
 					"credit": "Housin Aziz"
 				},
+				"choices": {
+					"orbit": "GEO"
+				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
 					"type": "package",
@@ -753,6 +749,9 @@
 					"alt": "%scenarios.NAV.map.title%",
 					"credit": "parkjisun"
 				},
+				"choices": {
+					"orbit": "LEO"
+				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
@@ -760,11 +759,26 @@
                     "label": "%scenarios.NAV.map.req.opt-hires.label%",
 					"error": "%scenarios.NAV.map.req.opt-hires.label%"
                 },{
+					"type": "package",
+					"oneof": ["dish-large","dish-medium"],
+					"label": "%scenarios.NAV.map.req.radio-dish.label%",
+					"error": "%scenarios.NAV.map.req.radio-dish.error%"
+				},{
+					"type": "package",
+					"oneof": ["radar-alt"],
+					"label": "%scenarios.NAV.map.req.radar-alt.label%",
+					"error": "%scenarios.NAV.map.req.radar-alt.error%"
+            	},{
 					"type": "orbit",
 					"oneof": ["LEO"],
 					"label": "%scenarios.NAV.map.req.orbit.label%",
 					"error": "%scenarios.NAV.map.req.orbit.error%"
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-medium","battery-large"],
+                    "label": "%scenarios.NAV.sat-nav.req.power.label%",
+                    "error": "%scenarios.NAV.sat-nav.req.orbit.error%"
+                }]
 			}]
 		},
 		"COMMS": {
@@ -785,7 +799,10 @@
 					"alt": "%scenarios.COMMS.phone.title%",
 					"credit": "Plainicon"
 				},
-				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
+				"choices": {
+					"orbit": "GEO"
+				},
+				"budget": { "value": 150, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium"],
@@ -801,7 +818,12 @@
 					"oneof": ["GEO"],
 					"label": "%scenarios.COMMS.phone.req.orbit.label%",
 					"error": "%scenarios.COMMS.phone.req.orbit.error%"
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-medium","battery-large"],
+                    "label": "%scenarios.NAV.sat-nav.req.power.label%",
+                    "error": "%scenarios.NAV.sat-nav.req.orbit.error%"
+                }]
 			},{
 				"title": "%scenarios.COMMS.tv.title%",
 				"description": "%scenarios.COMMS.tv.description%",
@@ -812,7 +834,10 @@
 					"alt": "%scenarios.COMMS.tv.title%",
 					"credit": "Hakan Yalcin"
 				},
-				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
+				"choices": {
+					"orbit": "GEO"
+				},
+				"budget": { "value": 150, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium"],
@@ -828,7 +853,12 @@
 					"oneof": ["GEO"],
 					"label": "%scenarios.COMMS.tv.req.orbit.label%",
 					"error": "%scenarios.COMMS.tv.req.orbit.error%"
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-medium","battery-large"],
+                    "label": "%scenarios.NAV.sat-nav.req.power.label%",
+                    "error": "%scenarios.NAV.sat-nav.req.orbit.error%"
+                }]
 			},{
 				"title": "%scenarios.COMMS.internet.title%",
 				"description": "%scenarios.COMMS.internet.description%",
@@ -839,7 +869,10 @@
 					"alt": "%scenarios.COMMS.internet.title%",
 					"credit": "parkjisun"
 				},
-				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"choices": {
+					"orbit": "GEO"
+				},
+				"budget": { "value": 150, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium"],
@@ -855,7 +888,12 @@
 					"oneof": ["GEO"],
 					"label": "%scenarios.COMMS.internet.req.orbit.label%",
 					"error": "%scenarios.COMMS.internet.req.orbit.error%"
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-medium","battery-large"],
+                    "label": "%scenarios.NAV.sat-nav.req.power.label%",
+                    "error": "%scenarios.NAV.sat-nav.req.orbit.error%"
+                }]
 			}]
 		},
 		"EO": {
@@ -875,6 +913,9 @@
 					"file": "images/png/icon-cloud.png",
 					"alt": "%scenarios.EO.weather.title%",
 					"credit": "Megan Mitchell"
+				},
+				"choices": {
+					"orbit": "LEO"
 				},
 				"budget": { "value": 250, "units": "credits", "dimension": "currency" },
 				"requires": [{
@@ -897,7 +938,12 @@
 					"oneof": ["LEO"],
 					"label": "%scenarios.EO.weather.req.orbit.label%",
 					"error": "%scenarios.EO.weather.req.orbit.error%"
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-medium","battery-large"],
+                    "label": "%scenarios.NAV.sat-nav.req.power.label%",
+                    "error": "%scenarios.NAV.sat-nav.req.orbit.error%"
+                }]
 			},{
 				"title": "%scenarios.EO.veg-map.title%",
 				"description": "%scenarios.EO.veg-map.description%",
@@ -907,6 +953,9 @@
 					"file": "images/png/icon-plant.png",
 					"alt": "%scenarios.EO.veg-map.title%",
 					"credit": "Clockwise"
+				},
+				"choices": {
+					"orbit": "LEO"
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
@@ -924,7 +973,12 @@
 					"oneof": ["LEO"],
 					"label": "%scenarios.EO.veg-map.req.orbit.label%",
 					"error": "%scenarios.EO.veg-map.req.orbit.error%"
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-medium","battery-large"],
+                    "label": "%scenarios.NAV.sat-nav.req.power.label%",
+                    "error": "%scenarios.NAV.sat-nav.req.orbit.error%"
+                }]
 			},{
 				"title": "%scenarios.EO.disaster.title%",
 				"description": "%scenarios.EO.disaster.description%",
@@ -935,7 +989,10 @@
 					"alt": "%scenarios.EO.disaster.title%",
 					"credit": "Leadway Global LLC"
 				},
-				"budget": { "value": 800, "units": "credits", "dimension": "currency" },
+				"choices": {
+					"orbit": "LEO"
+				},
+				"budget": { "value": 1000, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-opt-hires"],
@@ -961,7 +1018,12 @@
 					"oneof": ["LEO"],
 					"label": "%scenarios.EO.disaster.req.orbit.label%",
 					"error": "%scenarios.EO.disaster.req.orbit.error%"
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-medium","battery-large"],
+                    "label": "%scenarios.NAV.sat-nav.req.power.label%",
+                    "error": "%scenarios.NAV.sat-nav.req.orbit.error%"
+                }]
 			},{
 				"title": "%scenarios.EO.surface.title%",
 				"description": "%scenarios.EO.surface.description%",
@@ -971,6 +1033,9 @@
 					"file": "images/png/icon-surface.png",
 					"alt": "%scenarios.EO.surface.title%",
 					"credit": "OCHA Visual Information Unit"
+				},
+				"choices": {
+					"orbit": "LEO"
 				},
 				"budget": { "value": 1000, "units": "credits", "dimension": "currency" },
 				"requires": [{
@@ -993,7 +1058,12 @@
 					"oneof": ["LEO"],
 					"label": "%scenarios.EO.surface.req.orbit.label%",
 					"error": "%scenarios.EO.surface.req.orbit.error%"
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-medium","battery-large"],
+                    "label": "%scenarios.NAV.sat-nav.req.power.label%",
+                    "error": "%scenarios.NAV.sat-nav.req.orbit.error%"
+                }]
 			}]
 		}
 	},
@@ -1008,6 +1078,11 @@
 			"is": "fueled",
 			"label": "%rocket.requires.power.label%",
 			"error": "%rocket.requires.power.error%"
+		},{
+			"type": "rocket",
+			"is": "bigenough",
+			"label": "%rocket.requires.bigenough.label%",
+			"error": "%rocket.requires.bigenough.error%"
 		}]
 	},
 	"missionreq": {
@@ -1042,8 +1117,8 @@
 		"payload-bay-open": "%launch.payload-bay-open%",
 		"deployed": "%launch.deployed%",
 		"solar-panels": {
-			"deploying": "%launch.solar-panels-deploying%",
-			"deployed": "%launch.solar-panels-deployed%"
+			"deploying": "%launch.solar-panels.deploying%",
+			"deployed": "%launch.solar-panels.deployed%"
 		},
 		"operational": "%launch.operational%"
     }
