@@ -28,6 +28,8 @@ ui.menu.about.title:                        About
 ui.menu.about.more:                         About
 ui.menu.guide.title:                        Guide
 ui.menu.guide.more:                         Guide
+ui.menu.help.title:                         Help
+ui.menu.help.more:                          Help
 ui.menu.level.title:                        Difficulty
 ui.menu.level.more:                         Change the difficulty
 ui.menu.fullscreen.title:                   Toggle fullscreen

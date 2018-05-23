@@ -25,6 +25,10 @@ ui.menu.units.title:                        Units
 ui.menu.units.more:                         Change the units
 ui.menu.about.title:                        About
 ui.menu.about.more:                         About
+ui.menu.help.title:                         Help
+ui.menu.help.more:                          Help
+ui.menu.guide.title:                          Guide
+ui.menu.guide.more:                           Guide
 ui.menu.level.title:                        Difficulty
 ui.menu.level.more:                         Change the difficulty
 ui.menu.fullscreen.title:                   Toggle fullscreen
