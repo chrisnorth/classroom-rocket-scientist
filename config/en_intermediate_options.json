@@ -724,6 +724,11 @@
 					"error": "You are not able to measure the time accurately enough."
 				},{
 					"type": "package",
+					"oneof": ["gps-rx"],
+					"label": "You need a way to monitor the satellite's position to very high accuracy.",
+					"error": "You don't have a way to monitor the satellite's position to very high accuracy."
+				},{
+					"type": "package",
 					"oneof": ["dish-large","dish-medium"],
 					"label": "A way to send signals to people on the ground.",
 					"error": "Your satellite does not have any way to send signals to people on the ground."

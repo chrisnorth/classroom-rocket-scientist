@@ -77,7 +77,7 @@
 		"camera-opt" : {
 			"slot": "2x2",
 			"title": "Camera",
-			"description": "Takes pictures of the Earth that can be used to create maps or track natural disasters, such as floods or volcanic eruptions. This camera can also be used to take pictures of clouds.",
+			"description": "Takes detailed pictures of the Earth that can be used to create maps or track natural disasters, such as floods or volcanic eruptions. This camera can also be used to take pictures of clouds.",
 			"texture": {
 				"icon": "texture camera-opt"
 			},
@@ -93,7 +93,7 @@
 		"camera-fir": {
 			"slot":	"2x4",
 			"title": "Thermal camera",
-			"description": "Takes images of Earth's atmosphere. This camera is useful for forecasting the weather, even during hours of darkness.",
+			"description": "Takes images of Earth's atmosphere, even during hours of darkness. It can look at the clouds and measure the temperature of the ground and air.",
 			"texture": {
 				"icon": "texture camera-fir"
 			},
@@ -606,7 +606,7 @@
 			},
 			"missions": [{
 				"title": "Satellite navigation system",
-				"description": "One of four satellites working together to help people find their location on Earth. These satellites need to be able to see huge area of Earth at a time, measure time accurately and send information to Earth.",
+				"description": "The satellites work in groups of four to help people find their location on Earth. They need to be able to see huge areas of Earth at a time, measure time accurately and send information to Earth.",
 				"launch": "Welcome to the launch of the UK Space Agency's latest navigation satellite that will allow people to accurately determine their position on Earth.",
 				"success": "Congratulations, your navigation satellite is now sending people accurate information about their position on Earth on behalf of the UK Space Agency.",
 				"image": {
@@ -627,8 +627,8 @@
 				},{
 					"type": "package",
 					"oneof": ["atomic-clock"],
-					"label": "You very accurate clock used to measure the time very precisely.",
-					"error": "You do not have an accurate clock to measure the time precisely."
+					"label": "",
+					"error": ""
 				},{
 					"type": "package",
 					"oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
@@ -639,7 +639,6 @@
 					"oneof": ["gps-rx"],
 					"label": "You need a way to recieve signals from other GPS satellites.",
 					"error": "Your satellite does not have any way to recieve signals from other GPS satellites."
-
 				},{
 					"type": "orbit",
 					"oneof": ["LEO","MEO","HEO","GEO"],
@@ -653,7 +652,7 @@
 				}]
 			},{
 				"title": "Map-making",
-				"description": "Map the surface of the Earth. Your satellite needs to be able to take images of small areas of the Earth's surface and measure the height of the ground.",
+				"description": "These satellites are used to map the surface of the Earth. They take detailed images of small areas of the Earth's surface and can measure the height of the ground.",
 				"launch": "Welcome to the launch of the UK Space Agency's latest navigation satellite that will accurately map the surface of the Earth.",
 				"success": "Congratulations, your navigation satellite is now accurately mapping the surface of the Earth on behalf of the UK Space Agency.",
 				"image": {
@@ -669,7 +668,7 @@
 				"requires": [{
 					"type": "package",
 					"oneof": ["camera-opt"],
-					"label": "You need an instrument that can collect detailed images.",
+					"label": "You need an instrument that can collect detailed images of the Earth's surface.",
 					"error": "Your satellite cannot take detailed images of the planet's surface."
                 },{
 					"type": "package",
@@ -698,7 +697,7 @@
 			},
 			"missions": [{
 				"title": "Satellite Telephone System",
-				"description": "Allows people to talk over the phone, even in remote parts of the world. The satellite receives signals from the ground and sends them to other areas on Earth.",
+				"description": "These satellites allow people to talk over the phone, even in remote parts of the world. The satellite receives signals from the ground and sends them to other areas on Earth.",
 				"launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will allow people from regions all over the world to communicate by telephone.",
 				"success": "Congratulations, your communication satellite is now receiving signals from the ground and sending them to phones around the Earth on behalf of the UK Space Agency.",
 				"image": {
@@ -729,7 +728,7 @@
 				}]
 			},{
 				"title": "Satellite Internet",
-				"description": "Allows people to connect to the internet, even from remote parts of the world. The satellite receives signals from the ground and sends them to other areas on Earth.",
+				"description": "These satellites allow people to connect to the internet, even from remote parts of the world. The satellite receives signals from the ground and sends them to other areas on Earth.",
 				"launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will help people from all over the world connect to the internet.",
 				"success": "Congratulations, your communication satellite is now helping people connect to the internet from regions all over the world on behalf of the UK Space Agency.",
 				"image": {
@@ -770,7 +769,7 @@
 			},
 			"missions": [{
 				"title": "Weather forecasting",
-				"description": "Monitor the sky so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use cameras to measure the temperature of the ground and oceans.",
+				"description": "These satellites monitor the sky so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use cameras to measure the temperature of the ground and oceans.",
 				"launch": "Welcome to the launch of the UK Space Agency's latest earth observation satellite that will allow forecasters around the world to predict future weather.",
 				"success": "Congratulations, your earth observation satellite is now helping forecasters around the world to predict future weather.",
 				"image": {
@@ -786,13 +785,13 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-fir"],
-                    "label": "You need a way to identify different types of cloud.",
-					"error": "You do not have a way to identify cloud types."
+                    "label": "You need a way to identify different types of cloud and measure temperature.",
+					"error": "You do not have a way to identify cloud types or measure temperature."
                 },{
                     "type": "package",
                     "oneof": ["camera-opt"],
-                    "label": "ou need an instrument that can collect detailed images.",
-					"error": "Your satellite cannot take detailed images of the planet's surface."
+                    "label": "You need an instrument that can collect detailed images of the clouds and the planets surface",
+					"error": "Your satellite cannot take detailed images of the clouds and the planet's surface."
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],
@@ -801,7 +800,7 @@
 				}]
 			},{
 				"title": "Natural disaster monitoring",
-				"description": "When natural disasters occur, satellites are used to check the damage. Detailed images are needed to see the damage on Earth such as floods, fires and areas where the earth has been warped by earthquakes, so satellites must orbit close to the ground.",
+				"description": "These satellites are used to assess the damage when natural disasters occur. They take detailed images of Earth's surface to monitor floods, fires and areas where the earth has been warped by earthquakes.",
 				"launch": "Welcome to the launch of the UK Space Agency's latest earth observation satellite that will help to assess the damage caused by natural disasters including forest fires, floods and eathquakes.",
 				"success": "Congratulations, your earth observation satellite is now helping to assess the damage caused by natural disasters including forest fires, floods and eathquakes.",
 				"image": {
@@ -817,7 +816,7 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-opt"],
-                    "label": "You need an instrument that can collect detailed images.",
+                    "label": "You need an instrument that can collect detailed images of the Earth's surface.",
 					"error": "Your satellite cannot take detailed images of the planet's surface."
                 },{
                     "type": "package",
@@ -832,7 +831,7 @@
                 },{
                     "type": "package",
                     "oneof": ["camera-fir"],
-                    "label": "You need a way to measure heat so you can monitor fires, such as forest fires.",
+                    "label": "You need a way to measure temperature so you can monitor fires.",
 					"error": "You do not have a way to detect fires in disaster regions."
                 }]
     		}]
