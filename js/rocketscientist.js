@@ -347,8 +347,9 @@ var rs;
 			for(var k = 0; k < this.stages.length; k++) stages.push(this.choices[this.stages[k]] ? this.choices[this.stages[k]] : this.data[this.stages[k]][0]);
 			var eq = rocketEquation(this.choices.orbit,this.data,stages,this.totals.mass);
 			pc = (this.choices.payloadbay && this.choices.payloadbay.drymass.value > 0) ? (100*eq.deltav.total.value/eq.deltav.required.value) : 0;
+			if ((this.level=="beginner")&(pc>0)) pc=100
 			var dv = S('#deltav_indicator');
-			dv.attr('class','meter').addClass('orbit-'+this.choices.orbit);
+			// dv.attr('class','meter').addClass('orbit-'+this.choices.orbit);
 			dv.find('.level').css({'width':(pc > 100 ? 100 : pc).toFixed(3)+'%'});
 			dv.find('.value').html(pc.toFixed(1)+'%');
 			if(pc >= 100){
@@ -362,6 +363,9 @@ var rs;
 			dvreq=new Convertable(eq.deltav.required.value,'m/s','velocity')
 			S('#menu-mass .menudvreq .deltav').html(dvreq.toString({'units':this.defaults.velocity}));
 			S('#menu-mass .menudvavail .deltav').html(dvavail.toString({'units':this.defaults.velocity}));
+		}
+		if((this.choices.payloadbay)&&(this.choices.bus)){
+			this.choices['bigenough'] = (this.choices.payloadbay.size >= this.choices.bus.width.value)
 		}
 		return this;
 	}
@@ -565,6 +569,7 @@ var rs;
 		if(this.choices['stable']) ch.push(this.choices['stable']);
 		if(this.choices['inbudget']) ch.push(this.choices['inbudget']);
 		if(this.choices['powered']) ch.push(this.choices['powered']);
+		if(this.choices['bigenough']) ch.push(this.choices['bigenough']);
 		if(this.choices['solar-panel-surface']) ch.push('solar-panel-surface');
 		if(this.choices['solar-panel'] > 0) ch.push('solar-panel');
 		this.log('power: total',this.totals.power.value,'choices',this.power.value,'powered',this.choices.powered)
@@ -996,6 +1001,7 @@ var rs;
 		}
 		S('#customstylesheet').html(css);
 
+		this.updateTotals();
 		this.updateBudgets();
 		this.updateRequirements();
 
