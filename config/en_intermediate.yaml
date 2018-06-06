@@ -8,13 +8,7 @@ ui.level.intermediate.description:          Give yourself a bit more flexibility
 ui.level.advanced.description:              The most advanced level, with a much greater range of options, and the ability to select which orbit the satellite will be in. But will your rocket be big enough to launch your satellite?
 ui.nojs:                                    Oops! The interactive parts of <em>Classroom rocket scientist</em> need Javascript to be enabled. Sorry about that.
 ui.title:                                   Classroom rocket scientist
-ui.introduction:                            Tince the first satellite was launched into orbit in 1957, the technology has been evolving rapidly. Today, thousands of satellites orbit around the Earth and the important role they play in our daily lives cannot be underestimated.
-
-Now the UK Space Agency is planning its next satellite mission. They've asked you to help design it!
-
-This app challenges you to design and launch a satellite that can perform a specific role related to communications, navigation or earth observation. You’ll need to select the size of your satellite along with its instruments and power supply. Once it’s completed, you’ll be challenged to design a rocket capable of launching your satellite into orbit — will you succeed?
-
-If you’re feeling brave, why not try building your satellite on a budget in Intermediate mode, or try Advanced mode for a much greater range of options and the ability to select your satellite’s orbit. 
+ui.introduction:                            <p>The UK Space Agency is planning its next satellite mission. They've asked you to help design it!</p><p>This app challenges you to design and launch a satellite that can perform a specific role related to communications, navigation or earth observation. You’ll need to select the size of your satellite along with its instruments and power supply. Once it’s completed, you’ll be challenged to design a rocket capable of launching your satellite into orbit — will you succeed?</p>
 ui.loading:                                 Loading space programme...
 ui.requirements.title:                      Requirements
 ui.close:                                   Close
