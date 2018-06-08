@@ -41,7 +41,7 @@
 	"bus": {
 		"small": {
 			"slots": { "2x2": 2, "2x4": 1, "3x3": 1, "4x4": 4 },
-			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
+			"cost": { "value": 20, "units": "credits", "dimension": "currency" },
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 150, "units": "kg", "dimension": "mass" },
 			"width": { "value": 1, "units": "m", "dimension": "length" },
@@ -307,6 +307,22 @@
 				{ "value": 0.5, "units": "m", "dimension": "length" }
 			],
 			"power": { "value": 40, "units": "watts", "dimension": "power" }
+		},
+		"phone-en": {
+			"slot":	"2x2",
+			"title": "Phone encoder",
+			"description": "Broadcasts signals to and from telephones across the world.",
+			"texture": {
+				"icon": "texture phone-en"
+			},
+			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
+			"cost": { "value": 1, "units": "credits", "dimension": "currency" },
+			"dimensions": [
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" },
+				{ "value": 0.5, "units": "m", "dimension": "length" }
+			],
+			"power": { "value": 2, "units": "watts", "dimension": "power" }
 		}
 	},
 	"power": {
@@ -351,29 +367,6 @@
 				"oneof": ["solar-panel","solar-panel-surface"],
 				"label": "Battery requires solar panels to charge up",
 				"error": "Battery requires solar panels"
-			}]
-		},
-		"rtg": {
-			"slot":	"2x4",
-			"title": "",
-			"description": "",
-			"texture": {
-				"icon": "texture rtg"
-			},
-			"mass": { "value": 60, "units": "kg", "dimension": "mass" },
-			"cost": { "value": 30, "units": "credits", "dimension": "currency" },
-			"dimensions": [
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 0.5, "units": "m", "dimension": "length" },
-				{ "value": 1.0, "units": "m", "dimension": "length" }
-			],
-			"power": { "value": 300, "units": "watts", "dimension": "power" },
-			"requires": [{
-				"type": "orbit",
-				"showin": "power",
-				"oneof": ["MEO","HEO","GEO"],
-				"label": "",
-				"error": ""
 			}]
 		},
 		"solar-panel-surface": {
@@ -716,6 +709,9 @@
 					"alt": "Satellite Navigation System",
 					"credit": "Housin Aziz"
 				},
+				"choices": {
+					"orbit": "GEO"
+				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
 					"type": "package",
@@ -753,6 +749,9 @@
 					"alt": "Map-making",
 					"credit": "parkjisun"
 				},
+				"choices": {
+					"orbit": "LEO"
+				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
@@ -760,11 +759,26 @@
                     "label": "An instrument capable of high resolution images.",
 					"error": "An instrument capable of high resolution images."
                 },{
+					"type": "package",
+					"oneof": ["dish-large","dish-medium"],
+					"label": "A way to send signals to people on the ground.",
+					"error": "Your satellite does not have any way to send signals to people on the ground."
+				},{
+					"type": "package",
+					"oneof": ["radar-alt"],
+					"label": "To measure the height of the ground in very high resolution.",
+					"error": "You do not have a way to measure the height of the ground in very high resolution."
+            	},{
 					"type": "orbit",
 					"oneof": ["LEO"],
 					"label": "See detail of planet surface.",
 					"error": "The orbit you have chosen does not allow your satellite to see the planet surface in enough detail."
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-medium","battery-large"],
+                    "label": "Provide power even when not in sunlight.",
+                    "error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."
+                }]
 			}]
 		},
 		"COMMS": {
@@ -785,7 +799,10 @@
 					"alt": "Satellite telephone system",
 					"credit": "Plainicon"
 				},
-				"budget": { "value": 100, "units": "credits", "dimension": "currency" },
+				"choices": {
+					"orbit": "GEO"
+				},
+				"budget": { "value": 150, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium"],
@@ -794,14 +811,19 @@
                 },{
                     "type": "package",
                     "oneof": ["phone-en"],
-                    "label": "",
-					"error": ""
+                    "label": "A way to broadcast phone signals.",
+					"error": "Your satellite does not have a way to broadcast phone signals"
                 },{
 					"type": "orbit",
 					"oneof": ["GEO"],
 					"label": "Satellite is continuously above one area of Earth",
 					"error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-medium","battery-large"],
+                    "label": "Provide power even when not in sunlight.",
+                    "error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."
+                }]
 			},{
 				"title": "Satellite TV",
 				"description": "Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.",
@@ -812,7 +834,10 @@
 					"alt": "Satellite TV",
 					"credit": "Hakan Yalcin"
 				},
-				"budget": { "value": 500, "units": "credits", "dimension": "currency" },
+				"choices": {
+					"orbit": "GEO"
+				},
+				"budget": { "value": 150, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium"],
@@ -828,7 +853,12 @@
 					"oneof": ["GEO"],
 					"label": "Satellite is continuously above one area of Earth.",
 					"error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-medium","battery-large"],
+                    "label": "Provide power even when not in sunlight.",
+                    "error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."
+                }]
 			},{
 				"title": "Satellite internet",
 				"description": "Connect to the internet from remote regions of the world using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.",
@@ -839,7 +869,10 @@
 					"alt": "Satellite internet",
 					"credit": "parkjisun"
 				},
-				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"choices": {
+					"orbit": "GEO"
+				},
+				"budget": { "value": 150, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium"],
@@ -855,7 +888,12 @@
 					"oneof": ["GEO"],
 					"label": "Satellite is continuously above one area of Earth",
 					"error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-medium","battery-large"],
+                    "label": "Provide power even when not in sunlight.",
+                    "error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."
+                }]
 			}]
 		},
 		"EO": {
@@ -875,6 +913,9 @@
 					"file": "images/png/icon-cloud.png",
 					"alt": "Weather forecasting",
 					"credit": "Megan Mitchell"
+				},
+				"choices": {
+					"orbit": "LEO"
 				},
 				"budget": { "value": 250, "units": "credits", "dimension": "currency" },
 				"requires": [{
@@ -897,7 +938,12 @@
 					"oneof": ["LEO"],
 					"label": "See detail of Earth's weather systems.",
 					"error": "The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail."
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-medium","battery-large"],
+                    "label": "Provide power even when not in sunlight.",
+                    "error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."
+                }]
 			},{
 				"title": "Vegetation mapping",
 				"description": "Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmit the images back to the ground.",
@@ -907,6 +953,9 @@
 					"file": "images/png/icon-plant.png",
 					"alt": "Vegetation mapping",
 					"credit": "Clockwise"
+				},
+				"choices": {
+					"orbit": "LEO"
 				},
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
@@ -924,7 +973,12 @@
 					"oneof": ["LEO"],
 					"label": "See detail of Earth's weather systems.",
 					"error": "The orbit you have chosen does not allow you to see the vegetation in enough detail."
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-medium","battery-large"],
+                    "label": "Provide power even when not in sunlight.",
+                    "error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."
+                }]
 			},{
 				"title": "Natural disaster monitoring",
 				"description": "When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras can show floods and fires. Radio waves can show regions of earth deformation, such as after earthquakes.",
@@ -935,7 +989,10 @@
 					"alt": "Natural disaster monitoring",
 					"credit": "Leadway Global LLC"
 				},
-				"budget": { "value": 800, "units": "credits", "dimension": "currency" },
+				"choices": {
+					"orbit": "LEO"
+				},
+				"budget": { "value": 1000, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-opt-hires"],
@@ -961,7 +1018,12 @@
 					"oneof": ["LEO"],
 					"label": "To see fine detail of planet surface.",
 					"error": "The orbit you have chosen does not allow you to see the disaster region in enough detail."
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-medium","battery-large"],
+                    "label": "Provide power even when not in sunlight.",
+                    "error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."
+                }]
 			},{
 				"title": "Surface mapping",
 				"description": "Measure the varying height of land and oceans over the Earth's surface.",
@@ -971,6 +1033,9 @@
 					"file": "images/png/icon-surface.png",
 					"alt": "Surface mapping",
 					"credit": "OCHA Visual Information Unit"
+				},
+				"choices": {
+					"orbit": "LEO"
 				},
 				"budget": { "value": 1000, "units": "credits", "dimension": "currency" },
 				"requires": [{
@@ -993,7 +1058,12 @@
 					"oneof": ["LEO"],
 					"label": "To see fine detail on the planet surface.",
 					"error": "The orbit you have chosen does not allow you to see the planet surface in enough detail."
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-medium","battery-large"],
+                    "label": "Provide power even when not in sunlight.",
+                    "error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."
+                }]
 			}]
 		}
 	},
@@ -1008,6 +1078,11 @@
 			"is": "fueled",
 			"label": "Your rocket needs enough power to reach orbit.",
 			"error": "Your rocket is not powerful enough to launch."
+		},{
+			"type": "rocket",
+			"is": "bigenough",
+			"label": "Your rocket payload bay needs to be big enough to hold your satellite.",
+			"error": "Your rocket payload bay is not big enough to hold your satellite."
 		}]
 	},
 	"missionreq": {
@@ -1042,8 +1117,8 @@
 		"payload-bay-open": "Payload bay opened",
 		"deployed": "Satellite deployed",
 		"solar-panels": {
-			"deploying": "",
-			"deployed": ""
+			"deploying": "Deploying solar panels",
+			"deployed": "Solar panels deployed"
 		},
 		"operational": "Satellite operational"
     }

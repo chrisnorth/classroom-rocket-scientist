@@ -41,7 +41,7 @@
 	"bus": {
 		"cube": {
 			"slots": { "0x2": 1, "1x1": 2, "1x2": 1, "3x3": 1 },
-			"cost": { "value": 0.5, "units": "credits", "dimension": "currency" },
+			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
 			"mass": { "value": 1, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 0.3, "units": "kg", "dimension": "mass" },
 			"width": { "value": 0.1, "units": "m", "dimension": "length" },
@@ -52,7 +52,7 @@
 		},
 		"small": {
 			"slots": { "2x2": 2, "2x4": 1, "3x3": 1, "4x4": 4 },
-			"cost": { "value": 5, "units": "credits", "dimension": "currency" },
+			"cost": { "value": 20, "units": "credits", "dimension": "currency" },
 			"mass": { "value": 100, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 150, "units": "kg", "dimension": "mass" },
 			"width": { "value": 1, "units": "m", "dimension": "length" },
@@ -884,7 +884,7 @@
 					"error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."
 				},{
                     "type": "power",
-                    "oneof": ["battery-small","battery-medium","battery-large"],
+                    "oneof": ["battery-small","battery-small","battery-medium","battery-large","rtg"],
                     "label": "Provide power even when not in sunlight.",
                     "error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."
                 }]
@@ -905,11 +905,31 @@
                     "label": "An instrument capable of high resolution images.",
 					"error": "An instrument capable of high resolution images."
                 },{
+					"type": "package",
+					"oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
+					"label": "A way to send signals to the groud.",
+					"error": "Your satellite does not have any way to transmit timing signals to people on the ground."
+				},{
+					"type": "package",
+					"oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
+					"label": "A way to send signals to the groud.",
+					"error": "Your satellite does not have any way to transmit timing signals to people on the ground."
+				},{
+					"type": "package",
+					"oneof": ["radar-alt"],
+					"label": "To measure the height of the ground in very high resolution.",
+					"error": "You do not have a way to measure the height of the Earth's surface."
+            	},{
 					"type": "orbit",
 					"oneof": ["LEO"],
-					"label": "See detail of planet surface.",
-					"error": "The orbit you have chosen does not allow your satellite to see the planet surface in enough detail."
-				}]
+					"label": "See large areas of the planet at one time.",
+					"error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."
+				},{
+                    "type": "power",
+                    "oneof": ["battery-small","battery-small","battery-medium","battery-large","rtg"],
+                    "label": "Provide power even when not in sunlight.",
+                    "error": "The orbit you have chosen does not allow your satellite to see the planet surface in enough detail."
+                }]
 			}]
 		},
 		"COMMS": {
@@ -946,12 +966,17 @@
 					"oneof": ["GEO"],
 					"label": "Satellite is continuously above one area of Earth",
 					"error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-small","battery-medium","battery-large","rtg"],
+                    "label": "Provide power even when not in sunlight.",
+                    "error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."
+                }]
 			},{
 				"title": "Satellite TV",
 				"description": "Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.",
-				"launch": "",
-				"success": "",
+				"launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will allow people from regions all over the world to watch television.",
+				"success": "Congratulations, your communication satellite is now receiving signals from the ground and broadcasting them to TVs around the Earth on behalf of the UK Space Agency.",
 				"image": {
 					"file": "images/png/icon-tv.png",
 					"alt": "Satellite TV",
@@ -973,7 +998,12 @@
 					"oneof": ["GEO"],
 					"label": "Satellite is continuously above one area of Earth.",
 					"error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-small","battery-medium","battery-large","rtg"],
+                    "label": "Provide power even when not in sunlight.",
+                    "error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."
+                }]
 			},{
 				"title": "Satellite internet",
 				"description": "Connect to the internet from remote regions of the world using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.",
@@ -1000,7 +1030,12 @@
 					"oneof": ["GEO"],
 					"label": "Satellite is continuously above one area of Earth",
 					"error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-small","battery-medium","battery-large","rtg"],
+                    "label": "Provide power even when not in sunlight.",
+                    "error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."
+                }]
 			}]
 		},
 		"EO": {
@@ -1042,7 +1077,12 @@
 					"oneof": ["LEO"],
 					"label": "See detail of Earth's weather systems.",
 					"error": "The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail."
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-small","battery-medium","battery-large","rtg"],
+                    "label": "Provide power even when not in sunlight.",
+                    "error": "The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail."
+                }]
 			},{
 				"title": "Vegetation mapping",
 				"description": "Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmit the images back to the ground.",
@@ -1069,7 +1109,12 @@
 					"oneof": ["LEO"],
 					"label": "See detail of Earth's weather systems.",
 					"error": "The orbit you have chosen does not allow you to see the vegetation in enough detail."
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-small","battery-medium","battery-large","rtg"],
+                    "label": "Provide power even when not in sunlight.",
+                    "error": "The orbit you have chosen does not allow you to see the vegetation in enough detail."
+                }]
 			},{
 				"title": "Natural disaster monitoring",
 				"description": "When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras can show floods and fires. Radio waves can show regions of earth deformation, such as after earthquakes.",
@@ -1106,7 +1151,12 @@
 					"oneof": ["LEO"],
 					"label": "To see fine detail of planet surface.",
 					"error": "The orbit you have chosen does not allow you to see the disaster region in enough detail."
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-small","battery-medium","battery-large","rtg"],
+                    "label": "Provide power even when not in sunlight.",
+                    "error": "The orbit you have chosen does not allow you to see the disaster region in enough detail."
+                }]
 			},{
 				"title": "Surface mapping",
 				"description": "Measure the varying height of land and oceans over the Earth's surface.",
@@ -1138,7 +1188,12 @@
 					"oneof": ["LEO"],
 					"label": "To see fine detail on the planet surface.",
 					"error": "The orbit you have chosen does not allow you to see the planet surface in enough detail."
-				}]
+				},{
+                    "type": "power",
+                    "oneof": ["battery-small","battery-medium","battery-large","rtg"],
+                    "label": "Provide power even when not in sunlight.",
+                    "error": "The orbit you have chosen does not allow you to see the planet surface in enough detail."
+                }]
 			}]
 		}
 	},
@@ -1153,6 +1208,11 @@
 			"is": "fueled",
 			"label": "Your rocket needs enough power to reach orbit.",
 			"error": "Your rocket is not powerful enough to launch."
+		},{
+			"type": "rocket",
+			"is": "bigenough",
+			"label": "Your rocket payload bay needs to be big enough to hold your satellite.",
+			"error": "Your rocket payload bay is not big enough to hold your satellite."
 		}]
 	},
 	"missionreq": {
@@ -1187,8 +1247,8 @@
 		"payload-bay-open": "Payload bay opened",
 		"deployed": "Satellite deployed",
 		"solar-panels": {
-			"deploying": "",
-			"deployed": ""
+			"deploying": "Deploying solar panels",
+			"deployed": "Solar panels deployed"
 		},
 		"operational": "Satellite operational"
     }

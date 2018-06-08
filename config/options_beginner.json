@@ -627,8 +627,8 @@
 				},{
 					"type": "package",
 					"oneof": ["atomic-clock"],
-					"label": "%scenarios.NAV.sat-nav.req.atomic-clock.label%",
-					"error": "%scenarios.NAV.sat-nav.req.atomic-clock.error%"
+					"label": "%scenarios.NAV.sat-nav.req.atomic.label%",
+					"error": "%scenarios.NAV.sat-nav.req.atomic.error%"
 				},{
 					"type": "package",
 					"oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
@@ -644,11 +644,6 @@
 					"oneof": ["LEO","MEO","HEO","GEO"],
 					"label": "%scenarios.NAV.sat-nav.req.orbit.label%",
 					"error": "%scenarios.NAV.sat-nav.req.orbit.error%"
-				},{
-					"type": "power",
-					"oneof": ["solar-panel","solar-panel-surface","battery-small","battery-large"],
-					"label": "",
-					"error": ""
 				}]
 			},{
 				"title": "%scenarios.NAV.map.title%",
@@ -680,10 +675,6 @@
 					"oneof": ["LEO"],
 					"label": "%scenarios.NAV.map.req.orbit.label%",
 					"error": "%scenarios.NAV.map.req.orbit.error%"
-				},{
-					"type": "power",
-					"oneof": ["solar-panel","solar-panel-surface","battery-small","battery-large"],
-					"label": ""
 				}]
 			}]
 		},
@@ -843,6 +834,16 @@
 			"is": "fueled",
 			"label": "%rocket.requires.power.label%",
 			"error": "%rocket.requires.power.error%"
+		},{
+			"type": "power",
+			"is": "powered",
+			"label": "%launch.prep.powered.label%",
+			"error": "%launch.prep.powered.error%"
+		},{
+			"type": "rocket",
+			"is": "bigenough",
+			"label": "%rocket.requires.bigenough.label%",
+			"error": "%rocket.requires.bigenough.error%"
 		}]
 	},
     "launch": {
@@ -864,8 +865,8 @@
 		"payload-bay-open": "%launch.payload-bay-open%",
 		"deployed": "%launch.deployed%",
 		"solar-panels": {
-			"deploying": "%launch.solar-panels-deploying%",
-			"deployed": "%launch.solar-panels-deployed%"
+			"deploying": "%launch.solar-panels.deploying%",
+			"deployed": "%launch.solar-panels.deployed%"
 		},
 		"operational": "%launch.operational%"
     }

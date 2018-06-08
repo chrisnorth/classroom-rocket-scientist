@@ -28,6 +28,8 @@ ui.menu.about.title:                        About
 ui.menu.about.more:                         About
 ui.menu.guide.title:                        Guide
 ui.menu.guide.more:                         Guide
+ui.menu.help.title:                         Help
+ui.menu.help.more:                          Help
 ui.menu.level.title:                        Difficulty
 ui.menu.level.more:                         Change the difficulty
 ui.menu.fullscreen.title:                   Toggle fullscreen
@@ -78,7 +80,7 @@ ui.sections.rocket.size:                    Diameter:
 ui.sections.rocket.drymass:                 Dry mass:
 ui.sections.rocket.fuel:                    Fuel:
 ui.sections.rocket.cost:                    Cost:
-ui.sections.rocket.thrust:                    Thrust:
+ui.sections.rocket.thrust:                  Thrust:
 ui.sections.rocket.payload:                 Your satellite
 ui.sections.rocket.emptystage:              None
 ui.sections.launch.short:                   Launch
@@ -95,6 +97,8 @@ ui.sections.about.title:                    About:
 ui.sections.about.intro:                    Classroom rocket scientist is...</p><p>Developed by Chris North, Sarah Roberts, Brychan Govier and <a href="http://www.strudel.org.uk/">Stuart Lowe</a>.</p><p>Supported by <a href="http://www.cardiff.ac.uk/physics-astronomy">Cardiff University School of Physics and Astronomy</a> and the <a href="https://www.gov.uk/guidance/apply-for-funding-academic-community-and-educational#space-for-all---community-funding-scheme">UK Space Agency Space For All grant scheme</a>.</p><p>Icons by parkjisun, Housin Aziz, Creative Stall, Plainicon, Hakan Yalcin, Rflor, Megan Mitchell, Clockwise, Leadway Global LLC, <a href="http://www.flaticon.com">Flaticon</a>, <a href="http://material.io/tools/icons">Google Material Design</a> and OCHA Visual Information Unit</p>
 ui.sections.guide.title:                    Teacher Guide:
 ui.sections.guide.intro:                    Coming soon...
+ui.sections.help.title:                     Help
+ui.sections.help.intro:                     Coming soon...
 bus.cube.title:                             Cube sat
 bus.cube.button:                            Select cube sat
 bus.small.title:                            Small satellite
@@ -137,6 +141,9 @@ package.internet-en.title: Internet encoder
 package.internet-en.description: Used to broadcast the internet to people around the world.
 package.tv-en.title: TV encoder
 package.tv-en.description: Used to broadcast the TV to people around the world.
+package.phone-en.title:                     Phone encoder
+package.phone-en.description:               Broadcasts signals to and from telephones across the world.
+
 package.battery-large.title:                Large battery
 package.battery-large.description:          Stores power from solar panels to allow operation when not in sunlight
 package.battery-large.requires.solar.label: Battery requires solar panels to charge up
@@ -162,7 +169,8 @@ rocket.requires.stable.label:               Your rocket must be stable
 rocket.requires.stable.error:               Your rocket is top heavy. Try to make sure it is stable before launching
 rocket.requires.power.label:                Your rocket needs enough power to reach orbit.
 rocket.requires.power.error:                Your rocket is not powerful enough to launch.
-
+rocket.requires.bigenough.label:            Your rocket payload bay needs to be big enough to hold your satellite.
+rocket.requires.bigenough.error:            Your rocket payload bay is not big enough to hold your satellite.
 scenarios.NAV.title:                        Navigation
 scenarios.NAV.description:                  The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.
 scenarios.NAV.sat-nav.title:                Satellite Navigation System
@@ -177,16 +185,24 @@ scenarios.NAV.sat-nav.req.gps-rx.label:  You need a way to monitor the satellite
 scenarios.NAV.sat-nav.req.gps-rx.error: You don't have a way to monitor the satellite's position to very high accuracy.
 scenarios.NAV.sat-nav.req.orbit.label: See large areas of the planet at one time.
 scenarios.NAV.sat-nav.req.orbit.error: The orbit you have chosen does not allow you to see a large enough area of the the whole planet.
+scenarios.NAV.sat-nav.req.power.label: Provide power even when not in sunlight.
+scenarios.NAV.sat-nav.req.power.error: Your satellite cannot operate without sunlight.
 scenarios.NAV.sat-nav.launch:				Welcome to the launch of the UK Space Agency's latest navigation satellite that will allow people to accurately determine their position on Earth.
 scenarios.NAV.sat-nav.success: 				Congratulations, your navigation satellite is now sending people accurate information about their position on Earth on behalf of the UK Space Agency.
 scenarios.NAV.map.title: Map-making
 scenarios.NAV.map.description: Map the surface of the Earth. Need to be able to take images of small areas of the Earth's surface and measure the height of the ground in high detail.
 scenarios.NAV.map.req.opt-hires.label: An instrument capable of high resolution images.
 scenarios.NAV.map.req.opt-hires.error: The instrument you have chosen does not allow you to see the planet surface in enough detail.
+scenarios.NAV.map.req.radar-alt.label: To measure the height of the ground in very high resolution.
+scenarios.NAV.map.req.radar-alt.error: You do not have a way to measure the height of the ground in very high resolution.
+scenarios.NAV.map.req.radio-dish.label: A way to send signals to people on the ground.
+scenarios.NAV.map.req.radio-dish.error: Your satellite does not have any way to send signals to people on the ground.
 scenarios.NAV.map.req.orbit.label: See detail of planet surface.
 scenarios.NAV.map.req.orbit.error: The orbit you have chosen does not allow your satellite to see the planet surface in enough detail.
-scenarios.NAV.sat-nav.req.power.label: Provide power even when not in sunlight.
-scenarios.NAV.sat-nav.req.power.error: Your satellite cannot operate without sunlight.
+scenarios.NAV.map.req.power.label: Provide power even when not in sunlight.
+scenarios.NAV.map.req.power.error: Your satellite cannot operate without sunlight.
+scenarios.NAV.map.req.power.label: Provide power even when not in sunlight.
+scenarios.NAV.map.req.power.error: Your satellite cannot operate without sunlight.
 scenarios.NAV.map.launch:				Welcome to the launch of the UK Space Agency's latest navigation satellite that will accurately map the surface of the Earth.
 scenarios.NAV.map.success: 				Congratulations, your navigation satellite is now accurately mapping the surface of the Earth on behalf of the UK Space Agency.
 scenarios.COMMS.title:                      Communication
@@ -195,8 +211,12 @@ scenarios.COMMS.phone.title: Satellite telephone system
 scenarios.COMMS.phone.description: Lets people talk over the phone from remote regions of the world using satellites.
 scenarios.COMMS.phone.req.radio-dish.label: A way to send signals to people on the ground.
 scenarios.COMMS.phone.req.radio-dish.error: Your satellite does not have any way to send signals to people on the ground.
+scenarios.COMMS.phone.req.phone-en.label: A way to broadcast phone signals.
+scenarios.COMMS.phone.req.phone-en.error: Your satellite does not have a way to broadcast phone signals
 scenarios.COMMS.phone.req.orbit.label: Satellite is continuously above one area of Earth
 scenarios.COMMS.phone.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
+scenarios.COMMS.phone.req.power.label: Provide power even when not in sunlight.
+scenarios.COMMS.phone.req.power.error: Your satellite cannot operate without sunlight.
 scenarios.COMMS.phone.launch:				Welcome to the launch of the UK Space Agency's latest communication satellite that will allow people from regions all over the world to communicate by telephone.
 scenarios.COMMS.phone.success: 				Congratulations, your communication satellite is now receiving signals from the ground and broadcasting them to phones around the Earth on behalf of the UK Space Agency.
 scenarios.COMMS.internet.title: 			Satellite internet
@@ -208,6 +228,8 @@ scenarios.COMMS.internet.req.internet-en.label: A way to encode internet signals
 scenarios.COMMS.internet.req.internet-en.error: You do not have a way to encode internet signals.
 scenarios.COMMS.internet.req.orbit.label: Satellite is continuously above one area of Earth
 scenarios.COMMS.internet.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
+scenarios.COMMS.internet.req.power.label: Provide power even when not in sunlight.
+scenarios.COMMS.internet.req.power.error: Your satellite cannot operate without sunlight.
 scenarios.COMMS.internet.launch:				Welcome to the launch of the UK Space Agency's latest communication satellite that will help people from all over the world connect to the internet.
 scenarios.COMMS.internet.success: 				Congratulations, your communication satellite is now helping people connect to the internet from regions all over the world on behalf of the UK Space Agency.
 scenarios.COMMS.tv.title: Satellite TV
@@ -218,6 +240,8 @@ scenarios.COMMS.tv.req.orbit.label: Satellite is continuously above one area of 
 scenarios.COMMS.tv.req.tv-en.label: A way to encode TV signals.
 scenarios.COMMS.tv.req.tv-en.error: You do not have a way to encode TV signals.
 scenarios.COMMS.tv.req.orbit.error: The orbit you have chosen means your satellite is not continuously above one area of Earth.
+scenarios.COMMS.tv.req.power.label: Provide power even when not in sunlight.
+scenarios.COMMS.tv.req.power.error: Your satellite cannot operate without sunlight.
 scenarios.COMMS.tv.launch:				Welcome to the launch of the UK Space Agency's latest communication satellite that will provide satellite TV to people all over the world.
 scenarios.COMMS.tv.success: 				Congratulations, your communication satellite is now providing satellite TV to people all over the world.
 scenarios.EO.title:                         Earth Observation
@@ -232,6 +256,8 @@ scenarios.EO.weather.req.camera-opt.label: To take images of clouds and weather 
 scenarios.EO.weather.req.camera-opt.error: You do not have a way to take images of the weather on Earth.
 scenarios.EO.weather.req.orbit.label: See detail of Earth's weather systems.
 scenarios.EO.weather.req.orbit.error: The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail.
+scenarios.EO.weather.req.power.label: Provide power even when not in sunlight.
+scenarios.EO.weather.req.power.error: Your satellite cannot operate without sunlight.
 scenarios.EO.weather.launch:				Welcome to the launch of the UK Space Agency's latest earth observation satellite that will allow forecasters around the world to predict future weather.
 scenarios.EO.weather.success: 				Congratulations, your earth observation satellite is now helping forecasters around the world to predict future weather.
 scenarios.EO.veg-map.title: Vegetation mapping
@@ -242,6 +268,8 @@ scenarios.EO.veg-map.req.camera.label: To take images of the vegetation on Earth
 scenarios.EO.veg-map.req.camera.error: You do not have a way to take images of the vegetation on Earth.
 scenarios.EO.veg-map.req.orbit.label: See detail of Earth's weather systems.
 scenarios.EO.veg-map.req.orbit.error: The orbit you have chosen does not allow you to see the vegetation in enough detail.
+scenarios.EO.veg-map.req.power.label: Provide power even when not in sunlight.
+scenarios.EO.veg-map.req.power.error: Your satellite cannot operate without sunlight.
 scenarios.EO.veg-map.launch:				Welcome to the launch of the UK Space Agency's latest earth observation satellite that will map the plants over the surface of the Earth using infrared images.
 scenarios.EO.veg-map.success: 				Congratulations, your earth observation satellite is now mapping the plants across the surface of the Earth using infrared images.
 scenarios.EO.disaster.title: Natural disaster monitoring
@@ -256,6 +284,8 @@ scenarios.EO.disaster.req.camera-nir.label: To monitor vegetation, for example d
 scenarios.EO.disaster.req.camera-nir.error: You do not have a way to monitor vegetation in disaster regions.
 scenarios.EO.disaster.req.orbit.label: To see fine detail of planet surface.
 scenarios.EO.disaster.req.orbit.error: The orbit you have chosen does not allow you to see the disaster region in enough detail.
+scenarios.EO.disaster.req.power.label: Provide power even when not in sunlight.
+scenarios.EO.disaster.req.power.error: Your satellite cannot operate without sunlight.
 scenarios.EO.disaster.launch:				Welcome to the launch of the UK Space Agency's latest earth observation satellite that will help to assess the damage caused by natural disasters including forest fires, floods and eathquakes.
 scenarios.EO.disaster.success: 				Congratulations, your earth observation satellite is now helping to assess the damage caused by natural disasters including forest fires, floods and eathquakes.
 scenarios.EO.surface.title: Surface mapping
@@ -270,6 +300,8 @@ scenarios.EO.surface.req.sat-tracker.label: A way to know the satellite position
 scenarios.EO.surface.req.sat-tracker.error: You do not have a way to locate the position of the satellite accurately.
 scenarios.EO.surface.req.orbit.label: To see fine detail on the planet surface.
 scenarios.EO.surface.req.orbit.error: The orbit you have chosen does not allow you to see the planet surface in enough detail.
+scenarios.EO.surface.req.power.label: Provide power even when not in sunlight.
+scenarios.EO.surface.req.power.error: Your satellite cannot operate without sunlight.
 scenarios.EO.surface.launch:  Welcome to the launch of the UK Space Agency's latest earth observation satellite that will measure the varying height of land and oceans over the Earth's surface.
 scenarios.EO.surface.success: Congratulations, your earth observation satellite is now measuring the varying height of land and oceans over the Earth's surface.
 launch.prep.budget.label: You need sufficient funds.

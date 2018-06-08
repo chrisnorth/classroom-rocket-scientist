@@ -627,8 +627,8 @@
 				},{
 					"type": "package",
 					"oneof": ["atomic-clock"],
-					"label": "",
-					"error": ""
+					"label": "You need a way to measure time very accurately.",
+					"error": "You satellite is not able to measure the time accurately."
 				},{
 					"type": "package",
 					"oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
@@ -644,11 +644,6 @@
 					"oneof": ["LEO","MEO","HEO","GEO"],
 					"label": "See the whole planet.",
 					"error": "The orbit you have chosen does not allow you to see the whole planet."
-				},{
-					"type": "power",
-					"oneof": ["solar-panel","solar-panel-surface","battery-small","battery-large"],
-					"label": "",
-					"error": ""
 				}]
 			},{
 				"title": "Map-making",
@@ -680,10 +675,6 @@
 					"oneof": ["LEO"],
 					"label": "See detail of planet surface.",
 					"error": "The orbit you have chosen does not allow your satellite to see the planet surface in enough detail."
-				},{
-					"type": "power",
-					"oneof": ["solar-panel","solar-panel-surface","battery-small","battery-large"],
-					"label": ""
 				}]
 			}]
 		},
@@ -843,6 +834,16 @@
 			"is": "fueled",
 			"label": "You must have an engine and somewhere to hold your satellite.",
 			"error": "Your rocket needs to be built."
+		},{
+			"type": "power",
+			"is": "powered",
+			"label": "Your satellite needs power.",
+			"error": "Your satellite does not have enough power."
+		},{
+			"type": "rocket",
+			"is": "bigenough",
+			"label": "Your rocket needs to be big enough to hold your satellite.",
+			"error": "Your rocket is not big enough to hold your satellite."
 		}]
 	},
     "launch": {
@@ -864,8 +865,8 @@
 		"payload-bay-open": "Payload bay opened",
 		"deployed": "Satellite deployed",
 		"solar-panels": {
-			"deploying": "",
-			"deployed": ""
+			"deploying": "Deploying solar panels",
+			"deployed": "Solar panels deployed"
 		},
 		"operational": "Satellite operational"
     }
