@@ -8,7 +8,7 @@ ui.level.intermediate.description:          Give yourself a bit more flexibility
 ui.level.advanced.description:              The most advanced level, with a much greater range of options, and the ability to select which orbit the satellite will be in. But will your rocket be big enough to launch your satellite?
 ui.nojs:                                    Oops! The interactive parts of <em>Classroom rocket scientist</em> need Javascript to be enabled. Sorry about that.
 ui.title:                                   Classroom rocket scientist
-ui.introduction:                            <p>The UK Space Agency is planning its next satellite mission. They've asked you to help design it!</p><p>This app challenges you to design and launch a satellite that can perform a specific role related to communications, navigation or earth observation. You’ll need to select the size of your satellite along with its instruments and power supply. Once it’s completed, you’ll be challenged to design a rocket capable of launching your satellite into orbit — will you succeed?</p>
+ui.introduction:                            <p>The UK Space Agency is planning its next satellite mission. They've asked you to help design it!</p><p>Your role is to design and launch a satellite that can perform a specific role related to communications, navigation or earth observation. You’ll need to select the size of your satellite along with its instruments and power supply. Once it’s completed, you’ll need to design a rocket capable of launching your satellite into orbit — will you succeed?</p>
 ui.loading:                                 Loading space programme...
 ui.requirements.title:                      Requirements
 >>>>>>> origin/dev
