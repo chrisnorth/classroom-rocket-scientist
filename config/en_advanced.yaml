@@ -3,12 +3,12 @@ ui.level:                                   (advanced)
 ui.level.beginner:                          Beginner
 ui.level.intermediate:                      Intermediate
 ui.level.advanced:                          Advanced
-ui.level.beginner.description:              Select a mission, and design a satellite that will achieve the aims. Don't worry about money - just make something that works!
+ui.level.beginner.description:              Select a mission, and design a satellite that will achieve the aims. Be careful -- you have a limited budget!
 ui.level.intermediate.description:          Give yourself a bit more flexibility, including being able to select the size of satellite. But watch out - you've got a budget to stick to now!
 ui.level.advanced.description:              The most advanced level, with a much greater range of options, and the ability to select which orbit the satellite will be in. But will your rocket be big enough to launch your satellite?
 ui.nojs:                                    Oops! The interactive parts of <em>Classroom rocket scientist</em> need Javascript to be enabled. Sorry about that.
 ui.title:                                   Classroom rocket scientist
-ui.introduction:                            <p>The UK Space Agency is planning its next satellite mission. They've asked you to help design it!</p><p>Your role is to design and launch a satellite that can perform a specific role related to communications, navigation or earth observation. You’ll need to select the size of your satellite along with its instruments and power supply. Once it’s completed, you’ll need to design a rocket capable of launching your satellite into orbit — will you succeed?</p>
+ui.introduction:                            <p>The UK Space Agency is planning its next satellite mission. They've asked you to help design it!</p><p>Your role is to design and launch a satellite that can perform a specific role related to communications, navigation or earth observation.</p><p> You’ll need to select the size of your satellite along with its instruments and power supply. Once it’s completed, you’ll need to design a rocket capable of launching your satellite into orbit — will you succeed?</p>
 ui.loading:                                 Loading space programme...
 ui.requirements.title:                      Requirements
 >>>>>>> origin/dev
