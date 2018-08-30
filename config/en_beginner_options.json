@@ -784,11 +784,6 @@
                     "label": "You need an instrument that can collect detailed images of the clouds and the planets surface",
 					"error": "Your satellite cannot take detailed images of the clouds and the planet's surface."
                 },{
-                    "type": "package",
-                    "oneof": ["dish-large","dish-medium","dish-small","radio-antenna-cube"],
-                    "label": "You need a way to send signals back to Earth.",
-					"error": "You do not have a way to send signals to the ground."
-				},{	
 					"type": "orbit",
 					"oneof": ["LEO"],
 					"label": "See detail of Earth's weather.",
