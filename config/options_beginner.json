@@ -55,7 +55,7 @@
 			"cost": { "value": 100, "units": "credits", "dimension": "currency" },
 			"mass": { "value": 500, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 250, "units": "kg", "dimension": "mass" },
-			"width": { "value": 5, "units": "m", "dimension": "length" },
+			"width": { "value": 2, "units": "m", "dimension": "length" },
 			"height": { "value": 2.5, "units": "m", "dimension": "length" },
 			"depth": { "value": 2.5, "units": "m", "dimension": "length" },
 			"area": { "value": 3, "units": "m^2", "dimension": "area" },
