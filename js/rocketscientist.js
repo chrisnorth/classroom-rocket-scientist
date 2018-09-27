@@ -479,7 +479,9 @@ var rs;
 		var requirementssectionlist = "";
 		var sectionexists;
 		var listedLaunch = new Array();
-		var fixme = S('#fixme')[0].innerHTML
+		if (S('#fixme').length > 0){
+			var fixme = S('#fixme')[0].innerHTML;
+		}else{fixme=''}
 		for(var s in sections){
 			// Remove existing requirements
 			S('#'+s+' .requirements ul').remove();

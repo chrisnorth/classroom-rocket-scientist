@@ -11,7 +11,7 @@
 		this.setupLaunch();
 		return this;
 	}
-	
+
 	// Get everything set up for the launch
 	RocketScientist.prototype.setupLaunch = function(){
 
@@ -31,7 +31,7 @@
 
 		// Split the input string of slots into an array
 		this.query['slots'] = this.query.slots.split(/;/)
-		
+
 		// Remove unnecessary busses
 		var s = S('.satellite-holder .holder');
 		for(var i = 0; i < s.length; i++){
@@ -79,14 +79,27 @@
 			}
 		}
 
-		// Add the solar panels 
+		var power = new Convertable(0,this.defaults.power);
+		// Add the solar panels
 		var panels = S('#satellite .solar-panels');
 		html = "";
 		for(var p = 0; p < Math.floor(this.choices['solar-panel']/2); p++) html += '<li class="solar-panel"><\/li>';
 		for(var i = 0; i < panels.length; i++) S(panels.e[i]).find('ol').html(html);
+		if(this.choices['solar-panel']){
+			power.value += this.data['power']['solar-panel'].power.value*n;
+		}
 
 		// Add the fixed solar panels
-		if(this.choices['solar-panel-surface']) S('#satellite .satellite').addClass('solar-fixed');
+		if(this.choices['solar-panel-surface']){
+			S('#satellite .satellite').addClass('solar-fixed');
+			var n = (this.choices['bus'].area) ? this.choices['bus'].area.convertTo('m^2').value : 0;
+			var pow = new Convertable(0,'watts','power');
+			var p = this.data['power']['solar-panel-surface'].power.copy();
+			if(p.dimension == "powerdensity") pow.value = p.convertTo('watts/m^2').value * n;
+			else if(p.dimension == "power") pow.value = p.convertTo('watts').value * n;
+			power.value += pow.value;
+		}
+		this.power=power;
 
 		// Get the rocket stages
 		for(var i = 0 ; i < this.stages.length; i++){
@@ -167,9 +180,9 @@
 				}
 
 			}else if(this.step == 3){
-			
+
 				// Stage separation
-			
+
 			}
 			this.step++;
 
@@ -195,7 +208,7 @@
 			}
 			return this;
 		}
-		return this;	
+		return this;
 	}
 
 	// Make an animated exhaust for a rocket.
@@ -215,8 +228,8 @@
 		ctx.globalCompositeOperation = "copy";
 		this.active = true;
 		var c;
-		
-		// Make the canvas occupy the same space 
+
+		// Make the canvas occupy the same space
 		var w = pad[0].offsetWidth;
 		var h = pad[0].offsetHeight*4;
 		canvas.width = w;
@@ -232,7 +245,7 @@
 		off_canvas.width = w;
 		off_canvas.height = h;
 		var off_ctx = off_canvas.getContext('2d');
-		
+
 		// Create some particles
 		var particle_count = 60;
 		for(var i = 0; i < particle_count; i++) particles.push(new particle());
@@ -282,14 +295,14 @@
 				// Draw particle
 				off_ctx.arc(p.loc.x, p.loc.y, p.radius, Math.PI*2, false);
 				off_ctx.fill();
-				
+
 				// Move the particles
 				p.remaining_life -= 0.5;
 				p.radius += 0.5;
 				p.loc.x += p.speed.x;
 				p.loc.y -= p.speed.y;
 				if(p.loc.y > h - Math.random()*80) p.loc.x += (Math.random()-0.5)*100*Math.min(1,tstep/120);
-				
+
 				// Regenerate the particles
 				if(p.remaining_life < 0 || p.radius < 0) particles[i] = new particle();
 			}
