@@ -868,6 +868,7 @@
 			"deploying": "Deploying solar panels",
 			"deployed": "Solar panels deployed"
 		},
-		"operational": "Satellite operational"
+		"operational": "Satellite operational",
+		"launchanother": "Launch another mission"
     }
 }

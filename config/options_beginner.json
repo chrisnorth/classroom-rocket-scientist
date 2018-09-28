@@ -868,6 +868,7 @@
 			"deploying": "%launch.solar-panels.deploying%",
 			"deployed": "%launch.solar-panels.deployed%"
 		},
-		"operational": "%launch.operational%"
+		"operational": "%launch.operational%",
+		"launchanother": "%launch.launchanother%"
     }
 }

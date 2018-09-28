@@ -335,4 +335,5 @@ launch.deployed:  Satellite deployed
 launch.solar-panels.deploying: Deploying solar panels
 launch.solar-panels.deployed: Solar panels deployed
 launch.operational: Satellite operational
+launch.launchanother: Launch another mission
 ---

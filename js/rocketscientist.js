@@ -133,6 +133,7 @@ var rs;
 		S('#about .close').on('click',{me:this},function(e){ S('#about').addClass('not-at-start'); S('body').removeClass('nooverflow'); });
 		S('#guide .close').on('click',{me:this},function(e){ S('#guide').addClass('not-at-start'); S('body').removeClass('nooverflow'); });
 		S('#help .close').on('click',{me:this},function(e){ S('#help').addClass('not-at-start'); S('body').removeClass('nooverflow'); });
+		S('#launch .another').on('click',{me:this},function(e){ console.log('another');location.href = location.href.replace(/[\/]+$/,'') + (location.protocol==="file:") ? "index.html" : ""; })
 
 		// Deal with changes to the unit selectors
 		S('#units select').on('change',{me:this},function(e){

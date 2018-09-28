@@ -119,6 +119,35 @@
 			this.eq = rocketEquation(this.choices.orbit,this.data,stages,this.totals.mass);
 		}
 
+		allstages=["firststage","secondstage","thirdstage"]
+		stages=[]
+		n=1;
+		for (st=0; st<allstages.length;st++){
+			if (this.choices[allstages[st]].key!="None"){
+				stages.push({"n":n,"name":allstages[st],"data":this.choices[allstages[st]]})
+				n++;
+			}
+		}
+		this.data.launch.stages=stages;
+
+		successtxt=[]
+		for (s=0;s<stages.length;s++){
+			if (s>0) successtxt.push(this.data.launch.stage["ignition"].replace("$stage$",stages[s].n))
+			successtxt.push(this.data.launch.stage["fuel-exhausted"].replace("$stage$",stages[s].n))
+			successtxt.push(this.data.launch.stage["separation"].replace("$stage$",stages[s].n))
+		}
+		successtxt.push(this.data.launch["orbit-achieved"].replace('$orbit$',this.data.orbit[this.choices.orbit].title));
+		successtxt.push(this.data.launch["current-speed"].replace('$value$',this.eq.deltav.required.value.toFixed(0)+' '+this.eq.deltav.required.units));
+		successtxt.push(this.data.launch["payload-bay-open"]);
+		successtxt.push(this.data.launch["deployed"]);
+		if (this.choices["solar-panel"]>0){
+			successtxt.push(this.data.launch["solar-panels"].deploying);
+			successtxt.push(this.data.launch["solar-panels"].deployed);
+		}
+		successtxt.push(this.data.launch["operational"]);
+		successtxt.push(' ');
+		successtxt.push(this.data.scenarios[this.choices.type].missions[this.choices.goal].success || "");
+		this.data.launch.successtxt=successtxt;
 		//console.log(this.eq)
 
 		l = new Launch(this);
@@ -135,6 +164,7 @@
 
 		// First step is to display the introduction
 		this.terminal.append(rocket.data.scenarios[rocket.choices.type].missions[rocket.choices.goal].launch || "");
+		this.terminal.append(' ');
 
 		//S('#barmenu').append('<div class="baritem"><button id="speedy"><img class="icon options" alt="" src="images/cleardot.gif" /><span>Test</span></button></div>');
 		//this.rs.eq.stages[1].cost.toString({'units':this.rs.defaults.currency});
@@ -152,7 +182,29 @@
 				// Create a timeout for the next second of the launch countdown
 				this.outtatime = setTimeout(function(){ _obj.countdown(i); },1000);
 			}else{
+				this.terminal.append(this.rs.data.launch.stage["ignition"].replace("$stage$",'1'));
 				this.terminal.append(this.rs.data.launch["liftoff"]);
+				if(this.outtatime) clearTimeout(this.outtatime);
+				this.nextStep();
+			}
+		}
+		this.onorbit = function(j){
+
+			this.rs.log('onorbit');
+
+			var _obj = this;
+			if(j < this.rs.data.launch.successtxt.length){
+				this.terminal.append(this.rs.data.launch.successtxt[j]);
+				j++;
+				// Have we got a spurious timeout set? If so, cancel it.
+				if(this.outtatime) clearTimeout(this.outtatime);
+				// Create a timeout for the next second of the launch countdown
+				this.outtatime = setTimeout(function(){ _obj.onorbit(j); },1500);
+			}else{
+				this.terminal.append(' ');
+				this.terminal.append('<button class=fancy title="Launch another" onclick="window.location.href=\'index.html\'" data-type="another">'+this.rs.data.launch.launchanother+'</button>');
+				// this.terminal.append('<li class="baritem another" data="another"><button title="Launch another"><img src="images/cleardot.gif" class="icon another" alt="" /><span>'+this.rs.data.launch.launchanother+'</span></button></li>');
+				// S('#launch .another').on('click',{me:this},function(e){ location.href = location.href.replace(/[\/]+$/,'') + (location.protocol==="file:") ? "index.html" : ""; })
 				if(this.outtatime) clearTimeout(this.outtatime);
 				this.nextStep();
 			}
@@ -166,11 +218,12 @@
 
 			if(this.step==1){
 
-				this.countdown(3);
+				var _obj=this;
+				this.outtatime = setTimeout(function(){_obj.countdown(3)},1000);
 
 			}else if(this.step == 2){
 
-				delay = 2.5;
+				delay = 0.5;
 				this.exhaust = new Exhaust();
 				fn = function(){
 					var dur = 12;
@@ -181,7 +234,14 @@
 
 			}else if(this.step == 3){
 
-				// Stage separation
+				var _obj=this;
+				this.outtatime = setTimeout(function(){_obj.onorbit(0)},12000);
+				// var _obj=this;
+				// // this.successmsg();
+				// if(this.outtatime) clearTimeout(this.outtatime);
+				// // Create a timeout for the successful launch message
+				// this.outtatime = setTimeout(function(){ _obj.successmsg(); },3000);
+				// this.terminal.append("<button class='restart' title='Launch another' alt='' /><span>Launch another mission</span></button>");
 
 			}
 			this.step++;
