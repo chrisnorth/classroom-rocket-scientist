@@ -365,7 +365,7 @@ var rs;
 			S('#menu-mass .menudvavail .deltav').html(dvavail.toString({'units':this.defaults.velocity}));
 		}
 		if((this.choices.payloadbay)&&(this.choices.bus)){
-			this.choices['bigenough'] = (this.choices.payloadbay.size >= this.choices.bus.width.value)
+			this.choices['bigenough'] = (this.choices.payloadbay.diameter.value >= this.choices.bus.width.value)
 		}
 		return this;
 	}
