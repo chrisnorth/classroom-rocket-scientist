@@ -965,7 +965,7 @@ body #about .icons img {height:50px; margin:10px;}
 	.holder { display: block; }
 	#type .holder { width: 100%; }
 	.satellite-holder { display: block; height: auto; max-height: auto; }
-	section#type .holder { width: 100%; }
+	section#type .holder, section#start .holder { width: 100%; }
 	.padded { padding: $padded*0.5; }
 	.paddedsmall { padding: $padded*0.25; }
 	.padd-left { margin-left: 0px;  }
