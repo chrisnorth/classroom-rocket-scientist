@@ -3651,7 +3651,7 @@ body #about .icons img {
     height: auto;
     max-height: auto; }
 
-  section#type .holder {
+  section#type .holder, section#start .holder {
     width: 100%; }
 
   .padded {
