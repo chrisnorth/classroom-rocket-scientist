@@ -926,7 +926,7 @@
                 },{
                     "type": "package",
                     "oneof": ["camera-fir"],
-                    "label": "Infrared light identifies cloud types and temperatures on Earth.",
+                    "label": "A way to measure cloud types and temperatures on Earth.",
 					"error": "You do not have a way to identify cloud types and measure temperatures on Earth."
                 },{
                     "type": "package",

@@ -250,7 +250,7 @@ scenarios.EO.weather.title: Weather forecasting
 scenarios.EO.weather.description: Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean.
 scenarios.EO.weather.req.radio-dish.label: A way to send signals.
 scenarios.EO.weather.req.radio-dish.error: You do not have a way to send signals to the ground.
-scenarios.EO.weather.req.camera-fir.label: Infrared light identifies cloud types and temperatures on Earth.
+scenarios.EO.weather.req.camera-fir.label: A way to measure cloud types and temperatures on Earth.
 scenarios.EO.weather.req.camera-fir.error: You do not have a way to identify cloud types and measure temperatures on Earth.
 scenarios.EO.weather.req.camera-opt.label: To take images of clouds and weather systems on Earth.
 scenarios.EO.weather.req.camera-opt.error: You do not have a way to take images of the weather on Earth.
