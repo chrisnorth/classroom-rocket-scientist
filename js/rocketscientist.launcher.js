@@ -123,7 +123,7 @@
 		stages=[]
 		n=1;
 		for (st=0; st<allstages.length;st++){
-			if (this.choices[allstages[st]].key!="None"){
+			if ((this.choices[allstages[st]])&&(this.choices[allstages[st]].key!="None")){
 				stages.push({"n":n,"name":allstages[st],"data":this.choices[allstages[st]]})
 				n++;
 			}
