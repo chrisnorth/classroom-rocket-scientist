@@ -898,7 +898,7 @@
 					"alt": "Map-making",
 					"credit": "parkjisun"
 				},
-				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
+				"budget": { "value": 800, "units": "credits", "dimension": "currency" },
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-opt-hires"],

@@ -149,7 +149,7 @@
 		"phone-en": {
 			"slot":	"2x2",
 			"title": "Phone encoder",
-			"description": "Sendss signals to telephones across the world.",
+			"description": "Sends signals to telephones across the world.",
 			"texture": {
 				"icon": "texture phone-en"
 			},
@@ -680,7 +680,7 @@
 		},
 		"COMMS": {
 			"title": "Communication",
-			"description": "These satellites are allow us to watch television, make phone calls and use the Internet.",
+			"description": "These satellites allow us to watch television, make phone calls and use the Internet.",
 			"image": {
 				"file": "images/png/icon-comms.png",
 				"alt": "Communication",
@@ -752,7 +752,7 @@
 		},
 		"EO": {
 			"title": "Earth Observation",
-			"description": "These satellites are allow us to predict the weather, study clouds and assess the damage caused by natural disasters.",
+			"description": "These satellites allow us to predict the weather, study clouds and assess the damage caused by natural disasters.",
 			"image": {
 				"file": "images/png/icon-eo.png",
 				"alt": "Earth Observation",

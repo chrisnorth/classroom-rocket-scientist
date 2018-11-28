@@ -57,15 +57,15 @@ ui.sections.orbit.altitude:                 Height:
 ui.sections.orbit.period:                   Duration:
 ui.sections.instrument.short:               Instruments
 ui.sections.instrument.title:               Select the instruments for your satellite
-ui.sections.instrument.intro:               To complete your mission you will need the correct instruments. Instruments are separated by size, make sure the colour of your instrument matches an available slot. You only have a limited number of slots, so choose wisely!
+ui.sections.instrument.intro:               To complete your mission you will need the correct instruments. Instruments are separated by size, shown by their colour. Make sure the colour of your instrument matches an available slot. You only have a limited number of slots, so choose wisely!
 ui.sections.instrument.list:                Available instruments:
 ui.sections.power.short:                    Power
 ui.sections.power.title:                    Add power
-ui.sections.power.intro:                    Your satellite needs power. There are different ways get power. You can use solar panels mounted on the sides of the satellite, deployed solar panels or batteries.
+ui.sections.power.intro:                    Your satellite needs power. There are different ways get power, you can use solar panels mounted on the sides of the satellite, deployed solar panels or batteries.
 ui.sections.power.list:                     Available power sources:
 ui.sections.rocket.short:                   Rocket
 ui.sections.rocket.title:                   Build your rocket
-ui.sections.rocket.intro:                   Now you have a satellite (also called your 'payload') you need to build a rocket to launch it into space! The top of the rocket needs to be big enough to hold your satellite and each of the lower parts need to be big enough to support the section above.
+ui.sections.rocket.intro:                   Now you have a satellite you need to build a rocket to launch it into space! The top of the rocket needs to be big enough to hold your satellite and each of the lower parts need to be big enough to support the section above.
 ui.sections.rocket.size:                    Size:
 ui.sections.rocket.drymass:                 Weight:
 ui.sections.rocket.fuel:                    Fuel:
@@ -114,7 +114,7 @@ package.radar-alt.description:              Used to measure the shape of the gro
 package.radar-alt.requires.dish.label:      You need a large radio dish for the radar altimeter to work.
 package.radar-alt.requires.dish.error:      You need to include a large radio dish for the radar altimeter to work.
 package.phone-en.title:                     Phone encoder
-package.phone-en.description:               Sendss signals to telephones across the world.
+package.phone-en.description:               Sends signals to telephones across the world.
 package.atomic-clock.title:                 Atomic clock
 package.atomic-clock.description:           A very accurate clock used to measure the time very precisely. They are used to help people find their locations on Earth.
 package.atomic-clock-small.title:           Atomic clock (small)
@@ -194,7 +194,7 @@ scenarios.NAV.map.req.orbit.error:             The orbit you have chosen does no
 scenarios.NAV.map.launch:                Welcome to the launch of the UK Space Agency's latest navigation satellite that will accurately map the surface of the Earth.
 scenarios.NAV.map.success:                 Congratulations, your navigation satellite is now accurately mapping the surface of the Earth on behalf of the UK Space Agency.
 scenarios.COMMS.title:                      Communication
-scenarios.COMMS.description:                These satellites are allow us to watch television, make phone calls and use the Internet.
+scenarios.COMMS.description:                These satellites allow us to watch television, make phone calls and use the Internet.
 scenarios.COMMS.phone.title:                 Satellite Telephone System
 scenarios.COMMS.phone.description:             These satellites allow people to talk over the phone, even in remote parts of the world. The satellite receives signals from the ground and sends them to other areas on Earth.
 scenarios.COMMS.phone.req.radio-dish.label:     You need a way to send signals back to Earth.
@@ -226,7 +226,7 @@ scenarios.COMMS.tv.req.orbit.error: The orbit you have chosen means your satelli
 scenarios.COMMS.tv.launch:                Welcome to the launch of the UK Space Agency's latest communication satellite that will provide satellite TV to people all over the world.
 scenarios.COMMS.tv.success:                 Congratulations, your communication satellite is now providing satellite TV to people all over the world.
 scenarios.EO.title: Earth Observation
-scenarios.EO.description: These satellites are allow us to predict the weather, study clouds and assess the damage caused by natural disasters.
+scenarios.EO.description: These satellites allow us to predict the weather, study clouds and assess the damage caused by natural disasters.
 scenarios.EO.weather.title: Weather forecasting
 scenarios.EO.weather.description: These satellites monitor the sky so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use cameras to measure the temperature of the ground and oceans.
 scenarios.EO.weather.req.camera-fir.label: You need a way to identify different types of cloud and measure temperature.

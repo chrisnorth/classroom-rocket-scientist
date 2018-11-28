@@ -35,17 +35,24 @@
 		for(var s = 0; s < this.sections.length; s++) S('#'+this.sections[s]).addClass('js').addClass('slide').css((s > 0 ? {'visibility':'hidden','left':'-100%'} : {}));
 
 		// Deal with button presses in the type section
-		S('#type button').on('click',{me:this},function(e){ _obj.setType(S(e.currentTarget).attr('data-type')); });
+		S('#type button').on('click',{me:this},function(e){
+			_obj.setType(S(e.currentTarget).attr('data-type'));
+			setTimeout(function(){S('#type nav .next a').trigger('click');},500);
+		});
 
 		// Deal with button presses in the goal section
-		S('#goal button').on('click',{me:this},function(e){ _obj.setGoal(S(e.currentTarget).attr('data-goal')); });
+		S('#goal button').on('click',{me:this},function(e){
+			_obj.setGoal(S(e.currentTarget).attr('data-goal'));
+			setTimeout(function(){S('#goal nav .next a').trigger('click');},500);
+		});
 
 		// Add events to size selection buttons
 		S('#bus .satellite').on('click',{me:this},function(e){
 			S(e.currentTarget).parent().find('button').trigger('click');
 		});
-		S('#bus button').on('click',{me:this},function(e){
+		S('#bus button').on('click',{me:this,obj:_obj},function(e){
 			e.data.me.setBus(S(e.currentTarget).attr('data-size'));
+			setTimeout(function(){S('#bus nav .next a').trigger('click');},500);
 		});
 
 		// Replace the default behaviour of the navigation links
