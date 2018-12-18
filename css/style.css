@@ -605,7 +605,7 @@ img.back {
   background-position: -3em -4.5em;
 }
 
-img.restart {
+img.restart, img.another {
   background-position: -4.5em -1.5em;
 }
 

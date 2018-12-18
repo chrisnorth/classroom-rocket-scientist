@@ -7,11 +7,10 @@ ui.level.beginner.description:              Select a mission, and design a satel
 ui.level.intermediate.description:          Give yourself a bit more flexibility, including being able to select the size of satellite. But watch out - you've got a budget to stick to now!
 ui.level.advanced.description:              The most advanced level, with a much greater range of options, and the ability to select which orbit the satellite will be in. But will your rocket be big enough to launch your satellite?
 ui.nojs:                                    Oops! The interactive parts of <em>Classroom rocket scientist</em> need Javascript to be enabled. Sorry about that.
-ui.title:                                   Classroom rocket scientist
-ui.introduction:                            <p>The UK Space Agency is planning its next satellite mission. They've asked you to help design it!</p><p>Your role is to design and launch a satellite that can perform a specific role related to communications, navigation or earth observation.</p><p> You’ll need to select the size of your satellite along with its instruments and power supply. Once it’s completed, you’ll need to design a rocket capable of launching your satellite into orbit — will you succeed?</p>
+ui.title:                                   Satellite Builder
+ui.introduction:                            <p>The UK Space Agency is planning its next satellite mission. They've asked you to help design it!</p><p>Your role is to design and launch a satellite that can perform a specific role related to communications, navigation or earth observation. You’ll need to select the size of your satellite along with its instruments and power supply. Once it’s completed, you’ll need to design a rocket capable of launching your satellite into orbit — will you succeed?</p>
 ui.loading:                                 Loading space programme...
 ui.requirements.title:                      Requirements
->>>>>>> origin/dev
 ui.close:                                   Close
 ui.button.level:                            Select this level
 ui.button.type:                             Select this type
@@ -95,7 +94,7 @@ ui.sections.units.length:                   Length units:
 ui.sections.units.mass:                     Mass units:
 ui.sections.units.power:                    Power units:
 ui.sections.about.title:                    About:
-ui.sections.about.intro:                    Classroom rocket scientist is...</p><p>Developed by Chris North, Sarah Roberts, Brychan Govier and <a href="http://www.strudel.org.uk/">Stuart Lowe</a>.</p><p>Supported by <a href="http://www.cardiff.ac.uk/physics-astronomy">Cardiff University School of Physics and Astronomy</a> and the <a href="https://www.gov.uk/guidance/apply-for-funding-academic-community-and-educational#space-for-all---community-funding-scheme">UK Space Agency Space For All grant scheme</a>.</p><p>Icons by parkjisun, Housin Aziz, Creative Stall, Plainicon, Hakan Yalcin, Rflor, Megan Mitchell, Clockwise, Leadway Global LLC, <a href="http://www.flaticon.com">Flaticon</a>, <a href="http://material.io/tools/icons">Google Material Design</a> and OCHA Visual Information Unit</p>
+ui.sections.about.intro:                    <p>Classroom rocket scientist was developed by <a href="http://www.cardiff.ac.uk/people/view/828749-north-chris">Dr Chris North</a>, <a href="http://www.strudel.org.uk/">Dr Stuart Lowe</a>, <a href="https://lco.global/user/seroberts/">Sarah Roberts</a> and Brychan Govier.</p><p>It was supported by <a href="http://blogs.cardiff.ac.uk/physicsoutreach/">Cardiff University School of Physics and Astronomy</a>.</p><p>Icons by parkjisun, Housin Aziz, Creative Stall, Plainicon, Hakan Yalcin, Rflor, Megan Mitchell, Clockwise, Leadway Global LLC, <a href="http://www.flaticon.com">Flaticon</a>, <a href="http://material.io/tools/icons">Google Material Design</a> and OCHA Visual Information Unit.</p><p>For information or to provide feedback, please contact <a href="mailto:schools@astro.cf.ac.uk">schools@astro.cf.ac.uk</a>.</p>
 ui.sections.guide.title:                    Teacher Guide:
 ui.sections.guide.intro:                    Coming soon...
 ui.sections.help.title:                     Help
@@ -335,4 +334,5 @@ launch.deployed:  Satellite deployed
 launch.solar-panels.deploying: Deploying solar panels
 launch.solar-panels.deployed: Solar panels deployed
 launch.operational: Satellite operational
+launch.launchanother: Launch another mission
 ---

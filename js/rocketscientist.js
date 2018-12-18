@@ -133,6 +133,7 @@ var rs;
 		S('#about .close').on('click',{me:this},function(e){ S('#about').addClass('not-at-start'); S('body').removeClass('nooverflow'); });
 		S('#guide .close').on('click',{me:this},function(e){ S('#guide').addClass('not-at-start'); S('body').removeClass('nooverflow'); });
 		S('#help .close').on('click',{me:this},function(e){ S('#help').addClass('not-at-start'); S('body').removeClass('nooverflow'); });
+		S('#launch .another').on('click',{me:this},function(e){ console.log('another');location.href = location.href.replace(/[\/]+$/,'') + (location.protocol==="file:") ? "index.html" : ""; })
 
 		// Deal with changes to the unit selectors
 		S('#units select').on('change',{me:this},function(e){
@@ -365,7 +366,7 @@ var rs;
 			S('#menu-mass .menudvavail .deltav').html(dvavail.toString({'units':this.defaults.velocity}));
 		}
 		if((this.choices.payloadbay)&&(this.choices.bus)){
-			this.choices['bigenough'] = (this.choices.payloadbay.size >= this.choices.bus.width.value)
+			this.choices['bigenough'] = (this.choices.payloadbay.diameter.value >= this.choices.bus.width.value)
 		}
 		return this;
 	}
@@ -479,7 +480,9 @@ var rs;
 		var requirementssectionlist = "";
 		var sectionexists;
 		var listedLaunch = new Array();
-		var fixme = S('#fixme')[0].innerHTML
+		if (S('#fixme').length > 0){
+			var fixme = S('#fixme')[0].innerHTML;
+		}else{fixme=''}
 		for(var s in sections){
 			// Remove existing requirements
 			S('#'+s+' .requirements ul').remove();

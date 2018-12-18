@@ -55,7 +55,7 @@
 			"cost": { "value": 100, "units": "credits", "dimension": "currency" },
 			"mass": { "value": 500, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 250, "units": "kg", "dimension": "mass" },
-			"width": { "value": 5, "units": "m", "dimension": "length" },
+			"width": { "value": 2, "units": "m", "dimension": "length" },
 			"height": { "value": 2.5, "units": "m", "dimension": "length" },
 			"depth": { "value": 2.5, "units": "m", "dimension": "length" },
 			"area": { "value": 3, "units": "m^2", "dimension": "area" },
@@ -66,7 +66,7 @@
 			"cost": { "value": 500, "units": "credits", "dimension": "currency" },
 			"mass": { "value": 1000, "units": "kg", "dimension": "mass" },
 			"structure": { "value": 500, "units": "kg", "dimension": "mass" },
-			"width": { "value": 10, "units": "m", "dimension": "length" },
+			"width": { "value": 8, "units": "m", "dimension": "length" },
 			"height": { "value": 2.5, "units": "m", "dimension": "length" },
 			"depth": { "value": 2.5, "units": "m", "dimension": "length" },
 			"area": { "value": 10, "units": "m^2", "dimension": "area" },
@@ -868,6 +868,7 @@
 			"deploying": "Deploying solar panels",
 			"deployed": "Solar panels deployed"
 		},
-		"operational": "Satellite operational"
+		"operational": "Satellite operational",
+		"launchanother": "Launch another mission"
     }
 }
