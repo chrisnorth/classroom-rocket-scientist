@@ -11,12 +11,28 @@
     </div>
 </section>
 
-<section id="guide" class="not-at-start fullpage">
+<section id="guide" class="not-at-start fullpage wide">
     <div class="container">
         <div class="padded">
             <a class="close" title="<!--#echo var="ui.close" -->" href="#">&times;</a>
             <h2><!--#echo var="ui.sections.guide.title" --></h2>
             <!--#echo var="ui.sections.guide.intro" -->
+            <ul>
+                <li><strong><!--#echo var="ui.sections.guide.keywords.title" --></strong>&nbsp;<!--#echo var="ui.sections.guide.keywords.text" --></li>
+                <li><strong><!--#echo var="ui.sections.guide.level.title" --></strong>&nbsp;<!--#echo var="ui.sections.guide.level.text" --></li>
+                <li><strong><!--#echo var="ui.sections.guide.duration.title" --></strong>&nbsp;<!--#echo var="ui.sections.guide.duration.text" --></li>
+            </ul>
+            <h3><!--#echo var="ui.sections.guide.goals.title" --></h3>
+            <ul><!--#echo var="ui.sections.guide.goals.text" --></ul>
+            <h3><!--#echo var="ui.sections.guide.objectives.title" --></h3>
+            <ul><!--#echo var="ui.sections.guide.objectives.text" --></ul>
+            <h3><!--#echo var="ui.sections.guide.moreinfo.title" --></h3>
+            <ul>
+                <li><!--#echo var="ui.sections.guide.moreinfo.guide" -->&nbsp;(<a title="<!--#echo var="ui.sections.guide.moreinfo.guide" --> <!--#echo var="ui.sections.guide.moreinfo.pdf" -->" href="<!--#echo var="ui.sections.guide.moreinfo.guide.pdf" -->")"><!--#echo var="ui.sections.guide.moreinfo.pdf" --></a>)</li>
+                <li><!--#echo var="ui.sections.guide.moreinfo.slides" -->&nbsp;(<span><a title="<!--#echo var="ui.sections.guide.moreinfo.slides" --> <!--#echo var="ui.sections.guide.moreinfo.pdf" -->" href="<!--#echo var="ui.sections.guide.moreinfo.slides.pdf" -->"><!--#echo var="ui.sections.guide.moreinfo.pdf" --></a>;</span>
+                <span><a title="<!--#echo var="ui.sections.guide.moreinfo.slides" --> <!--#echo var="ui.sections.guide.moreinfo.ppt" -->" href="<!--#echo var="ui.sections.guide.moreinfo.slides.ppt" -->"><!--#echo var="ui.sections.guide.moreinfo.ppt" --></a>;</span>
+                <span><a title="<!--#echo var="ui.sections.guide.moreinfo.slides" --> <!--#echo var="ui.sections.guide.moreinfo.key" -->" href="<!--#echo var="ui.sections.guide.moreinfo.slides.key" -->"><!--#echo var="ui.sections.guide.moreinfo.key" --></a></span>)</li>
+            </ul>
         </div>
     </div>
 </section>

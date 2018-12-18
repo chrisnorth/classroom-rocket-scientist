@@ -1219,6 +1219,14 @@ section.fullpage .container {
   max-width: 90%;
 }
 
+section.fullpage.wide {
+  overflow: auto;
+}
+
+section.fullpage.wide .container {
+  width: auto;
+}
+
 .page {
   height: auto;
   display: block;
@@ -4377,6 +4385,18 @@ body.launch #terminal {
   font-family: monospace;
   color: white;
   overflow-y: auto;
+}
+
+#guide h3 {
+  margin-top: 1em;
+}
+
+#guide ol {
+  margin-bottom: 0.5em;
+}
+
+#guide li {
+  margin-top: 0.5em;
 }
 
 .not-at-start {

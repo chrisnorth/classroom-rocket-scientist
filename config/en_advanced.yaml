@@ -96,7 +96,27 @@ ui.sections.units.power:                    Power units:
 ui.sections.about.title:                    About:
 ui.sections.about.intro:                    <p>Classroom rocket scientist was developed by <a href="http://www.cardiff.ac.uk/people/view/828749-north-chris">Dr Chris North</a>, <a href="http://www.strudel.org.uk/">Dr Stuart Lowe</a>, <a href="https://lco.global/user/seroberts/">Sarah Roberts</a> and Brychan Govier.</p><p>It was supported by <a href="http://blogs.cardiff.ac.uk/physicsoutreach/">Cardiff University School of Physics and Astronomy</a>.</p><p>Icons by parkjisun, Housin Aziz, Creative Stall, Plainicon, Hakan Yalcin, Rflor, Megan Mitchell, Clockwise, Leadway Global LLC, <a href="http://www.flaticon.com">Flaticon</a>, <a href="http://material.io/tools/icons">Google Material Design</a> and OCHA Visual Information Unit.</p><p>For information or to provide feedback, please contact <a href="mailto:schools@astro.cf.ac.uk">schools@astro.cf.ac.uk</a>.</p>
 ui.sections.guide.title:                    Teacher Guide:
-ui.sections.guide.intro:                    Coming soon...
+ui.sections.guide.intro:                    <p>The UK Space Agency is planning its next satellite mission. They've asked you to help design it!</p><p>This app challenges students to design and launch a satellite that can perform a specific role related to communication, navigation or earth observation. They’ll need to select the size of their satellite along with its instruments and power supply. Once completed, they’ll be challenged to design a rocket capable of launching the satellite into orbit.</p><p>Older or more capable students may want to use Intermediate and Advanced mode. Intermediate mode challenges students to build their satellite and launcher on a strict budget. Advanced mode provides a much greater range of options and challenges students to select the correct orbit for their satellite based on its purpose.</p>
+ui.sections.guide.keywords.title:           Keywords:
+ui.sections.guide.keywords.text:            Science, Space, Astronomy, Satellite, Rocket, Web app, Interactive, Satellite, Technology
+ui.sections.guide.level.title:              Level:
+ui.sections.guide.level.text:               Upper Primary - Lower High School
+ui.sections.guide.duration.title:           Duration:
+ui.sections.guide.duration.text:            30-60mins
+ui.sections.guide.goals.title:              Goals:
+ui.sections.guide.goals.text:               <li>Understand the roles played by satellite technology and how it affects our everyday lives.</li><li>Understand the components of a satellite mission: size, instruments and orbital path, in addition to constraints such as budget, power and thrust.</li>
+ui.sections.guide.objectives.title:         Learning objectives:
+ui.sections.guide.objectives.text:          <li>Learn about three different types of satellites, with examples of their specific uses: Communications, Earth Observation or Navigation.</li><li>Build a satellite designed to fulfil a specified purpose Select all components including size, instruments, power source, orbital path, as well as a launch vehicle with adequate size and thrust.</li><li>Complete your mission within specific budget constraints.</li>
+ui.sections.guide.moreinfo.title:           More info:
+ui.sections.guide.moreinfo.guide:           Teacher Guide
+ui.sections.guide.moreinfo.guide.pdf:       guide/en/satellite-builder-guide.pdf
+ui.sections.guide.moreinfo.slides:          Teacher Presentation
+ui.sections.guide.moreinfo.pdf:             PDF
+ui.sections.guide.moreinfo.ppt:             Powerpoint
+ui.sections.guide.moreinfo.key:             Keynote
+ui.sections.guide.moreinfo.slides.pdf:      guide/en/satellite-builder-slides.pdf
+ui.sections.guide.moreinfo.slides.ppt:      guide/en/satellite-builder-slides.pptx
+ui.sections.guide.moreinfo.slides.key:      guide/en/satellite-builder-slides.key
 ui.sections.help.title:                     Help
 ui.sections.help.intro:                     Coming soon...
 bus.cube.title:                             Cube sat
