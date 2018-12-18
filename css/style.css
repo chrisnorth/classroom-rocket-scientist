@@ -4488,6 +4488,7 @@ body #about .icons img {
 
   section#type .holder, section#start .holder {
     width: 100%;
+    height: auto;
   }
 
   .padded {
