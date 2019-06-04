@@ -869,7 +869,7 @@
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
 					"type": "package",
-					"oneof": ["atomic-clock"],
+					"oneof": ["atomic-clock","atomic-clock-small"],
 					"label": "%scenarios.NAV.sat-nav.req.atomic.label%",
 					"error": "%scenarios.NAV.sat-nav.req.atomic.error%"
 				},{
@@ -922,8 +922,8 @@
             	},{
 					"type": "orbit",
 					"oneof": ["LEO"],
-					"label": "%scenarios.NAV.sat-nav.req.orbit.label%",
-					"error": "%scenarios.NAV.sat-nav.req.orbit.error%"
+					"label": "%scenarios.NAV.map.req.orbit.label%",
+					"error": "%scenarios.NAV.map.req.orbit.error%"
 				},{
                     "type": "power",
                     "oneof": ["battery-small","battery-small","battery-medium","battery-large","rtg"],

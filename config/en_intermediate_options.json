@@ -777,7 +777,7 @@
                     "type": "power",
                     "oneof": ["battery-medium","battery-large"],
                     "label": "Provide power even when not in sunlight.",
-                    "error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."
+                    "error": "The orbit you have chosen does not allow your satellite to see the planet surface in enough detail."
                 }]
 			}]
 		},

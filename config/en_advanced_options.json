@@ -869,7 +869,7 @@
 				"budget": { "value": 200, "units": "credits", "dimension": "currency" },
 				"requires": [{
 					"type": "package",
-					"oneof": ["atomic-clock"],
+					"oneof": ["atomic-clock","atomic-clock-small"],
 					"label": "Needs to be able to measure time very accurately",
 					"error": "You are not able to measure the time accurately enough."
 				},{
@@ -922,8 +922,8 @@
             	},{
 					"type": "orbit",
 					"oneof": ["LEO"],
-					"label": "See large areas of the planet at one time.",
-					"error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."
+					"label": "See detail of planet surface.",
+					"error": "The orbit you have chosen does not allow your satellite to see the planet surface in enough detail."
 				},{
                     "type": "power",
                     "oneof": ["battery-small","battery-small","battery-medium","battery-large","rtg"],

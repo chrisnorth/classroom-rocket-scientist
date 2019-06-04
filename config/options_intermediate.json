@@ -776,8 +776,8 @@
 				},{
                     "type": "power",
                     "oneof": ["battery-medium","battery-large"],
-                    "label": "%scenarios.NAV.sat-nav.req.power.label%",
-                    "error": "%scenarios.NAV.sat-nav.req.orbit.error%"
+                    "label": "%scenarios.NAV.map.req.power.label%",
+                    "error": "%scenarios.NAV.map.req.orbit.error%"
                 }]
 			}]
 		},
