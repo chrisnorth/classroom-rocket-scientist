@@ -4,49 +4,49 @@
 		"fix-links": true
 	},
 	"urls":{
-		"beginner":"%url.level.beginner%",
-		"intermediate":"%url.level.intermediate%",
-		"advanced":"%url.level.advanced%",
-		"launch":"%url.launch%"
+		"beginner":"beginner_cy.html",
+		"intermediate":"intermediate_cy.html",
+		"advanced":"advanced_cy.html",
+		"launch":"launch_cy.html"
 	},
 	"lang":{
-		"code":"%ui.lang.code%",
-		"name":"%ui.lang.name%"
+		"code":"cy",
+		"name":"Cymraeg"
 	},
 	"sections": [{
 		"id": "type",
-		"short": "%ui.sections.type.short%",
-		"title": "%ui.sections.type.title%"
+		"short": "Math",
+		"title": "Dewiswch fath o loeren"
 	},{
 		"id": "goal",
-		"short": "%ui.sections.goal.short%",
-		"title": "%ui.sections.goal.title%"
+		"short": "Ymgyrch",
+		"title": "Dewiswch bwrpas eich lloeren."
 	},{
 		"id": "bus",
-		"short": "%ui.sections.bus.short%",
-		"title": "%ui.sections.bus.title%"
+		"short": "Maint",
+		"title": "Dewiswch faint eich lloeren"
 	},{
 		"id": "orbit",
-		"short": "%ui.sections.orbit.short%",
-		"title": "%ui.sections.orbit.title%"
+		"short": "Orbit",
+		"title": "Dewiswch orbit eich lloeren"
 	},{
 		"id": "instrument",
-		"short": "%ui.sections.instrument.short%",
-		"title": "%ui.sections.instrument.title%",
-		"list": "%ui.sections.instrument.list%"
+		"short": "Teclynnau",
+		"title": "Dewiswch declynnau ar gyfer eich lloeren",
+		"list": "Y teclynnau sydd ar gael:"
 	},{
 		"id": "power",
-		"short": "%ui.sections.power.short%",
-		"title": "%ui.sections.power.title%",
-		"list": "%ui.sections.power.list%"
+		"short": "Pŵer",
+		"title": "Ychwanegu pŵer",
+		"list": "Dyfeisiau pŵer sydd ar gael:"
 	},{
 		"id": "rocket",
-		"short": "%ui.sections.rocket.short%",
-		"title": "%ui.sections.rocket.title%"
+		"short": "Roced",
+		"title": "Adeiladu eich roced"
 	},{
 		"id": "launch",
-		"short": "%ui.sections.launch.short%",
-		"title": "%ui.sections.launch.title%"
+		"short": "Lansio",
+		"title": "Barod i lansio?"
 	}],
 	"bus": {
 		"small": {
@@ -86,8 +86,8 @@
 	"package": {
 		"camera-opt" : {
 			"slot": "2x2",
-			"title": "%package.camera-opt.title%",
-			"description": "%package.camera-opt.description%",
+			"title": "Camera optegol",
+			"description": "\" Lluniau o’r ddaear, ar gyfer mapio neu ar gyfer monitro trychinebau naturiol. Mae hefyd modd ei ddefnyddio i fonitro’r cymylau. Mae ansawdd y llun yn dibynnu ar uchder yr orbit.\"",
 			"texture": {
 				"icon": "texture camera-opt"
 			},
@@ -102,8 +102,8 @@
 		},
         "camera-opt-hires" : {
 			"slot": "2x4",
-			"title": "%package.camera-opt-hires.title%",
-			"description": "%package.camera-opt-hires.description%",
+			"title": "Camera optegol Ansawdd Uchel",
+			"description": "\" Lluniau ansawdd uchel o’r ddaear, ar gyfer monitro trychinebau naturiol er enghraifft, ond dim ond pan gaiff ei ddefnyddio mewn orbit isel o’r Ddaear.\"",
 			"texture": {
 				"icon": "texture camera-opt-hires"
 			},
@@ -118,8 +118,8 @@
 		},
 		"camera-nir": {
 			"slot":	"2x2",
-			"title": "%package.camera-nir.title%",
-			"description": "%package.camera-nir.description%",
+			"title": "Camera llystyfiant",
+			"description": "\" Lluniau isgoch o lystyfiant a defnydd o dir ar y ddaear. Dim ond yn gweithio yng ngolau dydd, gan ei fod yn dibynnu ar adlewyrchiad golau’r haul.\"",
 			"texture": {
 				"icon": "texture camera-nir"
 			},
@@ -134,8 +134,8 @@
 		},
 		"camera-fir": {
 			"slot":	"2x4",
-			"title": "%package.camera-fir.title%",
-			"description": "%package.camera-fir.description%",
+			"title": "Camera isgoch",
+			"description": "\" Lluniau isgoch o’r cymylau a’r systemau tywydd yn atmosffer y Ddaear. Defnyddiol ar gyfer rhagfynegi’r tywydd a monitro’r hinsawdd, hyd yn oed mewn tywyllwch.\"",
 			"texture": {
 				"icon": "texture camera-fir"
 			},
@@ -150,8 +150,8 @@
 		},
 		"spect-opt": {
 			"slot":	"2x2",
-			"title": "%package.spect-opt.title%",
-			"description": "%package.spect-opt.description%",
+			"title": "Sbectromedr Optegol",
+			"description": "\" Mesur nodweddion manwl arwyneb y Ddaear, fel datgoedwigo.\"",
 			"texture": {
 				"icon": "texture spect-opt"
 			},
@@ -166,8 +166,8 @@
 		},
 		"spect-nir": {
 			"slot":	"2x2",
-			"title": "%package.spect-nir.title%",
-			"description": "%package.spect-nir.description%",
+			"title": "Sbectromedr Llystyfiant",
+			"description": "\" Mesur nodweddion llystyfiant ar y ddaear, fel math o lystyfiant a pha mor iach yw’r llystyfiant hwnnw.\"",
 			"texture": {
 				"icon": "texture spect-nir"
 			},
@@ -182,8 +182,8 @@
 		},
 		"spect-fir": {
 			"slot":	"2x4",
-			"title": "%package.spect-fir.title%",
-			"description": "%package.spect-fir.description%",
+			"title": "Sbectromedr Atmosfferig",
+			"description": "\" Defnyddio golau isgoch i fesur nodweddion atmosffer y Ddaear, fel cymylau, lefel lleithder, tymheredd yr arwyneb a thymheredd yr aer, hyd yn oed mewn tywyllwch.\"",
 			"texture": {
 				"icon": "texture spect-fir"
 			},
@@ -198,8 +198,8 @@
 		},
 		"radar-alt": {
 			"slot":	"2x4",
-			"title": "%package.radar-alt.title%",
-			"description": "%package.radar-alt.description%",
+			"title": "Altimedr radar",
+			"description": "\" Defnyddio tonnau radio i fesur uchder y tir, neu’r topograffi, mewn ansawdd uchel iawn. Mae modd ei ddefnyddio i fapio’r arwyneb, neu i roi gwybodaeth am effaith daeargryn. Mae angen dysgl radio fawr arno i weithio.\"",
 			"texture": {
 				"icon": "texture radar-alt"
 			},
@@ -214,14 +214,14 @@
 			"requires": [{
 				"type": "package",
 				"oneof": ["dish-large"],
-				"label": "%package.radar-alt.requires.dish.label%",
-				"error": "%package.radar-alt.requires.dish.error%"
+				"label": "Mae angen dysgl radio fawr ar yr altimedr radar.",
+				"error": "Mae angen i chi gynnwys dysgl radio fawr er mwyn i’r altimedr radio weithio."
 			}]
 		},
 		"atomic-clock": {
 			"slot":	"2x2",
-			"title": "%package.atomic-clock.title%",
-			"description": "%package.atomic-clock.description%",
+			"title": "Cloc atomig",
+			"description": "\" Cloc manwl-gywir, sydd ei angen ar loerennau llywio i fesur yr amser yn fanwl iawn.\"",
 			"texture": {
 				"icon": "texture atomic-clock"
 			},
@@ -236,8 +236,8 @@
 		},
 		"gps-rx": {
 			"slot":	"2x2",
-			"title": "%package.gps-rx.title%",
-			"description": "%package.gps-rx.description%",
+			"title": "Derbynnydd GPS",
+			"description": "Caiff ei ddefnyddio i fonitro safle’r lloeren yn fanwl-gywir.",
 			"texture": {
 				"icon": "texture gps-rx"
 			},
@@ -252,8 +252,8 @@
 		},
 		"dish-large": {
 			"slot":	"4x8",
-			"title": "%package.dish-large.title%",
-			"description": "%package.dish-large.description%",
+			"title": "Dysgl radio (fawr)",
+			"description": "\" Dysgl radio i reoli’r lloeren ac i drosglwyddo data i’r ddaear, ac ar gyfer yr altimedr radar\"",
 			"texture": {
 				"icon": "",
 				"class": "-bg radar",
@@ -270,8 +270,8 @@
 		},
 		"dish-medium": {
 			"slot":	"2x4",
-			"title": "%package.dish-medium.title%",
-			"description": "%package.dish-medium.description%",
+			"title": "Dysgl radio",
+			"description": "Dysgl radio i reoli’r lloeren ac i drosglwyddo data i’r ddaear",
 			"texture": {
 				"icon": "",
 				"class": "-bg radio",
@@ -288,8 +288,8 @@
 		},
 		"internet-en" : {
 			"slot": "2x2",
-			"title": "%package.internet-en.title%",
-			"description": "%package.internet-en.description%",
+			"title": "Amgodiwr rhyngrwyd",
+			"description": "Caiff ei ddefnyddio i ddarlledu’r rhyngrwyd i bobl ledled y byd.",
 			"texture": {
 				"icon": "texture internet-en"
 			},
@@ -304,8 +304,8 @@
 		},
 		"tv-en" : {
 			"slot": "2x2",
-			"title": "%package.tv-en.title%",
-			"description": "%package.tv-en.description%",
+			"title": "Amgodiwr teledu",
+			"description": "Caiff ei ddefnyddio i ddarlledu teledu i bobl ledled y byd.",
 			"texture": {
 				"icon": "texture tv-en"
 			},
@@ -320,8 +320,8 @@
 		},
 		"phone-en": {
 			"slot":	"2x2",
-			"title": "%package.phone-en.title%",
-			"description": "%package.phone-en.description%",
+			"title": "Amgodiwr ffôn",
+			"description": "Darlledu signalau at ac oddi wrth ffonau ledled y byd.",
 			"texture": {
 				"icon": "texture phone-en"
 			},
@@ -338,8 +338,8 @@
 	"power": {
 		"battery-large": {
 			"slot":	"2x4",
-			"title": "%package.battery-large.title%",
-			"description": "%package.battery-large.description%",
+			"title": "Batri mawr",
+			"description": "Storio pŵer o baneli solar er mwyn gallu gweithredu pan nad oes golau haul",
 			"texture": {
 				"icon": "texture battery-large"
 			},
@@ -354,13 +354,13 @@
 			"requires": [{
 				"type": "power",
 				"oneof": ["solar-panel","solar-panel-surface"],
-				"label": "%package.battery-large.requires.solar.label%",
-				"error": "%package.battery-large.requires.solar.error%"
+				"label": "Mae angen paneli solar ar y batri i wefru",
+				"error": "Mae angen paneli solar ar y batri"
 			}]
 		},"battery-medium": {
 			"slot":	"2x2",
-			"title": "%package.battery-medium.title%",
-			"description": "%package.battery-medium.description%",
+			"title": "Batri canolig",
+			"description": "Storio pŵer o baneli solar er mwyn gallu gweithredu pan nad oes golau haul",
 			"texture": {
 				"icon": "texture battery-medium"
 			},
@@ -375,14 +375,14 @@
 			"requires": [{
 				"type": "power",
 				"oneof": ["solar-panel","solar-panel-surface"],
-				"label": "%package.battery-large.requires.solar.label%",
-				"error": "%package.battery-large.requires.solar.error%"
+				"label": "Mae angen paneli solar ar y batri i wefru",
+				"error": "Mae angen paneli solar ar y batri"
 			}]
 		},
 		"solar-panel-surface": {
 			"slot":	"3x3",
-			"title": "%package.solar-panel-surface.title%",
-			"description": "%package.solar-panel-surface.description%",
+			"title": "Panel solar wedi’i osod ar y lloeren",
+			"description": "\" Paneli solar wedi’u gosod ar arwyneb lloeren, i gasglu golau’r haul i ddarparu pŵer. Maent yn gallu pweru teclynnau, neu wefru batris.\"",
 			"mass": { "value": 5, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 15, "units": "credits", "dimension": "currency" },
 			"dimensions": [
@@ -395,8 +395,8 @@
 		"solar-panel": {
 			"slot":	"4x4",
 			"max": 4,
-			"title": "%package.solar-panel.title%",
-			"description": "%package.solar-panel.description%",
+			"title": "Panel solar sy’n agor a chau",
+			"description": "\" Paneli solar a gaiff eu hagor o ymyl y lloeren, i gasglu golau’r haul i ddarparu pŵer. Maent yn gallu pweru teclynnau, neu wefru batris.\"",
 			"mass": { "value": 10, "units": "kg", "dimension": "mass" },
 			"cost": { "value": 20, "units": "credits", "dimension": "currency" },
 			"dimensions": [
@@ -676,47 +676,47 @@
 	}],
 	"orbit": {
 		"LEO": {
-			"title": "%orbit.LEO.title%",
-			"description": "%orbit.LEO.description%",
+			"title": "Orbit Isel o’r Ddaear",
+			"description": "Mae lloerennau mewn orbit isel o’r Ddaear yn mynd dros ran wahanol o’r Ddaear ym mhob orbit. Mae’n rhatach anfon lloerennau i orbit isel o’r Ddaear nag orbitau eraill, ac mae modd cyrraedd lloerennau fan hyn er mwyn eu trwsio. Mae lloerennau orbit isel o’r Ddaear yn gallu edrych ar ardaloedd bach yn fanwl iawn am gyfnodau byr.",
 			"altitude": { "value": 400, "units": "km", "dimension": "length" },
 			"period": { "value": 90, "units": "minutes", "dimension": "time" }
 		},
 		"MEO": {
-			"title": "%orbit.MEO.title%",
-			"description": "%orbit.MEO.description%",
+			"title": "Orbit Canolig o’r Ddaear",
+			"description": "Mae lloerennau mewn orbit canolig o’r Ddaear yn uwch oddi wrth y Ddaear nag orbitau isel o’r Ddaear, ond yn is nag orbitau geosefydlog. Maen nhw’n cwmpasu rhan wahanol o’r Ddaear ym mhob orbit. Maen nhw’n gallu gweld ardal fwy mewn llai o fanylder nag orbitau isel o’r Ddaear.",
 			"altitude": { "value": 2000, "units": "km", "dimension": "length" },
 			"period": { "value": 2, "units": "hours", "dimension": "time" }
 		},
 		"HEO": {
-			"title": "%orbit.HEO.title%",
-			"description": "%orbit.HEO.description%",
+			"title": "Orbit hynod-eliptig",
+			"description": "Mae orbitau hynod-eliptig yn llawer agosach i’r Ddaear ar un pwynt yn eu horbit nag un arall, gan greu orbit hirgrwn (eliptig) yn hytrach nag orbit cylchol. Maen nhw’n ddefnyddiol ar gyfer cwmpasu ardaloedd sy’n cynnwys ardaloedd pegynol. Mae modd defnyddio mwy nag un lloeren i gwmpasu un ardal yn barhaus.",
 			"altitude": { "value": 20000, "units": "km", "dimension": "length" },
 			"period": { "value": 12, "units": "hours", "dimension": "time" }
 		},
 		"GEO": {
-			"title": "%orbit.GEO.title%",
-			"description": "%orbit.GEO.description%",
+			"title": "Orbit geosefydlog",
+			"description": "Mae lloerennau mewn orbitau geosefydlog yn aros uwchben yr un lleoliad ar y Ddaear, yn agos at y cyhydedd, ac yn cwblhau orbit llawn mewn 24 awr. Maen nhw’n llawer uwch oddi wrth arwyneb y Ddaear nag orbitau eraill, felly maen nhw’n gallu gweld yr hemisffer cyfan mewn llai o fanylder.",
 			"altitude": { "value": 35786, "units": "km", "dimension": "length" },
 			"period": { "value": 24, "units": "hours", "dimension": "time" }
 		}
 	},
 	"scenarios": {
 		"NAV": {
-			"title": "%scenarios.NAV.title%",
-			"description": "%scenarios.NAV.description%",
+			"title": "Llywio",
+			"description": "Mae’r system lleoli byd-eang wedi’i wneud o 24 lloeren sy’n gwneud orbit ar uchder o <span data-dimension=\"\"length\"\" data-units=\"\"km\"\" data-value=\"\"20000\"\" class=\"\"value convertable\"\">20,000 km</span> uwchben arwyneb y Ddaear. Mae’r gwahaniaeth mewn amser ar gyfer y signalau a dderbynnir gan bedair lloeren yn cael ei ddefnyddio i gyfrifo union leoliad derbynnydd GPS ar y Ddaear.",
 			"image": {
 				"file": "images/png/icon-nav.png",
-				"alt": "%scenarios.NAV.title%",
+				"alt": "Llywio",
 				"credit": "parkjisun"
 			},
 			"missions": [{
-				"title": "%scenarios.NAV.sat-nav.title%",
-				"description": "%scenarios.NAV.sat-nav.description%",
-				"launch": "%scenarios.NAV.sat-nav.launch%",
-				"success": "%scenarios.NAV.sat-nav.success%",
+				"title": "System Lywio Lloeren",
+				"description": "\" Defnyddio signalau gan bedair lloeren lywio fel bod modd i ddefnyddwyr SatNav ganfod eu lleoliad ar y Ddaear. Mae angen gallu gweld hanner hemisffer ar y tro, mesur amser yn gywir, a throsglwyddo signalau’r lleoliad.\"",
+				"launch": "\" Croeso i lansiad lloeren lywio ddiweddaraf Asiantaeth Ofod y DU, a fydd yn caniatáu i bobl bennu’n union beth yw eu lleoliad ar y Ddaear.\"",
+				"success": "\"  Llongyfarchiadau, mae eich lloeren lywio bellach yn anfon y wybodaeth gywir at bobl am eu lleoliad ar y Ddaear ar ran Asiantaeth Ofod y DU.\"",
 				"image": {
 					"file": "images/png/icon-mapmarker.png",
-					"alt": "%scenarios.NAV.sat-nav.title%",
+					"alt": "System Lywio Lloeren",
 					"credit": "Housin Aziz"
 				},
 				"choices": {
@@ -726,37 +726,37 @@
 				"requires": [{
 					"type": "package",
 					"oneof": ["atomic-clock"],
-					"label": "%scenarios.NAV.sat-nav.req.atomic.label%",
-					"error": "%scenarios.NAV.sat-nav.req.atomic.error%"
+					"label": "Mae angen gallu mesur amser yn fanwl-gywir.",
+					"error": "Dydych chi ddim yn gallu mesur yr amser yn ddigon cywir."
 				},{
 					"type": "package",
 					"oneof": ["gps-rx"],
-					"label": "%scenarios.NAV.sat-nav.req.gps-rx.label%",
-					"error": "%scenarios.NAV.sat-nav.req.gps-rx.error%"
+					"label": "Mae angen ffordd o fonitro safle’r lloeren yn fanwl-gywir.",
+					"error": "Does ganddoch chi ddim ffordd o fonitro safle’r lloeren yn fanwl-gywir."
 				},{
 					"type": "package",
 					"oneof": ["dish-large","dish-medium"],
-					"label": "%scenarios.NAV.sat-nav.req.radio-dish.label%",
-					"error": "%scenarios.NAV.sat-nav.req.radio-dish.error%"
+					"label": "Ffordd o anfon signalau at bobl ar y ddaear.",
+					"error": "Does gan eich lloeren ddim ffordd o anfon signalau at bobl ar y ddaear."
 				},{
 					"type": "orbit",
 					"oneof": ["HEO","GEO","MEO"],
-					"label": "%scenarios.NAV.sat-nav.req.orbit.label%",
-					"error": "%scenarios.NAV.sat-nav.req.orbit.error%"
+					"label": "Gweld ardaloedd mawr o’r blaned ar un tro.",
+					"error": "Dydy’r orbit rydych chi wedi’i ddewis ddim yn caniatáu i chi weld ardal ddigon mawr o’r blaned gyfan."
 				},{
                     "type": "power",
                     "oneof": ["battery-medium","battery-large"],
-                    "label": "%scenarios.NAV.sat-nav.req.power.label%",
-                    "error": "%scenarios.NAV.sat-nav.req.orbit.error%"
+                    "label": "Darparu pŵer hyd yn oed pan nad ydych chi yng ngolau'r haul.",
+                    "error": "Dydy’r orbit rydych chi wedi’i ddewis ddim yn caniatáu i chi weld ardal ddigon mawr o’r blaned gyfan."
                 }]
 			},{
-				"title": "%scenarios.NAV.map.title%",
-				"description": "%scenarios.NAV.map.description%",
-				"launch": "%scenarios.NAV.map.launch%",
-				"success": "%scenarios.NAV.map.success%",
+				"title": "Creu mapiau",
+				"description": "Mapio arwyneb y Ddaear. Mae angen gallu tynnu lluniau o ardaloedd bach o arwyneb y Ddaear, a mesur uchder y tir yn fanwl iawn.",
+				"launch": "Croeso i lansiad lloeren lywio ddiweddaraf Asiantaeth Ofod y DU, a fydd yn mapio arwyneb y Ddaear yn gywir.",
+				"success": "Llongyfarchiadau, mae eich lloeren lywio bellach yn mapio arwyneb y Ddaear yn gywir ar ran Asiantaeth Ofod y DU.",
 				"image": {
 					"file": "images/png/icon-topography.png",
-					"alt": "%scenarios.NAV.map.title%",
+					"alt": "Creu mapiau",
 					"credit": "parkjisun"
 				},
 				"choices": {
@@ -766,47 +766,47 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-opt-hires"],
-                    "label": "%scenarios.NAV.map.req.opt-hires.label%",
-					"error": "%scenarios.NAV.map.req.opt-hires.label%"
+                    "label": "Teclyn sy’n gallu creu lluniau o ansawdd uchel.",
+					"error": "Teclyn sy’n gallu creu lluniau o ansawdd uchel."
                 },{
 					"type": "package",
 					"oneof": ["dish-large","dish-medium"],
-					"label": "%scenarios.NAV.map.req.radio-dish.label%",
-					"error": "%scenarios.NAV.map.req.radio-dish.error%"
+					"label": "Ffordd o anfon signalau at bobl ar y ddaear.",
+					"error": "Does gan eich lloeren ddim ffordd o anfon signalau at bobl ar y ddaear."
 				},{
 					"type": "package",
 					"oneof": ["radar-alt"],
-					"label": "%scenarios.NAV.map.req.radar-alt.label%",
-					"error": "%scenarios.NAV.map.req.radar-alt.error%"
+					"label": "Mesur uchder y tir mewn ansawdd uchel iawn.",
+					"error": "Does ganddoch chi ddim ffordd o fesur uchder y tir mewn ansawdd uchel iawn."
             	},{
 					"type": "orbit",
 					"oneof": ["LEO"],
-					"label": "%scenarios.NAV.map.req.orbit.label%",
-					"error": "%scenarios.NAV.map.req.orbit.error%"
+					"label": "Gweld manylion arwyneb y blaned.",
+					"error": "Dydy’r orbit rydych chi wedi’i ddewis ddim yn caniatáu i’ch lloeren weld arwyneb y blaned yn ddigon manwl."
 				},{
                     "type": "power",
                     "oneof": ["battery-medium","battery-large"],
-                    "label": "%scenarios.NAV.map.req.power.label%",
-                    "error": "%scenarios.NAV.map.req.orbit.error%"
+                    "label": "Darparu pŵer hyd yn oed pan nad ydych chi yng ngolau'r haul.",
+                    "error": "Dydy’r orbit rydych chi wedi’i ddewis ddim yn caniatáu i’ch lloeren weld arwyneb y blaned yn ddigon manwl."
                 }]
 			}]
 		},
 		"COMMS": {
-			"title": "%scenarios.COMMS.title%",
-			"description": "%scenarios.COMMS.description%",
+			"title": "Cyfathrebu",
+			"description": "Caiff y lloerennau yma eu defnyddio ar gyfer trosglwyddiadau teledu, ffôn neu’r rhyngrwyd. Er enghraifft, mae’r lloeren Optus D1 mewn orbit geosefydlog uwchben y cyhydedd, ac mae ganddi ôl-troed i ddarparu signalau i Awstralia a Seland Newydd.",
 			"image": {
 				"file": "images/png/icon-comms.png",
-				"alt": "%scenarios.COMMS.title%",
+				"alt": "Cyfathrebu",
 				"credit": "Creative Stall"
 			},
 			"missions": [{
-				"title": "%scenarios.COMMS.phone.title%",
-				"description": "%scenarios.COMMS.phone.description%",
-				"launch": "%scenarios.COMMS.phone.launch%",
-				"success": "%scenarios.COMMS.phone.success%",
+				"title": "System teleffon lloeren",
+				"description": "Galluogi pobl i siarad dros y ffôn o ardaloedd anghysbell y byd gan ddefnyddio lloerennau.",
+				"launch": "Croeso i lansiad lloeren gyfathrebu ddiweddaraf Asiantaeth Ofod y DU, a fydd yn galluogi pobl o ranbarthau ledled y byd i gyfathrebu ar y ffôn.",
+				"success": "Llongyfarchiadau, mae eich lloeren gyfathrebu bellach yn derbyn signalau o’r ddaear ac yn eu darlledu nhw i ffonau o gwmpas y Ddaear ar ran Asiantaeth Ofod y DU.",
 				"image": {
 					"file": "images/svg/mobile-alt-white.svg",
-					"alt": "%scenarios.COMMS.phone.title%",
+					"alt": "System teleffon lloeren",
 					"credit": "Plainicon"
 				},
 				"choices": {
@@ -816,32 +816,32 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium"],
-                    "label": "%scenarios.COMMS.phone.req.radio-dish.label%",
-					"error": "%scenarios.COMMS.phone.req.radio-dish.error%"
+                    "label": "Ffordd o anfon signalau at bobl ar y ddaear.",
+					"error": "Does gan eich lloeren ddim ffordd o anfon signalau at bobl ar y ddaear."
                 },{
                     "type": "package",
                     "oneof": ["phone-en"],
-                    "label": "%scenarios.COMMS.phone.req.phone-en.label%",
-					"error": "%scenarios.COMMS.phone.req.phone-en.error%"
+                    "label": "Ffordd o ddarlledu signalau ffôn.",
+					"error": "Does gan eich lloeren ddim ffordd o ddarlledu signalau ffôn"
                 },{
 					"type": "orbit",
 					"oneof": ["GEO"],
-					"label": "%scenarios.COMMS.phone.req.orbit.label%",
-					"error": "%scenarios.COMMS.phone.req.orbit.error%"
+					"label": "Mae’r lloeren uwchben un ardal o’r Ddaear yn barhaus",
+					"error": "Mae’r orbit rydych chi wedi’i ddewis yn golygu nad yw eich lloeren uwchben un ardal o’r Ddaear yn barhaus."
 				},{
                     "type": "power",
                     "oneof": ["battery-medium","battery-large"],
-                    "label": "%scenarios.NAV.sat-nav.req.power.label%",
-                    "error": "%scenarios.NAV.sat-nav.req.orbit.error%"
+                    "label": "Darparu pŵer hyd yn oed pan nad ydych chi yng ngolau'r haul.",
+                    "error": "Dydy’r orbit rydych chi wedi’i ddewis ddim yn caniatáu i chi weld ardal ddigon mawr o’r blaned gyfan."
                 }]
 			},{
-				"title": "%scenarios.COMMS.tv.title%",
-				"description": "%scenarios.COMMS.tv.description%",
-				"launch": "%scenarios.COMMS.tv.launch%",
-				"success": "%scenarios.COMMS.tv.success%",
+				"title": "Teledu lloeren",
+				"description": "Darparu teledu lloeren i bobl ar y ddaear. Mae’r lloerennau yma’n aros uwchben yr un pwynt yn yr awyr er mwyn derbyn signalau teledu o’r ddaear, a’u trosglwyddo i ardaloedd eraill ar y Ddaear.",
+				"launch": "Croeso i lansiad lloeren gyfathrebu ddiweddaraf Asiantaeth Ofod y DU, a fydd yn rhoi teledu lloeren i bobl ledled y byd.",
+				"success": "Llongyfarchiadau, mae eich lloeren gyfathrebu nawr yn darparu teledu lloeren i bobl ledled y byd.",
 				"image": {
 					"file": "images/png/icon-tv.png",
-					"alt": "%scenarios.COMMS.tv.title%",
+					"alt": "Teledu lloeren",
 					"credit": "Hakan Yalcin"
 				},
 				"choices": {
@@ -851,32 +851,32 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium"],
-                    "label": "%scenarios.COMMS.tv.req.radio-dish.label%",
-					"error": "%scenarios.COMMS.tv.req.radio-dish.error%"
+                    "label": "Ffordd o anfon signalau at bobl ar y ddaear.",
+					"error": "Does ganddoch chi ddim ffordd o anfon signalau i’r ddaear."
                 },{
                     "type": "package",
                     "oneof": ["tv-en"],
-                    "label": "%scenarios.COMMS.tv.req.tv-en.label%",
-					"error": "%scenarios.COMMS.tv.req.tv-en.error%"
+                    "label": "Ffordd o amgodio signalau teledu.",
+					"error": "Does ganddoch chi ddim ffordd o amgodio signalau teledu."
 				},{
 					"type": "orbit",
 					"oneof": ["GEO"],
-					"label": "%scenarios.COMMS.tv.req.orbit.label%",
-					"error": "%scenarios.COMMS.tv.req.orbit.error%"
+					"label": "Mae’r lloeren uwchben un ardal o’r Ddaear yn barhaus",
+					"error": "Mae’r orbit rydych chi wedi’i ddewis yn golygu nad yw eich lloeren uwchben un ardal o’r Ddaear yn barhaus."
 				},{
                     "type": "power",
                     "oneof": ["battery-medium","battery-large"],
-                    "label": "%scenarios.NAV.sat-nav.req.power.label%",
-                    "error": "%scenarios.NAV.sat-nav.req.orbit.error%"
+                    "label": "Darparu pŵer hyd yn oed pan nad ydych chi yng ngolau'r haul.",
+                    "error": "Dydy’r orbit rydych chi wedi’i ddewis ddim yn caniatáu i chi weld ardal ddigon mawr o’r blaned gyfan."
                 }]
 			},{
-				"title": "%scenarios.COMMS.internet.title%",
-				"description": "%scenarios.COMMS.internet.description%",
-				"launch": "%scenarios.COMMS.internet.launch%",
-				"success": "%scenarios.COMMS.internet.success%",
+				"title": "Rhyngrwyd lloeren",
+				"description": "Cysylltu â’r rhyngrwyd o ardaloedd anghysbell y byd gan ddefnyddio lloerennau. Mae’r lloerennau yma’n derbyn signalau o’r ddaear, ac yn eu trosglwyddo i ardaloedd eraill ar y Ddaear.",
+				"launch": "Croeso i lansiad lloeren gyfathrebu ddiweddaraf Asiantaeth Ofod y DU, a fydd yn helpu pobl ledled y byd i gysylltu â’r rhyngrwyd.",
+				"success": "Llongyfarchiadau, mae eich lloeren gyfathrebu bellach yn helpu pobl i gysylltu â’r rhyngrwyd mewn rhanbarthau ledled y byd ar ran Asiantaeth Ofod y DU.",
 				"image": {
 					"file": "images/svg/icon-wifi-white.svg",
-					"alt": "%scenarios.COMMS.internet.title%",
+					"alt": "Rhyngrwyd lloeren",
 					"credit": "parkjisun"
 				},
 				"choices": {
@@ -886,42 +886,42 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium"],
-                    "label": "%scenarios.COMMS.internet.req.radio-dish.label%",
-					"error": "%scenarios.COMMS.internet.req.radio-dish.error%"
+                    "label": "Ffordd o anfon signalau at bobl ar y ddaear.",
+					"error": "Does ganddoch chi ddim ffordd o anfon signalau at bobl ar y ddaear."
                 },{
                     "type": "package",
                     "oneof": ["internet-en"],
-                    "label": "%scenarios.COMMS.internet.req.internet-en.label%",
-					"error": "%scenarios.COMMS.internet.req.internet-en.error%"
+                    "label": "Ffordd o amgodio signalau rhyngrwyd.",
+					"error": "Does ganddoch chi ddim ffordd o amgodio signalau’r rhyngrwyd."
 				},{
 					"type": "orbit",
 					"oneof": ["GEO"],
-					"label": "%scenarios.COMMS.internet.req.orbit.label%",
-					"error": "%scenarios.COMMS.internet.req.orbit.error%"
+					"label": "Mae’r lloeren uwchben un ardal o’r Ddaear yn barhaus",
+					"error": "Mae’r orbit rydych chi wedi’i ddewis yn golygu nad yw eich lloeren uwchben un ardal o’r Ddaear yn barhaus."
 				},{
                     "type": "power",
                     "oneof": ["battery-medium","battery-large"],
-                    "label": "%scenarios.NAV.sat-nav.req.power.label%",
-                    "error": "%scenarios.NAV.sat-nav.req.orbit.error%"
+                    "label": "Darparu pŵer hyd yn oed pan nad ydych chi yng ngolau'r haul.",
+                    "error": "Dydy’r orbit rydych chi wedi’i ddewis ddim yn caniatáu i chi weld ardal ddigon mawr o’r blaned gyfan."
                 }]
 			}]
 		},
 		"EO": {
-			"title": "%scenarios.EO.title%",
-			"description": "%scenarios.EO.description%",
+			"title": "Arsylwi’r Ddaear",
+			"description": "Caiff y lloerennau yma eu defnyddio i dynnu lluniau o’r cymylau a mesur tymheredd a glawiad. Caiff orbitau geosefydlog ac orbitau isel o’r Ddaear eu defnyddio yn dibynnu ar y math o loeren dywydd. Defnyddir lloerennau tywydd i helpu gyda rhagfynegi tywydd yn fwy cywir. Caiff y rhain eu defnyddio i dynnu lluniau o’r Ddaear. Caiff orbitau isel o’r Ddaear eu defnyddio’n bennaf fel bod modd cynhyrchu lluniau mwy manwl.",
 			"image": {
 				"file": "images/png/icon-eo.png",
-				"alt": "%scenarios.EO.title%",
+				"alt": "Arsylwi’r Ddaear",
 				"credit": "Rflor"
 			},
 			"missions": [{
-				"title": "%scenarios.EO.weather.title%",
-				"description": "%scenarios.EO.weather.description%",
-				"launch": "%scenarios.EO.weather.launch%",
-				"success": "%scenarios.EO.weather.success%",
+				"title": "Rhagfynegi’r tywydd",
+				"description": "Monitro systemau tywydd fel bod modd i ragfynegwyr ragfynegi’r tywydd yn y dyfodol. Mae angen i loerennau tywydd allu tynnu lluniau o gymylau a defnyddio golau isgoch i fesur tymereddau’r ddaear a’r cefnforoedd.",
+				"launch": "Croeso i lansiad lloeren arsylwi’r ddaear ddiweddaraf Asiantaeth Ofod y DU, a fydd yn caniatáu i ragfynegwyr ledled y byd ragfynegi beth fydd y tywydd yn y dyfodol.",
+				"success": "Llongyfarchiadau, mae eich lloeren arsylwi’r ddaear bellach yn helpu rhagfynegwyr ledled y byd i ragfynegi beth fydd y tywydd yn y dyfodol.",
 				"image": {
 					"file": "images/png/icon-cloud.png",
-					"alt": "%scenarios.EO.weather.title%",
+					"alt": "Rhagfynegi’r tywydd",
 					"credit": "Megan Mitchell"
 				},
 				"choices": {
@@ -931,37 +931,37 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium"],
-                    "label": "%scenarios.EO.weather.req.radio-dish.label%",
-					"error": "%scenarios.EO.weather.req.radio-dish.error%"
+                    "label": "Ffordd o anfon signalau.",
+					"error": "Does ganddoch chi ddim ffordd o anfon signalau i’r ddaear."
                 },{
                     "type": "package",
                     "oneof": ["camera-fir"],
-                    "label": "%scenarios.EO.weather.req.camera-fir.label%",
-					"error": "%scenarios.EO.weather.req.camera-fir.error%"
+                    "label": "Ffordd o fesur mathau o gymylau a thymereddau ar y Ddaear.",
+					"error": "Does ganddoch chi ddim ffordd o adnabod mathau o gymylau na mesur tymereddau ar y Ddaear."
                 },{
                     "type": "package",
                     "oneof": ["camera-opt"],
-                    "label": "%scenarios.EO.weather.req.camera-opt.label%",
-					"error": "%scenarios.EO.weather.req.camera-opt.error%"
+                    "label": "Tynnu lluniau o gymylau a systemau tywydd ar y Ddaear.",
+					"error": "Does ganddoch chi ddim ffordd o dynnu lluniau o’r tywydd ar y Ddaear."
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],
-					"label": "%scenarios.EO.weather.req.orbit.label%",
-					"error": "%scenarios.EO.weather.req.orbit.error%"
+					"label": "Gweld manylion systemau tywydd y Ddaear.",
+					"error": "Dydy’r orbit rydych chi wedi’i ddewis ddim yn caniatáu i chi weld systemau tywydd y Ddaear mewn digon o fanylder."
 				},{
                     "type": "power",
                     "oneof": ["battery-medium","battery-large"],
-                    "label": "%scenarios.NAV.sat-nav.req.power.label%",
-                    "error": "%scenarios.NAV.sat-nav.req.orbit.error%"
+                    "label": "Darparu pŵer hyd yn oed pan nad ydych chi yng ngolau'r haul.",
+                    "error": "Dydy’r orbit rydych chi wedi’i ddewis ddim yn caniatáu i chi weld ardal ddigon mawr o’r blaned gyfan."
                 }]
 			},{
-				"title": "%scenarios.EO.veg-map.title%",
-				"description": "%scenarios.EO.veg-map.description%",
-				"launch": "%scenarios.EO.veg-map.launch%",
-				"success": "%scenarios.EO.veg-map.success%",
+				"title": "Mapio llystyfiant",
+				"description": "\" Mapio’r planhigion ar arwyneb y Ddaear gan ddefnyddio lluniau isgoch o arwyneb y Ddaear, a throsglwyddo’r lluniau’n ôl i’r ddaear.\"",
+				"launch": "\" Croeso i lansiad lloeren arsylwi’r ddaear ddiweddaraf Asiantaeth Ofod y DU, a fydd yn mapio’r planhigion dros arwyneb y Ddaear gan ddefnyddio lluniau isgoch.\"",
+				"success": "\"     Llongyfarchiadau, mae eich lloeren arsylwi’r ddaear bellach yn mapio’r planhigion ar draws arwyneb y Ddaear gan ddefnyddio lluniau isgoch.\"",
 				"image": {
 					"file": "images/png/icon-plant.png",
-					"alt": "%scenarios.EO.veg-map.title%",
+					"alt": "Mapio llystyfiant",
 					"credit": "Clockwise"
 				},
 				"choices": {
@@ -971,32 +971,32 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium"],
-                    "label": "%scenarios.EO.veg-map.req.radio-dish.label%",
-					"error": "%scenarios.EO.veg-map.req.radio-dish.error%"
+                    "label": "Ffordd o anfon signalau at bobl ar y ddaear.",
+					"error": "Does ganddoch chi ddim ffordd o drosglwyddo signalau i’r ddaear."
                 },{
                     "type": "package",
                     "oneof": ["camera-nir","spect-nir"],
-                    "label": "%scenarios.EO.veg-map.req.camera.label%",
-					"error": "%scenarios.EO.veg-map.req.camera.error%"
+                    "label": "Tynnu lluniau o’r llystyfiant ar y Ddaear.",
+					"error": "Does ganddoch chi ddim ffordd o dynnu lluniau o’r llystyfiant ar y Ddaear."
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],
-					"label": "%scenarios.EO.veg-map.req.orbit.label%",
-					"error": "%scenarios.EO.veg-map.req.orbit.error%"
+					"label": "Gweld manylion systemau tywydd y Ddaear.",
+					"error": "Dydy’r orbit rydych chi wedi’i ddewis ddim yn caniatáu i chi weld y llystyfiant mewn digon o fanylder."
 				},{
                     "type": "power",
                     "oneof": ["battery-medium","battery-large"],
-                    "label": "%scenarios.NAV.sat-nav.req.power.label%",
-                    "error": "%scenarios.NAV.sat-nav.req.orbit.error%"
+                    "label": "Darparu pŵer hyd yn oed pan nad ydych chi yng ngolau'r haul.",
+                    "error": "Dydy’r orbit rydych chi wedi’i ddewis ddim yn caniatáu i chi weld ardal ddigon mawr o’r blaned gyfan."
                 }]
 			},{
-				"title": "%scenarios.EO.disaster.title%",
-				"description": "%scenarios.EO.disaster.description%",
-				"launch": "%scenarios.EO.disaster.launch%",
-				"success": "%scenarios.EO.disaster.success%",
+				"title": "Monitro trychinebau naturiol",
+				"description": "Pan mae trychinebau naturiol yn digwydd, rydyn ni’n defnyddio lloerennau i weld y difrod. Mae angen lluniau o ansawdd uchel i weld a throsglwyddo manylion y difrod, felly mae’n rhaid i loerennau wneud orbit agos i’r Ddaear. Mae camerâu isgoch yn gallu dangos llifogydd a thân. Mae tonnau radio yn gallu dangos ardaloedd lle mae’r ddaear wedi anffurfio, fel ar ôl daeargryn.",
+				"launch": "Croeso i lansiad lloeren arsylwi’r ddaear ddiweddaraf Asiantaeth Ofod y DU, a fydd yn helpu i asesu’r difrod a achosir gan drychinebau naturiol gan gynnwys tanau mewn coedwigoedd, llifogydd a daeargrynfeydd.",
+				"success": "Llongyfarchiadau, mae eich lloeren arsylwi’r ddaear bellach yn helpu i asesu’r difrod a achosir gan drychinebau naturiol, gan gynnwys tanau mewn coedwigoedd, llifogydd a daeargrynfeydd.",
 				"image": {
 					"file": "images/png/icon-disaster.png",
-					"alt": "%scenarios.EO.disaster.title%",
+					"alt": "Monitro trychinebau naturiol",
 					"credit": "Leadway Global LLC"
 				},
 				"choices": {
@@ -1006,42 +1006,42 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["camera-opt-hires"],
-                    "label": "%scenarios.EO.disaster.req.camera.label%",
-					"error": "%scenarios.EO.disaster.req.camera.error%"
+                    "label": "Tynnu lluniau ansawdd uchel o’r Ddaear lle mae trychineb wedi digwydd.",
+					"error": "Does ganddoch chi ddim ffordd o dynnu lluniau ansawdd uchel o’r Ddaear lle mae trychineb wedi digwydd."
                 },{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium"],
-                    "label": "%scenarios.EO.disaster.req.radio-dish.label%",
-					"error": "%scenarios.EO.disaster.req.radio-dish.error%"
+                    "label": "Ffordd o anfon signalau at bobl ar y ddaear.",
+					"error": "Does ganddoch chi ddim ffordd o drosglwyddo signalau i’r ddaear."
                 },{
                     "type": "package",
                     "oneof": ["radar-alt"],
-                    "label": "%scenarios.EO.disaster.req.radar-alt.label%",
-					"error": "%scenarios.EO.disaster.req.radar-alt.error%"
+                    "label": "Mesur uchder ac anffurfiad y tir mewn ansawdd uchel iawn.",
+					"error": "\" Does ganddoch chi ddim ffordd o fesur uchder yr arwyneb, fel ar gyfer daeargryn.\""
                 },{
                     "type": "package",
                     "oneof": ["camera-nir"],
-                    "label": "%scenarios.EO.disaster.req.camera-nir.label%",
-					"error": "%scenarios.EO.disaster.req.camera-nir.error%"
+                    "label": "\" Monitro llystyfiant, er enghraifft yn ystod tân mewn coedwigoedd.\"",
+					"error": "Does ganddoch chi ddim ffordd o fonitro llystyfiant mewn ardaloedd trychineb."
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],
-					"label": "%scenarios.EO.disaster.req.orbit.label%",
-					"error": "%scenarios.EO.disaster.req.orbit.error%"
+					"label": "Gweld mân fanylion arwyneb y blaned.",
+					"error": "Dydy’r orbit rydych chi wedi’i ddewis ddim yn caniatáu i chi weld ardal y drychineb mewn digon o fanylder."
 				},{
                     "type": "power",
                     "oneof": ["battery-medium","battery-large"],
-                    "label": "%scenarios.NAV.sat-nav.req.power.label%",
-                    "error": "%scenarios.NAV.sat-nav.req.orbit.error%"
+                    "label": "Darparu pŵer hyd yn oed pan nad ydych chi yng ngolau'r haul.",
+                    "error": "Dydy’r orbit rydych chi wedi’i ddewis ddim yn caniatáu i chi weld ardal ddigon mawr o’r blaned gyfan."
                 }]
 			},{
-				"title": "%scenarios.EO.surface.title%",
-				"description": "%scenarios.EO.surface.description%",
-				"launch": "%scenarios.EO.surface.launch%",
-				"success": "%scenarios.EO.surface.success%",
+				"title": "Mapio arwyneb",
+				"description": "Mesur uchder amrywiol tir a chefnforoedd dros arwyneb y Ddaear.",
+				"launch": "Croeso i lansiad lloeren arsylwi’r ddaear ddiweddaraf Asiantaeth Ofod y DU, a fydd yn mesur uchder amrywiol y tir a’r cefnforoedd dros arwyneb y Ddaear.",
+				"success": "Llongyfarchiadau, mae eich lloeren arsylwi’r ddaear bellach yn mesur uchder amrywiol y tir a’r cefnforoedd dros arwyneb y Ddaear.",
 				"image": {
 					"file": "images/png/icon-surface.png",
-					"alt": "%scenarios.EO.surface.title%",
+					"alt": "Mapio arwyneb",
 					"credit": "OCHA Visual Information Unit"
 				},
 				"choices": {
@@ -1051,28 +1051,28 @@
 				"requires": [{
                     "type": "package",
                     "oneof": ["radar-alt"],
-                    "label": "%scenarios.EO.surface.req.radar-alt.label%",
-					"error": "%scenarios.EO.surface.req.radar-alt.error%"
+                    "label": "Mesur uchder y tir mewn ansawdd uchel iawn.",
+					"error": "Does ganddoch chi ddim ffordd o fesur uchder y tir mewn ansawdd uchel iawn."
                 },{
                     "type": "package",
                     "oneof": ["dish-large","dish-medium"],
-                    "label": "%scenarios.EO.surface.req.radio-dish.label%",
-					"error": "%scenarios.EO.surface.req.radio-dish.error%"
+                    "label": "Ffordd o anfon signalau at bobl ar y ddaear.",
+					"error": "Does ganddoch chi ddim ffordd o drosglwyddo signalau i’r ddaear."
                 },{
                     "type": "package",
                     "oneof": ["gps-rx"],
-                    "label": "%scenarios.EO.surface.req.sat-tracker.label%",
-					"error": "%scenarios.EO.surface.req.sat-tracker.error%"
+                    "label": "Ffordd o wybod beth yw safle’r lloeren yn fanwl-gywir",
+					"error": "Does ganddoch chi ddim ffordd o ganfod beth yw safle’r lloeren yn gywir."
                 },{
 					"type": "orbit",
 					"oneof": ["LEO"],
-					"label": "%scenarios.EO.surface.req.orbit.label%",
-					"error": "%scenarios.EO.surface.req.orbit.error%"
+					"label": "Gweld mân-fanylion ar arwyneb y blaned.",
+					"error": "Dydy’r orbit rydych chi wedi’i ddewis ddim yn caniatáu i chi weld arwyneb y blaned yn ddigon manwl."
 				},{
                     "type": "power",
                     "oneof": ["battery-medium","battery-large"],
-                    "label": "%scenarios.NAV.sat-nav.req.power.label%",
-                    "error": "%scenarios.NAV.sat-nav.req.orbit.error%"
+                    "label": "Darparu pŵer hyd yn oed pan nad ydych chi yng ngolau'r haul.",
+                    "error": "Dydy’r orbit rydych chi wedi’i ddewis ddim yn caniatáu i chi weld ardal ddigon mawr o’r blaned gyfan."
                 }]
 			}]
 		}
@@ -1081,56 +1081,56 @@
 		"requires": [{
 			"type": "rocket",
 			"is": "stable",
-			"label": "%rocket.requires.stable.label%",
-			"error": "%rocket.requires.stable.error%"
+			"label": "Mae’n rhaid i’ch roced fod yn sefydlog",
+			"error": "Mae eich roced yn rhy drwm ar y pen. Mae angen sicrhau ei bod yn sefydlog cyn lansio"
 		},{
 			"type": "rocket",
 			"is": "fueled",
-			"label": "%rocket.requires.power.label%",
-			"error": "%rocket.requires.power.error%"
+			"label": "Mae angen digon o bŵer ar eich roced i gyrraedd orbit.",
+			"error": "Dydy’ch roced ddim yn ddigon pwerus i lansio."
 		},{
 			"type": "rocket",
 			"is": "bigenough",
-			"label": "%rocket.requires.bigenough.label%",
-			"error": "%rocket.requires.bigenough.error%"
+			"label": "Mae angen i ardal prif lwyth eich roced fod yn ddigon mawr i ddal eich lloeren.",
+			"error": "Dydy ardal prif lwyth eich roced ddim yn ddigon mawr i ddal eich lloeren."
 		}]
 	},
 	"missionreq": {
 		"requires": [{
 			"type": "goal",
 			"is": "inbudget",
-			"label": "%launch.prep.budget.label%",
-			"error": "%launch.prep.budget.error%"
+			"label": "Mae angen digon o arian arnoch chi.",
+			"error": "Does ganddoch chi ddim digon o arian."
 		},{
 			"type": "power",
 			"is": "powered",
-			"label": "%launch.prep.powered.label%",
-			"error": "%launch.prep.powered.error%"
+			"label": "Mae angen digon o bŵer arnoch chi.",
+			"error": "Does ganddoch chi ddim digon o bŵer."
 		}]
 	},
     "launch": {
     	"prep": {
-    		"checklist": "%launch.prep.checklist%",
-			"goforlaunch": "%launch.prep.goforlaunch%",
-			"button": "%launch.prep.button%"
+    		"checklist": "<p>Rydyn ni wedi canfod problemau gyda’ch taith. Bydd angen datrys rhain cyn lansio, neu bydd eich taith yn methu. Dydych chi heb fodloni’r gofynion yma:</p>$requirementslist$",
+			"goforlaunch": "Llongyfarchiadau, mae’r gwiriadau terfynol yn dangos bod eich taith yn barod i lansio. Mae ganddoch chi roced addas a lloeren a fydd yn cyflawni eich amcanion. Mae’r Ganolfan Reoli yn aros am eich cyfarwyddyd.",
+			"button": "Lansio?"
     	},
-		"countdown": "%launch.countdown%",
-		"liftoff":	"%launch.liftoff%",
+		"countdown": "Cyfri i lawr",
+		"liftoff":	"Amdani!",
 		"stage": {
-			"ignition": "%launch.stage.ignition%",
-			"fuel-exhausted": "%launch.stage.fuel-exhausted%",
-			"separation": "%launch.stage.separation%"
+			"ignition": "Cam $stage$ tanio",
+			"fuel-exhausted": "Cam $stage$ tanwydd wedi dod i ben",
+			"separation": "Cam $stage$ gwahanu"
 		},
-		"elapsed-time": "%launch.elapsed-time%",
-		"current-speed": "%launch.current-speed%",
-		"orbit-achieved": "%launch.orbit-achieved%",
-		"payload-bay-open": "%launch.payload-bay-open%",
-		"deployed": "%launch.deployed%",
+		"elapsed-time": "T$value$",
+		"current-speed": "Cyflymder presennol",
+		"orbit-achieved": "$orbit$ wedi’i gyflawni",
+		"payload-bay-open": "Yr ardal prif lwyth wedi agor",
+		"deployed": "Lloeren wedi’i rhyddhau",
 		"solar-panels": {
-			"deploying": "%launch.solar-panels.deploying%",
-			"deployed": "%launch.solar-panels.deployed%"
+			"deploying": "Agor y paneli solar",
+			"deployed": "Paneli solar wedi’u hagor"
 		},
-		"operational": "%launch.operational%",
-		"launchanother": "%launch.launchanother%"
+		"operational": "Y lloeren yn weithredol",
+		"launchanother": "Lansio taith arall"
     }
 }

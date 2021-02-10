@@ -3,6 +3,16 @@
 		"require-hint": true,
 		"fix-links": false
 	},
+	"urls":{
+		"beginner":"beginner.html",
+		"intermediate":"intermediate.html",
+		"advanced":"advanced.html",
+		"launch":"launch.html"
+	},
+	"lang":{
+		"code":"en",
+		"name":"English"
+	},
 	"sections": [{
 		"id": "type",
 		"short": "Type",

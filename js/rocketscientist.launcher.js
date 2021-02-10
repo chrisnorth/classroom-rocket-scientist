@@ -6,6 +6,8 @@
 
 	RocketScientist.prototype.init_before = function(){
 		this.level = this.query.level;
+		this.lang = this.query.lang;
+		console.log('INIT_BEFORE',this.level,this.lang)
 	}
 	RocketScientist.prototype.init_after = function(){
 		this.setupLaunch();
@@ -149,7 +151,7 @@
 		successtxt.push(this.data.scenarios[this.choices.type].missions[this.choices.goal].success || "");
 		this.data.launch.successtxt=successtxt;
 		//console.log(this.eq)
-
+		console.log(this.data);
 		l = new Launch(this);
 		return this;
 	}

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
-	<title>Satellite Builder</title>
+	<title>Adeiladwr Lloeren</title>
 	<link rel="stylesheet" media="all" href="css/fonts.css" type="text/css"/>
 	<link rel="stylesheet" media="all" href="css/style.css"  type="text/css" />
 	<!--[if !IE]> --><link href="tests/satellite/style-nonie.css" rel="stylesheet" type="text/css" media="screen" /><!-- <![endif]-->
@@ -15,14 +15,14 @@
 		var data = {"options":{"require-hint": true,"fix-links": true},"urls":{"beginner":"beginner.html","intermediate":"intermediate.html","advanced":"advanced.html","launch":"launch.html"},"lang":{"code":"en","name":"English"},"sections": [{"id": "type","short": "Type","title": "Select your type of satellite"},{"id": "goal","short": "Mission","title": "Select the purpose of your satellite"},{"id": "bus","short": "Size","title": "Choose the size of your satellite"},{"id": "orbit","short": "Orbit","title": "Select the orbit for your satellite"},{"id": "instrument","short": "Instruments","title": "Select the instruments for your satellite","list": "Available instruments:"},{"id": "power","short": "Power","title": "Add power","list": "Available power devices:"},{"id": "rocket","short": "Rocket","title": "Build your rocket"},{"id": "launch","short": "Launch","title": "Ready to launch?"}],"bus":{"small":{"slots":{"2x2": 2, "2x4": 1, "3x3": 1, "4x4": 4},"cost":{"value": 20, "units": "credits", "dimension": "currency"},"mass":{"value": 100, "units": "kg", "dimension": "mass"},"structure":{"value": 150, "units": "kg", "dimension": "mass"},"width":{"value": 1, "units": "m", "dimension": "length"},"height":{"value": 1, "units": "m", "dimension": "length"},"depth":{"value": 1, "units": "m", "dimension": "length"},"area":{"value": 1, "units": "m^2", "dimension": "area"},"power":{"value": 100, "units": "watts", "dimension": "power"}},"medium":{"slots":{"2x2": 4, "2x4": 2, "3x3": 1, "4x4": 4},"cost":{"value": 100, "units": "credits", "dimension": "currency"},"mass":{"value": 500, "units": "kg", "dimension": "mass"},"structure":{"value": 250, "units": "kg", "dimension": "mass"},"width":{"value": 2, "units": "m", "dimension": "length"},"height":{"value": 2.5, "units": "m", "dimension": "length"},"depth":{"value": 2.5, "units": "m", "dimension": "length"},"area":{"value": 3, "units": "m^2", "dimension": "area"},"power":{"value": 300, "units": "watts", "dimension": "power"}},"large":{"slots":{"2x2": 8, "2x4": 3, "4x8": 1, "3x3": 1, "4x4": 4},"cost":{"value": 500, "units": "credits", "dimension": "currency"},"mass":{"value": 1000, "units": "kg", "dimension": "mass"},"structure":{"value": 500, "units": "kg", "dimension": "mass"},"width":{"value": 8, "units": "m", "dimension": "length"},"height":{"value": 2.5, "units": "m", "dimension": "length"},"depth":{"value": 2.5, "units": "m", "dimension": "length"},"area":{"value": 10, "units": "m^2", "dimension": "area"},"power":{"value": 500, "units": "watts", "dimension": "power"}}},"package":{"camera-opt" :{"slot": "2x2","title": "Optical camera","description": "Provides images of the ground, such as for mapping or for monitoring natural disasters. Can also be used to monitor cloud cover. The resolution depends on the orbit altitude.","texture":{"icon": "texture camera-opt"},"mass":{"value": 50, "units": "kg", "dimension": "mass"},"cost":{"value": 10, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 50, "units": "watts", "dimension": "power" }},"camera-opt-hires" :{"slot": "2x4","title": "High-resolution optical camera","description": "Provides very high-resolution images of the ground, such as for monitoring natural disasters, but only when used in low-Earth orbit.","texture":{"icon": "texture camera-opt-hires"},"mass":{"value": 100, "units": "kg", "dimension": "mass"},"cost":{"value": 15, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 1.0, "units": "m", "dimension": "length"},{"value": 1.0, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 50, "units": "watts", "dimension": "power" }},"camera-nir":{"slot":	"2x2","title": "Vegetation camera","description": "Provides infrared images of vegetation and land-usage on the ground. Only works in daylight, as it relies on reflected sunlight.","texture":{"icon": "texture camera-nir"},"mass":{"value": 50, "units": "kg", "dimension": "mass"},"cost":{"value": 20, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 100, "units": "watts", "dimension": "power" }},"camera-fir":{"slot":	"2x4","title": "Infrared camera","description": "Provides infrared images of the clouds and weather systems in the Earth's atmosphere, useful for weather forecasting and climate monitoring, even during darkness.","texture":{"icon": "texture camera-fir"},"mass":{"value": 100, "units": "kg", "dimension": "mass"},"cost":{"value": 30, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 1.0, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 300, "units": "watts", "dimension": "power" }},"spect-opt":{"slot":	"2x2","title": "Optical Spectrometer","description": "Measures detailed properties of the Earth's surface, such as deforestation.","texture":{"icon": "texture spect-opt"},"mass":{"value": 50, "units": "kg", "dimension": "mass"},"cost":{"value": 10, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 150, "units": "watts", "dimension": "power" }},"spect-nir":{"slot":	"2x2","title": "Vegetation Spectrometer","description": "Measures the properties of vegetation on the ground, such as type of vegetation and how healthy it is.","texture":{"icon": "texture spect-nir"},"mass":{"value": 50, "units": "kg", "dimension": "mass"},"cost":{"value": 20, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 250, "units": "watts", "dimension": "power" }},"spect-fir":{"slot":	"2x4","title": "Atmospheric Spectrometer","description": "Uses infrared light to measure properties of the Earth's atmosphere, such as clouds, moisture level, surface temperature and air temperature, even during darkness.","texture":{"icon": "texture spect-fir"},"mass":{"value": 100, "units": "kg", "dimension": "mass"},"cost":{"value": 30, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 1.0, "units": "m", "dimension": "length"},{"value": 1.0, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 300, "units": "watts", "dimension": "power" }},"radar-alt":{"slot":	"2x4","title": "Radar altimeter","description": "Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earthquakes. Requires a large radio dish to work.","texture":{"icon": "texture radar-alt"},"mass":{"value": 40, "units": "kg", "dimension": "mass"},"cost":{"value": 5, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 1.0, "units": "m", "dimension": "length"},{"value": 1.0, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 70, "units": "watts", "dimension": "power"},"requires": [{"type": "package","oneof": ["dish-large"],"label": "The radar altimeter requires a large radio dish","error": "You need to include a large radio dish for the radar altimeter to work."}]},"atomic-clock":{"slot":	"2x2","title": "Atomic clock","description": "Very accurate clock, required by navigation satellites to measure the time to very high precision.","texture":{"icon": "texture atomic-clock"},"mass":{"value": 1, "units": "kg", "dimension": "mass"},"cost":{"value": 1, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.1, "units": "m", "dimension": "length"},{"value": 0.1, "units": "m", "dimension": "length"},{"value": 0.05, "units": "m", "dimension": "length" }],"power":{"value": 10, "units": "watts", "dimension": "power" }},"gps-rx":{"slot":	"2x2","title": "GPS receiver","description": "Used to monitor the satellite's position to very high accuracy","texture":{"icon": "texture gps-rx"},"mass":{"value": 0.5, "units": "kg", "dimension": "mass"},"cost":{"value": 2, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.05, "units": "m", "dimension": "length"},{"value": 0.05, "units": "m", "dimension": "length"},{"value": 0.1, "units": "m", "dimension": "length" }],"power":{"value": 5, "units": "watts", "dimension": "power" }},"dish-large":{"slot":	"4x8","title": "Radio dish (large)","description": "Radio dish for controlling the satellite and transmitting data to the ground, as well as for the radar altimeter","texture":{"icon": "","class": "-bg radar","html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"},"mass":{"value": 30, "units": "kg", "dimension": "mass"},"cost":{"value": 2, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 2.0, "units": "m", "dimension": "length"},{"value": 2.0, "units": "m", "dimension": "length"},{"value": 1.0, "units": "m", "dimension": "length" }],"power":{"value": 0, "units": "watts", "dimension": "power" }},"dish-medium":{"slot":	"2x4","title": "Radio dish","description": "Radio dish for controlling the satellite and transmitting data to the ground","texture":{"icon": "","class": "-bg radio","html": "<div class=\"hemisphere south\"><div class=\"inner\"></div><div class=\"dome\"></div></div>"},"mass":{"value": 20, "units": "kg", "dimension": "mass"},"cost":{"value": 1, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 1.0, "units": "m", "dimension": "length"},{"value": 1.0, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 0, "units": "watts", "dimension": "power" }},"internet-en" :{"slot": "2x2","title": "Internet encoder","description": "Used to broadcast the internet to people around the world.","texture":{"icon": "texture internet-en"},"mass":{"value": 2, "units": "kg", "dimension": "mass"},"cost":{"value": 10, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 20, "units": "watts", "dimension": "power" }},"tv-en" :{"slot": "2x2","title": "TV encoder","description": "Used to broadcast the TV to people around the world.","texture":{"icon": "texture tv-en"},"mass":{"value": 2, "units": "kg", "dimension": "mass"},"cost":{"value": 10, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 40, "units": "watts", "dimension": "power" }},"phone-en":{"slot":	"2x2","title": "Phone encoder","description": "Broadcasts signals to and from telephones across the world.","texture":{"icon": "texture phone-en"},"mass":{"value": 10, "units": "kg", "dimension": "mass"},"cost":{"value": 1, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 2, "units": "watts", "dimension": "power" }}},"power":{"battery-large":{"slot":	"2x4","title": "Large battery","description": "Stores power from solar panels to allow operation when not in sunlight","texture":{"icon": "texture battery-large"},"mass":{"value": 50, "units": "kg", "dimension": "mass"},"cost":{"value": 20, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 0, "units": "watts", "dimension": "power"},"requires": [{"type": "power","oneof": ["solar-panel","solar-panel-surface"],"label": "Battery requires solar panels to charge up","error": "Battery requires solar panels"}]},"battery-medium":{"slot":	"2x2","title": "Medium battery","description": "Stores power from solar panels to allow operation when not in sunlight","texture":{"icon": "texture battery-medium"},"mass":{"value": 25, "units": "kg", "dimension": "mass"},"cost":{"value": 10, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length"},{"value": 0.5, "units": "m", "dimension": "length" }],"power":{"value": 0, "units": "watts", "dimension": "power"},"requires": [{"type": "power","oneof": ["solar-panel","solar-panel-surface"],"label": "Battery requires solar panels to charge up","error": "Battery requires solar panels"}]},"solar-panel-surface":{"slot":	"3x3","title": "Body-mounted solar panel","description": "Solar panels mounted onto surface of satellite, collecting sunlight to provide power. Can power instruments, or charge up batteries.","mass":{"value": 5, "units": "kg", "dimension": "mass"},"cost":{"value": 15, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 1.0, "units": "m", "dimension": "length"},{"value": 1.0, "units": "m", "dimension": "length" }],"power":{"value": 150, "units": "watts", "dimension": "power"},"comments": "Costs are per unit area. Area defined by satellite size."},"solar-panel":{"slot":	"4x4","max": 4,"title": "Deployable solar panel","description": "Solar panels deployed from edge of satellite, collecting sunlight to provide power. Can power instruments, or charge up batteries.","mass":{"value": 10, "units": "kg", "dimension": "mass"},"cost":{"value": 20, "units": "credits", "dimension": "currency"},"dimensions": [{"value": 1.0, "units": "m", "dimension": "length"},{"value": 1.0, "units": "m", "dimension": "length" }],"power":{"value": 300, "units": "watts", "dimension": "power" }}},"firststage": [{"key": "None","type": "","diameter":{"value": 0, "units": "m", "dimension": "length"},"height":{"value": 0.0, "units": "m", "dimension": "length"},"drymass":{"value": 0, "units": "kg", "dimension": "mass"},"cost":{"value": 0, "units": "credits", "dimension": "currency"},"thrust":{"value": 0, "units": "kN", "dimension": "force"},"fuel":{"value": 0, "units": "kg", "dimension": "mass"},"impulse":{"value": 0, "units": "s", "dimension": "time"},"notes": "No stage"},{"key": "S","type": "Solid-fuel rocket","diameter":{"value": 1, "units": "m", "dimension": "length"},"height":{"value": 12.0, "units": "m", "dimension": "length"},"drymass":{"value": 10500, "units": "kg", "dimension": "mass"},"cost":{"value": 12, "units": "credits", "dimension": "currency"},"thrust":{"value": 2200, "units": "kN", "dimension": "force"},"fuel":{"value": 88000, "units": "kg", "dimension": "mass"},"impulse":{"value": 280, "units": "s", "dimension": "time"},"notes": "Based on Vega 1st stage (https://en.wikipedia.org/wiki/Vega_(rocket))"},{"key": "M","type": "Liquid-fuel rocket","diameter":{"value": 2, "units": "m", "dimension": "length"},"height":{"value": 30.0, "units": "m", "dimension": "length"},"drymass":{"value": 9000, "units": "kg", "dimension": "mass"},"cost":{"value": 23, "units": "credits", "dimension": "currency"},"thrust":{"value": 1500, "units": "kN", "dimension": "force"},"fuel":{"value": 120000, "units": "kg", "dimension": "mass"},"impulse":{"value": 300, "units": "s", "dimension": "time"},"notes": "Based on Soyuz 1st stage (http://www.spaceflight101.com/soyuz-2-1v.html)"},{"key": "L","type": "Liquid-fuel rocket","diameter":{"value": 4.5, "units": "m", "dimension": "length"},"height":{"value": 40.0, "units": "m", "dimension": "length"},"drymass":{"value": 24000, "units": "kg", "dimension": "mass"},"cost":{"value": 60, "units": "credits", "dimension": "currency"},"thrust":{"value": 6000, "units": "kN", "dimension": "force"},"fuel":{"value": 400000, "units": "kg", "dimension": "mass"},"impulse":{"value": 280, "units": "s", "dimension": "time"},"notes": "Based on Falcon 9 first stage (http://www.spaceflight101.com/falcon-9-v11.html)"},{"key": "XL","type": "Liquid-fuel rocket","diameter":{"value": 8, "units": "m", "dimension": "length"},"height":{"value": 50.0, "units": "m", "dimension": "length"},"drymass":{"value": 85000, "units": "kg", "dimension": "mass"},"cost":{"value": 220, "units": "credits", "dimension": "currency"},"thrust":{"value": 7400, "units": "kN", "dimension": "force"},"fuel":{"value": 900000, "units": "kg", "dimension": "mass"},"impulse":{"value": 360, "units": "s", "dimension": "time"},"notes": "Based on SLS (https://en.wikipedia.org/wiki/Space_Launch_System)"},{"key": "XXL","type": "Liquid-fuel rocket","diameter":{"value": 10, "units": "m", "dimension": "length"},"height":{"value": 42.0, "units": "m", "dimension": "length"},"drymass":{"value": 130000, "units": "kg", "dimension": "mass"},"cost":{"value": 370, "units": "credits", "dimension": "currency"},"thrust":{"value": 34000, "units": "kN", "dimension": "force"},"fuel":{"value": 2000000, "units": "kg", "dimension": "mass"},"impulse":{"value": 263, "units": "s", "dimension": "time"},"notes": "Based on Saturn V 1st stage (https://en.wikipedia.org/wiki/Saturn_V)"}],"secondstage": [{"key": "None","type": "","diameter":{"value": 0, "units": "m", "dimension": "length"},"height":{"value": 0.0, "units": "m", "dimension": "length"},"drymass":{"value": 0, "units": "kg", "dimension": "mass"},"cost":{"value": 0, "units": "credits", "dimension": "currency"},"thrust":{"value": 0, "units": "kN", "dimension": "force"},"fuel":{"value": 0, "units": "kg", "dimension": "mass"},"impulse":{"value": 0, "units": "s", "dimension": "time"},"notes": "No stage"},{"key": "XS","type": "Solid-fuel rocket","diameter":{"value": 1, "units": "m", "dimension": "length"},"height":{"value": 17, "units": "m", "dimension": "length"},"drymass":{"value": 2000, "units": "kg", "dimension": "mass"},"cost":{"value": 5, "units": "credits", "dimension": "currency"},"thrust":{"value": 480, "units": "kN", "dimension": "force"},"fuel":{"value": 15000, "units": "kg", "dimension": "mass"},"impulse":{"value": 280, "units": "s", "dimension": "time"},"notes": "Based on Pegasus (http://www.astronautix.com/engines/pegasus1.htm)"},{"key": "S","type": "Solid-fuel rocket","diameter":{"value": 2, "units": "m", "dimension": "length"},"height":{"value": 14, "units": "m", "dimension": "length"},"drymass":{"value": 3000, "units": "kg", "dimension": "mass"},"cost":{"value": 10, "units": "credits", "dimension": "currency"},"thrust":{"value": 870, "units": "kN", "dimension": "force"},"fuel":{"value": 24000, "units": "kg", "dimension": "mass"},"impulse":{"value": 290, "units": "s", "dimension": "time"},"notes": "Based on Vega 2nd stage (https://en.wikipedia.org/wiki/Vega_(rocket))"},{"key": "M","type": "Liquid-fuel rocket","diameter":{"value": 3, "units": "m", "dimension": "length"},"height":{"value": 7, "units": "m", "dimension": "length"},"drymass":{"value": 2400, "units": "kg", "dimension": "mass"},"cost":{"value": 15, "units": "credits", "dimension": "currency"},"thrust":{"value": 300, "units": "kN", "dimension": "force"},"fuel":{"value": 25000, "units": "kg", "dimension": "mass"},"impulse":{"value": 360, "units": "s", "dimension": "time"},"notes": "Based on Soyuz 2nd stage (https://en.wikipedia.org/wiki/Soyuz_(rocket_family)#First_stage)"},{"key": "L","type": "Liquid-fuel rocket","diameter":{"value": 4.5, "units": "m", "dimension": "length"},"height":{"value": 15, "units": "m", "dimension": "length"},"drymass":{"value": 4000, "units": "kg", "dimension": "mass"},"cost":{"value": 20, "units": "credits", "dimension": "currency"},"thrust":{"value": 800, "units": "kN", "dimension": "force"},"fuel":{"value": 90000, "units": "kg", "dimension": "mass"},"impulse":{"value": 340, "units": "s", "dimension": "time"},"notes": "Based on Falcon 9 2nd stage (http://www.spaceflight101.com/falcon-9-v11.html)"},{"key": "XL","type": "Liquid-fuel rocket","diameter":{"value": 8, "units": "m", "dimension": "length"},"height":{"value": 15, "units": "m", "dimension": "length"},"drymass":{"value": 6000, "units": "kg", "dimension": "mass"},"cost":{"value": 30, "units": "credits", "dimension": "currency"},"thrust":{"value": 400, "units": "kN", "dimension": "force"},"fuel":{"value": 129000, "units": "kg", "dimension": "mass"},"impulse":{"value": 460, "units": "s", "dimension": "time"},"notes": "Based on SLS (https://en.wikipedia.org/wiki/Space_Launch_System)"},{"key": "XXL","type": "Liquid-fuel rocket","diameter":{"value": 10, "units": "m", "dimension": "length"},"height":{"value": 25, "units": "m", "dimension": "length"},"drymass":{"value": 40000, "units": "kg", "dimension": "mass"},"cost":{"value": 50, "units": "credits", "dimension": "currency"},"thrust":{"value": 4400, "units": "kN", "dimension": "force"},"fuel":{"value": 450000, "units": "kg", "dimension": "mass"},"impulse":{"value": 421, "units": "s", "dimension": "time"},"notes": "Based on Saturn V 2nd stage (https://en.wikipedia.org/wiki/Saturn_V)"}],"thirdstage": [{"key": "None","type": "","diameter":{"value": 0, "units": "m", "dimension": "length"},"height":{"value": 0.0, "units": "m", "dimension": "length"},"drymass":{"value": 0, "units": "kg", "dimension": "mass"},"cost":{"value": 1, "units": "credits", "dimension": "currency"},"thrust":{"value": 0, "units": "kN", "dimension": "force"},"fuel":{"value": 0, "units": "kg", "dimension": "mass"},"impulse":{"value": 0, "units": "s", "dimension": "time"},"notes": "No stage"},{"key": "S","type": "Solid-fuel rocket","diameter":{"value": 2, "units": "m", "dimension": "length"},"height":{"value": 2, "units": "m", "dimension": "length"},"drymass":{"value": 1300, "units": "kg", "dimension": "mass"},"cost":{"value": 2, "units": "credits", "dimension": "currency"},"thrust":{"value": 260, "units": "kN", "dimension": "force"},"fuel":{"value": 10000, "units": "kg", "dimension": "mass"},"impulse":{"value": 315, "units": "s", "dimension": "time"},"notes": "Based on Vega 3rd stage (https://en.wikipedia.org/wiki/Vega_(rocket))"},{"key": "M","type": "Solid-fuel rocket","diameter":{"value": 3, "units": "m", "dimension": "length"},"height":{"value": 7, "units": "m", "dimension": "length"},"drymass":{"value": 2400, "units": "kg", "dimension": "mass"},"cost":{"value": 4, "units": "credits", "dimension": "currency"},"thrust":{"value": 300, "units": "kN", "dimension": "force"},"fuel":{"value": 22000, "units": "kg", "dimension": "mass"},"impulse":{"value": 360, "units": "s", "dimension": "time"},"notes": "Based on Inertial Upper Stage (https://en.wikipedia.org/wiki/Inertial_Upper_Stage)"},{"key": "L","type": "Liquid-fuel rocket","diameter":{"value": 8, "units": "m", "dimension": "length"},"height":{"value": 19, "units": "m", "dimension": "length"},"drymass":{"value": 13500, "units": "kg", "dimension": "mass"},"cost":{"value": 8, "units": "credits", "dimension": "currency"},"thrust":{"value": 1000, "units": "kN", "dimension": "force"},"fuel":{"value": 110000, "units": "kg", "dimension": "mass"},"impulse":{"value": 420, "units": "s", "dimension": "time"},"notes": "Based on Saturn V 3rd stage (https://en.wikipedia.org/wiki/Saturn_V)"},{"key": "XL","type": "Liquid-fuel rocket","diameter":{"value": 10, "units": "m", "dimension": "length"},"height":{"value": 19, "units": "m", "dimension": "length"},"drymass":{"value": 13500, "units": "kg", "dimension": "mass"},"cost":{"value": 10, "units": "credits", "dimension": "currency"},"thrust":{"value": 1500, "units": "kN", "dimension": "force"},"fuel":{"value": 110000, "units": "kg", "dimension": "mass"},"impulse":{"value": 420, "units": "s", "dimension": "time"},"notes": "Based on Saturn V 3rd stage (https://en.wikipedia.org/wiki/Saturn_V)"}],"boosters": [{"key": "M","type": "Solid-fuel rocket","diameter":{"value": 3, "units": "m", "dimension": "length"},"height":{"value": 45, "units": "m", "dimension": "length"},"drymass":{"value": 90000, "units": "kg", "dimension": "mass"},"cost":{"value": 20, "units": "credits", "dimension": "currency"},"thrust":{"value": 12000, "units": "kN", "dimension": "force"},"fuel":{"value": 500000, "units": "kg", "dimension": "mass"},"impulse":{"value": 240, "units": "s", "dimension": "time"},"notes": "Based on Space Shuttle SRB"}],"payloadbay": [{"key": "None","size": 0,"type": "","diameter":{"value": 0, "units": "m", "dimension": "length"},"height":{"value": 0.0, "units": "m", "dimension": "length"},"payload":{"value": 0, "units": "kg", "dimension": "mass"},"drymass":{"value": 0, "units": "kg", "dimension": "mass"},"cost":{"value": 0, "units": "credits", "dimension": "currency" }},{"key": "XS","size": 1,"type": "Payload","diameter":{"value": 1, "units": "m", "dimension": "length"},"height":{"value": 2, "units": "m", "dimension": "length"},"payload":{"value": 500, "units": "kg", "dimension": "mass"},"drymass":{"value": 500, "units": "kg", "dimension": "mass"},"cost":{"value": 1, "units": "credits", "dimension": "currency" }},{"key": "S","size": 2,"type": "Payload","diameter":{"value": 2, "units": "m", "dimension": "length"},"height":{"value": 5, "units": "m", "dimension": "length"},"payload":{"value": 1500, "units": "kg", "dimension": "mass"},"drymass":{"value": 1000, "units": "kg", "dimension": "mass"},"cost":{"value": 1, "units": "credits", "dimension": "currency" }},{"key": "M","size": 3,"type": "Payload","diameter":{"value": 4, "units": "m", "dimension": "length"},"height":{"value": 8, "units": "m", "dimension": "length"},"payload":{"value": 3000, "units": "kg", "dimension": "mass"},"drymass":{"value": 5000, "units": "kg", "dimension": "mass"},"cost":{"value": 3, "units": "credits", "dimension": "currency" }},{"key": "L","size": 4,"type": "Payload","diameter":{"value": 8, "units": "m", "dimension": "length"},"height":{"value": 10, "units": "m", "dimension": "length"},"payload":{"value": 5000, "units": "kg", "dimension": "mass"},"drymass":{"value": 10000, "units": "kg", "dimension": "mass"},"cost":{"value": 8, "units": "credits", "dimension": "currency" }},{"key": "XL","size": 5,"type": "Payload","diameter":{"value": 10, "units": "m", "dimension": "length"},"height":{"value": 15, "units": "m", "dimension": "length"},"payload":{"value": 10000, "units": "kg", "dimension": "mass"},"drymass":{"value": 20000, "units": "kg", "dimension": "mass"},"cost":{"value": 10, "units": "credits", "dimension": "currency" }}],"orbit":{"LEO":{"title": "Low-Earth orbit","description": "Satellites in low-Earth orbit pass over a different part of the Earth in each orbit. It is cheaper to send satellites to Low-Earth orbit than other orbits and satellites here can be reached for repairs. Low-Earth orbit satellites can look at small areas in high detail for short periods of time.","altitude":{"value": 400, "units": "km", "dimension": "length"},"period":{"value": 90, "units": "minutes", "dimension": "time" }},"MEO":{"title": "Medium-Earth orbit","description": "Satellites in medium-Earth orbit are higher above the Earth than low-Earth orbits, but lower than geostationary orbits. They cover a different part of Earth in each orbit. They can see a larger area in less detail than low-Earth orbits.","altitude":{"value": 2000, "units": "km", "dimension": "length"},"period":{"value": 2, "units": "hours", "dimension": "time" }},"HEO":{"title": "Highly-elliptical orbit","description": "Highly-elliptical orbits are much closer to the Earth at one point in their orbit than another, giving an elongated (elliptical) rather than circular orbit. They are useful for covering areas including polar regions. More than one satellite can be used for continuous coverage of an area.","altitude":{"value": 20000, "units": "km", "dimension": "length"},"period":{"value": 12, "units": "hours", "dimension": "time" }},"GEO":{"title": "Geo-stationary orbit","description": "Satellites in geostationary orbits stay above the same location on Earth near the equator and complete a full orbit in 24 hours. They are much higher above the Earth's surface than other orbits, so can see the entire hemisphere in less detail.","altitude":{"value": 35786, "units": "km", "dimension": "length"},"period":{"value": 24, "units": "hours", "dimension": "time" }}},"scenarios":{"NAV":{"title": "Navigation","description": "The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension=\"length\" data-units=\"km\" data-value=\"20000\" class=\"value convertable\">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.","image":{"file": "images/png/icon-nav.png","alt": "Navigation","credit": "parkjisun"},"missions": [{"title": "Satellite Navigation System","description": "Uses signals from four navigation satellites so satnav users can find their location on Earth. Need to be able to see half a hemisphere at a time, measure time accurately and transmit signals of the location.","launch": "Welcome to the launch of the UK Space Agency's latest navigation satellite that will allow people to accurately determine their position on Earth.","success": "Congratulations, your navigation satellite is now sending people accurate information about their position on Earth on behalf of the UK Space Agency.","image":{"file": "images/png/icon-mapmarker.png","alt": "Satellite Navigation System","credit": "Housin Aziz"},"choices":{"orbit": "GEO"},"budget":{"value": 200, "units": "credits", "dimension": "currency"},"requires": [{"type": "package","oneof": ["atomic-clock"],"label": "Needs to be able to measure time very accurately","error": "You are not able to measure the time accurately enough."},{"type": "package","oneof": ["gps-rx"],"label": "You need a way to monitor the satellite's position to very high accuracy.","error": "You don't have a way to monitor the satellite's position to very high accuracy."},{"type": "package","oneof": ["dish-large","dish-medium"],"label": "A way to send signals to people on the ground.","error": "Your satellite does not have any way to send signals to people on the ground."},{"type": "orbit","oneof": ["HEO","GEO","MEO"],"label": "See large areas of the planet at one time.","error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."},{"type": "power","oneof": ["battery-medium","battery-large"],"label": "Provide power even when not in sunlight.","error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."}]},{"title": "Map-making","description": "Map the surface of the Earth. Need to be able to take images of small areas of the Earth's surface and measure the height of the ground in high detail.","launch": "Welcome to the launch of the UK Space Agency's latest navigation satellite that will accurately map the surface of the Earth.","success": "Congratulations, your navigation satellite is now accurately mapping the surface of the Earth on behalf of the UK Space Agency.","image":{"file": "images/png/icon-topography.png","alt": "Map-making","credit": "parkjisun"},"choices":{"orbit": "LEO"},"budget":{"value": 800, "units": "credits", "dimension": "currency"},"requires": [{"type": "package","oneof": ["camera-opt-hires"],"label": "An instrument capable of high resolution images.","error": "An instrument capable of high resolution images."},{"type": "package","oneof": ["dish-large","dish-medium"],"label": "A way to send signals to people on the ground.","error": "Your satellite does not have any way to send signals to people on the ground."},{"type": "package","oneof": ["radar-alt"],"label": "To measure the height of the ground in very high resolution.","error": "You do not have a way to measure the height of the ground in very high resolution."},{"type": "orbit","oneof": ["LEO"],"label": "See detail of planet surface.","error": "The orbit you have chosen does not allow your satellite to see the planet surface in enough detail."},{"type": "power","oneof": ["battery-medium","battery-large"],"label": "Provide power even when not in sunlight.","error": "The orbit you have chosen does not allow your satellite to see the planet surface in enough detail."}]}]},"COMMS":{"title": "Communication","description": "These satellites are used for television, phone or internet transmissions. For example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.","image":{"file": "images/png/icon-comms.png","alt": "Communication","credit": "Creative Stall"},"missions": [{"title": "Satellite telephone system","description": "Lets people talk over the phone from remote regions of the world using satellites.","launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will allow people from regions all over the world to communicate by telephone.","success": "Congratulations, your communication satellite is now receiving signals from the ground and broadcasting them to phones around the Earth on behalf of the UK Space Agency.","image":{"file": "images/svg/mobile-alt-white.svg","alt": "Satellite telephone system","credit": "Plainicon"},"choices":{"orbit": "GEO"},"budget":{"value": 150, "units": "credits", "dimension": "currency"},"requires": [{"type": "package","oneof": ["dish-large","dish-medium"],"label": "A way to send signals to people on the ground.","error": "Your satellite does not have any way to send signals to people on the ground."},{"type": "package","oneof": ["phone-en"],"label": "A way to broadcast phone signals.","error": "Your satellite does not have a way to broadcast phone signals"},{"type": "orbit","oneof": ["GEO"],"label": "Satellite is continuously above one area of Earth","error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."},{"type": "power","oneof": ["battery-medium","battery-large"],"label": "Provide power even when not in sunlight.","error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."}]},{"title": "Satellite TV","description": "Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.","launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will provide satellite TV to people all over the world.","success": "Congratulations, your communication satellite is now providing satellite TV to people all over the world.","image":{"file": "images/png/icon-tv.png","alt": "Satellite TV","credit": "Hakan Yalcin"},"choices":{"orbit": "GEO"},"budget":{"value": 150, "units": "credits", "dimension": "currency"},"requires": [{"type": "package","oneof": ["dish-large","dish-medium"],"label": "A way to send signals to people on the ground.","error": "You do not have a way to send signals to the ground."},{"type": "package","oneof": ["tv-en"],"label": "A way to encode TV signals.","error": "You do not have a way to encode TV signals."},{"type": "orbit","oneof": ["GEO"],"label": "Satellite is continuously above one area of Earth.","error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."},{"type": "power","oneof": ["battery-medium","battery-large"],"label": "Provide power even when not in sunlight.","error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."}]},{"title": "Satellite internet","description": "Connect to the internet from remote regions of the world using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.","launch": "Welcome to the launch of the UK Space Agency's latest communication satellite that will help people from all over the world connect to the internet.","success": "Congratulations, your communication satellite is now helping people connect to the internet from regions all over the world on behalf of the UK Space Agency.","image":{"file": "images/svg/icon-wifi-white.svg","alt": "Satellite internet","credit": "parkjisun"},"choices":{"orbit": "GEO"},"budget":{"value": 150, "units": "credits", "dimension": "currency"},"requires": [{"type": "package","oneof": ["dish-large","dish-medium"],"label": "A way to send signals to people on the ground.","error": "You do not have a way to send signals to people on the ground."},{"type": "package","oneof": ["internet-en"],"label": "A way to encode internet signals.","error": "You do not have a way to encode internet signals."},{"type": "orbit","oneof": ["GEO"],"label": "Satellite is continuously above one area of Earth","error": "The orbit you have chosen means your satellite is not continuously above one area of Earth."},{"type": "power","oneof": ["battery-medium","battery-large"],"label": "Provide power even when not in sunlight.","error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."}]}]},"EO":{"title": "Earth Observation","description": "These satellites are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.","image":{"file": "images/png/icon-eo.png","alt": "Earth Observation","credit": "Rflor"},"missions": [{"title": "Weather forecasting","description": "Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean.","launch": "Welcome to the launch of the UK Space Agency's latest earth observation satellite that will allow forecasters around the world to predict future weather.","success": "Congratulations, your earth observation satellite is now helping forecasters around the world to predict future weather.","image":{"file": "images/png/icon-cloud.png","alt": "Weather forecasting","credit": "Megan Mitchell"},"choices":{"orbit": "LEO"},"budget":{"value": 250, "units": "credits", "dimension": "currency"},"requires": [{"type": "package","oneof": ["dish-large","dish-medium"],"label": "A way to send signals.","error": "You do not have a way to send signals to the ground."},{"type": "package","oneof": ["camera-fir"],"label": "A way to measure cloud types and temperatures on Earth.","error": "You do not have a way to identify cloud types and measure temperatures on Earth."},{"type": "package","oneof": ["camera-opt"],"label": "To take images of clouds and weather systems on Earth.","error": "You do not have a way to take images of the weather on Earth."},{"type": "orbit","oneof": ["LEO"],"label": "See detail of Earth's weather systems.","error": "The orbit you have chosen does not allow you to see the Earth's weather systems in enough detail."},{"type": "power","oneof": ["battery-medium","battery-large"],"label": "Provide power even when not in sunlight.","error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."}]},{"title": "Vegetation mapping","description": "Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmit the images back to the ground.","launch": "Welcome to the launch of the UK Space Agency's latest earth observation satellite that will map the plants over the surface of the Earth using infrared images.","success": "Congratulations, your earth observation satellite is now mapping the plants across the surface of the Earth using infrared images.","image":{"file": "images/png/icon-plant.png","alt": "Vegetation mapping","credit": "Clockwise"},"choices":{"orbit": "LEO"},"budget":{"value": 200, "units": "credits", "dimension": "currency"},"requires": [{"type": "package","oneof": ["dish-large","dish-medium"],"label": "A way to send signals to people on the ground.","error": "You do not have a way to transmit signals to the ground."},{"type": "package","oneof": ["camera-nir","spect-nir"],"label": "To take images of the vegetation on Earth.","error": "You do not have a way to take images of the vegetation on Earth."},{"type": "orbit","oneof": ["LEO"],"label": "See detail of Earth's weather systems.","error": "The orbit you have chosen does not allow you to see the vegetation in enough detail."},{"type": "power","oneof": ["battery-medium","battery-large"],"label": "Provide power even when not in sunlight.","error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."}]},{"title": "Natural disaster monitoring","description": "When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras can show floods and fires. Radio waves can show regions of earth deformation, such as after earthquakes.","launch": "Welcome to the launch of the UK Space Agency's latest earth observation satellite that will help to assess the damage caused by natural disasters including forest fires, floods and eathquakes.","success": "Congratulations, your earth observation satellite is now helping to assess the damage caused by natural disasters including forest fires, floods and eathquakes.","image":{"file": "images/png/icon-disaster.png","alt": "Natural disaster monitoring","credit": "Leadway Global LLC"},"choices":{"orbit": "LEO"},"budget":{"value": 1000, "units": "credits", "dimension": "currency"},"requires": [{"type": "package","oneof": ["camera-opt-hires"],"label": "To take high resolution images of Earth where disaster has occured.","error": "You do not have a way to take high resolution images of Earth where disaster has occured."},{"type": "package","oneof": ["dish-large","dish-medium"],"label": "A way to send signals to people on the ground.","error": "You do not have a way to transmit signals to the ground."},{"type": "package","oneof": ["radar-alt"],"label": "To measure the height and deformation of the ground in very high resolution.","error": "You do not have a way to measure the height of the surface, such as for earthquakes."},{"type": "package","oneof": ["camera-nir"],"label": "To monitor vegetation, for example during forest fires.","error": "You do not have a way to monitor vegetation in disaster regions."},{"type": "orbit","oneof": ["LEO"],"label": "To see fine detail of planet surface.","error": "The orbit you have chosen does not allow you to see the disaster region in enough detail."},{"type": "power","oneof": ["battery-medium","battery-large"],"label": "Provide power even when not in sunlight.","error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."}]},{"title": "Surface mapping","description": "Measure the varying height of land and oceans over the Earth's surface.","launch": "Welcome to the launch of the UK Space Agency's latest earth observation satellite that will measure the varying height of land and oceans over the Earth's surface.","success": "Congratulations, your earth observation satellite is now measuring the varying height of land and oceans over the Earth's surface.","image":{"file": "images/png/icon-surface.png","alt": "Surface mapping","credit": "OCHA Visual Information Unit"},"choices":{"orbit": "LEO"},"budget":{"value": 1000, "units": "credits", "dimension": "currency"},"requires": [{"type": "package","oneof": ["radar-alt"],"label": "To measure the height of the ground in very high resolution.","error": "You do not have a way to measure the height of the ground in very high resolution."},{"type": "package","oneof": ["dish-large","dish-medium"],"label": "A way to send signals to people on the ground.","error": "You do not have a way to transmit signals to the ground."},{"type": "package","oneof": ["gps-rx"],"label": "A way to know the satellite position to high precision","error": "You do not have a way to locate the position of the satellite accurately."},{"type": "orbit","oneof": ["LEO"],"label": "To see fine detail on the planet surface.","error": "The orbit you have chosen does not allow you to see the planet surface in enough detail."},{"type": "power","oneof": ["battery-medium","battery-large"],"label": "Provide power even when not in sunlight.","error": "The orbit you have chosen does not allow you to see a large enough area of the the whole planet."}]}]}},"rocket":{"requires": [{"type": "rocket","is": "stable","label": "Your rocket must be stable","error": "Your rocket is top heavy. Try to make sure it is stable before launching"},{"type": "rocket","is": "fueled","label": "Your rocket needs enough power to reach orbit.","error": "Your rocket is not powerful enough to launch."},{"type": "rocket","is": "bigenough","label": "Your rocket payload bay needs to be big enough to hold your satellite.","error": "Your rocket payload bay is not big enough to hold your satellite."}]},"missionreq":{"requires": [{"type": "goal","is": "inbudget","label": "You need sufficient funds.","error": "You no not have sufficient funds."},{"type": "power","is": "powered","label": "You need sufficient power.","error": "You no not have sufficient power."}]},"launch":{"prep":{"checklist": "<p>We've detected problems with your mission. These should be fixed before trying to launch or your mission will fail. You haven't met these requirements:</p>$requirementslist$","goforlaunch": "Congratulations, final checks have shown that your mission is ready for launch. You have a suitable rocket and a satellite that will achieve your goals. Mission Control is waiting for you to give the OK.","button": "Launch?"},"countdown": "Count down","liftoff":	"Lift off!","stage":{"ignition": "Stage $stage$ ignition","fuel-exhausted": "Stage $stage$ fuel exhausted","separation": "Stage $stage$ separation"},"elapsed-time": "T$value$","current-speed": "Current speed: $value$","orbit-achieved": "$orbit$ achieved","payload-bay-open": "Payload bay opened","deployed": "Satellite deployed","solar-panels":{"deploying": "Deploying solar panels","deployed": "Solar panels deployed"},"operational": "Satellite operational","launchanother": "Launch another mission"}};
 		var level = "intermediate";
 		
-		var lang = "en"
+		var lang = "cy"
 	</script>
 	<script type="text/javascript" src="js/rocketscientist.js"></script>
 	<script type="text/javascript" src="js/rocketscientist.builder.js"></script>
 </head>
 <body>
 	<script type="text/javascript">
-		document.body.innerHTML += '<div id="overlay" style=""><div style="display:table-cell;vertical-align:middle;text-align:center;">Loading space programme...</div></div>';
+		document.body.innerHTML += '<div id="overlay" style=""><div style="display:table-cell;vertical-align:middle;text-align:center;">Llwythoâr rhaglen ofod...</div></div>';
 	</script>
 
 	<div id="application" class="intermediate">
@@ -30,26 +30,26 @@
 		<header>
 			<div id="bar" class="scriptonly">
 				<div class="barmenu">
-					<div class="baritem left padded"><h1><a href="index.html">Satellite Builder</a></h1></div>
+					<div class="baritem left padded"><h1><a href="index.html">Adeiladwr Lloeren</a></h1></div>
 					<div class="baritem">
-						<button class="togglebtn togglemenu" title="Menu"><img src="images/cleardot.gif" class="icon menu" alt="" /></button>						
+						<button class="togglebtn togglemenu" title="Dewislen"><img src="images/cleardot.gif" class="icon menu" alt="" /></button>						
 						<menu id="menu" class="dropdown not-at-start">
-							<li class="baritem restart" data="restart"><button title="Start over"><img src="images/cleardot.gif" class="icon restart" alt="" /><span>Restart</span></button></li>
-							<!--li class="baritem" data="level"><button title="Change the difficulty"><img src="images/cleardot.gif" class="icon difficulty" alt="" /><span>Difficulty</span></button></li-->
-							<li class="baritem guide" data="guide"><button title="Guide"><img src="images/cleardot.gif" class="icon guide" alt="" /><span>Guide</span></button></li>
-							<li class="baritem units" data="units"><button title="Change the units"><img src="images/cleardot.gif" class="icon options" alt="" /><span>Units</span></button></li>
-							<li class="baritem about" data="about"><button title="About"><img src="images/cleardot.gif" class="icon info" alt="" /><span>About</span></button></li>
-							<li class="baritem help" data="help"><button title="Help"><img src="images/cleardot.gif" class="icon help" alt="" /><span>Help</span></button></li>
-							<li class="baritem fullscreen not-at-start" data="fullscreen"><button title="Switch between viewing fullscreen or in a standard browser window"><img alt="" class="icon fullscreen" src="images/cleardot.gif" /><span>Toggle fullscreen</span></button></li>
+							<li class="baritem restart" data="restart"><button title="Dechrau eto"><img src="images/cleardot.gif" class="icon restart" alt="" /><span>Ailddechrau</span></button></li>
+							<!--li class="baritem" data="level"><button title="Newid y lefel"><img src="images/cleardot.gif" class="icon difficulty" alt="" /><span>Lefel</span></button></li-->
+							<li class="baritem guide" data="guide"><button title="Canllaw"><img src="images/cleardot.gif" class="icon guide" alt="" /><span>Canllaw</span></button></li>
+							<li class="baritem units" data="units"><button title="Newid yr unedau"><img src="images/cleardot.gif" class="icon options" alt="" /><span>Uned</span></button></li>
+							<li class="baritem about" data="about"><button title="Gwybodaeth"><img src="images/cleardot.gif" class="icon info" alt="" /><span>Gwybodaeth</span></button></li>
+							<li class="baritem help" data="help"><button title="Cymorth"><img src="images/cleardot.gif" class="icon help" alt="" /><span>Cymorth</span></button></li>
+							<li class="baritem fullscreen not-at-start" data="fullscreen"><button title="Newid rhwng gweld mewn sgrin lawn neu mewn ffenest bori arferol"><img alt="" class="icon fullscreen" src="images/cleardot.gif" /><span>Toglo sgrin lawn</span></button></li>
 						</menu>
 					</div>
 					
 					<div class="baritem">
 						<button class="togglecost" title="Cost"><!--<img src="images/cleardot.gif" class="icon cost" />--><span class="coin-icon"></span><span class="cost cost_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span></button>						<menu id="menu-cost" class="dropdown not-at-start">
 
-							<li class="baritem" data="cost"><button class="menucost" title="Cost of your mission"><span class="coin-icon"></span><span class="cost cost_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span><span class="label-right">Cost of your mission</span></button></li>
+							<li class="baritem" data="cost"><button class="menucost" title="Cost eich taith"><span class="coin-icon"></span><span class="cost cost_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span><span class="label-right">Cost eich taith</span></button></li>
 
-							<li class="baritem" data="budget"><button class="menubudget" title="Money in your budget"><span class="coin-icon"></span><span class="cost budget_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span><span class="label-right">Money in your budget</span></button></li>
+							<li class="baritem" data="budget"><button class="menubudget" title="Arian sydd ganddoch chi"><span class="coin-icon"></span><span class="cost budget_available value convertable" data-value="0" data-units="GBP" data-dimension="currency">&pound;0 m</span><span class="label-right">Arian sydd ganddoch chi</span></button></li>
 
 						</menu>
 
@@ -70,40 +70,40 @@
 				<div class="padded">
 					<div class="page">
 						<div class="row-top">
-							<div class="msg noscriptmsg">Oops! The interactive parts of <em>Classroom rocket scientist</em> need Javascript to be enabled. Sorry about that.</div>
+							<div class="msg noscriptmsg">O diar! Mae angen galluogi Javascript er mwyn i rannau rhyngweithiol <em>Gwyddonydd roced dosbarth</em> weithio. Maeân ddrwg gyda ni.</div>
 							<nav>
 								<ol>
 									<li class="prev"></li>
-									<li class="next"><a href="#goal">Mission</a></li>
+									<li class="next"><a href="#goal">Ymgyrch</a></li>
 								</ol>
 							</nav>
-							<h2>Select your type of satellite</h2>
-							<p>Satellites have different purposes. Which type do you want to build?</p>
+							<h2>Dewiswch fath o loeren</h2>
+							<p>Mae gan loerennau wahanol bwrpasau. Pa fath ydych chi am ei adeiladu?</p>
 						</div>
 						<div class="row-main">
 							
 							<div class="holder COMMS">
-								<div class="image"><img src="images/png/icon-comms.png" alt="Communication" title="Communication" /></div>
+								<div class="image"><img src="images/png/icon-comms.png" alt="Cyfathrebu" title="Cyfathrebu" /></div>
 								<div class="padded">
-									<h3>Communication</h3>
-									<p>These satellites are used for television, phone or internet transmissions. For example, the Optus D1 satellite is in a geostationary orbit above the equator and has a coverage footprint to provide signals to all of Australia and New Zealand.</p>
-									<button class="fancy" data-type="COMMS">Select this type</button>
+									<h3>Cyfathrebu</h3>
+									<p>Caiff y lloerennau yma eu defnyddio ar gyfer trosglwyddiadau teledu, ffÃ´n neuâr rhyngrwyd. Er enghraifft, maeâr lloeren Optus D1 mewn orbit geosefydlog uwchben y cyhydedd, ac mae ganddi Ã´l-troed i ddarparu signalau i Awstralia a Seland Newydd.</p>
+									<button class="fancy" data-type="COMMS">Dewis y math yma</button>
 								</div>
 							</div>
 							<div class="holder EO">
-								<div class="image"><img src="images/png/icon-eo.png" alt="Earth Observation" title="Earth Observation" /></div>
+								<div class="image"><img src="images/png/icon-eo.png" alt="Arsylwi’r Ddaear" title="Arsylwi’r Ddaear" /></div>
 								<div class="padded">
-									<h3>Earth Observation</h3>
-									<p>These satellites are used to image clouds and measure temperature and rainfall. Both geostationary and low Earth orbits are used depending on the type of weather satellite. Weather satellites are used to help with more accurate weather forecasting. These are used to photograph and image the Earth. Low Earth orbits are mainly used so that more detailed images can be produced.</p>
-									<button class="fancy" data-type="EO">Select this type</button>
+									<h3>Arsylwiâr Ddaear</h3>
+									<p>Caiff y lloerennau yma eu defnyddio i dynnu lluniau oâr cymylau a mesur tymheredd a glawiad. Caiff orbitau geosefydlog ac orbitau isel oâr Ddaear eu defnyddio yn dibynnu ar y math o loeren dywydd. Defnyddir lloerennau tywydd i helpu gyda rhagfynegi tywydd yn fwy cywir. Caiff y rhain eu defnyddio i dynnu lluniau oâr Ddaear. Caiff orbitau isel oâr Ddaear eu defnyddioân bennaf fel bod modd cynhyrchu lluniau mwy manwl.</p>
+									<button class="fancy" data-type="EO">Dewis y math yma</button>
 								</div>
 							</div>
 							<div class="holder NAV">
-								<div class="image"><img src="images/png/icon-nav.png" alt="Navigation" title="Navigation" /></div>
+								<div class="image"><img src="images/png/icon-nav.png" alt="Llywio" title="Llywio" /></div>
 								<div class="padded">
-									<h3>Navigation</h3>
-									<p>The global positioning system is made up of 24 satellites that orbit at an altitude of <span data-dimension="length" data-units="km" data-value="20000" class="value convertable">20,000 km</span> above the surface of the Earth. The difference in time for signals received from four satellites is used to calculate the exact location of a GPS receiver on Earth.</p>
-									<button class="fancy" data-type="NAV">Select this type</button>
+									<h3>Llywio</h3>
+									<p>Maeâr system lleoli byd-eang wediâi wneud o 24 lloeren syân gwneud orbit ar uchder o <span data-dimension=""length"" data-units=""km"" data-value=""20000"" class=""value convertable"">20,000 km</span> uwchben arwyneb y Ddaear. Maeâr gwahaniaeth mewn amser ar gyfer y signalau a dderbynnir gan bedair lloeren yn cael ei ddefnyddio i gyfrifo union leoliad derbynnydd GPS ar y Ddaear.</p>
+									<button class="fancy" data-type="NAV">Dewis y math yma</button>
 								</div>
 							</div>
 						</div>
@@ -117,51 +117,51 @@
 						<div class="row-top">
 							<nav>
 								<ol>
-									<li class="prev"><a href="#type">Type</a></li>
-									<li class="next"><a href="#bus">Size</a></li>
+									<li class="prev"><a href="#type">Math</a></li>
+									<li class="next"><a href="#bus">Maint</a></li>
 								</ol>
 							</nav>
-							<h2>Select the purpose of your satellite</h2>
-							<p>Make sure to take a note of the budget you have. You will need to make sure you don't overspend.</p>
+							<h2>Dewiswch bwrpas eich lloeren.</h2>
+							<p>Gwnewch yn siÅµr eich bod chiân gwirio faint o arian sydd ganddoch chi. Peidiwch Ã¢ gwario gormod.</p>
 						</div>
 						<div class="COMMS row-main">
 							<div class="holder-holder">
 								<div class="holder">
 									<div class="holder-inner">
-										<div class="image"><img src="images/svg/mobile-alt-white.svg" alt="Satellite telephone system" title="Satellite telephone system" /></div>
+										<div class="image"><img src="images/svg/mobile-alt-white.svg" alt="System teleffon lloeren" title="System teleffon lloeren" /></div>
 										<div class="padded paddedsmall">
-											<h3>Satellite telephone system</h3>
-											<p>Lets people talk over the phone from remote regions of the world using satellites.</p>
+											<h3>System teleffon lloeren</h3>
+											<p>Galluogi pobl i siarad dros y ffôn o ardaloedd anghysbell y byd gan ddefnyddio lloerennau.</p>
 											<table class="data">
 												<tr><td class="budget">Budget:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="150" class="length value convertable">150 credits</span></td></tr>
 											</table>
-											<button class="fancy" data-goal="0">Select this mission</button>
+											<button class="fancy" data-goal="0">Dewis y daith yma</button>
 										</div>
 									</div>
 								</div>
 								<div class="holder">
 									<div class="holder-inner">
-										<div class="image"><img src="images/png/icon-tv.png" alt="Satellite TV" title="Satellite TV" /></div>
+										<div class="image"><img src="images/png/icon-tv.png" alt="Teledu lloeren" title="Teledu lloeren" /></div>
 										<div class="padded paddedsmall">
-											<h3>Satellite TV</h3>
-											<p>Provide satellite TV to people on the ground. These satellites stay above the same point in the sky to receive TV signals from the ground and transmit them to other areas on Earth.</p>
+											<h3>Teledu lloeren</h3>
+											<p>Darparu teledu lloeren i bobl ar y ddaear. Mae’r lloerennau yma’n aros uwchben yr un pwynt yn yr awyr er mwyn derbyn signalau teledu o’r ddaear, a’u trosglwyddo i ardaloedd eraill ar y Ddaear.</p>
 											<table class="data">
 												<tr><td class="budget">Budget:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="150" class="length value convertable">150 credits</span></td></tr>
 											</table>
-											<button class="fancy" data-goal="1">Select this mission</button>
+											<button class="fancy" data-goal="1">Dewis y daith yma</button>
 										</div>
 									</div>
 								</div>
 								<div class="holder">
 									<div class="holder-inner">
-										<div class="image"><img src="images/svg/icon-wifi-white.svg" alt="Satellite internet" title="Satellite internet" /></div>
+										<div class="image"><img src="images/svg/icon-wifi-white.svg" alt="Rhyngrwyd lloeren" title="Rhyngrwyd lloeren" /></div>
 										<div class="padded paddedsmall">
-											<h3>Satellite internet</h3>
-											<p>Connect to the internet from remote regions of the world using satellites. These satellites receive signals from the ground and transmit them to other areas on Earth.</p>
+											<h3>Rhyngrwyd lloeren</h3>
+											<p>Cysylltu â’r rhyngrwyd o ardaloedd anghysbell y byd gan ddefnyddio lloerennau. Mae’r lloerennau yma’n derbyn signalau o’r ddaear, ac yn eu trosglwyddo i ardaloedd eraill ar y Ddaear.</p>
 											<table class="data">
 												<tr><td class="budget">Budget:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="150" class="length value convertable">150 credits</span></td></tr>
 											</table>
-											<button class="fancy" data-goal="2">Select this mission</button>
+											<button class="fancy" data-goal="2">Dewis y daith yma</button>
 										</div>
 									</div>
 								</div>
@@ -171,53 +171,53 @@
 							<div class="holder-holder">
 								<div class="holder">
 									<div class="holder-inner">
-										<div class="image"><img src="images/png/icon-cloud.png" alt="Weather forecasting" title="Weather forecasting" /></div>
+										<div class="image"><img src="images/png/icon-cloud.png" alt="Rhagfynegi’r tywydd" title="Rhagfynegi’r tywydd" /></div>
 										<div class="padded paddedsmall">
-											<h3>Weather forecasting</h3>
-											<p>Monitor weather systems so forecasters can predict future weather. Weather satellites need to be able to take images of clouds and use infrared light to measure the temperatures of the ground and ocean.</p>
+											<h3>Rhagfynegi’r tywydd</h3>
+											<p>Monitro systemau tywydd fel bod modd i ragfynegwyr ragfynegi’r tywydd yn y dyfodol. Mae angen i loerennau tywydd allu tynnu lluniau o gymylau a defnyddio golau isgoch i fesur tymereddau’r ddaear a’r cefnforoedd.</p>
 											<table class="data">
 												<tr><td class="budget">Budget:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="250" class="length value convertable">250 credits</span></td></tr>
 											</table>
-											<button class="fancy" data-goal="0">Select this mission</button>
+											<button class="fancy" data-goal="0">Dewis y daith yma</button>
 										</div>
 									</div>
 								</div>
 								<div class="holder">
 									<div class="holder-inner">
-										<div class="image"><img src="images/png/icon-plant.png" alt="Vegetation mapping" title="Vegetation mapping" /></div>
+										<div class="image"><img src="images/png/icon-plant.png" alt="Mapio llystyfiant" title="Mapio llystyfiant" /></div>
 										<div class="padded paddedsmall">
-											<h3>Vegetation mapping</h3>
-											<p>Map the plants over the surface of the Earth using infrared images of the Earth's surface and transmit the images back to the ground.</p>
+											<h3>Mapio llystyfiant</h3>
+											<p>" Mapio’r planhigion ar arwyneb y Ddaear gan ddefnyddio lluniau isgoch o arwyneb y Ddaear, a throsglwyddo’r lluniau’n ôl i’r ddaear."</p>
 											<table class="data">
 												<tr><td class="budget">Budget:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="200" class="length value convertable">200 credits</span></td></tr>
 											</table>
-											<button class="fancy" data-goal="1">Select this mission</button>
+											<button class="fancy" data-goal="1">Dewis y daith yma</button>
 										</div>
 									</div>
 								</div>
 								<div class="holder">
 									<div class="holder-inner">
-										<div class="image"><img src="images/png/icon-disaster.png" alt="Natural disaster monitoring" title="Natural disaster monitoring" /></div>
+										<div class="image"><img src="images/png/icon-disaster.png" alt="Monitro trychinebau naturiol" title="Monitro trychinebau naturiol" /></div>
 										<div class="padded paddedsmall">
-											<h3>Natural disaster monitoring</h3>
-											<p>When natural disasters occur, satellites are used to assess the damage. High resolution images are needed to see and transmit the detail of the damage, so satellites must orbit close to the Earth. Infrared cameras can show floods and fires. Radio waves can show regions of earth deformation, such as after earthquakes.</p>
+											<h3>Monitro trychinebau naturiol</h3>
+											<p>Pan mae trychinebau naturiol yn digwydd, rydyn ni’n defnyddio lloerennau i weld y difrod. Mae angen lluniau o ansawdd uchel i weld a throsglwyddo manylion y difrod, felly mae’n rhaid i loerennau wneud orbit agos i’r Ddaear. Mae camerâu isgoch yn gallu dangos llifogydd a thân. Mae tonnau radio yn gallu dangos ardaloedd lle mae’r ddaear wedi anffurfio, fel ar ôl daeargryn.</p>
 											<table class="data">
 												<tr><td class="budget">Budget:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="1000" class="length value convertable">1000 credits</span></td></tr>
 											</table>
-											<button class="fancy" data-goal="2">Select this mission</button>
+											<button class="fancy" data-goal="2">Dewis y daith yma</button>
 										</div>
 									</div>
 								</div>
 								<div class="holder">
 									<div class="holder-inner">
-										<div class="image"><img src="images/png/icon-surface.png" alt="Surface mapping" title="Surface mapping" /></div>
+										<div class="image"><img src="images/png/icon-surface.png" alt="Mapio arwyneb" title="Mapio arwyneb" /></div>
 										<div class="padded paddedsmall">
-											<h3>Surface mapping</h3>
-											<p>Measure the varying height of land and oceans over the Earth's surface.</p>
+											<h3>Mapio arwyneb</h3>
+											<p>Mesur uchder amrywiol tir a chefnforoedd dros arwyneb y Ddaear.</p>
 											<table class="data">
 												<tr><td class="budget">Budget:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="1000" class="length value convertable">1000 credits</span></td></tr>
 											</table>
-											<button class="fancy" data-goal="3">Select this mission</button>
+											<button class="fancy" data-goal="3">Dewis y daith yma</button>
 										</div>
 									</div>
 								</div>
@@ -227,27 +227,27 @@
 							<div class="holder-holder">
 								<div class="holder">
 									<div class="holder-inner">
-										<div class="image"><img src="images/png/icon-mapmarker.png" alt="Satellite Navigation System" title="Satellite Navigation System" /></div>
+										<div class="image"><img src="images/png/icon-mapmarker.png" alt="System Lywio Lloeren" title="System Lywio Lloeren" /></div>
 										<div class="padded paddedsmall">
-											<h3>Satellite Navigation System</h3>
-											<p>Uses signals from four navigation satellites so satnav users can find their location on Earth. Need to be able to see half a hemisphere at a time, measure time accurately and transmit signals of the location.</p>
+											<h3>System Lywio Lloeren</h3>
+											<p>" Defnyddio signalau gan bedair lloeren lywio fel bod modd i ddefnyddwyr SatNav ganfod eu lleoliad ar y Ddaear. Mae angen gallu gweld hanner hemisffer ar y tro, mesur amser yn gywir, a throsglwyddo signalau’r lleoliad."</p>
 											<table class="data">
 												<tr><td class="budget">Budget:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="200" class="length value convertable">200 credits</span></td></tr>
 											</table>
-											<button class="fancy" data-goal="0">Select this mission</button>
+											<button class="fancy" data-goal="0">Dewis y daith yma</button>
 										</div>
 									</div>
 								</div>
 								<div class="holder">
 									<div class="holder-inner">
-										<div class="image"><img src="images/png/icon-topography.png" alt="Map-making" title="Map-making" /></div>
+										<div class="image"><img src="images/png/icon-topography.png" alt="Creu mapiau" title="Creu mapiau" /></div>
 										<div class="padded paddedsmall">
-											<h3>Map-making</h3>
-											<p>Map the surface of the Earth. Need to be able to take images of small areas of the Earth's surface and measure the height of the ground in high detail.</p>
+											<h3>Creu mapiau</h3>
+											<p>Mapio arwyneb y Ddaear. Mae angen gallu tynnu lluniau o ardaloedd bach o arwyneb y Ddaear, a mesur uchder y tir yn fanwl iawn.</p>
 											<table class="data">
 												<tr><td class="budget">Budget:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="800" class="length value convertable">800 credits</span></td></tr>
 											</table>
-											<button class="fancy" data-goal="1">Select this mission</button>
+											<button class="fancy" data-goal="1">Dewis y daith yma</button>
 										</div>
 									</div>
 								</div>
@@ -264,12 +264,12 @@
 						<div class="row-top">
 							<nav>
 								<ol>
-									<li class="prev"><a href="#goal">Mission</a></li>
-									<li class="next"><a href="#instrument">Instruments</a></li>
+									<li class="prev"><a href="#goal">Ymgyrch</a></li>
+									<li class="next"><a href="#instrument">Teclynnau</a></li>
 								</ol>
 							</nav>
-							<h2>Choose the size of your satellite</h2>
-							<p>The size of your satellite matters. It needs to be big enough to hold all the instruments you need. Be careful though. The bigger your satellite, the more expensive it is.</p>
+							<h2>Dewiswch faint eich lloeren</h2>
+							<p>Mae maint eich lloeren yn bwysig. Mae angen iddi fod yn ddigon mawr i gadwâr holl declynnau sydd eu hangen arnoch chi. Ond byddwch yn ofalus. Y mwyaf yw eich lloeren, y drutaf fydd hi.</p>
 						</div>
 						<div class="row-main">
 							<div class="satellite-holder isogrid">
@@ -286,13 +286,13 @@
 </div>
 
 									<table class="data">
-										<tr><td class="bus_type">Type:</td><td>Large satellite</span></td></tr>
-										<tr><td class="bus_size">Structure size:</td><td><span data-dimension="length" data-units="m" data-value="8" nounits="true" class="value convertable">8</span> &times; <span data-dimension="length" data-units="m" data-value="2.5" nounits="true" class="value convertable">2.5</span> &times; <span data-dimension="length" data-units="m" data-value="2.5" class="value convertable">2.5 m</span></td></tr>
-										<tr><td class="bus_structure">Structure mass:</td><td><span data-dimension="mass" data-units="kg" data-value="500" class="value convertable">500 kg</span></td></tr>
-										<tr><td class="bus_mass">Payload mass:</td><td><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="1000" class="value convertable">1000 kg</span></td></tr>
-										<tr><td class="bus_cost">Structure cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="500" class="value convertable">500 credits</span></td></tr>
+										<tr><td class="bus_type">Math:</td><td>Lloeren fawr</span></td></tr>
+										<tr><td class="bus_size">Maint y strwythur:</td><td><span data-dimension="length" data-units="m" data-value="8" nounits="true" class="value convertable">8</span> &times; <span data-dimension="length" data-units="m" data-value="2.5" nounits="true" class="value convertable">2.5</span> &times; <span data-dimension="length" data-units="m" data-value="2.5" class="value convertable">2.5 m</span></td></tr>
+										<tr><td class="bus_structure">MÃ s y strwythur:</td><td><span data-dimension="mass" data-units="kg" data-value="500" class="value convertable">500 kg</span></td></tr>
+										<tr><td class="bus_mass">MÃ s y prif lwyth:</td><td><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="1000" class="value convertable">1000 kg</span></td></tr>
+										<tr><td class="bus_cost">Cost strwythur:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="500" class="value convertable">500 credits</span></td></tr>
 									</table>
-									<button class="fancy" data-size="large">Select large satellite</button>
+									<button class="fancy" data-size="large">Dewis lloeren fawr</button>
 								</div>
 								
 								<div class="holder blackandwhite">									<div class="satellite satellite-m">
@@ -305,13 +305,13 @@
 </div>
 
 									<table class="data">
-										<tr><td class="bus_type">Type:</td><td>Medium satellite</span></td></tr>
-										<tr><td class="bus_size">Structure size:</td><td><span data-dimension="length" data-units="m" data-value="2" nounits="true" class="value convertable">2</span> &times; <span data-dimension="length" data-units="m" data-value="2.5" nounits="true" class="value convertable">2.5</span> &times; <span data-dimension="length" data-units="m" data-value="2.5" class="value convertable">2.5 m</span></td></tr>
-										<tr><td class="bus_structure">Structure mass:</td><td><span data-dimension="mass" data-units="kg" data-value="250" class="value convertable">250 kg</span></td></tr>
-										<tr><td class="bus_mass">Payload mass:</td><td><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="500" class="value convertable">500 kg</span></td></tr>
-										<tr><td class="bus_cost">Structure cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="100" class="value convertable">100 credits</span></td></tr>
+										<tr><td class="bus_type">Math:</td><td>Lloeren ganolig</span></td></tr>
+										<tr><td class="bus_size">Maint y strwythur:</td><td><span data-dimension="length" data-units="m" data-value="2" nounits="true" class="value convertable">2</span> &times; <span data-dimension="length" data-units="m" data-value="2.5" nounits="true" class="value convertable">2.5</span> &times; <span data-dimension="length" data-units="m" data-value="2.5" class="value convertable">2.5 m</span></td></tr>
+										<tr><td class="bus_structure">MÃ s y strwythur:</td><td><span data-dimension="mass" data-units="kg" data-value="250" class="value convertable">250 kg</span></td></tr>
+										<tr><td class="bus_mass">MÃ s y prif lwyth:</td><td><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="500" class="value convertable">500 kg</span></td></tr>
+										<tr><td class="bus_cost">Cost strwythur:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="100" class="value convertable">100 credits</span></td></tr>
 									</table>
-									<button class="fancy" data-size="medium">Select medium satellite</button>
+									<button class="fancy" data-size="medium">Dewis lloeren ganolig</button>
 								</div>
 								
 								<div class="holder blackandwhite">									<div class="satellite satellite-s">
@@ -322,13 +322,13 @@
 </div>
 
 									<table class="data">
-										<tr><td class="bus_type">Type:</td><td>Small satellite</span></td></tr>
-										<tr><td class="bus_size">Structure size:</td><td><span data-dimension="length" data-units="m" data-value="1" nounits="true" class="value convertable">1</span> &times; <span data-dimension="length" data-units="m" data-value="1" nounits="true" class="value convertable">1</span> &times; <span data-dimension="length" data-units="m" data-value="1" class="value convertable">1 m</span></td></tr>
-										<tr><td class="bus_structure">Structure mass:</td><td><span data-dimension="mass" data-units="kg" data-value="150" class="value convertable">150 kg</span></td></tr>
-										<tr><td class="bus_mass">Payload mass:</td><td><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="100" class="value convertable">100 kg</span></td></tr>
-										<tr><td class="bus_cost">Structure cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="20" class="value convertable">20 credits</span></td></tr>
+										<tr><td class="bus_type">Math:</td><td>Lloeren fach</span></td></tr>
+										<tr><td class="bus_size">Maint y strwythur:</td><td><span data-dimension="length" data-units="m" data-value="1" nounits="true" class="value convertable">1</span> &times; <span data-dimension="length" data-units="m" data-value="1" nounits="true" class="value convertable">1</span> &times; <span data-dimension="length" data-units="m" data-value="1" class="value convertable">1 m</span></td></tr>
+										<tr><td class="bus_structure">MÃ s y strwythur:</td><td><span data-dimension="mass" data-units="kg" data-value="150" class="value convertable">150 kg</span></td></tr>
+										<tr><td class="bus_mass">MÃ s y prif lwyth:</td><td><span class="weight-icon"></span><span data-dimension="mass" data-units="kg" data-value="100" class="value convertable">100 kg</span></td></tr>
+										<tr><td class="bus_cost">Cost strwythur:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="20" class="value convertable">20 credits</span></td></tr>
 									</table>
-									<button class="fancy" data-size="small">Select small satellite</button>
+									<button class="fancy" data-size="small">Dewis lloeren fach</button>
 								</div>
 								
 							</div>
@@ -346,19 +346,19 @@
 						<div class="row-top">
 							<nav>
 								<ol>
-									<li class="prev"><a href="#bus">Size</a></li>
-									<li class="next"><a href="#power">Power</a></li>
+									<li class="prev"><a href="#bus">Maint</a></li>
+									<li class="next"><a href="#power">PÅµer</a></li>
 								</ol>
 							</nav>
-							<h2>Select the instruments for your satellite</h2>
-							<p>To complete your mission you will need the correct instruments. Instruments are separated by size, shown by colour. Make sure the colour of your instrument matches an available slot. You only have a limited number of slots, so choose wisely!</p>
+							<h2>Dewiswch declynnau ar gyfer eich lloeren</h2>
+							<p>Er mwyn cwblhau eich taith, bydd angen y teclynnau cywir arnoch chi. Caiff y teclynnau eu rhannu yn Ã´l maint, sydd wediâi nodi yn Ã´l lliw. Gwnewch yn siÅµr bod lliw eich teclynnau yn cyfateb Ã¢ slot sydd ar gael. Dim ond nifer penodol o slotiau sydd ganddoch chi, felly dewiswch yn ofalus!</p>
 						</div>
 						<div class="row-main">
 							<div class="col">
 								<div class="rows">
 									<div class="requirements">
 										<div class="padder">
-											<h3>Requirements</h3>
+											<h3>Gofynion</h3>
 										</div>
 									</div>
 									<div class="display-area">
@@ -377,231 +377,231 @@
 							</div>
 							<div class="col">
 								<div id="instrument_list" class="list">
-									<h3>Available instruments:</h3>
+									<h3>Y teclynnau sydd ar gael:</h3>
 									<ul>
 										<li data-package="atomic-clock" data-size="2x2">
 											<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="atomic-clock">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="atomic-clock">&minus;</button><div class="value"></div></div>
 											<div class="list-left">
-												<div class="package_slot texture atomic-clock"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Atomic clock" /></div></div></div>
+												<div class="package_slot texture atomic-clock"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Cloc atomig" /></div></div></div>
 											</div>
 											<div class="list-right">
-												<div class="package_title"><strong>Atomic clock</strong></div>
+												<div class="package_title"><strong>Cloc atomig</strong></div>
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.1" class="length value convertable">0.1 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.1" class="length value convertable">0.1 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.05" class="length value convertable">0.05 m</span></div -->
 												
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="1" class="value convertable">1 credits</span></div>
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="10" class="value convertable">10 watts</span></div>
 												
-												<div class="package_desc">Very accurate clock, required by navigation satellites to measure the time to very high precision.</div>
+												<div class="package_desc">" Cloc manwl-gywir, sydd ei angen ar loerennau llywio i fesur yr amser yn fanwl iawn."</div>
 											</div>
 										</li>
 										<li data-package="camera-fir" data-size="2x4">
 											<div class="list-bar bg2x4"><button class="fancy add" data-size="2x4" data-package="camera-fir">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x4" data-package="camera-fir">&minus;</button><div class="value"></div></div>
 											<div class="list-left">
-												<div class="package_slot texture camera-fir"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Infrared camera" /></div></div></div>
+												<div class="package_slot texture camera-fir"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Camera isgoch" /></div></div></div>
 											</div>
 											<div class="list-right">
-												<div class="package_title"><strong>Infrared camera</strong></div>
+												<div class="package_title"><strong>Camera isgoch</strong></div>
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
 												
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="30" class="value convertable">30 credits</span></div>
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="300" class="value convertable">300 watts</span></div>
 												
-												<div class="package_desc">Provides infrared images of the clouds and weather systems in the Earth's atmosphere, useful for weather forecasting and climate monitoring, even during darkness.</div>
+												<div class="package_desc">" Lluniau isgoch o’r cymylau a’r systemau tywydd yn atmosffer y Ddaear. Defnyddiol ar gyfer rhagfynegi’r tywydd a monitro’r hinsawdd, hyd yn oed mewn tywyllwch."</div>
 											</div>
 										</li>
 										<li data-package="camera-nir" data-size="2x2">
 											<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="camera-nir">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="camera-nir">&minus;</button><div class="value"></div></div>
 											<div class="list-left">
-												<div class="package_slot texture camera-nir"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Vegetation camera" /></div></div></div>
+												<div class="package_slot texture camera-nir"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Camera llystyfiant" /></div></div></div>
 											</div>
 											<div class="list-right">
-												<div class="package_title"><strong>Vegetation camera</strong></div>
+												<div class="package_title"><strong>Camera llystyfiant</strong></div>
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
 												
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="20" class="value convertable">20 credits</span></div>
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="100" class="value convertable">100 watts</span></div>
 												
-												<div class="package_desc">Provides infrared images of vegetation and land-usage on the ground. Only works in daylight, as it relies on reflected sunlight.</div>
+												<div class="package_desc">" Lluniau isgoch o lystyfiant a defnydd o dir ar y ddaear. Dim ond yn gweithio yng ngolau dydd, gan ei fod yn dibynnu ar adlewyrchiad golau’r haul."</div>
 											</div>
 										</li>
 										<li data-package="camera-opt" data-size="2x2">
 											<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="camera-opt">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="camera-opt">&minus;</button><div class="value"></div></div>
 											<div class="list-left">
-												<div class="package_slot texture camera-opt"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Optical camera" /></div></div></div>
+												<div class="package_slot texture camera-opt"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Camera optegol" /></div></div></div>
 											</div>
 											<div class="list-right">
-												<div class="package_title"><strong>Optical camera</strong></div>
+												<div class="package_title"><strong>Camera optegol</strong></div>
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
 												
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="10" class="value convertable">10 credits</span></div>
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="50" class="value convertable">50 watts</span></div>
 												
-												<div class="package_desc">Provides images of the ground, such as for mapping or for monitoring natural disasters. Can also be used to monitor cloud cover. The resolution depends on the orbit altitude.</div>
+												<div class="package_desc">" Lluniau o’r ddaear, ar gyfer mapio neu ar gyfer monitro trychinebau naturiol. Mae hefyd modd ei ddefnyddio i fonitro’r cymylau. Mae ansawdd y llun yn dibynnu ar uchder yr orbit."</div>
 											</div>
 										</li>
 										<li data-package="camera-opt-hires" data-size="2x4">
 											<div class="list-bar bg2x4"><button class="fancy add" data-size="2x4" data-package="camera-opt-hires">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x4" data-package="camera-opt-hires">&minus;</button><div class="value"></div></div>
 											<div class="list-left">
-												<div class="package_slot texture camera-opt-hires"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="High-resolution optical camera" /></div></div></div>
+												<div class="package_slot texture camera-opt-hires"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Camera optegol Ansawdd Uchel" /></div></div></div>
 											</div>
 											<div class="list-right">
-												<div class="package_title"><strong>High-resolution optical camera</strong></div>
+												<div class="package_title"><strong>Camera optegol Ansawdd Uchel</strong></div>
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
 												
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="15" class="value convertable">15 credits</span></div>
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="50" class="value convertable">50 watts</span></div>
 												
-												<div class="package_desc">Provides very high-resolution images of the ground, such as for monitoring natural disasters, but only when used in low-Earth orbit.</div>
+												<div class="package_desc">" Lluniau ansawdd uchel o’r ddaear, ar gyfer monitro trychinebau naturiol er enghraifft, ond dim ond pan gaiff ei ddefnyddio mewn orbit isel o’r Ddaear."</div>
 											</div>
 										</li>
 										<li data-package="dish-large" data-size="4x8">
 											<div class="list-bar bg4x8"><button class="fancy add" data-size="4x8" data-package="dish-large">&plus;</button><button class="fancy remove" disabled="disabled" data-size="4x8" data-package="dish-large">&minus;</button><div class="value"></div></div>
 											<div class="list-left">
-												<div class="package_slot "><div class="slot slot4x8"><div class="eg-bg radar"><img src="images/cleardot.gif" class="face front" alt="Radio dish (large)" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
+												<div class="package_slot "><div class="slot slot4x8"><div class="eg-bg radar"><img src="images/cleardot.gif" class="face front" alt="Dysgl radio (fawr)" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
 											</div>
 											<div class="list-right">
-												<div class="package_title"><strong>Radio dish (large)</strong></div>
+												<div class="package_title"><strong>Dysgl radio (fawr)</strong></div>
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="2" class="length value convertable">2 m</span> &times; <span data-dimension="length" data-units="m" data-value="2" class="length value convertable">2 m</span> &times; <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span></div -->
 												
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="2" class="value convertable">2 credits</span></div>
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="0" class="value convertable">0 watts</span></div>
 												
-												<div class="package_desc">Radio dish for controlling the satellite and transmitting data to the ground, as well as for the radar altimeter</div>
+												<div class="package_desc">" Dysgl radio i reoli’r lloeren ac i drosglwyddo data i’r ddaear, ac ar gyfer yr altimedr radar"</div>
 											</div>
 										</li>
 										<li data-package="dish-medium" data-size="2x4">
 											<div class="list-bar bg2x4"><button class="fancy add" data-size="2x4" data-package="dish-medium">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x4" data-package="dish-medium">&minus;</button><div class="value"></div></div>
 											<div class="list-left">
-												<div class="package_slot "><div class="slot slot2x4"><div class="eg-bg radio"><img src="images/cleardot.gif" class="face front" alt="Radio dish" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
+												<div class="package_slot "><div class="slot slot2x4"><div class="eg-bg radio"><img src="images/cleardot.gif" class="face front" alt="Dysgl radio" /><div class="hemisphere south"><div class="inner"></div><div class="dome"></div></div></div></div></div>
 											</div>
 											<div class="list-right">
-												<div class="package_title"><strong>Radio dish</strong></div>
+												<div class="package_title"><strong>Dysgl radio</strong></div>
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
 												
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="1" class="value convertable">1 credits</span></div>
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="0" class="value convertable">0 watts</span></div>
 												
-												<div class="package_desc">Radio dish for controlling the satellite and transmitting data to the ground</div>
+												<div class="package_desc">Dysgl radio i reoli’r lloeren ac i drosglwyddo data i’r ddaear</div>
 											</div>
 										</li>
 										<li data-package="gps-rx" data-size="2x2">
 											<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="gps-rx">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="gps-rx">&minus;</button><div class="value"></div></div>
 											<div class="list-left">
-												<div class="package_slot texture gps-rx"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="GPS receiver" /></div></div></div>
+												<div class="package_slot texture gps-rx"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Derbynnydd GPS" /></div></div></div>
 											</div>
 											<div class="list-right">
-												<div class="package_title"><strong>GPS receiver</strong></div>
+												<div class="package_title"><strong>Derbynnydd GPS</strong></div>
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.05" class="length value convertable">0.05 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.05" class="length value convertable">0.05 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.1" class="length value convertable">0.1 m</span></div -->
 												
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="2" class="value convertable">2 credits</span></div>
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="5" class="value convertable">5 watts</span></div>
 												
-												<div class="package_desc">Used to monitor the satellite's position to very high accuracy</div>
+												<div class="package_desc">Caiff ei ddefnyddio i fonitro safle’r lloeren yn fanwl-gywir.</div>
 											</div>
 										</li>
 										<li data-package="internet-en" data-size="2x2">
 											<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="internet-en">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="internet-en">&minus;</button><div class="value"></div></div>
 											<div class="list-left">
-												<div class="package_slot texture internet-en"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Internet encoder" /></div></div></div>
+												<div class="package_slot texture internet-en"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Amgodiwr rhyngrwyd" /></div></div></div>
 											</div>
 											<div class="list-right">
-												<div class="package_title"><strong>Internet encoder</strong></div>
+												<div class="package_title"><strong>Amgodiwr rhyngrwyd</strong></div>
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
 												
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="10" class="value convertable">10 credits</span></div>
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="20" class="value convertable">20 watts</span></div>
 												
-												<div class="package_desc">Used to broadcast the internet to people around the world.</div>
+												<div class="package_desc">Caiff ei ddefnyddio i ddarlledu’r rhyngrwyd i bobl ledled y byd.</div>
 											</div>
 										</li>
 										<li data-package="phone-en" data-size="2x2">
 											<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="phone-en">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="phone-en">&minus;</button><div class="value"></div></div>
 											<div class="list-left">
-												<div class="package_slot texture phone-en"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Phone encoder" /></div></div></div>
+												<div class="package_slot texture phone-en"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Amgodiwr ffôn" /></div></div></div>
 											</div>
 											<div class="list-right">
-												<div class="package_title"><strong>Phone encoder</strong></div>
+												<div class="package_title"><strong>Amgodiwr ffôn</strong></div>
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
 												
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="1" class="value convertable">1 credits</span></div>
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="2" class="value convertable">2 watts</span></div>
 												
-												<div class="package_desc">Broadcasts signals to and from telephones across the world.</div>
+												<div class="package_desc">Darlledu signalau at ac oddi wrth ffonau ledled y byd.</div>
 											</div>
 										</li>
 										<li data-package="radar-alt" data-size="2x4">
 											<div class="list-bar bg2x4"><button class="fancy add" data-size="2x4" data-package="radar-alt">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x4" data-package="radar-alt">&minus;</button><div class="value"></div></div>
 											<div class="list-left">
-												<div class="package_slot texture radar-alt"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Radar altimeter" /></div></div></div>
+												<div class="package_slot texture radar-alt"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Altimedr radar" /></div></div></div>
 											</div>
 											<div class="list-right">
-												<div class="package_title"><strong>Radar altimeter</strong></div>
+												<div class="package_title"><strong>Altimedr radar</strong></div>
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
 												
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="5" class="value convertable">5 credits</span></div>
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="70" class="value convertable">70 watts</span></div>
 												
-												<div class="package_desc">Uses radio waves to measure the height of the ground, or topography, in very high resolution. Can be used to map the surface, or provide information on the effect of earthquakes. Requires a large radio dish to work.</div>
+												<div class="package_desc">" Defnyddio tonnau radio i fesur uchder y tir, neu’r topograffi, mewn ansawdd uchel iawn. Mae modd ei ddefnyddio i fapio’r arwyneb, neu i roi gwybodaeth am effaith daeargryn. Mae angen dysgl radio fawr arno i weithio."</div>
 											</div>
 										</li>
 										<li data-package="spect-fir" data-size="2x4">
 											<div class="list-bar bg2x4"><button class="fancy add" data-size="2x4" data-package="spect-fir">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x4" data-package="spect-fir">&minus;</button><div class="value"></div></div>
 											<div class="list-left">
-												<div class="package_slot texture spect-fir"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Atmospheric Spectrometer" /></div></div></div>
+												<div class="package_slot texture spect-fir"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Sbectromedr Atmosfferig" /></div></div></div>
 											</div>
 											<div class="list-right">
-												<div class="package_title"><strong>Atmospheric Spectrometer</strong></div>
+												<div class="package_title"><strong>Sbectromedr Atmosfferig</strong></div>
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
 												
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="30" class="value convertable">30 credits</span></div>
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="300" class="value convertable">300 watts</span></div>
 												
-												<div class="package_desc">Uses infrared light to measure properties of the Earth's atmosphere, such as clouds, moisture level, surface temperature and air temperature, even during darkness.</div>
+												<div class="package_desc">" Defnyddio golau isgoch i fesur nodweddion atmosffer y Ddaear, fel cymylau, lefel lleithder, tymheredd yr arwyneb a thymheredd yr aer, hyd yn oed mewn tywyllwch."</div>
 											</div>
 										</li>
 										<li data-package="spect-nir" data-size="2x2">
 											<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="spect-nir">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="spect-nir">&minus;</button><div class="value"></div></div>
 											<div class="list-left">
-												<div class="package_slot texture spect-nir"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Vegetation Spectrometer" /></div></div></div>
+												<div class="package_slot texture spect-nir"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Sbectromedr Llystyfiant" /></div></div></div>
 											</div>
 											<div class="list-right">
-												<div class="package_title"><strong>Vegetation Spectrometer</strong></div>
+												<div class="package_title"><strong>Sbectromedr Llystyfiant</strong></div>
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
 												
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="20" class="value convertable">20 credits</span></div>
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="250" class="value convertable">250 watts</span></div>
 												
-												<div class="package_desc">Measures the properties of vegetation on the ground, such as type of vegetation and how healthy it is.</div>
+												<div class="package_desc">" Mesur nodweddion llystyfiant ar y ddaear, fel math o lystyfiant a pha mor iach yw’r llystyfiant hwnnw."</div>
 											</div>
 										</li>
 										<li data-package="spect-opt" data-size="2x2">
 											<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="spect-opt">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="spect-opt">&minus;</button><div class="value"></div></div>
 											<div class="list-left">
-												<div class="package_slot texture spect-opt"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Optical Spectrometer" /></div></div></div>
+												<div class="package_slot texture spect-opt"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Sbectromedr Optegol" /></div></div></div>
 											</div>
 											<div class="list-right">
-												<div class="package_title"><strong>Optical Spectrometer</strong></div>
+												<div class="package_title"><strong>Sbectromedr Optegol</strong></div>
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
 												
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="10" class="value convertable">10 credits</span></div>
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="150" class="value convertable">150 watts</span></div>
 												
-												<div class="package_desc">Measures detailed properties of the Earth's surface, such as deforestation.</div>
+												<div class="package_desc">" Mesur nodweddion manwl arwyneb y Ddaear, fel datgoedwigo."</div>
 											</div>
 										</li>
 										<li data-package="tv-en" data-size="2x2">
 											<div class="list-bar bg2x2"><button class="fancy add" data-size="2x2" data-package="tv-en">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="tv-en">&minus;</button><div class="value"></div></div>
 											<div class="list-left">
-												<div class="package_slot texture tv-en"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="TV encoder" /></div></div></div>
+												<div class="package_slot texture tv-en"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Amgodiwr teledu" /></div></div></div>
 											</div>
 											<div class="list-right">
-												<div class="package_title"><strong>TV encoder</strong></div>
+												<div class="package_title"><strong>Amgodiwr teledu</strong></div>
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
 												
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="10" class="value convertable">10 credits</span></div>
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="40" class="value convertable">40 watts</span></div>
 												
-												<div class="package_desc">Used to broadcast the TV to people around the world.</div>
+												<div class="package_desc">Caiff ei ddefnyddio i ddarlledu teledu i bobl ledled y byd.</div>
 											</div>
 										</li>
 									</ul>
@@ -618,19 +618,19 @@
 						<div class="row-top">
 							<nav>
 								<ol>
-									<li class="prev"><a href="#instrument">Instruments</a></li>
-									<li class="next"><a href="#rocket">Rocket</a></li>
+									<li class="prev"><a href="#instrument">Teclynnau</a></li>
+									<li class="next"><a href="#rocket">Roced</a></li>
 								</ol>
 							</nav>
-							<h2>Add power</h2>
-							<p>Your satellite needs power. There are different ways to do that. You can use solar panels on the sides of the satellite, deployable solar panels, and batteries.</p>
+							<h2>Ychwanegu pÅµer</h2>
+							<p>Mae angen pÅµer ar eich lloeren. Mae gwahanol ffyrdd o wneud hynny. Gallwch ddefnyddio paneli solar ar ochr y lloeren, paneli lloeren syân agor a chau, a batris.</p>
 						</div>
 						<div class="row-main">
 							<div class="col">
 								<div class="rows">
 									<div class="requirements">
 										<div class="padder">
-											<h3>Requirements</h3>
+											<h3>Gofynion</h3>
 										</div>
 									</div>
 									<div class="display-area">
@@ -640,7 +640,7 @@
 													<button class="fancy zoomin">&plus;</button>
 													<button class="fancy zoomout">&minus;</button>
 													<!--<button class="fancy make3D">2D/3D</button>
-													<button class="fancy animate">Animate</button>-->
+													<button class="fancy animate">Animeiddio</button>-->
 												</div>
 												<div class="controls batterycontrol">
 													<div id="power_indicator" class="meter">
@@ -656,66 +656,66 @@
 							</div>
 							<div class="col">
 								<div id="power_list" class="list">
-									<h3>Available power devices:</h3>
+									<h3>Dyfeisiau pÅµer sydd ar gael:</h3>
 									<ul>
 										<li data-package="battery-large">
 											<div class="list-bar bg2x4 "><button class="fancy add" data-size="2x4" data-package="battery-large">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x4" data-package="battery-large">&minus;</button><div class="value"></div></div>
 											<div class="list-left">
-												<div class="package_slot texture battery-large"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Large battery" /></div></div></div>
+												<div class="package_slot texture battery-large"><div class="slot slot2x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Batri mawr" /></div></div></div>
 											</div>
 											<div class="list-right">
-												<div class="package_title"><strong>Large battery</strong></div>
+												<div class="package_title"><strong>Batri mawr</strong></div>
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
 												
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="20" class="value convertable">20 credits</span></div>
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="0" class="value convertable">0 watts</span></div>
 												
-												<div class="package_desc">Stores power from solar panels to allow operation when not in sunlight</div>
+												<div class="package_desc">Storio pŵer o baneli solar er mwyn gallu gweithredu pan nad oes golau haul</div>
 											</div>
 										</li>
 										<li data-package="battery-medium">
 											<div class="list-bar bg2x2 "><button class="fancy add" data-size="2x2" data-package="battery-medium">&plus;</button><button class="fancy remove" disabled="disabled" data-size="2x2" data-package="battery-medium">&minus;</button><div class="value"></div></div>
 											<div class="list-left">
-												<div class="package_slot texture battery-medium"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Medium battery" /></div></div></div>
+												<div class="package_slot texture battery-medium"><div class="slot slot2x2"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Batri canolig" /></div></div></div>
 											</div>
 											<div class="list-right">
-												<div class="package_title"><strong>Medium battery</strong></div>
+												<div class="package_title"><strong>Batri canolig</strong></div>
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span> &times; <span data-dimension="length" data-units="m" data-value="0.5" class="length value convertable">0.5 m</span></div -->
 												
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="10" class="value convertable">10 credits</span></div>
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="0" class="value convertable">0 watts</span></div>
 												
-												<div class="package_desc">Stores power from solar panels to allow operation when not in sunlight</div>
+												<div class="package_desc">Storio pŵer o baneli solar er mwyn gallu gweithredu pan nad oes golau haul</div>
 											</div>
 										</li>
 										<li data-package="solar-panel">
 											<div class="list-bar bg4x4 "><button class="fancy add" data-size="4x4" data-package="solar-panel">&plus;</button><button class="fancy remove" disabled="disabled" data-size="4x4" data-package="solar-panel">&minus;</button><div class="value"></div></div>
 											<div class="list-left">
-												<div class="package_slot "><div class="slot slot4x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Deployable solar panel" /></div></div></div>
+												<div class="package_slot "><div class="slot slot4x4"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Panel solar sy’n agor a chau" /></div></div></div>
 											</div>
 											<div class="list-right">
-												<div class="package_title"><strong>Deployable solar panel</strong></div>
+												<div class="package_title"><strong>Panel solar sy’n agor a chau</strong></div>
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="" data-units="" data-value="" class="length value convertable"> </span></div -->
 												
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="20" class="value convertable">20 credits</span></div>
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="300" class="value convertable">300 watts</span></div>
 												
-												<div class="package_desc">Solar panels deployed from edge of satellite, collecting sunlight to provide power. Can power instruments, or charge up batteries.</div>
+												<div class="package_desc">" Paneli solar a gaiff eu hagor o ymyl y lloeren, i gasglu golau’r haul i ddarparu pŵer. Maent yn gallu pweru teclynnau, neu wefru batris."</div>
 											</div>
 										</li>
 										<li data-package="solar-panel-surface">
 											<div class="list-bar bg3x3 "><button class="fancy add" data-size="3x3" data-package="solar-panel-surface">&plus;</button><button class="fancy remove" disabled="disabled" data-size="3x3" data-package="solar-panel-surface">&minus;</button><div class="value"></div></div>
 											<div class="list-left">
-												<div class="package_slot "><div class="slot slot3x3"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Body-mounted solar panel" /></div></div></div>
+												<div class="package_slot "><div class="slot slot3x3"><div class="eg"><img src="images/cleardot.gif" class="face front" alt="Panel solar wedi’i osod ar y lloeren" /></div></div></div>
 											</div>
 											<div class="list-right">
-												<div class="package_title"><strong>Body-mounted solar panel</strong></div>
+												<div class="package_title"><strong>Panel solar wedi’i osod ar y lloeren</strong></div>
 												<!-- div class="package_size">Size: <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="length" data-units="m" data-value="1" class="length value convertable">1 m</span> &times; <span data-dimension="" data-units="" data-value="" class="length value convertable"> </span></div -->
 												
 												<div class="package_cost"><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="15" class="value convertable">15 credits</span></div>
 												<div class="package_power"><span class="power-icon"></span><span data-dimension="power" data-units="watts" data-value="150" class="value convertable">150 watts</span></div>
 												
-												<div class="package_desc">Solar panels mounted onto surface of satellite, collecting sunlight to provide power. Can power instruments, or charge up batteries.</div>
+												<div class="package_desc">" Paneli solar wedi’u gosod ar arwyneb lloeren, i gasglu golau’r haul i ddarparu pŵer. Maent yn gallu pweru teclynnau, neu wefru batris."</div>
 											</div>
 										</li>
 									</ul>
@@ -732,19 +732,19 @@
 						<div class="row-top">
 							<nav>
 								<ol>
-									<li class="prev"><a href="#power">Power</a></li>
-									<li class="next"><a href="#launch">Launch</a></li>
+									<li class="prev"><a href="#power">PÅµer</a></li>
+									<li class="next"><a href="#launch">Lansio</a></li>
 								</ol>
 							</nav>
-							<h2>Build your rocket</h2>
-							<p>Now you have a satellite you need to build a multi-stage rocket. The top of the rocket will hold your satellite so needs to be big enough. You can have up to three rocket stages, which need to be big enough to support those above - and provide enough thrust to reach your chosen orbit.</p>
+							<h2>Adeiladu eich roced</h2>
+							<p>Nawr bod lloeren ganddoch chi, mae angen i chi adeiladu roced aml-lwyfan. Pen y roced fydd yn dal eich lloeren, felly mae angen iddo fod yn ddigon mawr. Gallwch gael hyd at dri llwyfan roced, ac mae angen iddyn nhw fod yn ddigon mawr i gynnal y rhai uwch eu pennau - a darparu gwth digonol i gyrraedd yr orbit oâch dewis.</p>
 						</div>
 						<div class="row-main">
 							<div class="col">
 								<div class="rows">
 									<div class="requirements">
 										<div class="padder">
-											<h3>Requirements</h3>
+											<h3>Gofynion</h3>
 										</div>
 									</div>
 									<div class="holder-holder">
@@ -787,9 +787,9 @@
 															<div class="stage-about ">
 																
 																<table>
-																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="1" class="value convertable">1m</span></td></tr>
+																	<tr><td>Diamedr:</td><td><span data-dimension="length" data-units="m" data-value="1" class="value convertable">1m</span></td></tr>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="1" class="value convertable">1 credits</span></td></tr>
-																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="500" class="value convertable">500kg</span></td></tr>
+																	<tr><td>MÃ s sych:</td><td><span data-dimension="mass" data-units="kg" data-value="500" class="value convertable">500kg</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -799,9 +799,9 @@
 															<div class="stage-about ">
 																
 																<table>
-																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="2" class="value convertable">2m</span></td></tr>
+																	<tr><td>Diamedr:</td><td><span data-dimension="length" data-units="m" data-value="2" class="value convertable">2m</span></td></tr>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="1" class="value convertable">1 credits</span></td></tr>
-																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="1000" class="value convertable">1000kg</span></td></tr>
+																	<tr><td>MÃ s sych:</td><td><span data-dimension="mass" data-units="kg" data-value="1000" class="value convertable">1000kg</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -811,9 +811,9 @@
 															<div class="stage-about ">
 																
 																<table>
-																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="4" class="value convertable">4m</span></td></tr>
+																	<tr><td>Diamedr:</td><td><span data-dimension="length" data-units="m" data-value="4" class="value convertable">4m</span></td></tr>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="3" class="value convertable">3 credits</span></td></tr>
-																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="5000" class="value convertable">5000kg</span></td></tr>
+																	<tr><td>MÃ s sych:</td><td><span data-dimension="mass" data-units="kg" data-value="5000" class="value convertable">5000kg</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -823,9 +823,9 @@
 															<div class="stage-about ">
 																
 																<table>
-																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="8" class="value convertable">8m</span></td></tr>
+																	<tr><td>Diamedr:</td><td><span data-dimension="length" data-units="m" data-value="8" class="value convertable">8m</span></td></tr>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="8" class="value convertable">8 credits</span></td></tr>
-																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="10000" class="value convertable">10000kg</span></td></tr>
+																	<tr><td>MÃ s sych:</td><td><span data-dimension="mass" data-units="kg" data-value="10000" class="value convertable">10000kg</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -835,16 +835,16 @@
 															<div class="stage-about ">
 																
 																<table>
-																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="10" class="value convertable">10m</span></td></tr>
+																	<tr><td>Diamedr:</td><td><span data-dimension="length" data-units="m" data-value="10" class="value convertable">10m</span></td></tr>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="10" class="value convertable">10 credits</span></td></tr>
-																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="20000" class="value convertable">20000kg</span></td></tr>
+																	<tr><td>MÃ s sych:</td><td><span data-dimension="mass" data-units="kg" data-value="20000" class="value convertable">20000kg</span></td></tr>
 																</table>
 															</div>
 														</div>
 													</li>
 												</ul>
 												<button class="next"><span>&#x276F;</span></button>
-												<div class="payload-holder"><div class="payload-dummy"><span>Your satellite</span></div></div>
+												<div class="payload-holder"><div class="payload-dummy"><span>Eich lloeren</span></div></div>
 											</div>
 										</div>
 										<div class="slider-container thirdstage">
@@ -857,7 +857,7 @@
 														</div>
 														<div class="stage-holder">
 															<div class="stage-about centre">
-																None
+																Dim
 															</div>
 														</div>
 													</li><li class="stage stage-S">
@@ -868,11 +868,11 @@
 															<div class="stage-about ">
 																
 																<table>
-																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="2" class="value convertable">2m</span>
+																	<tr><td>Diamedr:</td><td><span data-dimension="length" data-units="m" data-value="2" class="value convertable">2m</span>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="2" class="value convertable">2 credits</span>
-																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="1300" class="value convertable">1300kg</span>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="10000" class="value convertable">10000kg</span></td></tr>
-																	<tr><td>Thrust:</td><td><span data-dimension="force" data-units="kN" data-value="260" class="value convertable">260kN</span></td></tr>
+																	<tr><td>MÃ s sych:</td><td><span data-dimension="mass" data-units="kg" data-value="1300" class="value convertable">1300kg</span>
+																	<tr><td>Tanwydd:</td><td><span data-dimension="mass" data-units="kg" data-value="10000" class="value convertable">10000kg</span></td></tr>
+																	<tr><td>Gwth:</td><td><span data-dimension="force" data-units="kN" data-value="260" class="value convertable">260kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -884,11 +884,11 @@
 															<div class="stage-about ">
 																
 																<table>
-																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="3" class="value convertable">3m</span>
+																	<tr><td>Diamedr:</td><td><span data-dimension="length" data-units="m" data-value="3" class="value convertable">3m</span>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="4" class="value convertable">4 credits</span>
-																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="2400" class="value convertable">2400kg</span>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="22000" class="value convertable">22000kg</span></td></tr>
-																	<tr><td>Thrust:</td><td><span data-dimension="force" data-units="kN" data-value="300" class="value convertable">300kN</span></td></tr>
+																	<tr><td>MÃ s sych:</td><td><span data-dimension="mass" data-units="kg" data-value="2400" class="value convertable">2400kg</span>
+																	<tr><td>Tanwydd:</td><td><span data-dimension="mass" data-units="kg" data-value="22000" class="value convertable">22000kg</span></td></tr>
+																	<tr><td>Gwth:</td><td><span data-dimension="force" data-units="kN" data-value="300" class="value convertable">300kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -900,11 +900,11 @@
 															<div class="stage-about ">
 																
 																<table>
-																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="8" class="value convertable">8m</span>
+																	<tr><td>Diamedr:</td><td><span data-dimension="length" data-units="m" data-value="8" class="value convertable">8m</span>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="8" class="value convertable">8 credits</span>
-																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="13500" class="value convertable">13500kg</span>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="110000" class="value convertable">110000kg</span></td></tr>
-																	<tr><td>Thrust:</td><td><span data-dimension="force" data-units="kN" data-value="1000" class="value convertable">1000kN</span></td></tr>
+																	<tr><td>MÃ s sych:</td><td><span data-dimension="mass" data-units="kg" data-value="13500" class="value convertable">13500kg</span>
+																	<tr><td>Tanwydd:</td><td><span data-dimension="mass" data-units="kg" data-value="110000" class="value convertable">110000kg</span></td></tr>
+																	<tr><td>Gwth:</td><td><span data-dimension="force" data-units="kN" data-value="1000" class="value convertable">1000kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -916,11 +916,11 @@
 															<div class="stage-about ">
 																
 																<table>
-																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="10" class="value convertable">10m</span>
+																	<tr><td>Diamedr:</td><td><span data-dimension="length" data-units="m" data-value="10" class="value convertable">10m</span>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="10" class="value convertable">10 credits</span>
-																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="13500" class="value convertable">13500kg</span>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="110000" class="value convertable">110000kg</span></td></tr>
-																	<tr><td>Thrust:</td><td><span data-dimension="force" data-units="kN" data-value="1500" class="value convertable">1500kN</span></td></tr>
+																	<tr><td>MÃ s sych:</td><td><span data-dimension="mass" data-units="kg" data-value="13500" class="value convertable">13500kg</span>
+																	<tr><td>Tanwydd:</td><td><span data-dimension="mass" data-units="kg" data-value="110000" class="value convertable">110000kg</span></td></tr>
+																	<tr><td>Gwth:</td><td><span data-dimension="force" data-units="kN" data-value="1500" class="value convertable">1500kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -950,11 +950,11 @@
 															<div class="stage-about ">
 																
 																<table>
-																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="1" class="value convertable">1m</span>
+																	<tr><td>Diamedr:</td><td><span data-dimension="length" data-units="m" data-value="1" class="value convertable">1m</span>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="5" class="value convertable">5 credits</span>
-																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="2000" class="value convertable">2000kg</span>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="15000" class="value convertable">15000kg</span></td></tr>
-																	<tr><td>Thrust:</td><td><span data-dimension="force" data-units="kN" data-value="480" class="value convertable">480kN</span></td></tr>
+																	<tr><td>MÃ s sych:</td><td><span data-dimension="mass" data-units="kg" data-value="2000" class="value convertable">2000kg</span>
+																	<tr><td>Tanwydd:</td><td><span data-dimension="mass" data-units="kg" data-value="15000" class="value convertable">15000kg</span></td></tr>
+																	<tr><td>Gwth:</td><td><span data-dimension="force" data-units="kN" data-value="480" class="value convertable">480kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -966,11 +966,11 @@
 															<div class="stage-about ">
 																
 																<table>
-																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="2" class="value convertable">2m</span>
+																	<tr><td>Diamedr:</td><td><span data-dimension="length" data-units="m" data-value="2" class="value convertable">2m</span>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="10" class="value convertable">10 credits</span>
-																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="3000" class="value convertable">3000kg</span>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="24000" class="value convertable">24000kg</span></td></tr>
-																	<tr><td>Thrust:</td><td><span data-dimension="force" data-units="kN" data-value="870" class="value convertable">870kN</span></td></tr>
+																	<tr><td>MÃ s sych:</td><td><span data-dimension="mass" data-units="kg" data-value="3000" class="value convertable">3000kg</span>
+																	<tr><td>Tanwydd:</td><td><span data-dimension="mass" data-units="kg" data-value="24000" class="value convertable">24000kg</span></td></tr>
+																	<tr><td>Gwth:</td><td><span data-dimension="force" data-units="kN" data-value="870" class="value convertable">870kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -982,11 +982,11 @@
 															<div class="stage-about ">
 																
 																<table>
-																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="3" class="value convertable">3m</span>
+																	<tr><td>Diamedr:</td><td><span data-dimension="length" data-units="m" data-value="3" class="value convertable">3m</span>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="15" class="value convertable">15 credits</span>
-																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="2400" class="value convertable">2400kg</span>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="25000" class="value convertable">25000kg</span></td></tr>
-																	<tr><td>Thrust:</td><td><span data-dimension="force" data-units="kN" data-value="300" class="value convertable">300kN</span></td></tr>
+																	<tr><td>MÃ s sych:</td><td><span data-dimension="mass" data-units="kg" data-value="2400" class="value convertable">2400kg</span>
+																	<tr><td>Tanwydd:</td><td><span data-dimension="mass" data-units="kg" data-value="25000" class="value convertable">25000kg</span></td></tr>
+																	<tr><td>Gwth:</td><td><span data-dimension="force" data-units="kN" data-value="300" class="value convertable">300kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -998,11 +998,11 @@
 															<div class="stage-about ">
 																
 																<table>
-																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="4.5" class="value convertable">4.5m</span>
+																	<tr><td>Diamedr:</td><td><span data-dimension="length" data-units="m" data-value="4.5" class="value convertable">4.5m</span>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="20" class="value convertable">20 credits</span>
-																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="4000" class="value convertable">4000kg</span>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="90000" class="value convertable">90000kg</span></td></tr>
-																	<tr><td>Thrust:</td><td><span data-dimension="force" data-units="kN" data-value="800" class="value convertable">800kN</span></td></tr>
+																	<tr><td>MÃ s sych:</td><td><span data-dimension="mass" data-units="kg" data-value="4000" class="value convertable">4000kg</span>
+																	<tr><td>Tanwydd:</td><td><span data-dimension="mass" data-units="kg" data-value="90000" class="value convertable">90000kg</span></td></tr>
+																	<tr><td>Gwth:</td><td><span data-dimension="force" data-units="kN" data-value="800" class="value convertable">800kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -1014,11 +1014,11 @@
 															<div class="stage-about ">
 																
 																<table>
-																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="8" class="value convertable">8m</span>
+																	<tr><td>Diamedr:</td><td><span data-dimension="length" data-units="m" data-value="8" class="value convertable">8m</span>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="30" class="value convertable">30 credits</span>
-																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="6000" class="value convertable">6000kg</span>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="129000" class="value convertable">129000kg</span></td></tr>
-																	<tr><td>Thrust:</td><td><span data-dimension="force" data-units="kN" data-value="400" class="value convertable">400kN</span></td></tr>
+																	<tr><td>MÃ s sych:</td><td><span data-dimension="mass" data-units="kg" data-value="6000" class="value convertable">6000kg</span>
+																	<tr><td>Tanwydd:</td><td><span data-dimension="mass" data-units="kg" data-value="129000" class="value convertable">129000kg</span></td></tr>
+																	<tr><td>Gwth:</td><td><span data-dimension="force" data-units="kN" data-value="400" class="value convertable">400kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -1030,11 +1030,11 @@
 															<div class="stage-about ">
 																
 																<table>
-																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="10" class="value convertable">10m</span>
+																	<tr><td>Diamedr:</td><td><span data-dimension="length" data-units="m" data-value="10" class="value convertable">10m</span>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="50" class="value convertable">50 credits</span>
-																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="40000" class="value convertable">40000kg</span>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="450000" class="value convertable">450000kg</span></td></tr>
-																	<tr><td>Thrust:</td><td><span data-dimension="force" data-units="kN" data-value="4400" class="value convertable">4400kN</span></td></tr>
+																	<tr><td>MÃ s sych:</td><td><span data-dimension="mass" data-units="kg" data-value="40000" class="value convertable">40000kg</span>
+																	<tr><td>Tanwydd:</td><td><span data-dimension="mass" data-units="kg" data-value="450000" class="value convertable">450000kg</span></td></tr>
+																	<tr><td>Gwth:</td><td><span data-dimension="force" data-units="kN" data-value="4400" class="value convertable">4400kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -1064,11 +1064,11 @@
 															<div class="stage-about ">
 																
 																<table>
-																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="1" class="value convertable">1m</span></td></tr>
+																	<tr><td>Diamedr:</td><td><span data-dimension="length" data-units="m" data-value="1" class="value convertable">1m</span></td></tr>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="12" class="value convertable">12 credits</span></td></tr>
-																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="10500" class="value convertable">10500kg</span></td></tr>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="88000" class="value convertable">88000kg</span></td></tr>
-																	<tr><td>Thrust:</td><td><span data-dimension="force" data-units="kN" data-value="2200" class="value convertable">2200kN</span></td></tr>
+																	<tr><td>MÃ s sych:</td><td><span data-dimension="mass" data-units="kg" data-value="10500" class="value convertable">10500kg</span></td></tr>
+																	<tr><td>Tanwydd:</td><td><span data-dimension="mass" data-units="kg" data-value="88000" class="value convertable">88000kg</span></td></tr>
+																	<tr><td>Gwth:</td><td><span data-dimension="force" data-units="kN" data-value="2200" class="value convertable">2200kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -1080,11 +1080,11 @@
 															<div class="stage-about ">
 																
 																<table>
-																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="2" class="value convertable">2m</span></td></tr>
+																	<tr><td>Diamedr:</td><td><span data-dimension="length" data-units="m" data-value="2" class="value convertable">2m</span></td></tr>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="23" class="value convertable">23 credits</span></td></tr>
-																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="9000" class="value convertable">9000kg</span></td></tr>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="120000" class="value convertable">120000kg</span></td></tr>
-																	<tr><td>Thrust:</td><td><span data-dimension="force" data-units="kN" data-value="1500" class="value convertable">1500kN</span></td></tr>
+																	<tr><td>MÃ s sych:</td><td><span data-dimension="mass" data-units="kg" data-value="9000" class="value convertable">9000kg</span></td></tr>
+																	<tr><td>Tanwydd:</td><td><span data-dimension="mass" data-units="kg" data-value="120000" class="value convertable">120000kg</span></td></tr>
+																	<tr><td>Gwth:</td><td><span data-dimension="force" data-units="kN" data-value="1500" class="value convertable">1500kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -1096,11 +1096,11 @@
 															<div class="stage-about ">
 																
 																<table>
-																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="4.5" class="value convertable">4.5m</span></td></tr>
+																	<tr><td>Diamedr:</td><td><span data-dimension="length" data-units="m" data-value="4.5" class="value convertable">4.5m</span></td></tr>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="60" class="value convertable">60 credits</span></td></tr>
-																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="24000" class="value convertable">24000kg</span></td></tr>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="400000" class="value convertable">400000kg</span></td></tr>
-																	<tr><td>Thrust:</td><td><span data-dimension="force" data-units="kN" data-value="6000" class="value convertable">6000kN</span></td></tr>
+																	<tr><td>MÃ s sych:</td><td><span data-dimension="mass" data-units="kg" data-value="24000" class="value convertable">24000kg</span></td></tr>
+																	<tr><td>Tanwydd:</td><td><span data-dimension="mass" data-units="kg" data-value="400000" class="value convertable">400000kg</span></td></tr>
+																	<tr><td>Gwth:</td><td><span data-dimension="force" data-units="kN" data-value="6000" class="value convertable">6000kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -1112,11 +1112,11 @@
 															<div class="stage-about ">
 																
 																<table>
-																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="8" class="value convertable">8m</span></td></tr>
+																	<tr><td>Diamedr:</td><td><span data-dimension="length" data-units="m" data-value="8" class="value convertable">8m</span></td></tr>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="220" class="value convertable">220 credits</span></td></tr>
-																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="85000" class="value convertable">85000kg</span></td></tr>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="900000" class="value convertable">900000kg</span></td></tr>
-																	<tr><td>Thrust:</td><td><span data-dimension="force" data-units="kN" data-value="7400" class="value convertable">7400kN</span></td></tr>
+																	<tr><td>MÃ s sych:</td><td><span data-dimension="mass" data-units="kg" data-value="85000" class="value convertable">85000kg</span></td></tr>
+																	<tr><td>Tanwydd:</td><td><span data-dimension="mass" data-units="kg" data-value="900000" class="value convertable">900000kg</span></td></tr>
+																	<tr><td>Gwth:</td><td><span data-dimension="force" data-units="kN" data-value="7400" class="value convertable">7400kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -1128,11 +1128,11 @@
 															<div class="stage-about ">
 																
 																<table>
-																	<tr><td>Diameter:</td><td><span data-dimension="length" data-units="m" data-value="10" class="value convertable">10m</span></td></tr>
+																	<tr><td>Diamedr:</td><td><span data-dimension="length" data-units="m" data-value="10" class="value convertable">10m</span></td></tr>
 																	<tr><td>Cost:</td><td><span class="coin-icon"></span><span data-dimension="currency" data-units="credits" data-value="370" class="value convertable">370 credits</span></td></tr>
-																	<tr><td>Dry mass:</td><td><span data-dimension="mass" data-units="kg" data-value="130000" class="value convertable">130000kg</span></td></tr>
-																	<tr><td>Fuel:</td><td><span data-dimension="mass" data-units="kg" data-value="2000000" class="value convertable">2000000kg</span></td></tr>
-																	<tr><td>Thrust:</td><td><span data-dimension="force" data-units="kN" data-value="34000" class="value convertable">34000kN</span></td></tr>
+																	<tr><td>MÃ s sych:</td><td><span data-dimension="mass" data-units="kg" data-value="130000" class="value convertable">130000kg</span></td></tr>
+																	<tr><td>Tanwydd:</td><td><span data-dimension="mass" data-units="kg" data-value="2000000" class="value convertable">2000000kg</span></td></tr>
+																	<tr><td>Gwth:</td><td><span data-dimension="force" data-units="kN" data-value="34000" class="value convertable">34000kN</span></td></tr>
 																</table>
 															</div>
 														</div>
@@ -1155,13 +1155,13 @@
 						<div class="row-top">
 							<nav>
 								<ol>
-									<li class="prev"><a href="#rocket">Rocket</a></li>
+									<li class="prev"><a href="#rocket">Roced</a></li>
 								</ol>
-								<div id="fixme">Fix &rangle;</div>
+								<div id="fixme">Datrys &rangle;</div>
 							</nav>
-							<h2>Ready to launch?</h2>
+							<h2>Barod i lansio?</h2>
 							<div id="launch-text"></div>
-							<p><button class="fancy" safetoleave="true">Launch?</button></p>
+							<p><button class="fancy" safetoleave="true">Lansio?</button></p>
 						</div>
 					</div>
 				</div>
@@ -1181,14 +1181,14 @@
 		<section id="units" class="not-at-start fullpage">
 	<div class="container">
 		<div class="padded">
-			<a class="close" title="Close" href="#">&times;</a>
-			<h2>Change units:</h2>
+			<a class="close" title="Cau" href="#">&times;</a>
+			<h2>Unedau newid:</h2>
 			<form id="optionform">
 				<ul>
-					<li><label for="changecurrency">Currency units:</label> <select name="changecurrency" id="changecurrency" data-units="currency"><option selected="selected" value="credits">Credits</option><option selected="selected" value="GBP">British Pounds £</option><option value="USD">US Dollars $</option><option value="EUR">Euros €</option><option value="JPY">Japanese Yen ¥</option><option value="CAD">Canadian Dollars C$</option><option value="AUD">Austrialian Dollars $</option><option value="CHF">Swiss Francs Fr.</option><option value="SEK">Swedish Krona kr</option><option value="CNY">Chinese Yuan ¥</option><option value="INR">Indian Rupees ₨</option><option value="RUB">Russian Ruble RUB</option><option value="DBL">Doubloons DBL</option></select></li>
-					<li><label for="changelength">Length units:</label> <select name="changelength" id="changelength" data-units="length"><option selected="selected" value="m">Metres</option><option value="ft">Feet</option><option value="cubit">Cubits</option><option value="bluewhale">Blue Whales</option><option value="yard">Yards</option></select></li>
-					<li><label for="changemass">Mass units:</label> <select name="changemass" id="changemass" data-units="mass"><option selected="selected" value="kg">Kilograms</option><option value="lb">Pounds</option><option value="elephant">Elephants</option></select></li>
-					<li><label for="changeenergy">Power units:</label> <select name="changepower" id="changepower" data-units="power"><option selected="selected" value="watts">watts</option><option value="horsepower">horsepower</option></select></li>
+					<li><label for="changecurrency">Unedau cyfred:</label> <select name="changecurrency" id="changecurrency" data-units="currency"><option selected="selected" value="credits">Credits</option><option selected="selected" value="GBP">British Pounds Â£</option><option value="USD">US Dollars $</option><option value="EUR">Euros â¬</option><option value="JPY">Japanese Yen Â¥</option><option value="CAD">Canadian Dollars C$</option><option value="AUD">Austrialian Dollars $</option><option value="CHF">Swiss Francs Fr.</option><option value="SEK">Swedish Krona kr</option><option value="CNY">Chinese Yuan Â¥</option><option value="INR">Indian Rupees â¨</option><option value="RUB">Russian Ruble RUB</option><option value="DBL">Doubloons DBL</option></select></li>
+					<li><label for="changelength">Unedau hyd:</label> <select name="changelength" id="changelength" data-units="length"><option selected="selected" value="m">Metres</option><option value="ft">Feet</option><option value="cubit">Cubits</option><option value="bluewhale">Blue Whales</option><option value="yard">Yards</option></select></li>
+					<li><label for="changemass">Unedau mÃ s:</label> <select name="changemass" id="changemass" data-units="mass"><option selected="selected" value="kg">Kilograms</option><option value="lb">Pounds</option><option value="elephant">Elephants</option></select></li>
+					<li><label for="changeenergy">Unedau pÅµer:</label> <select name="changepower" id="changepower" data-units="power"><option selected="selected" value="watts">watts</option><option value="horsepower">horsepower</option></select></li>
 				</ul>
 			</form>
 		</div>
@@ -1197,9 +1197,9 @@
 		<section id="about" class="not-at-start fullpage">
     <div class="container">
         <div class="padded">
-            <a class="close" title="Close" href="#">&times;</a>
-            <h2>About:</h2>
-            <p>Classroom rocket scientist was developed by <a href="http://www.cardiff.ac.uk/people/view/828749-north-chris">Dr Chris North</a>, <a href="http://www.strudel.org.uk/">Dr Stuart Lowe</a>, <a href="https://lco.global/user/seroberts/">Sarah Roberts</a> and Brychan Govier.</p><p>It was supported by <a href="http://blogs.cardiff.ac.uk/physicsoutreach/">Cardiff University School of Physics and Astronomy</a>.</p><p>Icons by parkjisun, Housin Aziz, Creative Stall, Plainicon, Hakan Yalcin, Rflor, Megan Mitchell, Clockwise, Leadway Global LLC, <a href="http://www.flaticon.com">Flaticon</a>, <a href="http://material.io/tools/icons">Google Material Design</a> and OCHA Visual Information Unit.</p><p>For information or to provide feedback, please contact <a href="mailto:schools@astro.cf.ac.uk">schools@astro.cf.ac.uk</a>.</p>
+            <a class="close" title="Cau" href="#">&times;</a>
+            <h2>Amdanon ni:</h2>
+            <p>Datblygwyd rhaglen Gwyddonydd Roced Dosbarth gan <a href=""http://www.cardiff.ac.uk/people/view/828749-north-chris"">Dr Chris North</a>, <a href=""http://www.strudel.org.uk/"">Dr Stuart Lowe</a>, <a href=""https://lco.global/user/seroberts/"">Sarah Roberts</a> a Brychan Govier.</p><p>Feâi cefnogwyd gan <a href=""http://blogs.cardiff.ac.uk/physicsoutreach/"">Ysgol Ffiseg a Seryddiaeth Prifysgol Caerdydd</a>.</p><p>Eiconau gan parkjisun, Housin Aziz, Creative Stall, Plainicon, Hakan Yalcin, Rflor, Megan Mitchell, Clockwise, Leadway Global LLC, <a href=""http://www.flaticon.com"">Flaticon</a>, <a href=""http://material.io/tools/icons"">Google Material Design</a> ac Uned Gwybodaeth Weledol OCHA.</p><p>I gael gwybodaeth neu i roi adborth, cysylltwch Ã¢ <a href=""mailto:schools@astro.cf.ac.uk"">schools@astro.cf.ac.uk</a>.</p>
             <div class="icons">
                 <img src="images/CardiffPhysics_200px.png">
             </div>
@@ -1210,9 +1210,9 @@
 <section id="guide" class="not-at-start fullpage wide">
     <div class="container">
         <div class="padded">
-            <a class="close" title="Close" href="#">&times;</a>
-            <h2>Teacher Guide:</h2>
-            Coming soon...
+            <a class="close" title="Cau" href="#">&times;</a>
+            <h2>Canllaw i Athrawon:</h2>
+            Yn dod yn fuan...
             <ul>
                 <li><strong></strong>&nbsp;</li>
                 <li><strong></strong>&nbsp;</li>
@@ -1236,9 +1236,9 @@
 <section id="help" class="not-at-start fullpage">
     <div class="container">
         <div class="padded">
-            <a class="close" title="Close" href="#">&times;</a>
-            <h2>Help</h2>
-            Coming soon...
+            <a class="close" title="Cau" href="#">&times;</a>
+            <h2>Cymorth</h2>
+            Yn dod yn fuan...
         </div>
     </div>
 </section>

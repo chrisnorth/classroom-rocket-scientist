@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Adeiladwr Lloeren</title>
+	<link rel="stylesheet" media="all" href="css/fonts.css" type="text/css"/>
+	<link rel="stylesheet" media="all" href="css/style.css"  type="text/css" />
+	<!--[if !IE]> --><link href="tests/satellite/style-nonie.css" rel="stylesheet" type="text/css" media="screen" /><!-- <![endif]-->
+	<script type="text/javascript" src="js/convertable.js"></script>
+	<script type="text/javascript" src="js/stuquery.js"></script>
+	<script type="text/javascript" src="js/rocketscientist.js"></script>
+	<script type="text/javascript" src="js/rocketscientist.builder.js"></script>
+</head>
+<body class="front">
+
+	<div id="application">
+		<header>
+			<div id="bar">
+				<div class="barmenu">
+					<div class="baritem">
+						<button class="togglebtn togglemenu" title="Dewislen"><img src="images/cleardot.gif" class="icon menu" alt="" /></button></a>
+					</div>
+				</div>
+			</div>
+			<div id="progressbar"><div class="progress-inner"></div></div>
+		</header>
+
+		<div id="main">
+			<section id="start" class="view">
+				<div class="padded">
+					<div class="page levels">
+						<div class="row-top">
+							<div class="msg noscriptmsg">O diar! Mae angen galluogi Javascript er mwyn i rannau rhyngweithiol <em>Gwyddonydd roced dosbarth</em> weithio. Mae’n ddrwg gyda ni.</div>
+							<h1>Adeiladwr Lloeren</h1>
+							<p><p>Mae Asiantaeth Ofod y DU yn cynllunio ei thaith loeren nesaf. Maen nhw wedi gofyn i chi eu helpu i’w dylunio</p><p>Eich rôl chi yw dylunio a lansio lloeren sy’n gallu perfformio rôl benodol yn ymwneud â chyfathrebu, llywio, neu arsylwi’r ddaear. Bydd angen i chi ddewis maint, teclynnau a chyflenwad pŵer eich lloeren. Ar ôl ei gorffen, bydd angen i chi ddylunio roced sy’n gallu lansio eich lloeren i orbit. Fyddwch chi’n llwyddo?</p></p>
+							<!-- <a href="beginner">Dechreuwr</a> / <a href="intermediate">Canolradd</a> / <a href="advanced">Uwch</a> -->
+						</div>
+						<div class="row-main">
+							<div class="holder beginner">
+								<div class="image"><img src="images/svg/level-beginner.svg" alt="Beginner" title="Beginner Level"/></div>
+								<div class="padded">
+									<div class="level beginner">
+										<h3>Dechreuwr</h3>
+										<p>Dewiswch daith, a dyluniwch loeren a fydd yn cyflawni’r nodau. Peidiwch â phoeni am yr arian - gwneud rhywbeth sy’n gweithio sy’n bwysig!</p>
+										<button onclick="window.location.href='beginner_cy.html'" class="fancy" data-type="beginner">Dewis y lefel yma</button>
+									</div>
+								</div>
+							</div>
+							<div class="holder intermediate">
+								<div class="image"><img src="images/svg/level-intermediate.svg" alt="Intermediate" title="Beginner Level"/></div>
+								<div class="padded">
+									<div class="level intermediate">
+										<h3>Canolradd</h3>
+										<p>Rhowch ychydig mwy o hyblygrwydd i’ch hun, gan gynnwys gallu dewis maint y lloeren. Ond byddwch yn ofalus - mae ganddoch chi swm o arian i gadw ato nawr!</p>
+										<button onclick="window.location.href='intermediate_cy.html'" class="fancy" data-type="intermediate">Dewis y lefel yma</button>
+									</div>
+								</div>
+							</div>
+							<div class="holder advanced">
+								<div class="image"><img src="images/svg/level-advanced.svg" alt="Advanced" title="Advanced Level"/></div>
+								<div class="padded">
+									<div class="level advanced">
+										<h3>Uwch</h3>
+										<p>Y lefel uchaf, gyda llawer mwy o opsiynau, a’r gallu i ddewis orbit y lloeren. Ond a fydd eich roced yn ddigon mawr i lansio eich lloeren?</p>
+										<button onclick="window.location.href='advanced_cy.html'" class="fancy" data-type="advanced">Dewis y lefel yma</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="about" class="not-at-start fullpage">
+    <div class="container">
+        <div class="padded">
+            <a class="close" title="Cau" href="#">&times;</a>
+            <h2>Amdanon ni:</h2>
+            <p>Datblygwyd rhaglen Gwyddonydd Roced Dosbarth gan <a href=""http://www.cardiff.ac.uk/people/view/828749-north-chris"">Dr Chris North</a>, <a href=""http://www.strudel.org.uk/"">Dr Stuart Lowe</a>, <a href=""https://lco.global/user/seroberts/"">Sarah Roberts</a> a Brychan Govier.</p><p>Fe’i cefnogwyd gan <a href=""http://blogs.cardiff.ac.uk/physicsoutreach/"">Ysgol Ffiseg a Seryddiaeth Prifysgol Caerdydd</a>.</p><p>Eiconau gan parkjisun, Housin Aziz, Creative Stall, Plainicon, Hakan Yalcin, Rflor, Megan Mitchell, Clockwise, Leadway Global LLC, <a href=""http://www.flaticon.com"">Flaticon</a>, <a href=""http://material.io/tools/icons"">Google Material Design</a> ac Uned Gwybodaeth Weledol OCHA.</p><p>I gael gwybodaeth neu i roi adborth, cysylltwch â <a href=""mailto:schools@astro.cf.ac.uk"">schools@astro.cf.ac.uk</a>.</p>
+            <div class="icons">
+                <img src="images/CardiffPhysics_200px.png">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="guide" class="not-at-start fullpage wide">
+    <div class="container">
+        <div class="padded">
+            <a class="close" title="Cau" href="#">&times;</a>
+            <h2>Canllaw i athrawon:</h2>
+            <p>Mae Asiantaeth Ofod y DU yn cynllunio ei thaith loeren nesaf. Maen nhw wedi gofyn i chi eu helpu i’w dylunio</p><p>Mae’r ap yma’n herio disgyblion i ddylunio a lansio lloeren sy’n gallu perfformio rôl benodol o ran cyfathrebu, llywio neu arsylwi’r ddaear. Bydd angen iddyn nhw ddewis maint, teclynnau a chyflenwad pŵer eu lloeren. Ar ôl gorffen, byddan nhw’n cael her i ddylunio roced sy’n gallu lansio’r lloeren i orbit.</p><p>Mae’n bosib y bydd disgyblion hŷn neu mwy medrus am ddefnyddio’r lefel Canolradd neu Uwch. Mae’r lefel Canolradd yn gofyn i ddisgyblion adeiladu eu lloeren a’u lansiwr ar gyllideb dynn. Mae’r lefel uwch yn cynnig llawer mwy o opsiynau, ac mae’n rhoi her i ddisgyblion ddewis yr orbit cywir ar gyfer eu lloeren, yn seiliedig ar ei diben. </p>
+            <ul>
+                <li><strong>Allweddeiriau:</strong>&nbsp;Gwyddoniaeth, Gofod, Seryddiaeth, Lloeren, Roced, Ap gwe, Rhyngweithiol, Lloeren, Technoleg</li>
+                <li><strong>Lefel:</strong>&nbsp;Cynradd Uwch - Uwchradd Is</li>
+                <li><strong>Hyd:</strong>&nbsp;30-60 mun</li>
+            </ul>
+            <h3>Nodau:</h3>
+            <ul><li>Deall y rolau mae technoleg lloeren yn eu chwarae, a sut mae’n effeithio ar ein bywydau bob dydd.</li><li>Deall elfennau taith lloeren.</ul>
+            <h3>Amcanion dysgu:</h3>
+            <ul><li>Dysgu am dair gwahanol fath o loeren, gydag enghreifftiau o’u dibenion penodol</ul>
+            <h3>Rhagor o wybodaeth:</h3>
+            <ul>
+                <li>Canllaw i Athrawon&nbsp;(<a title="Canllaw i Athrawon PDF" href="guide/en/satellite-builder-guide.pdf")">PDF</a>)</li>
+                <li>Cyflwyniad Athrawon&nbsp;(<span><a title="Cyflwyniad Athrawon PDF" href="guide/en/satellite-builder-slides.pdf">PDF</a>;</span>
+                <span><a title="Cyflwyniad Athrawon PowerPoint" href="guide/en/satellite-builder-slides.pptx">PowerPoint</a>;</span>
+                <span><a title="Cyflwyniad Athrawon Keynote" href="guide/en/satellite-builder-slides.key">Keynote</a></span>)</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="help" class="not-at-start fullpage">
+    <div class="container">
+        <div class="padded">
+            <a class="close" title="Cau" href="#">&times;</a>
+            <h2>Cymorth</h2>
+            Yn dod yn fuan...
+        </div>
+    </div>
+</section>
+			
+		</div>
+		<section id="units" class="not-at-start fullpage">
+	<div class="container">
+		<div class="padded">
+			<a class="close" title="Cau" href="#">&times;</a>
+			<h2>Unedau newid:</h2>
+			<form id="optionform">
+				<ul>
+					<li><label for="changecurrency">Unedau cyfred:</label> <select name="changecurrency" id="changecurrency" data-units="currency"><option selected="selected" value="credits">Credits</option><option selected="selected" value="GBP">British Pounds £</option><option value="USD">US Dollars $</option><option value="EUR">Euros €</option><option value="JPY">Japanese Yen ¥</option><option value="CAD">Canadian Dollars C$</option><option value="AUD">Austrialian Dollars $</option><option value="CHF">Swiss Francs Fr.</option><option value="SEK">Swedish Krona kr</option><option value="CNY">Chinese Yuan ¥</option><option value="INR">Indian Rupees ₨</option><option value="RUB">Russian Ruble RUB</option><option value="DBL">Doubloons DBL</option></select></li>
+					<li><label for="changelength">Unedau hyd:</label> <select name="changelength" id="changelength" data-units="length"><option selected="selected" value="m">Metres</option><option value="ft">Feet</option><option value="cubit">Cubits</option><option value="bluewhale">Blue Whales</option><option value="yard">Yards</option></select></li>
+					<li><label for="changemass">Unedau màs:</label> <select name="changemass" id="changemass" data-units="mass"><option selected="selected" value="kg">Kilograms</option><option value="lb">Pounds</option><option value="elephant">Elephants</option></select></li>
+					<li><label for="changeenergy">Unedau pŵer:</label> <select name="changepower" id="changepower" data-units="power"><option selected="selected" value="watts">watts</option><option value="horsepower">horsepower</option></select></li>
+				</ul>
+			</form>
+		</div>
+	</div>
+</section>
+		
+						<menu id="menu" class="dropdown not-at-start">
+							<li class="baritem restart" data="restart"><button title="Dechrau eto"><img src="images/cleardot.gif" class="icon restart" alt="" /><span>Ailddechrau</span></button></li>
+							<!--li class="baritem" data="level"><button title="Newid y lefel"><img src="images/cleardot.gif" class="icon difficulty" alt="" /><span>Lefel</span></button></li-->
+							<li class="baritem guide" data="guide"><button title="Canllaw"><img src="images/cleardot.gif" class="icon guide" alt="" /><span>Canllaw</span></button></li>
+							<li class="baritem units" data="units"><button title="Newid yr unedau"><img src="images/cleardot.gif" class="icon options" alt="" /><span>Uned</span></button></li>
+							<li class="baritem about" data="about"><button title="Gwybodaeth"><img src="images/cleardot.gif" class="icon info" alt="" /><span>Gwybodaeth</span></button></li>
+							<li class="baritem help" data="help"><button title="Cymorth"><img src="images/cleardot.gif" class="icon help" alt="" /><span>Cymorth</span></button></li>
+							<li class="baritem fullscreen not-at-start" data="fullscreen"><button title="Newid rhwng gweld mewn sgrin lawn neu mewn ffenest bori arferol"><img alt="" class="icon fullscreen" src="images/cleardot.gif" /><span>Toglo sgrin lawn</span></button></li>
+						</menu>
+	</div>
+</body>
+</html>

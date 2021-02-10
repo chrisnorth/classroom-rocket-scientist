@@ -1,0 +1,327 @@
+﻿ui.level, (uwch)
+ui.level.beginner, Dechreuwr
+ui.level.intermediate, Canolradd
+ui.level.advanced, Uwch
+ui.level.beginner.description," Dewiswch daith, a dyluniwch loeren a fydd yn cyflawni’r nodau. Peidiwch â phoeni am yr arian - gwneud rhywbeth sy’n gweithio sy’n bwysig!"
+ui.level.intermediate.description," Rhowch ychydig mwy o hyblygrwydd i’ch hun, gan gynnwys gallu dewis maint y lloeren. Ond byddwch yn ofalus - mae ganddoch chi swm o arian i gadw ato nawr!"
+ui.level.advanced.description," Y lefel uchaf, gyda llawer mwy o opsiynau, a’r gallu i ddewis orbit y lloeren. Ond a fydd eich roced yn ddigon mawr i lansio eich lloeren?"
+ui.nojs, O diar! Mae angen galluogi Javascript er mwyn i rannau rhyngweithiol <em>Gwyddonydd roced dosbarth</em> weithio. Mae’n ddrwg gyda ni.
+ui.title, Adeiladwr Lloeren
+ui.introduction," <p>Mae Asiantaeth Ofod y DU yn cynllunio ei thaith loeren nesaf. Maen nhw wedi gofyn i chi eu helpu i’w dylunio</p><p>Eich rôl chi yw dylunio a lansio lloeren sy’n gallu perfformio rôl benodol yn ymwneud â chyfathrebu, llywio, neu arsylwi’r ddaear. Bydd angen i chi ddewis maint, teclynnau a chyflenwad pŵer eich lloeren. Ar ôl ei gorffen, bydd angen i chi ddylunio roced sy’n gallu lansio eich lloeren i orbit. Fyddwch chi’n llwyddo?</p>"
+ui.loading, Llwytho’r rhaglen ofod...
+ui.requirements.title, Gofynion
+ui.close, Cau
+ui.button.level, Dewis y lefel yma
+ui.button.type, Dewis y math yma
+ui.button.goal, Dewis y daith yma
+ui.button.zoomin, &plus;
+ui.button.zoomout, &minus;
+ui.button.threeD, 2D/3D
+ui.button.spin, Animeiddio
+ui.menu.title, Dewislen
+ui.menu.restart.title, Ailddechrau
+ui.menu.restart.more, Dechrau eto
+ui.menu.units.title, Uned
+ui.menu.units.more, Newid yr unedau
+ui.menu.about.title, Gwybodaeth
+ui.menu.about.more, Gwybodaeth
+ui.menu.guide.title, Canllaw
+ui.menu.guide.more, Canllaw
+ui.menu.help.title, Cymorth
+ui.menu.help.more, Cymorth
+ui.menu.level.title, Lefel
+ui.menu.level.more, Newid y lefel
+ui.menu.fullscreen.title, Toglo sgrin lawn
+ui.menu.fullscreen.more, Newid rhwng gweld mewn sgrin lawn neu mewn ffenest bori arferol
+ui.menu.language.title, Iaith
+ui.menu.language.more, Newid iaith
+ui.menu.cost.title, Cost
+ui.menu.cost.budget, Arian sydd ganddoch chi
+ui.menu.cost.cost, Cost eich taith
+ui.menu.power.title, Pŵer
+ui.menu.power.required, Y pŵer sydd ei angen
+ui.menu.power.available, Y pŵer sydd ar gael
+ui.menu.mass.title, Màs y lloeren
+ui.menu.dv.available, Y cyflymder mae’r roced yn ei gyrraedd
+ui.menu.dv.required, Y cyflymder sydd ei angen i gyrraedd orbit
+ui.sections.type.short, Math
+ui.sections.type.title, Dewiswch fath o loeren
+ui.sections.type.intro, Mae gan loerennau wahanol bwrpasau. Pa fath ydych chi am ei adeiladu?
+ui.sections.goal.short, Ymgyrch
+ui.sections.goal.title, Dewiswch bwrpas eich lloeren.
+ui.sections.goal.intro, Gwnewch yn siŵr eich bod chi’n gwirio faint o arian sydd ganddoch chi. Peidiwch â gwario gormod.
+ui.sections.bus.short, Maint
+ui.sections.bus.title, Dewiswch faint eich lloeren
+ui.sections.bus.intro," Mae maint eich lloeren yn bwysig. Mae angen iddi fod yn ddigon mawr i gadw’r holl declynnau sydd eu hangen arnoch chi. Ond byddwch yn ofalus. Y mwyaf yw eich lloeren, y drutaf fydd hi."
+ui.sections.bus.type, Math:
+ui.sections.bus.cost, Cost strwythur:
+ui.sections.bus.mass, Màs y prif lwyth:
+ui.sections.bus.structure, Màs y strwythur:
+ui.sections.bus.size, Maint y strwythur:
+ui.sections.orbit.short, Orbit
+ui.sections.orbit.title, Dewiswch orbit eich lloeren
+ui.sections.orbit.intro, Mae sawl gwahanol orbit o gwmpas y Ddaear y gallwch ddewis ohonyn nhw. Mae angen rocedi mwy pwerus er mwyn cyrraedd orbitau uwch.
+ui.sections.orbit.list, Orbitau sydd ar gael:
+ui.sections.orbit.altitude, Uchder:
+ui.sections.orbit.period, Cyfnod:
+ui.sections.instrument.short, Teclynnau
+ui.sections.instrument.title, Dewiswch declynnau ar gyfer eich lloeren
+ui.sections.instrument.intro," Er mwyn cwblhau eich taith, bydd angen y teclynnau cywir arnoch chi. Caiff y teclynnau eu rhannu yn ôl maint, sydd wedi’i nodi yn ôl lliw. Gwnewch yn siŵr bod lliw eich teclynnau yn cyfateb â slot sydd ar gael. Dim ond nifer penodol o slotiau sydd ganddoch chi, felly dewiswch yn ofalus!"
+ui.sections.instrument.list, Y teclynnau sydd ar gael:
+ui.sections.power.short, Pŵer
+ui.sections.power.title, Ychwanegu pŵer
+ui.sections.power.intro," Mae angen pŵer ar eich lloeren. Mae gwahanol ffyrdd o wneud hynny. Gallwch ddefnyddio paneli solar ar ochr y lloeren, paneli lloeren sy’n agor a chau, a batris."
+ui.sections.power.list, Dyfeisiau pŵer sydd ar gael:
+ui.sections.rocket.short, Roced
+ui.sections.rocket.title, Adeiladu eich roced
+ui.sections.rocket.intro," Nawr bod lloeren ganddoch chi, mae angen i chi adeiladu roced aml-lwyfan. Pen y roced fydd yn dal eich lloeren, felly mae angen iddo fod yn ddigon mawr. Gallwch gael hyd at dri llwyfan roced, ac mae angen iddyn nhw fod yn ddigon mawr i gynnal y rhai uwch eu pennau - a darparu gwth digonol i gyrraedd yr orbit o’ch dewis."
+ui.sections.rocket.size, Diamedr:
+ui.sections.rocket.drymass, Màs sych:
+ui.sections.rocket.fuel, Tanwydd:
+ui.sections.rocket.cost, Cost:
+ui.sections.rocket.thrust, Gwth:
+ui.sections.rocket.payload, Eich lloeren
+ui.sections.rocket.emptystage, Dim
+ui.sections.launch.short, Lansio
+ui.sections.launch.title, Barod i lansio?
+ui.sections.launch.checklist," Rydyn ni wedi darganfod problemau gyda’ch taith. Bydd angen datrys rhain cyn lansio, neu bydd eich taith yn methu."
+ui.sections.launch.goforlaunch," Mae’r gwiriadau terfynol wedi dangos bod eich taith o fewn y swm arian, mae gennych roced addas, ac mae gennych loeren a fydd yn cyflawni’ch amcanion. Mae’r Ganolfan Reoli yn aros am eich cyfarwyddyd."
+ui.sections.launch.button, Mynd amdani - lansio!
+ui.sections.units.title, Unedau newid:
+ui.sections.units.currency, Unedau cyfred:
+ui.sections.units.length, Unedau hyd:
+ui.sections.units.mass, Unedau màs:
+ui.sections.units.power, Unedau pŵer:
+ui.sections.about.title, Amdanon ni:
+ui.sections.about.intro," <p>Datblygwyd rhaglen Gwyddonydd Roced Dosbarth gan <a href=""http://www.cardiff.ac.uk/people/view/828749-north-chris"">Dr Chris North</a>, <a href=""http://www.strudel.org.uk/"">Dr Stuart Lowe</a>, <a href=""https://lco.global/user/seroberts/"">Sarah Roberts</a> a Brychan Govier.</p><p>Fe’i cefnogwyd gan <a href=""http://blogs.cardiff.ac.uk/physicsoutreach/"">Ysgol Ffiseg a Seryddiaeth Prifysgol Caerdydd</a>.</p><p>Eiconau gan parkjisun, Housin Aziz, Creative Stall, Plainicon, Hakan Yalcin, Rflor, Megan Mitchell, Clockwise, Leadway Global LLC, <a href=""http://www.flaticon.com"">Flaticon</a>, <a href=""http://material.io/tools/icons"">Google Material Design</a> ac Uned Gwybodaeth Weledol OCHA.</p><p>I gael gwybodaeth neu i roi adborth, cysylltwch â <a href=""mailto:schools@astro.cf.ac.uk"">schools@astro.cf.ac.uk</a>.</p>"
+ui.sections.guide.title, Canllaw i Athrawon:
+ui.sections.guide.intro, Yn dod yn fuan...
+ui.sections.help.title, Cymorth
+ui.sections.help.intro, Yn dod yn fuan...
+bus.cube.title, CubeSat
+bus.cube.button, Dewiswch CubeSat
+bus.small.title, Lloeren fach
+bus.small.button, Dewis lloeren fach
+bus.medium.title, Lloeren ganolig
+bus.medium.button, Dewis lloeren ganolig
+bus.large.title, Lloeren fawr
+bus.large.button, Dewis lloeren fawr
+package.camera-opt.title, Camera optegol    # Teitl y teclyn camera optegol
+package.camera-opt.description," Lluniau o’r ddaear, ar gyfer mapio neu ar gyfer monitro trychinebau naturiol. Mae hefyd modd ei ddefnyddio i fonitro’r cymylau. Mae ansawdd y llun yn dibynnu ar uchder yr orbit."
+package.camera-opt-hires.title, Camera optegol Ansawdd Uchel
+package.camera-opt-hires.description," Lluniau ansawdd uchel o’r ddaear, ar gyfer monitro trychinebau naturiol er enghraifft, ond dim ond pan gaiff ei ddefnyddio mewn orbit isel o’r Ddaear."
+package.camera-nir.title, Camera llystyfiant
+package.camera-nir.description," Lluniau isgoch o lystyfiant a defnydd o dir ar y ddaear. Dim ond yn gweithio yng ngolau dydd, gan ei fod yn dibynnu ar adlewyrchiad golau’r haul."
+package.camera-fir.title, Camera isgoch
+package.camera-fir.description," Lluniau isgoch o’r cymylau a’r systemau tywydd yn atmosffer y Ddaear. Defnyddiol ar gyfer rhagfynegi’r tywydd a monitro’r hinsawdd, hyd yn oed mewn tywyllwch."
+package.spect-opt.title, Sbectromedr Optegol
+package.spect-opt.description," Mesur nodweddion manwl arwyneb y Ddaear, fel datgoedwigo."
+package.spect-nir.title, Sbectromedr Llystyfiant
+package.spect-nir.description," Mesur nodweddion llystyfiant ar y ddaear, fel math o lystyfiant a pha mor iach yw’r llystyfiant hwnnw."
+package.spect-fir.title, Sbectromedr Atmosfferig
+package.spect-fir.description," Defnyddio golau isgoch i fesur nodweddion atmosffer y Ddaear, fel cymylau, lefel lleithder, tymheredd yr arwyneb a thymheredd yr aer, hyd yn oed mewn tywyllwch."
+package.radar-alt.title, Altimedr radar
+package.radar-alt.description," Defnyddio tonnau radio i fesur uchder y tir, neu’r topograffi, mewn ansawdd uchel iawn. Mae modd ei ddefnyddio i fapio’r arwyneb, neu i roi gwybodaeth am effaith daeargryn. Mae angen dysgl radio fawr arno i weithio."
+package.radar-alt.requires.dish.label, Mae angen dysgl radio fawr ar yr altimedr radar.
+package.radar-alt.requires.dish.error, Mae angen i chi gynnwys dysgl radio fawr er mwyn i’r altimedr radio weithio.
+package.atomic-clock.title, Cloc atomig
+package.atomic-clock.description," Cloc manwl-gywir, sydd ei angen ar loerennau llywio i fesur yr amser yn fanwl iawn."
+package.atomic-clock-small.title, Cloc atomig (bach)
+package.atomic-clock-small.description," Cloc manwl-gywir, sydd ei angen ar loerennau llywio i fesur yr amser yn fanwl iawn."
+package.gps-rx.title, Derbynnydd GPS
+package.gps-rx.description, Caiff ei ddefnyddio i fonitro safle’r lloeren yn fanwl-gywir.
+package.camera-mini.title, Camera (bach)
+package.camera-mini.description, Tynnu lluniau o’r ddaear
+package.dish-large.title, Dysgl radio (fawr)
+package.dish-large.description," Dysgl radio i reoli’r lloeren ac i drosglwyddo data i’r ddaear, ac ar gyfer yr altimedr radar"
+package.dish-medium.title, Dysgl radio
+package.dish-medium.description, Dysgl radio i reoli’r lloeren ac i drosglwyddo data i’r ddaear
+package.internet-en.title, Amgodiwr rhyngrwyd
+package.internet-en.description, Caiff ei ddefnyddio i ddarlledu’r rhyngrwyd i bobl ledled y byd.
+package.tv-en.title, Amgodiwr teledu
+package.tv-en.description, Caiff ei ddefnyddio i ddarlledu teledu i bobl ledled y byd.
+package.phone-en.title, Amgodiwr ffôn
+package.phone-en.description, Darlledu signalau at ac oddi wrth ffonau ledled y byd.
+,
+package.battery-large.title, Batri mawr
+package.battery-large.description, Storio pŵer o baneli solar er mwyn gallu gweithredu pan nad oes golau haul
+package.battery-large.requires.solar.label, Mae angen paneli solar ar y batri i wefru
+package.battery-large.requires.solar.error, Mae angen paneli solar ar y batri
+package.battery-medium.title, Batri canolig
+package.battery-medium.description, Storio pŵer o baneli solar er mwyn gallu gweithredu pan nad oes golau haul
+package.battery-medium.requires.solar.label, Mae angen paneli solar ar y batri i wefru
+package.battery-medium.requires.solar.error, Mae angen paneli solar ar y batri
+package.solar-panel-surface.title, Panel solar wedi’i osod ar y lloeren
+package.solar-panel-surface.description," Paneli solar wedi’u gosod ar arwyneb lloeren, i gasglu golau’r haul i ddarparu pŵer. Maent yn gallu pweru teclynnau, neu wefru batris."
+package.solar-panel.title, Panel solar sy’n agor a chau
+package.solar-panel.description," Paneli solar a gaiff eu hagor o ymyl y lloeren, i gasglu golau’r haul i ddarparu pŵer. Maent yn gallu pweru teclynnau, neu wefru batris."
+orbit.LEO.title, Orbit Isel o’r Ddaear
+orbit.LEO.description," Mae lloerennau mewn orbit isel o’r Ddaear yn mynd dros ran wahanol o’r Ddaear ym mhob orbit. Mae’n rhatach anfon lloerennau i orbit isel o’r Ddaear nag orbitau eraill, ac mae modd cyrraedd lloerennau fan hyn er mwyn eu trwsio. Mae lloerennau orbit isel o’r Ddaear yn gallu edrych ar ardaloedd bach yn fanwl iawn am gyfnodau byr."
+orbit.MEO.title, Orbit Canolig o’r Ddaear
+orbit.MEO.description," Mae lloerennau mewn orbit canolig o’r Ddaear yn uwch oddi wrth y Ddaear nag orbitau isel o’r Ddaear, ond yn is nag orbitau geosefydlog. Maen nhw’n cwmpasu rhan wahanol o’r Ddaear ym mhob orbit. Maen nhw’n gallu gweld ardal fwy mewn llai o fanylder nag orbitau isel o’r Ddaear."
+orbit.HEO.title, Orbit hynod-eliptig
+orbit.HEO.description," Mae orbitau hynod-eliptig yn llawer agosach i’r Ddaear ar un pwynt yn eu horbit nag un arall, gan greu orbit hirgrwn (eliptig) yn hytrach nag orbit cylchol. Maen nhw’n ddefnyddiol ar gyfer cwmpasu ardaloedd sy’n cynnwys ardaloedd pegynol. Mae modd defnyddio mwy nag un lloeren i gwmpasu un ardal yn barhaus."
+orbit.GEO.title, Orbit geosefydlog
+orbit.GEO.description," Mae lloerennau mewn orbitau geosefydlog yn aros uwchben yr un lleoliad ar y Ddaear, yn agos at y cyhydedd, ac yn cwblhau orbit llawn mewn 24 awr. Maen nhw’n llawer uwch oddi wrth arwyneb y Ddaear nag orbitau eraill, felly maen nhw’n gallu gweld yr hemisffer cyfan mewn llai o fanylder."
+,
+rocket.requires.stable.label, Mae’n rhaid i’ch roced fod yn sefydlog
+rocket.requires.stable.error, Mae eich roced yn rhy drwm ar y pen. Mae angen sicrhau ei bod yn sefydlog cyn lansio
+rocket.requires.power.label, Mae angen digon o bŵer ar eich roced i gyrraedd orbit.
+rocket.requires.power.error, Dydy’ch roced ddim yn ddigon pwerus i lansio.
+rocket.requires.bigenough.label, Mae angen i ardal prif lwyth eich roced fod yn ddigon mawr i ddal eich lloeren.
+rocket.requires.bigenough.error, Dydy ardal prif lwyth eich roced ddim yn ddigon mawr i ddal eich lloeren.
+scenarios.NAV.title, Llywio
+scenarios.NAV.description," Mae’r system lleoli byd-eang wedi’i wneud o 24 lloeren sy’n gwneud orbit ar uchder o <span data-dimension=""length"" data-units=""km"" data-value=""20000"" class=""value convertable"">20,000 km</span> uwchben arwyneb y Ddaear. Mae’r gwahaniaeth mewn amser ar gyfer y signalau a dderbynnir gan bedair lloeren yn cael ei ddefnyddio i gyfrifo union leoliad derbynnydd GPS ar y Ddaear."
+scenarios.NAV.sat-nav.title, System Lywio Lloeren
+scenarios.NAV.sat-nav.description," Defnyddio signalau gan bedair lloeren lywio fel bod modd i ddefnyddwyr SatNav ganfod eu lleoliad ar y Ddaear. Mae angen gallu gweld hanner hemisffer ar y tro, mesur amser yn gywir, a throsglwyddo signalau’r lleoliad."
+scenarios.NAV.sat-nav.req.bus.label," Lloeren sy’n fach, canolig neu fawr."
+scenarios.NAV.sat-nav.req.bus.error, Mae’n rhaid i’ch lloeren fod yn ddigon mawr ar gyfer eich taith.
+scenarios.NAV.sat-nav.req.atomic.label, Mae angen gallu mesur amser yn fanwl-gywir.
+scenarios.NAV.sat-nav.req.atomic.error, Dydych chi ddim yn gallu mesur yr amser yn ddigon cywir.
+scenarios.NAV.sat-nav.req.radio-dish.label, Ffordd o anfon signalau at bobl ar y ddaear.
+scenarios.NAV.sat-nav.req.radio-dish.error, Does gan eich lloeren ddim ffordd o anfon signalau at bobl ar y ddaear.
+scenarios.NAV.sat-nav.req.gps-rx.label, Mae angen ffordd o fonitro safle’r lloeren yn fanwl-gywir.
+scenarios.NAV.sat-nav.req.gps-rx.error, Does ganddoch chi ddim ffordd o fonitro safle’r lloeren yn fanwl-gywir.
+scenarios.NAV.sat-nav.req.orbit.label, Gweld ardaloedd mawr o’r blaned ar un tro.
+scenarios.NAV.sat-nav.req.orbit.error, Dydy’r orbit rydych chi wedi’i ddewis ddim yn caniatáu i chi weld ardal ddigon mawr o’r blaned gyfan.
+scenarios.NAV.sat-nav.req.power.label, Darparu pŵer hyd yn oed pan nad ydych chi yng ngolau'r haul.
+scenarios.NAV.sat-nav.req.power.error, Dydy’ch lloeren ddim yn gallu gweithredu heb olau'r haul.
+scenarios.NAV.sat-nav.launch," Croeso i lansiad lloeren lywio ddiweddaraf Asiantaeth Ofod y DU, a fydd yn caniatáu i bobl bennu’n union beth yw eu lleoliad ar y Ddaear."
+scenarios.NAV.sat-nav.success,"  Llongyfarchiadau, mae eich lloeren lywio bellach yn anfon y wybodaeth gywir at bobl am eu lleoliad ar y Ddaear ar ran Asiantaeth Ofod y DU."
+scenarios.NAV.map.title, Creu mapiau
+scenarios.NAV.map.description," Mapio arwyneb y Ddaear. Mae angen gallu tynnu lluniau o ardaloedd bach o arwyneb y Ddaear, a mesur uchder y tir yn fanwl iawn."
+scenarios.NAV.map.req.opt-hires.label, Teclyn sy’n gallu creu lluniau o ansawdd uchel.
+scenarios.NAV.map.req.opt-hires.error, Dydy’r teclyn rydych chi wedi’i ddewis ddim yn caniatáu i chi weld arwyneb y blaned yn ddigon manwl.
+scenarios.NAV.map.req.radar-alt.label, Mesur uchder y tir mewn ansawdd uchel iawn.
+scenarios.NAV.map.req.radar-alt.error, Does ganddoch chi ddim ffordd o fesur uchder y tir mewn ansawdd uchel iawn.
+scenarios.NAV.map.req.radio-dish.label, Ffordd o anfon signalau at bobl ar y ddaear.
+scenarios.NAV.map.req.radio-dish.error, Does gan eich lloeren ddim ffordd o anfon signalau at bobl ar y ddaear.
+scenarios.NAV.map.req.orbit.label, Gweld manylion arwyneb y blaned.
+scenarios.NAV.map.req.orbit.error, Dydy’r orbit rydych chi wedi’i ddewis ddim yn caniatáu i’ch lloeren weld arwyneb y blaned yn ddigon manwl.
+scenarios.NAV.map.req.power.label, Darparu pŵer hyd yn oed pan nad ydych chi yng ngolau'r haul.
+scenarios.NAV.map.req.power.error, Dydy’ch lloeren ddim yn gallu gweithredu heb olau'r haul.
+scenarios.NAV.map.req.power.label, Darparu pŵer hyd yn oed pan nad ydych chi yng ngolau'r haul.
+scenarios.NAV.map.req.power.error, Dydy’ch lloeren ddim yn gallu gweithredu heb olau'r haul.
+scenarios.NAV.map.launch," Croeso i lansiad lloeren lywio ddiweddaraf Asiantaeth Ofod y DU, a fydd yn mapio arwyneb y Ddaear yn gywir."
+scenarios.NAV.map.success,"     Llongyfarchiadau, mae eich lloeren lywio bellach yn mapio arwyneb y Ddaear yn gywir ar ran Asiantaeth Ofod y DU."
+scenarios.COMMS.title, Cyfathrebu
+scenarios.COMMS.description," Caiff y lloerennau yma eu defnyddio ar gyfer trosglwyddiadau teledu, ffôn neu’r rhyngrwyd. Er enghraifft, mae’r lloeren Optus D1 mewn orbit geosefydlog uwchben y cyhydedd, ac mae ganddi ôl-troed i ddarparu signalau i Awstralia a Seland Newydd."
+scenarios.COMMS.phone.title, System teleffon lloeren
+scenarios.COMMS.phone.description, Galluogi pobl i siarad dros y ffôn o ardaloedd anghysbell y byd gan ddefnyddio lloerennau.
+scenarios.COMMS.phone.req.radio-dish.label, Ffordd o anfon signalau at bobl ar y ddaear.
+scenarios.COMMS.phone.req.radio-dish.error, Does gan eich lloeren ddim ffordd o anfon signalau at bobl ar y ddaear.
+scenarios.COMMS.phone.req.phone-en.label, Ffordd o ddarlledu signalau ffôn.
+scenarios.COMMS.phone.req.phone-en.error, Does gan eich lloeren ddim ffordd o ddarlledu signalau ffôn
+scenarios.COMMS.phone.req.orbit.label, Mae’r lloeren uwchben un ardal o’r Ddaear yn barhaus
+scenarios.COMMS.phone.req.orbit.error, Mae’r orbit rydych chi wedi’i ddewis yn golygu nad yw eich lloeren uwchben un ardal o’r Ddaear yn barhaus.
+scenarios.COMMS.phone.req.power.label, Darparu pŵer hyd yn oed pan nad ydych chi yng ngolau'r haul.
+scenarios.COMMS.phone.req.power.error, Dydy’ch lloeren ddim yn gallu gweithredu heb olau'r haul.
+scenarios.COMMS.phone.launch," Croeso i lansiad lloeren gyfathrebu ddiweddaraf Asiantaeth Ofod y DU, a fydd yn galluogi pobl o ranbarthau ledled y byd i gyfathrebu ar y ffôn."
+scenarios.COMMS.phone.success,"     Llongyfarchiadau, mae eich lloeren gyfathrebu bellach yn derbyn signalau o’r ddaear ac yn eu darlledu nhw i ffonau o gwmpas y Ddaear ar ran Asiantaeth Ofod y DU."
+scenarios.COMMS.internet.title,    Rhyngrwyd lloeren
+scenarios.COMMS.internet.title, Rhyngrwyd lloeren
+scenarios.COMMS.internet.description," Cysylltu â’r rhyngrwyd o ardaloedd anghysbell y byd gan ddefnyddio lloerennau. Mae’r lloerennau yma’n derbyn signalau o’r ddaear, ac yn eu trosglwyddo i ardaloedd eraill ar y Ddaear."
+scenarios.COMMS.internet.req.radio-dish.label, Ffordd o anfon signalau at bobl ar y ddaear.
+scenarios.COMMS.internet.req.radio-dish.error, Does ganddoch chi ddim ffordd o anfon signalau at bobl ar y ddaear.
+scenarios.COMMS.internet.req.internet-en.label, Ffordd o amgodio signalau rhyngrwyd.
+scenarios.COMMS.internet.req.internet-en.error, Does ganddoch chi ddim ffordd o amgodio signalau’r rhyngrwyd.
+scenarios.COMMS.internet.req.orbit.label, Mae’r lloeren uwchben un ardal o’r Ddaear yn barhaus
+scenarios.COMMS.internet.req.orbit.error, Mae’r orbit rydych chi wedi’i ddewis yn golygu nad yw eich lloeren uwchben un ardal o’r Ddaear yn barhaus.
+scenarios.COMMS.internet.req.power.label, Darparu pŵer hyd yn oed pan nad ydych chi yng ngolau'r haul.
+scenarios.COMMS.internet.req.power.error, Dydy’ch lloeren ddim yn gallu gweithredu heb olau'r haul.
+scenarios.COMMS.internet.launch," Croeso i lansiad lloeren gyfathrebu ddiweddaraf Asiantaeth Ofod y DU, a fydd yn helpu pobl ledled y byd i gysylltu â’r rhyngrwyd."
+scenarios.COMMS.internet.success,"     Llongyfarchiadau, mae eich lloeren gyfathrebu bellach yn helpu pobl i gysylltu â’r rhyngrwyd mewn rhanbarthau ledled y byd ar ran Asiantaeth Ofod y DU."
+scenarios.COMMS.tv.title, Teledu lloeren
+scenarios.COMMS.tv.description," Darparu teledu lloeren i bobl ar y ddaear. Mae’r lloerennau yma’n aros uwchben yr un pwynt yn yr awyr er mwyn derbyn signalau teledu o’r ddaear, a’u trosglwyddo i ardaloedd eraill ar y Ddaear."
+scenarios.COMMS.tv.req.radio-dish.label, Ffordd o anfon signalau at bobl ar y ddaear.
+scenarios.COMMS.tv.req.radio-dish.error, Does ganddoch chi ddim ffordd o anfon signalau i’r ddaear.
+scenarios.COMMS.tv.req.orbit.label, Mae’r lloeren uwchben un ardal o’r Ddaear yn barhaus
+scenarios.COMMS.tv.req.tv-en.label, Ffordd o amgodio signalau teledu.
+scenarios.COMMS.tv.req.tv-en.error, Does ganddoch chi ddim ffordd o amgodio signalau teledu.
+scenarios.COMMS.tv.req.orbit.error, Mae’r orbit rydych chi wedi’i ddewis yn golygu nad yw eich lloeren uwchben un ardal o’r Ddaear yn barhaus.
+scenarios.COMMS.tv.req.power.label, Darparu pŵer hyd yn oed pan nad ydych chi yng ngolau'r haul.
+scenarios.COMMS.tv.req.power.error, Dydy’ch lloeren ddim yn gallu gweithredu heb olau'r haul.
+scenarios.COMMS.tv.launch," Croeso i lansiad lloeren gyfathrebu ddiweddaraf Asiantaeth Ofod y DU, a fydd yn rhoi teledu lloeren i bobl ledled y byd."
+scenarios.COMMS.tv.success,"     Llongyfarchiadau, mae eich lloeren gyfathrebu nawr yn darparu teledu lloeren i bobl ledled y byd."
+scenarios.EO.title, Arsylwi’r Ddaear
+scenarios.EO.description, Caiff y lloerennau yma eu defnyddio i dynnu lluniau o’r cymylau a mesur tymheredd a glawiad. Caiff orbitau geosefydlog ac orbitau isel o’r Ddaear eu defnyddio yn dibynnu ar y math o loeren dywydd. Defnyddir lloerennau tywydd i helpu gyda rhagfynegi tywydd yn fwy cywir. Caiff y rhain eu defnyddio i dynnu lluniau o’r Ddaear. Caiff orbitau isel o’r Ddaear eu defnyddio’n bennaf fel bod modd cynhyrchu lluniau mwy manwl.
+scenarios.EO.weather.title, Rhagfynegi’r tywydd
+scenarios.EO.weather.description, Monitro systemau tywydd fel bod modd i ragfynegwyr ragfynegi’r tywydd yn y dyfodol. Mae angen i loerennau tywydd allu tynnu lluniau o gymylau a defnyddio golau isgoch i fesur tymereddau’r ddaear a’r cefnforoedd.
+scenarios.EO.weather.req.radio-dish.label, Ffordd o anfon signalau.
+scenarios.EO.weather.req.radio-dish.error, Does ganddoch chi ddim ffordd o anfon signalau i’r ddaear.
+scenarios.EO.weather.req.camera-fir.label, Ffordd o fesur mathau o gymylau a thymereddau ar y Ddaear.
+scenarios.EO.weather.req.camera-fir.error, Does ganddoch chi ddim ffordd o adnabod mathau o gymylau na mesur tymereddau ar y Ddaear.
+scenarios.EO.weather.req.camera-opt.label, Tynnu lluniau o gymylau a systemau tywydd ar y Ddaear.
+scenarios.EO.weather.req.camera-opt.error, Does ganddoch chi ddim ffordd o dynnu lluniau o’r tywydd ar y Ddaear.
+scenarios.EO.weather.req.orbit.label, Gweld manylion systemau tywydd y Ddaear.
+scenarios.EO.weather.req.orbit.error, Dydy’r orbit rydych chi wedi’i ddewis ddim yn caniatáu i chi weld systemau tywydd y Ddaear mewn digon o fanylder.
+scenarios.EO.weather.req.power.label, Darparu pŵer hyd yn oed pan nad ydych chi yng ngolau'r haul.
+scenarios.EO.weather.req.power.error, Dydy’ch lloeren ddim yn gallu gweithredu heb olau'r haul.
+scenarios.EO.weather.launch," Croeso i lansiad lloeren arsylwi’r ddaear ddiweddaraf Asiantaeth Ofod y DU, a fydd yn caniatáu i ragfynegwyr ledled y byd ragfynegi beth fydd y tywydd yn y dyfodol."
+scenarios.EO.weather.success,"     Llongyfarchiadau, mae eich lloeren arsylwi’r ddaear bellach yn helpu rhagfynegwyr ledled y byd i ragfynegi beth fydd y tywydd yn y dyfodol."
+scenarios.EO.veg-map.title, Mapio llystyfiant
+scenarios.EO.veg-map.description," Mapio’r planhigion ar arwyneb y Ddaear gan ddefnyddio lluniau isgoch o arwyneb y Ddaear, a throsglwyddo’r lluniau’n ôl i’r ddaear."
+scenarios.EO.veg-map.req.radio-dish.label, Ffordd o anfon signalau at bobl ar y ddaear.
+scenarios.EO.veg-map.req.radio-dish.error, Does ganddoch chi ddim ffordd o drosglwyddo signalau i’r ddaear.
+scenarios.EO.veg-map.req.camera.label, Tynnu lluniau o’r llystyfiant ar y Ddaear.
+scenarios.EO.veg-map.req.camera.error, Does ganddoch chi ddim ffordd o dynnu lluniau o’r llystyfiant ar y Ddaear.
+scenarios.EO.veg-map.req.orbit.label, Gweld manylion systemau tywydd y Ddaear.
+scenarios.EO.veg-map.req.orbit.error, Dydy’r orbit rydych chi wedi’i ddewis ddim yn caniatáu i chi weld y llystyfiant mewn digon o fanylder.
+scenarios.EO.veg-map.req.power.label, Darparu pŵer hyd yn oed pan nad ydych chi yng ngolau'r haul.
+scenarios.EO.veg-map.req.power.error, Dydy’ch lloeren ddim yn gallu gweithredu heb olau'r haul.
+scenarios.EO.veg-map.launch," Croeso i lansiad lloeren arsylwi’r ddaear ddiweddaraf Asiantaeth Ofod y DU, a fydd yn mapio’r planhigion dros arwyneb y Ddaear gan ddefnyddio lluniau isgoch."
+scenarios.EO.veg-map.success,"     Llongyfarchiadau, mae eich lloeren arsylwi’r ddaear bellach yn mapio’r planhigion ar draws arwyneb y Ddaear gan ddefnyddio lluniau isgoch."
+scenarios.EO.disaster.title, Monitro trychinebau naturiol
+scenarios.EO.disaster.description," Pan mae trychinebau naturiol yn digwydd, rydyn ni’n defnyddio lloerennau i weld y difrod. Mae angen lluniau o ansawdd uchel i weld a throsglwyddo manylion y difrod, felly mae’n rhaid i loerennau wneud orbit agos i’r Ddaear. Mae camerâu isgoch yn gallu dangos llifogydd a thân. Mae tonnau radio yn gallu dangos ardaloedd lle mae’r ddaear wedi anffurfio, fel ar ôl daeargryn."
+scenarios.EO.disaster.req.camera.label, Tynnu lluniau ansawdd uchel o’r Ddaear lle mae trychineb wedi digwydd.
+scenarios.EO.disaster.req.camera.error, Does ganddoch chi ddim ffordd o dynnu lluniau ansawdd uchel o’r Ddaear lle mae trychineb wedi digwydd.
+scenarios.EO.disaster.req.radio-dish.label, Ffordd o anfon signalau at bobl ar y ddaear.
+scenarios.EO.disaster.req.radio-dish.error, Does ganddoch chi ddim ffordd o drosglwyddo signalau i’r ddaear.
+scenarios.EO.disaster.req.radar-alt.label, Mesur uchder ac anffurfiad y tir mewn ansawdd uchel iawn.
+scenarios.EO.disaster.req.radar-alt.error," Does ganddoch chi ddim ffordd o fesur uchder yr arwyneb, fel ar gyfer daeargryn."
+scenarios.EO.disaster.req.camera-nir.label," Monitro llystyfiant, er enghraifft yn ystod tân mewn coedwigoedd."
+scenarios.EO.disaster.req.camera-nir.error, Does ganddoch chi ddim ffordd o fonitro llystyfiant mewn ardaloedd trychineb.
+scenarios.EO.disaster.req.orbit.label, Gweld mân fanylion arwyneb y blaned.
+scenarios.EO.disaster.req.orbit.error, Dydy’r orbit rydych chi wedi’i ddewis ddim yn caniatáu i chi weld ardal y drychineb mewn digon o fanylder.
+scenarios.EO.disaster.req.power.label, Darparu pŵer hyd yn oed pan nad ydych chi yng ngolau'r haul.
+scenarios.EO.disaster.req.power.error, Dydy’ch lloeren ddim yn gallu gweithredu heb olau'r haul.
+scenarios.EO.disaster.launch," Croeso i lansiad lloeren arsylwi’r ddaear ddiweddaraf Asiantaeth Ofod y DU, a fydd yn helpu i asesu’r difrod a achosir gan drychinebau naturiol gan gynnwys tanau mewn coedwigoedd, llifogydd a daeargrynfeydd."
+scenarios.EO.disaster.success,"     Llongyfarchiadau, mae eich lloeren arsylwi’r ddaear bellach yn helpu i asesu’r difrod a achosir gan drychinebau naturiol, gan gynnwys tanau mewn coedwigoedd, llifogydd a daeargrynfeydd."
+scenarios.EO.surface.title, Mapio arwyneb
+scenarios.EO.surface.description, Mesur uchder amrywiol tir a chefnforoedd dros arwyneb y Ddaear.
+scenarios.EO.surface.req.radar-alt.label, Mesur uchder y tir mewn ansawdd uchel iawn.
+scenarios.EO.surface.req.radar-alt.error, Does ganddoch chi ddim ffordd o fesur uchder y tir mewn ansawdd uchel iawn.
+scenarios.EO.surface.req.dish.label, Mae angen dysgl radar er mwyn i altimedr radar weithio.
+scenarios.EO.surface.req.dish.error, Dydy eich altimedr radar ddim yn gweithio gan nad oes ganddo ddysgl radar.
+scenarios.EO.surface.req.radio-dish.label, Ffordd o anfon signalau at bobl ar y ddaear.
+scenarios.EO.surface.req.radio-dish.error, Does ganddoch chi ddim ffordd o drosglwyddo signalau i’r ddaear.
+scenarios.EO.surface.req.sat-tracker.label, Ffordd o wybod beth yw safle’r lloeren yn fanwl-gywir
+scenarios.EO.surface.req.sat-tracker.error, Does ganddoch chi ddim ffordd o ganfod beth yw safle’r lloeren yn gywir.
+scenarios.EO.surface.req.orbit.label, Gweld mân-fanylion ar arwyneb y blaned.
+scenarios.EO.surface.req.orbit.error, Dydy’r orbit rydych chi wedi’i ddewis ddim yn caniatáu i chi weld arwyneb y blaned yn ddigon manwl.
+scenarios.EO.surface.req.power.label, Darparu pŵer hyd yn oed pan nad ydych chi yng ngolau'r haul.
+scenarios.EO.surface.req.power.error, Dydy’ch lloeren ddim yn gallu gweithredu heb olau'r haul.
+scenarios.EO.surface.launch," Croeso i lansiad lloeren arsylwi’r ddaear ddiweddaraf Asiantaeth Ofod y DU, a fydd yn mesur uchder amrywiol y tir a’r cefnforoedd dros arwyneb y Ddaear."
+scenarios.EO.surface.success," Llongyfarchiadau, mae eich lloeren arsylwi’r ddaear bellach yn mesur uchder amrywiol y tir a’r cefnforoedd dros arwyneb y Ddaear."
+launch.prep.budget.label, Mae angen digon o arian arnoch chi.
+launch.prep.budget.error, Does ganddoch chi ddim digon o arian.
+launch.prep.powered.label, Mae angen digon o bŵer arnoch chi.
+launch.prep.powered.error, Does ganddoch chi ddim digon o bŵer.
+launch.prep.checklist," <p>Rydyn ni wedi canfod problemau gyda’ch taith. Bydd angen datrys rhain cyn lansio, neu bydd eich taith yn methu. Dydych chi heb fodloni’r gofynion yma:</p>$requirementslist$"
+launch.prep.fixme, Datrys &rangle;
+launch.prep.goforlaunch," Llongyfarchiadau, mae’r gwiriadau terfynol yn dangos bod eich taith yn barod i lansio. Mae ganddoch chi roced addas a lloeren a fydd yn cyflawni eich amcanion. Mae’r Ganolfan Reoli yn aros am eich cyfarwyddyd."
+launch.prep.button, Lansio?
+launch.countdown, Cyfri i lawr
+launch.liftoff, Amdani!
+launch.stage.ignition, Cam $stage$ tanio
+launch.stage.fuel-exhausted, Cam $stage$ tanwydd wedi dod i ben
+launch.stage.separation, Cam $stage$ gwahanu
+launch.elapsed-time, T$value$
+launch.current-speed, Cyflymder presennol
+launch.orbit-achieved, $orbit$ wedi’i gyflawni
+launch.payload-bay-open, Yr ardal prif lwyth wedi agor
+launch.deployed, Lloeren wedi’i rhyddhau
+launch.solar-panels.deploying, Agor y paneli solar
+launch.solar-panels.deployed, Paneli solar wedi’u hagor
+launch.operational, Y lloeren yn weithredol
+launch.launchanother, Lansio taith arall

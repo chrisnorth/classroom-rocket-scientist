@@ -1,5 +1,11 @@
 ---
 ui.level:                                   (advanced)
+ui.lang.code:                               en
+ui.lang.name:                               English
+url.level.beginner:                         beginner.html
+url.level.intermediate:                     intermediate.html
+url.level.advanced:                         advanced.html
+url.launch:                                 launch.html
 ui.level.beginner:                          Beginner
 ui.level.intermediate:                      Intermediate
 ui.level.advanced:                          Advanced

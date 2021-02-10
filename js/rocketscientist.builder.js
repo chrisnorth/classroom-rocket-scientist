@@ -21,6 +21,10 @@
 			};
 			this.level = level;
 		}
+		this.lang = "en";
+		if(typeof lang !== 'undefined'){
+			this.lang = lang;
+		}
 
 		return this;
 	}
@@ -126,7 +130,9 @@
 		for(var s = 0; s < this.stages.length; s++){
 			if(this.choices[this.stages[s]]) stages += '&'+this.stages[s]+'='+this.choices[this.stages[s]].key;
 		}
-		location.href = 'launch.html?level='+this.level+stages+'&type='+this.choices.type+'&solar-panel='+this.choices['solar-panel']+'&solar-panel-surface='+this.choices['solar-panel-surface']+'&orbit='+this.choices.orbit+'&goal='+this.choices.goal+'&bus='+this.choices.bussize+'&slots='+slots;
+		console.log('LAUNCH',this.data.urls.launch,);
+		var launchurl = (this.lang=='en')?'launch.html':'launch_'+this.lang+'.html';
+		location.href = launchurl+'?level='+this.level+'&lang='+this.lang+stages+'&type='+this.choices.type+'&solar-panel='+this.choices['solar-panel']+'&solar-panel-surface='+this.choices['solar-panel-surface']+'&orbit='+this.choices.orbit+'&goal='+this.choices.goal+'&bus='+this.choices.bussize+'&slots='+slots;
 		return this;
 	}
 

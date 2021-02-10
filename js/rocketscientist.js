@@ -71,10 +71,14 @@ var rs;
 
 		// If we have a function to run before init(), call it now
 		if(typeof this.init_before === "function") this.init_before();
-
-		if(data) this.init(data);
-		else S().loadJSON('config/en_'+(this.level || "advanced")+'_options.json',this.init,{'this':this});
-
+		if(data){
+			this.init(data);
+		}else{
+			console.log('LOADING DATA');
+			S().loadJSON('config/'+this.lang+'_'+(this.level || "advanced")+'_options.json',this.init,{'this':this});
+		}
+		console.log('DATA',this.data);
+		console.log('LANG',this.lang);
 		return this;
 	}
 	RocketScientist.prototype.parseQueryString = function(){
@@ -102,7 +106,7 @@ var rs;
 	}
 	// Initiate the Rocket Scientist
 	RocketScientist.prototype.init = function(data){
-
+		console.log('DATA',data);
 		// Remove classes from script only elements
 		S('.scriptonly').toggleClass('scriptonly');
 
